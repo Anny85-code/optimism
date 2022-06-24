@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import CanvasJSReact from "../../assets/charts_assets/canvasjs.react";
+import "./Chart.css";
+
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 var CanvasJS = CanvasJSReact.CanvasJS;
 
@@ -62,7 +64,7 @@ class ChartWithCrosshair extends Component {
       ],
     };
     return (
-      <div className="ChartWithCrosshair" style={{ width: "48vw" }}>
+      <div className="ChartWithCrosshair">
         <CanvasJSChart
           options={options}
           onRef={(ref) => (this.ChartWithCrosshair = ref)}

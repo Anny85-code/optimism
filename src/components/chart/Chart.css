@@ -1,0 +1,10 @@
+.ChartWithCrosshair {
+  width: 48vw
+}
+
+@media only screen and (max-width: 978px) {
+  .ChartWithCrosshair {
+    width: 80vw
+  }
+}
+  
