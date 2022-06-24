@@ -9,11 +9,11 @@
   border-bottom: 1px solid lightgray;
 }
 
-.nav_icon {
+.nav-icon {
   display: none;
 }
 
-.nav_icon > i {
+.nav-icon > i {
   font-size: 26px;
   color: #a5a5a5;
 }
@@ -53,7 +53,7 @@
 }
 
 @media only screen and (max-width: 978px){
-  .nav_icon {
+  .nav-icon {
     display: inline;
   }
 }
