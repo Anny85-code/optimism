@@ -186,7 +186,8 @@ main {
     margin-bottom: 0;
   }
   .charts {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    overflow: hidden;
     margin-top: 30px;
   }
 }

@@ -9,7 +9,7 @@ class ChartWithCrosshair extends Component {
       animationEnabled: true,
       theme: "light2",
       title: {
-        text: "Transaction Stat- March 2018",
+        text: "Transaction Stat",
       },
       axisX: {
         valueFormatString: "DD MMM",
@@ -19,14 +19,14 @@ class ChartWithCrosshair extends Component {
         },
       },
       axisY: {
-        title: "Closing Price (in EUR)",
+        title: "Closing Price (in NGN)",
         includeZero: false,
-        valueFormatString: "€##0.00",
+        valueFormatString: "N##0.00",
         crosshair: {
           enabled: true,
           snapToDataPoint: true,
           labelFormatter: function (e) {
-            return "€" + CanvasJS.formatNumber(e.value, "##0.00");
+            return "N" + CanvasJS.formatNumber(e.value, "##0.00");
           },
         },
       },
@@ -34,7 +34,7 @@ class ChartWithCrosshair extends Component {
         {
           type: "area",
           xValueFormatString: "DD MMM",
-          yValueFormatString: "€##0.00",
+          yValueFormatString: "N##0.00",
           dataPoints: [
             { x: new Date("2018-03-01"), y: 85.3 },
             { x: new Date("2018-03-02"), y: 83.97 },
