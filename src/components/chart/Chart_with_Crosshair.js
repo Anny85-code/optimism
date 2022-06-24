@@ -11,7 +11,7 @@ class ChartWithCrosshair extends Component {
       animationEnabled: true,
       theme: "light2",
       title: {
-        text: "Transaction Stat",
+        text: "Transaction Stats",
       },
       axisX: {
         valueFormatString: "DD MMM",

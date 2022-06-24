@@ -22,7 +22,7 @@ const Main = () => {
             </div>
           </div>
           <div className='cards'>
-            <i className='calender fa-2x text-red'></i>
+            <i className='fa fa-calendar fa-2x text-red'></i>
             <div className='card__inner'>
               <p className='text-primary-p'>Times of Watching</p>
               <span className='font-bold text-title'>2657</span>
