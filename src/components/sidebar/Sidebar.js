@@ -3,6 +3,7 @@ import foodforallOptimism from '../../assets/image/foodforallOptimism.jpeg'
 
 
 const Sidebar = ({sidebarOpen, closeSideBar}) => {
+ 
    return (
      <div className={sidebarOpen ? "sidebar-responsive" : ""} id="sidebar">
        <div className='sidebar__title'>
@@ -13,7 +14,7 @@ const Sidebar = ({sidebarOpen, closeSideBar}) => {
          <i
            className='fa fa-times'
            id='sidebarIcon'
-           onClick={closeSideBar()}
+           onClick={()=> closeSideBar()}
          ></i>
        </div>
        <div className='sidebar__menu'>
