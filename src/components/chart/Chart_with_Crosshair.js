@@ -62,7 +62,7 @@ class ChartWithCrosshair extends Component {
       ],
     };
     return (
-      <div className="ChartWithCrosshair" style={{ width: "750px" }}>
+      <div className="ChartWithCrosshair" style={{ width: "48vw" }}>
         <CanvasJSChart
           options={options}
           onRef={(ref) => (this.ChartWithCrosshair = ref)}
