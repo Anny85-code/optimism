@@ -1,6 +1,6 @@
 import "./Main.css";
 import hello from "../../assets/image/hello.jfif";
-import ChartWithCrosshair from "../chart/Chart with Crosshair";
+import ChartWithCrosshair from "../chart/Chart_with_Crosshair";
 
 const Main = () => {
   return (
