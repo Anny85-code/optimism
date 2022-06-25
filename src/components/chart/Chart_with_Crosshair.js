@@ -67,7 +67,9 @@ class ChartWithCrosshair extends Component {
       <div className="ChartWithCrosshair">
         <CanvasJSChart
           options={options}
+          /* eslint-disable */
           onRef={(ref) => (this.ChartWithCrosshair = ref)}
+          /* eslint-enable */
         />
       </div>
     );

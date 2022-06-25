@@ -1,6 +1,6 @@
 import './Sidebar.css';
 import foodforallOptimism from '../../assets/image/foodforallOptimism.jpeg';
-
+/* eslint-disable */
 const Sidebar = ({ sidebarOpen, closeSideBar }) => (
   <div className={sidebarOpen ? 'sidebar-responsive' : ''} id="sidebar">
     <div className="sidebar__title">
@@ -73,5 +73,5 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => (
     </div>
   </div>
 );
-
+/* eslint-enable */
 export default Sidebar;

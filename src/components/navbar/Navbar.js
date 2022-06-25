@@ -1,6 +1,6 @@
 import './Navbar.css';
 import foodforallOptimism from '../../assets/image/foodforallOptimism.jpeg';
-
+/* eslint-disable */
 const Navbar = ({ sideBarOpen, openSideBar }) => (
   <nav className="navbar">
     <div className="nav-icon" onClick={() => openSideBar()}>
@@ -26,5 +26,5 @@ const Navbar = ({ sideBarOpen, openSideBar }) => (
     </div>
   </nav>
 );
-
+/* eslint-enable */
 export default Navbar;
