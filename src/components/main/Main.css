@@ -181,6 +181,34 @@ main {
   font-size: 14px;
 }
 
+@media only screen and (max-width: 320px) {
+  .main__cards {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 0;
+  }
+
+  .charts {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+  }
+
+  .charts__right {
+    box-sizing: border-box;
+    width: fit-content;
+    padding: 15px;
+  }
+
+  .h-card {
+    font-size: 12px;
+  }
+
+  .charts__right__cards {
+    gap: 12px;
+  }
+}
+
 @media only screen and (max-width: 855px) {
   .main__cards {
     grid-template-columns: 1fr;
@@ -203,11 +231,7 @@ main {
     font-size: 12px;
   }
 
-  .cd {
-    width: 50px;
-  }
-
   .charts__right__cards {
-    gap: 12px;
+    gap: 15px;
   }
 }

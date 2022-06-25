@@ -4,7 +4,12 @@
 
 @media only screen and (max-width: 978px) {
   .ChartWithCrosshair {
-    width: 78vw;
+    width: 85vw;
   }
 }
 
+@media only screen and (max-width: 375px) {
+  .ChartWithCrosshair {
+    width: 78vw;
+  }
+}
