@@ -58,7 +58,7 @@
 }
 
 .active_menu_link a {
-  color: #3ea175 !important ;
+  color: #3ea175 !important;
 }
 
 .sidebar__link > a {
@@ -101,7 +101,7 @@
   #sidebar {
     display: none;
   }
-  
+
   .sidebar__title > i {
     display: inline;
   }

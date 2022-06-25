@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=lato:whg@300;400;700&display=swap');
 
-/* styling scrolling bars*/
+/* styling scrolling bars */
 
 ::-webkit-scrollbar {
   width: 5px;
@@ -21,7 +21,7 @@
   background-color: #a5aaad;
 }
 
-/*general styling */
+/* general styling */
 
 * {
   margin: 0;
@@ -67,10 +67,10 @@ body {
   display: grid;
   height: 100vh;
   grid-template-columns: 0.8fr 1fr 1fr 1fr;
-  grid-template-rows: 0.2fr 3fr ;
-  grid-template-areas: 
-  "sidebar nav nav nav"
-  "sidebar main main main";
+  grid-template-rows: 0.2fr 3fr;
+  grid-template-areas:
+    "sidebar nav nav nav"
+    "sidebar main main main";
 }
 
 img {
@@ -81,11 +81,8 @@ img {
   .container {
     grid-template-columns: 1fr;
     grid-template-rows: 0.2fr 3fr;
-    grid-template-areas: 
-    "nav"
-    "main";
+    grid-template-areas:
+      "nav"
+      "main";
   }
 }
-
-
-

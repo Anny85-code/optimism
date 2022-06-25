@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Navbar from '../src/components/navbar/Navbar';
+import Navbar from './components/navbar/Navbar';
 import Main from './components/main/Main';
 import SideBar from './components/sidebar/Sidebar';
 
@@ -15,7 +15,7 @@ const App = () => {
   };
 
   return (
-    <div className='container'>
+    <div className="container">
       <Navbar sideBarOpen={sideBarOpen} openSideBar={openSideBar} />
       <Main />
       <SideBar sidebarOpen={sideBarOpen} closeSideBar={closeSideBar} />

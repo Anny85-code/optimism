@@ -93,12 +93,12 @@ main {
 
 .charts__left__title > i {
   font-size: 20px;
-  color: #ffffff;
+  color: #fff;
   background: #ffc100;
   border-radius: 200px 0 200px 200px;
   -moz-border-radius: 200px 0 200px 200px;
   -webkit-border-radius: 200px 0 200px 200px;
-  border: 0 solid #000000;
+  border: 0 solid #000;
   padding: 15px;
 }
 
@@ -129,12 +129,12 @@ main {
 
 .charts__right__title > i {
   font-size: 20px;
-  color: #ffffff;
+  color: #fff;
   background: #394474;
   border-radius: 200px 0 200px 200px;
   -moz-border-radius: 200px 0 200px 200px;
   -webkit-border-radius: 200px 0 200px 200px;
-  border: 0 solid #000000;
+  border: 0 solid #000;
   padding: 15px;
 }
 
@@ -162,6 +162,7 @@ main {
   padding: 25px;
   font-size: 14px;
 }
+
 .card3 {
   background: #d6d8d9;
   color: #3e3e41;
@@ -170,6 +171,7 @@ main {
   padding: 25px;
   font-size: 14px;
 }
+
 .card4 {
   background: #fddcdf;
   color: #f65a6f;
@@ -185,21 +187,27 @@ main {
     gap: 10px;
     margin-bottom: 0;
   }
+
   .charts {
     display: flex;
     flex-direction: column;
     margin-top: 30px;
   }
 
-    .charts__right {
-      box-sizing: border-box;
-    }
+  .charts__right {
+    box-sizing: border-box;
+    width: fit-content;
+  }
 
-    .h-card {
-      font-size: 12px;
-    }
+  .h-card {
+    font-size: 12px;
+  }
 
-    .cd {
-      width: 60px;
-    }
+  .cd {
+    width: 50px;
+  }
+
+  .charts__right__cards {
+    gap: 12px;
+  }
 }
