@@ -1,7 +1,23 @@
+import { Link, NavLink } from 'react-router-dom';
 import './Sidebar.css';
 import foodforallOptimism from '../../assets/image/foodforallOptimism.jpeg';
 /* eslint-disable */
-const Sidebar = ({ sidebarOpen, closeSideBar }) => (
+const Sidebar = ({ sidebarOpen, closeSideBar }) => {
+
+  const links = [
+    {
+    "id": 1,
+    "path": "/",
+    "text": "/Home",
+  },
+    {
+    "id": 1,
+    "path": "/add customer",
+    "text": "/Add Customer",
+  }
+]
+
+return (
   <div className={sidebarOpen ? 'sidebar-responsive' : ''} id="sidebar">
     <div className="sidebar__title">
       <div className="sidebar__img">
@@ -73,5 +89,6 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => (
     </div>
   </div>
 );
+};
 /* eslint-enable */
 export default Sidebar;
