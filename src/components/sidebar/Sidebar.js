@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import './Sidebar.css';
 import foodforallOptimism from '../../assets/image/foodforallOptimism.jpeg';
+
 // import AddCostumer from '../addCostumer/AddCostumer';
 /* eslint-disable */
 const Sidebar = ({ sidebarOpen, closeSideBar }) => {
@@ -55,6 +56,7 @@ return (
 
         <Link to={'./addcostumer'}>
           <i className="fa fa-wrench" />
+          <a href="#">Add Costumer</a>
         </Link>
       </div>
       <div className="sidebar__link">
