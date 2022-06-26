@@ -1,21 +1,22 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Sidebar.css';
 import foodforallOptimism from '../../assets/image/foodforallOptimism.jpeg';
+// import AddCostumer from '../addCostumer/AddCostumer';
 /* eslint-disable */
 const Sidebar = ({ sidebarOpen, closeSideBar }) => {
 
-  const links = [
-    {
-    "id": 1,
-    "path": "/",
-    "text": "/Home",
-  },
-    {
-    "id": 1,
-    "path": "/add customer",
-    "text": "/Add Customer",
-  }
-]
+//   const links = [
+//     {
+//     "id": 1,
+//     "path": "/",
+//     "text": "/Home",
+//   },
+//     {
+//     "id": 2,
+//     "path": "/addcustomer",
+//     "text": "/Customers Management",
+//   }
+// ]
 
 return (
   <div className={sidebarOpen ? 'sidebar-responsive' : ''} id="sidebar">
@@ -47,6 +48,14 @@ return (
       <div className="sidebar__link">
         <i className="fa fa-wrench" />
         <a href="#">Employee Management</a>
+      </div>
+      <div className="sidebar__link">
+        {/* <i className="fa fa-wrench" />
+        <a href={AddCostumer}>Costumers Management</a> */}
+
+        <Link to={'./addcostumer'}>
+          <i className="fa fa-wrench" />
+        </Link>
       </div>
       <div className="sidebar__link">
         <i className="fa fa-archive" />

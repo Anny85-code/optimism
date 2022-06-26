@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 const AddCostumer = () => {
   const [name, setName] = useState('');
@@ -20,7 +20,7 @@ const AddCostumer = () => {
       body: JSON.stringify(costumer),
     }).then(() => console.log('New Costumer added'));
     setIsPending(false);
-  }
+  };
 
   return (
     <div>
