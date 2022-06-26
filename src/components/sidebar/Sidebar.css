@@ -58,7 +58,7 @@
 }
 
 .active_menu_link a {
-  color: #3ea175 !important ;
+  color: #3ea175 !important;
 }
 
 .sidebar__link > a {
@@ -90,7 +90,7 @@
   font-size: 18px;
 }
 
-.sidebar_responsive {
+.sidebar-responsive {
   display: inline !important;
   z-index: 9999 !important;
   left: 0 !important;
@@ -101,7 +101,7 @@
   #sidebar {
     display: none;
   }
-  
+
   .sidebar__title > i {
     display: inline;
   }

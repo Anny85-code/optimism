@@ -1,5 +1,5 @@
 .navbar {
-  background: #ffffff;
+  background: #fff;
   grid-area: nav;
   height: 60px;
   display: flex;
@@ -9,11 +9,11 @@
   border-bottom: 1px solid lightgray;
 }
 
-.nav_icon {
+.nav-icon {
   display: none;
 }
 
-.nav_icon > i {
+.nav-icon > i {
   font-size: 26px;
   color: #a5a5a5;
 }
@@ -47,18 +47,18 @@
   color: #a5a5a5;
   font-size: 16px;
   border-radius: 50px;
-  background-color: #ffffff;
-  box-shadow: 2px 2px 5px #d9d9d9 -2px -2px -5px #ffffff;
+  background-color: #fff;
+  box-shadow: 2px 2px 5px #d9d9d9, -2px -2px -5px #fff;
   padding: 7px;
 }
 
-@media only screen and (max-width: 978px){
-  .nav_icon {
+@media only screen and (max-width: 978px) {
+  .nav-icon {
     display: inline;
   }
 }
 
-@media only screen and (max-width: 480px){
+@media only screen and (max-width: 480px) {
   .navbar__left {
     display: none;
   }
