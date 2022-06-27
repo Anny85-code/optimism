@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const AddCostumer = () => {
+const AddCustomer = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -9,22 +9,27 @@ const AddCostumer = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const costumer = {
-      name, email, phone, address,
+    const customer = {
+      name,
+      email,
+      phone,
+      address,
     };
     setIsPending(true);
 
-    fetch('http://localhost:3000/costumers', {
+    console.log(customer);
+
+    fetch('https://optimistic-food.herokuapp.com/api/v1/customers', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(costumer),
+      body: JSON.stringify(customer),
     }).then(() => console.log('New Costumer added'));
     setIsPending(false);
   };
 
   return (
     <div>
-      <form onSubmit={handleSubmit()}>
+      <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="name">
             Name *
@@ -94,4 +99,4 @@ const AddCostumer = () => {
   );
 };
 
-export default AddCostumer;
+export default AddCustomer;
