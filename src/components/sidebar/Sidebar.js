@@ -50,12 +50,9 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
           <a href="#">Employee Management</a>
         </div>
         <div className="sidebar__link">
-          {/* <i className="fa fa-wrench" />
-        <a href={AddCostumer}>Costumers </a> */}
-
-          <NavLink to="/addcostumer">
             <i className="fa fa-wrench" />
-            Customer Management
+          <NavLink to="/addcostumer">
+            Costumer Management
           </NavLink>
         </div>
         <div className="sidebar__link">
