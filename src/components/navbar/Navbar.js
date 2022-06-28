@@ -1,5 +1,5 @@
 import './Navbar.css';
-import foodforallOptimism from '../../assets/image/foodforallOptimism.jpeg';
+import food4allmini from '../../assets/image/food4allmini.jpeg';
 /* eslint-disable */
 const Navbar = ({ sideBarOpen, openSideBar }) => (
   <nav className="navbar">
@@ -23,7 +23,7 @@ const Navbar = ({ sideBarOpen, openSideBar }) => (
         <i className="fa fa-clock-o" />
       </a>
       <a href="#">
-        <img width="30" src={foodforallOptimism} alt="food4all logo" />
+        <img width="30" src={food4allmini} alt="food4all logo" />
       </a>
     </div>
   </nav>

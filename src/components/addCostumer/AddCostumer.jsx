@@ -38,7 +38,7 @@ const AddCustomer = () => {
           const errorMsg = data.error || data.errors;
           dispatch({ type: 'CUSTOMER_FAILED', errorMsg });
         } else {
-          window.history.pushState({}, '', '/');
+          window.history.pushState({}, '', '/dashboard');
           window.location.reload();
         }
       });

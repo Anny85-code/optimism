@@ -21,7 +21,7 @@
 .title {
   font-size: 30px;
   font-weight: bold;
-  color: #000;
+  color: rgb(146, 9, 9);
   margin: 20px;
 }
 
@@ -32,6 +32,7 @@ input {
   border: 1px solid rgb(110, 106, 106);
   border-radius: 3px;
   gap: 20px;
+  cursor: pointer;
 }
 
 label {
