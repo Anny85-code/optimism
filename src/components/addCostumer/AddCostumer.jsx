@@ -40,6 +40,7 @@ const AddCustomer = () => {
               className="form-control"
               id="name"
               name="name"
+              placeholder="Name"
               required
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -54,6 +55,7 @@ const AddCustomer = () => {
               className="form-control"
               id="email"
               name="email"
+              placeholder="Email"
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -68,6 +70,7 @@ const AddCustomer = () => {
               className="form-control"
               id="phone"
               name="phone"
+              placeholder="Phone"
               required
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
@@ -83,6 +86,7 @@ const AddCustomer = () => {
               id="address"
               name="address"
               required
+              placeholder="Address"
               value={address}
               onChange={(e) => setAddress(e.target.value)}
             />
