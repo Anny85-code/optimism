@@ -7,6 +7,9 @@ import Sidebar from './components/sidebar/Sidebar';
 
 const App = () => {
   const [sideBarOpen, setSideBarOpen] = useState(false);
+  const isLoggedIn = localStorage.getItem('isLoggedIn');
+  const data = JSON.parse(localStorage.getItem('user'));
+  const { user } = data || {};
 
   const openSideBar = () => {
     setSideBarOpen(true);
@@ -19,8 +22,27 @@ const App = () => {
     <div className="container">
       <Navbar sideBarOpen={sideBarOpen} openSideBar={openSideBar} />
       <Routes>
-        <Route exact path="/" element={<Main />} />
-        <Route path="/addcostumer" element={<AddCustomer />} />
+        {isLoggedIn ? (
+          <>
+            <Route exact path="/" element={<Main />} />
+            <Route path="/addcostumer" element={<AddCustomer />} />
+            {user.role === 'admin' && (
+              <>
+                <Route path="/add-car" element={<AddCar />} />
+                <Route path="/delete" element={<DeleteCar car={car} />} />
+              </>
+            )}
+            {user.role === 'marketer' && (
+              <>
+                <Route path="/add-car" element={<AddCar />} />
+                <Route path="/delete" element={<DeleteCar car={car} />} />
+              </>
+            )}
+          </>
+        ) : (
+          ''
+        )}
+        <Route path="*" element={<Error />} />
       </Routes>
       <Sidebar sidebarOpen={sideBarOpen} closeSideBar={closeSideBar} />
     </div>
