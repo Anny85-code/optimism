@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import './AddCostumer.css';
 
 const AddCustomer = () => {
@@ -7,6 +8,7 @@ const AddCustomer = () => {
   const [phone, setPhone] = useState('');
   const [address, setAddress] = useState('');
   const [isPending, setIsPending] = useState(false);
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,16 +18,34 @@ const AddCustomer = () => {
       phone,
       address,
     };
+    console.log(customer);
     setIsPending(true);
 
-    console.log(customer);
-
-    fetch('https://optimistic-food.herokuapp.com/api/v1/customers', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(customer),
-    }).then(() => console.log('New Costumer added'));
-    setIsPending(false);
+    fetch(
+      'https://optimistic-food.herokuapp.com/api/v1/customers',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          Authorization: localStorage.token,
+        },
+        body: JSON.stringify(customer),
+      },
+    ).then((resp) => resp.json())
+      .then((data) => {
+        if (data.error || data.errors) {
+          const errorMsg = data.error || data.errors;
+          dispatch({ type: 'CUSTOMER_FAILED', errorMsg });
+        } else {
+          window.history.pushState({}, '', '/');
+          window.location.reload();
+        }
+      });
+    // then(() => console.log('New Costumer added'));
+    // const response = addCostumer.json();
+    // console.log(response);
+    // setIsPending(false);
   };
 
   return (

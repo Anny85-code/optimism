@@ -66,4 +66,8 @@ button {
   input {
     width: 250px;
   }
+
+  .form-group {
+    margin: 10px;
+  }
 }
