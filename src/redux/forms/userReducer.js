@@ -3,7 +3,7 @@ export const registerUserToApi = (userData) => (dispatch) => {
     method: 'POST',
     headers: {
       'content-type': 'application/json',
-      Accept: 'application/json',
+      // Accept: 'application/json',
     },
     body: JSON.stringify({ user: userData }),
   })
@@ -45,8 +45,8 @@ export const logUserToApi = (userData) => async (dispatch) => {
     localStorage.setItem('user', JSON.stringify(rawData));
     localStorage.setItem('token', rawData.token);
     localStorage.setItem('isLoggedIn', true);
-    window.history.pushState({}, '', '/dashboard');
-    // window.location.reload();
+    // window.history.pushState({}, '', '/dashboard');
+    window.location.reload();
     dispatch({ type: 'LOGIN_SUCCESS', rawData });
   }
 };

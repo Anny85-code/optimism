@@ -33,10 +33,8 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
       </div>
       <div className="sidebar__menu">
         <div className="sidebar__link active_menu_link">
-          <NavLink to="/">
-            <i className="fa fa-home" />
-            Dashboard
-          </NavLink>
+          <i className="fa fa-home" />
+          <NavLink to="/dashboard">Dashboard</NavLink>
         </div>
         <h2>MNG</h2>
         <div className="sidebar__link">
@@ -52,10 +50,12 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
           <a href="#">Employee Management</a>
         </div>
         <div className="sidebar__link">
-          <NavLink to="/addcostumer">
-            <i className="fa fa-wrench" />
-            Customer Management
-          </NavLink>
+          <i className="fa fa-wrench" />
+          <NavLink to="/register">Marketer Management</NavLink>
+        </div>
+        <div className="sidebar__link">
+          <i className="fa fa-wrench" />
+          <NavLink to="/addcostumer">Customer Management</NavLink>
         </div>
         <div className="sidebar__link">
           <i className="fa fa-archive" />

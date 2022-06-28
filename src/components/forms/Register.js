@@ -43,49 +43,55 @@ const Register = () => {
             <form>
               <div>
                 <label htmlFor="name" className="form-label">
-                  Name
+                  Name *
                   <input
                     type="text"
-                    placeholder="Enter name"
+                    placeholder="Name"
                     onChange={onchange}
                     id="name"
                     name="name"
                     className="form-control"
+                    autoComplete="off"
+                    required
                   />
                 </label>
               </div>
               <br />
               <div>
                 <label htmlFor="username" className="form-label">
-                  username
+                  username *
                   <input
                     type="text"
-                    placeholder="Enter username"
+                    placeholder="Username"
                     onChange={onchange}
                     id="username"
                     name="username"
                     className="form-control"
+                    autoComplete="off"
+                    required
                   />
                 </label>
               </div>
               <br />
               <div>
                 <label htmlFor="email" className="form-label">
-                  Email address
+                  Email address *
                   <input
                     type="email"
-                    placeholder="Enter email"
+                    placeholder="Email"
                     onChange={onchange}
                     id="email"
                     name="email"
                     className="form-control"
+                    autoComplete="off"
+                    required
                   />
                 </label>
               </div>
               <br />
               <div>
                 <label htmlFor="password" className="form-label">
-                  Password
+                  Password *
                   <input
                     type="password"
                     placeholder="Password"
@@ -93,13 +99,15 @@ const Register = () => {
                     id="password"
                     name="password"
                     className="form-control"
+                    autoComplete="off"
+                    required
                   />
                 </label>
               </div>
               <br />
               <div>
                 <label htmlFor="password_confirmation" className="form-label">
-                  Password confirmation
+                  Password confirmation *
                   <input
                     type="password"
                     placeholder="Password Confirmation"
@@ -107,6 +115,8 @@ const Register = () => {
                     id="password_confirmation"
                     name="password_confirmation"
                     className="form-control"
+                    autoComplete="off"
+                    required
                   />
                 </label>
               </div>
@@ -115,12 +125,74 @@ const Register = () => {
                 <label htmlFor="location" className="form-label">
                   Location
                   <input
-                    type="password"
+                    type="text"
                     placeholder="Location"
                     onChange={onchange}
                     id="location"
                     name="location"
                     className="form-control"
+                    autoComplete="off"
+                  />
+                </label>
+              </div>
+              <br />
+              <div>
+                <label htmlFor="role" className="form-label">
+                  Position
+                  <input
+                    type="text"
+                    placeholder="Position"
+                    onChange={onchange}
+                    id="role"
+                    name="role"
+                    className="form-control"
+                    autoComplete="off"
+                  />
+                </label>
+              </div>
+              <br />
+              <div>
+                <label htmlFor="phone" className="form-label">
+                  Phone *
+                  <input
+                    type="number"
+                    placeholder="Phone"
+                    onChange={onchange}
+                    id="phone"
+                    name="phone"
+                    className="form-control"
+                    autoComplete="off"
+                    required
+                  />
+                </label>
+              </div>
+              <br />
+              <div>
+                <label htmlFor="address" className="form-label">
+                  Address
+                  <input
+                    type="text"
+                    placeholder="Address"
+                    onChange={onchange}
+                    id="address"
+                    name="address"
+                    className="form-control"
+                    autoComplete="off"
+                  />
+                </label>
+              </div>
+              <br />
+              <div>
+                <label htmlFor="picture" className="form-label">
+                  Picture
+                  <input
+                    type="text"
+                    placeholder="Picture"
+                    onChange={onchange}
+                    id="picture"
+                    name="avatar"
+                    className="form-control"
+                    autoComplete="off"
                   />
                 </label>
               </div>
