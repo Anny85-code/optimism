@@ -1,5 +1,5 @@
 export const registerUserToApi = (userData) => (dispatch) => {
-  fetch('https://rent-a-car-brytebee.herokuapp.com/api/v1/users', {
+  fetch('https://optimistic-food.herokuapp.com/api/v1/users', {
     method: 'POST',
     headers: {
       'content-type': 'application/json',
@@ -16,37 +16,39 @@ export const registerUserToApi = (userData) => (dispatch) => {
         localStorage.setItem('user', JSON.stringify(data));
         localStorage.setItem('token', data.token);
         localStorage.setItem('isLoggedIn', true);
-        window.history.pushState({}, '', '/');
-        window.location.reload();
+        // window.history.pushState({}, '', '/dashboard');
+        // window.location.reload();
         dispatch({ type: 'SIGNUP_SUCCESS', data });
       }
     });
 };
 
-export const logUserToApi = (userData) => (dispatch) => {
-  // fetch('https://rent-a-car-brytebee.herokuapp.com/api/v1/auth/login', {
-  fetch('https://optimistic-food.herokuapp.com/api/v1/login', {
-    method: 'POST',
-    headers: {
-      'content-type': 'application/json',
-      Accept: 'application/json',
-    },
-    body: JSON.stringify({ user: userData }),
-  })
-    .then((resp) => resp.json())
-    .then((data) => {
-      if (data.error) {
-        const errorMsg = data.error;
-        dispatch({ type: 'LOGIN_FAILED', errorMsg });
-      } else {
-        localStorage.setItem('user', JSON.stringify(data));
-        localStorage.setItem('token', data.token);
-        localStorage.setItem('isLoggedIn', true);
-        window.history.pushState({}, '', '/');
-        window.location.reload();
-        dispatch({ type: 'LOGIN_SUCCESS', data });
-      }
-    });
+export const logUserToApi = (userData) => async (dispatch) => {
+  const { username, password } = userData;
+  const sendData = await fetch(
+    'https://optimistic-food.herokuapp.com/api/v1/login',
+    {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        // Accept: 'application/json',
+      },
+      body: JSON.stringify({ username, password }),
+    }
+  );
+  const rawData = await sendData.json();
+  console.log(rawData);
+  if (rawData.error) {
+    const errorMsg = rawData.error;
+    dispatch({ type: 'LOGIN_FAILED', errorMsg });
+  } else {
+    localStorage.setItem('user', JSON.stringify(rawData));
+    localStorage.setItem('token', rawData.token);
+    localStorage.setItem('isLoggedIn', true);
+    window.history.pushState({}, '', '/dashboard');
+    // window.location.reload();
+    dispatch({ type: 'LOGIN_SUCCESS', rawData });
+  }
 };
 
 const userReducer = (

@@ -1,7 +1,10 @@
 import React from 'react';
+import Login from '../forms/Login';
 
-const Splash = () => {
-  return <div>Splash</div>;
-};
+const Splash = () => (
+  <div>
+    <Login />
+  </div>
+);
 
 export default Splash;

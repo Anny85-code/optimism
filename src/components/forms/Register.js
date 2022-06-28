@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { registerUserToApi } from '../../redux/reducers/userReducer';
+import { registerUserToApi } from '../../redux/forms/userReducer';
 
 const Register = () => {
   const [state, setState] = useState({});
