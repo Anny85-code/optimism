@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './AddCostumer.css';
 
 const AddCustomer = () => {
   const [name, setName] = useState('');
@@ -28,7 +29,8 @@ const AddCustomer = () => {
   };
 
   return (
-    <div>
+    <div className="form-container">
+      <h3 className="title">Add Customer</h3>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="name">
