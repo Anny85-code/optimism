@@ -22,6 +22,7 @@ const App = () => {
     <div className="container">
       <Navbar sideBarOpen={sideBarOpen} openSideBar={openSideBar} />
       <Routes>
+        <Route exact path="/" element={<Main />} />
         {isLoggedIn ? (
           <>
             <Route exact path="/" element={<Main />} />
