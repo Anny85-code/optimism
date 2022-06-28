@@ -22,7 +22,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
       <div className="sidebar__menu">
         <div className="sidebar__link active_menu_link">
           <i className="fa fa-home" />
-          <a href="#">Dashboard</a>
+          <NavLink to="/dashboard">Dashboard</NavLink>
         </div>
         <h2>MNG</h2>
         <div className="sidebar__link">
@@ -38,10 +38,12 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
           <a href="#">Employee Management</a>
         </div>
         <div className="sidebar__link">
-            <i className="fa fa-wrench" />
-          <NavLink to="/addcostumer">
-            Costumer Management
-          </NavLink>
+          <i className="fa fa-wrench" />
+          <NavLink to="/register">Marketer Management</NavLink>
+        </div>
+        <div className="sidebar__link">
+          <i className="fa fa-wrench" />
+          <NavLink to="/addcostumer">Customer Management</NavLink>
         </div>
         <div className="sidebar__link">
           <i className="fa fa-archive" />
