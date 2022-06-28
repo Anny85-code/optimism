@@ -5,18 +5,6 @@ import foodforallOptimism from '../../assets/image/foodforallOptimism.jpeg';
 // import AddCostumer from '../addCostumer/AddCostumer';
 /* eslint-disable */
 const Sidebar = ({ sidebarOpen, closeSideBar }) => {
-  //   const links = [
-  //     {
-  //     "id": 1,
-  //     "path": "/",
-  //     "text": "/Home",
-  //   },
-  //     {
-  //     "id": 2,
-  //     "path": "/addcustomer",
-  //     "text": "/Customers Management",
-  //   }
-  // ]
 
   return (
     <div className={sidebarOpen ? 'sidebar-responsive' : ''} id="sidebar">
