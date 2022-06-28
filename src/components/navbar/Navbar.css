@@ -1,5 +1,5 @@
 .navbar {
-  background: #fff;
+  background: rgb(170, 165, 165);
   grid-area: nav;
   height: 60px;
   display: flex;
@@ -21,7 +21,7 @@
 .navbar__left > a {
   margin-right: 30px;
   text-decoration: none;
-  color: #a5a5a5;
+  color: #242222;
   font-size: 15px;
   font-weight: 700;
 }

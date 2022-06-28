@@ -28,7 +28,7 @@ input {
   width: 500px;
   height: 30px;
   outline: none;
-  border: 1px solid #000;
+  border: 1px solid rgb(110, 106, 106);
   border-radius: 3px;
   gap: 20px;
 }
@@ -40,7 +40,12 @@ label {
   width: 100%;
   margin: 10px;
   text-align: left;
-  font-size: 15px;
+  font-size: 18px;
+}
+
+::placeholder {
+  color: rgb(71, 68, 68);
+  padding-left: 10px;
 }
 
 button {

@@ -1,8 +1,7 @@
 main {
-  background: #717479;
+  background: #fff;
   grid-area: main;
   overflow-y: auto;
-  color: #35a4ba;
 }
 
 .main__container {
