@@ -7,6 +7,7 @@ const AddCustomer = () => {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [address, setAddress] = useState('');
+  const [picture, setPicture] = useState('');
   const [isPending, setIsPending] = useState(false);
   const dispatch = useDispatch();
 
@@ -17,31 +18,32 @@ const AddCustomer = () => {
       email,
       phone,
       address,
+      picture,
     };
     console.log(customer);
     setIsPending(true);
 
-    fetch(
-      'https://optimistic-food.herokuapp.com/api/v1/customers',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-          Authorization: localStorage.token,
-        },
-        body: JSON.stringify(customer),
+    const newCustomer = fetch('https://optimistic-food.herokuapp.com/api/v1/customers', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
       },
-    ).then((resp) => resp.json())
-      .then((data) => {
-        if (data.error || data.errors) {
-          const errorMsg = data.error || data.errors;
-          dispatch({ type: 'CUSTOMER_FAILED', errorMsg });
-        } else {
-          window.history.pushState({}, '', '/dashboard');
-          window.location.reload();
-        }
-      });
+      // Auth: { bearer: localStorage.token },
+      body: JSON.stringify(customer),
+    });
+    const newCustomerResp = newCustomer.json();
+    console.log(newCustomerResp);
+    // .then((resp) => resp.json())
+    // .then((data) => {
+    //   if (data.error || data.errors) {
+    //     const errorMsg = data.error || data.errors;
+    //     dispatch({ type: 'CUSTOMER_FAILED', errorMsg });
+    //   } else {
+    //     window.history.pushState({}, '', '/dashboard');
+    //     // window.location.reload();
+    //   }
+    // });
     // then(() => console.log('New Costumer added'));
     // const response = addCostumer.json();
     // console.log(response);
@@ -113,10 +115,24 @@ const AddCustomer = () => {
           </label>
         </div>
         <div className="form-group">
-          {!isPending && <button type="submit">Add Costumer</button>}
+          <label htmlFor="picture">
+            Picture
+            <input
+              type="text"
+              className="form-control"
+              id="picture"
+              name="picture"
+              placeholder="picture"
+              value={picture}
+              onChange={(e) => setPicture(e.target.value)}
+            />
+          </label>
+        </div>
+        <div className="form-group">
+          {!isPending && <button type="submit">Add Customer</button>}
           {isPending && (
             <button type="submit" disabled>
-              Adding Costumer . . .
+              Adding Customer . . .
             </button>
           )}
         </div>

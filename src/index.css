@@ -31,6 +31,17 @@
 body {
   box-sizing: border-box;
   font-family: "Lato", sans-serif;
+  height: 100vh;
+  background-image:
+    linear-gradient(
+      321deg,
+      rgba(211, 108, 40, 0.95),
+      rgba(83, 73, 49, 0.95)
+    ),
+    url('../../foodforall-optimistic/src/assets/image/food4allmini.jpeg');
+  background-size: auto;
+  background-repeat: repeat;
+  background-position: center;
 }
 
 .text-primary-p {
