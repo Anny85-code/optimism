@@ -72,4 +72,15 @@ button {
   .form-group {
     margin: 10px;
   }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .btn {
+    align-items: center;
+    justify-content: center;
+    margin-right: 35px;
+  }
 }
