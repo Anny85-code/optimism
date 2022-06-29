@@ -8,6 +8,13 @@ const Splash = () => (
   <div className="splash-container">
     <div className="splash__image">
       <img src={foodforall} alt="splash-logo" />
+      <div className="splashcontainer">
+        <div className="ring"></div>
+        <div className="ring"></div>
+        <div className="ring"></div>
+        <div className="ring"></div>
+        {/* <p>Loading....</p> */}
+      </div>
     </div>
     <h2 className="splash-text">..Never2Late</h2>
     <div className="login btn">
@@ -16,18 +23,6 @@ const Splash = () => (
           Login
         </NavLink>
       </button>
-    </div>
-
-    <div className="splashcontainer">
-      <div className="ring">
-        </div>
-      <div className="ring">
-        </div>
-      <div className="ring">
-        </div>
-      <div className="ring">
-        </div>
-        <p>Loading....</p>
     </div>
   </div>
 );

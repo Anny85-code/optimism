@@ -19,10 +19,17 @@
   border-radius: 25px;
 }
 
+.splash__image {
+  margin-bottom: 30px;
+}
+
 .splash__image > img {
   height: 300px;
   width: 350px;
   box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #967777;
+  position: absolute;
+  top: 70px;
+  left: 585px;
 }
 
 button {
@@ -34,6 +41,25 @@ button {
 .splash-text {
   font-family: 'Neonderthaw', sans-serif;
   font-size: 30px;
-  /* color: #464866; */
   color: #fff;
+}
+
+@media only screen and (max-width: 768px) {
+  .splash__image > img {
+  height: 100px;
+  width: 150px;
+  top: 150px;
+  left: 85px;
+}
+
+button {
+  width: 150px;
+  font-size: 17px;
+  box-shadow: 5px 5px 13px #363434, -5px -5px 13px #413e3e;
+  margin-left: 40px;
+}
+
+.splash-text {
+  font-size: 20px;
+}
 }

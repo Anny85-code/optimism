@@ -10,6 +10,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  /* background-image: url('../../src/assets/image/foodforall.jpeg'); */
 }
 
 .splashcontainer .ring {
@@ -44,7 +45,6 @@
   border-radius: 50%;
   background: #24ecff;
   box-shadow: 0 0 0 5px #24ecff33, 0 0 0 10px #24ecff22, 0 0 20px #24ecff11, 0 0 20px #24ecff, 0 0 50px #24ecff;
-  /* animation: ring 1.2s linear infinite; */
 }
 
 .splashcontainer .ring:nth-child(2){
@@ -66,7 +66,6 @@
   border-radius: 50%;
   background: #93ff2d;
   box-shadow: 0 0 0 5px #93ff2d33, 0 0 0 10px #93ff2d22, 0 0 20px #93ff2d11, 0 0 20px #93ff2d, 0 0 50px #93ff2d;
-  /* animation: ring 1.2s linear infinite; */
 }
 
 @keyframes animate2 {
@@ -98,17 +97,20 @@
   border-radius: 50%;
   background: #e11cf8;
   box-shadow: 0 0 0 5px #e11cf833, 0 0 0 10px #e11cf822, 0 0 20px #e11cf811, 0 0 20px #e11cf8, 0 0 50px #e11cf8;
-  /* animation: ring 1.2s linear infinite; */
 }
 
 .splashcontainer p {
   position: absolute;
-  /* width: 100%; */
-  /* text-align: center; */
   font-size: 1.5em;
   color: #fff;
   font-family: 'Nanum Pen Script', cursive;
   margin-top: -30px;
   bottom: -80px;
   letter-spacing: 0.15em;
+}
+
+@media only screen and (max-width: 600px) {
+  .splashcontainer {
+    display: none;
+  }
 }
