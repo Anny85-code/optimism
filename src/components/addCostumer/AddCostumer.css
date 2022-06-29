@@ -7,6 +7,9 @@
   align-items: center;
   gap: 20px;
   font-family: 'Gumela', sans-serif;
+  margin: 20px;
+  box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #967777;
+  border-radius: 8px;
 }
 
 .form-group {
@@ -29,7 +32,7 @@ input {
   width: 500px;
   height: 30px;
   outline: none;
-  border: 1px solid rgb(110, 106, 106);
+  box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #967777;
   border-radius: 3px;
   gap: 20px;
   cursor: pointer;
@@ -42,12 +45,16 @@ label {
   width: 100%;
   margin: 10px;
   text-align: left;
-  font-size: 18px;
+  font-size: 22px;
+  font-weight: 700;
 }
 
 ::placeholder {
   color: rgb(71, 68, 68);
   padding-left: 10px;
+  font-family: 'Gumela', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
 }
 
 button {
@@ -55,13 +62,14 @@ button {
   height: 50px;
   padding: 10px;
   outline: none;
-  border: 1px solid #000;
+  border: none;
   border-radius: 5px;
   background-color: green;
   color: #fff;
   font-size: 15px;
   font-weight: bold;
   cursor: pointer;
+  box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #d86565;
 }
 
 @media only screen and (max-width: 978px) {

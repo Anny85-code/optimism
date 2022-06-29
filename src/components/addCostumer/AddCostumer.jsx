@@ -20,34 +20,35 @@ const AddCustomer = () => {
       address,
       picture,
     };
-    console.log(customer);
     setIsPending(true);
-
-    const newCustomer = fetch('https://optimistic-food.herokuapp.com/api/v1/customers', {
+    const url = 'https://optimistic-food.herokuapp.com/api/v1/customers';
+    fetch(url, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
+        Authorization: 'Bearer Token',
+        'Access-Control-Allow-Origin': '*',
       },
       // Auth: { bearer: localStorage.token },
       body: JSON.stringify(customer),
-    });
-    const newCustomerResp = newCustomer.json();
-    console.log(newCustomerResp);
-    // .then((resp) => resp.json())
-    // .then((data) => {
-    //   if (data.error || data.errors) {
-    //     const errorMsg = data.error || data.errors;
-    //     dispatch({ type: 'CUSTOMER_FAILED', errorMsg });
-    //   } else {
-    //     window.history.pushState({}, '', '/dashboard');
-    //     // window.location.reload();
-    //   }
-    // });
-    // then(() => console.log('New Costumer added'));
+    })
+      // const newCustomerResp = newCustomer.json();
+      // console.log(newCustomerResp);
+      .then((resp) => resp.json())
+      .then(() => console.log('New Costumer added'))
+      .then((data) => {
+        if (data.error || data.errors) {
+          const errorMsg = data.error || data.errors;
+          dispatch({ type: 'CUSTOMER_FAILED', errorMsg });
+        } else {
+          window.history.pushState({}, '', '/dashboard');
+          window.location.reload();
+        }
+      });
     // const response = addCostumer.json();
     // console.log(response);
-    // setIsPending(false);
+    setIsPending(false);
   };
 
   return (
