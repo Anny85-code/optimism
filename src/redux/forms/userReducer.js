@@ -1,10 +1,9 @@
-export const registerUserToApi = (userData) => async () => {
+export const registerUserToApi = (userData) => async (dispatch) => {
   console.log(userData);
 
   // const auth
   const regUser = await fetch(
-    // 'https://optimistic-food.herokuapp.com/api/v1/users',
-    'http://localhost:4000/api/v1/users',
+    'https://optimistic-food.herokuapp.com/api/v1/users',
     {
       method: 'POST',
       headers: {
@@ -13,39 +12,34 @@ export const registerUserToApi = (userData) => async () => {
         // Authorization: {},
       },
       body: JSON.stringify(userData),
-    }
+    },
   );
   const regUserResp = await regUser.json();
   console.log(regUserResp);
-  // .then((resp) => resp.json())
-  // .then((data) => {
-  //   if (data.error || data.errors) {
-  //     const errorMsg = data.error || data.errors;
-  //     dispatch({ type: 'SIGNUP_FAILED', errorMsg });
-  //   } else {
-  //     localStorage.setItem('user', JSON.stringify(data));
-  //     localStorage.setItem('token', data.token);
-  //     localStorage.setItem('isLoggedIn', true);
-  //     // window.history.pushState({}, '', '/dashboard');
-  //     // window.location.reload();
-  //     dispatch({ type: 'SIGNUP_SUCCESS', data });
-  //   }
-  // });
+  if (regUserResp.error || regUserResp.errors) {
+    const errorMsg = regUserResp.error || regUserResp.errors;
+    dispatch({ type: 'SIGNUP_FAILED', errorMsg });
+  } else {
+    localStorage.setItem('user', JSON.stringify(regUserResp));
+    localStorage.setItem('token', regUserResp.token);
+    localStorage.setItem('isLoggedIn', true);
+    window.history.pushState({}, '', '/dashboard');
+    // window.location.reload();
+    dispatch({ type: 'SIGNUP_SUCCESS', regUserResp });
+  }
 };
 
 export const logUserToApi = (userData) => async (dispatch) => {
   const { username, password } = userData;
   const sendData = await fetch(
-    // 'https://optimistic-food.herokuapp.com/api/v1/login',
-    'http://localhost:4000/api/v1/login',
+    'https://optimistic-food.herokuapp.com/api/v1/login',
     {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
-        // Accept: 'application/json',
       },
       body: JSON.stringify({ username, password }),
-    }
+    },
   );
   const rawData = await sendData.json();
   console.log(rawData);
@@ -64,7 +58,7 @@ export const logUserToApi = (userData) => async (dispatch) => {
 
 const userReducer = (
   state = { user: null, isLoggedIn: false, error: null },
-  action
+  action,
 ) => {
   switch (action.type) {
     case 'SIGNUP_SUCCESS':
