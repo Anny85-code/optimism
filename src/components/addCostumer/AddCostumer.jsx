@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { postCustomerToApi } from '../../redux/forms/customerReducer';
 import './AddCostumer.css';
 
@@ -9,12 +10,12 @@ const AddCustomer = () => {
   const [address, setAddress] = useState('');
   const [picture, setPicture] = useState('');
   const [isPending, setIsPending] = useState(false);
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const user = JSON.parse(localStorage.getItem('user'));
-    const id = user.user.id;
+    const { id } = user.user;
     const customer = {
       user_id: id,
       name,
@@ -25,7 +26,7 @@ const AddCustomer = () => {
     };
     console.log(customer);
     setIsPending(true);
-    postCustomerToApi(customer);
+    dispatch(postCustomerToApi(customer));
     setIsPending(false);
   };
 

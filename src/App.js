@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import AddCustomer from './components/addCostumer/AddCostumer';
+import Customers from './components/customer/Customers';
 import Register from './components/forms/Register';
 // import Error from './components/Error';
 import Main from './components/main/Main';
@@ -91,6 +92,7 @@ const App = () => {
             <Route exact path="/dashboard" element={<Main />} />
             <Route path="/register" element={<Register />} />
             <Route path="/addcostumer" element={<AddCustomer />} />
+            <Route path="/custumers" element={<Customers />} />
           </Routes>
           <Sidebar sidebarOpen={sideBarOpen} closeSideBar={closeSideBar} />
         </div>
