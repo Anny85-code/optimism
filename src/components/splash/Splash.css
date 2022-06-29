@@ -71,4 +71,8 @@
   .splash-text {
     font-size: 20px;
   }
+
+  .splash-container {
+    width: 80%;
+  }
 }
