@@ -3,7 +3,6 @@ export const registerUserToApi = (userData) => (dispatch) => {
     method: 'POST',
     headers: {
       'content-type': 'application/json',
-      // Accept: 'application/json',
     },
     body: JSON.stringify({ user: userData }),
   })
@@ -31,10 +30,9 @@ export const logUserToApi = (userData) => async (dispatch) => {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
-        // Accept: 'application/json',
       },
       body: JSON.stringify({ username, password }),
-    },
+    }
   );
   const rawData = await sendData.json();
   if (rawData.error) {
@@ -52,7 +50,7 @@ export const logUserToApi = (userData) => async (dispatch) => {
 
 const userReducer = (
   state = { user: null, isLoggedIn: false, error: null },
-  action,
+  action
 ) => {
   switch (action.type) {
     case 'SIGNUP_SUCCESS':
