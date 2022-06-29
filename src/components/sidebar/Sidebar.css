@@ -76,6 +76,7 @@
   margin-top: 20px;
   padding: 10px;
   color: #e65061;
+  cursor: pointer;
 }
 
 .sidebar__logout > a {
