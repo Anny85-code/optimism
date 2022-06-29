@@ -55,6 +55,7 @@
 .navbar__right > a > img {
   width: 35px;
   height: 35px;
+  box-shadow: 2px 2px 5px #d9d9d9, -2px -2px -5px #fff;
 }
 
 @media only screen and (max-width: 978px) {

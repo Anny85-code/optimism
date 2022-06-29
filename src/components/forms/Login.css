@@ -1,0 +1,46 @@
+.text-center {
+  text-align: center;
+  font-family: 'Gumela', sans-serif;
+  font-size: 20px;
+  color: #fff;
+}
+
+.splash-container {
+  align-items: center;
+  align-content: center;
+}
+
+.form-control-login {
+  margin-top: 5px;
+}
+
+.login-btn {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media only screen and (max-width: 978px) {
+  * {
+    padding: 1px;
+    margin: 1px;
+  }
+
+  .form-control-login {
+    width: 150px;
+  }
+
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+  }
+
+  .btn {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn-secondary {
+    margin-left: -3px;
+  }
+}

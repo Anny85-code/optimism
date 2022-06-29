@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logUserToApi } from '../../redux/forms/userReducer';
+import './Login.css';
 
 const Login = () => {
   const [state, setState] = useState({});
@@ -20,7 +21,7 @@ const Login = () => {
   };
 
   return (
-    <div className="container-fluid">
+    <div className="splash-container">
       <div className="row">
         <div className="column mt-5">
           <div className="d-flex justify-content-center align-items-center flex-column shadow-lg rounded w-50 mx-auto p-5">
@@ -39,7 +40,7 @@ const Login = () => {
             ) : (
               ''
             )}
-            <form>
+            <form className="login-form">
               <div>
                 <label htmlFor="username" className="form-label">
                   Username
@@ -50,7 +51,7 @@ const Login = () => {
                     onChange={onchange}
                     id="username"
                     name="username"
-                    className="form-control"
+                    className="form-control-login"
                   />
                 </label>
               </div>
@@ -65,18 +66,21 @@ const Login = () => {
                     onChange={onchange}
                     id="password"
                     name="password"
-                    className="form-control"
+                    className="form-control-login"
                   />
                 </label>
               </div>
               <br />
-              <button
-                type="submit"
-                className="btn btn-secondary"
-                onClick={handleSubmit}
-              >
-                Log in
-              </button>
+              <div className="form-group login-btn">
+                <button
+                  type="submit"
+                  className="btn btn-secondary"
+                  onClick={handleSubmit}
+                >
+                  Log in
+                </button>
+              </div>
+
             </form>
           </div>
         </div>
