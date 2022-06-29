@@ -1,4 +1,3 @@
-
 export const registerUserToApi = (userData) => async (dispatch) => {
   // const auth
   const regUser = await fetch(
