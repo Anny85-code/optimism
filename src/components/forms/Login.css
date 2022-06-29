@@ -27,7 +27,7 @@
 
   .form-control-login {
     width: 150px;
-    margin-left: 4px;
+    margin-left: 2px;
   }
 
   .login-form {
@@ -43,6 +43,6 @@
 
   .btn-secondary {
     margin-left: 6px;
-    width: 100px;
+    width: 120px;
   }
 }
