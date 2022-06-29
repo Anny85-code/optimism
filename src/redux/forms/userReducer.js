@@ -1,6 +1,4 @@
 export const registerUserToApi = (userData) => async (dispatch) => {
-  console.log(userData);
-
   // const auth
   const regUser = await fetch(
     'https://optimistic-food.herokuapp.com/api/v1/users',
@@ -15,7 +13,6 @@ export const registerUserToApi = (userData) => async (dispatch) => {
     },
   );
   const regUserResp = await regUser.json();
-  console.log(regUserResp);
   if (regUserResp.error || regUserResp.errors) {
     const errorMsg = regUserResp.error || regUserResp.errors;
     dispatch({ type: 'SIGNUP_FAILED', errorMsg });
@@ -42,7 +39,6 @@ export const logUserToApi = (userData) => async (dispatch) => {
     },
   );
   const rawData = await sendData.json();
-  console.log(rawData);
   if (rawData.error) {
     const errorMsg = rawData.error;
     dispatch({ type: 'LOGIN_FAILED', errorMsg });
