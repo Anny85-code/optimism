@@ -39,7 +39,7 @@ const Register = () => {
             ) : (
               ''
             )}
-            <form>
+            <form className="register-form">
               <div>
                 <label htmlFor="name" className="form-label">
                   Name *
