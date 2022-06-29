@@ -9,10 +9,10 @@ const Splash = () => (
     <div className="splash__image">
       <img src={foodforall} alt="splash-logo" />
       <div className="splashcontainer">
-        <div className="ring"></div>
-        <div className="ring"></div>
-        <div className="ring"></div>
-        <div className="ring"></div>
+        <div className="ring" />
+        <div className="ring" />
+        <div className="ring" />
+        <div className="ring" />
         {/* <p>Loading....</p> */}
       </div>
     </div>

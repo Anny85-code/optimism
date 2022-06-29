@@ -71,7 +71,7 @@ const Login = () => {
                 </label>
               </div>
               <br />
-              <div className="form-group">
+              <div className="form-group login-btn">
                 <button
                   type="submit"
                   className="btn btn-secondary"
