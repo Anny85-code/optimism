@@ -76,7 +76,7 @@ const Login = () => {
                   type="submit"
                   className="btn btn-secondary"
                   onClick={handleSubmit}
-                  >
+                >
                   Log in
                 </button>
               </div>

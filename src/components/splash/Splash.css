@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Neonderthaw&display=swap');
 
-
 .splash-container {
   display: flex;
   flex-direction: column;
@@ -44,7 +43,6 @@
   border-radius: 5px;
   background-color: #3ea175;
   color: #fff;
-  font-size: 15px;
   font-weight: bold;
   cursor: pointer;
 }
@@ -57,20 +55,20 @@
 
 @media only screen and (max-width: 768px) {
   .splash__image > img {
-  height: 100px;
-  width: 150px;
-  top: 150px;
-  left: 85px;
-}
+    height: 100px;
+    width: 150px;
+    top: 150px;
+    left: 85px;
+  }
 
-.splash-btn {
-  width: 150px;
-  font-size: 17px;
-  box-shadow: 5px 5px 13px #363434, -5px -5px 13px #413e3e;
-  margin-left: 40px;
-}
+  .splash-btn {
+    width: 150px;
+    font-size: 17px;
+    box-shadow: 5px 5px 13px #363434, -5px -5px 13px #413e3e;
+    margin-left: 40px;
+  }
 
-.splash-text {
-  font-size: 20px;
-}
+  .splash-text {
+    font-size: 20px;
+  }
 }

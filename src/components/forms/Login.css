@@ -11,9 +11,8 @@
 }
 
 .form-control-login {
-    margin-top: 5px;
-  }
-
+  margin-top: 5px;
+}
 
 .login-btn {
   margin-right: auto;
@@ -21,8 +20,7 @@
 }
 
 @media only screen and (max-width: 978px) {
-
-  *{
+  * {
     padding: 1px;
     margin: 1px;
   }
