@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { registerUserToApi } from '../../redux/forms/userReducer';
+import './Register.css';
 
 const Register = () => {
   const [state, setState] = useState({});
