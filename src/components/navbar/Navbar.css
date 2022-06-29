@@ -1,5 +1,5 @@
 .navbar {
-  background: #fff;
+  background: rgb(170, 165, 165);
   grid-area: nav;
   height: 60px;
   display: flex;
@@ -15,13 +15,13 @@
 
 .nav-icon > i {
   font-size: 26px;
-  color: #a5a5a5;
+  color: #680606;
 }
 
 .navbar__left > a {
   margin-right: 30px;
   text-decoration: none;
-  color: #a5a5a5;
+  color: #242222;
   font-size: 15px;
   font-weight: 700;
 }
@@ -50,6 +50,11 @@
   background-color: #fff;
   box-shadow: 2px 2px 5px #d9d9d9, -2px -2px -5px #fff;
   padding: 7px;
+}
+
+.navbar__right > a > img {
+  width: 35px;
+  height: 35px;
 }
 
 @media only screen and (max-width: 978px) {

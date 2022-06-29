@@ -21,11 +21,11 @@ const Register = () => {
   };
 
   return (
-    <div className="container-fluid">
-      <div className="row">
+    <div className="form-container">
+      <div className="form-group">
         <div className="column mt-5">
           <div className="d-flex justify-content-center align-items-center flex-column shadow-lg rounded w-50 mx-auto p-5">
-            <h3 className="text-center">Register user</h3>
+            <h3 className="title">Register A Marketer</h3>
             <br />
             {error ? (
               <div>
@@ -197,13 +197,15 @@ const Register = () => {
                 </label>
               </div>
               <br />
-              <button
-                type="submit"
-                className="btn btn-secondary"
-                onClick={handleSubmit}
-              >
-                Register
-              </button>
+              <div className="form-group btn">
+                <button
+                  type="submit"
+                  className="btn btn-secondary"
+                  onClick={handleSubmit}
+                >
+                  Register
+                </button>
+              </div>
             </form>
           </div>
         </div>

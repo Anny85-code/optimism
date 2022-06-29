@@ -30,7 +30,18 @@
 
 body {
   box-sizing: border-box;
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
+  height: 100vh;
+  background-image:
+    linear-gradient(
+      321deg,
+      rgba(211, 108, 40, 0.95),
+      rgba(83, 73, 49, 0.95)
+    ),
+    url('../src/assets/image/foodforall.jpeg');
+  background-size: auto;
+  background-repeat: repeat;
+  background-position: center;
 }
 
 .text-primary-p {
@@ -69,8 +80,8 @@ body {
   grid-template-columns: 0.8fr 1fr 1fr 1fr;
   grid-template-rows: 0.2fr 3fr;
   grid-template-areas:
-    "sidebar nav nav nav"
-    "sidebar main main main";
+    'sidebar nav nav nav'
+    'sidebar main main main';
 }
 
 img {
@@ -82,7 +93,7 @@ img {
     grid-template-columns: 1fr;
     grid-template-rows: 0.2fr 3fr;
     grid-template-areas:
-      "nav"
-      "main";
+      'nav'
+      'main';
   }
 }
