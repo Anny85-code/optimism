@@ -1,10 +1,23 @@
 import { NavLink } from 'react-router-dom';
 import './Sidebar.css';
+import { useDispatch } from 'react-redux';
 import foodforallOptimism from '../../assets/image/foodforallOptimism.jpeg';
 
 // import AddCostumer from '../addCostumer/AddCostumer';
 /* eslint-disable */
 const Sidebar = ({ sidebarOpen, closeSideBar }) => {
+  const isLoggedIn = localStorage.getItem('isLoggedIn');
+  // const data = JSON.parse(localStorage.getItem('user'));
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
+    localStorage.removeItem('isLoggedIn');
+    dispatch({ type: 'LOGGED_OUT' });
+    window.history.pushState({}, '', '/');
+    window.location.reload();
+  };
 
   return (
     <div className={sidebarOpen ? 'sidebar-responsive' : ''} id="sidebar">
@@ -81,7 +94,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
         </div>
         <div className="sidebar__logout">
           <i className="fa fa-power-off" />
-          <a href="#">Log out</a>
+          {isLoggedIn ? <a onClick={handleLogout}>Logout</a> : ''}
         </div>
       </div>
     </div>
