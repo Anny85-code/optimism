@@ -37,7 +37,6 @@ export const logUserToApi = (userData) => async (dispatch) => {
     },
   );
   const rawData = await sendData.json();
-  console.log(rawData);
   if (rawData.error) {
     const errorMsg = rawData.error;
     dispatch({ type: 'LOGIN_FAILED', errorMsg });

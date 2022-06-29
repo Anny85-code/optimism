@@ -3,11 +3,9 @@ import './Sidebar.css';
 import { useDispatch } from 'react-redux';
 import foodforallOptimism from '../../assets/image/foodforallOptimism.jpeg';
 
-// import AddCostumer from '../addCostumer/AddCostumer';
 /* eslint-disable */
 const Sidebar = ({ sidebarOpen, closeSideBar }) => {
   const isLoggedIn = localStorage.getItem('isLoggedIn');
-  // const data = JSON.parse(localStorage.getItem('user'));
   const dispatch = useDispatch();
 
   const handleLogout = () => {
