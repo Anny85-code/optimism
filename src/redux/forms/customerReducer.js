@@ -35,6 +35,7 @@ const fetchCustomerRequest = () => ({
 
 export const postCustomerToApi = (userData) => async (dispatch) => {
   const { token } = localStorage;
+  // const data = { userData };
 
   const sendData = axios.post(url, userData, {
     headers: {
@@ -46,8 +47,8 @@ export const postCustomerToApi = (userData) => async (dispatch) => {
     const errorMsg = sendData.error || sendData.errors;
     dispatch(sendCustomerDataFailed(errorMsg));
   } else {
-    window.history.pushState({}, '', '/customers');
-    window.location.reload();
+    window.history.pushState({}, '', '/dashboard');
+    // window.location.reload();
   }
 };
 

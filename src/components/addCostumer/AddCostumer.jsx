@@ -24,7 +24,6 @@ const AddCustomer = () => {
       address,
       picture,
     };
-
     setIsPending(true);
     dispatch(postCustomerToApi(customer));
     setIsPending(false);
