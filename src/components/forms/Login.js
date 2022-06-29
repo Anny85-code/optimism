@@ -40,7 +40,7 @@ const Login = () => {
             ) : (
               ''
             )}
-            <form>
+            <form className="login-form">
               <div>
                 <label htmlFor="username" className="form-label">
                   Username
@@ -51,7 +51,7 @@ const Login = () => {
                     onChange={onchange}
                     id="username"
                     name="username"
-                    className="form-control"
+                    className="form-control-login"
                   />
                 </label>
               </div>
@@ -66,7 +66,7 @@ const Login = () => {
                     onChange={onchange}
                     id="password"
                     name="password"
-                    className="form-control"
+                    className="form-control-login"
                   />
                 </label>
               </div>

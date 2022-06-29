@@ -22,11 +22,11 @@
     margin: 1px;
   }
 
-  input {
+  .form-control-login {
     width: 150px;
   }
 
-  form {
+  .login-form {
     display: flex;
     flex-direction: column;
     margin-left: 30px;

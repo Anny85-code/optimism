@@ -13,12 +13,11 @@ const Splash = () => (
         <div className="ring" />
         <div className="ring" />
         <div className="ring" />
-        {/* <p>Loading....</p> */}
       </div>
     </div>
     <h2 className="splash-text">..Never2Late</h2>
     <div className="login btn">
-      <button type="button">
+      <button type="button" className="splash-btn">
         <NavLink to="/login" style={{ textDecoration: 'none' }}>
           Login
         </NavLink>

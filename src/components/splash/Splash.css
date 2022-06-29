@@ -20,7 +20,7 @@
 }
 
 .splash__image {
-  margin-bottom: 100px;
+  margin-bottom: 150px;
 }
 
 .splash__image > img {
@@ -33,10 +33,20 @@
   margin-top: 30px;
 }
 
-button {
+.splash-btn {
   width: 350px;
   font-size: 24px;
   box-shadow: 5px 5px 13px #363434, -5px -5px 13px #413e3e;
+  height: 50px;
+  padding: 10px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background-color: #3ea175;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .splash-text {
@@ -53,7 +63,7 @@ button {
   left: 85px;
 }
 
-button {
+.splash-btn {
   width: 150px;
   font-size: 17px;
   box-shadow: 5px 5px 13px #363434, -5px -5px 13px #413e3e;
@@ -62,14 +72,5 @@ button {
 
 .splash-text {
   font-size: 20px;
-}
-}
-
-@media only screen and (max-width: 1200px) {
-  .splash__image > img {
-  height: 300px;
-  width: 350px;
-  top: 70px;
-  left: 385px;
 }
 }
