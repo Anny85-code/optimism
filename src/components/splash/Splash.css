@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Neonderthaw&display=swap');
+
+
 .splash-container {
   display: flex;
   flex-direction: column;
@@ -19,4 +23,17 @@
   height: 300px;
   width: 350px;
   box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #967777;
+}
+
+button {
+  width: 350px;
+  font-size: 24px;
+  box-shadow: 5px 5px 13px #363434, -5px -5px 13px #413e3e;
+}
+
+.splash-text {
+  font-family: 'Neonderthaw', sans-serif;
+  font-size: 30px;
+  /* color: #464866; */
+  color: #fff;
 }
