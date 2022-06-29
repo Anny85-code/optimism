@@ -40,15 +40,21 @@ export const postCustomerToApi = (userData) => async (dispatch) => {
   const { token } = localStorage;
   const data = { userData };
 
-  const sendData = axios.post(url, data, {
-    headers: {
-      Authorization: `Basic ${token}`,
-    },
-  });
+  const sentData = axios.post(
+    url,
+    { data },
+    {
+      headers: {
+        Authorization: `Basic ${token}`,
+      },
+    }
+  );
 
-  console.log(token, data, sendData);
+  const sendData = await sentData;
 
-  if (sendData.error || sendData.errors) {
+  console.log('token', token, 'data', data, 'sendData', sendData);
+
+  if (sendData.error || sendData.errors || sendData.rejected) {
     const errorMsg = sendData.error || sendData.errors;
     dispatch(sendCustomerDataFailed(errorMsg));
   } else {
