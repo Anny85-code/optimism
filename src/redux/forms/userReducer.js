@@ -1,26 +1,29 @@
-export const registerUserToApi = (userData) => (dispatch) => {
-  fetch('https://optimistic-food.herokuapp.com/api/v1/users', {
-    method: 'POST',
-    headers: {
-      'content-type': 'application/json',
-      // Accept: 'application/json',
+export const registerUserToApi = (userData) => async (dispatch) => {
+  // const auth
+  const regUser = await fetch(
+    'https://optimistic-food.herokuapp.com/api/v1/users',
+    {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        Accept: 'application/json',
+        // Authorization: {},
+      },
+      body: JSON.stringify(userData),
     },
-    body: JSON.stringify({ user: userData }),
-  })
-    .then((resp) => resp.json())
-    .then((data) => {
-      if (data.error || data.errors) {
-        const errorMsg = data.error || data.errors;
-        dispatch({ type: 'SIGNUP_FAILED', errorMsg });
-      } else {
-        localStorage.setItem('user', JSON.stringify(data));
-        localStorage.setItem('token', data.token);
-        localStorage.setItem('isLoggedIn', true);
-        // window.history.pushState({}, '', '/dashboard');
-        // window.location.reload();
-        dispatch({ type: 'SIGNUP_SUCCESS', data });
-      }
-    });
+  );
+  const regUserResp = await regUser.json();
+  if (regUserResp.error || regUserResp.errors) {
+    const errorMsg = regUserResp.error || regUserResp.errors;
+    dispatch({ type: 'SIGNUP_FAILED', errorMsg });
+  } else {
+    localStorage.setItem('user', JSON.stringify(regUserResp));
+    localStorage.setItem('token', regUserResp.token);
+    localStorage.setItem('isLoggedIn', true);
+    window.history.pushState({}, '', '/dashboard');
+    // window.location.reload();
+    dispatch({ type: 'SIGNUP_SUCCESS', regUserResp });
+  }
 };
 
 export const logUserToApi = (userData) => async (dispatch) => {
@@ -31,13 +34,11 @@ export const logUserToApi = (userData) => async (dispatch) => {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
-        // Accept: 'application/json',
       },
       body: JSON.stringify({ username, password }),
     },
   );
   const rawData = await sendData.json();
-  console.log(rawData);
   if (rawData.error) {
     const errorMsg = rawData.error;
     dispatch({ type: 'LOGIN_FAILED', errorMsg });

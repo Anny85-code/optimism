@@ -16,7 +16,6 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     dispatch(registerUserToApi(state));
   };
 
