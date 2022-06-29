@@ -1,3 +1,14 @@
+select {
+  width: 500px;
+  height: 30px;
+  outline: none;
+  box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #967777;
+  border-radius: 3px;
+  gap: 20px;
+  cursor: pointer;
+  padding-left: 5px;
+}
+
 @media only screen and (max-width: 978px) {
   .register-form {
     margin-left: 10px;

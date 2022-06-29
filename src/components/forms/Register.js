@@ -20,6 +20,12 @@ const Register = () => {
     dispatch(registerUserToApi(state));
   };
 
+  const [select, setSelect] = useState('PLEASE SELECT ...');
+
+  const handleSelect = (e) => {
+    setSelect(e.target.value);
+  };
+
   return (
     <div className="form-container">
       <div className="form-group">
@@ -139,15 +145,18 @@ const Register = () => {
               <div>
                 <label htmlFor="role" className="form-label">
                   Position
-                  <input
-                    type="text"
-                    placeholder="Position"
-                    onChange={onchange}
-                    id="role"
+                  <select
                     name="role"
-                    className="form-control"
-                    autoComplete="off"
-                  />
+                    id="role"
+                    value={select}
+                    onChange={handleSelect}
+                  >
+                    <option defaultValue="PLEASE SELECT ...">
+                      PLEASE SELECT ...
+                    </option>
+                    <option value="Admin">ADMIN</option>
+                    <option value="Marketer">MARKETER</option>
+                  </select>
                 </label>
               </div>
               <br />
