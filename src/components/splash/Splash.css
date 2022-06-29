@@ -19,7 +19,7 @@
 }
 
 .splash__image {
-  margin-bottom: 150px;
+  margin-bottom: 100px;
 }
 
 .splash__image > img {
@@ -27,7 +27,7 @@
   width: 350px;
   box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #967777;
   position: absolute;
-  top: 70px;
+  top: 60px;
   left: 585px;
   margin-top: 30px;
 }
@@ -51,6 +51,7 @@
   font-family: 'Neonderthaw', sans-serif;
   font-size: 30px;
   color: #fff;
+  margin-top: 30px;
 }
 
 @media only screen and (max-width: 768px) {
