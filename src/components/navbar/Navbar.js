@@ -1,5 +1,5 @@
 import './Navbar.css';
-import food4allmini from '../../assets/image/food4allmini.jpeg';
+import food4allmini from '../../assets/image/foodforall.jpeg';
 /* eslint-disable */
 const Navbar = ({ sideBarOpen, openSideBar }) => (
   <nav className="navbar">
