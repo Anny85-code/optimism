@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { postCustomerToApi } from '../../redux/forms/customerReducer';
 import './AddCostumer.css';
 
 const AddCustomer = () => {
@@ -24,35 +25,7 @@ const AddCustomer = () => {
     };
     console.log(customer);
     setIsPending(true);
-    const url = 'https://optimistic-food.herokuapp.com/api/v1/customers';
-    const fetchData = await fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        // Accept: 'application/json',
-        Authorization: localStorage.token,
-        // 'Access-Control-Allow-Origin': '*',
-      },
-      // Auth: { bearer: localStorage.token },
-      body: JSON.stringify(customer),
-    });
-    const fetchDataResponse = await fetchData.json();
-    console.log(fetchDataResponse);
-    // const newCustomerResp = newCustomer.json();
-    // console.log(newCustomerResp);
-    // .then((resp) => resp.json())
-    // .then(() => console.log('New Costumer added'))
-    // .then((data) => {
-    //   if (data.error || data.errors) {
-    //     const errorMsg = data.error || data.errors;
-    //     dispatch({ type: 'CUSTOMER_FAILED', errorMsg });
-    //   } else {
-    //     window.history.pushState({}, '', '/dashboard');
-    //     window.location.reload();
-    //   }
-    // });
-    // const response = addCostumer.json();
-    // console.log(response);
+    postCustomerToApi(customer);
     setIsPending(false);
   };
 

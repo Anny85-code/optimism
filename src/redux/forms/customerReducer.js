@@ -1,12 +1,10 @@
 import axios from 'axios';
 
-const POST_CUSTOMER = 'src/redux/customerreducer/post_customer'.toUpperCase();
-const FAILED_POST_CUSTOMER =
-  'src/redux/customerreducer/failed_post_customer'.toUpperCase();
+// const POST_CUSTOMER = 'src/redux/customerreducer/post_customer'.toUpperCase();
+const FAILED_POST_CUSTOMER = 'src/redux/customerreducer/failed_post_customer'.toUpperCase();
 const GET_CUSTOMER = 'src/redux/customerreducer/get_customer'.toUpperCase();
-const FAILED_GET_CUSTOMER =
-  'src/redux/customerreducer/failed_get_customer'.toUpperCase();
-  const GET_CUSTOMERS_REQUEST = 'src/redux/customerreducer/get_customer_request'.toUpperCase();
+const FAILED_GET_CUSTOMER = 'src/redux/customerreducer/failed_get_customer'.toUpperCase();
+const GET_CUSTOMERS_REQUEST = 'src/redux/customerreducer/get_customer_request'.toUpperCase();
 const url = 'https://optimistic-food.herokuapp.com/api/v1/customers';
 
 // const sendCustomerData = (payload) => ({
@@ -16,27 +14,27 @@ const url = 'https://optimistic-food.herokuapp.com/api/v1/customers';
 
 const sendCustomerDataFailed = (payload) => ({
   type: FAILED_POST_CUSTOMER,
-  payload
-})
+  payload,
+});
 
 const fetchCustomersData = (payload) => ({
   type: GET_CUSTOMER,
-  payload
-})
+  payload,
+});
 
 const fetchCustomersDataFailed = (payload) => ({
   type: FAILED_GET_CUSTOMER,
-  payload
-})
+  payload,
+});
 
-const fetchCarsRequest = () => ({
+const fetchCustomerRequest = () => ({
   type: GET_CUSTOMERS_REQUEST,
   loading: true,
   error: null,
 });
 
 export const postCustomerToApi = (userData) => async (dispatch) => {
-  const token = localStorage.token;
+  const { token } = localStorage;
   const data = { userData };
 
   const sendData = axios.post(url, data, {
@@ -56,21 +54,24 @@ export const postCustomerToApi = (userData) => async (dispatch) => {
   }
 };
 
-export const getCustomerFromApi = () => (dispatch) => {
-  dispatch(fetchCarsRequest());
+export const getCustomerFromApi = () => async (dispatch) => {
+  dispatch(fetchCustomerRequest());
   try {
-    const response = await axios.get(`${BASE_URL}/cars`);
+    const response = await axios.get(url);
     dispatch(fetchCustomersData(response.data));
   } catch (error) {
     dispatch(fetchCustomersDataFailed(error.message));
   }
 };
 
-const customerReducer = (state = {
-  data: [],
-  loading: false,
-  error: null,
-}, action) => {
+const customerReducer = (
+  state = {
+    data: [],
+    loading: false,
+    error: null,
+  },
+  action,
+) => {
   switch (action.type) {
     case GET_CUSTOMER:
       return {
@@ -91,7 +92,6 @@ const customerReducer = (state = {
         loading: true,
         error: null,
       };
-    case FAILED_GET_CUSTOMER:
     case FAILED_POST_CUSTOMER:
       return { error: action.errorMsg };
     default:
