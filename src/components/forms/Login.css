@@ -5,7 +5,7 @@
   color: #fff;
 }
 
-.splash-container {
+.login-container {
   align-items: center;
   align-content: center;
 }
@@ -33,7 +33,7 @@
   .login-form {
     display: flex;
     flex-direction: column;
-    margin-left: 30px;
+    margin-left: 25px;
   }
 
   .btn {

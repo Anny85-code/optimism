@@ -21,7 +21,7 @@ const Login = () => {
   };
 
   return (
-    <div className="splash-container">
+    <div className="splash-container login-container">
       <div className="row">
         <div className="column mt-5">
           <div className="d-flex justify-content-center align-items-center flex-column shadow-lg rounded w-50 mx-auto p-5">
