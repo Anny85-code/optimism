@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import AddCustomer from './components/addCostumer/AddCostumer';
+import Login from './components/forms/Login';
 import Register from './components/forms/Register';
 // import Error from './components/Error';
 import Main from './components/main/Main';
@@ -95,7 +96,10 @@ const App = () => {
           <Sidebar sidebarOpen={sideBarOpen} closeSideBar={closeSideBar} />
         </div>
       ) : (
-        <Splash />
+        <Routes>
+          <Route path="/" element={<Splash />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
       )}
     </div>
   );
