@@ -1,0 +1,38 @@
+.text-center {
+  text-align: center;
+  font-family: 'Gumela', sans-serif;
+  font-size: 20px;
+  color: #fff;
+}
+
+.splash-container {
+  align-items: center;
+  align-content: center;
+}
+
+@media only screen and (max-width: 978px) {
+
+  *{
+    padding: 1px;
+    margin: 1px;
+  }
+
+  input {
+    width: 150px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+  }
+
+  .btn {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn-secondary {
+    margin-left: -3px;
+  }
+}

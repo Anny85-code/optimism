@@ -20,7 +20,7 @@
 }
 
 .splash__image {
-  margin-bottom: 30px;
+  margin-bottom: 100px;
 }
 
 .splash__image > img {
@@ -30,6 +30,7 @@
   position: absolute;
   top: 70px;
   left: 585px;
+  margin-top: 30px;
 }
 
 button {
