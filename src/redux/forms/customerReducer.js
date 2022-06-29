@@ -40,7 +40,7 @@ export const postCustomerToApi = (userData) => async (dispatch) => {
   const { token } = localStorage;
   const data = { userData };
 
-  const sentData = axios.post(
+  const sendData = axios.post(
     url,
     { data },
     {
@@ -49,8 +49,6 @@ export const postCustomerToApi = (userData) => async (dispatch) => {
       },
     }
   );
-
-  const sendData = await sentData;
 
   console.log('token', token, 'data', data, 'sendData', sendData);
 
