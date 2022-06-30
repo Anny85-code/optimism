@@ -1,5 +1,3 @@
-// import React from 'react';
-// import React, { useState, useEffect } from 'react';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCustomerFromApi } from '../../redux/forms/customerReducer';
@@ -17,6 +15,7 @@ const Customers = () => {
       {allCustomers.data.map((customer) => (
         <div key={customer.id}>
           <h3>{customer.name}</h3>
+          <p>{customer.phone}</p>
         </div>
       ))}
     </div>
