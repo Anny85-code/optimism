@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // import { NavLink, useParams } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import { getOneCustomerFromApi } from '../../redux/forms/customerReducer';
+import { postUpdateCustomerToApi } from '../../redux/forms/customerReducer';
+import { getOneCustomerFromApi } from '../../redux/forms/oneCustomerReducer';
 import '../addCostumer/AddCostumer.css';
 
 const EditCustomer = () => {
   const param = useParams();
+  const dispatch = useDispatch();
   const { id } = param;
   const aCustomers = useSelector((state) => state.oneCustomer);
 
@@ -14,13 +16,12 @@ const EditCustomer = () => {
     dispatch(getOneCustomerFromApi(id));
   }, []);
 
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [address, setAddress] = useState('');
-  const [picture, setPicture] = useState('');
+  const [name, setName] = useState(aCustomers.data.name);
+  const [email, setEmail] = useState(aCustomers.data.email);
+  const [phone, setPhone] = useState(aCustomers.data.phone);
+  const [address, setAddress] = useState(aCustomers.data.address);
+  const [picture, setPicture] = useState(aCustomers.data.picture);
   const [isPending, setIsPending] = useState(false);
-  const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
