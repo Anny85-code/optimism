@@ -1,3 +1,18 @@
+.register-form {
+  margin-top: 10px;
+}
+
+.form2 {
+  margin-bottom: 10px;
+}
+
+.form1 {
+  margin-top: 5px;
+  margin-bottom: -30px;
+  padding-bottom: 10px;
+  gap: 15px;
+}
+
 select {
   width: 500px;
   height: 30px;
@@ -7,6 +22,21 @@ select {
   gap: 20px;
   cursor: pointer;
   padding-left: 5px;
+}
+
+.add-marketer-btn {
+  width: 200px;
+  height: 50px;
+  padding: 10px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background-color: #3ea175;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #d86565;
 }
 
 @media only screen and (max-width: 978px) {

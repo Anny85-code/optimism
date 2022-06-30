@@ -16,7 +16,7 @@ const Splash = () => (
       </div>
     </div>
     <h2 className="splash-text">..Never2Late</h2>
-    <div className="login btn">
+    <div className="login btn1">
       <button type="button" className="splash-btn">
         <NavLink to="/login" style={{ textDecoration: 'none' }}>
           Login

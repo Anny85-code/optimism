@@ -9,6 +9,7 @@ import Main from './components/main/Main';
 import Navbar from './components/navbar/Navbar';
 import Sidebar from './components/sidebar/Sidebar';
 import Splash from './components/splash/Splash';
+import AddItems from './components/items/AddItems';
 
 // const App = () => {
 // const [sideBarOpen, setSideBarOpen] = useState(false);
@@ -94,6 +95,7 @@ const App = () => {
             <Route path="/register" element={<Register />} />
             <Route path="/addcostumer" element={<AddCustomer />} />
             <Route path="/custumers" element={<Customers />} />
+            <Route path="/additems" element={<AddItems />} />
           </Routes>
           <Sidebar sidebarOpen={sideBarOpen} closeSideBar={closeSideBar} />
         </div>

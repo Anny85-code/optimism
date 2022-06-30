@@ -107,8 +107,13 @@ const AddCustomer = () => {
             />
           </label>
         </div>
-        <div className="form-group btn">
-          {!isPending && <button type="submit">Add Customer</button>}
+        <div className="form-group-btn">
+          <button type="submit" className="add-item-btn">
+            Add Item
+          </button>
+        </div>
+        <div className="form-group btn1">
+          {!isPending && <button type="submit" className="add-customer-btn">Add Customer</button>}
           {isPending && (
             <button type="submit" disabled>
               Adding Customer . . .

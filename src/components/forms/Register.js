@@ -27,8 +27,8 @@ const Register = () => {
   };
 
   return (
-    <div className="form-container">
-      <div className="form-group">
+    <div className="form-container form1">
+      <div className="form-group form2">
         <div className="column mt-5">
           <div className="d-flex justify-content-center align-items-center flex-column shadow-lg rounded w-50 mx-auto p-5">
             <h3 className="title">Register A Marketer</h3>
@@ -154,8 +154,8 @@ const Register = () => {
                     <option defaultValue="PLEASE SELECT ...">
                       PLEASE SELECT ...
                     </option>
-                    <option value="Admin">ADMIN</option>
-                    <option value="Marketer">MARKETER</option>
+                    <option value="Admin">Admin</option>
+                    <option value="Marketer">Marketer</option>
                   </select>
                 </label>
               </div>
@@ -206,10 +206,10 @@ const Register = () => {
                 </label>
               </div>
               <br />
-              <div className="form-group btn">
+              <div className="form-group btn1">
                 <button
                   type="submit"
-                  className="btn btn-secondary"
+                  className="btn1 btn-secondary1 add-marketer-btn"
                   onClick={handleSubmit}
                 >
                   Register

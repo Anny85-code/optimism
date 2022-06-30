@@ -57,6 +57,10 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
           <NavLink to="/addcostumer">Customer Management</NavLink>
         </div>
         <div className="sidebar__link">
+          <i className="fa fa-wrench" />
+          <NavLink to="/additems">Product Management</NavLink>
+        </div>
+        <div className="sidebar__link">
           <i className="fa fa-archive" />
           <a href="#">Seasons</a>
         </div>
