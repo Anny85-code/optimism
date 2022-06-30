@@ -6,15 +6,15 @@ import styles from './Customer.module.css';
 
 const Customer = () => {
   const dispatch = useDispatch();
-  const allCustomers = useSelector((state) => state.customer);
+  const aCustomers = useSelector((state) => state.oneCustomer);
 
   useEffect(() => {
-    dispatch(getCustomerFromApi());
+    dispatch(getOneCustomerFromApi());
   }, []);
 
   return (
     <div>
-      {allCustomers.data.map((customer) => (
+      {aCustomers.data.map((customer) => (
         <NavLink key={customer.id} to={`/customers/${customer.id}`}>
           <div className={styles.containa}>
             <h3>{customer.name}</h3>

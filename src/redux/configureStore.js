@@ -8,7 +8,7 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import userReducer from './forms/userReducer';
 import customerReducer from './forms/customerReducer';
-import oneCustomerReducer from './forms/OneCustomerReducer';
+import oneCustomerReducer from './forms/oneCustomerReducer';
 
 const rootReducer = combineReducers({
   user: userReducer,
