@@ -9,6 +9,7 @@ const Customer = () => {
   const param = useParams();
   const { id } = param;
   const aCustomers = useSelector((state) => state.oneCustomer);
+  console.log(id, aCustomers);
 
   useEffect(() => {
     dispatch(getOneCustomerFromApi(id));

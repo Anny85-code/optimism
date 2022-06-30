@@ -11,11 +11,6 @@ const GET_CUSTOMERS_REQUEST =
 const url = 'https://optimistic-food.herokuapp.com/api/v1/customers';
 const { token } = localStorage;
 
-const getOneCustomerData = (id) => ({
-  type: GET_CUSTOMER,
-  id,
-});
-
 const sendCustomerDataFailed = (payload) => ({
   type: FAILED_POST_CUSTOMER,
   payload,
@@ -54,20 +49,6 @@ export const postCustomerToApi = (userData) => async (dispatch) => {
 };
 
 export const getCustomerFromApi = () => async (dispatch) => {
-  dispatch(fetchCustomerRequest());
-  try {
-    const response = await axios.get(url, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-
-    dispatch(fetchCustomersData(response.data));
-  } catch (error) {
-    dispatch(fetchCustomersDataFailed(error.message));
-  }
-};
-export const getOneCustomerFromApi = (id) => async (dispatch) => {
   dispatch(fetchCustomerRequest());
   try {
     const response = await axios.get(url, {
