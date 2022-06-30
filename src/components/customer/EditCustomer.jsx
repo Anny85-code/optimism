@@ -39,7 +39,6 @@ const EditCustomer = () => {
     };
     setIsPending(true);
     dispatch(postUpdateCustomerToApi(customer));
-    console.log({ customer });
     setIsPending(false);
   };
 
