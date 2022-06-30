@@ -18,6 +18,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(logUserToApi(state));
+    window.history.pushState({}, '', '/');
   };
 
   return (
@@ -80,7 +81,6 @@ const Login = () => {
                   Log in
                 </button>
               </div>
-
             </form>
           </div>
         </div>
