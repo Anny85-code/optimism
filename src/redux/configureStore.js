@@ -8,10 +8,12 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import userReducer from './forms/userReducer';
 import customerReducer from './forms/customerReducer';
+import oneCustomerReducer from './forms/OneCustomerReducer';
 
 const rootReducer = combineReducers({
   user: userReducer,
   customer: customerReducer,
+  oneCustomer: oneCustomerReducer,
 });
 
 const store = createStore(rootReducer, compose(applyMiddleware(logger, thunk)));
