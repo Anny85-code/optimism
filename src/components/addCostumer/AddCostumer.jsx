@@ -33,7 +33,7 @@ const AddCustomer = () => {
   return (
     <div className="form-container">
       <h3 className="title">Add Customer</h3>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="add-customer-form">
         <div className="form-group">
           <label htmlFor="name">
             Name *

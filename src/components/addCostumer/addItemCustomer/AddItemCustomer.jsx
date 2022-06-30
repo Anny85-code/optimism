@@ -7,41 +7,51 @@ const AddItemCustomer = () => {
   const allItemsCostumer = useSelector((state) => state.item);
   const dispatch = useDispatch();
 
-  // const [checked, setChecked] = useState(false);
+  const [checkedState, setCheckedState] = useState(
+    new Array(allItemsCostumer.length).fill(false),
+  );
 
-  // const handleCheckbox = () => {
-  //   setChecked(!checked);
-  // };
+  const [total, setTotal] = useState(0);
+
+  const handleOnChange = (position) => {
+    /*eslint-disable*/
+  const updatedCheckedState = checkedState.map((item, index) => (index === position ? !item : item));
+   /* eslint-enable */
+    setCheckedState(updatedCheckedState);
+  };
+   const totalPrice = updatedCheckedState.reduce(
+      (sum, currentState, index) => {
+        if (currentState === true) {
+          return sum + toppings[index].price;
+        }
+        return sum;
+      },
+      0
+    );
+
+    setTotal(totalPrice);
+  };
 
   useEffect(() => {
     dispatch(getItemFromApi());
   }, []);
 
-  // const onChangeAttribute = (value) => {
-  //   console.log(value);
-  //   setChecked(value);
-  // };
-  // const option = allItemsCostumer.data.map((item) => [
-  //   {
-  //     label: item.name,
-  //     value: item.name,
-  //   },
-  // ]);
-
-  // setIsPending(false);
   return (
-    <div className="form-container-items-costumer">
-      {allItemsCostumer.data.map((item) => (
-        <div key={item.id}>
+    <div className="items-costumer">
+      {allItemsCostumer.data.map((item, index) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <div key={index} className="checkbox-container">
           <h3 className="item-costumer-name">{item.name}</h3>
           <h3>
-            <label htmlFor="item">
+            <label htmlFor={index} className="checkbox-label">
               <input
+                className="checkbox-input"
                 type="checkbox"
-                name="item"
-                id={item.name}
-                checked={checked}
-                onChange={handleCheckbox}
+                name={item.name}
+                value={item.name}
+                id={index}
+                checked={checkedState[index]}
+                onChange={() => handleOnChange(index)}
               />
             </label>
           </h3>

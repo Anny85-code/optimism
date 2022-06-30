@@ -1,0 +1,40 @@
+.items-costumer {
+  height: 80%;
+  width: 800px;
+  gap: 20px;
+  font-family: 'Gumela', sans-serif;
+  margin: 20px;
+  box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #967777;
+  border-radius: 8px;
+}
+
+.checkbox-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
+  border-bottom: 1px solid #000;
+}
+
+.checkbox-input {
+  width: 20px;
+  height: 20px;
+  outline: none;
+  box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #967777;
+  border-radius: 3px;
+  gap: 20px;
+  cursor: pointer;
+  padding-left: 5px;
+}
+
+.item-costumer-name {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 978px) {
+  .items-costumer {
+    width: 300px;
+  }
+}
