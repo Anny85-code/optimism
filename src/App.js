@@ -90,7 +90,7 @@ const App = () => {
         <div className="container">
           <Navbar sideBarOpen={sideBarOpen} openSideBar={openSideBar} />
           <Routes>
-            <Route exact path="/dashboard" element={<Main />} />
+            <Route exact path="/" element={<Main />} />
             <Route path="/register" element={<Register />} />
             <Route path="/addcostumer" element={<AddCustomer />} />
             <Route path="/custumers" element={<Customers />} />

@@ -50,7 +50,7 @@ export const postCustomerToApi = (userData) => async (dispatch) => {
     const errorMsg = sendData.error || sendData.errors;
     dispatch(sendCustomerDataFailed(errorMsg));
   } else {
-    window.history.pushState({}, '', '/dashboard');
+    window.history.pushState({}, '', '/');
     // window.location.reload();
   }
 };

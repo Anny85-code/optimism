@@ -10,7 +10,7 @@ export const registerUserToApi = (userData) => async (dispatch) => {
         // Authorization: {},
       },
       body: JSON.stringify(userData),
-    },
+    }
   );
   const regUserResp = await regUser.json();
   if (regUserResp.error || regUserResp.errors) {
@@ -20,7 +20,7 @@ export const registerUserToApi = (userData) => async (dispatch) => {
     localStorage.setItem('user', JSON.stringify(regUserResp));
     localStorage.setItem('token', regUserResp.token);
     localStorage.setItem('isLoggedIn', true);
-    window.history.pushState({}, '', '/dashboard');
+    window.history.pushState({}, '', '/');
     // window.location.reload();
     dispatch({ type: 'SIGNUP_SUCCESS', regUserResp });
   }
@@ -36,7 +36,7 @@ export const logUserToApi = (userData) => async (dispatch) => {
         'content-type': 'application/json',
       },
       body: JSON.stringify({ username, password }),
-    },
+    }
   );
   const rawData = await sendData.json();
   if (rawData.error) {
@@ -46,7 +46,7 @@ export const logUserToApi = (userData) => async (dispatch) => {
     localStorage.setItem('user', JSON.stringify(rawData));
     localStorage.setItem('token', rawData.token);
     localStorage.setItem('isLoggedIn', true);
-    // window.history.pushState({}, '', '/dashboard');
+    // window.history.pushState({}, '', '/');
     window.location.reload();
     dispatch({ type: 'LOGIN_SUCCESS', rawData });
   }
@@ -54,7 +54,7 @@ export const logUserToApi = (userData) => async (dispatch) => {
 
 const userReducer = (
   state = { user: null, isLoggedIn: false, error: null },
-  action,
+  action
 ) => {
   switch (action.type) {
     case 'SIGNUP_SUCCESS':
