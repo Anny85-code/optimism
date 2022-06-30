@@ -61,8 +61,8 @@ export const getCustomerFromApi = () => async (dispatch) => {
         Authorization: `Bearer ${token}`,
       },
     });
-    console.log('res', response, 'data', response.data, 'token', token);
-    // dispatch(fetchCustomersData(response.data));
+
+    dispatch(fetchCustomersData(response.data));
   } catch (error) {
     dispatch(fetchCustomersDataFailed(error.message));
   }

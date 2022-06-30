@@ -14,9 +14,11 @@ const Customers = () => {
 
   return (
     <div>
-      {allCustomers.map((customer) => {
-        <div key={customer.id}>{customer.name}</div>;
-      })}
+      {allCustomers.data.map((customer) => (
+        <div key={customer.id}>
+          <h3>{customer.name}</h3>
+        </div>
+      ))}
     </div>
   );
 };
