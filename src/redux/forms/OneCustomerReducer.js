@@ -9,9 +9,9 @@ const GET_ONE_CUSTOMERS_REQUEST =
 const url = 'https://optimistic-food.herokuapp.com/api/v1/customers';
 const { token } = localStorage;
 
-const fetchOneCustomersData = (id) => ({
+const fetchOneCustomerData = (payload) => ({
   type: GET_ONE_CUSTOMER,
-  id,
+  payload,
 });
 
 const fetchOneCustomersDataFailed = (payload) => ({
@@ -33,8 +33,7 @@ export const getOneCustomerFromApi = (id) => async (dispatch) => {
         Authorization: `Bearer ${token}`,
       },
     });
-
-    dispatch(fetchOneCustomersData(response.data));
+    dispatch(fetchOneCustomerData(response.data));
   } catch (error) {
     dispatch(fetchOneCustomersDataFailed(error.message));
   }

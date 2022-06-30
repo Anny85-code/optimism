@@ -9,22 +9,28 @@ const Customer = () => {
   const param = useParams();
   const { id } = param;
   const aCustomers = useSelector((state) => state.oneCustomer);
-  console.log(id, aCustomers);
 
   useEffect(() => {
     dispatch(getOneCustomerFromApi(id));
   }, []);
 
+  console.log(aCustomers.data);
   return (
     <div>
-      {aCustomers.data.map((customer) => (
+      {/* {aCustomers.data.map((customer) => (
         <NavLink key={customer.id} to={`/customers/${customer.id}`}>
           <div className={styles.containa}>
-            <h3>{customer.name}</h3>
-            <p>{customer.phone}</p>
+            <h3>Name: {customer.name}</h3>
+            <p>Phone: {customer.phone}</p>
+            <p>Email: {customer.email}</p>
+            <p>Address: {customer.address}</p>
+            <p>Joined: {customer.created_at}</p>
+            <p>Last Updated: {customer.updated_at}</p>
+            <img src={customer.picture} alt={`${customer.name} photo`} />
           </div>
         </NavLink>
-      ))}
+      ))} */}
+      aCustomer
     </div>
   );
 };
