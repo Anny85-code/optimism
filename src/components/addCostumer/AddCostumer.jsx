@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { postCustomerToApi } from '../../redux/forms/customerReducer';
 import './AddCostumer.css';
 
@@ -109,11 +110,17 @@ const AddCustomer = () => {
         </div>
         <div className="form-group-btn">
           <button type="submit" className="add-item-btn">
-            Add Item
+            <NavLink to="/additemcustomer" style={{ textDecoration: 'none' }}>
+              Add Item
+            </NavLink>
           </button>
         </div>
         <div className="form-group btn1">
-          {!isPending && <button type="submit" className="add-customer-btn">Add Customer</button>}
+          {!isPending && (
+            <button type="submit" className="add-customer-btn">
+              Add Customer
+            </button>
+          )}
           {isPending && (
             <button type="submit" disabled>
               Adding Customer . . .
