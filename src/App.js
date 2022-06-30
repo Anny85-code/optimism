@@ -93,7 +93,7 @@ const App = () => {
             <Route exact path="/" element={<Main />} />
             <Route path="/register" element={<Register />} />
             <Route path="/addcostumer" element={<AddCustomer />} />
-            <Route path="/custumers" element={<Customers />} />
+            <Route path="/customers" element={<Customers />} />
           </Routes>
           <Sidebar sidebarOpen={sideBarOpen} closeSideBar={closeSideBar} />
         </div>
