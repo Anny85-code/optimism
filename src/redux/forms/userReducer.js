@@ -10,7 +10,7 @@ export const registerUserToApi = (userData) => async (dispatch) => {
         // Authorization: {},
       },
       body: JSON.stringify(userData),
-    }
+    },
   );
   const regUserResp = await regUser.json();
   if (regUserResp.error || regUserResp.errors) {
@@ -36,7 +36,7 @@ export const logUserToApi = (userData) => async (dispatch) => {
         'content-type': 'application/json',
       },
       body: JSON.stringify({ username, password }),
-    }
+    },
   );
   const rawData = await sendData.json();
   if (rawData.error) {
@@ -54,7 +54,7 @@ export const logUserToApi = (userData) => async (dispatch) => {
 
 const userReducer = (
   state = { user: null, isLoggedIn: false, error: null },
-  action
+  action,
 ) => {
   switch (action.type) {
     case 'SIGNUP_SUCCESS':

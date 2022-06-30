@@ -1,13 +1,10 @@
 import axios from 'axios';
 
 // const POST_CUSTOMER = 'src/redux/customerreducer/post_customer'.toUpperCase();
-const FAILED_POST_CUSTOMER =
-  'src/redux/customerreducer/failed_post_customer'.toUpperCase();
+const FAILED_POST_CUSTOMER = 'src/redux/customerreducer/failed_post_customer'.toUpperCase();
 const GET_CUSTOMER = 'src/redux/customerreducer/get_customer'.toUpperCase();
-const FAILED_GET_CUSTOMER =
-  'src/redux/customerreducer/failed_get_customer'.toUpperCase();
-const GET_CUSTOMERS_REQUEST =
-  'src/redux/customerreducer/get_customer_request'.toUpperCase();
+const FAILED_GET_CUSTOMER = 'src/redux/customerreducer/failed_get_customer'.toUpperCase();
+const GET_CUSTOMERS_REQUEST = 'src/redux/customerreducer/get_customer_request'.toUpperCase();
 const url = 'https://optimistic-food.herokuapp.com/api/v1/customers';
 const { token } = localStorage;
 
@@ -74,7 +71,7 @@ const customerReducer = (
     loading: false,
     error: null,
   },
-  action
+  action,
 ) => {
   switch (action.type) {
     case GET_CUSTOMER:
