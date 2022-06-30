@@ -16,6 +16,7 @@ const EditCustomer = () => {
     dispatch(getOneCustomerFromApi(id));
   }, []);
 
+  const customerId = aCustomers.data.id;
   const [name, setName] = useState(aCustomers.data.name);
   const [email, setEmail] = useState(aCustomers.data.email);
   const [phone, setPhone] = useState(aCustomers.data.phone);
@@ -28,6 +29,7 @@ const EditCustomer = () => {
     const user = JSON.parse(localStorage.getItem('user'));
     const { id } = user.user;
     const customer = {
+      id: customerId,
       user_id: id,
       name,
       email,
@@ -37,6 +39,7 @@ const EditCustomer = () => {
     };
     setIsPending(true);
     dispatch(postUpdateCustomerToApi(customer));
+    console.log({ customer });
     setIsPending(false);
   };
 
