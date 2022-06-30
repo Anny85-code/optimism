@@ -11,6 +11,7 @@ import Navbar from './components/navbar/Navbar';
 import Sidebar from './components/sidebar/Sidebar';
 import Splash from './components/splash/Splash';
 import Marketers from './components/marketer/Marketers';
+import EditCustomer from './components/customer/EditCustomer';
 
 // const App = () => {
 // const [sideBarOpen, setSideBarOpen] = useState(false);
@@ -95,6 +96,7 @@ const App = () => {
             <Route exact path="/" element={<Main />} />
             <Route path="/register" element={<Register />} />
             <Route path="/addcostumer" element={<AddCustomer />} />
+            <Route path="/customers/:id/edit" element={<EditCustomer />} />
             <Route path="/customers/:id" element={<Customer />} />
             <Route path="/customers" element={<Customers />} />
             <Route path="/marketers" element={<Marketers />} />
