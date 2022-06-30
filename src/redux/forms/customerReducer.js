@@ -1,11 +1,15 @@
 import axios from 'axios';
 
 // const POST_CUSTOMER = 'src/redux/customerreducer/post_customer'.toUpperCase();
-const FAILED_POST_CUSTOMER = 'src/redux/customerreducer/failed_post_customer'.toUpperCase();
-const FAILED_PATCH_CUSTOMER = 'src/redux/customerreducer/failed_patch_customer'.toUpperCase();
+const FAILED_POST_CUSTOMER =
+  'src/redux/customerreducer/failed_post_customer'.toUpperCase();
+const FAILED_PATCH_CUSTOMER =
+  'src/redux/customerreducer/failed_patch_customer'.toUpperCase();
 const GET_CUSTOMER = 'src/redux/customerreducer/get_customer'.toUpperCase();
-const FAILED_GET_CUSTOMER = 'src/redux/customerreducer/failed_get_customer'.toUpperCase();
-const GET_CUSTOMERS_REQUEST = 'src/redux/customerreducer/get_customer_request'.toUpperCase();
+const FAILED_GET_CUSTOMER =
+  'src/redux/customerreducer/failed_get_customer'.toUpperCase();
+const GET_CUSTOMERS_REQUEST =
+  'src/redux/customerreducer/get_customer_request'.toUpperCase();
 const url = 'https://optimistic-food.herokuapp.com/api/v1/customers';
 const { token } = localStorage;
 
@@ -36,6 +40,7 @@ const fetchCustomerRequest = () => ({
 });
 
 export const postCustomerToApi = (userData) => async (dispatch) => {
+  const { id } = userData;
   const sendData = axios.post(url, userData, {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -46,7 +51,7 @@ export const postCustomerToApi = (userData) => async (dispatch) => {
     const errorMsg = sendData.error || sendData.errors;
     dispatch(sendCustomerDataFailed(errorMsg));
   } else {
-    window.history.pushState({}, '', '/');
+    window.history.pushState({}, '', `/customers/${id}`);
     // window.location.reload();
   }
 };
@@ -88,7 +93,7 @@ const customerReducer = (
     loading: false,
     error: null,
   },
-  action,
+  action
 ) => {
   switch (action.type) {
     case GET_CUSTOMER:
