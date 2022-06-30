@@ -9,6 +9,7 @@ const FAILED_GET_CUSTOMER =
 const GET_CUSTOMERS_REQUEST =
   'src/redux/customerreducer/get_customer_request'.toUpperCase();
 const url = 'https://optimistic-food.herokuapp.com/api/v1/customers';
+const { token } = localStorage;
 
 // const sendCustomerData = (payload) => ({
 //   type: POST_CUSTOMER,
@@ -37,9 +38,6 @@ const fetchCustomerRequest = () => ({
 });
 
 export const postCustomerToApi = (userData) => async (dispatch) => {
-  const { token } = localStorage;
-  // const data = { userData };
-
   const sendData = axios.post(url, userData, {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -58,9 +56,13 @@ export const postCustomerToApi = (userData) => async (dispatch) => {
 export const getCustomerFromApi = () => async (dispatch) => {
   dispatch(fetchCustomerRequest());
   try {
-    const response = await axios.get(url);
-    console.log(response);
-    dispatch(fetchCustomersData(response.data));
+    const response = await axios.get(url, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    console.log('res', response, 'data', response.data, 'token', token);
+    // dispatch(fetchCustomersData(response.data));
   } catch (error) {
     dispatch(fetchCustomersDataFailed(error.message));
   }
