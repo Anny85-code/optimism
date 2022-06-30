@@ -11,6 +11,11 @@ const AddItemCustomer = () => {
     new Array(allItemsCostumer.length).fill(false),
   );
 
+  const getFormattedPrice = (price) => new Intl.NumberFormat('en-IN', {
+    style: 'currency',
+    currency: 'NGN',
+  }).format(price);
+
   const [total, setTotal] = useState(0);
 
   const handleOnChange = (position) => {
@@ -18,15 +23,14 @@ const AddItemCustomer = () => {
   const updatedCheckedState = checkedState.map((item, index) => (index === position ? !item : item));
    /* eslint-enable */
     setCheckedState(updatedCheckedState);
-  };
-   const totalPrice = updatedCheckedState.reduce(
+    const totalPrice = updatedCheckedState.reduce(
       (sum, currentState, index) => {
         if (currentState === true) {
-          return sum + toppings[index].price;
+          return sum + allItemsCostumer[index].price;
         }
         return sum;
       },
-      0
+      0,
     );
 
     setTotal(totalPrice);
@@ -38,17 +42,18 @@ const AddItemCustomer = () => {
 
   return (
     <div className="items-costumer">
-      {allItemsCostumer.data.map((item, index) => (
+      {allItemsCostumer.data.map(({ name, price }, index) => (
         // eslint-disable-next-line react/no-array-index-key
         <div key={index} className="checkbox-container">
-          <h3 className="item-costumer-name">{item.name}</h3>
+          <h3 className="item-costumer-name">{name}</h3>
+          <h3 className="right-section">{getFormattedPrice(price)}</h3>
           <h3>
             <label htmlFor={index} className="checkbox-label">
               <input
                 className="checkbox-input"
                 type="checkbox"
-                name={item.name}
-                value={item.name}
+                name={name}
+                value={name}
                 id={index}
                 checked={checkedState[index]}
                 onChange={() => handleOnChange(index)}
@@ -57,6 +62,10 @@ const AddItemCustomer = () => {
           </h3>
         </div>
       ))}
+      <div className="toppings-list-item">
+        <div className="left-section">Total:</div>
+        <div className="right-section">{getFormattedPrice(total)}</div>
+      </div>
     </div>
   );
 };
