@@ -40,9 +40,7 @@ const fetchCustomerRequest = () => ({
 });
 
 export const postCustomerToApi = (userData) => async (dispatch) => {
-  const { id } = userData;
-  console.log(userData);
-  const sendData = axios.post(url + '/' + id, userData, {
+  const sendData = axios.post(url, userData, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -52,13 +50,14 @@ export const postCustomerToApi = (userData) => async (dispatch) => {
     const errorMsg = sendData.error || sendData.errors;
     dispatch(sendCustomerDataFailed(errorMsg));
   } else {
-    window.history.pushState({}, '', `/customers/${id}`);
+    window.history.pushState({}, '', '/');
     // window.location.reload();
   }
 };
 
 export const postUpdateCustomerToApi = (userData) => async (dispatch) => {
-  const sendData = axios.patch(url, userData, {
+  const { id } = userData;
+  const sendData = axios.patch(`${url}/${id}`, userData, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -68,7 +67,7 @@ export const postUpdateCustomerToApi = (userData) => async (dispatch) => {
     const errorMsg = sendData.error || sendData.errors;
     dispatch(patchCustomerDataFailed(errorMsg));
   } else {
-    window.history.pushState({}, '', '/');
+    window.history.pushState({}, '', `/customers/${id}`);
     // window.location.reload();
   }
 };
