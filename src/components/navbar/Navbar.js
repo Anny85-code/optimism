@@ -11,10 +11,12 @@ const Navbar = ({ sideBarOpen, openSideBar }) => (
 
     <div className="navbar__left">
       <NavLink to="/customers">Customers</NavLink>
-      <a href="#">Marketers</a>
-      <a className="active_link" href="#">
+      <NavLink to="/marketers">Marketers</NavLink>
+      {/* <a href="#">Marketers</a> */}
+      {/* <a className="active_link" href="#">
         Admin
-      </a>
+      </a> */}
+      <NavLink to="/">Admin</NavLink>
     </div>
 
     <div className="navbar__right">
