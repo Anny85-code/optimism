@@ -25,7 +25,6 @@ const Customer = () => {
     aCustomers.data;
   const redirect = editUrl(aCustomers.data);
 
-  console.log(aCustomers.data);
   return (
     <div>
       <div className={styles.containa}>
