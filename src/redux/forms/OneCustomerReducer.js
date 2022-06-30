@@ -1,88 +1,46 @@
 import axios from 'axios';
 
-// const POST_CUSTOMER = 'src/redux/customerreducer/post_customer'.toUpperCase();
-const FAILED_POST_CUSTOMER =
-  'src/redux/customerreducer/failed_post_customer'.toUpperCase();
-const GET_CUSTOMER = 'src/redux/customerreducer/get_customer'.toUpperCase();
-const FAILED_GET_CUSTOMER =
-  'src/redux/customerreducer/failed_get_customer'.toUpperCase();
-const GET_CUSTOMERS_REQUEST =
-  'src/redux/customerreducer/get_customer_request'.toUpperCase();
+const GET_ONE_CUSTOMER =
+  'src/redux/customerreducer/get_one_customer'.toUpperCase();
+const FAILED_GET_ONE_CUSTOMER =
+  'src/redux/customerreducer/failed_get_one_customer'.toUpperCase();
+const GET_ONE_CUSTOMERS_REQUEST =
+  'src/redux/customerreducer/get_one_customer_request'.toUpperCase();
 const url = 'https://optimistic-food.herokuapp.com/api/v1/customers';
 const { token } = localStorage;
 
-const getOneCustomerData = (id) => ({
-  type: GET_CUSTOMER,
+const fetchOneCustomersData = (id) => ({
+  type: GET_ONE_CUSTOMER,
   id,
 });
 
-const sendCustomerDataFailed = (payload) => ({
-  type: FAILED_POST_CUSTOMER,
+const fetchOneCustomersDataFailed = (payload) => ({
+  type: FAILED_GET_ONE_CUSTOMER,
   payload,
 });
 
-const fetchCustomersData = (payload) => ({
-  type: GET_CUSTOMER,
-  payload,
-});
-
-const fetchCustomersDataFailed = (payload) => ({
-  type: FAILED_GET_CUSTOMER,
-  payload,
-});
-
-const fetchCustomerRequest = () => ({
-  type: GET_CUSTOMERS_REQUEST,
+const fetchOneCustomerRequest = () => ({
+  type: GET_ONE_CUSTOMERS_REQUEST,
   loading: true,
   error: null,
 });
 
-export const postCustomerToApi = (userData) => async (dispatch) => {
-  const sendData = axios.post(url, userData, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
-
-  if (sendData.error || sendData.errors || sendData.rejected) {
-    const errorMsg = sendData.error || sendData.errors;
-    dispatch(sendCustomerDataFailed(errorMsg));
-  } else {
-    window.history.pushState({}, '', '/');
-    // window.location.reload();
-  }
-};
-
-export const getCustomerFromApi = () => async (dispatch) => {
-  dispatch(fetchCustomerRequest());
-  try {
-    const response = await axios.get(url, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-
-    dispatch(fetchCustomersData(response.data));
-  } catch (error) {
-    dispatch(fetchCustomersDataFailed(error.message));
-  }
-};
 export const getOneCustomerFromApi = (id) => async (dispatch) => {
-  dispatch(fetchCustomerRequest());
+  dispatch(fetchOneCustomerRequest());
   try {
-    const response = await axios.get(url, {
+    const response = await axios.get(`${url}/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
 
-    dispatch(fetchCustomersData(response.data));
+    dispatch(fetchOneCustomersData(response.data));
   } catch (error) {
-    dispatch(fetchCustomersDataFailed(error.message));
+    dispatch(fetchOneCustomersDataFailed(error.message));
   }
 };
 
-const customerReducer = (
+const oneCustomerReducer = (
   state = {
     data: [],
     loading: false,
@@ -91,30 +49,28 @@ const customerReducer = (
   action
 ) => {
   switch (action.type) {
-    case GET_CUSTOMER:
+    case GET_ONE_CUSTOMER:
       return {
         ...state,
         data: action.payload,
         loading: false,
         error: null,
       };
-    case FAILED_GET_CUSTOMER:
+    case FAILED_GET_ONE_CUSTOMER:
       return {
         ...state,
         loading: false,
         error: action.error,
       };
-    case GET_CUSTOMERS_REQUEST:
+    case GET_ONE_CUSTOMERS_REQUEST:
       return {
         ...state,
         loading: true,
         error: null,
       };
-    case FAILED_POST_CUSTOMER:
-      return { error: action.errorMsg };
     default:
       return state;
   }
 };
 
-export default customerReducer;
+export default oneCustomerReducer;
