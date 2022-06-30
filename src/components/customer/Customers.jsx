@@ -14,7 +14,9 @@ const Customers = () => {
 
   return (
     <div>
-      <h1>Customers</h1>
+      {allCustomers.map((customer) => {
+        <div key={customer.id}>{customer.name}</div>;
+      })}
     </div>
   );
 };
