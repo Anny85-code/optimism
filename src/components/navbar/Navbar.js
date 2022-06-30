@@ -1,5 +1,7 @@
 import './Navbar.css';
 import food4allmini from '../../assets/image/foodforall.jpeg';
+import { NavLink } from 'react-router-dom';
+
 /* eslint-disable */
 const Navbar = ({ sideBarOpen, openSideBar }) => (
   <nav className="navbar">
@@ -8,7 +10,7 @@ const Navbar = ({ sideBarOpen, openSideBar }) => (
     </div>
 
     <div className="navbar__left">
-      <a href="#">Customers</a>
+      <NavLink to="/customers">Customers</NavLink>
       <a href="#">Marketers</a>
       <a className="active_link" href="#">
         Admin
