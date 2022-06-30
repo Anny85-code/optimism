@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import AddCustomer from './components/addCostumer/AddCostumer';
 import Login from './components/forms/Login';
+import Customer from './components/customer/Customer';
 import Customers from './components/customer/Customers';
 import Register from './components/forms/Register';
 // import Error from './components/Error';
@@ -94,6 +95,7 @@ const App = () => {
             <Route exact path="/" element={<Main />} />
             <Route path="/register" element={<Register />} />
             <Route path="/addcostumer" element={<AddCustomer />} />
+            <Route path="/customers/:id" element={<Customer />} />
             <Route path="/customers" element={<Customers />} />
             <Route path="/marketers" element={<Marketers />} />
           </Routes>
