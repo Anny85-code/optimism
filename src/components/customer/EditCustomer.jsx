@@ -1,12 +1,18 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { postCustomerToApi } from '../../redux/forms/customerReducer';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+// import { NavLink, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { getOneCustomerFromApi } from '../../redux/forms/customerReducer';
 import '../addCostumer/AddCostumer.css';
 
 const EditCustomer = () => {
   const param = useParams();
   const { id } = param;
   const aCustomers = useSelector((state) => state.oneCustomer);
+
+  useEffect(() => {
+    dispatch(getOneCustomerFromApi(id));
+  }, []);
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -29,7 +35,7 @@ const EditCustomer = () => {
       picture,
     };
     setIsPending(true);
-    dispatch(postCustomerToApi(customer));
+    dispatch(postUpdateCustomerToApi(customer));
     setIsPending(false);
   };
 

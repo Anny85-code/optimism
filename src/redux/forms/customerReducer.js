@@ -1,15 +1,25 @@
 import axios from 'axios';
 
 // const POST_CUSTOMER = 'src/redux/customerreducer/post_customer'.toUpperCase();
-const FAILED_POST_CUSTOMER = 'src/redux/customerreducer/failed_post_customer'.toUpperCase();
+const FAILED_POST_CUSTOMER =
+  'src/redux/customerreducer/failed_post_customer'.toUpperCase();
+const FAILED_PATCH_CUSTOMER =
+  'src/redux/customerreducer/failed_patch_customer'.toUpperCase();
 const GET_CUSTOMER = 'src/redux/customerreducer/get_customer'.toUpperCase();
-const FAILED_GET_CUSTOMER = 'src/redux/customerreducer/failed_get_customer'.toUpperCase();
-const GET_CUSTOMERS_REQUEST = 'src/redux/customerreducer/get_customer_request'.toUpperCase();
+const FAILED_GET_CUSTOMER =
+  'src/redux/customerreducer/failed_get_customer'.toUpperCase();
+const GET_CUSTOMERS_REQUEST =
+  'src/redux/customerreducer/get_customer_request'.toUpperCase();
 const url = 'https://optimistic-food.herokuapp.com/api/v1/customers';
 const { token } = localStorage;
 
 const sendCustomerDataFailed = (payload) => ({
   type: FAILED_POST_CUSTOMER,
+  payload,
+});
+
+const patchCustomerDataFailed = (payload) => ({
+  type: FAILED_PATCH_CUSTOMER,
   payload,
 });
 
@@ -45,6 +55,22 @@ export const postCustomerToApi = (userData) => async (dispatch) => {
   }
 };
 
+export const postUpdateCustomerToApi = (userData) => async (dispatch) => {
+  const sendData = axios.patch(url, userData, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  if (sendData.error || sendData.errors || sendData.rejected) {
+    const errorMsg = sendData.error || sendData.errors;
+    dispatch(patchCustomerDataFailed(errorMsg));
+  } else {
+    window.history.pushState({}, '', '/');
+    // window.location.reload();
+  }
+};
+
 export const getCustomerFromApi = () => async (dispatch) => {
   dispatch(fetchCustomerRequest());
   try {
@@ -66,7 +92,7 @@ const customerReducer = (
     loading: false,
     error: null,
   },
-  action,
+  action
 ) => {
   switch (action.type) {
     case GET_CUSTOMER:
@@ -89,6 +115,7 @@ const customerReducer = (
         error: null,
       };
     case FAILED_POST_CUSTOMER:
+    case FAILED_PATCH_CUSTOMER:
       return { error: action.errorMsg };
     default:
       return state;
