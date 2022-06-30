@@ -19,6 +19,8 @@ const Customer = () => {
     dispatch(getOneCustomerFromApi(id));
   }, []);
 
+  /* eslint-disable */
+
   const { name, phone, address, email, created_at, picture, updated_at } =
     aCustomers.data;
   const redirect = editUrl(aCustomers.data);
@@ -33,11 +35,11 @@ const Customer = () => {
         <p>Address: {address}</p>
         <p>Joined: {created_at}</p>
         <p>Last Updated: {updated_at}</p>
-        <img src={picture} alt={`${name} photo`} style={{ width: '100px' }} />
+        <img src={picture} alt={`${name}`} style={{ width: '100px' }} />
         <NavLink to={redirect}>Edit</NavLink>
       </div>
     </div>
   );
 };
-
+/* eslint-enable */
 export default Customer;
