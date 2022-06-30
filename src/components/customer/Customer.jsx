@@ -4,6 +4,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import styles from './Customer.module.css';
 import { getOneCustomerFromApi } from '../../redux/forms/oneCustomerReducer';
 
+const editUrl = (person) => {
+  const { id } = person;
+  return `/customers/${id}/edit`;
+};
+
 const Customer = () => {
   const dispatch = useDispatch();
   const param = useParams();
@@ -14,23 +19,23 @@ const Customer = () => {
     dispatch(getOneCustomerFromApi(id));
   }, []);
 
+  const { name, phone, address, email, created_at, picture, updated_at } =
+    aCustomers.data;
+  const redirect = editUrl(aCustomers.data);
+
   console.log(aCustomers.data);
   return (
     <div>
-      {/* {aCustomers.data.map((customer) => (
-        <NavLink key={customer.id} to={`/customers/${customer.id}`}>
-          <div className={styles.containa}>
-            <h3>Name: {customer.name}</h3>
-            <p>Phone: {customer.phone}</p>
-            <p>Email: {customer.email}</p>
-            <p>Address: {customer.address}</p>
-            <p>Joined: {customer.created_at}</p>
-            <p>Last Updated: {customer.updated_at}</p>
-            <img src={customer.picture} alt={`${customer.name} photo`} />
-          </div>
-        </NavLink>
-      ))} */}
-      aCustomer
+      <div className={styles.containa}>
+        <h3>Name: {name}</h3>
+        <p>Phone: {phone}</p>
+        <p>Email: {email}</p>
+        <p>Address: {address}</p>
+        <p>Joined: {created_at}</p>
+        <p>Last Updated: {updated_at}</p>
+        <img src={picture} alt={`${name} photo`} style={{ width: '100px' }} />
+        <NavLink to={redirect}>Edit</NavLink>
+      </div>
     </div>
   );
 };
