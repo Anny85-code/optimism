@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import { getOneUserFromApi } from '../../redux/forms/oneUserManReducer';
 import '../forms/Register.css';
 
@@ -7,10 +8,15 @@ const EditUser = () => {
   const param = useParams();
   const { id } = param;
   const user = useSelector((state) => state.oneUser);
-  const [state, setState] = useState({
-    ...state,
-    [user.data.keys]: user.data.values,
-  });
+  const userId = user.data.id;
+  const [name, setName] = useState(user.data.name);
+  const [email, setEmail] = useState(user.data.email);
+  const [phone, setPhone] = useState(user.data.phone);
+  const [address, setAddress] = useState(user.data.address);
+  const [picture, setPicture] = useState(user.data.picture);
+  const [username, setUsername] = useState(user.data.username);
+  const [location, setLocation] = useState(user.data.location);
+  // const [state, setState] = useState({ [e.target.name]: e.target.value });
   const { error } = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
@@ -25,12 +31,27 @@ const EditUser = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // dispatch(registerUserToApi(state));
+    const userLogged = JSON.parse(localStorage.getItem('user'));
+    const { id } = userLogged.user;
+    const customer = {
+      id: userId,
+      user_id: id,
+      name,
+      email,
+      phone,
+      address,
+      picture,
+      location,
+      username,
+    };
+    setIsPending(true);
+    dispatch(jhdgjsba(customer));
+    setIsPending(false);
   };
 
-  const [select, setSelect] = useState('PLEASE SELECT ...');
+  const [select, setSelect] = useState(user.data.position);
 
   const handleSelect = (e) => {
     setSelect(e.target.value);
@@ -63,7 +84,7 @@ const EditUser = () => {
                   <input
                     type="text"
                     placeholder="Name"
-                    onChange={onchange}
+                    onChange={setName}
                     id="name"
                     name="name"
                     className="form-control"
@@ -79,7 +100,7 @@ const EditUser = () => {
                   <input
                     type="text"
                     placeholder="Username"
-                    onChange={onchange}
+                    onChange={setUsername}
                     id="username"
                     name="username"
                     className="form-control"
@@ -95,7 +116,7 @@ const EditUser = () => {
                   <input
                     type="email"
                     placeholder="Email"
-                    onChange={onchange}
+                    onChange={setEmail}
                     id="email"
                     name="email"
                     className="form-control"
@@ -105,7 +126,7 @@ const EditUser = () => {
                 </label>
               </div>
               <br />
-              <div>
+              {/* <div>
                 <label htmlFor="password" className="form-label">
                   Password *
                   <input
@@ -136,14 +157,14 @@ const EditUser = () => {
                   />
                 </label>
               </div>
-              <br />
+              <br /> */}
               <div>
                 <label htmlFor="location" className="form-label">
                   Location
                   <input
                     type="text"
                     placeholder="Location"
-                    onChange={onchange}
+                    onChange={setLocation}
                     id="location"
                     name="location"
                     className="form-control"
@@ -176,7 +197,7 @@ const EditUser = () => {
                   <input
                     type="number"
                     placeholder="Phone"
-                    onChange={onchange}
+                    onChange={setPhone}
                     id="phone"
                     name="phone"
                     className="form-control"
@@ -192,7 +213,7 @@ const EditUser = () => {
                   <input
                     type="text"
                     placeholder="Address"
-                    onChange={onchange}
+                    onChange={setAddress}
                     id="address"
                     name="address"
                     className="form-control"
@@ -207,7 +228,7 @@ const EditUser = () => {
                   <input
                     type="text"
                     placeholder="Picture"
-                    onChange={onchange}
+                    onChange={setPicture}
                     id="picture"
                     name="avatar"
                     className="form-control"
