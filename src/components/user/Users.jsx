@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCustomerFromApi } from '../../redux/forms/customerReducer';
 import styles from '../customer/Customer.module.css';
+import { getUsersFromApi } from '../../redux/forms/userManReducer';
 
 const Users = () => {
   const dispatch = useDispatch();
-  const allUsers = useSelector((state) => state.customer);
+  const allUsers = useSelector((state) => state.userManReducer);
 
   useEffect(() => {
-    dispatch(getCustomerFromApi());
+    dispatch(getUsersFromApi());
   }, []);
 
   return (
