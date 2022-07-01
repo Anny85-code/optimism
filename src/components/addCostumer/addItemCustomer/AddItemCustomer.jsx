@@ -5,6 +5,7 @@ import './AddItemCustomer.css';
 
 const AddItemCustomer = () => {
   const allItemsCostumer = useSelector((state) => state.item);
+  console.log(typeof (allItemsCostumer.data.price));
   const dispatch = useDispatch();
 
   const [checkedState, setCheckedState] = useState(
@@ -35,8 +36,9 @@ const AddItemCustomer = () => {
     );
 
     setTotal(totalPrice);
+    console.log(total);
   };
-
+  console.log(total);
   useEffect(() => {
     dispatch(getItemFromApi());
   }, []);

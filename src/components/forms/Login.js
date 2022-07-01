@@ -74,7 +74,7 @@ const Login = () => {
               <div className="form-group login-btn">
                 <button
                   type="submit"
-                  className="btn1 btn-secondary1"
+                  className="btn-login btn-secondary1"
                   onClick={handleSubmit}
                 >
                   Log in
