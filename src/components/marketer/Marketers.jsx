@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { getCustomerFromApi } from '../../redux/forms/customerReducer';
 
-const Marketers = () => (
-  <div>
-    <h1>Marketers</h1>
-  </div>
-);
+const Customers = () => {
+  const dispatch = useDispatch();
 
-export default Marketers;
+  useEffect(() => {
+    dispatch(getCustomerFromApi());
+  }, []);
+
+  return (
+    <div>
+      <h1>Customers</h1>
+    </div>
+  );
+};
+
+export default Customers;
