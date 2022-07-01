@@ -1,3 +1,25 @@
-main {
-  color: aliceblue;
+.form-container-item-list {
+  height: 90%;
+  width: 800px;
+  gap: 20px;
+  font-family: 'Gumela', sans-serif;
+  margin: 20px;
+  box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #967777;
+  border-radius: 8px;
+}
+
+.item-name {
+  height: 70px;
+  margin: 20px;
+  width: 90%;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  padding: 20px;
+  font-size: 25px;
+  gap: 20px;
+  font-family: 'Gumela', sans-serif;
+  margin: 20px;
+  box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #967777;
+  border-radius: 8px;
 }

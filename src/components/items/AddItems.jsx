@@ -11,11 +11,11 @@ const AddItems = () => {
     dispatch(getItemFromApi());
   }, []);
   // setIsPending(false);
-  console.log(allItems);
+
   return (
-    <div className="form-container">
+    <div className="form-container-item-list">
       {allItems.data.map((item) => (
-        <div key={item.id}>
+        <div key={item.id} className="item-name">
           <h3>{item.name}</h3>
         </div>
       ))}
