@@ -19,7 +19,7 @@ function App() {
   return (
     <div className="App">
       <ChannelCategory
-        key={'channel.key'}
+        key="channel.key"
         options={options}
         onChange={onAddCategory}
         title="Add your chatroom to a category so that users can find it easily"

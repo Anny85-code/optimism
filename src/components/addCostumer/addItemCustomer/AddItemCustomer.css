@@ -33,6 +33,28 @@
   font-weight: bold;
 }
 
+.quantity-input {
+  width: 60px;
+  height: 40px;
+  outline: none;
+  box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #967777;
+  border-radius: 3px;
+  gap: 20px;
+  cursor: pointer;
+  padding-left: 5px;
+  font-size: 20px;
+}
+
+.toppings-list-item{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
+  border-bottom: 1px solid #000;
+  font-size: 30px;
+}
+
 /* .right-section {
   text-align: left;
 } */
@@ -40,5 +62,20 @@
 @media only screen and (max-width: 978px) {
   .items-costumer {
     width: 300px;
+    box-sizing: border-box;
   }
+
+  .quantity-input {
+  width: 30px;
+  height: 20px;
+  font-size: 15px;
+  
+}
+
+.item-costumer-name {
+  font-size: 20px;
+}
+
+
+
 }
