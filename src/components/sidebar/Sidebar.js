@@ -54,7 +54,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
         </div>
         <div className="sidebar__link">
           <i className="fa fa-wrench" />
-          <NavLink to="/addcostumer">Customer Management</NavLink>
+          <NavLink to="/addcustomer">Customer Management</NavLink>
         </div>
         <div className="sidebar__link">
           <i className="fa fa-wrench" />
