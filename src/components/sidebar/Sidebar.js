@@ -18,10 +18,22 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
     window.location.reload();
   };
 
-  const [dropdown, setDropdown] = useState(false);
+  const [dropdownCustomer, setDropdownCustomer] = useState(false);
 
-  const toggleDropdown = () => {
-    setDropdown(dropdown ? false : true);
+  const toggleDropdownCustomer = () => {
+    setDropdownCustomer(dropdownCustomer ? false : true);
+  };
+
+  const [dropdownMarketer, setDropdownMarketer] = useState(false);
+
+  const toggleDropdownMarkerter = () => {
+    setDropdownMarketer(dropdownMarketer ? false : true);
+  };
+
+  const [dropdownProduct, setDropdownProduct] = useState(false);
+
+  const toggleDropdownProduct = () => {
+    setDropdownProduct(dropdownProduct ? false : true);
   };
 
   return (
@@ -57,30 +69,63 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
         </div>
         <div className="sidebar__link">
           <i className="fa fa-wrench" />
-          <NavLink to="/register">Marketer Management</NavLink>
-        </div>
-        <div className="sidebar__link">
-          <i className="fa fa-wrench" />
-
-          <a href="#">Customer Management</a>
+          <a href="#">Marketer Management</a>
           <i
             className="fa fa-caret-right"
-            onClick={toggleDropdown}
+            onClick={toggleDropdownMarkerter}
             id="toggle-btn"
           />
           <ul
-            className={!dropdown ? 'dropdown-off' : 'dropdown-on'}
+            className={!dropdownMarketer ? 'dropdown-off' : 'dropdown-on'}
             id="drop-menu"
           >
             <li>
-              <NavLink to="/addcostumer" style={{ textDecoration: 'none' }}>Add Customer</NavLink>
+              <NavLink to="/register" style={{ textDecoration: 'none' }}>
+                Add Marketer
+              </NavLink>
             </li>
-            <li>item 2</li>
+            <li>View All Marketers</li>
           </ul>
         </div>
         <div className="sidebar__link">
           <i className="fa fa-wrench" />
-          <NavLink to="/additems">Product Management</NavLink>
+          <a href="#">Customer Management</a>
+          <i
+            className="fa fa-caret-right"
+            onClick={toggleDropdownCustomer}
+            id="toggle-btn"
+          />
+          <ul
+            className={!dropdownCustomer ? 'dropdown-off' : 'dropdown-on'}
+            id="drop-menu"
+          >
+            <li>
+              <NavLink to="/addcostumer" style={{ textDecoration: 'none' }}>
+                Add Customer
+              </NavLink>
+            </li>
+            <li>View All Customers</li>
+          </ul>
+        </div>
+        <div className="sidebar__link">
+          <i className="fa fa-wrench" />
+          <a href="#">Product Management</a>
+          <i
+            className="fa fa-caret-right"
+            onClick={toggleDropdownProduct}
+            id="toggle-btn"
+          />
+          <ul
+            className={!dropdownProduct ? 'dropdown-off' : 'dropdown-on'}
+            id="drop-menu"
+          >
+            <li>
+              <NavLink to="/additems" style={{ textDecoration: 'none' }}>
+                View All Products
+              </NavLink>
+            </li>
+            <li>Add Items</li>
+          </ul>
         </div>
         <div className="sidebar__link">
           <i className="fa fa-archive" />
