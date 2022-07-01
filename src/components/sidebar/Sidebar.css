@@ -98,6 +98,10 @@
   position: absolute;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
 @media only screen and (max-width: 978px) {
   #sidebar {
     display: none;
