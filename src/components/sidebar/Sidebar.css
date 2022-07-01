@@ -109,6 +109,32 @@
   width: 10px;
 }
 
+.dropdown-off {
+  display: none;
+}
+
+.dropdown-on {
+  display: block;
+}
+
+#toggle-btn {
+  margin-left: 10px;
+}
+
+#drop-menu {
+  width: 100%;
+  background: #020509;
+  padding: 10px 0 10px 40px;
+  box-shadow: 0px 0px 10px #000;
+  list-style-type: none;
+}
+
+#drop-menu > li {
+  text-decoration: none;
+  color: #a5aaad;
+  font-weight: 700;
+}
+
 @media only screen and (max-width: 978px) {
   #sidebar {
     display: none;

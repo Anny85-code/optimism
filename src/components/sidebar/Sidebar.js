@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './Sidebar.css';
 import { useDispatch } from 'react-redux';
@@ -15,6 +16,12 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
     dispatch({ type: 'LOGGED_OUT' });
     window.history.pushState({}, '', '/');
     window.location.reload();
+  };
+
+  const [dropdown, setDropdown] = useState(false);
+
+  const toggleDropdown = () => {
+    setDropdown(dropdown ? false : true);
   };
 
   return (
@@ -54,7 +61,22 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
         </div>
         <div className="sidebar__link">
           <i className="fa fa-wrench" />
-          <NavLink to="/addcostumer">Customer Management</NavLink>
+
+          <a href="#">Customer Management</a>
+          <i
+            className="fa fa-caret-right"
+            onClick={toggleDropdown}
+            id="toggle-btn"
+          />
+          <ul
+            className={!dropdown ? 'dropdown-off' : 'dropdown-on'}
+            id="drop-menu"
+          >
+            <li>
+              <NavLink to="/addcostumer" style={{ textDecoration: 'none' }}>Add Customer</NavLink>
+            </li>
+            <li>item 2</li>
+          </ul>
         </div>
         <div className="sidebar__link">
           <i className="fa fa-wrench" />
