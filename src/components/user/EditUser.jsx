@@ -16,6 +16,7 @@ const EditUser = () => {
   const [picture, setPicture] = useState(user.data.picture);
   const [username, setUsername] = useState(user.data.username);
   const [location, setLocation] = useState(user.data.location);
+  const [isPending, setIsPending] = useState(false);
   // const [state, setState] = useState({ [e.target.name]: e.target.value });
   const { error } = useSelector((state) => state.user);
   const dispatch = useDispatch();
@@ -23,13 +24,6 @@ const EditUser = () => {
   useEffect(() => {
     dispatch(getOneUserFromApi(id));
   }, []);
-
-  const onchange = (e) => {
-    setState({
-      ...state,
-      [e.target.name]: e.target.value,
-    });
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -77,7 +71,7 @@ const EditUser = () => {
             ) : (
               ''
             )}
-            <form className="register-form">
+            <form className="register-form" onSubmit={handleSubmit}>
               <div>
                 <label htmlFor="name" className="form-label">
                   Name *
@@ -238,13 +232,16 @@ const EditUser = () => {
               </div>
               <br />
               <div className="form-group btn">
-                <button
-                  type="submit"
-                  className="btn btn-secondary"
-                  onClick={handleSubmit}
-                >
-                  Edit User
-                </button>
+                {!isPending && (
+                  <button type="submit" className="btn btn-secondary">
+                    Edit User
+                  </button>
+                )}
+                {isPending && (
+                  <button className="btn btn-secondary" type="submit" disabled>
+                    Editing User . . .
+                  </button>
+                )}
               </div>
             </form>
           </div>
