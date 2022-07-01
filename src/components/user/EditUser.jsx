@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getOneUserFromApi } from '../../redux/forms/oneUserManReducer';
-// import { registerUserToApi } from '../../redux/forms/userReducer';
-import './Register.css';
+import '../forms/Register.css';
 
-const Register = () => {
+const EditUser = () => {
   const param = useParams();
   const { id } = param;
   const user = useSelector((state) => state.oneUser);
@@ -223,7 +222,7 @@ const Register = () => {
                   className="btn btn-secondary"
                   onClick={handleSubmit}
                 >
-                  Register
+                  Edit User
                 </button>
               </div>
             </form>
@@ -234,4 +233,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default EditUser;

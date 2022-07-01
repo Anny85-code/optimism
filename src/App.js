@@ -14,6 +14,7 @@ import Splash from './components/splash/Splash';
 import EditCustomer from './components/customer/EditCustomer';
 import Users from './components/user/Users';
 import User from './components/user/User';
+import EditUser from './components/user/EditUser';
 
 // const App = () => {
 // const [sideBarOpen, setSideBarOpen] = useState(false);
@@ -103,6 +104,7 @@ const App = () => {
             <Route path="/customers" element={<Customers />} />
             <Route path="/users" element={<Users />} />
             <Route path="/users/:id" element={<User />} />
+            <Route path="/users/:id/edit" element={<EditUser />} />
           </Routes>
           <Sidebar sidebarOpen={sideBarOpen} closeSideBar={closeSideBar} />
         </div>
