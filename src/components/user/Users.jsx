@@ -4,9 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getCustomerFromApi } from '../../redux/forms/customerReducer';
 import styles from './Customer.module.css';
 
-const Customers = () => {
+const Users = () => {
   const dispatch = useDispatch();
-  const allCustomers = useSelector((state) => state.customer);
+  const allUsers = useSelector((state) => state.customer);
 
   useEffect(() => {
     dispatch(getCustomerFromApi());
@@ -14,8 +14,8 @@ const Customers = () => {
 
   return (
     <div>
-      {allCustomers.data.map((customer) => (
-        <NavLink key={customer.id} to={`/customers/${customer.id}`}>
+      {allUsers.data.map((customer) => (
+        <NavLink key={customer.id} to={`/Users/${customer.id}`}>
           <div className={styles.containa}>
             <h3>{customer.name}</h3>
             <p>{customer.phone}</p>
@@ -26,4 +26,4 @@ const Customers = () => {
   );
 };
 
-export default Customers;
+export default Users;

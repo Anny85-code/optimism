@@ -43,7 +43,7 @@ const userManReducer = (
     loading: false,
     error: null,
   },
-  action
+  action,
 ) => {
   switch (action.type) {
     case GET_USERS:
