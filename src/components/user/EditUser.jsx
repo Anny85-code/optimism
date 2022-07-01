@@ -14,7 +14,7 @@ const EditUser = () => {
   const [email, setEmail] = useState(user.data.email);
   const [phone, setPhone] = useState(user.data.phone);
   const [address, setAddress] = useState(user.data.address);
-  const [picture, setPicture] = useState(user.data.picture);
+  const [avatar, setAvatar] = useState(user.data.avatar);
   const [username, setUsername] = useState(user.data.username);
   const [location, setLocation] = useState(user.data.location);
   const [isPending, setIsPending] = useState(false);
@@ -194,8 +194,8 @@ const EditUser = () => {
                   <input
                     type="text"
                     placeholder="Picture"
-                    onChange={setPicture}
-                    value={picture}
+                    onChange={setAvatar}
+                    value={avatar}
                     id="picture"
                     name="avatar"
                     className="form-control"
