@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getOneUserFromApi } from '../../redux/forms/oneUserManReducer';
+import { postUpdateUserToApi } from '../../redux/forms/userManReducer';
 import '../forms/Register.css';
 
 const EditUser = () => {
@@ -29,7 +30,7 @@ const EditUser = () => {
     e.preventDefault();
     const userLogged = JSON.parse(localStorage.getItem('user'));
     const { id } = userLogged.user;
-    const customer = {
+    const oneUser = {
       id: userId,
       user_id: id,
       name,
@@ -41,14 +42,14 @@ const EditUser = () => {
       username,
     };
     setIsPending(true);
-    dispatch(jhdgjsba(customer));
+    dispatch(postUpdateUserToApi(oneUser));
     setIsPending(false);
   };
 
-  const [select, setSelect] = useState(user.data.position);
+  const [position, setPosition] = useState(user.data.position);
 
   const handleSelect = (e) => {
-    setSelect(e.target.value);
+    setPosition(e.target.value);
   };
 
   return (
@@ -56,7 +57,7 @@ const EditUser = () => {
       <div className="form-group">
         <div className="column mt-5">
           <div className="d-flex justify-content-center align-items-center flex-column shadow-lg rounded w-50 mx-auto p-5">
-            <h3 className="title">Register A Marketer</h3>
+            <h3 className="title">Update User</h3>
             <br />
             {error ? (
               <div>
@@ -173,7 +174,7 @@ const EditUser = () => {
                   <select
                     name="role"
                     id="role"
-                    value={select}
+                    value={position}
                     onChange={handleSelect}
                   >
                     <option defaultValue="PLEASE SELECT ...">
