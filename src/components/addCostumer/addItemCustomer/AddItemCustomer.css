@@ -33,6 +33,10 @@
   font-weight: bold;
 }
 
+/* .right-section {
+  text-align: left;
+} */
+
 @media only screen and (max-width: 978px) {
   .items-costumer {
     width: 300px;
