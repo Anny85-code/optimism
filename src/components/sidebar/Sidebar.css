@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quintessential&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Neonderthaw&display=swap');
+
 #sidebar {
   background: #020509;
   grid-area: sidebar;
@@ -13,21 +17,24 @@
   align-items: center;
   color: #f3f4f6;
   margin-bottom: 30px;
+  font-family: 'Quintessential', sans-serif;
 }
 
 .sidebar__img {
   display: flex;
   align-items: center;
   gap: 10px;
+  margin-left: 20px;
 }
 
 .sidebar__title > div > img {
   width: 75px;
   object-fit: contain;
+  box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #5a5656;
 }
 
 .sidebar__title > div > h1 {
-  font-size: 18px;
+  font-size: 25px;
   display: inline;
 }
 
