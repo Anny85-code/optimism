@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCustomerFromApi } from '../../redux/forms/customerReducer';
-import styles from './Customer.module.css';
+import styles from '../customer/Customer.module.css';
 
 const Users = () => {
   const dispatch = useDispatch();
