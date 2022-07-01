@@ -3,8 +3,30 @@ import axios from 'axios';
 const GET_USERS = 'SRC/REDUX/USER_REDUCER/GET_USERS';
 const FAILED_GET_USERS = 'SRC/REDUX/USER_REDUCER/FAILED_GET_USERS';
 const GET_USERS_REQUEST = 'SRC/REDUX/USER_REDUCER/GET_USERS_REQUEST';
+const FAILED_PATCH_USER = 'SRC/REDUX/USER_REDUCER/FAILED_PATCH_USER';
 const url = 'https://optimistic-food.herokuapp.com/api/v1/users';
 const { token } = localStorage;
+
+const patchUserDataFailed = (payload) => ({
+  type: FAILED_PATCH_USER,
+  payload,
+});
+export const postUpdateUserToApi = (userData) => async (dispatch) => {
+  const { id } = userData;
+  const sendData = axios.patch(`${url}/${id}`, userData, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  if (sendData.error || sendData.errors || sendData.rejected) {
+    const errorMsg = sendData.error || sendData.errors;
+    dispatch(patchUserDataFailed(errorMsg));
+  } else {
+    window.history.pushState({}, '', `/users/${id}`);
+    // window.location.reload();
+  }
+};
 
 const fetchUsersData = (payload) => ({
   type: GET_USERS,
@@ -43,7 +65,7 @@ const userManReducer = (
     loading: false,
     error: null,
   },
-  action,
+  action
 ) => {
   switch (action.type) {
     case GET_USERS:
@@ -65,8 +87,8 @@ const userManReducer = (
         loading: true,
         error: null,
       };
-    // case FAILED_PATCH_CUSTOMER:
-    //   return { error: action.errorMsg };
+    case FAILED_PATCH_USER:
+      return { error: action.errorMsg };
     default:
       return state;
   }
