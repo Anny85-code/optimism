@@ -18,7 +18,6 @@ const EditUser = () => {
   const [username, setUsername] = useState(user.data.username);
   const [location, setLocation] = useState(user.data.location);
   const [isPending, setIsPending] = useState(false);
-  // const [state, setState] = useState({ [e.target.name]: e.target.value });
   const { error } = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
@@ -80,6 +79,7 @@ const EditUser = () => {
                     type="text"
                     placeholder="Name"
                     onChange={setName}
+                    value={name}
                     id="name"
                     name="name"
                     className="form-control"
@@ -96,6 +96,7 @@ const EditUser = () => {
                     type="text"
                     placeholder="Username"
                     onChange={setUsername}
+                    value={username}
                     id="username"
                     name="username"
                     className="form-control"
@@ -112,6 +113,7 @@ const EditUser = () => {
                     type="email"
                     placeholder="Email"
                     onChange={setEmail}
+                    value={email}
                     id="email"
                     name="email"
                     className="form-control"
@@ -121,38 +123,6 @@ const EditUser = () => {
                 </label>
               </div>
               <br />
-              {/* <div>
-                <label htmlFor="password" className="form-label">
-                  Password *
-                  <input
-                    type="password"
-                    placeholder="Password"
-                    onChange={onchange}
-                    id="password"
-                    name="password"
-                    className="form-control"
-                    autoComplete="off"
-                    required
-                  />
-                </label>
-              </div>
-              <br />
-              <div>
-                <label htmlFor="password_confirmation" className="form-label">
-                  Password confirmation *
-                  <input
-                    type="password"
-                    placeholder="Password Confirmation"
-                    onChange={onchange}
-                    id="password_confirmation"
-                    name="password_confirmation"
-                    className="form-control"
-                    autoComplete="off"
-                    required
-                  />
-                </label>
-              </div>
-              <br /> */}
               <div>
                 <label htmlFor="location" className="form-label">
                   Location
@@ -160,6 +130,7 @@ const EditUser = () => {
                     type="text"
                     placeholder="Location"
                     onChange={setLocation}
+                    value={location}
                     id="location"
                     name="location"
                     className="form-control"
@@ -177,9 +148,7 @@ const EditUser = () => {
                     value={position}
                     onChange={handleSelect}
                   >
-                    <option defaultValue="PLEASE SELECT ...">
-                      PLEASE SELECT ...
-                    </option>
+                    <option defaultValue={position}>{position}</option>
                     <option value="Admin">ADMIN</option>
                     <option value="Marketer">MARKETER</option>
                   </select>
@@ -193,6 +162,7 @@ const EditUser = () => {
                     type="number"
                     placeholder="Phone"
                     onChange={setPhone}
+                    value={phone}
                     id="phone"
                     name="phone"
                     className="form-control"
@@ -209,6 +179,7 @@ const EditUser = () => {
                     type="text"
                     placeholder="Address"
                     onChange={setAddress}
+                    value={address}
                     id="address"
                     name="address"
                     className="form-control"
@@ -224,6 +195,7 @@ const EditUser = () => {
                     type="text"
                     placeholder="Picture"
                     onChange={setPicture}
+                    value={picture}
                     id="picture"
                     name="avatar"
                     className="form-control"
