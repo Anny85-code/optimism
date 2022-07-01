@@ -36,7 +36,7 @@ const EditUser = () => {
       email,
       phone,
       address,
-      picture,
+      avatar,
       location,
       username,
     };
