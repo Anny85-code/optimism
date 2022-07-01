@@ -20,17 +20,30 @@ const User = () => {
   }, []);
 
   /* eslint-disable */
-
-  const { name, phone, address, email, created_at, picture, updated_at } =
-    user.data;
+  //  :location, :role,
+  const {
+    name,
+    username,
+    phone,
+    role,
+    location,
+    address,
+    email,
+    created_at,
+    picture,
+    updated_at,
+  } = user.data;
   const redirect = editUrl(user.data);
 
   return (
     <div>
       <div className={styles.containa}>
         <h3>Name: {name}</h3>
+        <p>Username: {username}</p>
+        <p>Role: {role}</p>
         <p>Phone: {phone}</p>
         <p>Email: {email}</p>
+        <p>Location: {location}</p>
         <p>Address: {address}</p>
         <p>Joined: {created_at}</p>
         <p>Last Updated: {updated_at}</p>
