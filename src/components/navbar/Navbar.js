@@ -40,11 +40,11 @@ const Navbar = ({ sideBarOpen, openSideBar }) => {
           Customers
         </NavLink>
         <NavLink
-          to="/marketers"
+          to="/users"
           onClick={handleActiveB}
           className={activeB ? 'active_link' : ''}
         >
-          Marketers
+          Users
         </NavLink>
         <NavLink
           to="/"
