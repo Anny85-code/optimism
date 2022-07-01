@@ -59,21 +59,27 @@ const AddItemCustomer = () => {
               />
             </label>
           </h3>
-          <h3 className="item-costumer-name">{name}</h3>
-          <h3 className="right-section">{getFormattedPrice(price)}</h3>
-          <h3>
-            <label htmlFor={index} className="checkbox-label">
-              <input
-                className="quantity-input"
-                type="number"
-                // name={name}
-                // value={name}
-                id={index}
-                checked={checkedState[index]}
-                onChange={() => handleOnChange(index)}
-              />
-            </label>
-          </h3>
+          <div className="price-name">
+            <h3 className="item-costumer-name">{name}</h3>
+            <h3> &nbsp;-&nbsp;</h3>
+            <h3 className="right-section">{getFormattedPrice(price)}</h3>
+          </div>
+          <div className="qty">
+            <h2>QTY</h2>
+            <h3>
+              <label htmlFor={index} className="checkbox-label">
+                <input
+                  className="quantity-input"
+                  type="number"
+                  // name={name}
+                  // value={name}
+                  id={index}
+                  checked={checkedState[index]}
+                  onChange={() => handleOnChange(index)}
+                />
+              </label>
+            </h3>
+          </div>
         </div>
       ))}
       <div className="toppings-list-item">
