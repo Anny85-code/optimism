@@ -6,16 +6,28 @@ import './AddItemCustomer.css';
 const AddItemCustomer = () => {
   const allItemsCostumer = useSelector((state) => state.item);
   const dispatch = useDispatch();
+  const [total, setTotal] = useState(0);
+  const [quantity, setQuantity] = useState(1);
 
   const [checkedState, setCheckedState] = useState(
-    new Array(allItemsCostumer.length).fill(false),
+    new Array(allItemsCostumer.length).fill(false)
   );
-  const getFormattedPrice = (price) => new Intl.NumberFormat('en-IN', {
-    style: 'currency',
-    currency: 'NGN',
-  }).format(price);
 
-  const [total, setTotal] = useState(0);
+  const handleItemQty = (e) => {
+    // quantity should never be less than 1
+    // pick the new quantity
+    if (e.target.value > 0) {
+      setQuantity(e.target.value);
+    }
+  };
+
+  console.log(quantity);
+
+  const getFormattedPrice = (price) =>
+    new Intl.NumberFormat('en-IN', {
+      style: 'currency',
+      currency: 'NGN',
+    }).format(price);
 
   const handleOnChange = (position) => {
     /*eslint-disable*/
@@ -27,11 +39,11 @@ const AddItemCustomer = () => {
     const totalPrice = updatedCheckedState.reduce(
       (sum, currentState, index) => {
         if (currentState === true) {
-          return sum + allItemsCostumer[index].price;
+          return sum + allItemsCostumer.data[index].price;
         }
         return sum;
       },
-      0,
+      0
     );
 
     setTotal(totalPrice);
@@ -72,10 +84,9 @@ const AddItemCustomer = () => {
                   className="quantity-input"
                   type="number"
                   // name={name}
-                  // value={name}
-                  id={index}
-                  checked={checkedState[index]}
-                  onChange={() => handleOnChange(index)}
+                  value={quantity}
+                  id="qauntity-input"
+                  onChange={handleItemQty}
                 />
               </label>
             </h3>
