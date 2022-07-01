@@ -1,10 +1,8 @@
 import axios from 'axios';
 
 const GET_ONE_USER = 'src/redux/userreducer/get_one_user'.toUpperCase();
-const FAILED_GET_ONE_USER =
-  'src/redux/userreducer/failed_get_one_user'.toUpperCase();
-const GET_ONE_USER_REQUEST =
-  'src/redux/userreducer/get_one_user_request'.toUpperCase();
+const FAILED_GET_ONE_USER = 'src/redux/userreducer/failed_get_one_user'.toUpperCase();
+const GET_ONE_USER_REQUEST = 'src/redux/userreducer/get_one_user_request'.toUpperCase();
 const url = 'https://optimistic-food.herokuapp.com/api/v1/users';
 const { token } = localStorage;
 
@@ -44,7 +42,7 @@ const oneUserReducer = (
     loading: false,
     error: null,
   },
-  action
+  action,
 ) => {
   switch (action.type) {
     case GET_ONE_USER:
