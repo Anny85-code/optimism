@@ -23,3 +23,15 @@
   box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #967777;
   border-radius: 8px;
 }
+
+@media only screen and (max-width: 768px) {
+  .item-name {
+    font-size: 20px;
+    width: 90%;
+  }
+
+  .form-container-item-list {
+  width: 300px;
+}
+
+}
