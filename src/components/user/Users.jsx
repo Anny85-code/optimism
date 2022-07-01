@@ -14,11 +14,11 @@ const Users = () => {
 
   return (
     <div>
-      {allUsers.data.map((customer) => (
-        <NavLink key={customer.id} to={`/users/${customer.id}`}>
+      {allUsers.data.map((user) => (
+        <NavLink key={user.id} to={`/users/${user.id}`}>
           <div className={styles.containa}>
-            <h3>{customer.name}</h3>
-            <p>{customer.phone}</p>
+            <h3>{user.name}</h3>
+            <p>{user.phone}</p>
           </div>
         </NavLink>
       ))}
