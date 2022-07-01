@@ -1,12 +1,23 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { registerUserToApi } from '../../redux/forms/userReducer';
+import { getOneUserFromApi } from '../../redux/forms/oneUserManReducer';
+// import { registerUserToApi } from '../../redux/forms/userReducer';
 import './Register.css';
 
 const Register = () => {
-  const [state, setState] = useState({});
+  const param = useParams();
+  const { id } = param;
+  const user = useSelector((state) => state.oneUser);
+  const [state, setState] = useState({
+    ...state,
+    [user.data.keys]: user.data.values,
+  });
   const { error } = useSelector((state) => state.user);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getOneUserFromApi(id));
+  }, []);
 
   const onchange = (e) => {
     setState({
@@ -17,7 +28,7 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(registerUserToApi(state));
+    // dispatch(registerUserToApi(state));
   };
 
   const [select, setSelect] = useState('PLEASE SELECT ...');
