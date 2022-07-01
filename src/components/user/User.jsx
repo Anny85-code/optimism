@@ -20,7 +20,6 @@ const User = () => {
   }, []);
 
   /* eslint-disable */
-  //  :location, :role,
   const {
     name,
     username,
