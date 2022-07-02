@@ -19,22 +19,27 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
   };
 
   const [dropdownCustomer, setDropdownCustomer] = useState(false);
+  const [dropdownProduct, setDropdownProduct] = useState(false);
+  const [dropdownMarketer, setDropdownMarketer] = useState(false);
 
   const toggleDropdownCustomer = () => {
     setDropdownCustomer(dropdownCustomer ? false : true);
+    setDropdownProduct(false);
+    setDropdownMarketer(false);
   };
 
-  const [dropdownMarketer, setDropdownMarketer] = useState(false);
-
   const toggleDropdownMarkerter = () => {
+    setDropdownCustomer(false);
+    setDropdownProduct(false);
     setDropdownMarketer(dropdownMarketer ? false : true);
   };
 
-  const [dropdownProduct, setDropdownProduct] = useState(false);
-
   const toggleDropdownProduct = () => {
+    setDropdownCustomer(false);
     setDropdownProduct(dropdownProduct ? false : true);
+    setDropdownMarketer(false);
   };
+
 
   return (
     <div className={sidebarOpen ? 'sidebar-responsive' : ''} id="sidebar">
