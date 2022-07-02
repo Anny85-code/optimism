@@ -10,7 +10,6 @@
   gap: 30px;
   box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #967777;
   width: 60%;
-  height: 80vh;
   margin-left: auto;
   margin-right: auto;
   padding: 30px;
@@ -30,6 +29,7 @@
   position: absolute;
   top: 60px;
   left: 38%;
+
   /* left: 585px; */
   margin-top: 30px;
 }
@@ -53,6 +53,7 @@
   font-family: 'Neonderthaw', sans-serif;
   font-size: 30px;
   color: #fff;
+
   /* margin-top: 90px; */
 }
 
