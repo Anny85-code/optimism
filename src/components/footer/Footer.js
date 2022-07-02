@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer>
       <div className="footer">
-        <span className="careof">©</span>
+        ©
         {Foter()}
         &nbsp;
         <p>Designed and Developed with 💖 from</p>
