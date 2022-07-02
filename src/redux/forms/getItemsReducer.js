@@ -1,9 +1,8 @@
-import axios from 'axios';
+// import axios from 'axios';
 
 const GET_ITEM = 'src/redux/itemreducer/get_item'.toUpperCase();
 const FAILED_GET_ITEM = 'src/redux/itemreducer/failed_get_item'.toUpperCase();
-const GET_ITEMS_REQUEST =
-  'src/redux/itemreducer/get_items_request'.toUpperCase();
+const GET_ITEMS_REQUEST = 'src/redux/itemreducer/get_items_request'.toUpperCase();
 const url = 'https://optimistic-food.herokuapp.com/api/v1/items';
 
 const fetchItemsData = (payload) => ({
@@ -51,7 +50,7 @@ const itemReducer = (
     loading: false,
     error: null,
   },
-  action
+  action,
 ) => {
   switch (action.type) {
     case GET_ITEM:
