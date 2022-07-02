@@ -28,7 +28,7 @@
   padding-left: 5px;
 }
 
-.item-costumer-name {
+#item-costumer-name {
   font-size: 30px;
   font-weight: bold;
 }
@@ -89,7 +89,7 @@
     font-size: 10px;
   }
 
-  .item-costumer-name {
+  #item-costumer-name {
     font-size: 15px;
   }
 
