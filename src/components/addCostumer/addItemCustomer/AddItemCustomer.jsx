@@ -1,45 +1,56 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+// const fs = require('fs');
 import { getItemFromApi } from '../../../redux/forms/getItemsReducer';
+import topp from '../../../assets/json/data.json';
 import './AddItemCustomer.css';
 
-const AddItemCustomer = () => {
+const getFormattedPrice = (price) => `$${price.toFixed(2)}`;
+
+export default function AddItemCustomer() {
   const allItemsCostumer = useSelector((state) => state.item);
   const dispatch = useDispatch();
-  const [total, setTotal] = useState(0);
-  const [quantity, setQuantity] = useState(1);
+  const { data } = allItemsCostumer;
+
+  // fs.writeFile(
+  //   '../../../assets/json/data.json',
+  //   JSON.stringify(data),
+  //   (err) => {
+  //     if (err) console.log('Error writing file:', err);
+  //   }
+  // );
+
+  // const input = {
+  //   newData: [...data],
+  // };
+
+  // for (let i = 0; i < input.newData.length; i++) {
+  //   input.newData[i].price = parseFloat(input.newData[i].price);
+  // }
+
+  // console.log(topp, data);
+
+  useEffect(() => {
+    dispatch(getItemFromApi());
+  }, []);
 
   const [checkedState, setCheckedState] = useState(
-    new Array(allItemsCostumer.length).fill(false)
+    new Array(topp.length).fill(false)
   );
 
-  const handleItemQty = (e) => {
-    // quantity should never be less than 1
-    // pick the new quantity
-    if (e.target.value > 0) {
-      setQuantity(e.target.value);
-    }
-  };
-
-  console.log(quantity);
-
-  const getFormattedPrice = (price) =>
-    new Intl.NumberFormat('en-IN', {
-      style: 'currency',
-      currency: 'NGN',
-    }).format(price);
+  const [total, setTotal] = useState(0);
 
   const handleOnChange = (position) => {
-    /*eslint-disable*/
     const updatedCheckedState = checkedState.map((item, index) =>
       index === position ? !item : item
     );
-    /* eslint-enable */
+
     setCheckedState(updatedCheckedState);
+
     const totalPrice = updatedCheckedState.reduce(
       (sum, currentState, index) => {
         if (currentState === true) {
-          return sum + allItemsCostumer.data[index].price;
+          return sum + topp[index].price;
         }
         return sum;
       },
@@ -49,56 +60,39 @@ const AddItemCustomer = () => {
     setTotal(totalPrice);
   };
 
-  useEffect(() => {
-    dispatch(getItemFromApi());
-  }, []);
+  console.log(total);
 
   return (
-    <div className="items-costumer">
-      {allItemsCostumer.data.map(({ name, price }, index) => (
-        // eslint-disable-next-line react/no-array-index-key
-        <div key={index} className="checkbox-container">
-          <h3>
-            <label htmlFor={index} className="checkbox-label">
-              <input
-                className="checkbox-input"
-                type="checkbox"
-                name={name}
-                value={name}
-                id={index}
-                checked={checkedState[index]}
-                onChange={() => handleOnChange(index)}
-              />
-            </label>
-          </h3>
-          <div className="price-name">
-            <h3 className="item-costumer-name">{name}</h3>
-            <h3> &nbsp;-&nbsp;</h3>
-            <h3 className="right-section">{getFormattedPrice(price)}</h3>
+    <div className="App">
+      <h3>Select Toppings</h3>
+      <ul className="toppings-list">
+        {topp.map(({ name, price }, index) => {
+          return (
+            <li key={index}>
+              <div className="toppings-list-item">
+                <div className="left-section">
+                  <input
+                    type="checkbox"
+                    id={`custom-checkbox-${index}`}
+                    name={name}
+                    value={name}
+                    checked={checkedState[index]}
+                    onChange={() => handleOnChange(index)}
+                  />
+                  <label htmlFor={`custom-checkbox-${index}`}>{name}</label>
+                </div>
+                <div className="right-section">{getFormattedPrice(price)}</div>
+              </div>
+            </li>
+          );
+        })}
+        <li>
+          <div className="toppings-list-item">
+            <div className="left-section">Total:</div>
+            <div className="right-section">{getFormattedPrice(total)}</div>
           </div>
-          <div className="qty">
-            <h2>QTY</h2>
-            <h3>
-              <label htmlFor={index} className="checkbox-label">
-                <input
-                  className="quantity-input"
-                  type="number"
-                  // name={name}
-                  value={quantity}
-                  id="qauntity-input"
-                  onChange={handleItemQty}
-                />
-              </label>
-            </h3>
-          </div>
-        </div>
-      ))}
-      <div className="toppings-list-item">
-        <div className="left-section">Total:</div>
-        <div className="right-section">{getFormattedPrice(total)}</div>
-      </div>
+        </li>
+      </ul>
     </div>
   );
-};
-
-export default AddItemCustomer;
+}
