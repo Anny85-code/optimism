@@ -41,7 +41,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
       <div className="sidebar__title">
         <div className="sidebar__img">
           <img src={foodforallOptimism} alt="food for all logo" />
-          <h1>Food 4 All</h1>
+          <h1>Optimist</h1>
         </div>
         <i
           className="fa fa-times"
@@ -81,7 +81,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
           >
             <li>
               <NavLink to="/register" style={{ textDecoration: 'none' }}>
-                Add Marketer
+                Add New Marketer
               </NavLink>
             </li>
             <li>View All Marketers</li>
@@ -101,7 +101,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
           >
             <li>
               <NavLink to="/addcostumer" style={{ textDecoration: 'none' }}>
-                Add Customer
+                Add New Customer
               </NavLink>
             </li>
             <li>View All Customers</li>
@@ -124,7 +124,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
                 View All Products
               </NavLink>
             </li>
-            <li>Add Items</li>
+            <li>Add New Item</li>
           </ul>
         </div>
         <div className="sidebar__link">
