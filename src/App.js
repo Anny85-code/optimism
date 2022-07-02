@@ -36,7 +36,7 @@ import AddItemCustomer from './components/addCostumer/addItemCustomer/AddItemCus
         <Route exact path="/" element={<Splash />} />
           <>
             <Route exact path="/" element={<Main />} />
-            <Route path="/addcostumer" element={<AddCustomer />} />
+            <Route path="/addcustomer" element={<AddCustomer />} />
             {user.role === 'admin' && (
               <>
                 <Route path="/add-car" element={<Main />} />
@@ -94,7 +94,7 @@ const App = () => {
           <Routes>
             <Route exact path="/dashboard" element={<Main />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/addcostumer" element={<AddCustomer />} />
+            <Route path="/addcustomer" element={<AddCustomer />} />
             <Route path="/custumers" element={<Customers />} />
             <Route path="/additems" element={<AddItems />} />
             <Route path="/additemcustomer" element={<AddItemCustomer />} />

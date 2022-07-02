@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Rice",
+    "price": 250.0,
+    "picture": "https://tinyurl.com/52yzmzjk",
+    "description": "1 bag of Nigerian Rice",
+    "user_id": 1
+  },
+  {
+    "name": "Goat/Ram",
+    "price": 600.0,
+    "picture": "https://tinyurl.com/52yzmzjk",
+    "description": "1 life full goat or ram",
+    "user_id": 1
+  },
+  {
+    "name": "Malt",
+    "price": 90.0,
+    "picture": "https://tinyurl.com/52yzmzjk",
+    "description": "2 cartons of can malt",
+    "user_id": 1
+  },
+  {
+    "name": "Chicken",
+    "price": 100.0,
+    "picture": "https://tinyurl.com/52yzmzjk",
+    "description": "2 Frozen large chickens",
+    "user_id": 2
+  },
+  {
+    "name": "Vegetable Oil",
+    "price": 250.0,
+    "picture": "https://tinyurl.com/52yzmzjk",
+    "description": "9/10 Litres of Vegetable oil",
+    "user_id": 2
+  }
+]

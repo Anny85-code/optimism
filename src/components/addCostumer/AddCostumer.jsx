@@ -109,11 +109,11 @@ const AddCustomer = () => {
           </label>
         </div>
         <div className="form-group-btn">
-          <button type="submit" className="add-item-btn">
-            <NavLink to="/additemcustomer" style={{ textDecoration: 'none' }}>
+          <NavLink to="/additemcustomer" style={{ textDecoration: 'none' }}>
+            <button type="submit" className="add-item-btn">
               Add Item
-            </NavLink>
-          </button>
+            </button>
+          </NavLink>
         </div>
         <div className="form-group btn1">
           {!isPending && (
