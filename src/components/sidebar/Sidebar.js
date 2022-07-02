@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import './Sidebar.css';
 import { useDispatch } from 'react-redux';
 import foodforallOptimism from '../../assets/image/foodforallOptimism.jpeg';
+import Footer from '../footer/Footer';
 
 /* eslint-disable */
 const Sidebar = ({ sidebarOpen, closeSideBar }) => {
@@ -170,6 +171,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
           <i className="fa fa-power-off" />
           {isLoggedIn ? <a onClick={handleLogout}>Logout</a> : ''}
         </div>
+        <Footer />
       </div>
     </div>
   );
