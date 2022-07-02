@@ -135,6 +135,7 @@
   text-decoration: none;
   color: #a5aaad;
   font-weight: 700;
+  margin-bottom: 8px;
 }
 
 @media only screen and (max-width: 978px) {
