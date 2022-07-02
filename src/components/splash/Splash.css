@@ -16,6 +16,7 @@
   padding: 30px;
   background: rgb(56, 50, 50);
   border-radius: 25px;
+  height: 600px;
 }
 
 .splash__image {
@@ -28,7 +29,8 @@
   box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #967777;
   position: absolute;
   top: 60px;
-  left: 585px;
+  left: 38%;
+  /* left: 585px; */
   margin-top: 30px;
 }
 
@@ -51,7 +53,7 @@
   font-family: 'Neonderthaw', sans-serif;
   font-size: 30px;
   color: #fff;
-  margin-top: 30px;
+  /* margin-top: 90px; */
 }
 
 @media only screen and (max-width: 768px) {
