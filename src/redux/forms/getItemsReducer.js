@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Navigate } from 'react-router-dom';
 
 const GET_ITEM = 'src/redux/itemreducer/get_item'.toUpperCase();
 const FAILED_GET_ITEM = 'src/redux/itemreducer/failed_get_item'.toUpperCase();
@@ -42,7 +43,8 @@ export const postItemsToApi = (userData) => async (dispatch) => {
     dispatch(sendItemsDataFailed(errorMsg));
   } else {
     window.history.pushState({}, '', '/additems');
-    window.location.reload();
+      <Navigate to="/additems" />;
+      window.location.reload();
   }
 };
 
