@@ -2,8 +2,14 @@ import axios from 'axios';
 
 const GET_ITEM = 'src/redux/itemreducer/get_item'.toUpperCase();
 const FAILED_GET_ITEM = 'src/redux/itemreducer/failed_get_item'.toUpperCase();
+const FAILED_POST_ITEM = 'src/redux/itemreducer/failed_get_item'.toUpperCase();
 const GET_ITEMS_REQUEST = 'src/redux/itemreducer/get_items_request'.toUpperCase();
 const url = 'https://optimistic-food.herokuapp.com/api/v1/items';
+
+const sendItemsDataFailed = (payload) => ({
+  type: FAILED_POST_ITEM,
+  payload,
+});
 
 const fetchItemsData = (payload) => ({
   type: GET_ITEM,
@@ -20,6 +26,25 @@ const fetchItemsRequest = () => ({
   loading: true,
   error: null,
 });
+
+export const postItemsToApi = (userData) => async (dispatch) => {
+  const { token } = localStorage;
+  // const data = { userData };
+
+  const sendData = axios.post(url, userData, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  if (sendData.error || sendData.errors || sendData.rejected) {
+    const errorMsg = sendData.error || sendData.errors;
+    dispatch(sendItemsDataFailed(errorMsg));
+  } else {
+    window.history.pushState({}, '', '/additems');
+    window.location.reload();
+  }
+};
 
 export const getItemFromApi = () => async (dispatch) => {
   const { token } = localStorage;
@@ -65,6 +90,8 @@ const itemReducer = (
         loading: true,
         error: null,
       };
+    case FAILED_POST_ITEM:
+      return { error: action.errorMsg };
     default:
       return state;
   }

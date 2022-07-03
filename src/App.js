@@ -11,6 +11,7 @@ import Sidebar from './components/sidebar/Sidebar';
 import Splash from './components/splash/Splash';
 import AddItems from './components/items/AddItems';
 import AddItemCustomer from './components/addCostumer/addItemCustomer/AddItemCustomer';
+import AddProduct from './components/items/products/AddProducts';
 
 // const App = () => {
 // const [sideBarOpen, setSideBarOpen] = useState(false);
@@ -98,6 +99,7 @@ const App = () => {
             <Route path="/custumers" element={<Customers />} />
             <Route path="/additems" element={<AddItems />} />
             <Route path="/additemcustomer" element={<AddItemCustomer />} />
+            <Route path="/addproduct" element={<AddProduct />} />
           </Routes>
           <Sidebar sidebarOpen={sideBarOpen} closeSideBar={closeSideBar} />
         </div>

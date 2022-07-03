@@ -6,6 +6,7 @@
   margin: 20px;
   box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #967777;
   border-radius: 8px;
+  padding-bottom: 35px;
 }
 
 .item-name {
