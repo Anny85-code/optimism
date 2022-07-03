@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { postItemsToApi } from '../../../redux/forms/getItemsReducer';
-import './AddProducts.css';
+// import './AddProducts.css';
 
 const AddProduct = () => {
   const [name, setName] = useState('');
