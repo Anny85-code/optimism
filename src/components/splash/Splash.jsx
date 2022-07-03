@@ -16,12 +16,12 @@ const Splash = () => (
       </div>
     </div>
     <h2 className="splash-text">..Never2Late</h2>
-    <div className="login btn">
-      <button type="button" className="splash-btn">
-        <NavLink to="/login" style={{ textDecoration: 'none' }}>
+    <div className="login btn1">
+      <NavLink to="/login" style={{ textDecoration: 'none' }}>
+        <button type="button" className="splash-btn">
           Login
-        </NavLink>
-      </button>
+        </button>
+      </NavLink>
     </div>
   </div>
 );

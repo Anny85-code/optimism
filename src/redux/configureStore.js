@@ -13,13 +13,17 @@ import oneCustomerReducer from './forms/oneCustomerReducer';
 /* eslint-enable */
 import userManReducer from './forms/userManReducer';
 import oneUserReducer from './forms/oneUserManReducer';
+import itemReducer from './forms/getItemsReducer';
+
 
 const rootReducer = combineReducers({
   user: userReducer,
   customer: customerReducer,
+  marketers
   oneCustomer: oneCustomerReducer,
   userManReducer,
   oneUser: oneUserReducer,
+  item: itemReducer,
 });
 
 const store = createStore(rootReducer, compose(applyMiddleware(logger, thunk)));

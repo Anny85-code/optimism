@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { postCustomerToApi } from '../../redux/forms/customerReducer';
 import './AddCostumer.css';
 
@@ -32,7 +33,7 @@ const AddCustomer = () => {
   return (
     <div className="form-container">
       <h3 className="title">Add Customer</h3>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="add-customer-form">
         <div className="form-group">
           <label htmlFor="name">
             Name *
@@ -107,8 +108,19 @@ const AddCustomer = () => {
             />
           </label>
         </div>
-        <div className="form-group btn">
-          {!isPending && <button type="submit">Add Customer</button>}
+        <div className="form-group-btn">
+          <NavLink to="/additemcustomer" style={{ textDecoration: 'none' }}>
+            <button type="submit" className="add-item-btn">
+              Add Item
+            </button>
+          </NavLink>
+        </div>
+        <div className="form-group btn1">
+          {!isPending && (
+            <button type="submit" className="add-customer-btn">
+              Add Customer
+            </button>
+          )}
           {isPending && (
             <button type="submit" disabled>
               Adding Customer . . .
