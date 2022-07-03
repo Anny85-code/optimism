@@ -18,7 +18,6 @@ import EditUser from './components/user/EditUser';
 import AddItems from './components/items/AddItems';
 import AddItemCustomer from './components/addCostumer/addItemCustomer/AddItemCustomer';
 
-
 // const App = () => {
 // const [sideBarOpen, setSideBarOpen] = useState(false);
 // const isLoggedIn = localStorage.getItem('isLoggedIn');
@@ -101,8 +100,6 @@ const App = () => {
           <Routes>
             <Route exact path="/" element={<Main />} />
             <Route path="/register" element={<Register />} />
-
-           
             <Route path="/customers/:id/edit" element={<EditCustomer />} />
             <Route path="/customers/:id" element={<Customer />} />
             <Route path="/customers" element={<Customers />} />
