@@ -15,11 +15,10 @@ import userManReducer from './forms/userManReducer';
 import oneUserReducer from './forms/oneUserManReducer';
 import itemReducer from './forms/getItemsReducer';
 
-
 const rootReducer = combineReducers({
   user: userReducer,
   customer: customerReducer,
-  marketers,
+  //marketers,
   oneCustomer: oneCustomerReducer,
   userManReducer,
   oneUser: oneUserReducer,
