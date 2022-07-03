@@ -1,7 +1,9 @@
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './Sidebar.css';
 import { useDispatch } from 'react-redux';
 import foodforallOptimism from '../../assets/image/foodforallOptimism.jpeg';
+import Footer from '../footer/Footer';
 
 /* eslint-disable */
 const Sidebar = ({ sidebarOpen, closeSideBar }) => {
@@ -17,12 +19,35 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
     window.location.reload();
   };
 
+  const [dropdownCustomer, setDropdownCustomer] = useState(false);
+  const [dropdownProduct, setDropdownProduct] = useState(false);
+  const [dropdownMarketer, setDropdownMarketer] = useState(false);
+
+  const toggleDropdownCustomer = () => {
+    setDropdownCustomer(dropdownCustomer ? false : true);
+    setDropdownProduct(false);
+    setDropdownMarketer(false);
+  };
+
+  const toggleDropdownMarkerter = () => {
+    setDropdownCustomer(false);
+    setDropdownProduct(false);
+    setDropdownMarketer(dropdownMarketer ? false : true);
+  };
+
+  const toggleDropdownProduct = () => {
+    setDropdownCustomer(false);
+    setDropdownProduct(dropdownProduct ? false : true);
+    setDropdownMarketer(false);
+  };
+
+
   return (
     <div className={sidebarOpen ? 'sidebar-responsive' : ''} id="sidebar">
       <div className="sidebar__title">
         <div className="sidebar__img">
           <img src={foodforallOptimism} alt="food for all logo" />
-          <h1>Food 4 All</h1>
+          <h1>Optimist</h1>
         </div>
         <i
           className="fa fa-times"
@@ -50,15 +75,63 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
         </div>
         <div className="sidebar__link">
           <i className="fa fa-wrench" />
-          <NavLink to="/register">Marketer Management</NavLink>
+          <a href="#">Marketer Management</a>
+          <i
+            className="fa fa-caret-right"
+            onClick={toggleDropdownMarkerter}
+            id="toggle-btn"
+          />
+          <ul
+            className={!dropdownMarketer ? 'dropdown-off' : 'dropdown-on'}
+            id="drop-menu"
+          >
+            <li>
+              <NavLink to="/register" style={{ textDecoration: 'none' }}>
+                Add New Marketer
+              </NavLink>
+            </li>
+            <li>View All Marketers</li>
+          </ul>
         </div>
         <div className="sidebar__link">
           <i className="fa fa-wrench" />
-          <NavLink to="/addcustomer">Customer Management</NavLink>
+          <a href="#">Customer Management</a>
+          <i
+            className="fa fa-caret-right"
+            onClick={toggleDropdownCustomer}
+            id="toggle-btn"
+          />
+          <ul
+            className={!dropdownCustomer ? 'dropdown-off' : 'dropdown-on'}
+            id="drop-menu"
+          >
+            <li>
+              <NavLink to="/addcostumer" style={{ textDecoration: 'none' }}>
+                Add New Customer
+              </NavLink>
+            </li>
+            <li>View All Customers</li>
+          </ul>
         </div>
         <div className="sidebar__link">
           <i className="fa fa-wrench" />
-          <NavLink to="/additems">Product Management</NavLink>
+          <a href="#">Product Management</a>
+          <i
+            className="fa fa-caret-right"
+            onClick={toggleDropdownProduct}
+            id="toggle-btn"
+          />
+          <ul
+            className={!dropdownProduct ? 'dropdown-off' : 'dropdown-on'}
+            id="drop-menu"
+          >
+            <li>
+              <NavLink to="/additems" style={{ textDecoration: 'none' }}>
+                View All Products
+              </NavLink>
+            </li>
+            <li>Add New Item</li>
+          </ul>
         </div>
         <div className="sidebar__link">
           <i className="fa fa-archive" />
@@ -98,6 +171,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
           <i className="fa fa-power-off" />
           {isLoggedIn ? <a onClick={handleLogout}>Logout</a> : ''}
         </div>
+        <Footer />
       </div>
     </div>
   );

@@ -13,7 +13,6 @@
   justify-content: space-between;
   height: 70px;
   margin: 20px;
-  width: 90%;
   align-items: center;
   align-content: center;
   text-align: center;
@@ -28,7 +27,6 @@
 @media only screen and (max-width: 768px) {
   .item-name {
     font-size: 20px;
-    width: 90%;
   }
 
   .form-container-item-list {

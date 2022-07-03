@@ -9,6 +9,7 @@
   padding: 20px;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
+  width: 315px;
 }
 
 .sidebar__title {
@@ -107,6 +108,34 @@
 
 ::-webkit-scrollbar {
   width: 10px;
+}
+
+.dropdown-off {
+  display: none;
+}
+
+.dropdown-on {
+  display: block;
+}
+
+#toggle-btn {
+  margin-left: 10px;
+}
+
+#drop-menu {
+  width: 100%;
+  background: #020509;
+  padding: 10px 0 10px 40px;
+  box-shadow: 0 0 10px #000;
+  list-style-type: none;
+  margin-bottom: -25px;
+}
+
+#drop-menu > li {
+  text-decoration: none;
+  color: #a5aaad;
+  font-weight: 700;
+  margin-bottom: 8px;
 }
 
 @media only screen and (max-width: 978px) {

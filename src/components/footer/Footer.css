@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Quintessential&display=swap');
+
+.footer {
+  display: flex;
+  color: #fff;
+  font-size: 10px;
+  font-family: 'Quintessential', sans-serif;
+}
