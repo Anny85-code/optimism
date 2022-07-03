@@ -1,0 +1,11 @@
+.containa {
+  margin: 20px 50px;
+  padding: 4px;
+  background-color: azure;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.containa :nth-child(even) {
+  background-color: rgb(172, 180, 180);
+}
