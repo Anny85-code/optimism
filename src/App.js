@@ -9,6 +9,8 @@ import Main from './components/main/Main';
 import Navbar from './components/navbar/Navbar';
 import Sidebar from './components/sidebar/Sidebar';
 import Splash from './components/splash/Splash';
+import AddItems from './components/items/AddItems';
+import AddItemCustomer from './components/addCostumer/addItemCustomer/AddItemCustomer';
 
 // const App = () => {
 // const [sideBarOpen, setSideBarOpen] = useState(false);
@@ -34,7 +36,7 @@ import Splash from './components/splash/Splash';
         <Route exact path="/" element={<Splash />} />
           <>
             <Route exact path="/" element={<Main />} />
-            <Route path="/addcostumer" element={<AddCustomer />} />
+            <Route path="/addcustomer" element={<AddCustomer />} />
             {user.role === 'admin' && (
               <>
                 <Route path="/add-car" element={<Main />} />
@@ -92,8 +94,10 @@ const App = () => {
           <Routes>
             <Route exact path="/dashboard" element={<Main />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/addcostumer" element={<AddCustomer />} />
+            <Route path="/addcustomer" element={<AddCustomer />} />
             <Route path="/custumers" element={<Customers />} />
+            <Route path="/additems" element={<AddItems />} />
+            <Route path="/additemcustomer" element={<AddItemCustomer />} />
           </Routes>
           <Sidebar sidebarOpen={sideBarOpen} closeSideBar={closeSideBar} />
         </div>
