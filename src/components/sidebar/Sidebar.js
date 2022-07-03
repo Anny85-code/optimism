@@ -130,7 +130,11 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
                 View All Products
               </NavLink>
             </li>
-            <li>Add New Item</li>
+            <li>
+              <NavLink to="/addproduct" style={{ textDecoration: 'none' }}>
+                Add New Item
+              </NavLink>
+            </li>
           </ul>
         </div>
         <div className="sidebar__link">

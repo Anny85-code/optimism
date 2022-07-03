@@ -17,6 +17,7 @@ import User from './components/user/User';
 import EditUser from './components/user/EditUser';
 import AddItems from './components/items/AddItems';
 import AddItemCustomer from './components/addCostumer/addItemCustomer/AddItemCustomer';
+import AddProduct from './components/items/products/AddProducts';
 
 // const App = () => {
 // const [sideBarOpen, setSideBarOpen] = useState(false);
@@ -106,12 +107,11 @@ const App = () => {
             <Route path="/users" element={<Users />} />
             <Route path="/users/:id" element={<User />} />
             <Route path="/users/:id/edit" element={<EditUser />} />
-
             <Route path="/addcustomer" element={<AddCustomer />} />
             <Route path="/custumers" element={<Customers />} />
             <Route path="/additems" element={<AddItems />} />
             <Route path="/additemcustomer" element={<AddItemCustomer />} />
-
+            <Route path="/addproduct" element={<AddProduct />} />
           </Routes>
           <Sidebar sidebarOpen={sideBarOpen} closeSideBar={closeSideBar} />
         </div>
