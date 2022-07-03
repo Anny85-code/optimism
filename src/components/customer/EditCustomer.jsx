@@ -1,23 +1,35 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { NavLink } from 'react-router-dom';
-import { postCustomerToApi } from '../../redux/forms/customerReducer';
-import './AddCostumer.css';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+// import { NavLink, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { postUpdateCustomerToApi } from '../../redux/forms/customerReducer';
+import { getOneCustomerFromApi } from '../../redux/forms/oneCustomerReducer';
+import '../addCostumer/AddCostumer.css';
 
-const AddCustomer = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [address, setAddress] = useState('');
-  const [picture, setPicture] = useState('');
-  const [isPending, setIsPending] = useState(false);
+const EditCustomer = () => {
+  const param = useParams();
   const dispatch = useDispatch();
+  const { id } = param;
+  const aCustomers = useSelector((state) => state.oneCustomer);
+
+  useEffect(() => {
+    dispatch(getOneCustomerFromApi(id));
+  }, []);
+
+  const customerId = aCustomers.data.id;
+  const [name, setName] = useState(aCustomers.data.name);
+  const [email, setEmail] = useState(aCustomers.data.email);
+  const [phone, setPhone] = useState(aCustomers.data.phone);
+  const [address, setAddress] = useState(aCustomers.data.address);
+  const [picture, setPicture] = useState(aCustomers.data.picture);
+  const [isPending, setIsPending] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const user = JSON.parse(localStorage.getItem('user'));
     const { id } = user.user;
     const customer = {
+      id: customerId,
       user_id: id,
       name,
       email,
@@ -26,14 +38,14 @@ const AddCustomer = () => {
       picture,
     };
     setIsPending(true);
-    dispatch(postCustomerToApi(customer));
+    dispatch(postUpdateCustomerToApi(customer));
     setIsPending(false);
   };
 
   return (
     <div className="form-container">
       <h3 className="title">Add Customer</h3>
-      <form onSubmit={handleSubmit} className="add-customer-form">
+      <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="name">
             Name *
@@ -108,19 +120,8 @@ const AddCustomer = () => {
             />
           </label>
         </div>
-        <div className="form-group-btn">
-          <NavLink to="/additemcustomer" style={{ textDecoration: 'none' }}>
-            <button type="submit" className="add-item-btn">
-              Add Item
-            </button>
-          </NavLink>
-        </div>
-        <div className="form-group btn1">
-          {!isPending && (
-            <button type="submit" className="add-customer-btn">
-              Add Customer
-            </button>
-          )}
+        <div className="form-group btn">
+          {!isPending && <button type="submit">Add Customer</button>}
           {isPending && (
             <button type="submit" disabled>
               Adding Customer . . .
@@ -132,4 +133,4 @@ const AddCustomer = () => {
   );
 };
 
-export default AddCustomer;
+export default EditCustomer;

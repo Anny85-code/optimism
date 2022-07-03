@@ -1,4 +1,4 @@
-import axios from 'axios';
+// import axios from 'axios';
 
 const GET_ITEM = 'src/redux/itemreducer/get_item'.toUpperCase();
 const FAILED_GET_ITEM = 'src/redux/itemreducer/failed_get_item'.toUpperCase();
@@ -25,13 +25,20 @@ export const getItemFromApi = () => async (dispatch) => {
   const { token } = localStorage;
   dispatch(fetchItemsRequest());
   try {
-    const response = await axios.get(url, {
+    const req = await fetch(url, {
       headers: {
+        'content-type': 'application/json',
         Authorization: `Bearer ${token}`,
       },
     });
-    console.log(response.data);
-    dispatch(fetchItemsData(response.data));
+    const response = await req.json();
+    // const response = await axios.get(url, {
+    //   headers: {
+    //     Authorization: `Bearer ${token}`,
+    //   },
+    // });
+    // console.log(response);
+    dispatch(fetchItemsData(response));
   } catch (error) {
     dispatch(fetchItemsDataFailed(error.message));
   }
