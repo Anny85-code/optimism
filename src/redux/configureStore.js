@@ -21,7 +21,7 @@ const rootReducer = combineReducers({
   customer: customerReducer,
   marketers
   oneCustomer: oneCustomerReducer,
-  userManReducer,
+  userManReducer
   oneUser: oneUserReducer,
   item: itemReducer,
 });
