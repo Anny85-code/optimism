@@ -12,6 +12,7 @@ const AddCustomer = () => {
   const [picture, setPicture] = useState('');
   const [isPending, setIsPending] = useState(false);
   const dispatch = useDispatch();
+  const dailyContribution = localStorage.getItem('dailyContibution');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,14 +25,13 @@ const AddCustomer = () => {
       phone,
       address,
       picture,
+      dailyContribution,
     };
     setIsPending(true);
     dispatch(postCustomerToApi(customer));
     setIsPending(false);
     localStorage.removeItem('dailyContibution');
   };
-
-  const dailyContribution = localStorage.getItem('dailyContibution');
 
   return (
     <div className="form-container">
@@ -111,18 +111,18 @@ const AddCustomer = () => {
             />
           </label>
         </div>
-        <div>
-          <p>
-            Daily contribution:
-            {`NGN ${dailyContribution}.00`}
-          </p>
-        </div>
         <div className="form-group-btn">
           <NavLink to="/additemcustomer" style={{ textDecoration: 'none' }}>
             <button type="submit" className="add-item-btn">
               Add Item
             </button>
           </NavLink>
+        </div>
+        <div>
+          <center>
+            Daily contribution:
+            {`NGN ${dailyContribution}.00`}
+          </center>
         </div>
         <div className="form-group btn1">
           {!isPending && (

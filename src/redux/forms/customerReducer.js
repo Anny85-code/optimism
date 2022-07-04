@@ -6,7 +6,8 @@ const FAILED_PATCH_CUSTOMER = 'src/redux/customerreducer/failed_patch_customer'.
 const GET_CUSTOMER = 'src/redux/customerreducer/get_customer'.toUpperCase();
 const FAILED_GET_CUSTOMER = 'src/redux/customerreducer/failed_get_customer'.toUpperCase();
 const GET_CUSTOMERS_REQUEST = 'src/redux/customerreducer/get_customer_request'.toUpperCase();
-const url = 'https://optimistic-food.herokuapp.com/api/v1/customers';
+// const url = 'https://optimistic-food.herokuapp.com/api/v1/customers';
+const url = 'http://localhost:4000/api/v1/customers';
 const { token } = localStorage;
 
 const sendCustomerDataFailed = (payload) => ({
