@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Navigate } from 'react-router-dom';
 import data from '../../../assets/json/data.json';
 import './AddItemCustomer.css';
 
@@ -33,13 +34,17 @@ const AddItemCustomer = () => {
 
   const handleContribtution = () => {
     localStorage.setItem('dailyContibution', total);
-    // window;
+    window.history.pushState({}, '', '/addcustomer');
+    <Navigate to="/addcustomer" />;
+    window.location.reload();
   };
 
   return (
     <div className="App">
       <h3>Select Product</h3>
-      <button type="button" onClick={handleContribtution}></button>
+      <button type="button" onClick={handleContribtution}>
+        Add
+      </button>
       <ul className="toppings-list">
         {data.map(({ name, price }, index) => {
           return (
