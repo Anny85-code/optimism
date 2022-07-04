@@ -118,7 +118,16 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
                 Add New Customer
               </NavLink>
             </li>
-            <li>View All Customers</li>
+            <li>
+              View All Customers
+              <NavLink
+                to="/customers"
+                style={{ textDecoration: 'none' }}
+                onClick={closeSideBar}
+              >
+                View All Customers
+              </NavLink>
+            </li>
           </ul>
         </div>
         <div className="sidebar__link">
