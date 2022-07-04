@@ -119,7 +119,6 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
               </NavLink>
             </li>
             <li>
-              View All Customers
               <NavLink
                 to="/customers"
                 style={{ textDecoration: 'none' }}
