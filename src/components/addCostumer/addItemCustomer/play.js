@@ -33,11 +33,10 @@ const AddItemCustomer = () => {
     }
   };
 
-  const getFormattedPrice = (price) =>
-    new Intl.NumberFormat('en-IN', {
-      style: 'currency',
-      currency: 'NGN',
-    }).format(price);
+  const getFormattedPrice = (price) => new Intl.NumberFormat('en-IN', {
+    style: 'currency',
+    currency: 'NGN',
+  }).format(price);
 
   /* eslint-disable */
   const checkedItems = checked.length

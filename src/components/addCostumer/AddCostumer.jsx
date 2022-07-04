@@ -30,6 +30,8 @@ const AddCustomer = () => {
     setIsPending(false);
   };
 
+  const dailyContribution = localStorage.getItem('dailyContibution');
+
   return (
     <div className="form-container">
       <h3 className="title">Add Customer</h3>
@@ -107,6 +109,9 @@ const AddCustomer = () => {
               onChange={(e) => setPicture(e.target.value)}
             />
           </label>
+        </div>
+        <div>
+          <p>Daily contribution: {`NGN ${dailyContribution}.00`}</p>
         </div>
         <div className="form-group-btn">
           <NavLink to="/additemcustomer" style={{ textDecoration: 'none' }}>
