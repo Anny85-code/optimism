@@ -86,7 +86,11 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
             id="drop-menu"
           >
             <li>
-              <NavLink to="/register" style={{ textDecoration: 'none' }}>
+              <NavLink
+                to="/register"
+                style={{ textDecoration: 'none' }}
+                onClick={closeSideBar}
+              >
                 Add New Marketer
               </NavLink>
             </li>
@@ -106,7 +110,11 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
             id="drop-menu"
           >
             <li>
-              <NavLink to="/addcostumer" style={{ textDecoration: 'none' }}>
+              <NavLink
+                to="/addcustomer"
+                style={{ textDecoration: 'none' }}
+                onClick={closeSideBar}
+              >
                 Add New Customer
               </NavLink>
             </li>
@@ -126,13 +134,21 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
             id="drop-menu"
           >
             <li>
-              <NavLink to="/additems" style={{ textDecoration: 'none' }}>
-                View All Products
+              <NavLink
+                to="/addproduct"
+                style={{ textDecoration: 'none' }}
+                onClick={closeSideBar}
+              >
+                Add New Item
               </NavLink>
             </li>
             <li>
-              <NavLink to="/addproduct" style={{ textDecoration: 'none' }}>
-                Add New Item
+              <NavLink
+                to="/additems"
+                style={{ textDecoration: 'none' }}
+                onClick={closeSideBar}
+              >
+                View All Products
               </NavLink>
             </li>
           </ul>
