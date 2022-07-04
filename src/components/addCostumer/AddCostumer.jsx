@@ -28,6 +28,7 @@ const AddCustomer = () => {
     setIsPending(true);
     dispatch(postCustomerToApi(customer));
     setIsPending(false);
+    localStorage.removeItem('dailyContibution');
   };
 
   const dailyContribution = localStorage.getItem('dailyContibution');
