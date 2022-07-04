@@ -6,6 +6,7 @@ const FAILED_GET_ITEM = 'src/redux/itemreducer/failed_get_item'.toUpperCase();
 const FAILED_POST_ITEM = 'src/redux/itemreducer/failed_get_item'.toUpperCase();
 const GET_ITEMS_REQUEST = 'src/redux/itemreducer/get_items_request'.toUpperCase();
 const url = 'https://optimistic-food.herokuapp.com/api/v1/items';
+const { token } = localStorage;
 
 const sendItemsDataFailed = (payload) => ({
   type: FAILED_POST_ITEM,
@@ -29,9 +30,8 @@ const fetchItemsRequest = () => ({
 });
 
 export const postItemsToApi = (userData) => async (dispatch) => {
-  const { token } = localStorage;
   // const data = { userData };
-
+  console.log('postItemsToApi', userData);
   const sendData = axios.post(url, userData, {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -49,7 +49,6 @@ export const postItemsToApi = (userData) => async (dispatch) => {
 };
 
 export const getItemFromApi = () => async (dispatch) => {
-  const { token } = localStorage;
   dispatch(fetchItemsRequest());
   try {
     const req = await fetch(url, {

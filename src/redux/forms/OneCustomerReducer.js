@@ -36,7 +36,7 @@ export const getOneCustomerFromApi = (id) => async (dispatch) => {
   }
 };
 
-const oneCustomerReducer = (
+const OneCustomerReducer = (
   state = {
     data: [],
     loading: false,
@@ -69,4 +69,4 @@ const oneCustomerReducer = (
   }
 };
 
-export default oneCustomerReducer;
+export default OneCustomerReducer;

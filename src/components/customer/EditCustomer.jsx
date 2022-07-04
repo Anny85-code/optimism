@@ -3,7 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 // import { NavLink, useParams } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { postUpdateCustomerToApi } from '../../redux/forms/customerReducer';
-import { getOneCustomerFromApi } from '../../redux/forms/oneCustomerReducer';
+/* eslint-disable */
+import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
+/* eslint-enable */
 import '../addCostumer/AddCostumer.css';
 
 const EditCustomer = () => {

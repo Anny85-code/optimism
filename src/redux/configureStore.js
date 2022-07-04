@@ -9,7 +9,7 @@ import logger from 'redux-logger';
 import userReducer from './forms/userReducer';
 import customerReducer from './forms/customerReducer';
 /* eslint-disable */
-import oneCustomerReducer from './forms/oneCustomerReducer';
+import OneCustomerReducer from './forms/OneCustomerReducer';
 /* eslint-enable */
 import userManReducer from './forms/userManReducer';
 import oneUserReducer from './forms/oneUserManReducer';
@@ -19,7 +19,7 @@ const rootReducer = combineReducers({
   user: userReducer,
   customer: customerReducer,
   // marketers,
-  oneCustomer: oneCustomerReducer,
+  oneCustomer: OneCustomerReducer,
   userManReducer,
   oneUser: oneUserReducer,
   item: itemReducer,

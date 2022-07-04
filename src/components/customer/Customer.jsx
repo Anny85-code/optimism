@@ -2,8 +2,9 @@ import React, { useEffect } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './Customer.module.css';
-import { getOneCustomerFromApi } from '../../redux/forms/oneCustomerReducer';
-
+/* eslint-disable */
+import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
+/* eslint-enable */
 const editUrl = (person) => {
   const { id } = person;
   return `/customers/${id}/edit`;

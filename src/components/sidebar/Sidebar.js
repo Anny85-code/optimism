@@ -145,7 +145,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
           <i className="fa fa-handshake-o" />
           <a href="#">Contributions</a>
         </div>
-        <h2>LEAVE</h2>
+        <h2>PAYMENT</h2>
         <div className="sidebar__link">
           <i className="fa fa-question" />
           <a href="#">Requests</a>
