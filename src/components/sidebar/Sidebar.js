@@ -179,7 +179,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
           <a href="#">Terms and Condition</a>
         </div>
         <div className="sidebar__link">
-          <i className="fa fa-calender-check-o" />
+          <i className="fa fa-calendar-check-o" />
           <a href="#">Special Days</a>
         </div>
         <div className="sidebar__link">
