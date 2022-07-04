@@ -15,8 +15,8 @@ const AddItems = () => {
   return (
     <div className="form-container-item-list">
       {allItems.data.map((item) => (
-        <>
-          <div key={item.id} className="item-name">
+        <React.Fragment key={item.id}>
+          <div className="item-name">
             <h3>{item.name}</h3>
             <h3>{item.price}</h3>
             <img
@@ -25,7 +25,7 @@ const AddItems = () => {
               style={{ width: '50px', height: '50px' }}
             />
           </div>
-        </>
+        </React.Fragment>
       ))}
     </div>
   );

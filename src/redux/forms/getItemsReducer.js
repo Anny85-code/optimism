@@ -31,7 +31,6 @@ const fetchItemsRequest = () => ({
 
 export const postItemsToApi = (userData) => async (dispatch) => {
   // const data = { userData };
-  console.log('postItemsToApi', userData);
   const sendData = axios.post(url, userData, {
     headers: {
       Authorization: `Bearer ${token}`,
