@@ -1,98 +1,73 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getItemFromApi } from '../../../redux/forms/getItemsReducer';
+import { useState } from 'react';
+import data from '../../../assets/json/data.json';
 import './AddItemCustomer.css';
 
-const AddItemCustomer = () => {
-  const [checked, setChecked] = useState([]);
-  const allItemsCostumer = useSelector((state) => state.item);
-
-  const dispatch = useDispatch();
-  const { data } = allItemsCostumer;
-  const dataPrices = data.map((la) => la.price);
-
-  useEffect(() => {
-    dispatch(getItemFromApi());
-  }, []);
-
-  const handleCheck = (event) => {
-    let updatedList = [...checked];
-    if (event.target.checked) {
-      updatedList = [...checked, event.target.value];
-    } else {
-      updatedList.splice(checked.indexOf(event.target.value), 1);
-    }
-    setChecked(updatedList);
-  };
-
-  const [quantity, setQuantity] = useState(1);
-
-  const handleItemQty = (e) => {
-    if (e.target.value > 0) {
-      setQuantity(e.target.value);
-    }
-  };
-
-  const getFormattedPrice = (price) => new Intl.NumberFormat('en-IN', {
-    style: 'currency',
-    currency: 'NGN',
-  }).format(price);
-
+const getFormattedPrice = (price) => `NGN${price.toFixed(2)}`;
 /* eslint-disable */
-  const checkedItems = checked.length
-    ? checked.reduce((total, item, ind) => {
-        return total + +dataPrices[ind];
-      }, 0)
-    : 0;
-    // Return classes based on whether item is checked
-    var isChecked = (item) =>
-    checked.includes(item) ? 'checked-item' : 'not-checked-item';
-    /* eslint-enable */
+const AddItemCustomer = () => {
+  const [checkedState, setCheckedState] = useState(
+    new Array(data.length).fill(false)
+  );
+
+  const [total, setTotal] = useState(0);
+
+  const handleOnChange = (position) => {
+    const updatedCheckedState = checkedState.map((item, index) =>
+      index === position ? !item : item
+    );
+
+    setCheckedState(updatedCheckedState);
+
+    const totalPrice = updatedCheckedState.reduce(
+      (sum, currentState, index) => {
+        if (currentState === true) {
+          return sum + data[index].price;
+        }
+        return sum;
+      },
+      0
+    );
+
+    setTotal(totalPrice);
+  };
+
+  const handleContribtution = () => {
+    localStorage.setItem('dailyContibution', total);
+    // window;
+  };
 
   return (
-    <div className="items-costumer">
-      {data.map(({ name, price }, index) => (
-        /* eslint-disable */
-        <div key={index} className="checkbox-container">
-          <h3>
-            <label htmlFor={index} className="checkbox-label">
-              <input
-                className="checkbox-input"
-                type="checkbox"
-                value={name}
-                onChange={handleCheck}
-              />
-            </label>
-          </h3>
-          <div className="price-name">
-            <h3 className={isChecked(name)} id="item-costumer-name">
-              {name}
-            </h3>
-            <h3> &nbsp;-&nbsp;</h3>
-            <h3 className="right-section">{getFormattedPrice(price)}</h3>
+    <div className="App">
+      <h3>Select Product</h3>
+      <button type="button" onClick={handleContribtution}></button>
+      <ul className="toppings-list">
+        {data.map(({ name, price }, index) => {
+          return (
+            <li key={index}>
+              <div className="toppings-list-item">
+                <div className="left-section">
+                  <input
+                    type="checkbox"
+                    id={`custom-checkbox-${index}`}
+                    name={name}
+                    value={name}
+                    checked={checkedState[index]}
+                    onChange={() => handleOnChange(index)}
+                  />
+                  <label htmlFor={`custom-checkbox-${index}`}>{name}</label>
+                </div>
+                <div className="right-section">{getFormattedPrice(price)}</div>
+              </div>
+            </li>
+          );
+        })}
+        <li>
+          <div className="toppings-list-item">
+            <div className="left-section">Total:</div>
+            <div className="right-section">{getFormattedPrice(total)}</div>
           </div>
-          <div className="qty">
-            <h2>QTY</h2>
-            <h3>
-              <label htmlFor={index} className="checkbox-label">
-                <input
-                  className="quantity-input"
-                  type="number"
-                  value={quantity}
-                  id="qauntity-input"
-                  onChange={handleItemQty}
-                />
-              </label>
-            </h3>
-          </div>
-        </div>
-      ))}
-      <div className="toppings-list-item">
-        <div className="left-section">Total:</div>
-        <div className="right-section">
-          {getFormattedPrice(checkedItems)}
-        </div>
-      </div>
+        </li>
+      </ul>
     </div>
   );
 };
