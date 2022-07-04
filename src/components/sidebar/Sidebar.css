@@ -9,7 +9,7 @@
   padding: 20px;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
-  width: 315px;
+  width: 319px;
 }
 
 .sidebar__title {
@@ -104,10 +104,6 @@
   z-index: 9999 !important;
   left: 0 !important;
   position: absolute;
-}
-
-::-webkit-scrollbar {
-  width: 10px;
 }
 
 .dropdown-off {

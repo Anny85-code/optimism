@@ -118,7 +118,15 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
                 Add New Customer
               </NavLink>
             </li>
-            <li>View All Customers</li>
+            <li>
+              <NavLink
+                to="/customers"
+                style={{ textDecoration: 'none' }}
+                onClick={closeSideBar}
+              >
+                View All Customers
+              </NavLink>
+            </li>
           </ul>
         </div>
         <div className="sidebar__link">
@@ -171,7 +179,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
           <a href="#">Terms and Condition</a>
         </div>
         <div className="sidebar__link">
-          <i className="fa fa-calender-check-o" />
+          <i className="fa fa-calendar-check-o" />
           <a href="#">Special Days</a>
         </div>
         <div className="sidebar__link">
