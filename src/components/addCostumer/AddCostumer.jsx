@@ -112,7 +112,10 @@ const AddCustomer = () => {
           </label>
         </div>
         <div>
-          <p>Daily contribution: {`NGN ${dailyContribution}.00`}</p>
+          <p>
+            Daily contribution:
+            {`NGN ${dailyContribution}.00`}
+          </p>
         </div>
         <div className="form-group-btn">
           <NavLink to="/additemcustomer" style={{ textDecoration: 'none' }}>

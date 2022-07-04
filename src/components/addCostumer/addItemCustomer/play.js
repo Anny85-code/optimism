@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // import { getItemFromApi } from '../../../redux/forms/getItemsReducer';
@@ -33,10 +34,11 @@ const AddItemCustomer = () => {
     }
   };
 
-  const getFormattedPrice = (price) => new Intl.NumberFormat('en-IN', {
-    style: 'currency',
-    currency: 'NGN',
-  }).format(price);
+  const getFormattedPrice = (price) =>
+    new Intl.NumberFormat('en-IN', {
+      style: 'currency',
+      currency: 'NGN',
+    }).format(price);
 
   /* eslint-disable */
   const checkedItems = checked.length
@@ -94,5 +96,5 @@ const AddItemCustomer = () => {
     </div>
   );
 };
-/* eslint-enable */
 export default AddItemCustomer;
+/* eslint-enable */
