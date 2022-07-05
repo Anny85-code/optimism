@@ -34,7 +34,7 @@ This project is a contribution application that allows users to keep track and m
 👤 **Bright Atshigi**
 
 - GitHub: [@Brytebee](https://github.com/brytebee)
-- LinkedIn: [Bright]("https://www.linkedin.com/in/brytebee/")
+- LinkedIn: [Bright](https://www.linkedin.com/in/brytebee/)
   
 👤 **Aniekan Udo**
 
