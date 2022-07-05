@@ -43,8 +43,43 @@ const AddItemCustomer = () => {
   };
 
   return (
-    <div className="App">
-      <h3>Select Product</h3>
+    <div className="items-costumer">
+      <h3 className="head-text">Select Product</h3>
+        {data.map(({ name, price }, index) => {
+          return (
+            <div className="checkbox-container">
+              <h3>
+                <label htmlFor={index} key={index} className="checkbox-label">
+                  <input
+                    type="checkbox"
+                    id={`custom-checkbox-${index}`}
+                    name={name}
+                    value={name}
+                    className="checkbox-input"
+                    checked={checkedState[index]}
+                    onChange={() => handleOnChange(index)}
+                  />
+                </label>
+              </h3>
+              <div className="price-name">
+                <h3>
+                  <label
+                    htmlFor={`custom-checkbox-${index}`}
+                    id="item-costumer-name"
+                  >
+                    {name}
+                  </label>
+                </h3>
+                <h3 className="right-section"> &nbsp;-&nbsp;</h3>
+                <h3 className="right-section">{getFormattedPrice(price)}</h3>
+              </div>
+            </div>
+          );
+        })}
+          <div className="toppings-list-item">
+            <div className="left-section">Total:</div>
+            <div className="right-section">{getFormattedPrice(total)}</div>
+          </div>
       <div className="form-group btn1">
         <button
           type="submit"
@@ -54,34 +89,6 @@ const AddItemCustomer = () => {
           Add Customer
         </button>
       </div>
-      <ul className="toppings-list">
-        {data.map(({ name, price }, index) => {
-          return (
-            <li key={index}>
-              <div className="toppings-list-item">
-                <div className="left-section">
-                  <input
-                    type="checkbox"
-                    id={`custom-checkbox-${index}`}
-                    name={name}
-                    value={name}
-                    checked={checkedState[index]}
-                    onChange={() => handleOnChange(index)}
-                  />
-                  <label htmlFor={`custom-checkbox-${index}`}>{name}</label>
-                </div>
-                <div className="right-section">{getFormattedPrice(price)}</div>
-              </div>
-            </li>
-          );
-        })}
-        <li>
-          <div className="toppings-list-item">
-            <div className="left-section">Total:</div>
-            <div className="right-section">{getFormattedPrice(total)}</div>
-          </div>
-        </li>
-      </ul>
     </div>
   );
 };
