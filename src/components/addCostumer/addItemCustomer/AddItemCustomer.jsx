@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Navigate } from 'react-router-dom';
 import data from '../../../assets/json/data.json';
+import { postCustomerToApi } from '../../../redux/forms/customerReducer';
 import './AddItemCustomer.css';
 
 const getFormattedPrice = (price) => `NGN${price.toFixed(2)}`;
@@ -37,10 +37,7 @@ const AddItemCustomer = () => {
       // const customer = localStorage.getItem('customer');
       let customer = JSON.parse(localStorage.getItem('customer'));
       const userData = { ...customer, daily_contribution: total };
-      console.log(userData);
-      // window.history.pushState({}, '', '/addcustomer');
-      // <Navigate to="/addcustomer" />;
-      // window.location.reload();
+      postCustomerToApi(userData);
     }
   };
 
