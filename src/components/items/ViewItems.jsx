@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import data from '../../assets/json/data.json';
 import './AddItems.css';
 
-const AddItems = () => {
+const ViewItems = () => {
   // const allItems = useSelector((state) => state.item);
   // const dispatch = useDispatch();
 
@@ -33,4 +33,4 @@ const AddItems = () => {
   );
 };
 
-export default AddItems;
+export default ViewItems;

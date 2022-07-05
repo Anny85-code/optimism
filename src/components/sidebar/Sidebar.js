@@ -41,7 +41,6 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
     setDropdownMarketer(false);
   };
 
-
   return (
     <div className={sidebarOpen ? 'sidebar-responsive' : ''} id="sidebar">
       <div className="sidebar__title">
@@ -152,7 +151,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
             </li>
             <li>
               <NavLink
-                to="/additems"
+                to="/products"
                 style={{ textDecoration: 'none' }}
                 onClick={closeSideBar}
               >
