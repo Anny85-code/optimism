@@ -1,5 +1,4 @@
 .items-costumer {
-  height: 90%;
   width: 800px;
   gap: 20px;
   font-family: 'Gumela', sans-serif;
@@ -34,7 +33,8 @@
 }
 
 .right-section {
-  font-size: 30px;
+  font-size: 25px;
+  margin-top: 15px;
 }
 
 .quantity-input {
@@ -60,10 +60,20 @@
   font-weight: bold;
 }
 
+.head-text {
+  text-align: center;
+  font-size: 40px;
+  font-family: 'Gumela', sans-serif;
+  margin: 30px;
+  font-weight: bold;
+}
+
 .price-name {
   display: flex;
   font-size: 30px;
   font-weight: bold;
+  justify-content: space-between;
+  gap: 40px;
 }
 
 .qty {
