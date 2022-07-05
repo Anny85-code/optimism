@@ -35,21 +35,26 @@ const Customer = () => {
   const redirect = editUrl(aCustomers.data);
 
   return (
-    <div className="main-cus-container">
-      <div className="containa">
-        <div className="details-container">
+    <div className="containa">
+      <div className="details-container">
         <h3>Name: {name}</h3>
-          <p>Phone: {phone}</p>
-          <p>Email: {email}</p>
-          <p>Daily Contribution: NGN {daily_contribution}</p>
-          <p>Address: {address}</p>
-          <p>Joined: {created_at}</p>
-          <p>Last Updated: {updated_at}</p>
-        </div>
+        <p>Phone: {phone}</p>
+        <p>Email: {email}</p>
+        <p>Daily Contribution: NGN {daily_contribution}</p>
+        <p>Address: {address}</p>
+        <p>Joined: {created_at}</p>
+        <p>Last Updated: {updated_at}</p>
+      </div>
 
-        <div>
-          <img src={picture} alt={`${name}`} style={{ width: '100px' }} />
-          <NavLink to={redirect}>Edit</NavLink>
+      <div className="image-container">
+        <img
+          src={picture}
+          alt={`${name}`}
+        />
+        <div className="edit">
+          <NavLink to={redirect} style={{ textDecoration: 'none' }}>
+            Edit
+          </NavLink>
         </div>
       </div>
     </div>
