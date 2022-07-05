@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import styles from '../customer/Customer.module.css';
+// import styles from '../customer/Customer.module.css';
 import { getOneUserFromApi } from '../../redux/forms/oneUserManReducer';
 
 const editUrl = (person) => {

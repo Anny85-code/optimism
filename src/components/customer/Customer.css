@@ -1,0 +1,32 @@
+.containa {
+  margin: 20px 50px;
+  padding: 4px;
+  background-color: azure;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  height: 50px;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.containa :nth-child(even) {
+  background-color: rgb(172, 180, 180);
+}
+
+.main-cus-container{
+  margin: 20px 50px;
+  padding: 4px;
+  background-color: azure;
+  border-radius: 8px;
+  text-align: center;
+  
+}
+
+.details-container{
+  margin: 20px 50px;
+  padding: 4px;
+  background-color: azure;
+  border-radius: 8px;
+  text-align: center;
+}

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import styles from '../customer/Customer.module.css';
+// import styles from '../customer/Customer.module.css';
 import { getUsersFromApi } from '../../redux/forms/userManReducer';
 
 const Users = () => {
