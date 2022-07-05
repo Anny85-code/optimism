@@ -16,7 +16,6 @@ const AddCustomer = () => {
   // dailyContribution = Number(dailyContribution);
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
     const user = JSON.parse(localStorage.getItem('user'));
     const { id } = user.user;
     const customer = {
@@ -39,7 +38,7 @@ const AddCustomer = () => {
   return (
     <div className="form-container">
       <h3 className="title">Add Customer</h3>
-      <form onSubmit={handleSubmit} className="add-customer-form">
+      <form className="add-customer-form">
         <div className="form-group">
           <label htmlFor="name">
             Name *
@@ -116,7 +115,11 @@ const AddCustomer = () => {
         </div>
         <div className="form-group-btn">
           <NavLink to="/additemcustomer" style={{ textDecoration: 'none' }}>
-            <button type="submit" className="add-item-btn">
+            <button
+              type="button"
+              className="add-item-btn"
+              onClick={handleSubmit}
+            >
               Add Items
             </button>
           </NavLink>
