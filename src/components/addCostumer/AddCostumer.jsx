@@ -12,8 +12,8 @@ const AddCustomer = () => {
   const [picture, setPicture] = useState('');
   const [isPending, setIsPending] = useState(false);
   const dispatch = useDispatch();
-  let dailyContribution = localStorage.getItem('dailyContibution') || 0;
-  dailyContribution = Number(dailyContribution);
+  const dailyContribution = localStorage.getItem('dailyContibution') || 0;
+  // dailyContribution = Number(dailyContribution);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,7 +26,7 @@ const AddCustomer = () => {
       phone,
       address,
       picture,
-      dailyContribution,
+      daily_contribution: dailyContribution,
     };
     console.log(customer);
     setIsPending(true);

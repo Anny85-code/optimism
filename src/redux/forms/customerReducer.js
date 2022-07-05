@@ -37,13 +37,12 @@ const fetchCustomerRequest = () => ({
 });
 
 export const postCustomerToApi = (userData) => async (dispatch) => {
-  console.log(userData);
   const sendData = axios.post(url, userData, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   });
-
+  console.log(userData, sendData);
   if (sendData.error || sendData.errors || sendData.rejected) {
     const errorMsg = sendData.error || sendData.errors;
     dispatch(sendCustomerDataFailed(errorMsg));
