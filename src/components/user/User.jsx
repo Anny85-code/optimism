@@ -35,8 +35,8 @@ const User = () => {
   const redirect = editUrl(user.data);
 
   return (
-    <div>
-      <div className="containa">
+    <div className="containa">
+      <div className="details-container">
         <h3>Name: {name}</h3>
         <p>Username: {username}</p>
         <p>Role: {role}</p>
@@ -46,8 +46,12 @@ const User = () => {
         <p>Address: {address}</p>
         <p>Joined: {created_at}</p>
         <p>Last Updated: {updated_at}</p>
+      </div>
+      <div className="image-container">
         <img src={avatar} alt={`${name}`} style={{ width: '100px' }} />
-        <NavLink to={redirect}>Edit</NavLink>
+        <div className="edit">
+          <NavLink to={redirect}>Edit</NavLink>
+        </div>
       </div>
     </div>
   );
