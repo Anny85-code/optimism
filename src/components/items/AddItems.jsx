@@ -20,7 +20,7 @@ const AddItems = () => {
         <React.Fragment key={item.id}>
           <div className="item-name">
             <h3>{item.name}</h3>
-            <h3>{item.price}</h3>
+            <h3>NGN {item.price}</h3>
             <img
               src={item.picture}
               alt={item.picture}
