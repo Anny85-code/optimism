@@ -15,7 +15,7 @@ const AddCustomer = () => {
   // const dailyContribution = localStorage.getItem('dailyContibution');
   // dailyContribution = Number(dailyContribution);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async () => {
     const user = JSON.parse(localStorage.getItem('user'));
     const { id } = user.user;
     const customer = {
@@ -27,7 +27,7 @@ const AddCustomer = () => {
       picture,
       // daily_contribution: dailyContribution,
     };
-    localStorage.setItem('customer', customer);
+    localStorage.setItem('customer', JSON.stringify(customer));
     // setIsPending(true);
     // dispatch(postCustomerToApi(customer));
 

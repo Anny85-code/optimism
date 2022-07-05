@@ -32,11 +32,16 @@ const AddItemCustomer = () => {
     setTotal(totalPrice);
   };
 
-  const handleContribtution = () => {
-    localStorage.setItem('dailyContibution', total);
-    window.history.pushState({}, '', '/addcustomer');
-    <Navigate to="/addcustomer" />;
-    window.location.reload();
+  const handleContribution = () => {
+    if (total > 0) {
+      // const customer = localStorage.getItem('customer');
+      let customer = JSON.parse(localStorage.getItem('customer'));
+      const userData = { ...customer, daily_contribution: total };
+      console.log(userData);
+      // window.history.pushState({}, '', '/addcustomer');
+      // <Navigate to="/addcustomer" />;
+      // window.location.reload();
+    }
   };
 
   return (
@@ -46,7 +51,7 @@ const AddItemCustomer = () => {
         <button
           type="submit"
           className="add-customer-btn"
-          onClick={handleContribtution}
+          onClick={handleContribution}
         >
           Add Customer
         </button>
