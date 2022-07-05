@@ -47,7 +47,7 @@ const Customer = () => {
       </div>
 
       <div className="image-container">
-        <img
+        <img className="cus-image"
           src={picture}
           alt={`${name}`}
         />

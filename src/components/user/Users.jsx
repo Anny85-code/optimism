@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import '../customer/Customer.css';
+// import '../customer/Customer.css';
 import { getUsersFromApi } from '../../redux/forms/userManReducer';
 
 const Users = () => {
@@ -16,7 +16,7 @@ const Users = () => {
     <div>
       {allUsers.data.map((user) => (
         <NavLink key={user.id} to={`/users/${user.id}`}>
-          <div className="containa">
+          <div className="customer-container">
             <h3>{user.name}</h3>
             <p>{user.phone}</p>
           </div>

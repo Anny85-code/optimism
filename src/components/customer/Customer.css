@@ -35,7 +35,7 @@
   margin-top: 30px;
 }
 
-img {
+.cus-image {
   width: 350px;
   border-radius: 8px;
 }
@@ -44,7 +44,7 @@ img {
   .containa {
     width: 350px;
   }
-  
+
   .details-container {
     width: 300px;
     font-size: 15px;
@@ -52,7 +52,7 @@ img {
     padding: 0 5px;
   }
 
-  img {
+  .cus-image {
     width: 150px;
     height: 150px;
   }
