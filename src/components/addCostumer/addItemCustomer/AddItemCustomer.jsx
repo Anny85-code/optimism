@@ -38,7 +38,6 @@ const AddItemCustomer = () => {
     if (total > 0) {
       let customer = JSON.parse(localStorage.getItem('customer'));
       const userData = { ...customer, daily_contribution: total };
-      console.log(userData);
       dispatch(postCustomerToApi(userData));
     }
   };

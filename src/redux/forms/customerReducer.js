@@ -46,7 +46,7 @@ export const postCustomerToApi = (userData) => async (dispatch) => {
       Authorization: `Bearer ${token}`,
     },
   });
-  console.log(userData, sendData);
+
   if (sendData.error || sendData.errors || sendData.rejected) {
     const errorMsg = sendData.error || sendData.errors;
     dispatch(sendCustomerDataFailed(errorMsg));
