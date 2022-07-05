@@ -42,9 +42,15 @@ const AddItemCustomer = () => {
   return (
     <div className="App">
       <h3>Select Product</h3>
-      <button type="button" onClick={handleContribtution}>
-        Add
-      </button>
+      <div className="form-group btn1">
+        <button
+          type="submit"
+          className="add-customer-btn"
+          onClick={handleContribtution}
+        >
+          Add Customer
+        </button>
+      </div>
       <ul className="toppings-list">
         {data.map(({ name, price }, index) => {
           return (

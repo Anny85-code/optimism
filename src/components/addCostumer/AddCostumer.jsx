@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { postCustomerToApi } from '../../redux/forms/customerReducer';
+// import { postCustomerToApi } from '../../redux/forms/customerReducer';
 import './AddCostumer.css';
 
 const AddCustomer = () => {
@@ -10,9 +10,9 @@ const AddCustomer = () => {
   const [phone, setPhone] = useState('');
   const [address, setAddress] = useState('');
   const [picture, setPicture] = useState('');
-  const [isPending, setIsPending] = useState(false);
-  const dispatch = useDispatch();
-  const dailyContribution = localStorage.getItem('dailyContibution') || 0;
+  // const [isPending, setIsPending] = useState(false);
+  // const dispatch = useDispatch();
+  // const dailyContribution = localStorage.getItem('dailyContibution');
   // dailyContribution = Number(dailyContribution);
 
   const handleSubmit = async (e) => {
@@ -26,13 +26,14 @@ const AddCustomer = () => {
       phone,
       address,
       picture,
-      daily_contribution: dailyContribution,
+      // daily_contribution: dailyContribution,
     };
+    localStorage.setItem('customer', customer);
+    // setIsPending(true);
+    // dispatch(postCustomerToApi(customer));
 
-    setIsPending(true);
-    dispatch(postCustomerToApi(customer));
-    setIsPending(false);
-    localStorage.removeItem('dailyContibution');
+    // setIsPending(false);
+    // localStorage.removeItem('dailyContibution');
   };
 
   return (
@@ -116,27 +117,9 @@ const AddCustomer = () => {
         <div className="form-group-btn">
           <NavLink to="/additemcustomer" style={{ textDecoration: 'none' }}>
             <button type="submit" className="add-item-btn">
-              Add Item
+              Add Items
             </button>
           </NavLink>
-        </div>
-        <div>
-          <center>
-            Daily contribution:
-            {`NGN ${dailyContribution}.00`}
-          </center>
-        </div>
-        <div className="form-group btn1">
-          {!isPending && (
-            <button type="submit" className="add-customer-btn">
-              Add Customer
-            </button>
-          )}
-          {isPending && (
-            <button type="submit" disabled>
-              Adding Customer . . .
-            </button>
-          )}
         </div>
       </form>
     </div>
