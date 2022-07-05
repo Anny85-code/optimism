@@ -1,20 +1,22 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getItemFromApi } from '../../redux/forms/getItemsReducer';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { getItemFromApi } from '../../redux/forms/getItemsReducer';
+import data from '../../assets/json/data.json';
 import './AddItems.css';
 
 const AddItems = () => {
-  const allItems = useSelector((state) => state.item);
-  const dispatch = useDispatch();
+  // const allItems = useSelector((state) => state.item);
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getItemFromApi());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(getItemFromApi());
+  // }, []);
   // setIsPending(false);
 
   return (
     <div className="form-container-item-list">
-      {allItems.data.map((item) => (
+      {/* {allItems.data.map((item) => ( */}
+      {data.map((item) => (
         <React.Fragment key={item.id}>
           <div className="item-name">
             <h3>{item.name}</h3>
