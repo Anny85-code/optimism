@@ -24,7 +24,7 @@ const EditCustomer = () => {
   const [phone, setPhone] = useState(aCustomers.data.phone);
   const [address, setAddress] = useState(aCustomers.data.address);
   const [dailyContribution, setDailyContribution] = useState(
-    aCustomers.data.daily_contribution
+    aCustomers.data.daily_contribution,
   );
   const [picture, setPicture] = useState(aCustomers.data.picture);
   const [isPending, setIsPending] = useState(false);
