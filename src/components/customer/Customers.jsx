@@ -19,7 +19,7 @@ const Customers = () => {
           <div
             className="customer-container"
           >
-            <h3 >
+            <h3>
               <span className="cus-name">Name:</span>
               {customer.name}
             </h3>
