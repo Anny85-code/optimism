@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Navigate } from 'react-router-dom';
 
 // const POST_CUSTOMER = 'src/redux/customerreducer/post_customer'.toUpperCase();
 const FAILED_POST_CUSTOMER = 'src/redux/customerreducer/failed_post_customer'.toUpperCase();
@@ -46,8 +47,11 @@ export const postCustomerToApi = (userData) => async (dispatch) => {
     const errorMsg = sendData.error || sendData.errors;
     dispatch(sendCustomerDataFailed(errorMsg));
   } else {
-    window.history.pushState({}, '', '/');
-    // window.location.reload();
+    window.history.pushState({}, '', '/customers');
+      <Navigate to="/customers" />;
+      setTimeout(() => {
+        window.location.reload();
+      }, 5000);
   }
 };
 

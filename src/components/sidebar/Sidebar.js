@@ -41,7 +41,6 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
     setDropdownMarketer(false);
   };
 
-
   return (
     <div className={sidebarOpen ? 'sidebar-responsive' : ''} id="sidebar">
       <div className="sidebar__title">
@@ -94,7 +93,15 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
                 Add New Marketer
               </NavLink>
             </li>
-            <li>View All Marketers</li>
+            <li>
+              <NavLink
+                to="/users"
+                style={{ textDecoration: 'none' }}
+                onClick={closeSideBar}
+              >
+                View All Marketers
+              </NavLink>
+            </li>
           </ul>
         </div>
         <div className="sidebar__link">
@@ -141,7 +148,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
             className={!dropdownProduct ? 'dropdown-off' : 'dropdown-on'}
             id="drop-menu"
           >
-            <li>
+            {/* <li>
               <NavLink
                 to="/addproduct"
                 style={{ textDecoration: 'none' }}
@@ -149,10 +156,10 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
               >
                 Add New Item
               </NavLink>
-            </li>
+            </li> */}
             <li>
               <NavLink
-                to="/additems"
+                to="/products"
                 style={{ textDecoration: 'none' }}
                 onClick={closeSideBar}
               >

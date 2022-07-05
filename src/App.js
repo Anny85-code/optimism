@@ -15,9 +15,10 @@ import EditCustomer from './components/customer/EditCustomer';
 import Users from './components/user/Users';
 import User from './components/user/User';
 import EditUser from './components/user/EditUser';
-import AddItems from './components/items/AddItems';
+// import AddItems from './components/items/AddItems';
 import AddItemCustomer from './components/addCostumer/addItemCustomer/AddItemCustomer';
 import AddProduct from './components/items/products/AddProducts';
+import ViewItems from './components/items/ViewItems';
 
 // const App = () => {
 // const [sideBarOpen, setSideBarOpen] = useState(false);
@@ -109,7 +110,7 @@ const App = () => {
             <Route path="/users/:id/edit" element={<EditUser />} />
             <Route path="/addcustomer" element={<AddCustomer />} />
             <Route path="/custumers" element={<Customers />} />
-            <Route path="/additems" element={<AddItems />} />
+            <Route path="/products" element={<ViewItems />} />
             <Route path="/additemcustomer" element={<AddItemCustomer />} />
             <Route path="/addproduct" element={<AddProduct />} />
           </Routes>

@@ -22,8 +22,16 @@ const Customer = () => {
 
   /* eslint-disable */
 
-  const { name, phone, address, email, created_at, picture, updated_at } =
-    aCustomers.data;
+  const {
+    name,
+    phone,
+    address,
+    email,
+    created_at,
+    picture,
+    updated_at,
+    daily_contribution,
+  } = aCustomers.data;
   const redirect = editUrl(aCustomers.data);
 
   return (
@@ -32,6 +40,7 @@ const Customer = () => {
         <h3>Name: {name}</h3>
         <p>Phone: {phone}</p>
         <p>Email: {email}</p>
+        <p>Daily Contribution: NGN {daily_contribution}</p>
         <p>Address: {address}</p>
         <p>Joined: {created_at}</p>
         <p>Last Updated: {updated_at}</p>

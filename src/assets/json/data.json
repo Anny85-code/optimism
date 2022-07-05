@@ -1,37 +1,242 @@
 [
   {
+    "id": 1,
     "name": "Rice",
     "price": 250.0,
-    "picture": "https://tinyurl.com/52yzmzjk",
+    "picture": "https://tinyurl.com/3tkjz6hu",
     "description": "1 bag of Nigerian Rice",
     "user_id": 1
   },
   {
+    "id": 2,
     "name": "Goat/Ram",
     "price": 600.0,
-    "picture": "https://tinyurl.com/52yzmzjk",
+    "picture": "https://tinyurl.com/27w5udxn",
     "description": "1 life full goat or ram",
     "user_id": 1
   },
   {
+    "id": 3,
+    "name": "Rice",
+    "price": 140.0,
+    "picture": "https://tinyurl.com/3tkjz6hu",
+    "description": "1/2 bag of Nigerian Rice",
+    "user_id": 1
+  },
+  {
+    "id": 4,
+    "name": "Chicken",
+    "price": 100.0,
+    "picture": "https://tinyurl.com/ufuvp4e4",
+    "description": "2 frozen large chickens",
+    "user_id": 2
+  },
+  {
+    "id": 5,
     "name": "Malt",
     "price": 90.0,
-    "picture": "https://tinyurl.com/52yzmzjk",
+    "picture": "https://tinyurl.com/25hupt6u",
     "description": "2 cartons of can malt",
     "user_id": 1
   },
   {
-    "name": "Chicken",
-    "price": 100.0,
-    "picture": "https://tinyurl.com/52yzmzjk",
-    "description": "2 Frozen large chickens",
-    "user_id": 2
+    "id": 6,
+    "name": "Vegetable Oil",
+    "price": 120.0,
+    "picture": "https://tinyurl.com/jkyda2x8",
+    "description": "9/10 litres of Vegetable oil",
+    "user_id": 1
   },
   {
+    "id": 7,
+    "name": "Rice",
+    "price": 70.0,
+    "picture": "https://tinyurl.com/3tkjz6hu",
+    "description": "1/4 bag of Nigerian Rice",
+    "user_id": 1
+  },
+  {
+    "id": 8,
+    "name": "Spaghetti",
+    "price": 70.0,
+    "picture": "https://tinyurl.com/yac7p3ts",
+    "description": "1 carton of spaghetti",
+    "user_id": 1
+  },
+  {
+    "id": 9,
+    "name": "Macaroni",
+    "price": 70.0,
+    "picture": "https://tinyurl.com/5n8wrru5",
+    "description": "1 carton of macaroni",
+    "user_id": 1
+  },
+  {
+    "id": 10,
+    "name": "Vegetable Oil",
+    "price": 65.0,
+    "picture": "https://tinyurl.com/jkyda2x8",
+    "description": "4.5/5 liters of G. oil",
+    "user_id": 1
+  },
+  {
+    "id": 11,
+    "name": "Semo",
+    "price": 60.0,
+    "picture": "https://tinyurl.com/3n2394ah",
+    "description": "1 - 10kg semo",
+    "user_id": 1
+  },
+  {
+    "id": 12,
+    "name": "Indomie",
+    "price": 60.0,
+    "picture": "https://tinyurl.com/39pbasf4",
+    "description": "1 carton of indomie (super pack)",
+    "user_id": 1
+  },
+  {
+    "id": 13,
+    "name": "Red oil",
+    "price": 50.0,
+    "picture": "https://tinyurl.com/52yzmzjk",
+    "description": "1 - 4liters of red oil",
+    "user_id": 1
+  },
+  {
+    "id": 14,
+    "name": "Milo",
+    "price": 130.0,
+    "picture": "https://tinyurl.com/52yzmzjk",
+    "description": "1 carton of milo (sachet)",
+    "user_id": 1
+  },
+  {
+    "id": 15,
+    "name": "Milo",
+    "price": 70.0,
+    "picture": "https://tinyurl.com/52yzmzjk",
+    "description": "1/2 carton of milo (sachet)",
+    "user_id": 1
+  },
+  {
+    "id": 16,
+    "name": "Peak",
+    "price": 130.0,
+    "picture": "https://tinyurl.com/52yzmzjk",
+    "description": "1 carton of peak milk (sachet)",
+    "user_id": 1
+  },
+  {
+    "id": 17,
+    "name": "Peak",
+    "price": 70.0,
+    "picture": "https://tinyurl.com/52yzmzjk",
+    "description": "1/2 carton of peak milk (sachet)",
+    "user_id": 1
+  },
+  {
+    "id": 18,
+    "name": "Maggi - Star",
+    "price": 120.0,
+    "picture": "https://tinyurl.com/52yzmzjk",
+    "description": "1 carton of maggi (Star/Terra)",
+    "user_id": 1
+  },
+  {
+    "id": 19,
+    "name": "Maggi - Star",
+    "price": 60.0,
+    "picture": "https://tinyurl.com/52yzmzjk",
+    "description": "1/2 carton of maggi (Star/Terra)",
+    "user_id": 1
+  },
+  {
+    "id": 20,
+    "name": "Maggi - Star",
+    "price": 40.0,
+    "picture": "https://tinyurl.com/52yzmzjk",
+    "description": "1/4 carton of maggi (Star/Terra)",
+    "user_id": 1
+  },
+  {
+    "id": 21,
+    "name": "Soap",
+    "price": 60.0,
+    "picture": "https://tinyurl.com/52yzmzjk",
+    "description": "2 cartons of soap (Canoe/Sebs Everfresh)",
+    "user_id": 1
+  },
+  {
+    "id": 22,
     "name": "Vegetable Oil",
     "price": 250.0,
+    "picture": "https://tinyurl.com/jkyda2x8",
+    "description": "25 litres of Vegetable oil",
+    "user_id": 1
+  },
+  {
+    "id": 23,
+    "name": "Detergent",
+    "price": 50.0,
     "picture": "https://tinyurl.com/52yzmzjk",
-    "description": "9/10 Litres of Vegetable oil",
-    "user_id": 2
+    "description": "1 carton of detergent (OMO)",
+    "user_id": 1
+  },
+  {
+    "id": 24,
+    "name": "Flour",
+    "price": 50.0,
+    "picture": "https://tinyurl.com/4cp6vccw",
+    "description": "5 mudu of flour",
+    "user_id": 1
+  },
+  {
+    "id": 25,
+    "name": "Cuscus",
+    "price": 50.0,
+    "picture": "https://tinyurl.com/52yzmzjk",
+    "description": "1 carton of cuscus (sachet)",
+    "user_id": 1
+  },
+  {
+    "id": 26,
+    "name": "Wheat",
+    "price": 45.0,
+    "picture": "https://tinyurl.com/52yzmzjk",
+    "description": "1 - 10 kg of wheat",
+    "user_id": 1
+  },
+  {
+    "id": 27,
+    "name": "Sugar",
+    "price": 55.0,
+    "picture": "https://tinyurl.com/52yzmzjk",
+    "description": "6.5 mudu of sugar",
+    "user_id": 1
+  },
+  {
+    "id": 28,
+    "name": "Tomato",
+    "price": 60.0,
+    "picture": "https://tinyurl.com/52yzmzjk",
+    "description": "1 carton of sachet tomato",
+    "user_id": 1
+  },
+  {
+    "id": 29,
+    "name": "Crayfish",
+    "price": 85.0,
+    "picture": "https://tinyurl.com/52yzmzjk",
+    "description": "Crayfish (small paint rubber)",
+    "user_id": 1
+  },
+  {
+    "id": 30,
+    "name": "Dry fish",
+    "price": 100.0,
+    "picture": "https://tinyurl.com/52yzmzjk",
+    "description": "Dry fish (Big size 15 - 18)",
+    "user_id": 1
   }
 ]

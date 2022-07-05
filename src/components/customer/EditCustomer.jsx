@@ -23,6 +23,9 @@ const EditCustomer = () => {
   const [email, setEmail] = useState(aCustomers.data.email);
   const [phone, setPhone] = useState(aCustomers.data.phone);
   const [address, setAddress] = useState(aCustomers.data.address);
+  const [dailyContribution, setDailyContribution] = useState(
+    aCustomers.data.daily_contribution
+  );
   const [picture, setPicture] = useState(aCustomers.data.picture);
   const [isPending, setIsPending] = useState(false);
 
@@ -38,6 +41,7 @@ const EditCustomer = () => {
       phone,
       address,
       picture,
+      dailyContribution,
     };
     setIsPending(true);
     dispatch(postUpdateCustomerToApi(customer));
@@ -109,6 +113,21 @@ const EditCustomer = () => {
           </label>
         </div>
         <div className="form-group">
+          <label htmlFor="daily_contribution">
+            Daily Contribution *
+            <input
+              type="text"
+              className="form-control"
+              id="daily_contribution"
+              name="daily_contribution"
+              required
+              placeholder="daily Contribution"
+              value={dailyContribution}
+              onChange={(e) => setDailyContribution(e.target.value)}
+            />
+          </label>
+        </div>
+        <div className="form-group">
           <label htmlFor="picture">
             Picture
             <input
@@ -123,10 +142,10 @@ const EditCustomer = () => {
           </label>
         </div>
         <div className="form-group btn">
-          {!isPending && <button type="submit">Add Customer</button>}
+          {!isPending && <button type="submit">Update Customer</button>}
           {isPending && (
             <button type="submit" disabled>
-              Adding Customer . . .
+              Updating Customer . . .
             </button>
           )}
         </div>
