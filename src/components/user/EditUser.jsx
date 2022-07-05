@@ -206,12 +206,12 @@ const EditUser = () => {
               <br />
               <div className="form-group btn">
                 {!isPending && (
-                  <button type="submit" className="btn btn-secondary">
+                  <button type="submit" className="btn1 btn-secondary">
                     Edit User
                   </button>
                 )}
                 {isPending && (
-                  <button className="btn btn-secondary" type="submit" disabled>
+                  <button className="btn1 btn-secondary" type="submit" disabled>
                     Editing User . . .
                   </button>
                 )}
