@@ -53,7 +53,9 @@ export const postCustomerToApi = (userData) => async (dispatch) => {
   } else {
     window.history.pushState({}, '', '/customers');
     <Navigate to="/customers" />;
-    window.location.reload();
+    setTimeout(() => {
+      window.location.reload();
+    }, 5000);
   }
 };
 

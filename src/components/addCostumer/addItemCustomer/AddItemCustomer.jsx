@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux/es/exports';
 import data from '../../../assets/json/data.json';
 import { postCustomerToApi } from '../../../redux/forms/customerReducer';
 import './AddItemCustomer.css';
@@ -10,6 +11,7 @@ const AddItemCustomer = () => {
     new Array(data.length).fill(false)
   );
 
+  const dispatch = useDispatch();
   const [total, setTotal] = useState(0);
 
   const handleOnChange = (position) => {
@@ -34,10 +36,10 @@ const AddItemCustomer = () => {
 
   const handleContribution = () => {
     if (total > 0) {
-      // const customer = localStorage.getItem('customer');
       let customer = JSON.parse(localStorage.getItem('customer'));
       const userData = { ...customer, daily_contribution: total };
-      postCustomerToApi(userData);
+      console.log(userData);
+      dispatch(postCustomerToApi(userData));
     }
   };
 
