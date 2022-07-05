@@ -1,0 +1,40 @@
+.cus-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: #2e4a66;
+  margin-right: 5px;
+}
+
+.cus-phone {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f5f08;
+  margin-right: 5px;
+}
+
+.customer-container {
+  margin: 20px 50px;
+  padding: 4px;
+  background-color: azure;
+  border-radius: 8px;
+  text-align: center;
+  height: 50px;
+}
+
+.customer-container :nth-child(even) {
+  background-color: rgb(172, 180, 180);
+}
+
+@media only screen and (max-width: 978px) {
+  .cus-name {
+    font-size: 15px;
+  }
+
+  .cus-phone {
+    font-size: 15px;
+  }
+
+  .customer-container > h3 {
+    font-size: 15px;
+  }
+}

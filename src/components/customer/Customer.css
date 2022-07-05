@@ -1,0 +1,59 @@
+.containa {
+  margin: 20px 50px;
+  padding: 20px;
+  background-color: azure;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  height: 400px;
+  width: 750px;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.details-container {
+  margin: 0 20px 20px 20px;
+  padding: 0 15px 15px 15px;
+  background-color: azure;
+  border-radius: 8px;
+  text-align: left;
+  font-size: 20px;
+  font-weight: 600;
+  font-family: 'Gumeland', cursive;
+  box-sizing: border-box;
+}
+
+.image-container {
+  padding: 4px;
+  gap: 30px;
+}
+
+.edit {
+  font-size: 30px;
+  font-weight: bold;
+  font-family: 'Gumeland', cursive;
+  margin-top: 30px;
+}
+
+.cus-image {
+  width: 350px;
+  border-radius: 8px;
+}
+
+@media only screen and (max-width: 978px) {
+  .containa {
+    width: 350px;
+  }
+
+  .details-container {
+    width: 300px;
+    font-size: 15px;
+    margin: 0;
+    padding: 0 5px;
+  }
+
+  .cus-image {
+    width: 150px;
+    height: 150px;
+  }
+}

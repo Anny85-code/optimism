@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import styles from './Customer.module.css';
+import './Customer.css';
 /* eslint-disable */
 import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
 /* eslint-enable */
@@ -35,8 +35,8 @@ const Customer = () => {
   const redirect = editUrl(aCustomers.data);
 
   return (
-    <div>
-      <div className={styles.containa}>
+    <div className="containa">
+      <div className="details-container">
         <h3>Name: {name}</h3>
         <p>Phone: {phone}</p>
         <p>Email: {email}</p>
@@ -44,8 +44,18 @@ const Customer = () => {
         <p>Address: {address}</p>
         <p>Joined: {created_at}</p>
         <p>Last Updated: {updated_at}</p>
-        <img src={picture} alt={`${name}`} style={{ width: '100px' }} />
-        <NavLink to={redirect}>Edit</NavLink>
+      </div>
+
+      <div className="image-container">
+        <img className="cus-image"
+          src={picture}
+          alt={`${name}`}
+        />
+        <div className="edit">
+          <NavLink to={redirect} style={{ textDecoration: 'none' }}>
+            Edit
+          </NavLink>
+        </div>
       </div>
     </div>
   );

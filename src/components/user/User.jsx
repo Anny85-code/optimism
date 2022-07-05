@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import styles from '../customer/Customer.module.css';
+// import '../customer/Customer.css';
 import { getOneUserFromApi } from '../../redux/forms/oneUserManReducer';
 
 const editUrl = (person) => {
@@ -36,7 +36,7 @@ const User = () => {
 
   return (
     <div>
-      <div className={styles.containa}>
+      <div className="containa">
         <h3>Name: {name}</h3>
         <p>Username: {username}</p>
         <p>Role: {role}</p>
