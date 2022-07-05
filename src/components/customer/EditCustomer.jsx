@@ -141,8 +141,15 @@ const EditCustomer = () => {
             />
           </label>
         </div>
-        <div className="form-group btn">
-          {!isPending && <button type="submit">Update Customer</button>}
+        <div className="form-group btn1">
+          {!isPending && (
+            <button
+              type="submit"
+              className="btn1 btn-secondary1 add-marketer-btn"
+            >
+              Update Customer
+            </button>
+          )}
           {isPending && (
             <button type="submit" disabled>
               Updating Customer . . .
