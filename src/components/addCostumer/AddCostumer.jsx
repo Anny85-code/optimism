@@ -28,7 +28,7 @@ const AddCustomer = () => {
       picture,
       daily_contribution: dailyContribution,
     };
-    console.log(customer);
+
     setIsPending(true);
     dispatch(postCustomerToApi(customer));
     setIsPending(false);
