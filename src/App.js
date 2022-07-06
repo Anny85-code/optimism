@@ -38,13 +38,13 @@ const App = () => {
         <div className="container">
           <Navbar sideBarOpen={sideBarOpen} openSideBar={openSideBar} />
           <Routes>
+            <Route path="/customers" element={<Customers />} />
+            <Route path="/customers/:id" element={<Customer />} />
             {user.role === 'admin' ? (
               <>
                 <Route exact path="/" element={<Main />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/customers/:id/edit" element={<EditCustomer />} />
-                <Route path="/customers/:id" element={<Customer />} />
-                <Route path="/customers" element={<Customers />} />
                 <Route path="/users" element={<Users />} />
                 <Route path="/users/:id" element={<User />} />
                 <Route path="/users/:id/edit" element={<EditUser />} />
@@ -55,7 +55,9 @@ const App = () => {
                 <Route path="/addproduct" element={<AddProduct />} />
               </>
             ) : (
-              <Route exact path="/" element={<Main />} />
+              <>
+                <Route exact path="/" element={<Main />} />
+              </>
             )}
           </Routes>
           <Sidebar sidebarOpen={sideBarOpen} closeSideBar={closeSideBar} />
