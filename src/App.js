@@ -38,25 +38,21 @@ const App = () => {
         <div className="container">
           <Navbar sideBarOpen={sideBarOpen} openSideBar={openSideBar} />
           <Routes>
+            <Route exact path="/" element={<Main />} />
             <Route path="/customers" element={<Customers />} />
             <Route path="/customers/:id" element={<Customer />} />
-            {user.role === 'admin' ? (
+            <Route path="/addcustomer" element={<AddCustomer />} />
+            <Route path="/additemcustomer" element={<AddItemCustomer />} />
+            {user.role === 'admin' && (
               <>
-                <Route exact path="/" element={<Main />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/customers/:id/edit" element={<EditCustomer />} />
                 <Route path="/users" element={<Users />} />
                 <Route path="/users/:id" element={<User />} />
                 <Route path="/users/:id/edit" element={<EditUser />} />
-                <Route path="/addcustomer" element={<AddCustomer />} />
                 <Route path="/custumers" element={<Customers />} />
                 <Route path="/products" element={<ViewItems />} />
-                <Route path="/additemcustomer" element={<AddItemCustomer />} />
                 <Route path="/addproduct" element={<AddProduct />} />
-              </>
-            ) : (
-              <>
-                <Route exact path="/" element={<Main />} />
               </>
             )}
           </Routes>
