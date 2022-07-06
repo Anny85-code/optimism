@@ -62,51 +62,55 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
           <i className="fa fa-home" />
           <NavLink to="/">Dashboard</NavLink>
         </div>
-        <h2>MNG</h2>
-        <div className="sidebar__link">
-          <i className="fa fa-user-secret" />
-          <a href="#">Admin Management</a>
-        </div>
-        <div className="sidebar__link">
-          <i className="fa fa-building-o" />
-          <a href="#">Company Management</a>
-        </div>
-        <div className="sidebar__link">
-          <i className="fa fa-wrench" />
-          <a href="#">Employee Management</a>
-        </div>
-        <div className="sidebar__link">
-          <i className="fa fa-wrench" />
-          <a href="#">Marketer Management</a>
-          <i
-            className="fa fa-caret-right"
-            onClick={toggleDropdownMarkerter}
-            id="toggle-btn"
-          />
-          <ul
-            className={!dropdownMarketer ? 'dropdown-off' : 'dropdown-on'}
-            id="drop-menu"
-          >
-            <li>
-              <NavLink
-                to="/register"
-                style={{ textDecoration: 'none' }}
-                onClick={closeSideBar}
+        {user.role === 'admin' && (
+          <>
+            <h2>MNG</h2>
+            <div className="sidebar__link">
+              <i className="fa fa-user-secret" />
+              <a href="#">Admin Management</a>
+            </div>
+            <div className="sidebar__link">
+              <i className="fa fa-building-o" />
+              <a href="#">Company Management</a>
+            </div>
+            <div className="sidebar__link">
+              <i className="fa fa-wrench" />
+              <a href="#">Employee Management</a>
+            </div>
+            <div className="sidebar__link">
+              <i className="fa fa-wrench" />
+              <a href="#">Marketer Management</a>
+              <i
+                className="fa fa-caret-right"
+                onClick={toggleDropdownMarkerter}
+                id="toggle-btn"
+              />
+              <ul
+                className={!dropdownMarketer ? 'dropdown-off' : 'dropdown-on'}
+                id="drop-menu"
               >
-                Add New Marketer
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/users"
-                style={{ textDecoration: 'none' }}
-                onClick={closeSideBar}
-              >
-                View All Marketers
-              </NavLink>
-            </li>
-          </ul>
-        </div>
+                <li>
+                  <NavLink
+                    to="/register"
+                    style={{ textDecoration: 'none' }}
+                    onClick={closeSideBar}
+                  >
+                    Add New Marketer
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/users"
+                    style={{ textDecoration: 'none' }}
+                    onClick={closeSideBar}
+                  >
+                    View All Marketers
+                  </NavLink>
+                </li>
+              </ul>
+            </div>
+          </>
+        )}
         {user.role === 'marketer' && (
           <>
             <div className="sidebar__link">
