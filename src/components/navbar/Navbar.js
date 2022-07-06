@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './Navbar.css';
 import food4allmini from '../../assets/image/foodforall.jpeg';
+// import Modal from '../modal/Modal';
 
 /* eslint-disable */
 const Navbar = ({ sideBarOpen, openSideBar }) => {
@@ -24,6 +25,12 @@ const Navbar = ({ sideBarOpen, openSideBar }) => {
     setActiveB(false);
     setActiveC(true);
   };
+
+  // const [modal, setModal] = useState(false);
+
+  // const toggleModal = () => {
+  //   setModal(!modal);
+  // };
 
   return (
     <nav className="navbar">
@@ -57,7 +64,9 @@ const Navbar = ({ sideBarOpen, openSideBar }) => {
 
       <div className="navbar__right">
         <a href="#">
-          <i className="fa fa-search" />
+          <NavLink to="/search" >
+            <i className="fa fa-search" />
+          </NavLink>
         </a>
         <a href="#">
           <i className="fa fa-clock-o" />
@@ -68,6 +77,6 @@ const Navbar = ({ sideBarOpen, openSideBar }) => {
       </div>
     </nav>
   );
-};
+};;
 /* eslint-enable */
 export default Navbar;
