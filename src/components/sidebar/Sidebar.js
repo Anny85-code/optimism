@@ -147,19 +147,21 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
             </div>
           </>
         )}
-        <div className="sidebar__link">
-          <i className="fa fa-wrench" />
-          <a href="#">Product Management</a>
-          <i
-            className="fa fa-caret-right"
-            onClick={toggleDropdownProduct}
-            id="toggle-btn"
-          />
-          <ul
-            className={!dropdownProduct ? 'dropdown-off' : 'dropdown-on'}
-            id="drop-menu"
-          >
-            {/* <li>
+        {user.role === 'admin' && (
+          <>
+            <div className="sidebar__link">
+              <i className="fa fa-wrench" />
+              <a href="#">Product Management</a>
+              <i
+                className="fa fa-caret-right"
+                onClick={toggleDropdownProduct}
+                id="toggle-btn"
+              />
+              <ul
+                className={!dropdownProduct ? 'dropdown-off' : 'dropdown-on'}
+                id="drop-menu"
+              >
+                {/* <li>
               <NavLink
                 to="/addproduct"
                 style={{ textDecoration: 'none' }}
@@ -168,51 +170,53 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
                 Add New Item
               </NavLink>
             </li> */}
-            <li>
-              <NavLink
-                to="/products"
-                style={{ textDecoration: 'none' }}
-                onClick={closeSideBar}
-              >
-                View All Products
-              </NavLink>
-            </li>
-          </ul>
-        </div>
-        <div className="sidebar__link">
-          <i className="fa fa-archive" />
-          <a href="#">Seasons</a>
-        </div>
-        <div className="sidebar__link">
-          <i className="fa fa-handshake-o" />
-          <a href="#">Contributions</a>
-        </div>
-        <h2>PAYMENT</h2>
-        <div className="sidebar__link">
-          <i className="fa fa-question" />
-          <a href="#">Requests</a>
-        </div>
-        <div className="sidebar__link">
-          <i className="fa fa-sign-out" />
-          <a href="#">Terms and Condition</a>
-        </div>
-        <div className="sidebar__link">
-          <i className="fa fa-calendar-check-o" />
-          <a href="#">Special Days</a>
-        </div>
-        <div className="sidebar__link">
-          <i className="fa fa-files-o" />
-          <a href="#">Appy for Contribution</a>
-        </div>
-        <h2>PAYROLL</h2>
-        <div className="sidebar__link">
-          <i className="fa fa-money" />
-          <a href="#">Payroll</a>
-        </div>
-        <div className="sidebar__link">
-          <i className="fa fa-briefcase" />
-          <a href="#">Paygrade</a>
-        </div>
+                <li>
+                  <NavLink
+                    to="/products"
+                    style={{ textDecoration: 'none' }}
+                    onClick={closeSideBar}
+                  >
+                    View All Products
+                  </NavLink>
+                </li>
+              </ul>
+            </div>
+            <div className="sidebar__link">
+              <i className="fa fa-archive" />
+              <a href="#">Seasons</a>
+            </div>
+            <div className="sidebar__link">
+              <i className="fa fa-handshake-o" />
+              <a href="#">Contributions</a>
+            </div>
+            <h2>PAYMENT</h2>
+            <div className="sidebar__link">
+              <i className="fa fa-question" />
+              <a href="#">Requests</a>
+            </div>
+            <div className="sidebar__link">
+              <i className="fa fa-sign-out" />
+              <a href="#">Terms and Condition</a>
+            </div>
+            <div className="sidebar__link">
+              <i className="fa fa-calendar-check-o" />
+              <a href="#">Special Days</a>
+            </div>
+            <div className="sidebar__link">
+              <i className="fa fa-files-o" />
+              <a href="#">Appy for Contribution</a>
+            </div>
+            <h2>PAYROLL</h2>
+            <div className="sidebar__link">
+              <i className="fa fa-money" />
+              <a href="#">Payroll</a>
+            </div>
+            <div className="sidebar__link">
+              <i className="fa fa-briefcase" />
+              <a href="#">Paygrade</a>
+            </div>
+          </>
+        )}
         <div className="sidebar__logout">
           <i className="fa fa-power-off" />
           {isLoggedIn ? <a onClick={handleLogout}>Logout</a> : ''}
