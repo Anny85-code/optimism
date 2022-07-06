@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
-// import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCustomerFromApi } from '../../redux/forms/customerReducer';
 import './Search.css';
-// var data = require('./MOCK_DATA.json');
 
 const Search = () => {
   const dispatch = useDispatch();
@@ -21,7 +19,6 @@ const Search = () => {
 
   const onSearch = (searchTerm) => {
     setValue(searchTerm);
-    // our api to fetch the search result
     console.log('search ', searchTerm);
   };
 
