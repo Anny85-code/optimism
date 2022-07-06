@@ -1,9 +1,10 @@
 import axios from 'axios';
+import endpoint from '../../assets/url/url';
 
 const GET_ONE_USER = 'src/redux/userreducer/get_one_user'.toUpperCase();
 const FAILED_GET_ONE_USER = 'src/redux/userreducer/failed_get_one_user'.toUpperCase();
 const GET_ONE_USER_REQUEST = 'src/redux/userreducer/get_one_user_request'.toUpperCase();
-const url = 'https://optimistic-food.herokuapp.com/api/v1/users';
+const url = `${endpoint}/users`;
 const { token } = localStorage;
 
 const fetchOneUserData = (payload) => ({

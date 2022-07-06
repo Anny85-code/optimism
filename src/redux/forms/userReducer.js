@@ -1,17 +1,16 @@
+import endpoint from '../../assets/url/url';
+
 export const registerUserToApi = (userData) => async (dispatch) => {
   // const auth
-  const regUser = await fetch(
-    'https://optimistic-food.herokuapp.com/api/v1/users',
-    {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-        Accept: 'application/json',
-        // Authorization: {},
-      },
-      body: JSON.stringify(userData),
+  const regUser = await fetch(`${endpoint}/users`, {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json',
+      Accept: 'application/json',
+      // Authorization: {},
     },
-  );
+    body: JSON.stringify(userData),
+  });
   const regUserResp = await regUser.json();
   if (regUserResp.error || regUserResp.errors) {
     const errorMsg = regUserResp.error || regUserResp.errors;
@@ -28,16 +27,13 @@ export const registerUserToApi = (userData) => async (dispatch) => {
 
 export const logUserToApi = (userData) => async (dispatch) => {
   const { username, password } = userData;
-  const sendData = await fetch(
-    'https://optimistic-food.herokuapp.com/api/v1/login',
-    {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify({ username, password }),
+  const sendData = await fetch(`${endpoint}/login`, {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json',
     },
-  );
+    body: JSON.stringify({ username, password }),
+  });
   const rawData = await sendData.json();
   if (rawData.error) {
     const errorMsg = rawData.error;
