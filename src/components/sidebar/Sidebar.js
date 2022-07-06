@@ -5,6 +5,9 @@ import { useDispatch } from 'react-redux';
 import foodforallOptimism from '../../assets/image/foodforallOptimism.jpeg';
 import Footer from '../footer/Footer';
 
+const data = JSON.parse(localStorage.getItem('user'));
+const { user } = data || {};
+
 /* eslint-disable */
 const Sidebar = ({ sidebarOpen, closeSideBar }) => {
   const isLoggedIn = localStorage.getItem('isLoggedIn');
@@ -104,38 +107,42 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
             </li>
           </ul>
         </div>
-        <div className="sidebar__link">
-          <i className="fa fa-wrench" />
-          <a href="#">Customer Management</a>
-          <i
-            className="fa fa-caret-right"
-            onClick={toggleDropdownCustomer}
-            id="toggle-btn"
-          />
-          <ul
-            className={!dropdownCustomer ? 'dropdown-off' : 'dropdown-on'}
-            id="drop-menu"
-          >
-            <li>
-              <NavLink
-                to="/addcustomer"
-                style={{ textDecoration: 'none' }}
-                onClick={closeSideBar}
+        {user.role === 'marketer' && (
+          <>
+            <div className="sidebar__link">
+              <i className="fa fa-wrench" />
+              <a href="#">Customer Management</a>
+              <i
+                className="fa fa-caret-right"
+                onClick={toggleDropdownCustomer}
+                id="toggle-btn"
+              />
+              <ul
+                className={!dropdownCustomer ? 'dropdown-off' : 'dropdown-on'}
+                id="drop-menu"
               >
-                Add New Customer
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/customers"
-                style={{ textDecoration: 'none' }}
-                onClick={closeSideBar}
-              >
-                View All Customers
-              </NavLink>
-            </li>
-          </ul>
-        </div>
+                <li>
+                  <NavLink
+                    to="/addcustomer"
+                    style={{ textDecoration: 'none' }}
+                    onClick={closeSideBar}
+                  >
+                    Add New Customer
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/customers"
+                    style={{ textDecoration: 'none' }}
+                    onClick={closeSideBar}
+                  >
+                    View All Customers
+                  </NavLink>
+                </li>
+              </ul>
+            </div>
+          </>
+        )}
         <div className="sidebar__link">
           <i className="fa fa-wrench" />
           <a href="#">Product Management</a>
