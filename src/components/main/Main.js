@@ -4,9 +4,8 @@ import ChartWithCrosshair from '../chart/Chart_with_Crosshair';
 
 const data = JSON.parse(localStorage.getItem('user'));
 const { user } = data || {};
-
+/* eslint-disable */
 const Main = () => {
-  console.log(1 + 1);
   return (
     <>
       {user.role === 'admin' ? (
@@ -15,11 +14,8 @@ const Main = () => {
             <div className="main__title">
               <img src={hello} alt="hello logo" />
               <div className="main__greetings">
-                <h1>
-                  Hello
-                  {user.email}
-                </h1>
-                <p>Welcome to Admin Dashboard</p>
+                <h1>Hello {user.email}</h1>
+                <p>Welcome to another brand new day {user.name}!</p>
               </div>
             </div>
             <div className="main__cards">
@@ -102,15 +98,8 @@ const Main = () => {
             <div className="main__title">
               <img src={hello} alt="hello logo" />
               <div className="main__greetings">
-                <h1>
-                  Hello
-                  {user.email}
-                </h1>
-                <p>
-                  Welcome to annother lovely day
-                  {user.name}
-                  !
-                </p>
+                <h1>Hello {user.email}</h1>
+                <p>Welcome to annother lovely day {user.name}!</p>
               </div>
             </div>
           </div>
@@ -119,5 +108,5 @@ const Main = () => {
     </>
   );
 };
-
+/* eslint-enable */
 export default Main;
