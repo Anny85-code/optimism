@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './Navbar.css';
-import food4allmini from '../../assets/image/foodforall.jpeg';
+// import food4allmini from '../../assets/image/foodforall.jpeg';
+
+const data = JSON.parse(localStorage.getItem('user'));
+const { user } = data || {};
 
 /* eslint-disable */
 const Navbar = ({ sideBarOpen, openSideBar }) => {
@@ -39,20 +42,26 @@ const Navbar = ({ sideBarOpen, openSideBar }) => {
         >
           Customers
         </NavLink>
-        <NavLink
-          to="/users"
-          onClick={handleActiveB}
-          className={activeB ? 'active_link' : ''}
-        >
-          Users
-        </NavLink>
-        <NavLink
-          to="/"
-          onClick={handleActiveC}
-          className={activeC ? 'active_link' : ''}
-        >
-          Admin
-        </NavLink>
+        {user.role === 'admin' ? (
+          <>
+            <NavLink
+              to="/users"
+              onClick={handleActiveB}
+              className={activeB ? 'active_link' : ''}
+            >
+              Users
+            </NavLink>
+            <NavLink
+              to="/"
+              onClick={handleActiveC}
+              className={activeC ? 'active_link' : ''}
+            >
+              Admin
+            </NavLink>
+          </>
+        ) : (
+          ''
+        )}
       </div>
 
       <div className="navbar__right">
@@ -63,7 +72,7 @@ const Navbar = ({ sideBarOpen, openSideBar }) => {
           <i className="fa fa-clock-o" />
         </a>
         <a href="#">
-          <img width="30" src={food4allmini} alt="food4all logo" />
+          <img width="30" src={user.avatar} alt="food4all logo" />
         </a>
       </div>
     </nav>
