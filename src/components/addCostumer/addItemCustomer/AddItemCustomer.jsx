@@ -39,7 +39,7 @@ const AddItemCustomer = () => {
       let customer = JSON.parse(localStorage.getItem('customer'));
       const userData = { ...customer, daily_contribution: total };
       dispatch(postCustomerToApi(userData));
-      localStorage.removeItem(customer);
+      localStorage.removeItem('customer');
     }
   };
 
