@@ -9,6 +9,8 @@ const editUrl = (person) => {
   const { id } = person;
   return `/customers/${id}/edit`;
 };
+const data = JSON.parse(localStorage.getItem('user'));
+const { user } = data || {};
 
 const Customer = () => {
   const dispatch = useDispatch();
@@ -47,14 +49,13 @@ const Customer = () => {
       </div>
 
       <div className="image-container">
-        <img className="cus-image"
-          src={picture}
-          alt={`${name}`}
-        />
+        <img className="cus-image" src={picture} alt={`${name}`} />
         <div className="edit">
-          <NavLink to={redirect} style={{ textDecoration: 'none' }}>
-            Edit
-          </NavLink>
+          {user.role === 'admin' && (
+            <NavLink to={redirect} style={{ textDecoration: 'none' }}>
+              Edit
+            </NavLink>
+          )}
         </div>
       </div>
     </div>
