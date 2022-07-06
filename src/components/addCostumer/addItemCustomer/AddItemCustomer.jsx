@@ -39,47 +39,48 @@ const AddItemCustomer = () => {
       let customer = JSON.parse(localStorage.getItem('customer'));
       const userData = { ...customer, daily_contribution: total };
       dispatch(postCustomerToApi(userData));
+      localStorage.removeItem(customer);
     }
   };
 
   return (
     <div className="items-costumer">
       <h3 className="head-text">Select Product</h3>
-        {data.map(({ name, price }, index) => {
-          return (
-            <div className="checkbox-container">
+      {data.map(({ name, price }, index) => {
+        return (
+          <div className="checkbox-container">
+            <h3>
+              <label htmlFor={index} key={index} className="checkbox-label">
+                <input
+                  type="checkbox"
+                  id={`custom-checkbox-${index}`}
+                  name={name}
+                  value={name}
+                  className="checkbox-input"
+                  checked={checkedState[index]}
+                  onChange={() => handleOnChange(index)}
+                />
+              </label>
+            </h3>
+            <div className="price-name">
               <h3>
-                <label htmlFor={index} key={index} className="checkbox-label">
-                  <input
-                    type="checkbox"
-                    id={`custom-checkbox-${index}`}
-                    name={name}
-                    value={name}
-                    className="checkbox-input"
-                    checked={checkedState[index]}
-                    onChange={() => handleOnChange(index)}
-                  />
+                <label
+                  htmlFor={`custom-checkbox-${index}`}
+                  id="item-costumer-name"
+                >
+                  {name}
                 </label>
               </h3>
-              <div className="price-name">
-                <h3>
-                  <label
-                    htmlFor={`custom-checkbox-${index}`}
-                    id="item-costumer-name"
-                  >
-                    {name}
-                  </label>
-                </h3>
-                <h3 className="right-section"> &nbsp;-&nbsp;</h3>
-                <h3 className="right-section">{getFormattedPrice(price)}</h3>
-              </div>
+              <h3 className="right-section"> &nbsp;-&nbsp;</h3>
+              <h3 className="right-section">{getFormattedPrice(price)}</h3>
             </div>
-          );
-        })}
-          <div className="toppings-list-item">
-            <div className="left-section">Total:</div>
-            <div className="right-section">{getFormattedPrice(total)}</div>
           </div>
+        );
+      })}
+      <div className="toppings-list-item">
+        <div className="left-section">Total:</div>
+        <div className="right-section">{getFormattedPrice(total)}</div>
+      </div>
       <div className="form-group btn1">
         <button
           type="submit"
