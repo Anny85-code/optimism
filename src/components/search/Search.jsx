@@ -37,7 +37,7 @@ const Search = () => {
             value={value}
             onChange={onChange}
           />
-          <button type="button" onClick={() => onSearch(value)}>
+          <button className="search-btn" type="button" onClick={() => onSearch(value)}>
             Search
           </button>
         </div>
