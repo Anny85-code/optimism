@@ -44,6 +44,43 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
     setDropdownMarketer(false);
   };
 
+  const customerSection = (
+    <>
+      <div className="sidebar__link">
+        <i className="fa fa-wrench" />
+        <a href="#">Customer Management</a>
+        <i
+          className="fa fa-caret-right"
+          onClick={toggleDropdownCustomer}
+          id="toggle-btn"
+        />
+        <ul
+          className={!dropdownCustomer ? 'dropdown-off' : 'dropdown-on'}
+          id="drop-menu"
+        >
+          <li>
+            <NavLink
+              to="/addcustomer"
+              style={{ textDecoration: 'none' }}
+              onClick={closeSideBar}
+            >
+              Add New Customer
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/customers"
+              style={{ textDecoration: 'none' }}
+              onClick={closeSideBar}
+            >
+              View All Customers
+            </NavLink>
+          </li>
+        </ul>
+      </div>
+    </>
+  );
+
   return (
     <div className={sidebarOpen ? 'sidebar-responsive' : ''} id="sidebar">
       <div className="sidebar__title">
@@ -111,42 +148,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
             </div>
           </>
         )}
-        {user.role === 'marketer' && (
-          <>
-            <div className="sidebar__link">
-              <i className="fa fa-wrench" />
-              <a href="#">Customer Management</a>
-              <i
-                className="fa fa-caret-right"
-                onClick={toggleDropdownCustomer}
-                id="toggle-btn"
-              />
-              <ul
-                className={!dropdownCustomer ? 'dropdown-off' : 'dropdown-on'}
-                id="drop-menu"
-              >
-                <li>
-                  <NavLink
-                    to="/addcustomer"
-                    style={{ textDecoration: 'none' }}
-                    onClick={closeSideBar}
-                  >
-                    Add New Customer
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to="/customers"
-                    style={{ textDecoration: 'none' }}
-                    onClick={closeSideBar}
-                  >
-                    View All Customers
-                  </NavLink>
-                </li>
-              </ul>
-            </div>
-          </>
-        )}
+        {user.role === 'marketer' ? customerSection : customerSection}
         {user.role === 'admin' && (
           <>
             <div className="sidebar__link">
