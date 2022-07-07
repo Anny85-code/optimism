@@ -23,12 +23,7 @@
   box-sizing: border-box;
 }
 
-.details-container > h3 {
-  margin: 20px 0 20px 0;
-  border-bottom: 1px solid #705050;
-}
-
-.details-container >  p {
+.details-container > h3, p {
   margin: 0 0 20px 0;
   border-bottom: 1px solid #705050;
 }
@@ -56,6 +51,8 @@
 @media only screen and (max-width: 978px) {
   .containa {
     width: 350px;
+    height: 500px;
+    gap: -20px;
   }
 
   .details-container {

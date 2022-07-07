@@ -65,6 +65,7 @@
 
 .search-text > p {
   margin: 15px;
+  border-bottom: 0;
 }
 
 #closeSearchIcon {
