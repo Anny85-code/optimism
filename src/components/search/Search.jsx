@@ -8,26 +8,40 @@ const Search = () => {
   const dispatch = useDispatch();
   const allCustomers = useSelector((state) => state.customer);
   const [aCustomer, setACustomer] = useState('');
+  /* eslint-disable*/
+  const handleSearch = () => {
+    document.getElementById('search-container1').style.display = 'none';
+  };
 
   useEffect(() => {
     dispatch(getCustomerFromApi());
   }, []);
 
-  /* eslint-disable*/ 
 
   const handleChange = (event) => {
     console.log(event.target.value);
     const typedContent = event.target.value;
-    const filteredCustomer = allCustomers.data.filter((customer) => customer.name.toLowerCase().includes(typedContent.toLowerCase())
+    const filteredCustomer = allCustomers.data.filter((customer) =>
+      customer.name.toLowerCase().includes(typedContent.toLowerCase())
     );
     setACustomer(filteredCustomer);
+    setTimeout(() => {
+      window.location.reload();
+    }, 5000);
   };
 
   console.log('aCustomer', aCustomer);
 
+  
   return (
-    <div className="search-container1">
+    <div
+    id="search-container1"
+    >
       <h1>Search Customers</h1>
+      <i className="fa fa-times"
+        id="sidebarIcon"
+        onClick={handleSearch}
+      />
       <div className="search-container">
         <div className="search-inner">
           <input
@@ -43,7 +57,9 @@ const Search = () => {
           aCustomer.slice(0, 5).map((customer) => (
             <NavLink key={customer.id} to={`/customers/${customer.id}`}>
               <div className="dropdown-row">
-                <div className="search-text"><p>{customer.name}</p></div>
+                <div className="search-text">
+                  <p>{customer.name}</p>
+                </div>
               </div>
             </NavLink>
           ))}

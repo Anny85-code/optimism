@@ -1,4 +1,4 @@
-.search-container1 {
+#search-container1 {
   font-family: sans-serif;
   text-align: center;
   display: flex;
@@ -11,6 +11,11 @@
   height: 400px;
   width: 600px;
   padding: 30px;
+  display: none;
+  position: fixed;
+  z-index: 1;
+  top: 50px;
+  left: 400px;
 }
 
 .search-container {
@@ -57,4 +62,20 @@
   color: #49220b;
   margin-top: -10px;
   font-family: 'Gumela', sans-serif;
+}
+
+/* .search-responsive {
+  display: inline !important;
+  z-index: 9999 !important;
+  justify-content: center  !important;
+  position: absolute;
+} */
+
+
+.search-on {
+  display: block;
+}
+
+.search-off {
+  display: none;
 }

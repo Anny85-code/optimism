@@ -100,7 +100,10 @@ const App = () => {
       )} */}
       {isLoggedIn ? (
         <div className="container">
-          <Navbar sideBarOpen={sideBarOpen} openSideBar={openSideBar} />
+          <Navbar
+            sideBarOpen={sideBarOpen}
+            openSideBar={openSideBar}
+          />
           <Routes>
             <Route exact path="/" element={<Main />} />
             <Route path="/register" element={<Register />} />
@@ -115,9 +118,9 @@ const App = () => {
             <Route path="/products" element={<ViewItems />} />
             <Route path="/additemcustomer" element={<AddItemCustomer />} />
             <Route path="/addproduct" element={<AddProduct />} />
-            <Route path="/search" element={<Search />} />
           </Routes>
           <Sidebar sidebarOpen={sideBarOpen} closeSideBar={closeSideBar} />
+          <Search />
         </div>
       ) : (
         <Routes>
