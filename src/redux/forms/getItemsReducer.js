@@ -1,11 +1,12 @@
 import axios from 'axios';
 import { Navigate } from 'react-router-dom';
+import endpoint from '../../assets/url/url';
 
 const GET_ITEM = 'src/redux/itemreducer/get_item'.toUpperCase();
 const FAILED_GET_ITEM = 'src/redux/itemreducer/failed_get_item'.toUpperCase();
 const FAILED_POST_ITEM = 'src/redux/itemreducer/failed_get_item'.toUpperCase();
 const GET_ITEMS_REQUEST = 'src/redux/itemreducer/get_items_request'.toUpperCase();
-const url = 'https://optimistic-food.herokuapp.com/api/v1/items';
+const url = `${endpoint}/items`;
 const { token } = localStorage;
 
 const sendItemsDataFailed = (payload) => ({

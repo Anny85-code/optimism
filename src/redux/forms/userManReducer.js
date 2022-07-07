@@ -1,10 +1,11 @@
 import axios from 'axios';
+import endpoint from '../../assets/url/url';
 
 const GET_USERS = 'SRC/REDUX/USER_REDUCER/GET_USERS';
 const FAILED_GET_USERS = 'SRC/REDUX/USER_REDUCER/FAILED_GET_USERS';
 const GET_USERS_REQUEST = 'SRC/REDUX/USER_REDUCER/GET_USERS_REQUEST';
 const FAILED_PATCH_USER = 'SRC/REDUX/USER_REDUCER/FAILED_PATCH_USER';
-const url = 'https://optimistic-food.herokuapp.com/api/v1/users';
+const url = `${endpoint}/users`;
 const { token } = localStorage;
 
 const patchUserDataFailed = (payload) => ({
