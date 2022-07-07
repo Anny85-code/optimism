@@ -1,67 +1,53 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { getCustomerFromApi } from '../../redux/forms/customerReducer';
 import './Search.css';
 
 const Search = () => {
   const dispatch = useDispatch();
   const allCustomers = useSelector((state) => state.customer);
+  const [aCustomer, setACustomer] = useState('');
 
   useEffect(() => {
     dispatch(getCustomerFromApi());
   }, []);
 
-  const [value, setValue] = useState('');
+  /* eslint-disable*/ 
 
-  const onChange = (event) => {
-    setValue(event.target.value);
+  const handleChange = (event) => {
+    console.log(event.target.value);
+    const typedContent = event.target.value;
+    const filteredCustomer = allCustomers.data.filter((customer) => customer.name.toLowerCase().includes(typedContent.toLowerCase())
+    );
+    setACustomer(filteredCustomer);
   };
 
-  const onSearch = (searchTerm) => {
-    setValue(searchTerm);
-    console.log('search ', searchTerm);
-  };
+  console.log('aCustomer', aCustomer);
 
   return (
     <div className="search-container1">
-      <h1>Search</h1>
-
+      <h1>Search Customers</h1>
       <div className="search-container">
         <div className="search-inner">
           <input
             className="search-input"
             type="text"
-            value={value}
-            onChange={onChange}
+            onChange={handleChange}
+            placeholder="Search"
           />
-          <button className="search-btn" type="button" onClick={() => onSearch(value)}>
-            Search
-          </button>
-        </div>
-        <div className="dropdown">
-          {allCustomers.data
-            .filter((item) => {
-              const searchTerm = value.toLowerCase();
-              const fullName = item.name.toLowerCase();
-              /*eslint-disable */
-              return (
-                searchTerm &&
-                fullName.startsWith(searchTerm) &&
-                fullName !== searchTerm
-              );
-            })
-            .slice(0, 10)
-            .map((item) => (
-              <div
-                onClick={() => onSearch(item.name)}
-                className="dropdown-row"
-                key={item.name}
-              >
-                {item.name}
-              </div>
-            ))}
         </div>
       </div>
+      <>
+        {aCustomer &&
+          aCustomer.slice(0, 5).map((customer) => (
+            <NavLink key={customer.id} to={`/customers/${customer.id}`}>
+              <div className="dropdown-row">
+                <p>{customer.name}</p>
+              </div>
+            </NavLink>
+          ))}
+      </>
     </div>
   );
 };

@@ -65,7 +65,7 @@ const Navbar = ({ sideBarOpen, openSideBar }) => {
       <div className="navbar__right">
         <a href="#">
           <NavLink to="/search">
-            <i className="fa fa-search" style={{color: '#a5a5a5', fontSize: '16px', borderRadius: '50px', backgroundColor: '#fff', boxShadow: '2px 2px 5px #d9d9d9, -2px -2px -5px #fff',
+            <i className="fa fa-search" style={{color: '#a5a5a5', fontSize: '16px', borderRadius: '50px', backgroundColor: '#fff', boxShadow: '2px 2px 5px #d9d9d9, -2px -2px -5px #000',
   padding: '7px'}} />
           </NavLink>
         </a>
