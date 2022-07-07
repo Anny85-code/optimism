@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './Navbar.css';
+
 const data = JSON.parse(localStorage.getItem('user'));
 const { user } = data || {};
 
@@ -28,7 +29,7 @@ const Navbar = ({ sideBarOpen, openSideBar }) => {
 
   const openSearch = () => {
     document.getElementById('search-container1').style.display = 'block';
-  }
+  };
 
   return (
     <nav className="navbar">
@@ -90,6 +91,6 @@ const Navbar = ({ sideBarOpen, openSideBar }) => {
       </div>
     </nav>
   );
-};;
+};
 /* eslint-enable */
 export default Navbar;
