@@ -41,13 +41,19 @@ const Customer = () => {
         <img className="cus-image" src={picture} alt={`${name}`} />
       </div>
       <div className="details-container">
-        <h3>Name: {name}</h3>
-        <p>Phone: {phone}</p>
-        <p>Email: {email}</p>
-        <p>Daily Contribution: NGN {daily_contribution}</p>
-        <p>Address: {address}</p>
-        <p>Joined:{Moment(created_at).format('MMMM DD, LT')}</p>
-        <p>Last Updated:{Moment(updated_at).format('MMMM DD, LT')}</p>
+        <h3 className="cus-details">Name: {name}</h3>
+        <p className="cus-details">Phone: {phone}</p>
+        <p className="cus-details">Email: {email}</p>
+        <p className="cus-details">
+          Daily Contribution: NGN {daily_contribution}
+        </p>
+        <p className="cus-details">Address: {address}</p>
+        <p className="cus-details">
+          Joined:{Moment(created_at).format('MMMM DD, LT')}
+        </p>
+        <p className="cus-details">
+          Last Updated:{Moment(updated_at).format('MMMM DD, LT')}
+        </p>
       </div>
 
       <div className="edit">
