@@ -118,4 +118,10 @@
   #closeSearchIcon {
     font-size: 20px;
   }
+
+  .search-text {
+  
+  margin: -10px 0 0 10px;
+  
+}
 }
