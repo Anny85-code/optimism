@@ -21,6 +21,12 @@
   background-color: #a5aaad;
 }
 
+a:-webkit-any-link {
+  text-decoration: none;
+  color: #a5a5a5;
+  cursor: pointer;
+}
+
 /* general styling */
 
 * {

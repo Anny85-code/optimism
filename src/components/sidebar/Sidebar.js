@@ -97,7 +97,9 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
       <div className="sidebar__menu">
         <div className="sidebar__link active_menu_link">
           <i className="fa fa-home" />
-          <NavLink to="/">Dashboard</NavLink>
+          <NavLink to="/" onClick={closeSideBar}>
+            Dashboard
+          </NavLink>
         </div>
         {user.role === 'admin' && (
           <>

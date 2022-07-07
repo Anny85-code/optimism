@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './Navbar.css';
-// import food4allmini from '../../assets/image/foodforall.jpeg';
-
 const data = JSON.parse(localStorage.getItem('user'));
 const { user } = data || {};
 
@@ -27,6 +25,10 @@ const Navbar = ({ sideBarOpen, openSideBar }) => {
     setActiveB(false);
     setActiveC(true);
   };
+
+  const openSearch = () => {
+    document.getElementById('search-container1').style.display = 'block';
+  }
 
   return (
     <nav className="navbar">
@@ -66,7 +68,18 @@ const Navbar = ({ sideBarOpen, openSideBar }) => {
 
       <div className="navbar__right">
         <a href="#">
-          <i className="fa fa-search" />
+          <i
+            className="fa fa-search"
+            style={{
+              color: '#a5a5a5',
+              fontSize: '16px',
+              borderRadius: '50px',
+              backgroundColor: '#fff',
+              boxShadow: '2px 2px 5px #d9d9d9, -2px -2px -5px #000',
+              padding: '7px',
+            }}
+            onClick={() => openSearch()}
+          />
         </a>
         <a href="#">
           <i className="fa fa-clock-o" />
@@ -77,6 +90,6 @@ const Navbar = ({ sideBarOpen, openSideBar }) => {
       </div>
     </nav>
   );
-};
+};;
 /* eslint-enable */
 export default Navbar;

@@ -17,6 +17,8 @@ import EditUser from './components/user/EditUser';
 import AddItemCustomer from './components/addCostumer/addItemCustomer/AddItemCustomer';
 import AddProduct from './components/items/products/AddProducts';
 import ViewItems from './components/items/ViewItems';
+// import Modal from './components/modal/Modal';
+import Search from './components/search/Search';
 
 const App = () => {
   const [sideBarOpen, setSideBarOpen] = useState(false);
@@ -36,7 +38,10 @@ const App = () => {
     <div>
       {isLoggedIn ? (
         <div className="container">
-          <Navbar sideBarOpen={sideBarOpen} openSideBar={openSideBar} />
+          <Navbar
+            sideBarOpen={sideBarOpen}
+            openSideBar={openSideBar}
+          />
           <Routes>
             <Route exact path="/" element={<Main />} />
             <Route path="/customers" element={<Customers />} />
@@ -57,6 +62,7 @@ const App = () => {
             )}
           </Routes>
           <Sidebar sidebarOpen={sideBarOpen} closeSideBar={closeSideBar} />
+          <Search />
         </div>
       ) : (
         <Routes>

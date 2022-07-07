@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import Moment from 'moment';
 import './Customer.css';
 /* eslint-disable */
 import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
@@ -38,14 +39,23 @@ const Customer = () => {
 
   return (
     <div className="containa">
+      <div className="image-container">
+        <img className="cus-image" src={picture} alt={`${name}`} />
+      </div>
       <div className="details-container">
-        <h3>Name: {name}</h3>
-        <p>Phone: {phone}</p>
-        <p>Email: {email}</p>
-        <p>Daily Contribution: NGN {daily_contribution}</p>
-        <p>Address: {address}</p>
-        <p>Joined: {created_at}</p>
-        <p>Last Updated: {updated_at}</p>
+        <h3 className="cus-details">Name: {name}</h3>
+        <p className="cus-details">Phone: {phone}</p>
+        <p className="cus-details">Email: {email}</p>
+        <p className="cus-details">
+          Daily Contribution: NGN {daily_contribution}
+        </p>
+        <p className="cus-details">Address: {address}</p>
+        <p className="cus-details">
+          Joined:{Moment(created_at).format('MMMM DD, LT')}
+        </p>
+        <p className="cus-details">
+          Last Updated:{Moment(updated_at).format('MMMM DD, LT')}
+        </p>
       </div>
 
       <div className="image-container">
@@ -53,12 +63,11 @@ const Customer = () => {
         <div className="edit">
           {user.role === 'admin' && (
             <NavLink to={redirect} style={{ textDecoration: 'none' }}>
-              Edit
+             <i className="fa fa-edit" />
             </NavLink>
           )}
         </div>
-      </div>
-    </div>
+     </div>
   );
 };
 /* eslint-enable */
