@@ -3,10 +3,9 @@
 This project is a contribution application that allows users to keep track and manage contributions for each month, season and years.
 ## Views
 
-> | -   | Customer Page                       | -   | Dashboard                          | -   | Product Page                           | -   |
-> | --- | ---------------------------------- | --- | ----------------------------------- | --- | ----------------------------------- | --- |
-> | -   | ![Screenshot (474)](https://user-images.githubusercontent.com/87186552/177358517-09cd52ed-8d31-4fe9-85d6-e1269eb6cd8d.png) | -   | ![Screenshot (473)](https://user-images.githubusercontent.com/87186552/177358307-6495dd0e-7fc1-475e-8897-6dbc4b161bc8.png) | -   | ![Screenshot (475)](https://user-images.githubusercontent.com/87186552/177358841-92806999-e8a6-481b-83f1-fca50dd25c6a.png) | -   |
-
+> | -   | Customer Page                       | -   | Dashboard                          | -   | Product Page                           | -   | ERD Diagram                     | -   |
+> | --- | ---------------------------------- | --- | ----------------------------------- | --- | ----------------------------------- | --- | ----------------------------------- | --- |
+> | -   | ![Screenshot (474)](https://user-images.githubusercontent.com/87186552/177358517-09cd52ed-8d31-4fe9-85d6-e1269eb6cd8d.png) | -   | ![Screenshot (473)](https://user-images.githubusercontent.com/87186552/177358307-6495dd0e-7fc1-475e-8897-6dbc4b161bc8.png) | -   | ![Screenshot (475)](https://user-images.githubusercontent.com/87186552/177358841-92806999-e8a6-481b-83f1-fca50dd25c6a.png) | -   | ![erd-2](https://user-images.githubusercontent.com/87186552/177596903-800cfb8c-74a0-450d-b47c-48c564dd12e4.jpeg) | -   | 
 ## Live App FrontEnd link
 
 ## Live API link

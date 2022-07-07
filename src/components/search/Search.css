@@ -1,0 +1,123 @@
+#search-container1 {
+  font-family: sans-serif;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  background: rgb(184, 190, 189);
+  margin: 60px 100px;
+  box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #5a5656;
+  border-radius: 10px;
+  height: 400px;
+  width: 600px;
+  padding: 30px;
+  display: none;
+  position: fixed;
+  z-index: 1;
+  top: 50px;
+  left: 400px;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid gray;
+  margin-top: -30px;
+  width: 290px;
+  margin-left: 30px;
+}
+
+.dropdown:empty {
+  border: none;
+}
+
+.dropdown-row {
+  cursor: pointer;
+  text-align: start;
+  margin: 2px 0;
+}
+
+.search-input {
+  width: 300px;
+  height: 35px;
+  border-radius: 4px;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.search-inner {
+  margin: 30px;
+}
+
+.search-text {
+  font-size: 20px;
+  font-weight: bold;
+  color: #49220b;
+  margin: -10px 0 0 180px;
+  font-family: 'Gumela', sans-serif;
+}
+
+.search-text > p {
+  margin: 15px;
+  border-bottom: 0;
+}
+
+#closeSearchIcon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 30px;
+  color: #49220b;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 978px) {
+  #search-container1 {
+    font-family: sans-serif;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    background: rgb(184, 190, 189);
+    margin: 60px 100px;
+    box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #5a5656;
+    border-radius: 10px;
+    height: 400px;
+    width: 250px;
+    padding: 30px;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    top: 20px;
+    left: -60px;
+  }
+
+  .search-header {
+    font-size: 18px;
+  }
+
+  .search-input {
+    width: 200px;
+    height: 35px;
+    border-radius: 4px;
+    font-size: 17px;
+    font-weight: 600;
+    margin-left: -30px;
+  }
+
+  .dropdown {
+    width: 200px;
+  }
+
+  #closeSearchIcon {
+    font-size: 20px;
+  }
+
+  .search-text {
+    margin: -10px 0 0 10px;
+  }
+}
