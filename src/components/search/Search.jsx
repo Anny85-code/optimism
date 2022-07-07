@@ -39,7 +39,7 @@ const Search = () => {
     >
       <h1>Search Customers</h1>
       <i className="fa fa-times"
-        id="sidebarIcon"
+        id="closeSearchIcon"
         onClick={handleSearch}
       />
       <div className="search-container">
