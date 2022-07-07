@@ -8,7 +8,7 @@
   height: 400px;
   width: 750px;
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
 }
 
 .details-container {
@@ -26,13 +26,16 @@
 .image-container {
   padding: 4px;
   gap: 30px;
+  display: flex;
 }
 
 .edit {
+  top: 10px;
+  right: 10px;
   font-size: 30px;
-  font-weight: bold;
-  font-family: 'Gumeland', cursive;
-  margin-top: 30px;
+  color: #49220b;
+  cursor: pointer;
+  z-index: 1;
 }
 
 .cus-image {

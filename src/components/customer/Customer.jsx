@@ -36,6 +36,9 @@ const Customer = () => {
 
   return (
     <div className="containa">
+      <div className="image-container">
+        <img className="cus-image" src={picture} alt={`${name}`} />
+      </div>
       <div className="details-container">
         <h3>Name: {name}</h3>
         <p>Phone: {phone}</p>
@@ -46,16 +49,10 @@ const Customer = () => {
         <p>Last Updated: {updated_at}</p>
       </div>
 
-      <div className="image-container">
-        <img className="cus-image"
-          src={picture}
-          alt={`${name}`}
-        />
-        <div className="edit">
-          <NavLink to={redirect} style={{ textDecoration: 'none' }}>
-            Edit
-          </NavLink>
-        </div>
+      <div className="edit">
+        <NavLink to={redirect} style={{ textDecoration: 'none' }}>
+          <i className="fa fa-edit" />
+        </NavLink>
       </div>
     </div>
   );
