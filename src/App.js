@@ -17,7 +17,6 @@ import EditUser from './components/user/EditUser';
 import AddItemCustomer from './components/addCostumer/addItemCustomer/AddItemCustomer';
 import AddProduct from './components/items/products/AddProducts';
 import ViewItems from './components/items/ViewItems';
-// import Modal from './components/modal/Modal';
 import Search from './components/search/Search';
 
 const App = () => {
