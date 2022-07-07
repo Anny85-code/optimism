@@ -35,16 +35,6 @@ const Customer = () => {
   } = aCustomers.data;
   const redirect = editUrl(aCustomers.data);
 
-  // const timeFormat = new Intl.DateTimeFormat('en-US', {
-  //   year: 'numeric',
-  //   month: '2-digit',
-  //   day: '2-digit',
-  //   hour: '2-digit',
-  //   minute: '2-digit',
-  //   second: '2-digit',
-  // }).format(created_at);
-
-
   return (
     <div className="containa">
       <div className="image-container">
