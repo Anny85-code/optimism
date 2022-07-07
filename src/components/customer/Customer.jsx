@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import Moment from 'moment';
 import './Customer.css';
 /* eslint-disable */
 import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
@@ -55,8 +56,8 @@ const Customer = () => {
         <p>Email: {email}</p>
         <p>Daily Contribution: NGN {daily_contribution}</p>
         <p>Address: {address}</p>
-        <p>Joined: {created_at}</p>
-        <p>Last Updated: {updated_at}</p>
+        <p>Joined:{Moment(created_at).format('MMMM DD, LT')}</p>
+        <p>Last Updated:{Moment(updated_at).format('MMMM DD, LT')}</p>
       </div>
 
       <div className="edit">
