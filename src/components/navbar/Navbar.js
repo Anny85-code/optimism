@@ -30,12 +30,6 @@ const Navbar = ({ sideBarOpen, openSideBar }) => {
     document.getElementById('search-container1').style.display = 'block';
   }
 
-  // const [modal, setModal] = useState(false);
-
-  // const toggleModal = () => {
-  //   setModal(!modal);
-  // };
-
   return (
     <nav className="navbar">
       <div className="nav-icon" onClick={() => openSideBar()}>
@@ -68,7 +62,6 @@ const Navbar = ({ sideBarOpen, openSideBar }) => {
 
       <div className="navbar__right">
         <a href="#">
-          {/* <NavLink to="/search"> */}
           <i
             className="fa fa-search"
             style={{
@@ -81,7 +74,6 @@ const Navbar = ({ sideBarOpen, openSideBar }) => {
             }}
             onClick={() => openSearch()}
           />
-          {/* </NavLink> */}
         </a>
         <a href="#">
           <i className="fa fa-clock-o" />

@@ -19,7 +19,7 @@
   border-radius: 8px;
   text-align: center;
   height: 50px;
-  color:#2e4a66
+  color: #2e4a66;
 }
 
 .customer-container :nth-child(even) {
