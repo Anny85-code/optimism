@@ -34,7 +34,7 @@ const Search = () => {
             className="search-input"
             type="text"
             onChange={handleChange}
-            placeholder="Search"
+            placeholder="Search customers"
           />
         </div>
       </div>
@@ -43,7 +43,7 @@ const Search = () => {
           aCustomer.slice(0, 5).map((customer) => (
             <NavLink key={customer.id} to={`/customers/${customer.id}`}>
               <div className="dropdown-row">
-                <p>{customer.name}</p>
+                <div className="search-text"><p>{customer.name}</p></div>
               </div>
             </NavLink>
           ))}
