@@ -63,12 +63,14 @@ const Customer = () => {
         <div className="edit">
           {user.role === 'admin' && (
             <NavLink to={redirect} style={{ textDecoration: 'none' }}>
-             <i className="fa fa-edit" />
+              <i className="fa fa-edit" />
             </NavLink>
           )}
         </div>
-     </div>
+      </div>
+    </div>
   );
 };
+
 /* eslint-enable */
 export default Customer;
