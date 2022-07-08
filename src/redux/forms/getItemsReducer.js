@@ -63,7 +63,6 @@ export const getItemFromApi = () => async (dispatch) => {
     //     Authorization: `Bearer ${token}`,
     //   },
     // });
-    // console.log(response);
     dispatch(fetchItemsData(response));
   } catch (error) {
     dispatch(fetchItemsDataFailed(error.message));
