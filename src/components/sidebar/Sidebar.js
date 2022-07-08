@@ -25,6 +25,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
   const [dropdownCustomer, setDropdownCustomer] = useState(false);
   const [dropdownProduct, setDropdownProduct] = useState(false);
   const [dropdownMarketer, setDropdownMarketer] = useState(false);
+  const [dropdownTransaction, setDropdownTransaction] = useState(false);
 
   const toggleDropdownCustomer = () => {
     setDropdownCustomer(dropdownCustomer ? false : true);
