@@ -18,6 +18,7 @@ import AddItemCustomer from './components/addCostumer/addItemCustomer/AddItemCus
 import AddProduct from './components/items/products/AddProducts';
 import ViewItems from './components/items/ViewItems';
 import Search from './components/search/Search';
+import AddTransaction from './components/transaction/AddTransaction';
 
 const App = () => {
   const [sideBarOpen, setSideBarOpen] = useState(false);
@@ -37,16 +38,14 @@ const App = () => {
     <div>
       {isLoggedIn ? (
         <div className="container">
-          <Navbar
-            sideBarOpen={sideBarOpen}
-            openSideBar={openSideBar}
-          />
+          <Navbar sideBarOpen={sideBarOpen} openSideBar={openSideBar} />
           <Routes>
             <Route exact path="/" element={<Main />} />
             <Route path="/customers" element={<Customers />} />
             <Route path="/customers/:id" element={<Customer />} />
             <Route path="/addcustomer" element={<AddCustomer />} />
             <Route path="/additemcustomer" element={<AddItemCustomer />} />
+            <Route path="/addtransaction" element={<AddTransaction />} />
             {user.role === 'admin' && (
               <>
                 <Route path="/register" element={<Register />} />
