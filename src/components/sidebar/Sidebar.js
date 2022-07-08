@@ -31,18 +31,28 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
     setDropdownCustomer(dropdownCustomer ? false : true);
     setDropdownProduct(false);
     setDropdownMarketer(false);
+    setDropdownTransaction(false);
   };
 
   const toggleDropdownMarkerter = () => {
     setDropdownCustomer(false);
+    setDropdownTransaction(false);
     setDropdownProduct(false);
     setDropdownMarketer(dropdownMarketer ? false : true);
+  };
+
+  const toggleDropdownTransaction = () => {
+    setDropdownCustomer(false);
+    setDropdownProduct(false);
+    setDropdownTransaction(dropdownTransaction ? false : true);
+    setDropdownMarketer(false);
   };
 
   const toggleDropdownProduct = () => {
     setDropdownCustomer(false);
     setDropdownProduct(dropdownProduct ? false : true);
     setDropdownMarketer(false);
+    setDropdownTransaction(false);
   };
 
   const customerSection = (
@@ -93,7 +103,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
           id="toggle-btn"
         />
         <ul
-          className={!dropdownCustomer ? 'dropdown-off' : 'dropdown-on'}
+          className={!dropdownTransaction ? 'dropdown-off' : 'dropdown-on'}
           id="drop-menu"
         >
           <li>
