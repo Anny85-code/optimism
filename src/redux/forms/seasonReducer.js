@@ -76,8 +76,8 @@ export const postUpdateSeasonToApi = (userData) => async (dispatch) => {
   }
 };
 
-export const getTransactionFromApi = () => async (dispatch) => {
-  dispatch(fetchTransactionRequest());
+export const getSeasonFromApi = () => async (dispatch) => {
+  dispatch(fetchSeasonRequest());
   try {
     const response = await axios.get(url, {
       headers: {
@@ -85,9 +85,9 @@ export const getTransactionFromApi = () => async (dispatch) => {
       },
     });
 
-    dispatch(fetchTransactionsData(response.data));
+    dispatch(fetchSeasonsData(response.data));
   } catch (error) {
-    dispatch(fetchTransactionsDataFailed(error.message));
+    dispatch(fetchSeasonsDataFailed(error.message));
   }
 };
 
