@@ -3,45 +3,46 @@ import { Navigate } from 'react-router-dom';
 import endpoint from '../../assets/url/url';
 
 // const POST_CUSTOMER = 'src/redux/customerreducer/post_customer'.toUpperCase();
-const FAILED_POST_CUSTOMER =
-  'src/redux/customerreducer/failed_post_customer'.toUpperCase();
-const FAILED_PATCH_CUSTOMER =
-  'src/redux/customerreducer/failed_patch_customer'.toUpperCase();
-const GET_CUSTOMER = 'src/redux/customerreducer/get_customer'.toUpperCase();
-const FAILED_GET_CUSTOMER =
-  'src/redux/customerreducer/failed_get_customer'.toUpperCase();
-const GET_CUSTOMERS_REQUEST =
-  'src/redux/customerreducer/get_customer_request'.toUpperCase();
-const url = `${endpoint}/customers`;
+const FAILED_POST_TRANSACTION =
+  'src/redux/transactionreducer/failed_post_transaction'.toUpperCase();
+const FAILED_PATCH_TRANSACTION =
+  'src/redux/transactionreducer/failed_patch_transaction'.toUpperCase();
+const GET_TRANSACTION =
+  'src/redux/transactionreducer/get_transaction'.toUpperCase();
+const FAILED_GET_TRANSACTION =
+  'src/redux/transactionreducer/failed_get_transaction'.toUpperCase();
+const GET_TRANSACTIONS_REQUEST =
+  'src/redux/transactionreducer/get_transaction_request'.toUpperCase();
+const url = `${endpoint}/transactions`;
 const { token } = localStorage;
 
-const sendCustomerDataFailed = (payload) => ({
-  type: FAILED_POST_CUSTOMER,
+const sendTransactionDataFailed = (payload) => ({
+  type: FAILED_POST_TRANSACTION,
   payload,
 });
 
-const patchCustomerDataFailed = (payload) => ({
-  type: FAILED_PATCH_CUSTOMER,
+const patchTransactionDataFailed = (payload) => ({
+  type: FAILED_PATCH_TRANSACTION,
   payload,
 });
 
-const fetchCustomersData = (payload) => ({
-  type: GET_CUSTOMER,
+const fetchTransactionsData = (payload) => ({
+  type: GET_TRANSACTION,
   payload,
 });
 
-const fetchCustomersDataFailed = (payload) => ({
-  type: FAILED_GET_CUSTOMER,
+const fetchTransactionsDataFailed = (payload) => ({
+  type: FAILED_GET_TRANSACTION,
   payload,
 });
 
-const fetchCustomerRequest = () => ({
-  type: GET_CUSTOMERS_REQUEST,
+const fetchTransactionRequest = () => ({
+  type: GET_TRANSACTIONS_REQUEST,
   loading: true,
   error: null,
 });
 
-export const postCustomerToApi = (userData) => async (dispatch) => {
+export const postTransactionToApi = (userData) => async (dispatch) => {
   const sendData = axios.post(url, userData, {
     headers: {
       Authorization: `Bearer ${token}`,
