@@ -104,7 +104,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
         >
           <li>
             <NavLink
-              to="/addcustomer"
+              to="/addtransaction"
               style={{ textDecoration: 'none' }}
               onClick={closeSideBar}
             >
@@ -113,7 +113,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
           </li>
           <li>
             <NavLink
-              to="/customers"
+              to="/transactions"
               style={{ textDecoration: 'none' }}
               onClick={closeSideBar}
             >
