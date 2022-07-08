@@ -91,7 +91,7 @@ export const getSeasonFromApi = () => async (dispatch) => {
   }
 };
 
-const transactionReducer = (
+const seasonReducer = (
   state = {
     data: [],
     loading: false,
@@ -100,31 +100,31 @@ const transactionReducer = (
   action
 ) => {
   switch (action.type) {
-    case GET_TRANSACTION:
+    case GET_SEASON:
       return {
         ...state,
         data: action.payload,
         loading: false,
         error: null,
       };
-    case FAILED_GET_TRANSACTION:
+    case FAILED_GET_SEASON:
       return {
         ...state,
         loading: false,
         error: action.error,
       };
-    case GET_TRANSACTIONS_REQUEST:
+    case GET_SEASONS_REQUEST:
       return {
         ...state,
         loading: true,
         error: null,
       };
-    case FAILED_POST_TRANSACTION:
-    case FAILED_PATCH_TRANSACTION:
+    case FAILED_POST_SEASON:
+    case FAILED_PATCH_SEASON:
       return { error: action.errorMsg };
     default:
       return state;
   }
 };
 
-export default transactionReducer;
+export default seasonReducer;
