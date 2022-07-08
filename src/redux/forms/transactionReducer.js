@@ -2,7 +2,6 @@ import axios from 'axios';
 import { Navigate } from 'react-router-dom';
 import endpoint from '../../assets/url/url';
 
-// const POST_CUSTOMER = 'src/redux/customerreducer/post_customer'.toUpperCase();
 const FAILED_POST_TRANSACTION =
   'src/redux/transactionreducer/failed_post_transaction'.toUpperCase();
 const FAILED_PATCH_TRANSACTION =
@@ -51,10 +50,10 @@ export const postTransactionToApi = (userData) => async (dispatch) => {
 
   if (sendData.error || sendData.errors || sendData.rejected) {
     const errorMsg = sendData.error || sendData.errors;
-    dispatch(sendCustomerDataFailed(errorMsg));
+    dispatch(sendTransactionDataFailed(errorMsg));
   } else {
-    window.history.pushState({}, '', '/customers');
-    <Navigate to="/customers" />;
+    window.history.pushState({}, '', '/transactions');
+    <Navigate to="/transactions" />;
     setTimeout(() => {
       window.location.reload();
     }, 5000);
