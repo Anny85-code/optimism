@@ -14,28 +14,28 @@ const GET_SEASONS_REQUEST =
 const url = `${endpoint}/seasons`;
 const { token } = localStorage;
 
-const sendTransactionDataFailed = (payload) => ({
-  type: FAILED_POST_TRANSACTION,
+const sendSeasonDataFailed = (payload) => ({
+  type: FAILED_POST_SEASON,
   payload,
 });
 
-const patchTransactionDataFailed = (payload) => ({
-  type: FAILED_PATCH_TRANSACTION,
+const patchSeasonDataFailed = (payload) => ({
+  type: FAILED_PATCH_SEASON,
   payload,
 });
 
-const fetchTransactionsData = (payload) => ({
-  type: GET_TRANSACTION,
+const fetchSeasonsData = (payload) => ({
+  type: GET_SEASON,
   payload,
 });
 
-const fetchTransactionsDataFailed = (payload) => ({
-  type: FAILED_GET_TRANSACTION,
+const fetchSeasonsDataFailed = (payload) => ({
+  type: FAILED_GET_SEASON,
   payload,
 });
 
-const fetchTransactionRequest = () => ({
-  type: GET_TRANSACTIONS_REQUEST,
+const fetchSeasonRequest = () => ({
+  type: GET_SEASONS_REQUEST,
   loading: true,
   error: null,
 });
