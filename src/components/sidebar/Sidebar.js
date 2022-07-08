@@ -99,7 +99,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
         <a href="#">Transaction Management</a>
         <i
           className="fa fa-caret-right"
-          onClick={toggleDropdownCustomer}
+          onClick={toggleDropdownTransaction}
           id="toggle-btn"
         />
         <ul
