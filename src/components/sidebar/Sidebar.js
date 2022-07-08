@@ -81,6 +81,43 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
     </>
   );
 
+  const transactionSection = (
+    <>
+      <div className="sidebar__link">
+        <i className="fa fa-wrench" />
+        <a href="#">Transaction Management</a>
+        <i
+          className="fa fa-caret-right"
+          onClick={toggleDropdownCustomer}
+          id="toggle-btn"
+        />
+        <ul
+          className={!dropdownCustomer ? 'dropdown-off' : 'dropdown-on'}
+          id="drop-menu"
+        >
+          <li>
+            <NavLink
+              to="/addcustomer"
+              style={{ textDecoration: 'none' }}
+              onClick={closeSideBar}
+            >
+              Add New Transaction
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/customers"
+              style={{ textDecoration: 'none' }}
+              onClick={closeSideBar}
+            >
+              View All Transactions
+            </NavLink>
+          </li>
+        </ul>
+      </div>
+    </>
+  );
+
   return (
     <div className={sidebarOpen ? 'sidebar-responsive' : ''} id="sidebar">
       <div className="sidebar__title">
