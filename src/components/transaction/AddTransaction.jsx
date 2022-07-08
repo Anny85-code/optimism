@@ -8,30 +8,23 @@ const AddTransaction = () => {
   const [cardNumber, setCardNumber] = useState('');
 
   const getInput = (e) => {
-    e.preventDefault();
-    setCardNumber(e.target.value);
+    const input = e.target.value;
+    const extractCustomerId = input.split('/')[1];
+    setCardNumber(extractCustomerId);
   };
 
   const handdleNext = () => {
-    const user = JSON.parse(localStorage.getItem('user'));
-    const { id } = user.user;
-    const transaction = {
-      user_id: id,
-      card_number: cardNumber,
-    };
-
-    dispatch(postTransactionToApi(transaction));
-    console.log(1 + 1);
+    console.log(cardNumber);
   };
 
-  useEffect(() => {
-    dispatch();
-  }, []);
+  // useEffect(() => {
+  //   dispatch();
+  // }, []);
 
   return (
     <div className="form-container">
       <h2 className="title">Collect contribution</h2>
-      <form onSubmit={handleSubmit} className="add-customer-form">
+      <form className="add-customer-form">
         <label htmlFor="name">
           Card Number *
           <input
