@@ -10,7 +10,11 @@ const AddTransaction = () => {
   const getInput = (e) => {
     const input = e.target.value;
     const extractCustomerId = input.split('/')[1];
-    setCardNumber(extractCustomerId);
+    if (extractCustomerId.match(/[a-zA-Z]$/)) {
+      dispatch(alert('Wrong Card No.'));
+    } else {
+      setCardNumber(extractCustomerId);
+    }
   };
 
   const handdleNext = () => {
@@ -24,7 +28,7 @@ const AddTransaction = () => {
   return (
     <div className="form-container">
       <h2 className="title">Collect contribution</h2>
-      <form className="add-customer-form">
+      <form className="add-customer-form" autoComplete="off">
         <label htmlFor="name">
           Card Number *
           <input
@@ -34,7 +38,7 @@ const AddTransaction = () => {
             name="card number"
             placeholder="card number"
             required
-            // value={cardNumber}
+            autoCorrect="off"
             onChange={getInput}
           />
         </label>
