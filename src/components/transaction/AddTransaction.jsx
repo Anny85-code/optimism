@@ -24,7 +24,7 @@ const AddTransaction = () => {
         <label htmlFor="name">
           Card Number *
           <input
-            type="number"
+            type="text"
             className="form-control"
             id="card number"
             name="card number"
