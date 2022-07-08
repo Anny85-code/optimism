@@ -59,7 +59,7 @@ export const postSeasonToApi = (userData) => async (dispatch) => {
   }
 };
 
-export const postUpdateTransactionToApi = (userData) => async (dispatch) => {
+export const postUpdateSeasonToApi = (userData) => async (dispatch) => {
   const { id } = userData;
   const sendData = axios.patch(`${url}/${id}`, userData, {
     headers: {
@@ -69,9 +69,9 @@ export const postUpdateTransactionToApi = (userData) => async (dispatch) => {
 
   if (sendData.error || sendData.errors || sendData.rejected) {
     const errorMsg = sendData.error || sendData.errors;
-    dispatch(patchTransactionDataFailed(errorMsg));
+    dispatch(patchSeasonDataFailed(errorMsg));
   } else {
-    window.history.pushState({}, '', `/transactions/${id}`);
+    window.history.pushState({}, '', `/seasons/${id}`);
     // window.location.reload();
   }
 };
