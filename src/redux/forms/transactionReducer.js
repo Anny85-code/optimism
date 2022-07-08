@@ -77,8 +77,8 @@ export const postUpdateTransactionToApi = (userData) => async (dispatch) => {
   }
 };
 
-export const getCustomerFromApi = () => async (dispatch) => {
-  dispatch(fetchCustomerRequest());
+export const getTransactionFromApi = () => async (dispatch) => {
+  dispatch(fetchTransactionRequest());
   try {
     const response = await axios.get(url, {
       headers: {
@@ -86,13 +86,13 @@ export const getCustomerFromApi = () => async (dispatch) => {
       },
     });
 
-    dispatch(fetchCustomersData(response.data));
+    dispatch(fetchTransactionsData(response.data));
   } catch (error) {
-    dispatch(fetchCustomersDataFailed(error.message));
+    dispatch(fetchTransactionsDataFailed(error.message));
   }
 };
 
-const customerReducer = (
+const transactionReducer = (
   state = {
     data: [],
     loading: false,
@@ -101,31 +101,31 @@ const customerReducer = (
   action
 ) => {
   switch (action.type) {
-    case GET_CUSTOMER:
+    case GET_TRANSACTION:
       return {
         ...state,
         data: action.payload,
         loading: false,
         error: null,
       };
-    case FAILED_GET_CUSTOMER:
+    case FAILED_GET_TRANSACTION:
       return {
         ...state,
         loading: false,
         error: action.error,
       };
-    case GET_CUSTOMERS_REQUEST:
+    case GET_TRANSACTIONS_REQUEST:
       return {
         ...state,
         loading: true,
         error: null,
       };
-    case FAILED_POST_CUSTOMER:
-    case FAILED_PATCH_CUSTOMER:
+    case FAILED_POST_TRANSACTION:
+    case FAILED_PATCH_TRANSACTION:
       return { error: action.errorMsg };
     default:
       return state;
   }
 };
 
-export default customerReducer;
+export default transactionReducer;
