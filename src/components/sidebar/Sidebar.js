@@ -57,14 +57,10 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
 
   const customerSection = (
     <>
-      <div className="sidebar__link">
+      <div className="sidebar__link" onClick={toggleDropdownCustomer}>
         <i className="fa fa-wrench" />
         <a href="#">Customer Management</a>
-        <i
-          className="fa fa-caret-right"
-          onClick={toggleDropdownCustomer}
-          id="toggle-btn"
-        />
+        <i className="fa fa-caret-right" id="toggle-btn" />
         <ul
           className={!dropdownCustomer ? 'dropdown-off' : 'dropdown-on'}
           id="drop-menu"
@@ -94,12 +90,12 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
 
   const transactionSection = (
     <>
-      <div className="sidebar__link">
+      <div className="sidebar__link" onClick={toggleDropdownTransaction}>
         <i className="fa fa-wrench" />
         <a href="#">Transaction Management</a>
         <i
           className="fa fa-caret-right"
-          onClick={toggleDropdownTransaction}
+          // onClick={toggleDropdownTransaction}
           id="toggle-btn"
         />
         <ul
@@ -164,14 +160,10 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
               <i className="fa fa-wrench" />
               <a href="#">Employee Management</a>
             </div>
-            <div className="sidebar__link">
+            <div className="sidebar__link" onClick={toggleDropdownMarkerter}>
               <i className="fa fa-wrench" />
               <a href="#">Marketer Management</a>
-              <i
-                className="fa fa-caret-right"
-                onClick={toggleDropdownMarkerter}
-                id="toggle-btn"
-              />
+              <i className="fa fa-caret-right" id="toggle-btn" />
               <ul
                 className={!dropdownMarketer ? 'dropdown-off' : 'dropdown-on'}
                 id="drop-menu"
@@ -202,14 +194,10 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
         {user.role === 'marketer' ? transactionSection : transactionSection}
         {user.role === 'admin' && (
           <>
-            <div className="sidebar__link">
+            <div className="sidebar__link" onClick={toggleDropdownProduct}>
               <i className="fa fa-wrench" />
               <a href="#">Product Management</a>
-              <i
-                className="fa fa-caret-right"
-                onClick={toggleDropdownProduct}
-                id="toggle-btn"
-              />
+              <i className="fa fa-caret-right" id="toggle-btn" />
               <ul
                 className={!dropdownProduct ? 'dropdown-off' : 'dropdown-on'}
                 id="drop-menu"
