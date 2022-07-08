@@ -60,7 +60,7 @@ export const postTransactionToApi = (userData) => async (dispatch) => {
   }
 };
 
-export const postUpdateCustomerToApi = (userData) => async (dispatch) => {
+export const postUpdateTransactionToApi = (userData) => async (dispatch) => {
   const { id } = userData;
   const sendData = axios.patch(`${url}/${id}`, userData, {
     headers: {
@@ -70,9 +70,9 @@ export const postUpdateCustomerToApi = (userData) => async (dispatch) => {
 
   if (sendData.error || sendData.errors || sendData.rejected) {
     const errorMsg = sendData.error || sendData.errors;
-    dispatch(patchCustomerDataFailed(errorMsg));
+    dispatch(patchTransactionDataFailed(errorMsg));
   } else {
-    window.history.pushState({}, '', `/customers/${id}`);
+    window.history.pushState({}, '', `/transactions/${id}`);
     // window.location.reload();
   }
 };
