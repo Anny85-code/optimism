@@ -3,15 +3,15 @@ import { Navigate } from 'react-router-dom';
 import endpoint from '../../assets/url/url';
 
 const FAILED_POST_SEASON =
-  'src/redux/transactionreducer/failed_post_transaction'.toUpperCase();
+  'src/redux/seasonreducer/failed_post_season'.toUpperCase();
 const FAILED_PATCH_SEASON =
-  'src/redux/transactionreducer/failed_patch_transaction'.toUpperCase();
-const GET_SEASON = 'src/redux/transactionreducer/get_transaction'.toUpperCase();
+  'src/redux/seasonreducer/failed_patch_season'.toUpperCase();
+const GET_SEASON = 'src/redux/seasonreducer/get_season'.toUpperCase();
 const FAILED_GET_SEASON =
-  'src/redux/transactionreducer/failed_get_transaction'.toUpperCase();
+  'src/redux/seasonreducer/failed_get_season'.toUpperCase();
 const GET_SEASONS_REQUEST =
-  'src/redux/transactionreducer/get_transaction_request'.toUpperCase();
-const url = `${endpoint}/transactions`;
+  'src/redux/seasonreducer/get_season_request'.toUpperCase();
+const url = `${endpoint}/seasons`;
 const { token } = localStorage;
 
 const sendTransactionDataFailed = (payload) => ({
