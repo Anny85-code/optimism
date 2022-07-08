@@ -199,6 +199,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
           </>
         )}
         {user.role === 'marketer' ? customerSection : customerSection}
+        {user.role === 'marketer' ? transactionSection : transactionSection}
         {user.role === 'admin' && (
           <>
             <div className="sidebar__link">
