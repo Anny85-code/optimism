@@ -40,7 +40,7 @@ const fetchSeasonRequest = () => ({
   error: null,
 });
 
-export const postTransactionToApi = (userData) => async (dispatch) => {
+export const postSeasonToApi = (userData) => async (dispatch) => {
   const sendData = axios.post(url, userData, {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -49,10 +49,10 @@ export const postTransactionToApi = (userData) => async (dispatch) => {
 
   if (sendData.error || sendData.errors || sendData.rejected) {
     const errorMsg = sendData.error || sendData.errors;
-    dispatch(sendTransactionDataFailed(errorMsg));
+    dispatch(sendSeasonDataFailed(errorMsg));
   } else {
-    window.history.pushState({}, '', '/transactions');
-    <Navigate to="/transactions" />;
+    window.history.pushState({}, '', '/seasons');
+    <Navigate to="/seasons" />;
     setTimeout(() => {
       window.location.reload();
     }, 5000);
