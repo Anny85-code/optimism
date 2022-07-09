@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
-import { postTransactionToApi } from '../../redux/forms/transactionReducer';
+import { getTransactionFromApi } from '../../redux/forms/transactionReducer';
+
+/* eslint-disable */
 
 const AddTransaction = () => {
   const dispatch = useDispatch();
@@ -37,9 +39,9 @@ const AddTransaction = () => {
     console.log(cardNumber);
   };
 
-  // useEffect(() => {
-  //   dispatch();
-  // }, []);
+  useEffect(() => {
+    dispatch(getTransactionFromApi(cardNumber));
+  }, []);
 
   return (
     <div className="form-container">
@@ -82,5 +84,5 @@ const AddTransaction = () => {
     </div>
   );
 };
-
+/* eslint-enable */
 export default AddTransaction;
