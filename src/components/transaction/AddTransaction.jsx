@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 
 /* eslint-disable */
 
@@ -64,7 +64,7 @@ const AddTransaction = () => {
         <div className="form-group btn1">
           <NavLink to="/contribution" style={{ textDecoration: 'none' }}>
             <button
-              type="button"
+              type="submit"
               className="add-customer-btn"
               onClick={handdleNext}
             >
