@@ -5,23 +5,23 @@ const GET_ONE_TRANSACTION =
   'src/redux/transactionreducer/get_one_transaction'.toUpperCase();
 const FAILED_GET_ONE_TRANSACTION =
   'src/redux/transactionreducer/failed_get_one_transaction'.toUpperCase();
-const GET_ONE_TRANSACTIONS_REQUEST =
+const GET_ONE_TRANSACTION_REQUEST =
   'src/redux/transactionreducer/get_one_transaction_request'.toUpperCase();
 const url = `${endpoint}/transactions`;
 const { token } = localStorage;
 
-const fetchOneCustomerData = (payload) => ({
-  type: GET_ONE_CUSTOMER,
+const fetchOneTransactionData = (payload) => ({
+  type: GET_ONE_TRANSACTION,
   payload,
 });
 
-const fetchOneCustomersDataFailed = (payload) => ({
-  type: FAILED_GET_ONE_CUSTOMER,
+const fetchOneTransactionDataFailed = (payload) => ({
+  type: FAILED_GET_ONE_TRANSACTION,
   payload,
 });
 
-const fetchOneCustomerRequest = () => ({
-  type: GET_ONE_CUSTOMERS_REQUEST,
+const fetchOneTransactionRequest = () => ({
+  type: GET_ONE_TRANSACTION_REQUEST,
   loading: true,
   error: null,
 });
