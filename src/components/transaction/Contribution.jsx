@@ -17,9 +17,15 @@ const Contribution = () => {
   });
   const [daysNo, setDaysNo] = useState(0);
   const { data } = customerDetails;
+  const lastTransaction = oneCustomerTransactions.slice(-1);
+  const lastDate = lastTransaction[0]?.current_contribution_date;
+  // const day = new Date().getDate();
+  // const month = new Date().getMonth();
+  // const year = new Date().getFullYear();
+  // const date = day + daysNo;
+  // const presentDate = `${date}/${month}/${year}`;
 
   const handleDays = (e) => {
-    console.log(+e.target.value);
     setDaysNo(+e.target.value);
   };
 
@@ -28,14 +34,7 @@ const Contribution = () => {
     dispatch(getTransactionFromApi());
   }, []);
 
-  console.log(
-    'myData',
-    myData,
-    'oneCustomerTransactions',
-    oneCustomerTransactions,
-    'cardNumber',
-    cardNumber
-  );
+  console.log(presentDate);
 
   const { name, daily_contribution } = data;
   const amount = daysNo * daily_contribution;
@@ -58,8 +57,8 @@ const Contribution = () => {
           onChange={handleDays}
         />
         <p>Amount: NGN {amount}</p>
-        <p>Previous payment date: {console.log(1 + 2)}</p>
-        <p>Current payment date: {console.log(1 + 2)}</p>
+        <p>Previous payment date: {lastDate}</p>
+        <p>Current payment date: {console.log('aja')}</p>
       </div>
       {/* ))} */}
     </div>
