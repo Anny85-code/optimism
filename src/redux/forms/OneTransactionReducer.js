@@ -40,7 +40,7 @@ export const getOneTransactionFromApi = (id) => async (dispatch) => {
   }
 };
 
-const OneCustomerReducer = (
+const OneTransactionReducer = (
   state = {
     data: [],
     loading: false,
@@ -49,20 +49,20 @@ const OneCustomerReducer = (
   action
 ) => {
   switch (action.type) {
-    case GET_ONE_CUSTOMER:
+    case GET_ONE_TRANSACTION:
       return {
         ...state,
         data: action.payload,
         loading: false,
         error: null,
       };
-    case FAILED_GET_ONE_CUSTOMER:
+    case FAILED_GET_ONE_TRANSACTION:
       return {
         ...state,
         loading: false,
         error: action.error,
       };
-    case GET_ONE_CUSTOMERS_REQUEST:
+    case GET_ONE_TRANSACTION_REQUEST:
       return {
         ...state,
         loading: true,
@@ -73,4 +73,4 @@ const OneCustomerReducer = (
   }
 };
 
-export default OneCustomerReducer;
+export default OneTransactionReducer;
