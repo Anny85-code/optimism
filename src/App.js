@@ -19,6 +19,7 @@ import AddProduct from './components/items/products/AddProducts';
 import ViewItems from './components/items/ViewItems';
 import Search from './components/search/Search';
 import AddTransaction from './components/transaction/AddTransaction';
+import Contribution from './components/transaction/Contribution';
 
 const App = () => {
   const [sideBarOpen, setSideBarOpen] = useState(false);
@@ -46,6 +47,7 @@ const App = () => {
             <Route path="/addcustomer" element={<AddCustomer />} />
             <Route path="/additemcustomer" element={<AddItemCustomer />} />
             <Route path="/addtransaction" element={<AddTransaction />} />
+            <Route path="/contribution" element={<Contribution />} />
             {user.role === 'admin' && (
               <>
                 <Route path="/register" element={<Register />} />
