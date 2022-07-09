@@ -62,7 +62,7 @@ const AddTransaction = () => {
           </span>
         </label>
         <div className="form-group btn1">
-          <NavLink to="/ghahja" style={{ textDecoration: 'none' }}>
+          <NavLink to="/contribution" style={{ textDecoration: 'none' }}>
             <button
               type="submit"
               className="add-customer-btn"
