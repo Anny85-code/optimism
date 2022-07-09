@@ -1,23 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
+import { getTransactionFromApi } from '../../redux/forms/transactionReducer';
 /* eslint-disable */
 const Contribution = () => {
   const dispatch = useDispatch();
   const customerDetails = useSelector((state) => state.oneCustomer);
+  const customersTransactions = useSelector((state) => state.)
   const [daysNo, setDaysNo] = useState(0);
   const { data } = customerDetails;
+  const { cardNumber } = localStorage;
+
   const handleDays = (e) => {
     console.log(+e.target.value);
     setDaysNo(+e.target.value);
   };
 
-  const { cardNumber } = localStorage;
-  console.log(cardNumber);
-
   useEffect(() => {
     dispatch(getOneCustomerFromApi(cardNumber));
-    dispatch();
+    dispatch(getTransactionFromApi());
   }, []);
 
   const { name, daily_contribution } = data;

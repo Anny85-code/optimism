@@ -14,15 +14,18 @@ import OneCustomerReducer from './forms/OneCustomerReducer';
 import userManReducer from './forms/userManReducer';
 import oneUserReducer from './forms/oneUserManReducer';
 import itemReducer from './forms/getItemsReducer';
+import OneTransactionReducer from './forms/OneTransactionReducer';
+import transactionReducer from './forms/transactionReducer';
 
 const rootReducer = combineReducers({
   user: userReducer,
   customer: customerReducer,
-  // marketers,
   oneCustomer: OneCustomerReducer,
   userManReducer,
   oneUser: oneUserReducer,
   item: itemReducer,
+  oneTransaction: OneTransactionReducer,
+  transactions: transactionReducer,
 });
 
 const store = createStore(rootReducer, compose(applyMiddleware(logger, thunk)));
