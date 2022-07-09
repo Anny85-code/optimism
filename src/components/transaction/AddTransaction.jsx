@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
-import { getTransactionFromApi } from '../../redux/forms/transactionReducer';
+import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
 
 /* eslint-disable */
 
@@ -40,7 +40,7 @@ const AddTransaction = () => {
   };
 
   useEffect(() => {
-    dispatch(getTransactionFromApi(cardNumber));
+    dispatch(getOneCustomerFromApi(cardNumber));
   }, []);
 
   return (
