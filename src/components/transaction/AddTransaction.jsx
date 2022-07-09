@@ -1,16 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
-import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
 
 /* eslint-disable */
 
 const AddTransaction = () => {
-  const dispatch = useDispatch();
   const [cardNumber, setCardNumber] = useState('');
   const error = document.getElementById('error');
-  const customer = useSelector((state) => state.oneCustomer);
-  console.log(customer);
 
   const getInput = (e) => {
     const input = e.target.value;
@@ -29,7 +24,7 @@ const AddTransaction = () => {
     }
   };
 
-  const handleReset = (e) => {
+  const handleReset = () => {
     const inputBox = document.querySelector('#card_number');
     inputBox.disabled = false;
     inputBox.value = '';
@@ -38,12 +33,8 @@ const AddTransaction = () => {
   };
 
   const handdleNext = () => {
-    console.log(cardNumber);
+    localStorage.setItem('cardNumber', cardNumber);
   };
-
-  useEffect(() => {
-    dispatch(getOneCustomerFromApi(cardNumber));
-  }, []);
 
   return (
     <div className="form-container">
