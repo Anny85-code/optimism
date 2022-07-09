@@ -10,11 +10,13 @@ const Contribution = () => {
   const customersTransactions = useSelector((state) => state.transactions);
   const myData = customersTransactions.data;
   let oneCustomerTransactions = [];
+
   myData.map((trans) => {
     if (trans.customer_id === +cardNumber) {
       oneCustomerTransactions.push(trans);
     }
   });
+
   const [daysNo, setDaysNo] = useState(0);
   const { data } = customerDetails;
   const lastTransaction = oneCustomerTransactions.slice(-1);
