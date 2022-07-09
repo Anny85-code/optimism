@@ -64,7 +64,7 @@ const AddTransaction = () => {
         <div className="form-group btn1">
           <NavLink to="/contribution" style={{ textDecoration: 'none' }}>
             <button
-              type="submit"
+              type="button"
               className="add-customer-btn"
               onClick={handdleNext}
             >

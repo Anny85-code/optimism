@@ -15,7 +15,7 @@ const AddCustomer = () => {
   // const dailyContribution = localStorage.getItem('dailyContibution');
   // dailyContribution = Number(dailyContribution);
 
-  const handleSubmit = async () => {
+  const handleSubmit = () => {
     const user = JSON.parse(localStorage.getItem('user'));
     const { id } = user.user;
     const customer = {
