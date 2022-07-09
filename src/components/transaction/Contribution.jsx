@@ -17,6 +17,7 @@ const Contribution = () => {
 
   useEffect(() => {
     dispatch(getOneCustomerFromApi(cardNumber));
+    dispatch();
   }, []);
 
   const { name, daily_contribution } = data;
