@@ -40,8 +40,8 @@ const Contribution = () => {
           onChange={handleDays}
         />
         <p>Amount: NGN {amount}</p>
-        <p>Previous payment date:</p>
-        <p>Current payment date:</p>
+        <p>Previous payment date: {console.log(1 + 2)}</p>
+        <p>Current payment date: {console.log(1 + 2)}</p>
       </div>
       {/* ))} */}
     </div>
