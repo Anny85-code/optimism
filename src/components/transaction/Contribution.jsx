@@ -6,7 +6,7 @@ import { getTransactionFromApi } from '../../redux/forms/transactionReducer';
 const Contribution = () => {
   const dispatch = useDispatch();
   const customerDetails = useSelector((state) => state.oneCustomer);
-  const customersTransactions = useSelector((state) => state.)
+  const customersTransactions = useSelector((state) => state.transactions);
   const [daysNo, setDaysNo] = useState(0);
   const { data } = customerDetails;
   const { cardNumber } = localStorage;
@@ -20,6 +20,8 @@ const Contribution = () => {
     dispatch(getOneCustomerFromApi(cardNumber));
     dispatch(getTransactionFromApi());
   }, []);
+
+  console.log(customersTransactions);
 
   const { name, daily_contribution } = data;
   const amount = daysNo * daily_contribution;
