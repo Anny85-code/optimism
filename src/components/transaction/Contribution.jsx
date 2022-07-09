@@ -21,11 +21,16 @@ const Contribution = () => {
   const { data } = customerDetails;
   const lastTransaction = oneCustomerTransactions.slice(-1);
   const lastDate = lastTransaction[0]?.current_contribution_date;
-  // const day = new Date().getDate();
-  // const month = new Date().getMonth();
-  // const year = new Date().getFullYear();
-  // const date = day + daysNo;
-  // const presentDate = `${date}/${month}/${year}`;
+  const date = new Date(lastDate);
+  const AddDaysToDate = date.setDate(date.getDate() + daysNo);
+  const convertDate = new Date(AddDaysToDate);
+
+  const currentDate =
+    convertDate.getFullYear() +
+    '-' +
+    (convertDate.getMonth() + 1) +
+    '-' +
+    convertDate.getDate();
 
   const handleDays = (e) => {
     setDaysNo(+e.target.value);
@@ -42,7 +47,6 @@ const Contribution = () => {
   return (
     <div>
       <h2>Customer Details</h2>
-      {/* {data.map((customer) => ( */}
       <div>
         <p>Name: {name}</p>
         <p>Daily Contribution: {daily_contribution}</p>
@@ -58,9 +62,11 @@ const Contribution = () => {
         />
         <p>Amount: NGN {amount}</p>
         <p>Previous payment date: {lastDate}</p>
-        <p>Current payment date: {console.log('aja')}</p>
+        <p>Current payment date: {currentDate}</p>
       </div>
-      {/* ))} */}
+      <button type="submit" className="add-customer-btn">
+        Add
+      </button>
     </div>
   );
 };
