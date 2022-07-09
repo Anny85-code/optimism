@@ -36,8 +36,6 @@ const Contribution = () => {
     dispatch(getTransactionFromApi());
   }, []);
 
-  console.log(presentDate);
-
   const { name, daily_contribution } = data;
   const amount = daysNo * daily_contribution;
 
