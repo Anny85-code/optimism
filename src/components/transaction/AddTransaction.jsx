@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
 
 /* eslint-disable */
@@ -9,6 +9,8 @@ const AddTransaction = () => {
   const dispatch = useDispatch();
   const [cardNumber, setCardNumber] = useState('');
   const error = document.getElementById('error');
+  const customer = useSelector((state) => state.oneCustomer);
+  console.log(customer);
 
   const getInput = (e) => {
     const input = e.target.value;
