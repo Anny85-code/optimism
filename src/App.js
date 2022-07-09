@@ -20,6 +20,7 @@ import ViewItems from './components/items/ViewItems';
 import Search from './components/search/Search';
 import AddTransaction from './components/transaction/AddTransaction';
 import Contribution from './components/transaction/Contribution';
+import Transactions from './components/transaction/Transactions';
 
 const App = () => {
   const [sideBarOpen, setSideBarOpen] = useState(false);
