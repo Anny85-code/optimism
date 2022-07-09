@@ -1,0 +1,15 @@
+.add-trans-btn {
+  background-color: #00bcd4;
+  width: 200px;
+  height: 50px;
+  padding: 10px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  /* background-color: #3ea175; */
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #d86565;
+}

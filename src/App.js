@@ -48,6 +48,7 @@ const App = () => {
             <Route path="/additemcustomer" element={<AddItemCustomer />} />
             <Route path="/addtransaction" element={<AddTransaction />} />
             <Route path="/contribution" element={<Contribution />} />
+            <Route path="/transactions" element={<Transactions />} />
             {user.role === 'admin' && (
               <>
                 <Route path="/register" element={<Register />} />

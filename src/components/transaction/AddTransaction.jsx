@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import './AddTransaction.css';
 
 /* eslint-disable */
 
@@ -65,7 +66,7 @@ const AddTransaction = () => {
           <NavLink to="/contribution" style={{ textDecoration: 'none' }}>
             <button
               type="submit"
-              className="add-customer-btn"
+              className="add-trans-btn"
               onClick={handdleNext}
             >
               Next

@@ -24,6 +24,8 @@ const Contribution = () => {
   const date = new Date(lastDate);
   const AddDaysToDate = date.setDate(date.getDate() + daysNo);
   const convertDate = new Date(AddDaysToDate);
+  const { name, daily_contribution } = data;
+  const amount = daysNo * daily_contribution;
 
   const currentDate =
     convertDate.getFullYear() +
@@ -52,9 +54,6 @@ const Contribution = () => {
     dispatch(getTransactionFromApi());
     dispatch(postTransactionToApi(transactionData));
   }, []);
-
-  const { name, daily_contribution } = data;
-  const amount = daysNo * daily_contribution;
 
   return (
     <div>
