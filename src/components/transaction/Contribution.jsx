@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
-import { getTransactionFromApi, postTransactionToApi } from '../../redux/forms/transactionReducer';
+// import { getTransactionFromApi } from '../../redux/forms/transactionReducer';
 /* eslint-disable */
+import { getTransactionFromApi, postTransactionToApi } from '../../redux/forms/transactionReducer';
 const Contribution = () => {
   const dispatch = useDispatch();
   const { cardNumber } = localStorage;
@@ -26,6 +27,7 @@ const Contribution = () => {
   const convertDate = new Date(AddDaysToDate);
   const { name, daily_contribution } = data;
   const amount = daysNo * daily_contribution;
+  const { user } = JSON.parse(localStorage.getItem('user'));
 
   const currentDate =
     convertDate.getFullYear() +
@@ -38,16 +40,14 @@ const Contribution = () => {
     setDaysNo(+e.target.value);
   };
 
-  const { id } = localStorage.user;
-
   const transactionData = {
-    user_id: id,
-    current_contribution_date: currentDate,
+    user_id: user.id,
     amount,
+    customer_id: +cardNumber,
+    daysNo,
     previous_contribution_date: lastDate,
     current_contribution_date: currentDate,
-    customer_id: +cardNumber,
-  }
+  };
 
   useEffect(() => {
     dispatch(getOneCustomerFromApi(cardNumber));

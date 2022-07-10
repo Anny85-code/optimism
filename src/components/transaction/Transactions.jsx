@@ -5,7 +5,6 @@ import Moment from 'moment';
 import { getTransactionFromApi } from '../../redux/forms/transactionReducer';
 import './Transactions.css';
 
-
 const Transactions = () => {
   const dispatch = useDispatch();
   const transactions = useSelector((state) => state.transactions);
