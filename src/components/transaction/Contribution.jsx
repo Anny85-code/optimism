@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
 // import { getTransactionFromApi } from '../../redux/forms/transactionReducer';
 /* eslint-disable */
@@ -43,49 +44,67 @@ const Contribution = () => {
     setDaysNo(+e.target.value);
   };
 
-  const transactionData = {
-    user_id: user.id,
-    amount,
-    customer_id: +cardNumber,
-    daysNo,
-    previous_contribution_date: lastDate,
-    current_contribution_date: currentDate,
-  };
+  // const transactionData = {
+  //   user_id: user.id,
+  //   amount,
+  //   customer_id: +cardNumber,
+  //   daysNo,
+  //   previous_contribution_date: lastDate,
+  //   current_contribution_date: currentDate,
+  // };
 
-  console.log(transactionData);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const transactionData = {
+      user_id: user.id,
+      amount,
+      customer_id: +cardNumber,
+      daysNo,
+      previous_contribution_date: lastDate,
+      current_contribution_date: currentDate,
+    };
+      dispatch(postTransactionToApi(transactionData));
+  }
+
+  // console.log(transactionData);
 
   useEffect(() => {
     dispatch(getOneCustomerFromApi(cardNumber));
     dispatch(getTransactionFromApi());
-    dispatch(postTransactionToApi(transactionData));
+    // dispatch(postTransactionToApi(transactionData));
   }, []);
 
   return (
     <div>
       <h2>Customer Details</h2>
-      <div>
-        <p>Name: {name}</p>
-        <p>Daily Contribution: {daily_contribution}</p>
-        <h2>Customer Details</h2>
-        <input
-          type="number"
-          className="form-control"
-          id="days_number"
-          placeholder="No. of days"
-          required
-          autoCorrect="off"
-          onChange={handleDays}
-        />
-        <p>Amount: NGN {amount}</p>
-        <p>Previous payment date: {lastDate}</p>
-        <p>Current payment date: {currentDate}</p>
-      </div>
-      <button type="submit" className="add-customer-btn">
-        Add
-      </button>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <p>Name: {name}</p>
+          <p>Daily Contribution: {daily_contribution}</p>
+          <h2>Customer Details</h2>
+          <input
+            type="number"
+            className="form-control"
+            id="days_number"
+            placeholder="No. of days"
+            required
+            autoCorrect="off"
+            onChange={handleDays}
+          />
+          <p>Amount: NGN {amount}</p>
+          <p>Previous payment date: {lastDate}</p>
+          <p>Current payment date: {currentDate}</p>
+        </div>
+        <NavLink to="/transactions" style={{ textDecoration: 'none' }}>
+        <button type="submit" className="add-customer-btn">
+          Add
+        </button>
+        </NavLink>;
+      </form>
     </div>
   );
 };
 
 /* eslint-enable */
 export default Contribution;
+
