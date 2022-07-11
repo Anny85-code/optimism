@@ -37,6 +37,7 @@ const fetchTransactionRequest = () => ({
 });
 
 export const postTransactionToApi = (userData) => async (dispatch) => {
+  console.log('userData', userData);
   const sendData = axios.post(url, userData, {
     headers: {
       Authorization: `Bearer ${token}`,
