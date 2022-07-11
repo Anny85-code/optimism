@@ -3,7 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
 // import { getTransactionFromApi } from '../../redux/forms/transactionReducer';
 /* eslint-disable */
-import { getTransactionFromApi, postTransactionToApi } from '../../redux/forms/transactionReducer';
+import {
+  getTransactionFromApi,
+  postTransactionToApi,
+} from '../../redux/forms/transactionReducer';
 const Contribution = () => {
   const dispatch = useDispatch();
   const { cardNumber } = localStorage;
@@ -48,7 +51,7 @@ const Contribution = () => {
     previous_contribution_date: lastDate,
     current_contribution_date: currentDate,
   };
-
+  console.log('transactionData', transactionData);
   useEffect(() => {
     dispatch(getOneCustomerFromApi(cardNumber));
     dispatch(getTransactionFromApi());
