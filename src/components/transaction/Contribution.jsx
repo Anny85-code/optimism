@@ -44,14 +44,14 @@ const Contribution = () => {
     setDaysNo(+e.target.value);
   };
 
-  // const transactionData = {
-  //   user_id: user.id,
-  //   amount,
-  //   customer_id: +cardNumber,
-  //   daysNo,
-  //   previous_contribution_date: lastDate,
-  //   current_contribution_date: currentDate,
-  // };
+  const transactionData = {
+    user_id: user.id,
+    amount,
+    customer_id: +cardNumber,
+    daysNo,
+    previous_contribution_date: lastDate,
+    current_contribution_date: currentDate,
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -64,9 +64,8 @@ const Contribution = () => {
       current_contribution_date: currentDate,
     };
       dispatch(postTransactionToApi(transactionData));
-  }
+  };
 
-  // console.log(transactionData);
 
   useEffect(() => {
     dispatch(getOneCustomerFromApi(cardNumber));
