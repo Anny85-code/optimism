@@ -49,6 +49,8 @@ const Contribution = () => {
     current_contribution_date: currentDate,
   };
 
+  console.log(transactionData);
+
   useEffect(() => {
     dispatch(getOneCustomerFromApi(cardNumber));
     dispatch(getTransactionFromApi());

@@ -49,9 +49,9 @@ export const postTransactionToApi = (userData) => async (dispatch) => {
   } else {
     window.history.pushState({}, '', '/transactions');
       <Navigate to="/transactions" />;
-      setTimeout(() => {
-        window.location.reload();
-      }, 5000);
+    // setTimeout(() => {
+    //   window.location.reload();
+    // }, 5000);
   }
 };
 
