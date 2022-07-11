@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { NavLink, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Moment from 'moment';
 import '../customer/Customer.css';
@@ -58,7 +58,7 @@ const Transaction = () => {
         </p>
         <p className="cus-details">Amount: {amount}</p>
         <p className="cus-details">
-          Joined:{Moment(created_at).format('MMMM DD, LT')}
+          Date of transaction:{Moment(created_at).format('MMMM DD, LT')}
         </p>
       </div>
     </div>
