@@ -2,15 +2,11 @@ import axios from 'axios';
 import { Navigate } from 'react-router-dom';
 import endpoint from '../../assets/url/url';
 
-const FAILED_POST_SEASON =
-  'src/redux/seasonreducer/failed_post_season'.toUpperCase();
-const FAILED_PATCH_SEASON =
-  'src/redux/seasonreducer/failed_patch_season'.toUpperCase();
+const FAILED_POST_SEASON = 'src/redux/seasonreducer/failed_post_season'.toUpperCase();
+const FAILED_PATCH_SEASON = 'src/redux/seasonreducer/failed_patch_season'.toUpperCase();
 const GET_SEASON = 'src/redux/seasonreducer/get_season'.toUpperCase();
-const FAILED_GET_SEASON =
-  'src/redux/seasonreducer/failed_get_season'.toUpperCase();
-const GET_SEASONS_REQUEST =
-  'src/redux/seasonreducer/get_season_request'.toUpperCase();
+const FAILED_GET_SEASON = 'src/redux/seasonreducer/failed_get_season'.toUpperCase();
+const GET_SEASONS_REQUEST = 'src/redux/seasonreducer/get_season_request'.toUpperCase();
 const url = `${endpoint}/seasons`;
 const { token } = localStorage;
 
@@ -52,10 +48,10 @@ export const postSeasonToApi = (userData) => async (dispatch) => {
     dispatch(sendSeasonDataFailed(errorMsg));
   } else {
     window.history.pushState({}, '', '/seasons');
-    <Navigate to="/seasons" />;
-    setTimeout(() => {
-      window.location.reload();
-    }, 5000);
+      <Navigate to="/seasons" />;
+      setTimeout(() => {
+        window.location.reload();
+      }, 5000);
   }
 };
 
@@ -97,7 +93,7 @@ const seasonReducer = (
     loading: false,
     error: null,
   },
-  action
+  action,
 ) => {
   switch (action.type) {
     case GET_SEASON:

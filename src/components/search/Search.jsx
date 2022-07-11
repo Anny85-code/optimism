@@ -17,7 +17,6 @@ const Search = () => {
     dispatch(getCustomerFromApi());
   }, []);
 
-
   const handleChange = (event) => {
     console.log(event.target.value);
     const typedContent = event.target.value;
@@ -30,18 +29,10 @@ const Search = () => {
     }, 5000);
   };
 
-  console.log('aCustomer', aCustomer);
-
-  
   return (
-    <div
-    id="search-container1"
-    >
+    <div id="search-container1">
       <h1 className="search-header">Search Customers</h1>
-      <i className="fa fa-times"
-        id="closeSearchIcon"
-        onClick={handleSearch}
-      />
+      <i className="fa fa-times" id="closeSearchIcon" onClick={handleSearch} />
       <div className="search-container">
         <div className="search-inner">
           <input
