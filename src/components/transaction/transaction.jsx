@@ -70,7 +70,7 @@ const Transaction = () => {
         </p>
       </div>
 
-      {/* <div className="image-container">
+      <div className="image-container">
         <div className="edit">
           {user.role === 'admin' && (
             <NavLink to={redirect} style={{ textDecoration: 'none' }}>
@@ -78,7 +78,7 @@ const Transaction = () => {
             </NavLink>
           )}
         </div>
-      </div> */}
+      </div>
     </div>
   );
 };
