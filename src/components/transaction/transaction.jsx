@@ -7,10 +7,6 @@ import '../customer/Customer.css';
 import { getOneTransactionFromApi } from '../../redux/forms/OneTransactionReducer';
 import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
 /* eslint-enable */
-const editUrl = (person) => {
-  const { id } = person;
-  return `/transactions/${id}/edit`;
-};
 const data = JSON.parse(localStorage.getItem('user'));
 const { user } = data || {};
 
@@ -20,9 +16,10 @@ const Transaction = () => {
   const { id } = param;
   const transaction = useSelector((state) => state.oneTransaction);
   const customer = useSelector((state) => state.oneCustomer);
+  const customerId = JSON.parse(localStorage.getItem('cardNumber'));
 
   useEffect(() => {
-    dispatch(getOneCustomerFromApi(id));
+    dispatch(getOneCustomerFromApi(customerId));
     dispatch(getOneTransactionFromApi(id));
   }, []);
 
@@ -34,10 +31,8 @@ const Transaction = () => {
     current_contribution_date,
     days_paid_for,
     created_at,
-    updated_at,
   } = transaction.data;
   const { name, picture, daily_contribution } = customer.data;
-  const redirect = editUrl(transaction.data);
 
   return (
     <div className="containa">
@@ -65,19 +60,6 @@ const Transaction = () => {
         <p className="cus-details">
           Joined:{Moment(created_at).format('MMMM DD, LT')}
         </p>
-        <p className="cus-details">
-          Last Updated:{Moment(updated_at).format('MMMM DD, LT')}
-        </p>
-      </div>
-
-      <div className="image-container">
-        <div className="edit">
-          {user.role === 'admin' && (
-            <NavLink to={redirect} style={{ textDecoration: 'none' }}>
-              <i className="fa fa-edit" />
-            </NavLink>
-          )}
-        </div>
       </div>
     </div>
   );
