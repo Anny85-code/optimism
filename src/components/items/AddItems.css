@@ -38,7 +38,7 @@
 
 @media only screen and (max-width: 768px) {
   .form-container-item-list {
-    width: 300px;
+    width: 320px;
   }
 
   .item-name li img {
@@ -49,5 +49,9 @@
     font-size: 15px;
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
+  }
+
+  .form-container-item-list {
+    margin: 10px;
   }
 }
