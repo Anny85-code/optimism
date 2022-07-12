@@ -92,6 +92,43 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
     </>
   );
 
+  const seasonSection = (
+    <>
+      <div className="sidebar__link">
+        <i className="fa fa-wrench" />
+        <a href="#">Season Management</a>
+        <i
+          className="fa fa-caret-right"
+          onClick={toggleDropdownSeason}
+          id="toggle-btn"
+        />
+        <ul
+          className={!dropdownSeason ? 'dropdown-off' : 'dropdown-on'}
+          id="drop-menu"
+        >
+          <li>
+            <NavLink
+              to="/addseason"
+              style={{ textDecoration: 'none' }}
+              onClick={closeSideBar}
+            >
+              Add New Season
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/seasons"
+              style={{ textDecoration: 'none' }}
+              onClick={closeSideBar}
+            >
+              View All Seasons
+            </NavLink>
+          </li>
+        </ul>
+      </div>
+    </>
+  );
+
   return (
     <div className={sidebarOpen ? 'sidebar-responsive' : ''} id="sidebar">
       <div className="sidebar__title">
