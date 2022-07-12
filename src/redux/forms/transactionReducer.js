@@ -1,11 +1,16 @@
 import axios from 'axios';
 import endpoint from '../../assets/url/url';
 
-const FAILED_POST_TRANSACTION = 'src/redux/transactionreducer/failed_post_transaction'.toUpperCase();
-const FAILED_PATCH_TRANSACTION = 'src/redux/transactionreducer/failed_patch_transaction'.toUpperCase();
-const GET_TRANSACTION = 'src/redux/transactionreducer/get_transaction'.toUpperCase();
-const FAILED_GET_TRANSACTION = 'src/redux/transactionreducer/failed_get_transaction'.toUpperCase();
-const GET_TRANSACTIONS_REQUEST = 'src/redux/transactionreducer/get_transaction_request'.toUpperCase();
+const FAILED_POST_TRANSACTION =
+  'src/redux/transactionreducer/failed_post_transaction'.toUpperCase();
+const FAILED_PATCH_TRANSACTION =
+  'src/redux/transactionreducer/failed_patch_transaction'.toUpperCase();
+const GET_TRANSACTION =
+  'src/redux/transactionreducer/get_transaction'.toUpperCase();
+const FAILED_GET_TRANSACTION =
+  'src/redux/transactionreducer/failed_get_transaction'.toUpperCase();
+const GET_TRANSACTIONS_REQUEST =
+  'src/redux/transactionreducer/get_transaction_request'.toUpperCase();
 const url = `${endpoint}/transactions`;
 const { token } = localStorage;
 
@@ -47,8 +52,8 @@ export const postTransactionToApi = (userData) => async (dispatch) => {
     const errorMsg = sendData.error || sendData.errors;
     dispatch(sendTransactionDataFailed(errorMsg));
   } else {
-    window.history.pushState({}, '', '/transactions');
-    window.location.reload();
+    // window.history.pushState({}, '', `/transactions/${transaction.id}`);
+    // window.location.reload();
   }
 };
 
@@ -90,7 +95,7 @@ const transactionReducer = (
     loading: false,
     error: null,
   },
-  action,
+  action
 ) => {
   switch (action.type) {
     case GET_TRANSACTION:

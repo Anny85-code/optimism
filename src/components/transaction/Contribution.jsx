@@ -45,16 +45,20 @@ const Contribution = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-  const transactionData = {
+    const transactionData = {
       user_id: user.id,
       amount,
       customer_id: +cardNumber,
-      daysNo,
-      previous_contribution_date: lastDate,
-      current_contribution_date: currentDate,
+      days_paid_for: daysNo,
+      previous_contribution_date: date,
+      current_contribution_date: convertDate,
     };
-      dispatch(postTransactionToApi(transactionData));
+    const jsonData = JSON.stringify(transactionData);
+    dispatch(postTransactionToApi(jsonData));
+    console.log(jsonData);
   };
+
+  console.log(typeof date, typeof convertDate);
 
   useEffect(() => {
     dispatch(getOneCustomerFromApi(cardNumber));
@@ -68,7 +72,7 @@ const Contribution = () => {
         <div>
           <p>Name: {name}</p>
           <p>Daily Contribution: {daily_contribution}</p>
-          <h2>Customer Details</h2>
+          <h2>Transaction Details</h2>
           <input
             type="number"
             className="form-control"

@@ -121,6 +121,7 @@ const AddCustomer = () => {
               onClick={handleSubmit}
             >
               Add Items
+              <i className="fa fa-arrow-right" id="toggle-btn" />
             </button>
           </NavLink>
         </div>
