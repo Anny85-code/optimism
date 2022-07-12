@@ -37,20 +37,17 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .item-name {
-    font-size: 15px;
-  }
-
   .form-container-item-list {
     width: 300px;
   }
 
   .item-name li img {
-  margin-left: 10px;
-}
+    margin-left: 10px;
+  }
 
-.item-name {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-}
+  .item-name {
+    font-size: 15px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+  }
 }
