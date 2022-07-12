@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Navigate } from 'react-router-dom';
+// import { Navigate } from 'react-router-dom';
 import endpoint from '../../assets/url/url';
 
 const FAILED_POST_TRANSACTION = 'src/redux/transactionreducer/failed_post_transaction'.toUpperCase();
@@ -49,9 +49,9 @@ export const postTransactionToApi = (userData) => async (dispatch) => {
     dispatch(sendTransactionDataFailed(errorMsg));
   } else {
     window.history.pushState({}, '', '/transactions');
-      <Navigate to="/transactions" />;
+    // <Navigate to="/transactions" />;
     // setTimeout(() => {
-    //   window.location.reload();
+      window.location.reload();
     // }, 5000);
   }
 };

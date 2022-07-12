@@ -44,18 +44,20 @@ const Contribution = () => {
     setDaysNo(+e.target.value);
   };
 
-  const transactionData = {
-    user_id: user.id,
-    amount,
-    customer_id: +cardNumber,
-    daysNo,
-    previous_contribution_date: lastDate,
-    current_contribution_date: currentDate,
-  };
+  // const transactionData = {
+  //   user_id: user.id,
+  //   amount,
+  //   customer_id: +cardNumber,
+  //   daysNo,
+  //   previous_contribution_date: lastDate,
+  //   current_contribution_date: currentDate,
+  // };
+
+  // let transactionData;
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const transactionData = {
+  const transactionData = {
       user_id: user.id,
       amount,
       customer_id: +cardNumber,
@@ -63,9 +65,11 @@ const Contribution = () => {
       previous_contribution_date: lastDate,
       current_contribution_date: currentDate,
     };
+    // console.log('transactionData|handlesubmit', transactionData);
       dispatch(postTransactionToApi(transactionData));
   };
 
+  // console.log('transactionData|outside', transactionData);
 
   useEffect(() => {
     dispatch(getOneCustomerFromApi(cardNumber));
@@ -77,6 +81,7 @@ const Contribution = () => {
     <div>
       <h2>Customer Details</h2>
       <form onSubmit={handleSubmit}>
+      {/* <form> */}
         <div>
           <p>Name: {name}</p>
           <p>Daily Contribution: {daily_contribution}</p>
@@ -95,10 +100,15 @@ const Contribution = () => {
           <p>Current payment date: {currentDate}</p>
         </div>
         <NavLink to="/transactions" style={{ textDecoration: 'none' }}>
-        <button type="submit" className="add-customer-btn">
-          Add
-        </button>
-        </NavLink>;
+          <button
+            type="button"
+            className="add-customer-btn"
+            onClick={handleSubmit}
+          >
+            Add
+          </button>
+        </NavLink>
+        ;
       </form>
     </div>
   );
@@ -106,4 +116,3 @@ const Contribution = () => {
 
 /* eslint-enable */
 export default Contribution;
-
