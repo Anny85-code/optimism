@@ -41,7 +41,6 @@ const fetchTransactionRequest = () => ({
 });
 
 export const postTransactionToApi = (userData) => async (dispatch) => {
-  console.log('userData', userData);
   const sendData = axios.post(url, userData, {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -52,8 +51,8 @@ export const postTransactionToApi = (userData) => async (dispatch) => {
     const errorMsg = sendData.error || sendData.errors;
     dispatch(sendTransactionDataFailed(errorMsg));
   } else {
-    // window.history.pushState({}, '', `/transactions/${transaction.id}`);
-    // window.location.reload();
+    window.history.pushState({}, '', '/transactions');
+    window.location.reload();
   }
 };
 

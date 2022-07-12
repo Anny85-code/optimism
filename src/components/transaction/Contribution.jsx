@@ -50,12 +50,10 @@ const Contribution = () => {
       amount,
       customer_id: +cardNumber,
       days_paid_for: daysNo,
-      previous_contribution_date: date,
-      current_contribution_date: convertDate,
+      previous_contribution_date: lastDate,
+      current_contribution_date: currentDate,
     };
-    const jsonData = JSON.stringify(transactionData);
-    dispatch(postTransactionToApi(jsonData));
-    console.log(jsonData);
+    dispatch(postTransactionToApi(transactionData));
   };
 
   console.log(typeof date, typeof convertDate);
