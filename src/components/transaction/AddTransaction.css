@@ -1,3 +1,7 @@
+.trans-form {
+  height: 600px;
+}
+
 .add-trans-btn {
   background-color: #00bcd4;
   width: 200px;
@@ -6,7 +10,6 @@
   outline: none;
   border: none;
   border-radius: 5px;
-  /* background-color: #3ea175; */
   color: #fff;
   font-size: 15px;
   font-weight: bold;

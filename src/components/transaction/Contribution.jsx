@@ -7,6 +7,8 @@ import {
   getTransactionFromApi,
   postTransactionToApi,
 } from '../../redux/forms/transactionReducer';
+import './Contribution.css';
+
 const Contribution = () => {
   const dispatch = useDispatch();
   const { cardNumber } = localStorage;
@@ -67,10 +69,10 @@ const Contribution = () => {
   }, []);
 
   return (
-    <div>
-      <h2>Customer Details</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
+    <div className="form-container">
+      <h2 className="title">Customer Details</h2>
+      <form onSubmit={handleSubmit} className="add-customer-form">
+        <div >
           <p>Name: {name}</p>
           <p>Daily Contribution: {daily_contribution}</p>
           <h2>Transaction Details</h2>
