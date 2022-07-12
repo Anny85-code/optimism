@@ -69,16 +69,17 @@ const Contribution = () => {
   }, []);
 
   return (
-    <div className="form-container">
-      <h2 className="title">Customer Details</h2>
+    <div className="contribution-form">
+      <h2 className="title1">Contribution details</h2>
+      <h3 className="details">Customer details</h3>
       <form onSubmit={handleSubmit} className="add-customer-form">
-        <div >
+        <div className="contribution-container">
           <p>Name: {name}</p>
           <p>Daily Contribution: {daily_contribution}</p>
-          <h2>Transaction Details</h2>
+          <h3>Transaction Details</h3>
           <input
             type="number"
-            className="form-control"
+            className="form-control days-input"
             id="days_number"
             placeholder="No. of days"
             required
