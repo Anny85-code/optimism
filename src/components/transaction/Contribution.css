@@ -1,4 +1,4 @@
-.contribution-form{
+.contribution-form {
   height: 100%;
   align-items: center;
   gap: 20px;
@@ -49,4 +49,31 @@
   color: rgb(26, 24, 24);
   margin: 20px;
   text-align: center;
+}
+
+.cont-btn {
+  margin-left: 150px;
+}
+
+@media only screen and (max-width: 978px) {
+  .cont-btn {
+    margin-left: 40px;
+  }
+
+  .contribution-container > p {
+    margin-bottom: 10px;
+    font-size: 15px;
+  }
+
+  .title1 {
+    font-size: 25px;
+  }
+
+  .details {
+  font-size: 20px;
+  }
+
+  .contribution-container > h3 {
+  font-size: 20px;
+}
 }

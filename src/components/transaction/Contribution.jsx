@@ -93,7 +93,7 @@ const Contribution = () => {
         <NavLink to="/transactions" style={{ textDecoration: 'none' }}>
           <button
             type="button"
-            className="add-customer-btn"
+            className="add-customer-btn cont-btn"
             onClick={handleSubmit}
           >
             Add
