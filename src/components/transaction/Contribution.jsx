@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
-// import { getTransactionFromApi } from '../../redux/forms/transactionReducer';
 /* eslint-disable */
 import {
   getTransactionFromApi,
@@ -44,17 +43,6 @@ const Contribution = () => {
     setDaysNo(+e.target.value);
   };
 
-  // const transactionData = {
-  //   user_id: user.id,
-  //   amount,
-  //   customer_id: +cardNumber,
-  //   daysNo,
-  //   previous_contribution_date: lastDate,
-  //   current_contribution_date: currentDate,
-  // };
-
-  // let transactionData;
-
   const handleSubmit = (e) => {
     e.preventDefault();
   const transactionData = {
@@ -65,23 +53,18 @@ const Contribution = () => {
       previous_contribution_date: lastDate,
       current_contribution_date: currentDate,
     };
-    // console.log('transactionData|handlesubmit', transactionData);
       dispatch(postTransactionToApi(transactionData));
   };
-
-  // console.log('transactionData|outside', transactionData);
 
   useEffect(() => {
     dispatch(getOneCustomerFromApi(cardNumber));
     dispatch(getTransactionFromApi());
-    // dispatch(postTransactionToApi(transactionData));
   }, []);
 
   return (
     <div>
       <h2>Customer Details</h2>
       <form onSubmit={handleSubmit}>
-      {/* <form> */}
         <div>
           <p>Name: {name}</p>
           <p>Daily Contribution: {daily_contribution}</p>
