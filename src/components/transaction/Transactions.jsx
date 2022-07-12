@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Moment from 'moment';
 import { getTransactionFromApi } from '../../redux/forms/transactionReducer';
-import './Transactions.css';
+import './transactions.css';
 
 const Transactions = () => {
   const dispatch = useDispatch();
