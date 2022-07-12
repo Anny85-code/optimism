@@ -11,6 +11,10 @@
   flex-direction: row;
 }
 
+.transaction {
+  width: 880px;
+}
+
 .details-container {
   margin: 0 20px 20px 20px;
   padding: 0 15px 15px 15px;

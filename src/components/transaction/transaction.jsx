@@ -35,7 +35,7 @@ const Transaction = () => {
   const { name, picture, daily_contribution } = customer.data;
 
   return (
-    <div className="containa">
+    <div className="containa transaction">
       <div className="image-container">
         <img className="cus-image" src={picture} alt={`${name}`} />
       </div>
