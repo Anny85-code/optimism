@@ -38,7 +38,7 @@ const AddTransaction = () => {
   };
 
   return (
-    <div className="form-container">
+    <div className="form-container trans-form">
       <h2 className="title">Collect contribution</h2>
       <div id="error" style={{ display: 'none' }}></div>
       <form className="add-customer-form" autoComplete="off">
@@ -62,7 +62,7 @@ const AddTransaction = () => {
             Reset
           </span>
         </label>
-        <div className="form-group btn1">
+        <div className="form-group btn1 trans-btn">
           <NavLink to="/contribution" style={{ textDecoration: 'none' }}>
             <button
               type="submit"

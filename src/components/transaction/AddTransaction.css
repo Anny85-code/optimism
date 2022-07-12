@@ -13,3 +13,13 @@
   cursor: pointer;
   box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #d86565;
 }
+
+@media only screen and (max-width: 978px) {
+  .trans-btn {
+    width: 250px;
+  }
+
+  .trans-form {
+    padding-left: 20px;
+  }
+}

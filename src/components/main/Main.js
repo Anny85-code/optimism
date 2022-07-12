@@ -27,7 +27,6 @@ const Main = () => {
                 </div>
               </div>
               <div className="cards">
-                {/* <i className="fa fa-calendar fa-2x text-red" /> */}
                 <i class="fa fa-users fa-2x" />
                 <div className="card__inner">
                   <p className="text-primary-p">Number of Affiliates</p>
