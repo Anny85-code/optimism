@@ -17,15 +17,21 @@ const ViewItems = () => (
     {/* {allItems.data.map((item) => ( */}
     {data.map((item) => (
       <React.Fragment key={item.id}>
-        <div className="item-name">
-          <h3>{item.name}</h3>
-          <h3>{`NGN ${item.price}`}</h3>
-          <img
-            src={item.picture}
-            alt={item.picture}
-            style={{ width: '50px', height: '50px' }}
-          />
-        </div>
+        <ul className="item-name">
+          <li className="item-item-name">
+            <h3>{item.name}</h3>
+          </li>
+          <li>
+            <img
+              src={item.picture}
+              alt={item.picture}
+              style={{ width: '50px', height: '50px' }}
+            />
+          </li>
+          <li className="item-price">
+            <h3>{`NGN ${item.price}`}</h3>
+          </li>
+        </ul>
       </React.Fragment>
     ))}
   </div>
