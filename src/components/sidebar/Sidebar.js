@@ -233,10 +233,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
                 </li>
               </ul>
             </div>
-            <div className="sidebar__link">
-              <i className="fa fa-archive" />
-              <a href="#">Seasons</a>
-            </div>
+            {seasonSection}
             <div className="sidebar__link">
               <i className="fa fa-handshake-o" />
               <a href="#">Contributions</a>
