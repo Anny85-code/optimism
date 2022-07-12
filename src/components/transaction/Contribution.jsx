@@ -24,7 +24,10 @@ const Contribution = () => {
   const [daysNo, setDaysNo] = useState(0);
   const { data } = customerDetails;
   const lastTransaction = oneCustomerTransactions.slice(-1);
-  const lastDate = lastTransaction[0]?.current_contribution_date;
+  let lastDate;
+  lastDate === null || lastDate === undefined
+    ? (lastDate = '2022-08-12') // Add start date of season here
+    : (lastDate = lastTransaction[0]?.current_contribution_date);
   const date = new Date(lastDate);
   const AddDaysToDate = date.setDate(date.getDate() + daysNo);
   const convertDate = new Date(AddDaysToDate);
