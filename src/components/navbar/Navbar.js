@@ -9,7 +9,7 @@ const { user } = data || {};
 const Navbar = ({ sideBarOpen, openSideBar }) => {
   const [activeA, setActiveA] = useState(false);
   const [activeB, setActiveB] = useState(false);
-  const [activeC, setActiveC] = useState(true);
+  const [activeC, setActiveC] = useState(false);
 
   const handleActiveA = () => {
     setActiveA(true);

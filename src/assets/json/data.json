@@ -67,7 +67,7 @@
     "id": 9,
     "name": "Macaroni",
     "price": 70.0,
-    "picture": "https://tinyurl.com/5n8wrru5",
+    "picture": "https://tinyurl.com/2p92c9rw",
     "description": "1 carton of macaroni",
     "user_id": 1
   },
@@ -99,7 +99,7 @@
     "id": 13,
     "name": "Red oil",
     "price": 50.0,
-    "picture": "https://tinyurl.com/52yzmzjk",
+    "picture": "https://tinyurl.com/bdzcbnnn",
     "description": "1 - 4liters of red oil",
     "user_id": 1
   },
@@ -107,7 +107,7 @@
     "id": 14,
     "name": "Milo",
     "price": 130.0,
-    "picture": "https://tinyurl.com/52yzmzjk",
+    "picture": "https://tinyurl.com/37dxhuft",
     "description": "1 carton of milo (sachet)",
     "user_id": 1
   },
@@ -115,7 +115,7 @@
     "id": 15,
     "name": "Milo",
     "price": 70.0,
-    "picture": "https://tinyurl.com/52yzmzjk",
+    "picture": "https://tinyurl.com/37dxhuft",
     "description": "1/2 carton of milo (sachet)",
     "user_id": 1
   },
@@ -123,7 +123,7 @@
     "id": 16,
     "name": "Peak",
     "price": 130.0,
-    "picture": "https://tinyurl.com/52yzmzjk",
+    "picture": "https://tinyurl.com/4zs24ajy",
     "description": "1 carton of peak milk (sachet)",
     "user_id": 1
   },
@@ -131,7 +131,7 @@
     "id": 17,
     "name": "Peak",
     "price": 70.0,
-    "picture": "https://tinyurl.com/52yzmzjk",
+    "picture": "https://tinyurl.com/4zs24ajy",
     "description": "1/2 carton of peak milk (sachet)",
     "user_id": 1
   },
@@ -139,7 +139,7 @@
     "id": 18,
     "name": "Maggi - Star",
     "price": 120.0,
-    "picture": "https://tinyurl.com/52yzmzjk",
+    "picture": "https://tinyurl.com/yuzmhphm",
     "description": "1 carton of maggi (Star/Terra)",
     "user_id": 1
   },
@@ -147,7 +147,7 @@
     "id": 19,
     "name": "Maggi - Star",
     "price": 60.0,
-    "picture": "https://tinyurl.com/52yzmzjk",
+    "picture": "https://tinyurl.com/yuzmhphm",
     "description": "1/2 carton of maggi (Star/Terra)",
     "user_id": 1
   },
@@ -155,7 +155,7 @@
     "id": 20,
     "name": "Maggi - Star",
     "price": 40.0,
-    "picture": "https://tinyurl.com/52yzmzjk",
+    "picture": "https://tinyurl.com/yuzmhphm",
     "description": "1/4 carton of maggi (Star/Terra)",
     "user_id": 1
   },
@@ -163,7 +163,7 @@
     "id": 21,
     "name": "Soap",
     "price": 60.0,
-    "picture": "https://tinyurl.com/52yzmzjk",
+    "picture": "https://tinyurl.com/3yyusmkz",
     "description": "2 cartons of soap (Canoe/Sebs Everfresh)",
     "user_id": 1
   },
@@ -179,7 +179,7 @@
     "id": 23,
     "name": "Detergent",
     "price": 50.0,
-    "picture": "https://tinyurl.com/52yzmzjk",
+    "picture": "https://tinyurl.com/22nrjzes",
     "description": "1 carton of detergent (OMO)",
     "user_id": 1
   },
@@ -193,9 +193,9 @@
   },
   {
     "id": 25,
-    "name": "Cuscus",
+    "name": "Couscous",
     "price": 50.0,
-    "picture": "https://tinyurl.com/52yzmzjk",
+    "picture": "https://tinyurl.com/4h666tmc",
     "description": "1 carton of cuscus (sachet)",
     "user_id": 1
   },
@@ -203,7 +203,7 @@
     "id": 26,
     "name": "Wheat",
     "price": 45.0,
-    "picture": "https://tinyurl.com/52yzmzjk",
+    "picture": "https://tinyurl.com/ra625z8k",
     "description": "1 - 10 kg of wheat",
     "user_id": 1
   },
@@ -211,7 +211,7 @@
     "id": 27,
     "name": "Sugar",
     "price": 55.0,
-    "picture": "https://tinyurl.com/52yzmzjk",
+    "picture": "https://tinyurl.com/2zd7dfvx",
     "description": "6.5 mudu of sugar",
     "user_id": 1
   },
@@ -219,7 +219,7 @@
     "id": 28,
     "name": "Tomato",
     "price": 60.0,
-    "picture": "https://tinyurl.com/52yzmzjk",
+    "picture": "https://tinyurl.com/2p8s3wcy",
     "description": "1 carton of sachet tomato",
     "user_id": 1
   },
@@ -227,7 +227,7 @@
     "id": 29,
     "name": "Crayfish",
     "price": 85.0,
-    "picture": "https://tinyurl.com/52yzmzjk",
+    "picture": "https://tinyurl.com/2p8d7dkf",
     "description": "Crayfish (small paint rubber)",
     "user_id": 1
   },
@@ -235,7 +235,7 @@
     "id": 30,
     "name": "Dry fish",
     "price": 100.0,
-    "picture": "https://tinyurl.com/52yzmzjk",
+    "picture": "https://tinyurl.com/ye76a2w6",
     "description": "Dry fish (Big size 15 - 18)",
     "user_id": 1
   }

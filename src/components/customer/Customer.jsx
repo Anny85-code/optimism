@@ -47,6 +47,11 @@ const Customer = () => {
         <p className="cus-details">Phone: {phone}</p>
         <p className="cus-details">Email: {email}</p>
         <p className="cus-details">
+          Card No.
+          {user.location.slice(0, 3).toUpperCase()}
+          {user.id}/{aCustomers.data.id}
+        </p>
+        <p className="cus-details">
           Daily Contribution: NGN {daily_contribution}
         </p>
         <p className="cus-details">Address: {address}</p>
@@ -59,7 +64,7 @@ const Customer = () => {
       </div>
 
       <div className="image-container">
-        <img className="cus-image" src={picture} alt={`${name}`} />
+        {/* <img className="cus-image" src={picture} alt={`${name}`} /> */}
         <div className="edit">
           {user.role === 'admin' && (
             <NavLink to={redirect} style={{ textDecoration: 'none' }}>

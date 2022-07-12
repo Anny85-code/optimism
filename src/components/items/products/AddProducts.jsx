@@ -22,7 +22,7 @@ const AddProduct = () => {
       picture,
       description,
     };
-    console.log('Component product', product);
+
     setIsPending(true);
     dispatch(postItemsToApi(product));
     setIsPending(false);
