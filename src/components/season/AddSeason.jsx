@@ -6,27 +6,23 @@ const AddSeason = () => {
   const [name, setName] = useState('');
   const [days, setDays] = useState(0);
   const [startDate, setStartDate] = useState(new Date());
+  // const { user } = JSON.parse(localStorage.getItem('user'));
 
-  // const { data } = customerDetails;
-  // const lastTransaction = oneCustomerTransactions.slice(-1);
   // let lastDate;
   // lastDate === null || lastDate === undefined
   //   ? (lastDate = '2022-08-12') // Add start date of season here
   //   : (lastDate = lastTransaction[0]?.current_contribution_date);
-  const date = new Date(startDate);
-  const AddDaysToDate = date.setDate(date.getDate() + days);
-  const convertDate = new Date(AddDaysToDate);
-  console.log(convertDate);
-  // const { name, daily_contribution } = data;
-  // const amount = daysNo * daily_contribution;
-  // const { user } = JSON.parse(localStorage.getItem('user'));
+  // const date = new Date(startDate);
+  // const getEndDate = () => {
+  const AddDaysToStartDate = startDate.setDate(startDate.getDate() + +days);
+  const convertDate = new Date(AddDaysToStartDate);
 
-  // const currentDate =
-  //   convertDate.getFullYear() +
-  //   '-' +
-  //   (convertDate.getMonth() + 1) +
-  //   '-' +
-  //   convertDate.getDate();
+  const endDate =
+    convertDate.getFullYear() +
+    '-' +
+    (convertDate.getMonth() + 1) +
+    '-' +
+    convertDate.getDate();
 
   // const handleDays = (e) => {
   //   setDaysNo(+e.target.value);
@@ -87,6 +83,9 @@ const AddSeason = () => {
             onChange={(date) => setStartDate(date)}
           />
         </label>
+        <div>
+          <p>{endDate}</p>
+        </div>
         <div className="form-group btn1">
           <NavLink to="/contribution" style={{ textDecoration: 'none' }}>
             <button
