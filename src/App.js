@@ -18,6 +18,7 @@ import AddItemCustomer from './components/addCostumer/addItemCustomer/AddItemCus
 import AddProduct from './components/items/products/AddProducts';
 import ViewItems from './components/items/ViewItems';
 import Search from './components/search/Search';
+import AddSeason from './components/season/AddSeason';
 
 const App = () => {
   const [sideBarOpen, setSideBarOpen] = useState(false);
@@ -37,10 +38,7 @@ const App = () => {
     <div>
       {isLoggedIn ? (
         <div className="container">
-          <Navbar
-            sideBarOpen={sideBarOpen}
-            openSideBar={openSideBar}
-          />
+          <Navbar sideBarOpen={sideBarOpen} openSideBar={openSideBar} />
           <Routes>
             <Route exact path="/" element={<Main />} />
             <Route path="/customers" element={<Customers />} />
@@ -57,6 +55,7 @@ const App = () => {
                 <Route path="/custumers" element={<Customers />} />
                 <Route path="/products" element={<ViewItems />} />
                 <Route path="/addproduct" element={<AddProduct />} />
+                <Route path="/addseason" element={<AddSeason />} />
               </>
             )}
           </Routes>
