@@ -25,22 +25,33 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
   const [dropdownCustomer, setDropdownCustomer] = useState(false);
   const [dropdownProduct, setDropdownProduct] = useState(false);
   const [dropdownMarketer, setDropdownMarketer] = useState(false);
+  const [dropdownSeason, setDropdownSeason] = useState(false);
 
   const toggleDropdownCustomer = () => {
     setDropdownCustomer(dropdownCustomer ? false : true);
     setDropdownProduct(false);
     setDropdownMarketer(false);
+    setDropdownSeason(false);
   };
 
   const toggleDropdownMarkerter = () => {
     setDropdownCustomer(false);
     setDropdownProduct(false);
     setDropdownMarketer(dropdownMarketer ? false : true);
+    setDropdownSeason(false);
   };
 
   const toggleDropdownProduct = () => {
     setDropdownCustomer(false);
     setDropdownProduct(dropdownProduct ? false : true);
+    setDropdownMarketer(false);
+    setDropdownSeason(false);
+  };
+
+  const toggleDropdownSeason = () => {
+    setDropdownCustomer(false);
+    setDropdownProduct(false);
+    setDropdownSeason(dropdownSeason ? false : true);
     setDropdownMarketer(false);
   };
 
