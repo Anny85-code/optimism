@@ -14,6 +14,7 @@ import OneCustomerReducer from './forms/OneCustomerReducer';
 import userManReducer from './forms/userManReducer';
 import oneUserReducer from './forms/oneUserManReducer';
 import itemReducer from './forms/getItemsReducer';
+import seasonReducer from './forms/seasonReducer';
 
 const rootReducer = combineReducers({
   user: userReducer,
@@ -23,6 +24,7 @@ const rootReducer = combineReducers({
   userManReducer,
   oneUser: oneUserReducer,
   item: itemReducer,
+  seasons: seasonReducer,
 });
 
 const store = createStore(rootReducer, compose(applyMiddleware(logger, thunk)));
