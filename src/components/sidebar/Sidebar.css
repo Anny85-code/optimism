@@ -138,9 +138,14 @@
   #sidebar {
     display: none;
     height: 108vh;
+    padding-bottom: 20px;
   }
 
   .sidebar__title > i {
     display: inline;
+  }
+
+  .sidebar__logout {
+    padding: 10px 10px 40px 10px;
   }
 }
