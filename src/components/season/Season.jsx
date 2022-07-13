@@ -26,10 +26,10 @@ const Season = () => {
 
   return (
     <div className="containa transaction">
-      <h2>Season Details</h2>
       <div className="details-container">
+        <h2>Season Details</h2>
         <h4 className="cus-details">Name: {name}</h4>
-        <p className="cus-details">Number of days: NGN {number_of_days}</p>
+        <p className="cus-details">Number of days: {number_of_days}</p>
         <p className="cus-details">Start date: {start_date}</p>
         <p className="cus-details">End date: {end_date}</p>
         <p className="cus-details">
