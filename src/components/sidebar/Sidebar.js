@@ -25,12 +25,14 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
   const [dropdownCustomer, setDropdownCustomer] = useState(false);
   const [dropdownProduct, setDropdownProduct] = useState(false);
   const [dropdownMarketer, setDropdownMarketer] = useState(false);
+  const [dropdownSeason, setDropdownSeason] = useState(false);
   const [dropdownTransaction, setDropdownTransaction] = useState(false);
 
   const toggleDropdownCustomer = () => {
     setDropdownCustomer(dropdownCustomer ? false : true);
     setDropdownProduct(false);
     setDropdownMarketer(false);
+    setDropdownSeason(false);
     setDropdownTransaction(false);
   };
 
@@ -39,6 +41,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
     setDropdownTransaction(false);
     setDropdownProduct(false);
     setDropdownMarketer(dropdownMarketer ? false : true);
+    setDropdownSeason(false);
   };
 
   const toggleDropdownTransaction = () => {
@@ -51,6 +54,14 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
   const toggleDropdownProduct = () => {
     setDropdownCustomer(false);
     setDropdownProduct(dropdownProduct ? false : true);
+    setDropdownMarketer(false);
+    setDropdownSeason(false);
+  };
+
+  const toggleDropdownSeason = () => {
+    setDropdownCustomer(false);
+    setDropdownProduct(false);
+    setDropdownSeason(dropdownSeason ? false : true);
     setDropdownMarketer(false);
     setDropdownTransaction(false);
   };
@@ -88,6 +99,44 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
     </>
   );
 
+
+  const seasonSection = (
+    <>
+      <div className="sidebar__link">
+        <i className="fa fa-wrench" />
+        <a href="#">Season Management</a>
+        <i
+          className="fa fa-caret-right"
+          onClick={toggleDropdownSeason}
+          id="toggle-btn"
+        />
+        <ul
+          className={!dropdownSeason ? 'dropdown-off' : 'dropdown-on'}
+             id="drop-menu"
+        >
+          <li>
+            <NavLink
+             to="/addseason"
+              style={{ textDecoration: 'none' }}
+              onClick={closeSideBar}
+            >
+              Add New Season
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/seasons"
+              style={{ textDecoration: 'none' }}
+              onClick={closeSideBar}
+            >
+              View All Seasons
+            </NavLink>
+          </li>
+        </ul>
+      </div>
+    </>
+  );
+  
   const transactionSection = (
     <>
       <div className="sidebar__link" onClick={toggleDropdownTransaction}>
@@ -100,6 +149,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
         />
         <ul
           className={!dropdownTransaction ? 'dropdown-off' : 'dropdown-on'}
+
           id="drop-menu"
         >
           <li>
@@ -222,10 +272,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
                 </li>
               </ul>
             </div>
-            <div className="sidebar__link">
-              <i className="fa fa-archive" />
-              <a href="#">Seasons</a>
-            </div>
+            {seasonSection}
             <div className="sidebar__link">
               <i className="fa fa-handshake-o" />
               <a href="#">Contributions</a>

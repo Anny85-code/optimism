@@ -5,7 +5,7 @@ import Login from './components/forms/Login';
 import Customer from './components/customer/Customer';
 import Customers from './components/customer/Customers';
 import Register from './components/forms/Register';
-// import Error from './components/Error';
+import Error from './components/Error';
 import Main from './components/main/Main';
 import Navbar from './components/navbar/Navbar';
 import Sidebar from './components/sidebar/Sidebar';
@@ -18,6 +18,9 @@ import AddItemCustomer from './components/addCostumer/addItemCustomer/AddItemCus
 import AddProduct from './components/items/products/AddProducts';
 import ViewItems from './components/items/ViewItems';
 import Search from './components/search/Search';
+import AddSeason from './components/season/AddSeason';
+import Seasons from './components/season/Seasons';
+import Season from './components/season/Season';
 import AddTransaction from './components/transaction/AddTransaction';
 import Contribution from './components/transaction/Contribution';
 import Transactions from './components/transaction/Transactions';
@@ -62,6 +65,9 @@ const App = () => {
                 <Route path="/custumers" element={<Customers />} />
                 <Route path="/products" element={<ViewItems />} />
                 <Route path="/addproduct" element={<AddProduct />} />
+                <Route path="/addseason" element={<AddSeason />} />
+                <Route path="/seasons" element={<Seasons />} />
+                <Route path="/season/:id" element={<Season />} />
               </>
             )}
           </Routes>
@@ -72,6 +78,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Splash />} />
           <Route path="/login" element={<Login />} />
+          <Route path="*" element={<Error />} />
         </Routes>
       )}
     </div>

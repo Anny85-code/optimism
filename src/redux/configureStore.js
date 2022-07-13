@@ -14,6 +14,8 @@ import OneCustomerReducer from './forms/OneCustomerReducer';
 import userManReducer from './forms/userManReducer';
 import oneUserReducer from './forms/oneUserManReducer';
 import itemReducer from './forms/getItemsReducer';
+import seasonReducer from './forms/seasonReducer';
+import oneSeasonReducer from './forms/oneSeasonReducer';
 import OneTransactionReducer from './forms/OneTransactionReducer';
 import transactionReducer from './forms/transactionReducer';
 
@@ -24,6 +26,8 @@ const rootReducer = combineReducers({
   userManReducer,
   oneUser: oneUserReducer,
   item: itemReducer,
+  seasons: seasonReducer,
+  oneSeason: oneSeasonReducer,
   oneTransaction: OneTransactionReducer,
   transactions: transactionReducer,
 });
