@@ -6,6 +6,7 @@ import { getOneSeasonFromApi } from '../../redux/forms/oneSeasonReducer';
 import { getOneUserFromApi } from '../../redux/forms/oneUserManReducer';
 import '../customer/Customer.css';
 
+/* eslint-disable */
 const Season = () => {
   const dispatch = useDispatch();
   // const data = JSON.parse(localStorage.getItem('user'));
@@ -14,17 +15,14 @@ const Season = () => {
   const { id } = param;
   const season = useSelector((state) => state.oneSeason);
   const creator = useSelector((state) => state.oneUser);
+  const { created_at } = creator.data;
+  const creatorName = creator.data.name;
+  const { name, number_of_days, start_date, end_date, user_id } = season.data;
 
   useEffect(() => {
     dispatch(getOneSeasonFromApi(id));
     dispatch(getOneUserFromApi(user_id));
   }, []);
-
-  /* eslint-disable */
-
-  const { created_at } = creator.data;
-  const creatorName = creator.data.name;
-  const { name, number_of_days, start_date, end_date, user_id } = season.data;
 
   return (
     <div className="containa transaction">
@@ -41,6 +39,5 @@ const Season = () => {
     </div>
   );
 };
-
 /* eslint-enable */
 export default Season;
