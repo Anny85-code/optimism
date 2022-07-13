@@ -102,21 +102,21 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
 
   const seasonSection = (
     <>
-      <div className="sidebar__link">
+      <div className="sidebar__link" onClick={toggleDropdownSeason}>
         <i className="fa fa-wrench" />
         <a href="#">Season Management</a>
         <i
           className="fa fa-caret-right"
-          onClick={toggleDropdownSeason}
+          // onClick={toggleDropdownSeason}
           id="toggle-btn"
         />
         <ul
           className={!dropdownSeason ? 'dropdown-off' : 'dropdown-on'}
-             id="drop-menu"
+          id="drop-menu"
         >
           <li>
             <NavLink
-             to="/addseason"
+              to="/addseason"
               style={{ textDecoration: 'none' }}
               onClick={closeSideBar}
             >
