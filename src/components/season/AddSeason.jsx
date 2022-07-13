@@ -98,7 +98,7 @@ const AddSeason = () => {
           <NavLink to="/seasons" style={{ textDecoration: 'none' }}>
             <button
               type="submit"
-              className="add-customer-btn"
+              className="add-customer-btn season-btn"
               onClick={handdleCreate}
             >
               Create Season
