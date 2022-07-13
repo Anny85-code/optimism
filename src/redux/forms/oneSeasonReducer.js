@@ -9,18 +9,18 @@ const GET_ONE_SEASON_REQUEST =
 const url = `${endpoint}/seasons`;
 const { token } = localStorage;
 
-const fetchOneCustomerData = (payload) => ({
-  type: GET_ONE_CUSTOMER,
+const fetchOneSeasonData = (payload) => ({
+  type: GET_ONE_SEASON,
   payload,
 });
 
-const fetchOneCustomersDataFailed = (payload) => ({
-  type: FAILED_GET_ONE_CUSTOMER,
+const fetchOneSeasonDataFailed = (payload) => ({
+  type: FAILED_GET_ONE_SEASON,
   payload,
 });
 
-const fetchOneCustomerRequest = () => ({
-  type: GET_ONE_CUSTOMERS_REQUEST,
+const fetchOneSeasonRequest = () => ({
+  type: GET_ONE_SEASON_REQUEST,
   loading: true,
   error: null,
 });
