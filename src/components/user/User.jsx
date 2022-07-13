@@ -2,7 +2,9 @@ import React, { useEffect } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 // import '../customer/Customer.css';
+import Moment from 'moment';
 import { getOneUserFromApi } from '../../redux/forms/oneUserManReducer';
+import './User.css';
 
 const editUrl = (person) => {
   const { id } = person;
@@ -35,7 +37,10 @@ const User = () => {
   const redirect = editUrl(user.data);
 
   return (
-    <div className="containa">
+    <div className="containa user-container">
+      <div className="image-container">
+        <img src={avatar} alt={`${name}`} className="cus-image" />
+      </div>
       <div className="details-container">
         <h3 className="cus-details">Name: {name}</h3>
         <p className="cus-details">Username: {username}</p>
@@ -44,15 +49,12 @@ const User = () => {
         <p className="cus-details">Email: {email}</p>
         <p className="cus-details">Location: {location}</p>
         <p className="cus-details">Address: {address}</p>
-        <p className="cus-details">Joined: {created_at}</p>
-        <p className="cus-details">Last Updated: {updated_at}</p>
-      </div>
-      <div className="image-container">
-        <img
-          src={avatar}
-          alt={`${name}`}
-          className="cus-image"
-        />
+        <p className="cus-details">
+          Joined: {Moment(created_at).format('MMMM DD, LT')}
+        </p>
+        <p className="cus-details">
+          Last Updated: {Moment(updated_at).format('MMMM DD, LT')}
+        </p>
       </div>
       <div className="edit">
         <NavLink to={redirect}>
