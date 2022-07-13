@@ -18,7 +18,6 @@ const Search = () => {
   }, []);
 
   const handleChange = (event) => {
-    console.log(event.target.value);
     const typedContent = event.target.value;
     const filteredCustomer = allCustomers.data.filter((customer) =>
       customer.name.toLowerCase().includes(typedContent.toLowerCase())

@@ -26,19 +26,29 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
   const [dropdownProduct, setDropdownProduct] = useState(false);
   const [dropdownMarketer, setDropdownMarketer] = useState(false);
   const [dropdownSeason, setDropdownSeason] = useState(false);
+  const [dropdownTransaction, setDropdownTransaction] = useState(false);
 
   const toggleDropdownCustomer = () => {
     setDropdownCustomer(dropdownCustomer ? false : true);
     setDropdownProduct(false);
     setDropdownMarketer(false);
     setDropdownSeason(false);
+    setDropdownTransaction(false);
   };
 
   const toggleDropdownMarkerter = () => {
     setDropdownCustomer(false);
+    setDropdownTransaction(false);
     setDropdownProduct(false);
     setDropdownMarketer(dropdownMarketer ? false : true);
     setDropdownSeason(false);
+  };
+
+  const toggleDropdownTransaction = () => {
+    setDropdownCustomer(false);
+    setDropdownProduct(false);
+    setDropdownTransaction(dropdownTransaction ? false : true);
+    setDropdownMarketer(false);
   };
 
   const toggleDropdownProduct = () => {
@@ -53,18 +63,15 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
     setDropdownProduct(false);
     setDropdownSeason(dropdownSeason ? false : true);
     setDropdownMarketer(false);
+    setDropdownTransaction(false);
   };
 
   const customerSection = (
     <>
-      <div className="sidebar__link">
+      <div className="sidebar__link" onClick={toggleDropdownCustomer}>
         <i className="fa fa-wrench" />
         <a href="#">Customer Management</a>
-        <i
-          className="fa fa-caret-right"
-          onClick={toggleDropdownCustomer}
-          id="toggle-btn"
-        />
+        <i className="fa fa-caret-right" id="toggle-btn" />
         <ul
           className={!dropdownCustomer ? 'dropdown-off' : 'dropdown-on'}
           id="drop-menu"
@@ -92,6 +99,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
     </>
   );
 
+
   const seasonSection = (
     <>
       <div className="sidebar__link">
@@ -104,11 +112,11 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
         />
         <ul
           className={!dropdownSeason ? 'dropdown-off' : 'dropdown-on'}
-          id="drop-menu"
+             id="drop-menu"
         >
           <li>
             <NavLink
-              to="/addseason"
+             to="/addseason"
               style={{ textDecoration: 'none' }}
               onClick={closeSideBar}
             >
@@ -122,6 +130,44 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
               onClick={closeSideBar}
             >
               View All Seasons
+            </NavLink>
+          </li>
+        </ul>
+      </div>
+    </>
+  );
+  
+  const transactionSection = (
+    <>
+      <div className="sidebar__link" onClick={toggleDropdownTransaction}>
+        <i className="fa fa-wrench" />
+        <a href="#">Transaction Management</a>
+        <i
+          className="fa fa-caret-right"
+          // onClick={toggleDropdownTransaction}
+          id="toggle-btn"
+        />
+        <ul
+          className={!dropdownTransaction ? 'dropdown-off' : 'dropdown-on'}
+
+          id="drop-menu"
+        >
+          <li>
+            <NavLink
+              to="/addtransaction"
+              style={{ textDecoration: 'none' }}
+              onClick={closeSideBar}
+            >
+              Add New Transaction
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/transactions"
+              style={{ textDecoration: 'none' }}
+              onClick={closeSideBar}
+            >
+              View All Transactions
             </NavLink>
           </li>
         </ul>
@@ -164,14 +210,10 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
               <i className="fa fa-wrench" />
               <a href="#">Employee Management</a>
             </div>
-            <div className="sidebar__link">
+            <div className="sidebar__link" onClick={toggleDropdownMarkerter}>
               <i className="fa fa-wrench" />
               <a href="#">Marketer Management</a>
-              <i
-                className="fa fa-caret-right"
-                onClick={toggleDropdownMarkerter}
-                id="toggle-btn"
-              />
+              <i className="fa fa-caret-right" id="toggle-btn" />
               <ul
                 className={!dropdownMarketer ? 'dropdown-off' : 'dropdown-on'}
                 id="drop-menu"
@@ -199,16 +241,13 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
           </>
         )}
         {user.role === 'marketer' ? customerSection : customerSection}
+        {user.role === 'marketer' ? transactionSection : transactionSection}
         {user.role === 'admin' && (
           <>
-            <div className="sidebar__link">
+            <div className="sidebar__link" onClick={toggleDropdownProduct}>
               <i className="fa fa-wrench" />
               <a href="#">Product Management</a>
-              <i
-                className="fa fa-caret-right"
-                onClick={toggleDropdownProduct}
-                id="toggle-btn"
-              />
+              <i className="fa fa-caret-right" id="toggle-btn" />
               <ul
                 className={!dropdownProduct ? 'dropdown-off' : 'dropdown-on'}
                 id="drop-menu"

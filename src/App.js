@@ -21,6 +21,10 @@ import Search from './components/search/Search';
 import AddSeason from './components/season/AddSeason';
 import Seasons from './components/season/Seasons';
 import Season from './components/season/Season';
+import AddTransaction from './components/transaction/AddTransaction';
+import Contribution from './components/transaction/Contribution';
+import Transactions from './components/transaction/Transactions';
+import Transaction from './components/transaction/transaction';
 
 const App = () => {
   const [sideBarOpen, setSideBarOpen] = useState(false);
@@ -47,6 +51,10 @@ const App = () => {
             <Route path="/customers/:id" element={<Customer />} />
             <Route path="/addcustomer" element={<AddCustomer />} />
             <Route path="/additemcustomer" element={<AddItemCustomer />} />
+            <Route path="/addtransaction" element={<AddTransaction />} />
+            <Route path="/contribution" element={<Contribution />} />
+            <Route path="/transactions" element={<Transactions />} />
+            <Route path="/transactions/:id" element={<Transaction />} />
             {user.role === 'admin' && (
               <>
                 <Route path="/register" element={<Register />} />
