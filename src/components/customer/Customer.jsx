@@ -64,7 +64,6 @@ const Customer = () => {
       </div>
 
       <div className="image-container">
-        {/* <img className="cus-image" src={picture} alt={`${name}`} /> */}
         <div className="edit">
           {user.role === 'admin' && (
             <NavLink to={redirect} style={{ textDecoration: 'none' }}>
