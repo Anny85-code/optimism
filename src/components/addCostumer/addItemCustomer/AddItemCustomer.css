@@ -85,8 +85,9 @@
 
 @media only screen and (max-width: 978px) {
   .items-costumer {
-    width: 300px;
+    width: 320px;
     box-sizing: border-box;
+    padding: 20px;
   }
 
   .quantity-input {
@@ -116,5 +117,8 @@
 
   .price-name {
     margin-top: 25px;
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
+    grid-gap: 20px;
   }
 }
