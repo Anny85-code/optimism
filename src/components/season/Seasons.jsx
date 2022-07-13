@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { getSeasonFromApi } from '../../redux/forms/seasonReducer';
 
 const Seasons = () => {
@@ -14,12 +15,14 @@ const Seasons = () => {
   return (
     <div>
       {data.map((season) => (
-        <div key={season.id}>
-          <h2>{season.name}</h2>
-          <p>
-            <span>Start Date: {season.start_date}</span>
-          </p>
-        </div>
+        <NavLink key={season.id} to={`/season/${season.id}`}>
+          <div>
+            <h2>{season.name}</h2>
+            <p>
+              <span>Start Date: {season.start_date}</span>
+            </p>
+          </div>
+        </NavLink>
       ))}
     </div>
   );
