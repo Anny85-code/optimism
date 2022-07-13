@@ -15,12 +15,13 @@ const AddSeason = () => {
   };
 
   const getDays = (e) => {
-    setDays(e.target.value);
+    const days = e.target.value;
+    setDays(days);
   };
 
   const getDate = (date) => {
     setStartDate(date);
-    const addedDays = addDays(startDate, days);
+    const addedDays = addDays(startDate, +days);
     setEndDate(addedDays);
   };
 
@@ -35,7 +36,7 @@ const AddSeason = () => {
     name,
     user_id: user.id,
     start_date: startDate,
-    number_of_days: days,
+    number_of_days: +days,
     end_date: endDate,
   };
 
