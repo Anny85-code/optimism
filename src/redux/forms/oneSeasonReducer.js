@@ -1,13 +1,12 @@
 import axios from 'axios';
 import endpoint from '../../assets/url/url';
 
-const GET_ONE_CUSTOMER =
-  'src/redux/customerreducer/get_one_customer'.toUpperCase();
-const FAILED_GET_ONE_CUSTOMER =
-  'src/redux/customerreducer/failed_get_one_customer'.toUpperCase();
-const GET_ONE_CUSTOMERS_REQUEST =
-  'src/redux/customerreducer/get_one_customer_request'.toUpperCase();
-const url = `${endpoint}/customers`;
+const GET_ONE_SEASON = 'src/redux/seasonreducer/get_one_season'.toUpperCase();
+const FAILED_GET_ONE_SEASON =
+  'src/redux/seasonreducer/failed_get_one_season'.toUpperCase();
+const GET_ONE_SEASON_REQUEST =
+  'src/redux/seasonreducer/get_one_season_request'.toUpperCase();
+const url = `${endpoint}/seasons`;
 const { token } = localStorage;
 
 const fetchOneCustomerData = (payload) => ({
