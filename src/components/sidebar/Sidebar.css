@@ -137,6 +137,7 @@
 @media only screen and (max-width: 978px) {
   #sidebar {
     display: none;
+    height: 108vh;
   }
 
   .sidebar__title > i {

@@ -92,7 +92,7 @@ const AddSeason = () => {
           />
         </label>
         <div>
-          <p className="end-date">{endDateStr}</p>
+          <p className="end-date">End date: {endDateStr}</p>
         </div>
         <div className="form-group btn1">
           <NavLink to="/seasons" style={{ textDecoration: 'none' }}>

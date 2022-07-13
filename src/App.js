@@ -31,13 +31,16 @@ const App = () => {
   const isLoggedIn = localStorage.getItem('isLoggedIn');
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
+  const body = document.querySelector('body');
 
   const openSideBar = () => {
     setSideBarOpen(true);
+    body.style.overflow = 'hidden';
   };
 
   const closeSideBar = () => {
     setSideBarOpen(false);
+    body.style.overflow = 'auto';
   };
 
   return (
