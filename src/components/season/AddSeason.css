@@ -1,0 +1,17 @@
+.end-date {
+  font-size: 22px;
+  font-weight: bold;
+  text-align: left;
+  margin: 10px 0 0 15px;
+  font-family: 'Gumela', sans-serif;
+}
+
+.season-btn {
+  margin-left: -40px;
+}
+
+@media only screen and (max-width: 768px) {
+  .season-btn {
+    margin-left: -20px;
+  }
+}

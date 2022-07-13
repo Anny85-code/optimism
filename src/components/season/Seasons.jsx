@@ -17,8 +17,8 @@ const Seasons = () => {
     <div>
       {data.map((season) => (
         <NavLink key={season.id} to={`/season/${season.id}`}>
-          <div>
-            <h2>{season.name}</h2>
+          <div className="customer-container">
+            <h2 className="cus-name">{season.name}</h2>
             <p>
               <span>Start Date: {season.start_date}</span>
             </p>

@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import { postSeasonToApi } from '../../redux/forms/seasonReducer';
+import './AddSeason.css';
 
 /* eslint-disable */
 const AddSeason = () => {
@@ -91,13 +92,13 @@ const AddSeason = () => {
           />
         </label>
         <div>
-          <p>{endDateStr}</p>
+          <p className="end-date">End date: {endDateStr}</p>
         </div>
         <div className="form-group btn1">
           <NavLink to="/seasons" style={{ textDecoration: 'none' }}>
             <button
               type="submit"
-              className="add-trans-btn"
+              className="add-customer-btn season-btn"
               onClick={handdleCreate}
             >
               Create Season
