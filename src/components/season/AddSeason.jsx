@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
+import { addDays } from 'date-fns';
 
 const AddSeason = () => {
   const [name, setName] = useState('');
   const [days, setDays] = useState(0);
   const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
   // const { user } = JSON.parse(localStorage.getItem('user'));
 
   // let lastDate;
@@ -14,19 +16,8 @@ const AddSeason = () => {
   //   : (lastDate = lastTransaction[0]?.current_contribution_date);
   // const date = new Date(startDate);
   // const getEndDate = () => {
-  const AddDaysToStartDate = startDate.setDate(startDate.getDate() + +days);
-  const convertDate = new Date(AddDaysToStartDate);
-
-  const endDate =
-    convertDate.getFullYear() +
-    '-' +
-    (convertDate.getMonth() + 1) +
-    '-' +
-    convertDate.getDate();
-
-  // const handleDays = (e) => {
-  //   setDaysNo(+e.target.value);
-  // };
+  // const AddDaysToStartDate = startDate.setDate(startDate.getDate() + +days);
+  // const convertDate = new Date(AddDaysToStartDate);
 
   const getName = (e) => {
     setName(e.target.value);
@@ -35,6 +26,19 @@ const AddSeason = () => {
   const getDays = (e) => {
     setDays(e.target.value);
   };
+
+  const getDate = (date) => {
+    setStartDate(date);
+    const addedDays = addDays(startDate, days);
+    setEndDate(addedDays);
+  };
+
+  const endDateStr =
+    endDate.getFullYear() +
+    '-' +
+    (endDate.getMonth() + 1) +
+    '-' +
+    endDate.getDate();
 
   const handdleNext = () => {
     localStorage.setItem('cardNumber', cardNumber);
@@ -80,11 +84,11 @@ const AddSeason = () => {
           <DatePicker
             dateFormat="yyyy/MM/dd"
             selected={startDate}
-            onChange={(date) => setStartDate(date)}
+            onChange={(date) => getDate(date)}
           />
         </label>
         <div>
-          <p>{endDate}</p>
+          <p>{endDateStr}</p>
         </div>
         <div className="form-group btn1">
           <NavLink to="/contribution" style={{ textDecoration: 'none' }}>

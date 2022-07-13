@@ -5,7 +5,7 @@ import Login from './components/forms/Login';
 import Customer from './components/customer/Customer';
 import Customers from './components/customer/Customers';
 import Register from './components/forms/Register';
-// import Error from './components/Error';
+import Error from './components/Error';
 import Main from './components/main/Main';
 import Navbar from './components/navbar/Navbar';
 import Sidebar from './components/sidebar/Sidebar';
@@ -68,6 +68,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Splash />} />
           <Route path="/login" element={<Login />} />
+          <Route path="*" element={<Error />} />
         </Routes>
       )}
     </div>
