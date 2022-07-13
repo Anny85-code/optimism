@@ -20,6 +20,7 @@ import ViewItems from './components/items/ViewItems';
 import Search from './components/search/Search';
 import AddSeason from './components/season/AddSeason';
 import Seasons from './components/season/Seasons';
+import Season from './components/season/Season';
 
 const App = () => {
   const [sideBarOpen, setSideBarOpen] = useState(false);
@@ -58,6 +59,7 @@ const App = () => {
                 <Route path="/addproduct" element={<AddProduct />} />
                 <Route path="/addseason" element={<AddSeason />} />
                 <Route path="/seasons" element={<Seasons />} />
+                <Route path="/season/:id" element={<Season />} />
               </>
             )}
           </Routes>

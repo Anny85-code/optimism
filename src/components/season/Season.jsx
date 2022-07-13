@@ -2,14 +2,14 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Moment from 'moment';
-import '../customer/Customer.css';
 import { getOneSeasonFromApi } from '../../redux/forms/oneSeasonReducer';
 import { getOneUserFromApi } from '../../redux/forms/oneUserManReducer';
+import '../customer/Customer.css';
 
 const Season = () => {
   const dispatch = useDispatch();
-  const data = JSON.parse(localStorage.getItem('user'));
-  const { user } = data || {};
+  // const data = JSON.parse(localStorage.getItem('user'));
+  // const { user } = data || {};
   const param = useParams();
   const { id } = param;
   const season = useSelector((state) => state.oneSeason);
@@ -35,7 +35,7 @@ const Season = () => {
         <p className="cus-details">Start date: {start_date}</p>
         <p className="cus-details">End date: {end_date}</p>
         <p className="cus-details">
-          Date of transaction:{Moment(created_at).format('MMMM DD, LT')}
+          Created by {creatorName} on {Moment(created_at).format('MMMM DD, LT')}
         </p>
       </div>
     </div>
