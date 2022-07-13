@@ -8,16 +8,6 @@ const AddSeason = () => {
   const [days, setDays] = useState(0);
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
-  // const { user } = JSON.parse(localStorage.getItem('user'));
-
-  // let lastDate;
-  // lastDate === null || lastDate === undefined
-  //   ? (lastDate = '2022-08-12') // Add start date of season here
-  //   : (lastDate = lastTransaction[0]?.current_contribution_date);
-  // const date = new Date(startDate);
-  // const getEndDate = () => {
-  // const AddDaysToStartDate = startDate.setDate(startDate.getDate() + +days);
-  // const convertDate = new Date(AddDaysToStartDate);
 
   const getName = (e) => {
     setName(e.target.value);
@@ -40,8 +30,16 @@ const AddSeason = () => {
     '-' +
     endDate.getDate();
 
-  const handdleNext = () => {
-    localStorage.setItem('cardNumber', cardNumber);
+  const seasonData = {
+    name,
+    user_id: user.id,
+    start_date: startDate,
+    number_of_days: days,
+    end_date: endDate,
+  };
+
+  const handdleCreate = () => {
+    console.log(seasonData);
   };
 
   /* eslint-disable */
@@ -91,11 +89,11 @@ const AddSeason = () => {
           <p>{endDateStr}</p>
         </div>
         <div className="form-group btn1">
-          <NavLink to="/contribution" style={{ textDecoration: 'none' }}>
+          <NavLink to="/seasons" style={{ textDecoration: 'none' }}>
             <button
               type="submit"
               className="add-trans-btn"
-              onClick={handdleNext}
+              onClick={handdleCreate}
             >
               Create Season
             </button>
