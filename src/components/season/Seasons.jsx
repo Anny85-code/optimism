@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { getSeasonFromApi } from '../../redux/forms/seasonReducer';
 
+/* eslint-disable */
 const Seasons = () => {
   const dispatch = useDispatch();
   const seasons = useSelector((state) => state.seasons);
@@ -27,5 +28,6 @@ const Seasons = () => {
     </div>
   );
 };
+/* eslint-enable */
 
 export default Seasons;
