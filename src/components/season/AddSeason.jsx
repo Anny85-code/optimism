@@ -1,14 +1,22 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
-import { addDays } from 'date-fns';
 
+/* eslint-disable */
 const AddSeason = () => {
   const [name, setName] = useState('');
   const [days, setDays] = useState(0);
   const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date());
   const { user } = JSON.parse(localStorage.getItem('user'));
+  const startDateStr =
+    startDate.getFullYear() +
+    '-' +
+    (startDate.getMonth() + 1) +
+    '-' +
+    startDate.getDate();
+  const date = new Date(startDateStr);
+  const AddDaysToDate = date.setDate(date.getDate() + +days);
+  const convertDate = new Date(AddDaysToDate);
 
   const getName = (e) => {
     setName(e.target.value);
@@ -19,32 +27,24 @@ const AddSeason = () => {
     setDays(days);
   };
 
-  const getDate = (date) => {
-    setStartDate(date);
-    const addedDays = addDays(startDate, +days);
-    setEndDate(addedDays);
-  };
-
   const endDateStr =
-    endDate.getFullYear() +
+    convertDate.getFullYear() +
     '-' +
-    (endDate.getMonth() + 1) +
+    (convertDate.getMonth() + 1) +
     '-' +
-    endDate.getDate();
+    convertDate.getDate();
 
   const seasonData = {
     name,
     user_id: user.id,
     start_date: startDate,
     number_of_days: +days,
-    end_date: endDate,
+    end_date: convertDate,
   };
 
   const handdleCreate = () => {
     console.log(seasonData);
   };
-
-  /* eslint-disable */
 
   return (
     <div className="form-container">
@@ -84,7 +84,7 @@ const AddSeason = () => {
           <DatePicker
             dateFormat="yyyy/MM/dd"
             selected={startDate}
-            onChange={(date) => getDate(date)}
+            onChange={(date) => setStartDate(date)}
           />
         </label>
         <div>
