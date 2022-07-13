@@ -39,7 +39,7 @@ export const getOneSeasonFromApi = (id) => async (dispatch) => {
   }
 };
 
-const OneSeasonReducer = (
+const oneSeasonReducer = (
   state = {
     data: [],
     loading: false,
@@ -72,4 +72,4 @@ const OneSeasonReducer = (
   }
 };
 
-export default OneSeasonReducer;
+export default oneSeasonReducer;
