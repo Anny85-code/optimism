@@ -8,6 +8,7 @@ const AddSeason = () => {
   const [days, setDays] = useState(0);
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
+  const { user } = JSON.parse(localStorage.getItem('user'));
 
   const getName = (e) => {
     setName(e.target.value);
