@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
+import { postSeasonToApi } from '../../redux/forms/seasonReducer';
 
 /* eslint-disable */
 const AddSeason = () => {
+  const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [days, setDays] = useState(0);
   const [startDate, setStartDate] = useState(new Date());
@@ -43,7 +46,7 @@ const AddSeason = () => {
   };
 
   const handdleCreate = () => {
-    console.log(seasonData);
+    dispatch(postSeasonToApi(seasonData));
   };
 
   return (

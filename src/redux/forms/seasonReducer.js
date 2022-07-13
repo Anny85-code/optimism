@@ -49,9 +49,9 @@ export const postSeasonToApi = (userData) => async (dispatch) => {
   } else {
     window.history.pushState({}, '', '/seasons');
       <Navigate to="/seasons" />;
-      setTimeout(() => {
-        window.location.reload();
-      }, 5000);
+    // setTimeout(() => {
+    // window.location.reload();
+    // }, 5000);
   }
 };
 
