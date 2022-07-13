@@ -5,6 +5,7 @@ import Moment from 'moment';
 import { getOneSeasonFromApi } from '../../redux/forms/oneSeasonReducer';
 import { getOneUserFromApi } from '../../redux/forms/oneUserManReducer';
 import '../customer/Customer.css';
+import './Season.css';
 
 /* eslint-disable */
 const Season = () => {
@@ -25,7 +26,7 @@ const Season = () => {
   }, []);
 
   return (
-    <div className="containa transaction">
+    <div className="containa transaction season-cont">
       <div className="details-container">
         <h2>Season Details</h2>
         <h4 className="cus-details">Name: {name}</h4>
