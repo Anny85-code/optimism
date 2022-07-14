@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Image, Transformation } from 'cloudinary-react';
 import { imgApi } from '../../assets/url/url';
-// import { Image, Transformation } from 'cloudinary-react';
 
 const ImageUpload = () => {
   const [selectedImg, setSelectedImg] = useState([]);
@@ -34,7 +34,13 @@ const ImageUpload = () => {
         Attach Image
       </button>
 
-      <div className="image-preview">{/* Image */}</div>
+      <div className="image-preview">
+        {Image && (
+          <Image cloudName="demo" publicId="sample">
+            <Transformation crop="scale" width="200" angle="0" />
+          </Image>
+        )}
+      </div>
     </div>
   );
 };
