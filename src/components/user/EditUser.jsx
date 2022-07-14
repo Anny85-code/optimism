@@ -5,7 +5,7 @@ import { getOneUserFromApi } from '../../redux/forms/oneUserManReducer';
 import { postUpdateUserToApi } from '../../redux/forms/userManReducer';
 import '../forms/Register.css';
 import ImageUpload from '../images/imageUpload';
-
+/* eslint-disable */
 const EditUser = () => {
   const param = useParams();
   const { id } = param;
@@ -237,5 +237,5 @@ const EditUser = () => {
     </div>
   );
 };
-
+/* eslint-enable */
 export default EditUser;
