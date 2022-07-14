@@ -60,11 +60,15 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { Image } from 'cloudinary-react';
-import { imgApi } from '../../assets/url/url';
+import { cldName, imgApi } from '../../assets/url/url';
 
-export default function ImageUpload() {
+const ImageUpload = () => {
   const [selectedImages, setSelectedImages] = useState([]);
-  const [imageData, setImageData] = useState(null);
+  const [imageData, setImageData] = useState(
+    'https://flaviocopes.com/img/og.png'
+  );
+
+  localStorage.setItem('image_str', imageData.secure_url);
 
   const uploadImage = (e) => {
     e.preventDefault();
@@ -76,7 +80,7 @@ export default function ImageUpload() {
       try {
         const response = await axios.post(imgApi, formData);
         console.log(response);
-        // setImageData(response.data);
+        setImageData(response.data);
       } catch (error) {
         console.error(error);
       }
@@ -99,15 +103,13 @@ export default function ImageUpload() {
         </article>
 
         <article>
-          {/* {imageData && (
-            <Image
-              cloudName="YOUR_CLOUD_NAME"
-              publicId={`https://res.cloudinary.com/YOUR_CLOUD_NAME/image/upload/v1649427526/${imageData.public_id}`}
-              // Replace YOUR_CLOUD_NAME with your cloudName which you can find in your Dashboard. NOTE: Your publicId link might be different.
-            />
-          )} */}
+          {imageData && (
+            <Image cloudName={cldName} publicId={`${imageData.secure_url}`} />
+          )}
         </article>
       </div>
     </>
   );
-}
+};
+
+export default ImageUpload;
