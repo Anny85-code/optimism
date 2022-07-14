@@ -3,10 +3,10 @@
 }
 
 .upload-container {
- border: 1px solid #ccc;
- display: flex;
- align-items: flex-start;
- margin-right:30px ;
+  display: flex;
+  align-items: flex-start;
+  margin-right: 30px;
+  padding-right: 40px;
 }
 
 .art-conatiner {
@@ -33,11 +33,12 @@
 
 .upload-image {
   width: 200px;
-  padding: 10px;
+  /* padding: 10px; */
   outline: none;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin-left: -30px;
   /* box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #d86565; */
 }
 
@@ -51,4 +52,23 @@
   outline: none;
   border: none;
   height: 25px;
+  width: 250px;
+}
+
+@media only screen and (max-width: 978px) {
+  .upload-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+  }
+
+  .upload-image {
+    margin-left: 100px;
+  }
+
+  .upload-btn {
+    width: 200px;
+    margin-left: 30px;
+  }
 }

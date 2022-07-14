@@ -36,6 +36,13 @@
   text-align: center;
 }
 
+.p-text {
+  color: rgb(26, 24, 24);
+  margin: 30px;
+  text-align: center;
+  font-weight: bold;
+}
+
 input {
   width: 500px;
   height: 30px;

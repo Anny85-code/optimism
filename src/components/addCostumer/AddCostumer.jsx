@@ -89,10 +89,10 @@ const AddCustomer = () => {
           </label>
         </div>
         <div className="form-group-upload">
-          {/* <label htmlFor="picture"> */}
-          Picture
-          {ImageUpload()}
-          {/* </label> */}
+          <label htmlFor="picture">
+            <h4 className="p-text">Picture</h4>
+            {ImageUpload()}
+          </label>
         </div>
         <div className="form-group-btn">
           <NavLink to="/additemcustomer" style={{ textDecoration: 'none' }}>
