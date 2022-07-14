@@ -99,7 +99,6 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
     </>
   );
 
-
   const seasonSection = (
     <>
       <div className="sidebar__link" onClick={toggleDropdownSeason}>
@@ -136,7 +135,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
       </div>
     </>
   );
-  
+
   const transactionSection = (
     <>
       <div className="sidebar__link" onClick={toggleDropdownTransaction}>
@@ -149,7 +148,6 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
         />
         <ul
           className={!dropdownTransaction ? 'dropdown-off' : 'dropdown-on'}
-
           id="drop-menu"
         >
           <li>
@@ -252,15 +250,15 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
                 className={!dropdownProduct ? 'dropdown-off' : 'dropdown-on'}
                 id="drop-menu"
               >
-                {/* <li>
-              <NavLink
-                to="/addproduct"
-                style={{ textDecoration: 'none' }}
-                onClick={closeSideBar}
-              >
-                Add New Item
-              </NavLink>
-            </li> */}
+                <li>
+                  <NavLink
+                    to="/addproduct"
+                    style={{ textDecoration: 'none' }}
+                    onClick={closeSideBar}
+                  >
+                    Add New Item
+                  </NavLink>
+                </li>
                 <li>
                   <NavLink
                     to="/products"
