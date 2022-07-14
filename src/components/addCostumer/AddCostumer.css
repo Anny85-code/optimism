@@ -19,6 +19,15 @@
   margin: 20px;
 }
 
+.form-group-upload {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
 .title {
   font-size: 30px;
   font-weight: bold;

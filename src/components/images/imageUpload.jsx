@@ -2,6 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { Image } from 'cloudinary-react';
 import { cldName, imgApi } from '../../assets/url/url';
+import './ImageUpload.css';
 
 const ImageUpload = () => {
   const [selectedImages, setSelectedImages] = useState([]);
@@ -29,22 +30,22 @@ const ImageUpload = () => {
 
   return (
     <>
-      <div>
-        <article>
+      <div className="upload-container">
+        <article className="art-conatiner">
           <input
             type="file"
             name="file"
             id="file"
             onChange={(e) => setSelectedImages(e.target.files[0])}
           />
-          <button type="button" onClick={uploadImage}>
+          <button type="button" onClick={uploadImage} className="upload-btn">
             Upload Image
           </button>
         </article>
 
         <article>
           {imageData && (
-            <Image cloudName={cldName} publicId={`${imageData.secure_url}`} />
+            <Image cloudName={cldName} publicId={`${imageData.secure_url}`} className="upload-image" />
           )}
         </article>
       </div>
