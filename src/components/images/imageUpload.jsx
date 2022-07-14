@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+import { imgApi } from '../../assets/url/url';
 // import { Image, Transformation } from 'cloudinary-react';
 
 const ImageUpload = () => {
@@ -7,7 +9,18 @@ const ImageUpload = () => {
   const uploadImg = () => {
     const formData = new FormData();
     formData.append('file', selectedImg);
-    formData.append('upload_preset', '');
+    formData.append('upload_preset', 'x9elqosr');
+
+    const postPic = async () => {
+      try {
+        const postImg = await axios.post(imgApi, formData);
+        console.log(postImg);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    postPic();
   };
 
   return (
