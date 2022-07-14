@@ -5,9 +5,7 @@ import { cldName, imgApi } from '../../assets/url/url';
 
 const ImageUpload = () => {
   const [selectedImages, setSelectedImages] = useState([]);
-  const [imageData, setImageData] = useState(
-    'https://flaviocopes.com/img/og.png'
-  );
+  const [imageData, setImageData] = useState('');
 
   localStorage.setItem('image_str', imageData.secure_url);
 
