@@ -15,13 +15,12 @@ const EditUser = () => {
   const [email, setEmail] = useState(user.data.email);
   const [phone, setPhone] = useState(user.data.phone);
   const [address, setAddress] = useState(user.data.address);
-  const [avatar, setAvatar] = useState(user.data.avatar);
+  let avatar = user.data.avatar;
   const [username, setUsername] = useState(user.data.username);
   const [location, setLocation] = useState(user.data.location);
   const [isPending, setIsPending] = useState(false);
   const { error } = useSelector((state) => state.user);
   const dispatch = useDispatch();
-  const new_avatar = localStorage.getItem('image_str');
 
   useEffect(() => {
     dispatch(getOneUserFromApi(id));
@@ -36,6 +35,7 @@ const EditUser = () => {
     e.preventDefault();
     const userLogged = JSON.parse(localStorage.getItem('user'));
     const { id } = userLogged.user;
+    avatar = localStorage.getItem('image_str');
     const oneUser = {
       id: userId,
       user_id: id,
@@ -48,6 +48,8 @@ const EditUser = () => {
       username,
     };
     setIsPending(true);
+    console.log({ avatar });
+    console.log(oneUser);
     dispatch(postUpdateUserToApi(oneUser));
     setIsPending(false);
   };
