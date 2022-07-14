@@ -15,7 +15,7 @@ const EditUser = () => {
   const [email, setEmail] = useState(user.data.email);
   const [phone, setPhone] = useState(user.data.phone);
   const [address, setAddress] = useState(user.data.address);
-  let avatar = user.data.avatar;
+  let { avatar } = user.data;
   const [username, setUsername] = useState(user.data.username);
   const [location, setLocation] = useState(user.data.location);
   const [isPending, setIsPending] = useState(false);
