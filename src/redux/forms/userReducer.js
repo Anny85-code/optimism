@@ -47,7 +47,7 @@ export const logUserToApi = (userData) => async (dispatch) => {
 
 const userReducer = (
   state = { user: null, isLoggedIn: false, error: null },
-  action
+  action,
 ) => {
   switch (action.type) {
     case 'SIGNUP_SUCCESS':

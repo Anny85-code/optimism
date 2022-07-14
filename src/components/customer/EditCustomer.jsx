@@ -5,7 +5,6 @@ import { useParams } from 'react-router-dom';
 import { postUpdateCustomerToApi } from '../../redux/forms/customerReducer';
 /* eslint-disable */
 import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
-/* eslint-enable */
 import '../addCostumer/AddCostumer.css';
 import ImageUpload from '../images/imageUpload';
 
@@ -27,12 +26,20 @@ const EditCustomer = () => {
   const [dailyContribution, setDailyContribution] = useState(
     aCustomers.data.daily_contribution
   );
-  const picture = localStorage.getItem('image_str');
+  let { picture } = aCustomers.data;
+
+  const handleEditPic = () => {
+    document.getElementById('img-editor').style.display = 'none';
+    document.getElementById('new-img-editor').style.display = 'block';
+  };
+
+  // const picture = localStorage.getItem('image_str');
   const [isPending, setIsPending] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const user = JSON.parse(localStorage.getItem('user'));
+    picture = localStorage.getItem('image_str');
     const { id } = user.user;
     const customer = {
       id: customerId,
@@ -45,13 +52,14 @@ const EditCustomer = () => {
       dailyContribution,
     };
     setIsPending(true);
+    console.log(customer);
     dispatch(postUpdateCustomerToApi(customer));
     setIsPending(false);
   };
 
   return (
     <div className="form-container">
-      <h3 className="title">Add Customer</h3>
+      <h3 className="title">Update Customer</h3>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="name">
@@ -117,6 +125,7 @@ const EditCustomer = () => {
           <label htmlFor="daily_contribution">
             Daily Contribution *
             <input
+              disabled
               type="text"
               className="form-control"
               id="daily_contribution"
@@ -128,8 +137,18 @@ const EditCustomer = () => {
             />
           </label>
         </div>
-        <div className="form-group">
-          <label htmlFor="picture">
+        <br />
+        <div id="img-editor">
+          <label htmlFor="picture" className="form-label">
+            Picture
+            <div className="image-container">
+              <img src={picture} alt={`${name}`} className="cus-image" />
+            </div>
+            <span onClick={handleEditPic}>Edit</span>
+          </label>
+        </div>
+        <div id="new-img-editor" style={{ display: 'none' }}>
+          <label htmlFor="picture" className="form-label">
             Picture
             {ImageUpload()}
           </label>
@@ -153,5 +172,5 @@ const EditCustomer = () => {
     </div>
   );
 };
-
+/* eslint-enable */
 export default EditCustomer;
