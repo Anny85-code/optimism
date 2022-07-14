@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { Image, Transformation } from 'cloudinary-react';
+// import { Image, Transformation } from 'cloudinary-react';
 
 const ImageUpload = () => {
   const [selectedImg, setSelectedImg] = useState([]);
 
   const uploadImg = () => {
-    console.log(selectedImg);
+    const formData = new FormData();
+    formData.append('file', selectedImg);
+    formData.append('upload_preset', '');
   };
 
   return (
@@ -19,7 +21,7 @@ const ImageUpload = () => {
         Attach Image
       </button>
 
-      <div className="image-preview">/* Image */</div>
+      <div className="image-preview">{/* Image */}</div>
     </div>
   );
 };
