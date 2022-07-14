@@ -103,20 +103,6 @@ const AddCustomer = () => {
         <div className="form-group">
           <label htmlFor="picture">
             Picture
-            <input
-              type="text"
-              className="form-control"
-              id="picture"
-              name="picture"
-              placeholder="picture"
-              value={picture}
-              onChange={(e) => setPicture(e.target.value)}
-            />
-          </label>
-        </div>
-        <div className="form-group">
-          <label htmlFor="picture">
-            Picture
             {ImageUpload()}
           </label>
         </div>

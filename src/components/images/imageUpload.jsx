@@ -38,7 +38,9 @@ const ImageUpload = () => {
             id="file"
             onChange={(e) => setSelectedImages(e.target.files[0])}
           />
-          <button onClick={uploadImage}>Upload Image</button>
+          <button type="button" onClick={uploadImage}>
+            Upload Image
+          </button>
         </article>
 
         <article>
