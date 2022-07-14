@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 // import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import ImageUpload from '../images/imageUpload';
 // import { postCustomerToApi } from '../../redux/forms/customerReducer';
 import './AddCostumer.css';
 
@@ -111,6 +112,12 @@ const AddCustomer = () => {
               value={picture}
               onChange={(e) => setPicture(e.target.value)}
             />
+          </label>
+        </div>
+        <div className="form-group">
+          <label htmlFor="picture">
+            Picture
+            {ImageUpload()}
           </label>
         </div>
         <div className="form-group-btn">
