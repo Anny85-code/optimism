@@ -7,6 +7,7 @@ import { postUpdateCustomerToApi } from '../../redux/forms/customerReducer';
 import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
 /* eslint-enable */
 import '../addCostumer/AddCostumer.css';
+import ImageUpload from '../images/imageUpload';
 
 const EditCustomer = () => {
   const param = useParams();
@@ -24,9 +25,9 @@ const EditCustomer = () => {
   const [phone, setPhone] = useState(aCustomers.data.phone);
   const [address, setAddress] = useState(aCustomers.data.address);
   const [dailyContribution, setDailyContribution] = useState(
-    aCustomers.data.daily_contribution,
+    aCustomers.data.daily_contribution
   );
-  const [picture, setPicture] = useState(aCustomers.data.picture);
+  const picture = localStorage.getItem('image_str');
   const [isPending, setIsPending] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -130,15 +131,7 @@ const EditCustomer = () => {
         <div className="form-group">
           <label htmlFor="picture">
             Picture
-            <input
-              type="text"
-              className="form-control"
-              id="picture"
-              name="picture"
-              placeholder="picture"
-              value={picture}
-              onChange={(e) => setPicture(e.target.value)}
-            />
+            {ImageUpload()}
           </label>
         </div>
         <div className="form-group btn1">
