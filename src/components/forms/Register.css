@@ -39,6 +39,14 @@ select {
   box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #d86565;
 }
 
+.reg-edit {
+  text-align: center;
+}
+
+.upload-img {
+  width: 200px
+}
+
 @media only screen and (max-width: 978px) {
   .register-form {
     margin-left: 10px;
@@ -47,5 +55,9 @@ select {
 
   select {
     width: 250px;
+  }
+
+  #img-editor{
+    margin-left: -30px;
   }
 }

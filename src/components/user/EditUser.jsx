@@ -196,10 +196,10 @@ const EditUser = () => {
               </div>
               <br />
               <div id="img-editor">
-                <label htmlFor="picture" className="form-label">
+                <label htmlFor="picture" className="form-label reg-edit">
                   Picture
                   <div className="image-container">
-                    <img src={avatar} alt={`${name}`} className="cus-image" />
+                    <img src={avatar} alt={`${name}`} className="cus-image upload-img" />
                   </div>
                   <span onClick={handleEditPic}>Edit</span>
                 </label>
