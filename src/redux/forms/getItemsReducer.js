@@ -5,7 +5,8 @@ import endpoint from '../../assets/url/url';
 const GET_ITEM = 'src/redux/itemreducer/get_item'.toUpperCase();
 const FAILED_GET_ITEM = 'src/redux/itemreducer/failed_get_item'.toUpperCase();
 const FAILED_POST_ITEM = 'src/redux/itemreducer/failed_post_item'.toUpperCase();
-const GET_ITEMS_REQUEST = 'src/redux/itemreducer/get_items_request'.toUpperCase();
+const GET_ITEMS_REQUEST =
+  'src/redux/itemreducer/get_items_request'.toUpperCase();
 const url = `${endpoint}/items`;
 const { token } = localStorage;
 
@@ -43,8 +44,10 @@ export const postItemsToApi = (userData) => async (dispatch) => {
     dispatch(sendItemsDataFailed(errorMsg));
   } else {
     window.history.pushState({}, '', '/products');
-      <Navigate to="/products" />;
-    // window.location.reload();
+    <Navigate to="/products" />;
+    setTimeout(() => {
+      window.location.reload();
+    }, 3000);
   }
 };
 
@@ -58,11 +61,6 @@ export const getItemFromApi = () => async (dispatch) => {
       },
     });
     const response = await req.json();
-    // const response = await axios.get(url, {
-    //   headers: {
-    //     Authorization: `Bearer ${token}`,
-    //   },
-    // });
     dispatch(fetchItemsData(response));
   } catch (error) {
     dispatch(fetchItemsDataFailed(error.message));
@@ -75,7 +73,7 @@ const itemReducer = (
     loading: false,
     error: null,
   },
-  action,
+  action
 ) => {
   switch (action.type) {
     case GET_ITEM:
