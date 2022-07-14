@@ -16,11 +16,8 @@ export const registerUserToApi = (userData) => async (dispatch) => {
     const errorMsg = regUserResp.error || regUserResp.errors;
     dispatch({ type: 'SIGNUP_FAILED', errorMsg });
   } else {
-    localStorage.setItem('user', JSON.stringify(regUserResp));
-    localStorage.setItem('token', regUserResp.token);
-    localStorage.setItem('isLoggedIn', true);
     window.history.pushState({}, '', '/');
-    // window.location.reload();
+    window.location.reload();
     dispatch({ type: 'SIGNUP_SUCCESS', regUserResp });
   }
 };
@@ -50,7 +47,7 @@ export const logUserToApi = (userData) => async (dispatch) => {
 
 const userReducer = (
   state = { user: null, isLoggedIn: false, error: null },
-  action,
+  action
 ) => {
   switch (action.type) {
     case 'SIGNUP_SUCCESS':

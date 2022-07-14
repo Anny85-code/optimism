@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { registerUserToApi } from '../../redux/forms/userReducer';
+import ImageUpload from '../images/imageUpload';
 import './Register.css';
 
 const Register = () => {
@@ -17,7 +18,9 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(registerUserToApi(state));
+    const picture = localStorage.getItem('image_str');
+    const userPostData = { ...state, avatar: picture };
+    dispatch(registerUserToApi(userPostData));
   };
 
   const [select, setSelect] = useState('PLEASE SELECT ...');
@@ -194,15 +197,7 @@ const Register = () => {
               <div>
                 <label htmlFor="picture" className="form-label">
                   Picture
-                  <input
-                    type="text"
-                    placeholder="Picture"
-                    onChange={onchange}
-                    id="picture"
-                    name="avatar"
-                    className="form-control"
-                    autoComplete="off"
-                  />
+                  {ImageUpload()}
                 </label>
               </div>
               <br />
