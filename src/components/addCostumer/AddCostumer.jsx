@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-// import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import ImageUpload from '../images/imageUpload';
-// import { postCustomerToApi } from '../../redux/forms/customerReducer';
 import './AddCostumer.css';
 
 const AddCustomer = () => {
@@ -10,11 +8,7 @@ const AddCustomer = () => {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [address, setAddress] = useState('');
-  const [picture, setPicture] = useState('');
-  // const [isPending, setIsPending] = useState(false);
-  // const dispatch = useDispatch();
-  // const dailyContribution = localStorage.getItem('dailyContibution');
-  // dailyContribution = Number(dailyContribution);
+  const picture = localStorage.getItem('image_str');
 
   const handleSubmit = () => {
     const user = JSON.parse(localStorage.getItem('user'));
@@ -26,14 +20,8 @@ const AddCustomer = () => {
       phone,
       address,
       picture,
-      // daily_contribution: dailyContribution,
     };
     localStorage.setItem('customer', JSON.stringify(customer));
-    // setIsPending(true);
-    // dispatch(postCustomerToApi(customer));
-
-    // setIsPending(false);
-    // localStorage.removeItem('dailyContibution');
   };
 
   return (
