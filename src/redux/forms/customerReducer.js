@@ -58,7 +58,6 @@ export const postCustomerToApi = (userData) => async (dispatch) => {
 
 export const postUpdateCustomerToApi = (userData) => async (dispatch) => {
   const { id } = userData;
-  console.log(userData);
   const sendData = axios.patch(`${url}/${id}`, userData, {
     headers: {
       Authorization: `Bearer ${token}`,

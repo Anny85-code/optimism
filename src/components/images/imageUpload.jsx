@@ -18,7 +18,6 @@ const ImageUpload = () => {
     const postImage = async () => {
       try {
         const response = await axios.post(imgApi, formData);
-        console.log(response);
         setImageData(response.data);
       } catch (error) {
         console.error(error);

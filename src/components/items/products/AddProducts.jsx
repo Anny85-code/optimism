@@ -24,7 +24,6 @@ const AddProduct = () => {
       picture,
       description,
     };
-    console.log(product);
     setIsPending(true);
     dispatch(postItemsToApi(product));
     setIsPending(false);

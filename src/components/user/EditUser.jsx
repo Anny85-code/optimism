@@ -48,8 +48,6 @@ const EditUser = () => {
       username,
     };
     setIsPending(true);
-    console.log({ avatar });
-    console.log(oneUser);
     dispatch(postUpdateUserToApi(oneUser));
     setIsPending(false);
   };

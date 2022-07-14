@@ -12,7 +12,7 @@ const Seasons = () => {
   useEffect(() => {
     dispatch(getSeasonFromApi());
   }, []);
-  console.log(data);
+
   return (
     <div>
       {data.map((season) => (

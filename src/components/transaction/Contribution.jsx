@@ -61,8 +61,6 @@ const Contribution = () => {
     dispatch(postTransactionToApi(transactionData));
   };
 
-  console.log(typeof date, typeof convertDate);
-
   useEffect(() => {
     dispatch(getOneCustomerFromApi(cardNumber));
     dispatch(getTransactionFromApi());

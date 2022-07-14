@@ -52,7 +52,6 @@ const EditCustomer = () => {
       dailyContribution,
     };
     setIsPending(true);
-    console.log(customer);
     dispatch(postUpdateCustomerToApi(customer));
     setIsPending(false);
   };
