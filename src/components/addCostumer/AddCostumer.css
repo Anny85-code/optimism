@@ -38,7 +38,7 @@
 
 .p-text {
   color: rgb(26, 24, 24);
-  margin: 30px;
+  margin: 0 0 10px -20px;
   text-align: center;
   font-weight: bold;
 }

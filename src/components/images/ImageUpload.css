@@ -4,13 +4,17 @@
 
 .upload-container {
   display: flex;
-  align-items: flex-start;
+  /* align-items: flex-start; */
   margin-right: 30px;
   padding-right: 40px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* width: 200px; */
 }
 
 .art-conatiner {
-  width: 100%;
+  /* width: 100%; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,6 +24,7 @@
   margin: 10px;
   /* box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #967777; */
   border-radius: 8px;
+  margin-left: 50px;
 }
 
 #file {
@@ -32,13 +37,13 @@
 }
 
 .upload-image {
-  width: 200px;
+  width: 250px;
   /* padding: 10px; */
   outline: none;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-left: -30px;
+  margin-left: 44px;
   /* box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #d86565; */
 }
 
@@ -70,5 +75,11 @@
   .upload-btn {
     width: 200px;
     margin-left: 30px;
+  }
+
+  #file {
+    width: 200px;
+    height: 20px;
+    margin-left: 25px;
   }
 }
