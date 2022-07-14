@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { postItemsToApi } from '../../../redux/forms/getItemsReducer';
+import ImageUpload from '../../images/imageUpload';
 // import './AddProducts.css';
 
+/* eslint-disable */
 const AddProduct = () => {
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
-  const [picture, setPicture] = useState('');
+  const picture = localStorage.getItem('image_str');
   const [description, setDescription] = useState('');
   const [isPending, setIsPending] = useState(false);
   const dispatch = useDispatch();
@@ -22,7 +24,7 @@ const AddProduct = () => {
       picture,
       description,
     };
-
+    console.log(product);
     setIsPending(true);
     dispatch(postItemsToApi(product));
     setIsPending(false);
@@ -63,19 +65,7 @@ const AddProduct = () => {
           </label>
         </div>
         <div className="form-group">
-          <label htmlFor="picture">
-            Picture *
-            <input
-              type="text"
-              className="form-control"
-              id="picture"
-              name="picture"
-              placeholder="Picture"
-              required
-              value={picture}
-              onChange={(e) => setPicture(e.target.value)}
-            />
-          </label>
+          <label htmlFor="picture">Picture *{ImageUpload()}</label>
         </div>
         <div className="form-group">
           <label htmlFor="address">
@@ -108,5 +98,5 @@ const AddProduct = () => {
     </div>
   );
 };
-
+/* eslint-enable */
 export default AddProduct;
