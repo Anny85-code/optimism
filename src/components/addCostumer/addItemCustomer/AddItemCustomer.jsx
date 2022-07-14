@@ -40,6 +40,7 @@ const AddItemCustomer = () => {
       const userData = { ...customer, daily_contribution: total };
       dispatch(postCustomerToApi(userData));
       localStorage.removeItem('customer');
+      localStorage.removeItem('image_str');
     }
   };
 
@@ -48,7 +49,7 @@ const AddItemCustomer = () => {
       <h3 className="head-text">Select Product</h3>
       {data.map(({ name, price }, index) => {
         return (
-          <div className="checkbox-container">
+          <div key={index} className="checkbox-container">
             <h3>
               <label htmlFor={index} key={index} className="checkbox-label">
                 <input

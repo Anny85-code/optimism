@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { getOneUserFromApi } from '../../redux/forms/oneUserManReducer';
 import { postUpdateUserToApi } from '../../redux/forms/userManReducer';
 import '../forms/Register.css';
+import ImageUpload from '../images/imageUpload';
 
 const EditUser = () => {
   const param = useParams();
@@ -14,7 +15,7 @@ const EditUser = () => {
   const [email, setEmail] = useState(user.data.email);
   const [phone, setPhone] = useState(user.data.phone);
   const [address, setAddress] = useState(user.data.address);
-  const [avatar, setAvatar] = useState(user.data.avatar);
+  let { avatar } = user.data;
   const [username, setUsername] = useState(user.data.username);
   const [location, setLocation] = useState(user.data.location);
   const [isPending, setIsPending] = useState(false);
@@ -25,10 +26,16 @@ const EditUser = () => {
     dispatch(getOneUserFromApi(id));
   }, []);
 
+  const handleEditPic = () => {
+    document.getElementById('img-editor').style.display = 'none';
+    document.getElementById('new-img-editor').style.display = 'block';
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const userLogged = JSON.parse(localStorage.getItem('user'));
     const { id } = userLogged.user;
+    avatar = localStorage.getItem('image_str');
     const oneUser = {
       id: userId,
       user_id: id,
@@ -188,19 +195,19 @@ const EditUser = () => {
                 </label>
               </div>
               <br />
-              <div>
+              <div id="img-editor">
                 <label htmlFor="picture" className="form-label">
                   Picture
-                  <input
-                    type="text"
-                    placeholder="Picture"
-                    onChange={setAvatar}
-                    value={avatar}
-                    id="picture"
-                    name="avatar"
-                    className="form-control"
-                    autoComplete="off"
-                  />
+                  <div className="image-container">
+                    <img src={avatar} alt={`${name}`} className="cus-image" />
+                  </div>
+                  <span onClick={handleEditPic}>Edit</span>
+                </label>
+              </div>
+              <div id="new-img-editor" style={{ display: 'none' }}>
+                <label htmlFor="picture" className="form-label">
+                  Picture
+                  {ImageUpload()}
                 </label>
               </div>
               <br />
