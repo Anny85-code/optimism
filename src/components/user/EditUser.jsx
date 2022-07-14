@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { getOneUserFromApi } from '../../redux/forms/oneUserManReducer';
 import { postUpdateUserToApi } from '../../redux/forms/userManReducer';
 import '../forms/Register.css';
+import ImageUpload from '../images/imageUpload';
 
 const EditUser = () => {
   const param = useParams();
@@ -20,10 +21,16 @@ const EditUser = () => {
   const [isPending, setIsPending] = useState(false);
   const { error } = useSelector((state) => state.user);
   const dispatch = useDispatch();
+  const new_avatar = localStorage.getItem('image_str');
 
   useEffect(() => {
     dispatch(getOneUserFromApi(id));
   }, []);
+
+  const handleEditPic = () => {
+    document.getElementById('img-editor').style.display = 'none';
+    document.getElementById('new-img-editor').style.display = 'block';
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -188,19 +195,19 @@ const EditUser = () => {
                 </label>
               </div>
               <br />
-              <div>
+              <div id="img-editor">
                 <label htmlFor="picture" className="form-label">
                   Picture
-                  <input
-                    type="text"
-                    placeholder="Picture"
-                    onChange={setAvatar}
-                    value={avatar}
-                    id="picture"
-                    name="avatar"
-                    className="form-control"
-                    autoComplete="off"
-                  />
+                  <div className="image-container">
+                    <img src={avatar} alt={`${name}`} className="cus-image" />
+                  </div>
+                  <span onClick={handleEditPic}>Edit</span>
+                </label>
+              </div>
+              <div id="new-img-editor" style={{ display: 'none' }}>
+                <label htmlFor="picture" className="form-label">
+                  Picture
+                  {ImageUpload()}
                 </label>
               </div>
               <br />
