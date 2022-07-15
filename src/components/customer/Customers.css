@@ -20,7 +20,6 @@
   text-align: center;
   height: 50px;
   color: #2e4a66;
-  width: 400px;
 }
 
 .customer-container :nth-child(even) {
@@ -38,9 +37,5 @@
 
   .customer-container > h3 {
     font-size: 15px;
-  }
-
-  .customer-container {
-    width: 300px;
   }
 }
