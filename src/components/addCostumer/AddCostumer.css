@@ -1,5 +1,4 @@
 .form-container {
-  /* height: 100%; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -156,5 +155,13 @@ label {
 
   .p-text {
     margin: 0 0 10px -45px;
+  }
+
+  .art-cus {
+    margin-left: 65px;
+  }
+
+  .upload-image {
+    margin-left: 88px;
   }
 }
