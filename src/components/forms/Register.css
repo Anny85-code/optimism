@@ -86,4 +86,8 @@ select {
   .edit-user-icon:hover {
     margin-left: 143px;
   }
+
+  .mark-btn{
+  margin-left: -20px;
+}
 }
