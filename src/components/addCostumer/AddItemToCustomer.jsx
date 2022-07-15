@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { postCustomerToApi } from '../../redux/forms/customerReducer';
 import { getItemFromApi } from '../../redux/forms/getItemsReducer';
 import { getOneItemFromApi } from '../../redux/forms/oneItemReducer';
 /* eslint-disable */
@@ -13,6 +14,7 @@ const AddItemToCustomer = () => {
   const [subTotal, setSubTotal] = useState(0);
   const [total, setTotal] = useState([]);
   const { name, price, description, picture } = item.data;
+  const grandTotal = total.reduce((a, b) => b.subTotal + a, 0);
 
   const handlePrevious = () => {
     if (current > 1) {
@@ -46,13 +48,16 @@ const AddItemToCustomer = () => {
   };
 
   const handleContribution = () => {
-    if (total > 0) {
+    console.log('before', grandTotal, typeof grandTotal);
+    if (grandTotal > 0) {
       let customer = JSON.parse(localStorage.getItem('customer'));
-      const userData = { ...customer, daily_contribution: total };
+      const userData = { ...customer, daily_contribution: grandTotal };
       dispatch(postCustomerToApi(userData));
+      console.log(userData);
       localStorage.removeItem('customer');
       localStorage.removeItem('image_str');
     }
+    console.log('after');
   };
 
   useEffect(() => {
@@ -80,7 +85,7 @@ const AddItemToCustomer = () => {
             Sum
           </button>
           <h3>{subTotal}</h3>
-          <h1>{total.reduce((a, b) => b.subTotal + a, 0)}</h1>
+          <h1>{grandTotal}</h1>
         </div>
         <button type="button" onClick={handleNext}>
           Next
