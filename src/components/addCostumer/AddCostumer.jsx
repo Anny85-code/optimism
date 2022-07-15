@@ -95,7 +95,7 @@ const AddCustomer = () => {
           </label>
         </div>
         <div className="form-group-btn">
-          <NavLink to="/additemcustomer" style={{ textDecoration: 'none' }}>
+          <NavLink to="/addproducts" style={{ textDecoration: 'none' }}>
             <button
               type="button"
               className="add-item-btn"

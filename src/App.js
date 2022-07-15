@@ -72,7 +72,7 @@ const App = () => {
                 <Route path="/addseason" element={<AddSeason />} />
                 <Route path="/seasons" element={<Seasons />} />
                 <Route path="/season/:id" element={<Season />} />
-                <Route path="/play" element={<AddItemToCustomer />} />
+                <Route path="/addproducts" element={<AddItemToCustomer />} />
               </>
             )}
           </Routes>
