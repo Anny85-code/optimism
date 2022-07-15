@@ -11,7 +11,7 @@ const Footer = () => {
         &nbsp;
         <p>Designed and Developed with 💖 by</p>
         <a href="https://www.linkedin.com/in/brytebee/">&nbsp;Bright</a>
-        <p> &nbsp;|</p>
+        <p> &nbsp;&</p>
         <a href="https://www.linkedin.com/in/aniekan-udo-665b65213/">
           &nbsp;Anny
         </a>
