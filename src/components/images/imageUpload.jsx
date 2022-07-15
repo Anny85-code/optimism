@@ -31,7 +31,7 @@ const ImageUpload = () => {
   return (
     <>
       <div className="upload-container">
-        <article className="art-conatiner">
+        <article className="art-container">
           <input
             type="file"
             name="file"
