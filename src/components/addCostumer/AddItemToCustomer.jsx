@@ -12,6 +12,7 @@ const AddItemToCustomer = () => {
   const [qauntity, setQuantity] = useState(0);
   const [subTotal, setSubTotal] = useState(0);
   const [total, setTotal] = useState([]);
+  const { name, price, description, picture } = item.data;
 
   const handlePrevious = () => {
     if (current > 1) {
@@ -44,9 +45,15 @@ const AddItemToCustomer = () => {
     setSubTotal(qauntity * +price);
   };
 
-  console.log(current, total);
-
-  const { name, price, description, picture } = item.data;
+  const handleContribution = () => {
+    if (total > 0) {
+      let customer = JSON.parse(localStorage.getItem('customer'));
+      const userData = { ...customer, daily_contribution: total };
+      dispatch(postCustomerToApi(userData));
+      localStorage.removeItem('customer');
+      localStorage.removeItem('image_str');
+    }
+  };
 
   useEffect(() => {
     dispatch(getItemFromApi());
@@ -79,6 +86,9 @@ const AddItemToCustomer = () => {
           Next
         </button>
       </div>
+      <button type="button" onClick={handleContribution}>
+        Finish
+      </button>
     </div>
   );
 };
