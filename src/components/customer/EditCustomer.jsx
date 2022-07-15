@@ -143,12 +143,14 @@ const EditCustomer = () => {
             <div className="image-container">
               <img src={picture} alt={`${name}`} className="cus-image" />
             </div>
-            <span onClick={handleEditPic} className="edit-icon">Edit</span>
+            <span onClick={handleEditPic} className="edit-icon">
+              Edit
+            </span>
           </label>
         </div>
         <div id="new-img-editor" style={{ display: 'none' }}>
           <label htmlFor="picture" className="form-label">
-            Picture
+            <h4 className="p-text">Picture</h4>
             {ImageUpload()}
           </label>
         </div>

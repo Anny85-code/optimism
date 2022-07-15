@@ -149,4 +149,10 @@ label {
   .edit-icon:hover {
     margin-left: 140px;
   }
+
+  .p-text {
+  
+  margin: 0 0 10px -45px;
+  
+}
 }
