@@ -204,7 +204,7 @@ const Register = () => {
               <div className="form-group btn1">
                 <button
                   type="submit"
-                  className="btn1 btn-secondary1 add-marketer-btn"
+                  className="btn1 btn-secondary1 add-marketer-btn mark-btn"
                   onClick={handleSubmit}
                 >
                   Register

@@ -1,5 +1,5 @@
 .form-container {
-  height: 100%;
+  /* height: 100%; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,6 +8,10 @@
   margin: 20px;
   box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #967777;
   border-radius: 8px;
+}
+
+.update-cus-container{
+  padding-bottom: 20px;
 }
 
 .form-group {

@@ -39,6 +39,10 @@ select {
   box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #d86565;
 }
 
+.mark-btn{
+  margin-left: -40px;
+}
+
 .edit-user-btn {
   margin-left: -30px;
 }
