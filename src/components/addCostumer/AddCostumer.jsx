@@ -25,7 +25,7 @@ const AddCustomer = () => {
   };
 
   return (
-    <div className="form-container">
+    <div className="form-container update-cus-container">
       <h3 className="title">Add Customer</h3>
       <form className="add-customer-form">
         <div className="form-group">

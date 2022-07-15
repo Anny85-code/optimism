@@ -154,7 +154,7 @@ const EditCustomer = () => {
             {ImageUpload()}
           </label>
         </div>
-        <div className="form-group btn1">
+        <div className="form-group btn1 edit-cs-btn">
           {!isPending && (
             <button
               type="submit"
