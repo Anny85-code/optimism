@@ -18,6 +18,7 @@ import seasonReducer from './forms/seasonReducer';
 import oneSeasonReducer from './forms/oneSeasonReducer';
 import OneTransactionReducer from './forms/OneTransactionReducer';
 import transactionReducer from './forms/transactionReducer';
+import oneItemReducer from './forms/oneItemReducer';
 
 const rootReducer = combineReducers({
   user: userReducer,
@@ -26,6 +27,7 @@ const rootReducer = combineReducers({
   userManReducer,
   oneUser: oneUserReducer,
   item: itemReducer,
+  oneItem: oneItemReducer,
   seasons: seasonReducer,
   oneSeason: oneSeasonReducer,
   oneTransaction: OneTransactionReducer,

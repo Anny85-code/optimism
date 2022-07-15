@@ -39,7 +39,7 @@ export const getOneItemFromApi = (id) => async (dispatch) => {
   }
 };
 
-const OneItemReducer = (
+const oneItemReducer = (
   state = {
     data: [],
     loading: false,
@@ -72,4 +72,4 @@ const OneItemReducer = (
   }
 };
 
-export default OneItemReducer;
+export default oneItemReducer;
