@@ -51,6 +51,10 @@
   border-radius: 8px;
 }
 
+#new-img-editor {
+  text-align: center;
+}
+
 @media only screen and (max-width: 978px) {
   .containa {
     width: 300px;
@@ -71,5 +75,10 @@
   .cus-image {
     width: 250px;
     height: 250px;
+  }
+
+  #new-img-editor {
+    text-align: center;
+    margin-left: 15px;
   }
 }

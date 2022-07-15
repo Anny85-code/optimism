@@ -39,6 +39,28 @@ select {
   box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #d86565;
 }
 
+.edit-user-btn {
+  margin-left: -30px;
+}
+
+.edit-user-icon:hover {
+  cursor: pointer;
+  background: #fff;
+  border: 1px solid #000;
+  width: 50px;
+  margin-left: 238px;
+  color: #00bcd4;
+  border-radius: 4px;
+}
+
+.reg-edit {
+  text-align: center;
+}
+
+.upload-img {
+  width: 200px;
+}
+
 @media only screen and (max-width: 978px) {
   .register-form {
     margin-left: 10px;
@@ -47,5 +69,17 @@ select {
 
   select {
     width: 250px;
+  }
+
+  #img-editor {
+    margin-left: -30px;
+  }
+
+  .edit-user-btn {
+    margin-left: 8px;
+  }
+
+  .edit-user-icon:hover {
+    margin-left: 143px;
   }
 }

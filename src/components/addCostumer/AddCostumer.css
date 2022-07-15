@@ -19,11 +19,28 @@
   margin: 20px;
 }
 
+.form-group-upload {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
 .title {
   font-size: 30px;
   font-weight: bold;
   color: rgb(26, 24, 24);
   margin: 20px;
+  text-align: center;
+}
+
+.p-text {
+  color: rgb(26, 24, 24);
+  margin: 0 0 10px -20px;
+  text-align: center;
+  font-weight: bold;
 }
 
 input {
@@ -89,6 +106,20 @@ label {
   box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #967777;
 }
 
+.update-cus-button {
+  margin-left: -40px;
+}
+
+.edit-cus-icon:hover {
+  cursor: pointer;
+  background: #fff;
+  border: 1px solid #000;
+  width: 50px;
+  margin-left: 260px;
+  color: #00bcd4;
+  border-radius: 4px;
+}
+
 @media only screen and (max-width: 978px) {
   input {
     width: 250px;
@@ -113,5 +144,13 @@ label {
     width: 250px;
     margin-left: 20px;
     margin-bottom: 20px;
+  }
+
+  .edit-cus-icon:hover {
+    margin-left: 140px;
+  }
+
+  .p-text {
+    margin: 0 0 10px -45px;
   }
 }

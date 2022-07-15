@@ -196,7 +196,7 @@ const Register = () => {
               <br />
               <div>
                 <label htmlFor="picture" className="form-label">
-                  Picture
+                  <h4 className="p-text">Picture</h4>
                   {ImageUpload()}
                 </label>
               </div>

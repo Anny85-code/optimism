@@ -88,9 +88,9 @@ const AddCustomer = () => {
             />
           </label>
         </div>
-        <div className="form-group">
+        <div className="form-group-upload">
           <label htmlFor="picture">
-            Picture
+            <h4 className="p-text">Picture</h4>
             {ImageUpload()}
           </label>
         </div>
