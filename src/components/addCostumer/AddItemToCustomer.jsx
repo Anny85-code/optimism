@@ -11,6 +11,7 @@ const AddItemToCustomer = () => {
   const [current, setCurrent] = useState(1);
   const [qauntity, setQuantity] = useState(0);
   const [subTotal, setSubTotal] = useState(0);
+  const [total, setTotal] = useState([]);
 
   const handlePrevious = () => {
     if (current > 1) {
@@ -22,6 +23,16 @@ const AddItemToCustomer = () => {
     if (current < lastItem) {
       setCurrent(current + 1);
     }
+    const eachItem = {
+      id: current,
+      name,
+      price,
+      qauntity,
+      subTotal,
+    };
+    setTotal([...total, eachItem]);
+    setQuantity(0);
+    setSubTotal(0);
   };
 
   const handleQuantity = (e) => {
@@ -33,7 +44,7 @@ const AddItemToCustomer = () => {
     setSubTotal(qauntity * +price);
   };
 
-  console.log(current, lastItem);
+  console.log(current, total);
 
   const { name, price, description, picture } = item.data;
 
@@ -62,6 +73,7 @@ const AddItemToCustomer = () => {
             Sum
           </button>
           <h3>{subTotal}</h3>
+          <h1>{total.reduce((a, b) => b.subTotal + a, 0)}</h1>
         </div>
         <button type="button" onClick={handleNext}>
           Next
