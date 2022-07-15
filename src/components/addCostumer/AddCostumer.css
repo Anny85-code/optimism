@@ -106,11 +106,11 @@ label {
   box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #967777;
 }
 
-.update-cus-button{
+.update-cus-button {
   margin-left: -20px;
 }
 
-.edit-icon:hover{
+.edit-icon:hover {
   cursor: pointer;
   background: #fff;
   border: 1px solid #000;
@@ -144,5 +144,9 @@ label {
     width: 250px;
     margin-left: 20px;
     margin-bottom: 20px;
+  }
+
+  .edit-icon:hover {
+    margin-left: 140px;
   }
 }
