@@ -52,7 +52,7 @@ export const postCustomerToApi = (userData) => async (dispatch) => {
       <Navigate to="/customers" />;
       setTimeout(() => {
         window.location.reload();
-      }, 5000);
+      }, 3000);
   }
 };
 

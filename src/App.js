@@ -25,6 +25,7 @@ import AddTransaction from './components/transaction/AddTransaction';
 import Contribution from './components/transaction/Contribution';
 import Transactions from './components/transaction/Transactions';
 import Transaction from './components/transaction/transaction';
+import AddItemToCustomer from './components/addCostumer/AddItemToCustomer';
 
 const App = () => {
   const [sideBarOpen, setSideBarOpen] = useState(false);
@@ -71,6 +72,7 @@ const App = () => {
                 <Route path="/addseason" element={<AddSeason />} />
                 <Route path="/seasons" element={<Seasons />} />
                 <Route path="/season/:id" element={<Season />} />
+                <Route path="/addproducts" element={<AddItemToCustomer />} />
               </>
             )}
           </Routes>

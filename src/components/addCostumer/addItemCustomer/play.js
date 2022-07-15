@@ -98,3 +98,25 @@ const AddItemCustomer = () => {
 };
 export default AddItemCustomer;
 /* eslint-enable */
+
+const total = [
+  {
+    id: 1,
+    money: 200,
+  },
+  {
+    id: 2,
+    money: 300,
+  },
+  {
+    id: 3,
+    money: 0,
+  },
+  {
+    id: 4,
+    money: 800,
+  },
+];
+
+const sum = total.reduce((a, b) => a + b.money, 0);
+console.log(sum);
