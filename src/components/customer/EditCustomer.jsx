@@ -143,7 +143,7 @@ const EditCustomer = () => {
             <div className="image-container">
               <img src={picture} alt={`${name}`} className="cus-image" />
             </div>
-            <span onClick={handleEditPic} className="edit-icon">
+            <span onClick={handleEditPic} className="edit-cus-icon">
               Edit
             </span>
           </label>

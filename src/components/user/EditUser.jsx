@@ -205,7 +205,9 @@ const EditUser = () => {
                       className="cus-image upload-img"
                     />
                   </div>
-                  <span onClick={handleEditPic}>Edit</span>
+                  <span onClick={handleEditPic} className="edit-user-icon">
+                    Edit
+                  </span>
                 </label>
               </div>
               <div id="new-img-editor" style={{ display: 'none' }}>
@@ -219,7 +221,7 @@ const EditUser = () => {
                 {!isPending && (
                   <button
                     type="submit"
-                    className="btn1 btn-secondary1 add-marketer-btn"
+                    className="btn1 btn-secondary1 add-marketer-btn edit-user-btn"
                   >
                     Edit User
                   </button>

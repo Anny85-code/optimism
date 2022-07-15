@@ -110,7 +110,7 @@ label {
   margin-left: -40px;
 }
 
-.edit-icon:hover {
+.edit-cus-icon:hover {
   cursor: pointer;
   background: #fff;
   border: 1px solid #000;
@@ -146,7 +146,7 @@ label {
     margin-bottom: 20px;
   }
 
-  .edit-icon:hover {
+  .edit-cus-icon:hover {
     margin-left: 140px;
   }
 
