@@ -9,7 +9,7 @@
   border-radius: 8px;
 }
 
-.update-cus-container{
+.update-cus-container {
   padding-bottom: 20px;
 }
 
@@ -166,6 +166,6 @@ label {
   }
 
   .edit-cs-btn {
-  margin-left: 15px;
-}
+    margin-left: 15px;
+  }
 }
