@@ -9,18 +9,18 @@ const GET_ONE_ITEM_REQUEST =
 const url = `${endpoint}/items`;
 const { token } = localStorage;
 
-const fetchOneCustomerData = (payload) => ({
-  type: GET_ONE_CUSTOMER,
+const fetchOneItemData = (payload) => ({
+  type: GET_ONE_ITEM,
   payload,
 });
 
-const fetchOneCustomersDataFailed = (payload) => ({
-  type: FAILED_GET_ONE_CUSTOMER,
+const fetchOneItemDataFailed = (payload) => ({
+  type: FAILED_GET_ONE_ITEM,
   payload,
 });
 
-const fetchOneCustomerRequest = () => ({
-  type: GET_ONE_CUSTOMERS_REQUEST,
+const fetchOneItemRequest = () => ({
+  type: GET_ONE_ITEM_REQUEST,
   loading: true,
   error: null,
 });
