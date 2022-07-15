@@ -164,4 +164,8 @@ label {
   .upload-image {
     margin-left: 88px;
   }
+
+  .edit-cs-btn {
+  margin-left: 15px;
+}
 }
