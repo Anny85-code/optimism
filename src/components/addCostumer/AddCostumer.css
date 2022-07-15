@@ -110,6 +110,16 @@ label {
   margin-left: -20px;
 }
 
+.edit-icon:hover{
+  cursor: pointer;
+  background: #fff;
+  border: 1px solid #000;
+  width: 40px;
+  margin-left: 260px;
+  color: #00bcd4;
+  border-radius: 4px;
+}
+
 @media only screen and (max-width: 978px) {
   input {
     width: 250px;
