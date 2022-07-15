@@ -199,14 +199,18 @@ const EditUser = () => {
                 <label htmlFor="picture" className="form-label reg-edit">
                   Picture
                   <div className="image-container">
-                    <img src={avatar} alt={`${name}`} className="cus-image upload-img" />
+                    <img
+                      src={avatar}
+                      alt={`${name}`}
+                      className="cus-image upload-img"
+                    />
                   </div>
                   <span onClick={handleEditPic}>Edit</span>
                 </label>
               </div>
               <div id="new-img-editor" style={{ display: 'none' }}>
                 <label htmlFor="picture" className="form-label">
-                  Picture
+                  <h4 className="p-text">Picture</h4>
                   {ImageUpload()}
                 </label>
               </div>
