@@ -119,4 +119,4 @@ const total = [
 ];
 
 const sum = total.reduce((a, b) => a + b.money, 0);
-// console.log(sum);
+console.log(sum);

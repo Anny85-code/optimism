@@ -51,7 +51,6 @@ const AddItemToCustomer = () => {
       let customer = JSON.parse(localStorage.getItem('customer'));
       const userData = { ...customer, daily_contribution: grandTotal };
       dispatch(postCustomerToApi(userData));
-      console.log(userData);
       localStorage.removeItem('customer');
       localStorage.removeItem('image_str');
     }
