@@ -138,7 +138,7 @@ const EditCustomer = () => {
         </div>
         <br />
         <div id="img-editor">
-          <label htmlFor="picture" className="form-label">
+          <label htmlFor="picture" className="form-label reg-edit">
             Picture
             <div className="image-container">
               <img src={picture} alt={`${name}`} className="cus-image" />
@@ -156,7 +156,7 @@ const EditCustomer = () => {
           {!isPending && (
             <button
               type="submit"
-              className="btn1 btn-secondary1 add-marketer-btn"
+              className="btn1 btn-secondary1 add-marketer-btn update-cus-button"
             >
               Update Customer
             </button>
