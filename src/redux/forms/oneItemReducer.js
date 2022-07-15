@@ -2,10 +2,8 @@ import axios from 'axios';
 import endpoint from '../../assets/url/url';
 
 const GET_ONE_ITEM = 'src/redux/itemreducer/get_one_item'.toUpperCase();
-const FAILED_GET_ONE_ITEM =
-  'src/redux/itemreducer/failed_get_one_item'.toUpperCase();
-const GET_ONE_ITEM_REQUEST =
-  'src/redux/itemreducer/get_one_item_request'.toUpperCase();
+const FAILED_GET_ONE_ITEM = 'src/redux/itemreducer/failed_get_one_item'.toUpperCase();
+const GET_ONE_ITEM_REQUEST = 'src/redux/itemreducer/get_one_item_request'.toUpperCase();
 const url = `${endpoint}/items`;
 const { token } = localStorage;
 
@@ -45,7 +43,7 @@ const oneItemReducer = (
     loading: false,
     error: null,
   },
-  action
+  action,
 ) => {
   switch (action.type) {
     case GET_ONE_ITEM:

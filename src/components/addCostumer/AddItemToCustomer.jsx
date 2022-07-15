@@ -39,7 +39,6 @@ const AddItemToCustomer = () => {
   };
 
   const handleQuantity = (e) => {
-    console.log(+e.target.value);
     setQuantity(+e.target.value);
   };
 
@@ -48,7 +47,6 @@ const AddItemToCustomer = () => {
   };
 
   const handleContribution = () => {
-    console.log('before', grandTotal, typeof grandTotal);
     if (grandTotal > 0) {
       let customer = JSON.parse(localStorage.getItem('customer'));
       const userData = { ...customer, daily_contribution: grandTotal };
@@ -57,7 +55,6 @@ const AddItemToCustomer = () => {
       localStorage.removeItem('customer');
       localStorage.removeItem('image_str');
     }
-    console.log('after');
   };
 
   useEffect(() => {
