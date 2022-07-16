@@ -49,6 +49,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
     setDropdownProduct(false);
     setDropdownTransaction(dropdownTransaction ? false : true);
     setDropdownMarketer(false);
+    setDropdownSeason(false);
   };
 
   const toggleDropdownProduct = () => {
@@ -56,6 +57,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
     setDropdownProduct(dropdownProduct ? false : true);
     setDropdownMarketer(false);
     setDropdownSeason(false);
+    setDropdownTransaction(false);
   };
 
   const toggleDropdownSeason = () => {
