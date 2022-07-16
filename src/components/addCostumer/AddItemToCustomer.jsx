@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { postCustomerToApi } from '../../redux/forms/customerReducer';
 import { getItemFromApi } from '../../redux/forms/getItemsReducer';
 import { getOneItemFromApi } from '../../redux/forms/oneItemReducer';
+import './AddItemToCustomer.css';
 /* eslint-disable */
 const AddItemToCustomer = () => {
   const dispatch = useDispatch();
@@ -21,6 +22,12 @@ const AddItemToCustomer = () => {
       setCurrent(current - 1);
     }
   };
+
+const getFormattedPrice = (price) =>
+    new Intl.NumberFormat('en-IN', {
+      style: 'currency',
+      currency: 'NGN',
+    }).format(price);
 
   const handleNext = () => {
     if (current < lastItem) {
@@ -62,34 +69,63 @@ const AddItemToCustomer = () => {
   }, [current]);
 
   return (
-    <div>
-      <div>
-        <button type="button" onClick={handlePrevious}>
-          Previous
-        </button>
-        <div>
-          <h1>{name}</h1>
-          <h4>{price}</h4>
+    <div className="items-to-costumer">
+      <div className="quantity-pic-container">
+        <ul className="pic-previous">
+          <li>
+            <i
+              className="fa fa-arrow-left"
+              id="toggle-btn"
+              onClick={handlePrevious}
+            />
+          </li>
+          <li>
+            <img src={picture} alt={name} className="quantity-pic" />
+          </li>
+          <li>
+            <i
+              className="fa fa-arrow-right"
+              id="toggle-btn"
+              onClick={handleNext}
+            />
+          </li>
+        </ul>
+      </div>
+      <div className="products-container">
+        <div className="product-name-container">
+          <ul className="product-name-price">
+            <li>
+              <h2>{name}</h2>
+            </li>
+            <li className="qunatity-price">
+              <h4>{getFormattedPrice(price)}</h4>
+            </li>
+          </ul>
           <h4>{description}</h4>
-          <img src={picture} alt={name} style={{ width: '120px' }} />
-          <input
-            type="number"
-            onChange={handleQuantity}
-            value={qauntity.toString()}
-          />
-          <button type="button" onClick={handleSub}>
-            Sum
-          </button>
-          <h3>{subTotal}</h3>
-          <h1>{grandTotal}</h1>
+          <ul className="input-add">
+            <li>
+              <input
+                type="number"
+                onChange={handleQuantity}
+                value={qauntity.toString()}
+                className="quantity-input"
+              />
+            </li>
+            <li>
+              <button type="button" onClick={handleSub}>
+                Sum
+              </button>
+            </li>
+          </ul>
         </div>
-        <button type="button" onClick={handleNext}>
-          Next
+        <div>
+          <h3>Sub total:&nbsp;{subTotal}</h3>
+          <h1>Grand total: &nbsp;{grandTotal}</h1>
+        </div>
+        <button type="button" onClick={handleContribution}>
+          Finish
         </button>
       </div>
-      <button type="button" onClick={handleContribution}>
-        Finish
-      </button>
     </div>
   );
 };

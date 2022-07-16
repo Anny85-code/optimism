@@ -1,0 +1,89 @@
+.items-to-costumer {
+  display: grid;
+  grid-template-columns: 4fr 1.5fr;
+  width: 900px;
+  gap: 20px;
+  font-family: 'Gumela', sans-serif;
+  margin: 20px 20px 20px 80px;
+  box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #967777;
+  border-radius: 8px;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  background: rgb(248, 244, 244);
+}
+
+.products-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  border-bottom: 1px solid #000;
+  font-size: 30px;
+  font-weight: bold;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  margin-right: 50px;
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.product-name-price {
+  /* display: flex;
+  flex-direction: column; */
+
+  /* margin: 0 20px; */
+  font-size: 30px;
+  font-weight: bold;
+  align-content: center;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-name-container {
+  display: flex;
+  flex-direction: column;
+
+  /* margin: 0 20px; */
+  font-size: 30px;
+  font-weight: bold;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.quantity-input {
+  width: 40px;
+}
+
+.quantity-pic-container {
+  width: 500px;
+}
+
+.pic-previous {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.quantity-pic {
+  width: 300px;
+  border-radius: 5px;
+}
+
+.qunatity-price {
+  font-size: 18px;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.input-add {
+  display: flex;
+}
