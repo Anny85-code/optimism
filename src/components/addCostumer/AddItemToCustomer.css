@@ -17,13 +17,12 @@
   display: flex;
   flex-direction: column;
   margin: 0;
-  border-bottom: 1px solid #000;
-  font-size: 30px;
+  font-size: 20px;
   font-weight: bold;
   align-content: center;
   justify-content: center;
   align-items: center;
-  margin-right: 50px;
+  margin-right: 90px;
   text-align: center;
 }
 
@@ -49,8 +48,7 @@ ul {
 .product-name-container {
   display: flex;
   flex-direction: column;
-
-  /* margin: 0 20px; */
+  margin: 10px;
   font-size: 30px;
   font-weight: bold;
   align-content: center;
@@ -59,7 +57,11 @@ ul {
 }
 
 .quantity-input {
-  width: 40px;
+  width: 80px;
+  height: 25px;
+  font-size: 14px;
+  box-shadow: 5px 5px 13px #f7f1f1, -5px -5px 13px #e2dcdc;
+  outline: none;
 }
 
 .quantity-pic-container {
@@ -82,8 +84,61 @@ ul {
   font-size: 18px;
   font-weight: 400;
   font-style: italic;
+  width: 100px;
 }
 
 .input-add {
   display: flex;
+  width: 180px;
+}
+
+.input-add > li {
+  margin: 5px;
+}
+
+.qty-desc {
+  font-size: 16px;
+  font-weight: 300;
+  font-style: normal;
+
+  /* width: 100px; */
+}
+
+.sum-item-btn {
+  background-color: #00bcd4;
+  border-radius: 2px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 300;
+  padding-bottom: 10px;
+  padding-top: 5px;
+  text-align: center;
+  width: 80px;
+  height: 25px;
+  outline: none;
+  border: none;
+  box-shadow: 5px 5px 13px #f7f1f1, -5px -5px 13px #e2dcdc;
+}
+
+.qty-p-total {
+  font-size: 19px;
+  font-weight: 400;
+  font-style: italic;
+  margin: 8px;
+}
+
+.finish-btn {
+  width: 200px;
+  height: 30px;
+  padding: 6px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background-color: #3ea175;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 5px 5px 13px #f7f1f1, -5px -5px 13px #e2dcdc;
 }
