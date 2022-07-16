@@ -123,7 +123,7 @@ const getFormattedPrice = (price) =>
           </ul>
         </div>
         <div>
-          <h3 className="qty-p-total">Sub total:&nbsp;{subTotal}</h3>
+          <h3 className="qty-sub-total">Sub total:&nbsp;{subTotal}</h3>
           <h1 className="qty-p-total">Grand total: &nbsp;{grandTotal}</h1>
         </div>
         <button
