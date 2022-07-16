@@ -1,11 +1,22 @@
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import './Main.css';
 import hello from '../../assets/image/hello.jfif';
 import ChartWithCrosshair from '../chart/Chart_with_Crosshair';
+import { getCustomerFromApi } from '../../redux/forms/customerReducer';
 
 const data = JSON.parse(localStorage.getItem('user'));
 const { user } = data || {};
 /* eslint-disable */
 const Main = () => {
+  const dispatch = useDispatch();
+  const customers = useSelector((state) => state.customer);
+  const numOfCustomers = customers.data.length;
+
+  useEffect(() => {
+    dispatch(getCustomerFromApi());
+  }, []);
+
   return (
     <>
       {user.role === 'admin' ? (
@@ -22,14 +33,14 @@ const Main = () => {
               <div className="cards">
                 <i className="fa fa-user-o fa-2x text-lightblue" />
                 <div className="card__inner">
-                  <p className="text-primary-p">Number of Subscribers</p>
-                  <span className="font-bold text-title">678</span>
+                  <p className="text-primary-p">Number of Customers</p>
+                  <span className="font-bold text-title">{numOfCustomers}</span>
                 </div>
               </div>
               <div className="cards">
                 <i class="fa fa-users fa-2x" />
                 <div className="card__inner">
-                  <p className="text-primary-p">Number of Affiliates</p>
+                  <p className="text-primary-p">Number of Transactions</p>
                   <span className="font-bold text-title">2657</span>
                 </div>
               </div>
