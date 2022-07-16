@@ -48,7 +48,6 @@ ul {
 .product-name-container {
   display: flex;
   flex-direction: column;
-
   margin: 10px;
   font-size: 30px;
   font-weight: bold;
@@ -101,6 +100,7 @@ ul {
   font-size: 16px;
   font-weight: 300;
   font-style: normal;
+
   /* width: 100px; */
 }
 
