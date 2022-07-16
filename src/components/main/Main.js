@@ -142,6 +142,7 @@ const Main = () => {
                 <h4>
                   Welcome to another lovely day {user.name}! Today is {today}.
                 </h4>
+                <p>As you know, everybody must eat, so Let's talk food!</p>
               </div>
             </div>
           </div>
