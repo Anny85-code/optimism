@@ -93,7 +93,7 @@ const Main = () => {
                 <div className="charts__left__title">
                   <div>
                     <h1>Daily Reports</h1>
-                    <p>Kaduna, Abuja, Sokoto</p>
+                    <p>Kaduna, Jos, Nassarawa, Kogi</p>
                   </div>
                   <i className="fa fa-usd" />
                 </div>
@@ -103,7 +103,7 @@ const Main = () => {
                 <div className="charts__right__title">
                   <div>
                     <h1>Stats Report</h1>
-                    <p>Kaduna, Nassarawa, Benue</p>
+                    <p>Kaduna, Jos, Nassarawa, Kogi</p>
                   </div>
                   <i className="fa fa-use" />
                 </div>
