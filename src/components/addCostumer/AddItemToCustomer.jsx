@@ -70,8 +70,25 @@ const getFormattedPrice = (price) =>
 
   return (
     <div className="items-to-costumer">
+      <div className="quantity-pic-container">
+        <ul className="pic-previous">
+          <li>
+            <button type="button" onClick={handlePrevious}>
+              Previous
+            </button>
+          </li>
+          <li>
+            <img src={picture} alt={name} className="quantity-pic" />
+          </li>
+          <li>
+            <button type="button" onClick={handleNext}>
+              Next
+            </button>
+          </li>
+        </ul>
+      </div>
       <div className="products-container">
-        <div>
+        <div className="product-name-container">
           <ul className="product-name-price">
             <li>
               <h2>{name}</h2>
@@ -80,42 +97,31 @@ const getFormattedPrice = (price) =>
               <h4>{getFormattedPrice(price)}</h4>
             </li>
           </ul>
-          <div>
-            <ul>
-              <li>
-                <button type="button" onClick={handlePrevious}>
-                  Previous
-                </button>
-              </li>
-              <li>
-                <img src={picture} alt={name} style={{ width: '120px' }} />
-              </li>
-              <li>
-                <button type="button" onClick={handleNext}>
-                  Next
-                </button>
-              </li>
-            </ul>
-          </div>
           <h4>{description}</h4>
-          <div>
-            <input
-              type="number"
-              onChange={handleQuantity}
-              value={qauntity.toString()}
-            />
-            <button type="button" onClick={handleSub}>
-              Sum
-            </button>
-          </div>
-
+          <ul>
+            <li>
+              <input
+                type="number"
+                onChange={handleQuantity}
+                value={qauntity.toString()}
+                className="quantity-input"
+              />
+            </li>
+            <li>
+              <button type="button" onClick={handleSub}>
+                Sum
+              </button>
+            </li>
+          </ul>
+        </div>
+        <div>
           <h3>Sub total:&nbsp;{subTotal}</h3>
           <h1>Grand total: &nbsp;{grandTotal}</h1>
         </div>
+        <button type="button" onClick={handleContribution}>
+          Finish
+        </button>
       </div>
-      <button type="button" onClick={handleContribution}>
-        Finish
-      </button>
     </div>
   );
 };

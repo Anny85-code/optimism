@@ -1,21 +1,21 @@
 .items-to-costumer {
-  display: flex;
-  flex-direction: column;
-  width: 800px;
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  width: 900px;
   gap: 20px;
   font-family: 'Gumela', sans-serif;
-  margin: 20px;
+  margin: 20px 20px 20px 80px;
   box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #967777;
   border-radius: 8px;
   align-content: center;
   justify-content: center;
   align-items: center;
-  
+  background: rgb(248, 244, 244);
 }
 
-.products-container{
+.products-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin: 20px;
   border-bottom: 1px solid #000;
   font-size: 30px;
@@ -23,6 +23,7 @@
   align-content: center;
   justify-content: center;
   align-items: center;
+  /* width: 90%; */
 }
 
 ul {
@@ -33,8 +34,8 @@ ul {
 }
 
 .product-name-price {
-  display: flex;
-  flex-direction: row;
+  /* display: flex;
+  flex-direction: column; */
   margin: 20px;
   border-bottom: 1px solid #000;
   font-size: 30px;
@@ -42,4 +43,36 @@ ul {
   align-content: center;
   justify-content: space-between;
   align-items: center;
+}
+
+.product-name-container {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  border-bottom: 1px solid #000;
+  font-size: 30px;
+  font-weight: bold;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.quantity-input {
+  width: 50px;
+}
+
+.quantity-pic-container {
+  width: 500px;
+}
+
+.pic-previous {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.quantity-pic{
+  width: 300px;
+  border-radius: 5px;
 }
