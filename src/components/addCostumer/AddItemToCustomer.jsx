@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { postCustomerToApi } from '../../redux/forms/customerReducer';
 import { getItemFromApi } from '../../redux/forms/getItemsReducer';
 import { getOneItemFromApi } from '../../redux/forms/oneItemReducer';
+import './AddItemToCustomer.css';
 /* eslint-disable */
 const AddItemToCustomer = () => {
   const dispatch = useDispatch();
@@ -21,6 +22,12 @@ const AddItemToCustomer = () => {
       setCurrent(current - 1);
     }
   };
+
+const getFormattedPrice = (price) =>
+    new Intl.NumberFormat('en-IN', {
+      style: 'currency',
+      currency: 'NGN',
+    }).format(price);
 
   const handleNext = () => {
     if (current < lastItem) {
@@ -62,30 +69,49 @@ const AddItemToCustomer = () => {
   }, [current]);
 
   return (
-    <div>
-      <div>
-        <button type="button" onClick={handlePrevious}>
-          Previous
-        </button>
+    <div className="items-to-costumer">
+      <div className="products-container">
         <div>
-          <h1>{name}</h1>
-          <h4>{price}</h4>
+          <ul className="product-name-price">
+            <li>
+              <h2>{name}</h2>
+            </li>
+            <li>
+              <h4>{getFormattedPrice(price)}</h4>
+            </li>
+          </ul>
+          <div>
+            <ul>
+              <li>
+                <button type="button" onClick={handlePrevious}>
+                  Previous
+                </button>
+              </li>
+              <li>
+                <img src={picture} alt={name} style={{ width: '120px' }} />
+              </li>
+              <li>
+                <button type="button" onClick={handleNext}>
+                  Next
+                </button>
+              </li>
+            </ul>
+          </div>
           <h4>{description}</h4>
-          <img src={picture} alt={name} style={{ width: '120px' }} />
-          <input
-            type="number"
-            onChange={handleQuantity}
-            value={qauntity.toString()}
-          />
-          <button type="button" onClick={handleSub}>
-            Sum
-          </button>
-          <h3>{subTotal}</h3>
-          <h1>{grandTotal}</h1>
+          <div>
+            <input
+              type="number"
+              onChange={handleQuantity}
+              value={qauntity.toString()}
+            />
+            <button type="button" onClick={handleSub}>
+              Sum
+            </button>
+          </div>
+
+          <h3>Sub total:&nbsp;{subTotal}</h3>
+          <h1>Grand total: &nbsp;{grandTotal}</h1>
         </div>
-        <button type="button" onClick={handleNext}>
-          Next
-        </button>
       </div>
       <button type="button" onClick={handleContribution}>
         Finish
