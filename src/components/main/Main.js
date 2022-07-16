@@ -6,6 +6,7 @@ import ChartWithCrosshair from '../chart/Chart_with_Crosshair';
 import { getCustomerFromApi } from '../../redux/forms/customerReducer';
 import { getTransactionFromApi } from '../../redux/forms/transactionReducer';
 import { getUsersFromApi } from '../../redux/forms/userManReducer';
+import { getItemFromApi } from '../../redux/forms/getItemsReducer';
 
 const data = JSON.parse(localStorage.getItem('user'));
 const { user } = data || {};
@@ -21,11 +22,15 @@ const Main = () => {
   const numOfMarketers = marketers.length;
   const admins = users.data.filter((user) => user.role === 'admin');
   const numOfAdmins = admins.length;
+  const products = useSelector((state) => state.item);
+  const numOfProducts = products.data.length;
+  console.log(products);
 
   useEffect(() => {
     dispatch(getCustomerFromApi());
     dispatch(getTransactionFromApi());
     dispatch(getUsersFromApi());
+    dispatch(getItemFromApi());
   }, []);
 
   return (
@@ -69,6 +74,13 @@ const Main = () => {
                 <div className="card__inner">
                   <p className="text-primary-p">Number of Admins</p>
                   <span className="font-bold text-title">{numOfAdmins}</span>
+                </div>
+              </div>
+              <div className="cards">
+                <i className="fa fa-thumbs-up fa-2x text-green" />
+                <div className="card__inner">
+                  <p className="text-primary-p">Number of Products</p>
+                  <span className="font-bold text-title">{numOfProducts}</span>
                 </div>
               </div>
             </div>
