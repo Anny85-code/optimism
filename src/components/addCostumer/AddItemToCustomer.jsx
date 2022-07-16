@@ -95,7 +95,7 @@ const getFormattedPrice = (price) =>
         <div className="product-name-container">
           <ul className="product-name-price">
             <li>
-              <h2>{name}</h2>
+              <h3>{name}</h3>
             </li>
             <li className="qunatity-price">
               <h4>{getFormattedPrice(price)}</h4>
@@ -112,18 +112,22 @@ const getFormattedPrice = (price) =>
               />
             </li>
             <li>
-              <button type="button" onClick={handleSub} className="sum-item-btn">
+              <button
+                type="button"
+                onClick={handleSub}
+                className="sum-item-btn"
+              >
                 Sum Item
               </button>
             </li>
           </ul>
         </div>
         <div>
-          <h3>Sub total:&nbsp;{subTotal}</h3>
-          <h1>Grand total: &nbsp;{grandTotal}</h1>
+          <h3 className="qty-p-total">Sub total:&nbsp;{subTotal}</h3>
+          <h1 className="qty-p-total">Grand total: &nbsp;{grandTotal}</h1>
         </div>
-        <button type="button" onClick={handleContribution}>
-          Finish
+        <button type="button" onClick={handleContribution} className="finish-btn">
+          Add Customer
         </button>
       </div>
     </div>
