@@ -69,7 +69,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
   const customerSection = (
     <>
       <div className="sidebar__link" onClick={toggleDropdownCustomer}>
-        <i className="fa fa-wrench" />
+        <i className="fa fa-gears" />
         <a href="#">Customer Management</a>
         <i className="fa fa-caret-right" id="toggle-btn" />
         <ul
@@ -102,7 +102,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
   const seasonSection = (
     <>
       <div className="sidebar__link" onClick={toggleDropdownSeason}>
-        <i className="fa fa-wrench" />
+        <i className="fa fa-gears" />
         <a href="#">Season Management</a>
         <i
           className="fa fa-caret-right"
@@ -139,7 +139,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
   const transactionSection = (
     <>
       <div className="sidebar__link" onClick={toggleDropdownTransaction}>
-        <i className="fa fa-wrench" />
+        <i className="fa fa-gears" />
         <a href="#">Transaction Management</a>
         <i
           className="fa fa-caret-right"
@@ -205,11 +205,11 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
               <a href="#">Company Management</a>
             </div>
             <div className="sidebar__link">
-              <i className="fa fa-wrench" />
+              <i className="fa fa-gears" />
               <a href="#">Employee Management</a>
             </div>
             <div className="sidebar__link" onClick={toggleDropdownMarkerter}>
-              <i className="fa fa-wrench" />
+              <i className="fa fa-gears" />
               <a href="#">Marketer Management</a>
               <i className="fa fa-caret-right" id="toggle-btn" />
               <ul
@@ -243,7 +243,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
         {user.role === 'admin' && (
           <>
             <div className="sidebar__link" onClick={toggleDropdownProduct}>
-              <i className="fa fa-wrench" />
+              <i className="fa fa-gears" />
               <a href="#">Product Management</a>
               <i className="fa fa-caret-right" id="toggle-btn" />
               <ul
