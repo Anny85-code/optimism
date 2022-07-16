@@ -13,6 +13,12 @@ const Search = () => {
     document.getElementById('search-container1').style.display = 'none';
   };
 
+  const handleSelected = () => {
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
+  };
+
   useEffect(() => {
     dispatch(getCustomerFromApi());
   }, []);
@@ -23,9 +29,6 @@ const Search = () => {
       customer.name.toLowerCase().includes(typedContent.toLowerCase())
     );
     setACustomer(filteredCustomer);
-    setTimeout(() => {
-      window.location.reload();
-    }, 5000);
   };
 
   return (
@@ -39,6 +42,7 @@ const Search = () => {
             type="text"
             onChange={handleChange}
             placeholder="Search customers"
+            autoFocus={true}
           />
         </div>
       </div>
@@ -48,7 +52,7 @@ const Search = () => {
             <NavLink key={customer.id} to={`/customers/${customer.id}`}>
               <div className="dropdown-row">
                 <div className="search-text">
-                  <p>{customer.name}</p>
+                  <p onClick={handleSelected}>{customer.name}</p>
                 </div>
               </div>
             </NavLink>
