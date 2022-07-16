@@ -16,7 +16,7 @@
 .products-container {
   display: flex;
   flex-direction: column;
-  margin: 0 ;
+  margin: 0;
   border-bottom: 1px solid #000;
   font-size: 30px;
   font-weight: bold;
@@ -37,6 +37,7 @@ ul {
 .product-name-price {
   /* display: flex;
   flex-direction: column; */
+
   /* margin: 0 20px; */
   font-size: 30px;
   font-weight: bold;
@@ -48,6 +49,7 @@ ul {
 .product-name-container {
   display: flex;
   flex-direction: column;
+
   /* margin: 0 20px; */
   font-size: 30px;
   font-weight: bold;
@@ -71,7 +73,7 @@ ul {
   gap: 30px;
 }
 
-.quantity-pic{
+.quantity-pic {
   width: 300px;
   border-radius: 5px;
 }
