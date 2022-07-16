@@ -110,7 +110,7 @@ const Main = () => {
               <img src={hello} alt="hello logo" />
               <div className="main__greetings">
                 <h1>Hello {user.name}</h1>
-                <p>Welcome to annother lovely day {user.name}!</p>
+                <p>Welcome to another lovely day {user.name}!</p>
               </div>
             </div>
           </div>
