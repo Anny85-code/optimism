@@ -5,6 +5,7 @@ import hello from '../../assets/image/hello.jfif';
 import ChartWithCrosshair from '../chart/Chart_with_Crosshair';
 import { getCustomerFromApi } from '../../redux/forms/customerReducer';
 import { getTransactionFromApi } from '../../redux/forms/transactionReducer';
+import { getUsersFromApi } from '../../redux/forms/userManReducer';
 
 const data = JSON.parse(localStorage.getItem('user'));
 const { user } = data || {};
@@ -15,10 +16,14 @@ const Main = () => {
   const numOfCustomers = customers.data.length;
   const transactions = useSelector((state) => state.transactions);
   const numOfTransactions = transactions.data.length;
+  const users = useSelector((state) => state.userManReducer);
+  const marketers = users.data.filter((user) => user.role === 'marketer');
+  const numOfMarketers = marketers.length;
 
   useEffect(() => {
     dispatch(getCustomerFromApi());
     dispatch(getTransactionFromApi());
+    dispatch(getUsersFromApi());
   }, []);
 
   return (
@@ -53,8 +58,8 @@ const Main = () => {
               <div className="cards">
                 <i className="fa fa-user-o fa-2x text-yellow" />
                 <div className="card__inner">
-                  <p className="text-primary-p">Number of Employees</p>
-                  <span className="font-bold text-title">300</span>
+                  <p className="text-primary-p">Number of Marketers</p>
+                  <span className="font-bold text-title">{numOfMarketers}</span>
                 </div>
               </div>
               <div className="cards">
