@@ -4,6 +4,7 @@ import './Main.css';
 import hello from '../../assets/image/hello.jfif';
 import ChartWithCrosshair from '../chart/Chart_with_Crosshair';
 import { getCustomerFromApi } from '../../redux/forms/customerReducer';
+import { getTransactionFromApi } from '../../redux/forms/transactionReducer';
 
 const data = JSON.parse(localStorage.getItem('user'));
 const { user } = data || {};
@@ -12,9 +13,12 @@ const Main = () => {
   const dispatch = useDispatch();
   const customers = useSelector((state) => state.customer);
   const numOfCustomers = customers.data.length;
+  const transactions = useSelector((state) => state.transactions);
+  const numOfTransactions = transactions.data.length;
 
   useEffect(() => {
     dispatch(getCustomerFromApi());
+    dispatch(getTransactionFromApi());
   }, []);
 
   return (
@@ -41,7 +45,9 @@ const Main = () => {
                 <i class="fa fa-users fa-2x" />
                 <div className="card__inner">
                   <p className="text-primary-p">Number of Transactions</p>
-                  <span className="font-bold text-title">2657</span>
+                  <span className="font-bold text-title">
+                    {numOfTransactions}
+                  </span>
                 </div>
               </div>
               <div className="cards">
