@@ -1,39 +1,11 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import './Main.css';
 import hello from '../../assets/image/hello.jfif';
 import ChartWithCrosshair from '../chart/Chart_with_Crosshair';
-import { getCustomerFromApi } from '../../redux/forms/customerReducer';
-import { getTransactionFromApi } from '../../redux/forms/transactionReducer';
-import { getUsersFromApi } from '../../redux/forms/userManReducer';
-import { getItemFromApi } from '../../redux/forms/getItemsReducer';
 
 const data = JSON.parse(localStorage.getItem('user'));
 const { user } = data || {};
 /* eslint-disable */
 const Main = () => {
-  const dispatch = useDispatch();
-  const customers = useSelector((state) => state.customer);
-  const numOfCustomers = customers.data.length;
-  const transactions = useSelector((state) => state.transactions);
-  const numOfTransactions = transactions.data.length;
-  const users = useSelector((state) => state.userManReducer);
-  const marketers = users.data.filter((user) => user.role === 'marketer');
-  const numOfMarketers = marketers.length;
-  const admins = users.data.filter((user) => user.role === 'admin');
-  const numOfAdmins = admins.length;
-  const products = useSelector((state) => state.item);
-  const numOfProducts = products.data.length;
-  const date = new Date();
-  const today = date.toDateString();
-
-  useEffect(() => {
-    dispatch(getCustomerFromApi());
-    dispatch(getTransactionFromApi());
-    dispatch(getUsersFromApi());
-    dispatch(getItemFromApi());
-  }, []);
-
   return (
     <>
       {user.role === 'admin' ? (
@@ -43,48 +15,36 @@ const Main = () => {
               <img src={hello} alt="hello logo" />
               <div className="main__greetings">
                 <h1>Hello {user.name}</h1>
-                <h4>
-                  Welcome to another brand new day {user.name}! Today is {today}
-                  .
-                </h4>
+                <p>Welcome to another brand new day {user.name}!</p>
               </div>
             </div>
             <div className="main__cards">
               <div className="cards">
                 <i className="fa fa-user-o fa-2x text-lightblue" />
                 <div className="card__inner">
-                  <p className="text-primary-p">Number of Customers</p>
-                  <span className="font-bold text-title">{numOfCustomers}</span>
+                  <p className="text-primary-p">Number of Subscribers</p>
+                  <span className="font-bold text-title">678</span>
                 </div>
               </div>
               <div className="cards">
                 <i class="fa fa-users fa-2x" />
                 <div className="card__inner">
-                  <p className="text-primary-p">Number of Transactions</p>
-                  <span className="font-bold text-title">
-                    {numOfTransactions}
-                  </span>
+                  <p className="text-primary-p">Number of Affiliates</p>
+                  <span className="font-bold text-title">2657</span>
                 </div>
               </div>
               <div className="cards">
                 <i className="fa fa-user-o fa-2x text-yellow" />
                 <div className="card__inner">
-                  <p className="text-primary-p">Number of Marketers</p>
-                  <span className="font-bold text-title">{numOfMarketers}</span>
+                  <p className="text-primary-p">Number of Employees</p>
+                  <span className="font-bold text-title">300</span>
                 </div>
               </div>
               <div className="cards">
                 <i className="fa fa-thumbs-up fa-2x text-green" />
                 <div className="card__inner">
-                  <p className="text-primary-p">Number of Admins</p>
-                  <span className="font-bold text-title">{numOfAdmins}</span>
-                </div>
-              </div>
-              <div className="cards">
-                <i className="fa fa-thumbs-up fa-2x text-green" />
-                <div className="card__inner">
-                  <p className="text-primary-p">Number of Products</p>
-                  <span className="font-bold text-title">{numOfProducts}</span>
+                  <p className="text-primary-p">Number of Likes</p>
+                  <span className="font-bold text-title">678</span>
                 </div>
               </div>
             </div>
@@ -139,9 +99,7 @@ const Main = () => {
               <img src={hello} alt="hello logo" />
               <div className="main__greetings">
                 <h1>Hello {user.name}</h1>
-                <h4>
-                  Welcome to another lovely day {user.name}! Today is {today}.
-                </h4>
+                <p>Welcome to annother lovely day {user.name}!</p>
               </div>
             </div>
           </div>
