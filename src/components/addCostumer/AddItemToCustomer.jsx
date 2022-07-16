@@ -73,17 +73,21 @@ const getFormattedPrice = (price) =>
       <div className="quantity-pic-container">
         <ul className="pic-previous">
           <li>
-            <button type="button" onClick={handlePrevious}>
-              Previous
-            </button>
+            <i
+              className="fa fa-arrow-left"
+              id="toggle-btn"
+              onClick={handlePrevious}
+            />
           </li>
           <li>
             <img src={picture} alt={name} className="quantity-pic" />
           </li>
           <li>
-            <button type="button" onClick={handleNext}>
-              Next
-            </button>
+            <i
+              className="fa fa-arrow-right"
+              id="toggle-btn"
+              onClick={handleNext}
+            />
           </li>
         </ul>
       </div>
