@@ -102,7 +102,7 @@ const getFormattedPrice = (price) =>
             </li>
           </ul>
           <h4>{description}</h4>
-          <ul>
+          <ul className="input-add">
             <li>
               <input
                 type="number"

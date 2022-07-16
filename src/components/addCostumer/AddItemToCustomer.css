@@ -16,7 +16,7 @@
 .products-container {
   display: flex;
   flex-direction: column;
-  margin: 0 20px;
+  margin: 0 ;
   border-bottom: 1px solid #000;
   font-size: 30px;
   font-weight: bold;
@@ -37,7 +37,7 @@ ul {
 .product-name-price {
   /* display: flex;
   flex-direction: column; */
-  margin: 0 20px;
+  /* margin: 0 20px; */
   font-size: 30px;
   font-weight: bold;
   align-content: center;
@@ -48,7 +48,7 @@ ul {
 .product-name-container {
   display: flex;
   flex-direction: column;
-  margin: 0 20px;
+  /* margin: 0 20px; */
   font-size: 30px;
   font-weight: bold;
   align-content: center;
@@ -57,7 +57,7 @@ ul {
 }
 
 .quantity-input {
-  width: 50px;
+  width: 40px;
 }
 
 .quantity-pic-container {
@@ -80,4 +80,8 @@ ul {
   font-size: 18px;
   font-weight: 400;
   font-style: italic;
+}
+
+.input-add {
+  display: flex;
 }
