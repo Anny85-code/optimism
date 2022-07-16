@@ -107,6 +107,7 @@ label {
   margin: 30px 0 30px 30px;
   outline: none;
   box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #967777;
+  border: none;
 }
 
 .update-cus-button {

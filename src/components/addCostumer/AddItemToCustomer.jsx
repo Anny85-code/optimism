@@ -112,8 +112,8 @@ const getFormattedPrice = (price) =>
               />
             </li>
             <li>
-              <button type="button" onClick={handleSub}>
-                Sum
+              <button type="button" onClick={handleSub} className="sum-item-btn">
+                Sum Item
               </button>
             </li>
           </ul>
