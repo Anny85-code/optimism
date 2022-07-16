@@ -1,6 +1,6 @@
 .items-to-costumer {
   display: grid;
-  grid-template-columns: 5fr 1fr;
+  grid-template-columns: 4fr 1.5fr;
   width: 900px;
   gap: 20px;
   font-family: 'Gumela', sans-serif;
@@ -16,14 +16,15 @@
 .products-container {
   display: flex;
   flex-direction: column;
-  margin: 20px;
+  margin: 0 20px;
   border-bottom: 1px solid #000;
   font-size: 30px;
   font-weight: bold;
   align-content: center;
   justify-content: center;
   align-items: center;
-  /* width: 90%; */
+  margin-right: 50px;
+  text-align: center;
 }
 
 ul {
@@ -36,8 +37,7 @@ ul {
 .product-name-price {
   /* display: flex;
   flex-direction: column; */
-  margin: 20px;
-  border-bottom: 1px solid #000;
+  margin: 0 20px;
   font-size: 30px;
   font-weight: bold;
   align-content: center;
@@ -48,8 +48,7 @@ ul {
 .product-name-container {
   display: flex;
   flex-direction: column;
-  margin: 20px;
-  border-bottom: 1px solid #000;
+  margin: 0 20px;
   font-size: 30px;
   font-weight: bold;
   align-content: center;
@@ -75,4 +74,10 @@ ul {
 .quantity-pic{
   width: 300px;
   border-radius: 5px;
+}
+
+.qunatity-price {
+  font-size: 18px;
+  font-weight: 400;
+  font-style: italic;
 }

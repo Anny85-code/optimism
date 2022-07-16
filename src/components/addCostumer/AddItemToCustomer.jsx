@@ -97,7 +97,7 @@ const getFormattedPrice = (price) =>
             <li>
               <h2>{name}</h2>
             </li>
-            <li>
+            <li className="qunatity-price">
               <h4>{getFormattedPrice(price)}</h4>
             </li>
           </ul>
