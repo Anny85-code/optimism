@@ -50,7 +50,7 @@ ul {
   display: flex;
   flex-direction: column;
 
-  /* margin: 0 20px; */
+  margin: 10px;
   font-size: 30px;
   font-weight: bold;
   align-content: center;
@@ -60,6 +60,8 @@ ul {
 
 .quantity-input {
   width: 40px;
+  height: 20px;
+  font-size: 13px;
 }
 
 .quantity-pic-container {
@@ -82,8 +84,23 @@ ul {
   font-size: 18px;
   font-weight: 400;
   font-style: italic;
+  width: 100px;
 }
 
 .input-add {
   display: flex;
+  border: 1px solid #000;
+  width: 150px;
+}
+
+.input-add > li{
+  margin: 10px;
+  
+}
+
+.qty-desc {
+  font-size: 16px;
+  font-weight: 300;
+  font-style: normal;
+  /* width: 100px; */
 }

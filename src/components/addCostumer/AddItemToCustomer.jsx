@@ -101,7 +101,7 @@ const getFormattedPrice = (price) =>
               <h4>{getFormattedPrice(price)}</h4>
             </li>
           </ul>
-          <h4>{description}</h4>
+          <h4 className="qty-desc">{description}</h4>
           <ul className="input-add">
             <li>
               <input
