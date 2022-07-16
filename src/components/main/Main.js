@@ -24,7 +24,8 @@ const Main = () => {
   const numOfAdmins = admins.length;
   const products = useSelector((state) => state.item);
   const numOfProducts = products.data.length;
-  console.log(products);
+  const date = new Date();
+  const today = date.toDateString();
 
   useEffect(() => {
     dispatch(getCustomerFromApi());
@@ -42,7 +43,10 @@ const Main = () => {
               <img src={hello} alt="hello logo" />
               <div className="main__greetings">
                 <h1>Hello {user.name}</h1>
-                <p>Welcome to another brand new day {user.name}!</p>
+                <h4>
+                  Welcome to another brand new day {user.name}! Today is {today}
+                  .
+                </h4>
               </div>
             </div>
             <div className="main__cards">
@@ -135,7 +139,9 @@ const Main = () => {
               <img src={hello} alt="hello logo" />
               <div className="main__greetings">
                 <h1>Hello {user.name}</h1>
-                <p>Welcome to another lovely day {user.name}!</p>
+                <h4>
+                  Welcome to another lovely day {user.name}! Today is {today}.
+                </h4>
               </div>
             </div>
           </div>
