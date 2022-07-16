@@ -77,6 +77,7 @@ ul {
 
 .quantity-pic {
   width: 300px;
+  height: 300px;
   border-radius: 5px;
 }
 
@@ -85,6 +86,7 @@ ul {
   font-weight: 400;
   font-style: italic;
   width: 100px;
+  text-align: center;
 }
 
 .input-add {
@@ -141,4 +143,66 @@ ul {
   font-weight: bold;
   cursor: pointer;
   box-shadow: 5px 5px 13px #f7f1f1, -5px -5px 13px #e2dcdc;
+}
+
+@media only screen and (max-width: 978px) {
+  .items-to-costumer {
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+    margin: 20px ;
+  }
+
+  .products-container {
+    margin: 0;
+  }
+
+  .product-name-price {
+    font-size: 20px;
+  }
+
+  .product-name-container {
+    font-size: 20px;
+  }
+
+  .quantity-input {
+    width: 50px;
+  }
+
+  .quantity-pic-container {
+    width: 100%;
+  }
+
+  .quantity-pic {
+    width: 200px;
+    height: 200px;
+  }
+
+  .qunatity-price {
+    font-size: 14px;
+  }
+
+  .input-add {
+    width: 100%;
+  }
+
+  .input-add > li {
+    margin: 5px;
+  }
+
+  .qty-desc {
+    font-size: 14px;
+  }
+
+  .sum-item-btn {
+    width: 100%;
+  }
+
+  .qty-p-total {
+    font-size: 16px;
+  }
+
+  .finish-btn {
+    width: 100%;
+  }
 }
