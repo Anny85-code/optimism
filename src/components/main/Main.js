@@ -19,6 +19,8 @@ const Main = () => {
   const users = useSelector((state) => state.userManReducer);
   const marketers = users.data.filter((user) => user.role === 'marketer');
   const numOfMarketers = marketers.length;
+  const admins = users.data.filter((user) => user.role === 'admin');
+  const numOfAdmins = admins.length;
 
   useEffect(() => {
     dispatch(getCustomerFromApi());
@@ -65,8 +67,8 @@ const Main = () => {
               <div className="cards">
                 <i className="fa fa-thumbs-up fa-2x text-green" />
                 <div className="card__inner">
-                  <p className="text-primary-p">Number of Likes</p>
-                  <span className="font-bold text-title">678</span>
+                  <p className="text-primary-p">Number of Admins</p>
+                  <span className="font-bold text-title">{numOfAdmins}</span>
                 </div>
               </div>
             </div>
