@@ -272,7 +272,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
             </div>
             {seasonSection}
             <div className="sidebar__link">
-              <i className="fa fa-handshake-o" />
+              <i className="fa fa-suitcase" />
               <a href="#">Contributions</a>
             </div>
             <h2>PAYMENT</h2>
