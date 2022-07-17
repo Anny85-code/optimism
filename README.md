@@ -47,7 +47,7 @@ Contributions, issues, and feature requests are welcome!
 
 ## Show your support
 
-Give a ⭐️ if I like this project!
+Give a ⭐️ if You like this project!
 
 ## Acknowledgments
 
