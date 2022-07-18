@@ -1,3 +1,4 @@
+/* stylelint-disable */
 .cus-name {
   font-size: 20px;
   font-weight: 700;
@@ -39,3 +40,4 @@
     font-size: 15px;
   }
 }
+/* stylelint-enable */
