@@ -2,7 +2,7 @@
   width: 800px;
   gap: 20px;
   font-family: 'Gumela', sans-serif;
-  margin: 20px;
+  margin: 20px 20px 20px 120px;
   box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #967777;
   border-radius: 8px;
 }
@@ -39,6 +39,7 @@
 @media only screen and (max-width: 768px) {
   .form-container-item-list {
     width: 320px;
+    margin: 20px;
   }
 
   .item-name li img {
