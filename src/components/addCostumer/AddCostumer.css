@@ -4,7 +4,7 @@
   align-items: center;
   gap: 20px;
   font-family: 'Gumela', sans-serif;
-  margin: 20px;
+  margin: 20px 20px 20px 240px;
   box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #967777;
   border-radius: 8px;
 }
@@ -127,6 +127,10 @@ label {
 @media only screen and (max-width: 978px) {
   input {
     width: 250px;
+  }
+
+  .form-container {
+    margin: 20px;
   }
 
   .form-group {
