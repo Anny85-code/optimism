@@ -13,14 +13,14 @@
 }
 
 .customer-container {
-  margin: 20px 50px;
+  margin: 20px 20px 20px 100px;
   padding: 4px;
   background-color: azure;
   border-radius: 8px;
   text-align: center;
   height: 50px;
   color: #2e4a66;
-  width: 600px;
+  width: 800px;
 }
 
 .customer-container :nth-child(even) {
