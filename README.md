@@ -21,6 +21,8 @@ This project is a contribution application that allows users to keep track and m
 
 - Make sure you have node installed in your system.
 - Make sure you have ruby installed on your system
+- Make sure you have rails installed in your system.
+
 
 
 ## Installation
