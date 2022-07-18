@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
+import { getSeasonFromApi } from '../../redux/forms/seasonReducer';
 /* eslint-disable */
 import {
   getTransactionFromApi,
@@ -27,9 +28,10 @@ const Contribution = () => {
   const { data } = customerDetails;
   const lastTransaction = oneCustomerTransactions.slice(-1);
   let lastDate;
-  lastDate === null || lastDate === undefined
-    ? (lastDate = '2022-08-12') // Add start date of season here
-    : (lastDate = lastTransaction[0]?.current_contribution_date);
+  // lastDate === null || lastDate === undefined
+  lastTransaction.length
+    ? (lastDate = lastTransaction[0]?.current_contribution_date)
+    : (lastDate = '2022-08-12'); // Add start date of season here
   const date = new Date(lastDate);
   const AddDaysToDate = date.setDate(date.getDate() + daysNo);
   const convertDate = new Date(AddDaysToDate);
@@ -64,6 +66,7 @@ const Contribution = () => {
   useEffect(() => {
     dispatch(getOneCustomerFromApi(cardNumber));
     dispatch(getTransactionFromApi());
+    dispatch(getSeasonFromApi());
   }, []);
 
   return (
