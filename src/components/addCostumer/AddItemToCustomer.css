@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Quintessential&display=swap');
+
 .items-to-costumer {
   display: grid;
   grid-template-columns: 4fr 1.5fr;
@@ -34,10 +36,6 @@ ul {
 }
 
 .product-name-price {
-  /* display: flex;
-  flex-direction: column; */
-
-  /* margin: 0 20px; */
   font-size: 30px;
   font-weight: bold;
   align-content: center;
@@ -78,6 +76,7 @@ ul {
 .qty-i-name {
   font-size: 30px;
   margin-bottom: 10px;
+  font-family: 'Quintessential', sans-serif;
 }
 
 .quantity-pic {
