@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
-import { postSeasonToApi } from '../../redux/forms/seasonReducer';
+import {
+  getSeasonFromApi,
+  postSeasonToApi,
+} from '../../redux/forms/seasonReducer';
 import './AddSeason.css';
+import { useEffect } from 'react';
 
 /* eslint-disable */
 const AddSeason = () => {
+  const seasons = useSelector((state) => state.seasons);
+  const allSeasonsSize = seasons.data.length;
+  console.log(allSeasonsSize);
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [days, setDays] = useState(0);
@@ -47,8 +54,15 @@ const AddSeason = () => {
   };
 
   const handdleCreate = () => {
+    // only create if
+    // 1- There is no season
+    // 2- The current date is greater than the last day of the last season
     dispatch(postSeasonToApi(seasonData));
   };
+
+  useEffect(() => {
+    dispatch(getSeasonFromApi());
+  }, []);
 
   return (
     <div className="form-container">
