@@ -14,7 +14,7 @@ import EditCustomer from './components/customer/EditCustomer';
 import Users from './components/user/Users';
 import User from './components/user/User';
 import EditUser from './components/user/EditUser';
-import AddItemCustomer from './components/addCostumer/addItemCustomer/AddItemCustomer';
+// import AddItemCustomer from './components/addCostumer/addItemCustomer/AddItemCustomer';
 import AddProduct from './components/items/products/AddProducts';
 import ViewItems from './components/items/ViewItems';
 import Search from './components/search/Search';
@@ -54,11 +54,13 @@ const App = () => {
             <Route path="/customers" element={<Customers />} />
             <Route path="/customers/:id" element={<Customer />} />
             <Route path="/addcustomer" element={<AddCustomer />} />
-            <Route path="/additemcustomer" element={<AddItemCustomer />} />
+            {/* <Route path="/additemcustomer" element={<AddItemCustomer />} /> */}
             <Route path="/addtransaction" element={<AddTransaction />} />
             <Route path="/contribution" element={<Contribution />} />
             <Route path="/transactions" element={<Transactions />} />
             <Route path="/transactions/:id" element={<Transaction />} />
+            <Route path="/addproducts" element={<AddItemToCustomer />} />
+            <Route path="/custumers" element={<Customers />} />
             {user.role === 'admin' && (
               <>
                 <Route path="/register" element={<Register />} />
@@ -66,13 +68,11 @@ const App = () => {
                 <Route path="/users" element={<Users />} />
                 <Route path="/users/:id" element={<User />} />
                 <Route path="/users/:id/edit" element={<EditUser />} />
-                <Route path="/custumers" element={<Customers />} />
                 <Route path="/products" element={<ViewItems />} />
                 <Route path="/addproduct" element={<AddProduct />} />
                 <Route path="/addseason" element={<AddSeason />} />
                 <Route path="/seasons" element={<Seasons />} />
                 <Route path="/season/:id" element={<Season />} />
-                <Route path="/addproducts" element={<AddItemToCustomer />} />
               </>
             )}
           </Routes>
