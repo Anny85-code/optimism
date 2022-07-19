@@ -170,6 +170,15 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
               View All Transactions
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="/searchcontribution"
+              style={{ textDecoration: 'none' }}
+              onClick={closeSideBar}
+            >
+              Search Contribution
+            </NavLink>
+          </li>
         </ul>
       </div>
     </>
