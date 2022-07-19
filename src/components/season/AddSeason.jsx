@@ -7,12 +7,18 @@ import {
   postSeasonToApi,
 } from '../../redux/forms/seasonReducer';
 import './AddSeason.css';
+import { getOneSeasonFromApi } from '../../redux/forms/oneSeasonReducer';
 
 /* eslint-disable */
 const AddSeason = () => {
   const seasons = useSelector((state) => state.seasons);
+  const season = useSelector((state) => state.oneSeason);
+  const { end_date } = season.data;
+  const endDate = new Date(end_date);
+  const today = new Date();
+  console.log(endDate > today);
+  console.log(2, today > endDate);
   const allSeasonsSize = seasons.data.length;
-  console.log(allSeasonsSize);
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [days, setDays] = useState(0);
@@ -56,11 +62,18 @@ const AddSeason = () => {
     // only create if
     // 1- There is no season
     // 2- The current date is greater than the last day of the last season
-    dispatch(postSeasonToApi(seasonData));
+    if (!season.data || today > endDate) {
+      dispatch(postSeasonToApi(seasonData));
+    } else {
+      alert(
+        `You cannot create a season while there is a running ${season.data.name} is on!!`
+      );
+    }
   };
 
   useEffect(() => {
     dispatch(getSeasonFromApi());
+    dispatch(getOneSeasonFromApi(allSeasonsSize));
   }, []);
 
   return (
