@@ -1,12 +1,22 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
-import { postSeasonToApi } from '../../redux/forms/seasonReducer';
+import {
+  getSeasonFromApi,
+  postSeasonToApi,
+} from '../../redux/forms/seasonReducer';
 import './AddSeason.css';
+import { getOneSeasonFromApi } from '../../redux/forms/oneSeasonReducer';
 
 /* eslint-disable */
 const AddSeason = () => {
+  const seasons = useSelector((state) => state.seasons);
+  const season = useSelector((state) => state.oneSeason);
+  const { end_date } = season.data;
+  const endDate = new Date(end_date);
+  const today = new Date();
+  const allSeasonsSize = seasons.data.length;
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [days, setDays] = useState(0);
@@ -47,8 +57,21 @@ const AddSeason = () => {
   };
 
   const handdleCreate = () => {
-    dispatch(postSeasonToApi(seasonData));
+    if (!season.data || today > endDate) {
+      dispatch(postSeasonToApi(seasonData));
+    } else {
+      alert(
+        `${
+          season.data.name.slice(0, 1).toUpperCase() + season.data.name.slice(1)
+        } is still on!!`
+      );
+    }
   };
+
+  useEffect(() => {
+    dispatch(getSeasonFromApi());
+    dispatch(getOneSeasonFromApi(allSeasonsSize));
+  }, []);
 
   return (
     <div className="form-container">
