@@ -2,13 +2,11 @@ import endpoint from '../../assets/url/url';
 import { sendErrors } from './errors';
 
 export const registerUserToApi = (userData) => async (dispatch) => {
-  // const auth
   const regUser = await fetch(`${endpoint}/users`, {
     method: 'POST',
     headers: {
       'content-type': 'application/json',
       Accept: 'application/json',
-      // Authorization: {},
     },
     body: JSON.stringify(userData),
   });
@@ -33,23 +31,17 @@ export const logUserToApi = (userData) => async (dispatch) => {
     body: JSON.stringify({ username, password }),
   });
   const rawData = await sendData.json();
-  // const waitedData = await rawData;
-  // console.log(waitedData);
-  if (rawData.status === 500 || !rawData.length) {
+  if (rawData.status === 200) {
+    localStorage.setItem('user', JSON.stringify(rawData));
+    localStorage.setItem('token', rawData.token);
+    localStorage.setItem('isLoggedIn', true);
+    window.location.reload();
+    dispatch({ type: 'LOGIN_SUCCESS', rawData });
+  } else {
     const errMsg = 'Check login credentials or internet connection!';
     dispatch(sendErrors({ error: errMsg }));
     console.error('Check login credentials or internet connection!');
   }
-  //   const errorMsg = rawData.error;
-  //   dispatch({ type: 'LOGIN_FAILED', errorMsg });
-  // } else {
-  //   localStorage.setItem('user', JSON.stringify(rawData));
-  //   localStorage.setItem('token', rawData.token);
-  //   localStorage.setItem('isLoggedIn', true);
-  //   // window.history.pushState({}, '', '/');
-  //   window.location.reload();
-  //   dispatch({ type: 'LOGIN_SUCCESS', rawData });
-  // }
 };
 
 const userReducer = (
