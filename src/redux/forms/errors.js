@@ -5,7 +5,7 @@ export const sendErrors = (payload) => ({
   payload,
 });
 
-const errorReducer = (state = [], action) => {
+const errorReducer = (state = {}, action) => {
   switch (action.type) {
     case GET_ERRORS:
       return action.payload;
