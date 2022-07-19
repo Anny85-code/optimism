@@ -1,5 +1,5 @@
 import endpoint from '../../assets/url/url';
-import { sendErrors } from './errors';
+import { sendErrors, sendNotifications } from './errors';
 
 export const registerUserToApi = (userData) => async (dispatch) => {
   const regUser = await fetch(`${endpoint}/users`, {
@@ -11,6 +11,7 @@ export const registerUserToApi = (userData) => async (dispatch) => {
     body: JSON.stringify(userData),
   });
   const regUserResp = await regUser.json();
+  console.log(regUserResp);
   if (regUserResp.error || regUserResp.errors) {
     const errorMsg = regUserResp.error || regUserResp.errors;
     dispatch({ type: 'SIGNUP_FAILED', errorMsg });
@@ -36,11 +37,11 @@ export const logUserToApi = (userData) => async (dispatch) => {
     localStorage.setItem('token', rawData.token);
     localStorage.setItem('isLoggedIn', true);
     window.location.reload();
-    dispatch({ type: 'LOGIN_SUCCESS', rawData });
+    const notifyMsg = 'Login successfully!';
+    dispatch(sendNotifications({ notify: notifyMsg }));
   } else {
     const errMsg = 'Check login credentials or internet connection!';
     dispatch(sendErrors({ error: errMsg }));
-    console.error('Check login credentials or internet connection!');
   }
 };
 
