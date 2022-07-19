@@ -32,22 +32,28 @@ export const logUserToApi = (userData) => async (dispatch) => {
     body: JSON.stringify({ username, password }),
   });
   const rawData = await sendData.json();
-  if (rawData.error) {
-    const errorMsg = rawData.error;
-    dispatch({ type: 'LOGIN_FAILED', errorMsg });
-  } else {
-    localStorage.setItem('user', JSON.stringify(rawData));
-    localStorage.setItem('token', rawData.token);
-    localStorage.setItem('isLoggedIn', true);
-    // window.history.pushState({}, '', '/');
-    window.location.reload();
-    dispatch({ type: 'LOGIN_SUCCESS', rawData });
+  // const waitedData = await rawData;
+  // console.log(waitedData);
+  if (rawData.status === 500 || !rawData.length) {
+    const errMsg = 'Check login credentials or internet connection!';
+    dispatch({ type: 'LOGIN_FAILED', errMsg });
+    console.error('Check login credentials or internet connection!');
   }
+  //   const errorMsg = rawData.error;
+  //   dispatch({ type: 'LOGIN_FAILED', errorMsg });
+  // } else {
+  //   localStorage.setItem('user', JSON.stringify(rawData));
+  //   localStorage.setItem('token', rawData.token);
+  //   localStorage.setItem('isLoggedIn', true);
+  //   // window.history.pushState({}, '', '/');
+  //   window.location.reload();
+  //   dispatch({ type: 'LOGIN_SUCCESS', rawData });
+  // }
 };
 
 const userReducer = (
   state = { user: null, isLoggedIn: false, error: null },
-  action,
+  action
 ) => {
   switch (action.type) {
     case 'SIGNUP_SUCCESS':
