@@ -16,8 +16,6 @@ const AddSeason = () => {
   const { end_date } = season.data;
   const endDate = new Date(end_date);
   const today = new Date();
-  console.log('endDate > today', endDate > today);
-  console.log('today > endDate', today > endDate);
   const allSeasonsSize = seasons.data.length;
   const dispatch = useDispatch();
   const [name, setName] = useState('');
