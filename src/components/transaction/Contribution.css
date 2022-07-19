@@ -56,11 +56,10 @@
 }
 
 @media only screen and (max-width: 978px) {
-
   .contribution-form {
     margin: 1.25rem;
   }
-  
+
   .cont-btn {
     margin-left: 40px;
   }
