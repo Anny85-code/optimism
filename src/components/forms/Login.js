@@ -5,7 +5,9 @@ import './Login.css';
 
 const Login = () => {
   const [state, setState] = useState({});
-  const { error } = useSelector((state) => state.user);
+  // const { error } = useSelector((state) => state.errors);
+  const data = useSelector((state) => state.errors);
+  console.log(data);
   const dispatch = useDispatch();
 
   const onchange = (e) => {
