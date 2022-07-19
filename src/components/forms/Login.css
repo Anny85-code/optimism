@@ -20,8 +20,8 @@
 }
 
 .btn-login {
-  width: 200px;
-  height: 50px;
+  width: 12.5rem;
+  height: 3.125rem;
   padding: 10px;
   outline: none;
   border: none;
@@ -41,14 +41,14 @@
   }
 
   .form-control-login {
-    width: 150px;
+    width: 9.375rem;
     margin-left: -3px;
   }
 
   .login-form {
     display: flex;
     flex-direction: column;
-    margin-left: 25px;
+    margin-left: 1.5625rem;
   }
 
   .btn1 {
@@ -58,6 +58,6 @@
 
   .btn-secondary1 {
     margin-left: 6px;
-    width: 120px;
+    width: 7.5rem;
   }
 }
