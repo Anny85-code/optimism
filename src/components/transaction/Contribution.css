@@ -3,7 +3,7 @@
   align-items: center;
   gap: 20px;
   font-family: 'Gumela', sans-serif;
-  margin: 20px;
+  margin: 1.25rem 1.25rem 1.25rem 15.6rem;
   box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #967777;
   border-radius: 8px;
 }
@@ -56,6 +56,11 @@
 }
 
 @media only screen and (max-width: 978px) {
+
+  .contribution-form {
+    margin: 1.25rem;
+  }
+  
   .cont-btn {
     margin-left: 40px;
   }
