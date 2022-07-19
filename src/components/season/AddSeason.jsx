@@ -16,8 +16,8 @@ const AddSeason = () => {
   const { end_date } = season.data;
   const endDate = new Date(end_date);
   const today = new Date();
-  console.log(endDate > today);
-  console.log(2, today > endDate);
+  console.log('endDate > today', endDate > today);
+  console.log('today > endDate', today > endDate);
   const allSeasonsSize = seasons.data.length;
   const dispatch = useDispatch();
   const [name, setName] = useState('');
@@ -59,14 +59,13 @@ const AddSeason = () => {
   };
 
   const handdleCreate = () => {
-    // only create if
-    // 1- There is no season
-    // 2- The current date is greater than the last day of the last season
     if (!season.data || today > endDate) {
       dispatch(postSeasonToApi(seasonData));
     } else {
       alert(
-        `You cannot create a season while there is a running ${season.data.name} is on!!`
+        `${
+          season.data.name.slice(0, 1).toUpperCase() + season.data.name.slice(1)
+        } is still on!!`
       );
     }
   };
