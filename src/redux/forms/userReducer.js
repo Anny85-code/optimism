@@ -37,7 +37,7 @@ export const logUserToApi = (userData) => async (dispatch) => {
   // console.log(waitedData);
   if (rawData.status === 500 || !rawData.length) {
     const errMsg = 'Check login credentials or internet connection!';
-    dispatch(sendErrors(errMsg));
+    dispatch(sendErrors([errMsg]));
     console.error('Check login credentials or internet connection!');
   }
   //   const errorMsg = rawData.error;

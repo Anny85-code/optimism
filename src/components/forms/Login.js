@@ -30,7 +30,7 @@ const Login = () => {
           <div className="d-flex justify-content-center align-items-center flex-column shadow-lg rounded w-50 mx-auto p-5">
             <h3 className="text-center">LOG IN</h3>
             <br />
-            {error ? (
+            {/* {error ? (
               <div>
                 {typeof error === 'string' ? (
                   <span>{error}</span>
@@ -42,7 +42,7 @@ const Login = () => {
               </div>
             ) : (
               ''
-            )}
+            )} */}
             <form className="login-form">
               <div>
                 <label htmlFor="username" className="form-label">
