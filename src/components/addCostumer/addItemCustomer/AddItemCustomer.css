@@ -1,8 +1,8 @@
 .items-costumer {
-  width: 800px;
-  gap: 20px;
+  width: 50rem;
+  gap: 1.25rem;
   font-family: 'Gumela', sans-serif;
-  margin: 20px;
+  margin: 1.25rem;
   box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #967777;
   border-radius: 8px;
 }
@@ -38,8 +38,8 @@
 }
 
 .quantity-input {
-  width: 60px;
-  height: 40px;
+  width: 3.75rem;
+  height: 2.5rem;
   outline: none;
   box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #967777;
   border-radius: 3px;
@@ -85,14 +85,14 @@
 
 @media only screen and (max-width: 978px) {
   .items-costumer {
-    width: 320px;
+    width: 20rem;
     box-sizing: border-box;
     padding: 20px;
   }
 
   .quantity-input {
-    width: 30px;
-    height: 20px;
+    width: 1.875rem;
+    height: 1.25rem;
     font-size: 10px;
   }
 
