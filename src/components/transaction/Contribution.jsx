@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
+import { getOneSeasonFromApi } from '../../redux/forms/oneSeasonReducer';
 import { getSeasonFromApi } from '../../redux/forms/seasonReducer';
 /* eslint-disable */
 import {
@@ -15,6 +16,8 @@ const Contribution = () => {
   const { cardNumber } = localStorage;
   const customerDetails = useSelector((state) => state.oneCustomer);
   const customersTransactions = useSelector((state) => state.transactions);
+  const seasons = useSelector((state) => state.seasons);
+  const lastSeason = seasons.data.length;
   const myData = customersTransactions.data;
   let oneCustomerTransactions = [];
 
@@ -67,6 +70,7 @@ const Contribution = () => {
     dispatch(getOneCustomerFromApi(cardNumber));
     dispatch(getTransactionFromApi());
     dispatch(getSeasonFromApi());
+    dispatch(getOneSeasonFromApi(lastSeason));
   }, []);
 
   return (
