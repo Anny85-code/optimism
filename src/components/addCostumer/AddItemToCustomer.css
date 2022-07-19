@@ -3,10 +3,10 @@
 .items-to-costumer {
   display: grid;
   grid-template-columns: 4fr 1.5fr;
-  width: 900px;
+  width: 56.25rem;
   gap: 20px;
   font-family: 'Gumela', sans-serif;
-  margin: 20px 20px 20px 80px;
+  margin: 1.25rem 1.25rem 1.25rem 5rem;
   box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #967777;
   border-radius: 8px;
   align-content: center;
@@ -24,7 +24,7 @@
   align-content: center;
   justify-content: center;
   align-items: center;
-  margin-right: 90px;
+  margin-right: 5.625rem;
   text-align: center;
 }
 
@@ -63,7 +63,7 @@ ul {
 }
 
 .quantity-pic-container {
-  width: 500px;
+  width: 31.25rem;
 }
 
 .pic-previous {
@@ -80,8 +80,8 @@ ul {
 }
 
 .quantity-pic {
-  width: 300px;
-  height: 300px;
+  width: 18.75rem;
+  height: 18.75rem;
   border-radius: 5px;
 }
 
@@ -89,13 +89,13 @@ ul {
   font-size: 18px;
   font-weight: 400;
   font-style: italic;
-  width: 100px;
+  width: 6.25rem;
   text-align: center;
 }
 
 .input-add {
   display: flex;
-  width: 180px;
+  width: 11.25rem;
 }
 
 .input-add > li {
@@ -131,19 +131,19 @@ ul {
   font-size: 16px;
   font-weight: 400;
   font-style: italic;
-  margin: 8px;
+  margin: 0.5rem;
 }
 
 .qty-p-total {
   font-size: 20px;
   font-weight: 400;
   font-style: italic;
-  margin: 8px;
+  margin: 0.5rem;
 }
 
 .finish-btn {
-  width: 200px;
-  height: 30px;
+  width: 12.5rem;
+  height: 1.875rem;
   padding: 6px;
   outline: none;
   border: none;
@@ -160,8 +160,8 @@ ul {
   .items-to-costumer {
     display: flex;
     flex-direction: column;
-    width: 320px;
-    margin: 20px;
+    width: 20rem;
+    margin: 1.25rem;
   }
 
   .products-container {
@@ -169,16 +169,16 @@ ul {
   }
 
   .product-name-price {
-    font-size: 20px;
+    font-size: 1.25rem;
   }
 
   .product-name-container {
-    font-size: 20px;
-    width: 120px;
+    font-size: 1.25rem;
+    width: 7.5rem;
   }
 
   .quantity-input {
-    width: 50px;
+    width: 3.125rem;
   }
 
   .quantity-pic-container {
@@ -186,8 +186,8 @@ ul {
   }
 
   .quantity-pic {
-    width: 200px;
-    height: 200px;
+    width: 12.5rem;
+    height: 12.5rem;
   }
 
   .qunatity-price {
@@ -212,10 +212,10 @@ ul {
   }
 
   .qty-p-total {
-    font-size: 16px;
+    font-size: 1rem;
   }
 
   .finish-btn {
-    width: 150px;
+    width: 9.375rem;
   }
 }

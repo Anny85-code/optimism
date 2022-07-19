@@ -13,14 +13,14 @@
 }
 
 .customer-container {
-  margin: 20px 20px 20px 100px;
+  margin: 1.25rem 1.25rem 1.25rem 6.25rem;
   padding: 4px;
   background-color: azure;
   border-radius: 8px;
   text-align: center;
-  height: 50px;
+  height: 3.125rem;
   color: #2e4a66;
-  width: 800px;
+  width: 50rem;
 }
 
 .customer-container :nth-child(even) {
@@ -41,7 +41,7 @@
   }
 
   .customer-container  {
-    width: 320px;
-    margin: 20px;
+    width: 20rem;
+    margin: 1.25rem;
   }
 }
