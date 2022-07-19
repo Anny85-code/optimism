@@ -18,6 +18,9 @@ const Contribution = () => {
   const customersTransactions = useSelector((state) => state.transactions);
   const seasons = useSelector((state) => state.seasons);
   const lastSeason = seasons.data.length;
+  const season = useSelector((state) => state.oneSeason);
+  const seasonData = season.data;
+  const { start_date } = seasonData;
   const myData = customersTransactions.data;
   let oneCustomerTransactions = [];
 
@@ -31,10 +34,9 @@ const Contribution = () => {
   const { data } = customerDetails;
   const lastTransaction = oneCustomerTransactions.slice(-1);
   let lastDate;
-  // lastDate === null || lastDate === undefined
   lastTransaction.length
     ? (lastDate = lastTransaction[0]?.current_contribution_date)
-    : (lastDate = '2022-08-12'); // Add start date of season here
+    : (lastDate = start_date);
   const date = new Date(lastDate);
   const AddDaysToDate = date.setDate(date.getDate() + daysNo);
   const convertDate = new Date(AddDaysToDate);
@@ -104,7 +106,6 @@ const Contribution = () => {
             Add
           </button>
         </NavLink>
-        ;
       </form>
     </div>
   );
