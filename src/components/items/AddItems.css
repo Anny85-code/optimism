@@ -1,8 +1,8 @@
 .form-container-item-list {
-  width: 800px;
-  gap: 20px;
+  width: 50rem;
+  gap: 1.25rem;
   font-family: 'Gumela', sans-serif;
-  margin: 20px 20px 20px 120px;
+  margin: 1.25rem 1.25rem 1.25rem 7.5rem;
   box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #967777;
   border-radius: 8px;
 }
@@ -10,13 +10,13 @@
 .item-name {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  height: 70px;
-  margin: 20px;
+  height: 4.375rem;
+  margin: 1.25rem;
   align-items: center;
   align-content: center;
   text-align: center;
   padding: 20px;
-  font-size: 25px;
+  font-size: 1.5625rem;
   gap: 20px;
   font-family: 'Gumela', sans-serif;
   box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #967777;
@@ -29,7 +29,7 @@
 }
 
 .item-name li img {
-  margin-left: 30px;
+  margin-left: 1.875rem;
 }
 
 .item-price {
@@ -38,8 +38,8 @@
 
 @media only screen and (max-width: 768px) {
   .form-container-item-list {
-    width: 320px;
-    margin: 20px;
+    width: 20rem;
+    margin: 1.25rem;
   }
 
   .item-name li img {
