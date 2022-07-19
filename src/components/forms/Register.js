@@ -6,7 +6,7 @@ import './Register.css';
 
 const Register = () => {
   const [state, setState] = useState({});
-  const { error } = useSelector((state) => state.user);
+  const { error } = useSelector((state) => state.errors);
   const dispatch = useDispatch();
 
   const onchange = (e) => {
