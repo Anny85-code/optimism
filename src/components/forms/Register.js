@@ -3,9 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { registerUserToApi } from '../../redux/forms/userReducer';
 import ImageUpload from '../images/imageUpload';
 import './Register.css';
-
+/* eslint-disable */
 const Register = () => {
   const [state, setState] = useState({});
+  const [passwordShown, setPasswordShown] = useState(false);
   const { error } = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
@@ -27,6 +28,10 @@ const Register = () => {
 
   const handleSelect = (e) => {
     setSelect(e.target.value);
+  };
+
+  const togglePassword = () => {
+    setPasswordShown(!passwordShown);
   };
 
   return (
@@ -102,7 +107,7 @@ const Register = () => {
                 <label htmlFor="password" className="form-label">
                   Password *
                   <input
-                    type="password"
+                    type={passwordShown ? 'text' : 'password'}
                     placeholder="Password"
                     onChange={onchange}
                     id="password"
@@ -111,7 +116,7 @@ const Register = () => {
                     autoComplete="off"
                     required
                   />
-                  <i id="eye" className="fa fa-eye-slash" />
+                  <i id="eye" className="fa fa-eye-slash" onClick={togglePassword}/>
                 </label>
               </div>
               <br />
@@ -218,5 +223,5 @@ const Register = () => {
     </div>
   );
 };
-
+/* eslint-disable */
 export default Register;
