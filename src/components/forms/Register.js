@@ -135,7 +135,7 @@ const Register = () => {
                 <label htmlFor="password_confirmation" className="form-label">
                   Password confirmation *
                   <input
-                    type="password"
+                    type={passwordShown ? 'text' : 'password'}
                     placeholder="Password Confirmation"
                     onChange={onchange}
                     id="password_confirmation"
