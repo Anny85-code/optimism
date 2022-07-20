@@ -17,7 +17,7 @@ const EditUser = () => {
   const [address, setAddress] = useState(user.data.address);
   let { avatar } = user.data;
   const [username, setUsername] = useState(user.data.username);
-  const [location, setLocation] = useState(user.data.location);
+  const [location, setLocation] = useState(user.data.location_area);
   const [isPending, setIsPending] = useState(false);
   const { error } = useSelector((state) => state.user);
   const dispatch = useDispatch();
@@ -44,7 +44,7 @@ const EditUser = () => {
       phone,
       address,
       avatar,
-      location,
+      location_area: location,
       username,
     };
     setIsPending(true);

@@ -27,8 +27,7 @@ const Register = () => {
       role: select.toLocaleLowerCase(),
       location_area: locationArea,
     };
-    console.log(userPostData);
-    // dispatch(registerUserToApi(userPostData));
+    dispatch(registerUserToApi(userPostData));
   };
 
   const handleSelect = (e) => {
