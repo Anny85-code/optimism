@@ -3,9 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { registerUserToApi } from '../../redux/forms/userReducer';
 import ImageUpload from '../images/imageUpload';
 import './Register.css';
-
+/* eslint-disable */
 const Register = () => {
   const [state, setState] = useState({});
+  const [passwordShown, setPasswordShown] = useState(false);
   const { error } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const [select, setSelect] = useState('PLEASE SELECT ...');
@@ -32,6 +33,10 @@ const Register = () => {
 
   const handleSelect = (e) => {
     setSelect(e.target.value);
+  };
+
+  const togglePassword = () => {
+    setPasswordShown(!passwordShown);
   };
 
   return (
@@ -109,7 +114,7 @@ const Register = () => {
                 <label htmlFor="password" className="form-label">
                   Password *
                   <input
-                    type="password"
+                    type={passwordShown ? 'text' : 'password'}
                     placeholder="Password"
                     onChange={onchange}
                     id="password"
@@ -118,6 +123,11 @@ const Register = () => {
                     autoComplete="off"
                     required
                   />
+                  <i
+                    id="eye"
+                    className="fa fa-eye-slash"
+                    onClick={togglePassword}
+                  />
                 </label>
               </div>
               <br />
@@ -125,7 +135,7 @@ const Register = () => {
                 <label htmlFor="password_confirmation" className="form-label">
                   Password confirmation *
                   <input
-                    type="password"
+                    type={passwordShown ? 'text' : 'password'}
                     placeholder="Password Confirmation"
                     onChange={onchange}
                     id="password_confirmation"
@@ -133,6 +143,11 @@ const Register = () => {
                     className="form-control"
                     autoComplete="off"
                     required
+                  />
+                  <i
+                    id="eye"
+                    className="fa fa-eye-slash"
+                    onClick={togglePassword}
                   />
                 </label>
               </div>
@@ -224,5 +239,5 @@ const Register = () => {
     </div>
   );
 };
-
+/* eslint-disable */
 export default Register;

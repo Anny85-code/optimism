@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logUserToApi } from '../../redux/forms/userReducer';
 import './Login.css';
-
+/* eslint-disable */
 const Login = () => {
   const [state, setState] = useState({});
+  const [passwordShown, setPasswordShown] = useState(false);
   const { error } = useSelector((state) => state.errors);
+
   const dispatch = useDispatch();
 
   const onchange = (e) => {
@@ -20,6 +22,11 @@ const Login = () => {
     dispatch(logUserToApi(state));
     window.history.pushState({}, '', '/');
   };
+
+  const togglePassword = () => {
+    setPasswordShown(!passwordShown);
+  };
+
 
   return (
     <div className="splash-container login-container">
@@ -63,13 +70,18 @@ const Login = () => {
                 <label htmlFor="password" className="form-label">
                   Password
                   <input
-                    type="password"
+                    type={passwordShown ? 'text' : 'password'}
                     data-testid="password-input"
                     placeholder="Password"
                     onChange={onchange}
                     id="password"
                     name="password"
                     className="form-control-login"
+                  />
+                  <i
+                    className="fa fa-eye-slash"
+                    onClick={togglePassword}
+                    id="login-eye"
                   />
                 </label>
               </div>
@@ -90,5 +102,5 @@ const Login = () => {
     </div>
   );
 };
-
+/* eslint-enable */
 export default Login;
