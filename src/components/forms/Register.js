@@ -123,7 +123,11 @@ const Register = () => {
                     autoComplete="off"
                     required
                   />
-                  <i id="eye" className="fa fa-eye-slash" onClick={togglePassword}/>
+                  <i
+                    id="eye"
+                    className="fa fa-eye-slash"
+                    onClick={togglePassword}
+                  />
                 </label>
               </div>
               <br />
@@ -139,6 +143,11 @@ const Register = () => {
                     className="form-control"
                     autoComplete="off"
                     required
+                  />
+                  <i
+                    id="eye"
+                    className="fa fa-eye-slash"
+                    onClick={togglePassword}
                   />
                 </label>
               </div>
