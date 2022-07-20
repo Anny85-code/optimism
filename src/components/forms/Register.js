@@ -8,6 +8,7 @@ const Register = () => {
   const [state, setState] = useState({});
   const { error } = useSelector((state) => state.user);
   const dispatch = useDispatch();
+  const [select, setSelect] = useState('PLEASE SELECT ...');
 
   const onchange = (e) => {
     setState({
@@ -19,36 +20,20 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const picture = localStorage.getItem('image_str');
-    const userPostData = { ...state, avatar: picture };
-    dispatch(registerUserToApi(userPostData));
+    const locationArea = state.location_area.toUpperCase();
+    const userPostData = {
+      ...state,
+      avatar: picture,
+      role: select.toLocaleLowerCase(),
+      location_area: locationArea,
+    };
+    console.log(userPostData);
+    // dispatch(registerUserToApi(userPostData));
   };
-
-  const [select, setSelect] = useState('PLEASE SELECT ...');
 
   const handleSelect = (e) => {
     setSelect(e.target.value);
   };
-
-  //   Password can't be blank
-
-  // Name can't be blank
-
-  // Email can't be blank
-
-  // Email is invalid
-
-  // Username can't be blank
-
-  // Password is too short (minimum is 6 characters)
-
-  // Password confirmation can't be blank
-
-  // Phone can't be blank
-
-  // Phone is too short (minimum is 11 characters)
-
-  // const {name, username, email, password, location, phone, position} = error;
-  // let name
 
   return (
     <div className="form-container form1">
@@ -154,14 +139,14 @@ const Register = () => {
               </div>
               <br />
               <div>
-                <label htmlFor="location" className="form-label">
+                <label htmlFor="location_area" className="form-label">
                   Location
                   <input
                     type="text"
                     placeholder="Location"
                     onChange={onchange}
-                    id="location"
-                    name="location"
+                    id="location_area"
+                    name="location_area"
                     className="form-control"
                     autoComplete="off"
                   />
