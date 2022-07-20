@@ -34,6 +34,10 @@
   box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #d86565;
 }
 
+#login-eye {
+    margin: -1.6825rem 0 0 29.375rem;
+  }
+
 @media only screen and (max-width: 978px) {
   * {
     padding: 1px;
@@ -62,6 +66,6 @@
   }
 
   #login-eye {
-    margin: -1.6825rem 0 0 7.1875rem
+    margin: -1.6825rem 0 0 7.1875rem;
   }
 }
