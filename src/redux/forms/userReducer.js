@@ -11,7 +11,6 @@ export const registerUserToApi = (userData) => async (dispatch) => {
     body: JSON.stringify(userData),
   });
   const regUserResp = await regUser.json();
-  console.log(regUserResp);
   if (regUserResp.error || regUserResp.errors) {
     const errorMsg = regUserResp.error || regUserResp.errors;
     dispatch({ type: 'SIGNUP_FAILED', errorMsg });
@@ -47,7 +46,7 @@ export const logUserToApi = (userData) => async (dispatch) => {
 
 const userReducer = (
   state = { user: null, isLoggedIn: false, error: null },
-  action
+  action,
 ) => {
   switch (action.type) {
     case 'SIGNUP_SUCCESS':
