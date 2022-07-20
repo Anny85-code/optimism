@@ -6,7 +6,6 @@ import './Login.css';
 const Login = () => {
   const [state, setState] = useState({});
   const [passwordShown, setPasswordShown] = useState(false);
-  const { error } = useSelector((state) => state.user);
   const { error } = useSelector((state) => state.errors);
 
   const dispatch = useDispatch();
