@@ -15,7 +15,7 @@
   padding: 30px;
   background: rgb(56, 50, 50);
   border-radius: 25px;
-  height: 600px;
+  height: 37.5rem;
 }
 
 .splash__image {
@@ -23,15 +23,13 @@
 }
 
 .splash__image > img {
-  height: 300px;
-  width: 350px;
+  height: 18.75rem;
+  width: 21.875rem;
   box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #967777;
   position: absolute;
-  top: 60px;
+  top: 3.75rem;
   left: 37%;
-
-  /* left: 585px; */
-  margin-top: 30px;
+  margin-top: 1.875rem;
 }
 
 .splash-btn {
