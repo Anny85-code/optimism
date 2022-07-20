@@ -49,8 +49,8 @@ const Customer = () => {
         <p className="cus-details">Email: {email}</p>
         <p className="cus-details">
           Card No.
-          {/* {user.location_area.slice(0, 3).toUpperCase()}
-          {user.id}/{aCustomers.data.id} */}
+          {user.location_area.slice(0, 3).toUpperCase()}
+          {user.id}/{aCustomers.data.id}
         </p>
         <p className="cus-details">
           Daily Contribution: NGN {daily_contribution}
