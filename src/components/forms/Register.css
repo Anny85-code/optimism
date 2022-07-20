@@ -95,4 +95,8 @@ select {
   .mark-btn {
     margin-right: 0.3125rem;
   }
+
+  #eye {
+  margin: 1.6875rem 0 0 13.75rem;
+}
 }
