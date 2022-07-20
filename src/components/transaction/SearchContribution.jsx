@@ -7,9 +7,15 @@ import './AddTransaction.css';
 const SearchContribution = () => {
   const [contNumber, setContNumber] = useState('');
   const error = document.getElementById('error');
+  const [status, setStatus] = useState(false);
 
   const getInput = (e) => {
     const input = e.target.value;
+    if (input.length > 5) {
+      setStatus(true);
+    } else {
+      setStatus(false);
+    }
     const extractContributionId = input.split('/')[1];
     if (extractContributionId) {
       if (extractContributionId.match(/[a-zA-Z]$/)) {
@@ -17,7 +23,7 @@ const SearchContribution = () => {
         document.getElementById('resetInput').style.display = 'block';
         error.innerText = 'Wrong No.\n Remove letters after /';
         error.style.display = 'block';
-        error.style.color = 'blue';
+        error.style.color = 'white';
       } else {
         const intId = +extractContributionId;
         setContNumber(intId);
@@ -63,19 +69,21 @@ const SearchContribution = () => {
           </span>
         </label>
         <div className="form-group btn1 trans-btn">
-          <NavLink
-            to={`/transactions/${contNumber}`}
-            style={{ textDecoration: 'none' }}
-          >
-            <button
-              type="submit"
-              className="add-trans-btn"
-              onClick={handdleNext}
+          {status && (
+            <NavLink
+              to={`/transactions/${contNumber}`}
+              style={{ textDecoration: 'none' }}
             >
-              Next
-              <i className="fa fa-arrow-right" id="toggle-btn" />
-            </button>
-          </NavLink>
+              <button
+                type="submit"
+                className="add-trans-btn"
+                onClick={handdleNext}
+              >
+                Next
+                <i className="fa fa-arrow-right" id="toggle-btn" />
+              </button>
+            </NavLink>
+          )}
         </div>
       </form>
     </div>

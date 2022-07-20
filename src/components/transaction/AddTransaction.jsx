@@ -23,7 +23,7 @@ const AddTransaction = () => {
         document.getElementById('resetInput').style.display = 'block';
         error.innerText = 'Wrong Card No.\n Remove letters after /';
         error.style.display = 'block';
-        error.style.color = 'blue';
+        error.style.color = 'white';
       } else {
         const intId = +extractCustomerId;
         setCardNumber(intId);
