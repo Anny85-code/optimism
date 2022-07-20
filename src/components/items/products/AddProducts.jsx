@@ -10,8 +10,13 @@ const AddProduct = () => {
   const [price, setPrice] = useState('');
   const picture = localStorage.getItem('image_str');
   const [description, setDescription] = useState('');
-  const [isPending, setIsPending] = useState(false);
+  // const [isPending, setIsPending] = useState(false);
   const dispatch = useDispatch();
+  const condition = name === '';
+  const condition3 = +price < 1;
+  const condition4 = description === '';
+  const condition5 = !picture.includes('cloudinary');
+  const genTruth = condition || condition3 || condition4 || condition5;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,9 +29,9 @@ const AddProduct = () => {
       picture,
       description,
     };
-    setIsPending(true);
+    // setIsPending(true);
     dispatch(postItemsToApi(product));
-    setIsPending(false);
+    // setIsPending(false);
   };
 
   return (
@@ -82,7 +87,12 @@ const AddProduct = () => {
           </label>
         </div>
         <div className="form-group btn1">
-          {!isPending && (
+          {!genTruth && (
+            <button type="submit" className="add-customer-btn">
+              Create Item
+            </button>
+          )}
+          {/* {!isPending && (
             <button type="submit" className="add-customer-btn">
               Create Item
             </button>
@@ -91,7 +101,7 @@ const AddProduct = () => {
             <button type="submit" disabled>
               Creating Item . . .
             </button>
-          )}
+          )} */}
         </div>
       </form>
     </div>
