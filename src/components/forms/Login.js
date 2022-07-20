@@ -78,7 +78,6 @@ const Login = () => {
                   <i
                     className="fa fa-eye-slash"
                     onClick={togglePassword}
-                    // style={{position: 'absolute', marginTop: '30px', marginLeft: '470px'}}
                     id="login-eye"
                   />
                 </label>
