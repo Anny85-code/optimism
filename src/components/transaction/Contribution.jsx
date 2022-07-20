@@ -23,6 +23,7 @@ const Contribution = () => {
   const { start_date } = seasonData;
   const myData = customersTransactions.data;
   let oneCustomerTransactions = [];
+  const [go, setGo] = useState(false);
 
   myData.map((trans) => {
     if (trans.customer_id === +cardNumber) {
@@ -52,7 +53,9 @@ const Contribution = () => {
     convertDate.getDate();
 
   const handleDays = (e) => {
-    setDaysNo(+e.target.value);
+    const input = +e.target.value;
+    setDaysNo(input);
+    setGo(input > 0);
   };
 
   const handleSubmit = (e) => {
@@ -78,6 +81,7 @@ const Contribution = () => {
   return (
     <div className="contribution-form">
       <h2 className="title1">Contribution details</h2>
+      <center style={{ color: 'white' }}>Enter no. of days to continue!</center>
       <h3 className="details">Customer details</h3>
       <form onSubmit={handleSubmit} className="add-customer-form">
         <div className="contribution-container">
@@ -97,15 +101,17 @@ const Contribution = () => {
           <p>Previous payment date: {lastDate}</p>
           <p>Current payment date: {currentDate}</p>
         </div>
-        <NavLink to="/transactions" style={{ textDecoration: 'none' }}>
-          <button
-            type="button"
-            className="add-customer-btn cont-btn"
-            onClick={handleSubmit}
-          >
-            Add
-          </button>
-        </NavLink>
+        {go && (
+          <NavLink to="/transactions" style={{ textDecoration: 'none' }}>
+            <button
+              type="button"
+              className="add-customer-btn cont-btn"
+              onClick={handleSubmit}
+            >
+              Add
+            </button>
+          </NavLink>
+        )}
       </form>
     </div>
   );
