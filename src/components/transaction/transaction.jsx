@@ -53,7 +53,7 @@ const Transaction = () => {
         <p className="cus-details">Days paid for: {days_paid_for}</p>
         <p className="cus-details">
           Transaction No.
-          {user.location.slice(0, 3).toUpperCase()}
+          {user.location_area.slice(0, 3).toUpperCase()}
           {user.id}/{transaction.data.id}
         </p>
         <p className="cus-details">Amount: {amount}</p>

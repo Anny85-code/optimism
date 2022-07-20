@@ -27,7 +27,7 @@ const User = () => {
     username,
     phone,
     role,
-    location,
+    location_area,
     address,
     email,
     created_at,
@@ -47,7 +47,7 @@ const User = () => {
         <p className="cus-details">Role: {role}</p>
         <p className="cus-details">Phone: {phone}</p>
         <p className="cus-details">Email: {email}</p>
-        <p className="cus-details">Location: {location}</p>
+        <p className="cus-details">Location: {location_area}</p>
         <p className="cus-details">Address: {address}</p>
         <p className="cus-details">
           Joined: {Moment(created_at).format('MMMM DD, LT')}
