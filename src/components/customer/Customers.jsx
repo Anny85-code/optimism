@@ -34,7 +34,6 @@ const Customers = () => {
             </NavLink>
           );
       })}
-      ;
     </div>
   );
 };
