@@ -7,6 +7,8 @@ const Login = () => {
   const [state, setState] = useState({});
   const [passwordShown, setPasswordShown] = useState(false);
   const { error } = useSelector((state) => state.user);
+  const { error } = useSelector((state) => state.errors);
+
   const dispatch = useDispatch();
 
   const onchange = (e) => {
@@ -34,19 +36,21 @@ const Login = () => {
           <div className="d-flex justify-content-center align-items-center flex-column shadow-lg rounded w-50 mx-auto p-5">
             <h3 className="text-center">LOG IN</h3>
             <br />
-            {error ? (
-              <div>
-                {typeof error === 'string' ? (
-                  <span>{error}</span>
-                ) : (
-                  error.map((errorItem) => (
-                    <span key={errorItem}>{errorItem}</span>
-                  ))
-                )}
-              </div>
-            ) : (
-              ''
-            )}
+            <center style={{ color: 'red' }}>
+              {error ? (
+                <div>
+                  {typeof error === 'string' ? (
+                    <span>{error}</span>
+                  ) : (
+                    error.map((errorItem) => (
+                      <span key={errorItem}>{errorItem}</span>
+                    ))
+                  )}
+                </div>
+              ) : (
+                ''
+              )}
+            </center>
             <form className="login-form">
               <div>
                 <label htmlFor="username" className="form-label">

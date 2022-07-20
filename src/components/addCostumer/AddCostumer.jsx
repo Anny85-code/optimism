@@ -2,15 +2,21 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import ImageUpload from '../images/imageUpload';
 import './AddCostumer.css';
-
+/* eslint-disable */
 const AddCustomer = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [address, setAddress] = useState('');
   const picture = localStorage.getItem('image_str');
+  const condition = name === '';
+  // const condition2 = email === '';
+  const condition3 = phone.length != 11;
+  const condition4 = address === '';
+  const condition5 = !picture.includes('cloudinary');
+  const genTruth = condition || condition3 || condition4 || condition5;
 
-  const handleSubmit = () => {
+  const handleAddItem = () => {
     const user = JSON.parse(localStorage.getItem('user'));
     const { id } = user.user;
     const customer = {
@@ -95,20 +101,22 @@ const AddCustomer = () => {
           </label>
         </div>
         <div className="form-group-btn">
-          <NavLink to="/addproducts" style={{ textDecoration: 'none' }}>
-            <button
-              type="button"
-              className="add-item-btn"
-              onClick={handleSubmit}
-            >
-              Add Items
-              <i className="fa fa-arrow-right" id="toggle-btn" />
-            </button>
-          </NavLink>
+          {!genTruth && (
+            <NavLink to="/addproducts" style={{ textDecoration: 'none' }}>
+              <button
+                type="button"
+                className="add-item-btn"
+                onClick={handleAddItem}
+              >
+                Add Items
+                <i className="fa fa-arrow-right" id="toggle-btn" />
+              </button>
+            </NavLink>
+          )}
         </div>
       </form>
     </div>
   );
 };
-
+/* eslint-enable */
 export default AddCustomer;

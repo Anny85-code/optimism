@@ -4,8 +4,8 @@ import './AddTransaction.css';
 
 /* eslint-disable */
 
-const AddTransaction = () => {
-  const [cardNumber, setCardNumber] = useState('');
+const SearchContribution = () => {
+  const [contNumber, setContNumber] = useState('');
   const error = document.getElementById('error');
   const [status, setStatus] = useState(false);
 
@@ -16,23 +16,23 @@ const AddTransaction = () => {
     } else {
       setStatus(false);
     }
-    const extractCustomerId = input.split('/')[1];
-    if (extractCustomerId) {
-      if (extractCustomerId.match(/[a-zA-Z]$/)) {
+    const extractContributionId = input.split('/')[1];
+    if (extractContributionId) {
+      if (extractContributionId.match(/[a-zA-Z]$/)) {
         e.target.setAttribute('disabled', true);
         document.getElementById('resetInput').style.display = 'block';
-        error.innerText = 'Wrong Card No.\n Remove letters after /';
+        error.innerText = 'Wrong No.\n Remove letters after /';
         error.style.display = 'block';
         error.style.color = 'white';
       } else {
-        const intId = +extractCustomerId;
-        setCardNumber(intId);
+        const intId = +extractContributionId;
+        setContNumber(intId);
       }
     }
   };
 
   const handleReset = () => {
-    const inputBox = document.querySelector('#card_number');
+    const inputBox = document.querySelector('#contribution_number');
     inputBox.disabled = false;
     inputBox.value = '';
     document.getElementById('resetInput').style.display = 'none';
@@ -40,25 +40,22 @@ const AddTransaction = () => {
   };
 
   const handdleNext = () => {
-    localStorage.setItem('cardNumber', cardNumber);
+    localStorage.setItem('contNumber', contNumber);
   };
 
   return (
     <div className="form-container trans-form">
-      <h2 className="title">Collect contribution</h2>
-      <span style={{ color: 'white' }}>
-        Enter Card number to move to the next page
-      </span>
+      <h2 className="title">Search Contribution</h2>
       <div id="error" style={{ display: 'none' }}></div>
       <form className="add-customer-form" autoComplete="off">
-        <label htmlFor="name">
-          Card Number *
+        <label htmlFor="contribution_number">
+          Contribution Number *
           <input
             type="text"
             className="form-control"
-            id="card_number"
-            name="card number"
-            placeholder="card number"
+            id="contribution_number"
+            name="contribution_number"
+            placeholder="Contribution Number"
             required
             autoCorrect="off"
             onChange={getInput}
@@ -73,7 +70,10 @@ const AddTransaction = () => {
         </label>
         <div className="form-group btn1 trans-btn">
           {status && (
-            <NavLink to="/contribution" style={{ textDecoration: 'none' }}>
+            <NavLink
+              to={`/transactions/${contNumber}`}
+              style={{ textDecoration: 'none' }}
+            >
               <button
                 type="submit"
                 className="add-trans-btn"
@@ -90,4 +90,4 @@ const AddTransaction = () => {
   );
 };
 /* eslint-enable */
-export default AddTransaction;
+export default SearchContribution;

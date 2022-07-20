@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
+import { getOneSeasonFromApi } from '../../redux/forms/oneSeasonReducer';
 import { getSeasonFromApi } from '../../redux/forms/seasonReducer';
 /* eslint-disable */
 import {
@@ -15,8 +16,14 @@ const Contribution = () => {
   const { cardNumber } = localStorage;
   const customerDetails = useSelector((state) => state.oneCustomer);
   const customersTransactions = useSelector((state) => state.transactions);
+  const seasons = useSelector((state) => state.seasons);
+  const lastSeason = seasons.data.length;
+  const season = useSelector((state) => state.oneSeason);
+  const seasonData = season.data;
+  const { start_date } = seasonData;
   const myData = customersTransactions.data;
   let oneCustomerTransactions = [];
+  const [go, setGo] = useState(false);
 
   myData.map((trans) => {
     if (trans.customer_id === +cardNumber) {
@@ -28,10 +35,9 @@ const Contribution = () => {
   const { data } = customerDetails;
   const lastTransaction = oneCustomerTransactions.slice(-1);
   let lastDate;
-  // lastDate === null || lastDate === undefined
   lastTransaction.length
     ? (lastDate = lastTransaction[0]?.current_contribution_date)
-    : (lastDate = '2022-08-12'); // Add start date of season here
+    : (lastDate = start_date);
   const date = new Date(lastDate);
   const AddDaysToDate = date.setDate(date.getDate() + daysNo);
   const convertDate = new Date(AddDaysToDate);
@@ -47,7 +53,11 @@ const Contribution = () => {
     convertDate.getDate();
 
   const handleDays = (e) => {
-    setDaysNo(+e.target.value);
+    const input = +e.target.value;
+    if (input > 0) {
+      setDaysNo(input);
+      setGo(input > 0);
+    }
   };
 
   const handleSubmit = (e) => {
@@ -67,11 +77,13 @@ const Contribution = () => {
     dispatch(getOneCustomerFromApi(cardNumber));
     dispatch(getTransactionFromApi());
     dispatch(getSeasonFromApi());
+    dispatch(getOneSeasonFromApi(lastSeason));
   }, []);
 
   return (
     <div className="contribution-form">
       <h2 className="title1">Contribution details</h2>
+      <center style={{ color: 'white' }}>Enter no. of days to continue!</center>
       <h3 className="details">Customer details</h3>
       <form onSubmit={handleSubmit} className="add-customer-form">
         <div className="contribution-container">
@@ -91,16 +103,17 @@ const Contribution = () => {
           <p>Previous payment date: {lastDate}</p>
           <p>Current payment date: {currentDate}</p>
         </div>
-        <NavLink to="/transactions" style={{ textDecoration: 'none' }}>
-          <button
-            type="button"
-            className="add-customer-btn cont-btn"
-            onClick={handleSubmit}
-          >
-            Add
-          </button>
-        </NavLink>
-        ;
+        {go && (
+          <NavLink to="/transactions" style={{ textDecoration: 'none' }}>
+            <button
+              type="button"
+              className="add-customer-btn cont-btn"
+              onClick={handleSubmit}
+            >
+              Add
+            </button>
+          </NavLink>
+        )}
       </form>
     </div>
   );
