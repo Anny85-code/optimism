@@ -29,6 +29,27 @@ const Register = () => {
     setSelect(e.target.value);
   };
 
+  //   Password can't be blank
+
+  // Name can't be blank
+
+  // Email can't be blank
+
+  // Email is invalid
+
+  // Username can't be blank
+
+  // Password is too short (minimum is 6 characters)
+
+  // Password confirmation can't be blank
+
+  // Phone can't be blank
+
+  // Phone is too short (minimum is 11 characters)
+
+  // const {name, username, email, password, location, phone, position} = error;
+  // let name
+
   return (
     <div className="form-container form1">
       <div className="form-group form2">
@@ -42,7 +63,9 @@ const Register = () => {
                   <span>{error}</span>
                 ) : (
                   error.map((errorItem) => (
-                    <span key={errorItem}>{errorItem}</span>
+                    <div key={errorItem}>
+                      <p>{errorItem}</p>
+                    </div>
                   ))
                 )}
               </div>

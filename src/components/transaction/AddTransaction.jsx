@@ -7,9 +7,15 @@ import './AddTransaction.css';
 const AddTransaction = () => {
   const [cardNumber, setCardNumber] = useState('');
   const error = document.getElementById('error');
+  const [status, setStatus] = useState(false);
 
   const getInput = (e) => {
     const input = e.target.value;
+    if (input.length > 5) {
+      setStatus(true);
+    } else {
+      setStatus(false);
+    }
     const extractCustomerId = input.split('/')[1];
     if (extractCustomerId) {
       if (extractCustomerId.match(/[a-zA-Z]$/)) {
@@ -17,7 +23,7 @@ const AddTransaction = () => {
         document.getElementById('resetInput').style.display = 'block';
         error.innerText = 'Wrong Card No.\n Remove letters after /';
         error.style.display = 'block';
-        error.style.color = 'blue';
+        error.style.color = 'white';
       } else {
         const intId = +extractCustomerId;
         setCardNumber(intId);
@@ -40,6 +46,9 @@ const AddTransaction = () => {
   return (
     <div className="form-container trans-form">
       <h2 className="title">Collect contribution</h2>
+      <span style={{ color: 'white' }}>
+        Enter Card number to move to the next page
+      </span>
       <div id="error" style={{ display: 'none' }}></div>
       <form className="add-customer-form" autoComplete="off">
         <label htmlFor="name">
@@ -63,16 +72,18 @@ const AddTransaction = () => {
           </span>
         </label>
         <div className="form-group btn1 trans-btn">
-          <NavLink to="/contribution" style={{ textDecoration: 'none' }}>
-            <button
-              type="submit"
-              className="add-trans-btn"
-              onClick={handdleNext}
-            >
-              Next
-              <i className="fa fa-arrow-right" id="toggle-btn" />
-            </button>
-          </NavLink>
+          {status && (
+            <NavLink to="/contribution" style={{ textDecoration: 'none' }}>
+              <button
+                type="submit"
+                className="add-trans-btn"
+                onClick={handdleNext}
+              >
+                Next
+                <i className="fa fa-arrow-right" id="toggle-btn" />
+              </button>
+            </NavLink>
+          )}
         </div>
       </form>
     </div>

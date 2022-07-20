@@ -31,6 +31,10 @@ const AddSeason = () => {
   const date = new Date(startDateStr);
   const AddDaysToDate = date.setDate(date.getDate() + +days);
   const convertDate = new Date(AddDaysToDate);
+  const condition = name === '';
+  const condition2 = days < 50;
+  const condition3 = startDate < today;
+  const allConditions = condition || condition2 || condition3;
 
   const getName = (e) => {
     setName(e.target.value);
@@ -118,15 +122,17 @@ const AddSeason = () => {
           <p className="end-date">End date: {endDateStr}</p>
         </div>
         <div className="form-group btn1">
-          <NavLink to="/seasons" style={{ textDecoration: 'none' }}>
-            <button
-              type="submit"
-              className="add-customer-btn season-btn"
-              onClick={handdleCreate}
-            >
-              Create Season
-            </button>
-          </NavLink>
+          {!allConditions && (
+            <NavLink to="/seasons" style={{ textDecoration: 'none' }}>
+              <button
+                type="submit"
+                className="add-customer-btn season-btn"
+                onClick={handdleCreate}
+              >
+                Create Season
+              </button>
+            </NavLink>
+          )}
         </div>
       </form>
     </div>
