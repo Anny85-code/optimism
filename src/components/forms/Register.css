@@ -43,6 +43,11 @@ select {
   margin-left: -40px;
 }
 
+#eye {
+  margin: 1.6875rem 0 0 28.75rem;
+  position: absolute;
+}
+
 .edit-user-btn {
   margin-left: -30px;
 }

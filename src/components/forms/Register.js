@@ -111,6 +111,7 @@ const Register = () => {
                     autoComplete="off"
                     required
                   />
+                  <i id="eye" className="fa fa-eye-slash" />
                 </label>
               </div>
               <br />
