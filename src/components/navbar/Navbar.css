@@ -66,6 +66,10 @@
   box-shadow: 5px 5px 13px #ededed, -5px -5px 13px #000;
 }
 
+#logout-nav {
+  color: #e60e0e;
+}
+
 @media only screen and (max-width: 978px) {
   .nav-icon {
     display: inline;

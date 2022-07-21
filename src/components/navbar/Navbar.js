@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import './Navbar.css';
 
 const data = JSON.parse(localStorage.getItem('user'));
@@ -7,6 +8,19 @@ const { user } = data || {};
 
 /* eslint-disable */
 const Navbar = ({ sideBarOpen, openSideBar }) => {
+
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    const dispatch = useDispatch();
+
+    const handleLogout = () => {
+      localStorage.removeItem('user');
+      localStorage.removeItem('token');
+      localStorage.removeItem('isLoggedIn');
+      dispatch({ type: 'LOGGED_OUT' });
+      window.history.pushState({}, '', '/');
+      window.location.reload();
+    };
+
   const [activeA, setActiveA] = useState(false);
   const [activeB, setActiveB] = useState(false);
   const [activeC, setActiveC] = useState(false);
@@ -83,7 +97,15 @@ const Navbar = ({ sideBarOpen, openSideBar }) => {
           />
         </a>
         <a href="#">
-          <i className="fa fa-clock-o" />
+          {isLoggedIn ? (
+            <i
+              className="fa fa-power-off"
+              id="logout-nav"
+              onClick={handleLogout}
+            />
+          ) : (
+            ''
+          )}
         </a>
         <a href="#">
           <img width="30" src={user.avatar} alt="food4all logo" />

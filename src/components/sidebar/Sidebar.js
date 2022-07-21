@@ -27,6 +27,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
   const [dropdownMarketer, setDropdownMarketer] = useState(false);
   const [dropdownSeason, setDropdownSeason] = useState(false);
   const [dropdownTransaction, setDropdownTransaction] = useState(false);
+  const [dropdownContribution, setDropdownContribution] = useState(false);
 
   const toggleDropdownCustomer = () => {
     setDropdownCustomer(dropdownCustomer ? false : true);
@@ -34,6 +35,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
     setDropdownMarketer(false);
     setDropdownSeason(false);
     setDropdownTransaction(false);
+    setDropdownContribution(false);
   };
 
   const toggleDropdownMarkerter = () => {
@@ -42,6 +44,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
     setDropdownProduct(false);
     setDropdownMarketer(dropdownMarketer ? false : true);
     setDropdownSeason(false);
+    setDropdownContribution(false);
   };
 
   const toggleDropdownTransaction = () => {
@@ -50,6 +53,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
     setDropdownTransaction(dropdownTransaction ? false : true);
     setDropdownMarketer(false);
     setDropdownSeason(false);
+    setDropdownContribution(false);
   };
 
   const toggleDropdownProduct = () => {
@@ -58,6 +62,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
     setDropdownMarketer(false);
     setDropdownSeason(false);
     setDropdownTransaction(false);
+    setDropdownContribution(false);
   };
 
   const toggleDropdownSeason = () => {
@@ -66,6 +71,16 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
     setDropdownSeason(dropdownSeason ? false : true);
     setDropdownMarketer(false);
     setDropdownTransaction(false);
+    setDropdownContribution(false);
+  };
+
+  const toggleDropdownContribution = () => {
+    setDropdownCustomer(false);
+    setDropdownProduct(false);
+    setDropdownContribution(dropdownContribution ? false : true);
+    setDropdownMarketer(false);
+    setDropdownTransaction(false);
+    setDropdownSeason(false);
   };
 
   const customerSection = (
@@ -170,19 +185,40 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
               View All Transactions
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              to="/searchcontribution"
-              style={{ textDecoration: 'none' }}
-              onClick={closeSideBar}
-            >
-              Search Contribution
-            </NavLink>
-          </li>
         </ul>
       </div>
     </>
   );
+
+   const ContributionSection = (
+     <>
+       <div className="sidebar__link" onClick={toggleDropdownContribution}>
+         <i className="fa fa-gears" />
+         <a href="#">Contribution Management</a>
+         <i
+           className="fa fa-caret-right"
+           // onClick={toggleDropdownTransaction}
+           id="toggle-btn"
+         />
+         <ul
+           className={!dropdownContribution ? 'dropdown-off' : 'dropdown-on'}
+           id="drop-menu"
+         >
+          
+           
+           <li>
+             <NavLink
+               to="/searchcontribution"
+               style={{ textDecoration: 'none' }}
+               onClick={closeSideBar}
+             >
+               Search Contribution
+             </NavLink>
+           </li>
+         </ul>
+       </div>
+     </>
+   );
 
   return (
     <div className={sidebarOpen ? 'sidebar-responsive' : ''} id="sidebar">
@@ -282,10 +318,8 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
               </ul>
             </div>
             {seasonSection}
-            <div className="sidebar__link">
-              <i className="fa fa-suitcase" />
-              <a href="#">Contributions</a>
-            </div>
+            {ContributionSection}
+        
             <h2>PAYMENT</h2>
             <div className="sidebar__link">
               <i className="fa fa-question" />
@@ -301,7 +335,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
             </div>
             <div className="sidebar__link">
               <i className="fa fa-files-o" />
-              <a href="#">Appy for Contribution</a>
+              <a href="#">Appy for Loan</a>
             </div>
             <h2>PAYROLL</h2>
             <div className="sidebar__link">
