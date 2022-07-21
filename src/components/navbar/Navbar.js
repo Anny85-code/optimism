@@ -97,8 +97,15 @@ const Navbar = ({ sideBarOpen, openSideBar }) => {
           />
         </a>
         <a href="#">
-          <i className="fa fa-power-off" />
-          {isLoggedIn ? <a onClick={handleLogout} /> : ''}
+          {isLoggedIn ? (
+            <i
+              className="fa fa-power-off"
+              id="logout-nav"
+              onClick={handleLogout}
+            />
+          ) : (
+            ''
+          )}
         </a>
         <a href="#">
           <img width="30" src={user.avatar} alt="food4all logo" />
