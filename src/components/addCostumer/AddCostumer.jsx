@@ -13,8 +13,8 @@ const AddCustomer = () => {
   // const condition2 = email === '';
   const condition3 = phone.length != 11;
   const condition4 = address === '';
-  const condition5 = !picture.includes('cloudinary');
-  const genTruth = condition || condition3 || condition4 || condition5;
+  // const condition5 = !picture.includes('cloudinary');
+  const genTruth = condition || condition3 || condition4;
 
   const handleAddItem = () => {
     const user = JSON.parse(localStorage.getItem('user'));
