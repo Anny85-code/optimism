@@ -41,8 +41,10 @@ body {
   background-image:
     linear-gradient(
       321deg,
-      rgba(211, 108, 40, 0.95),
-      rgba(83, 73, 49, 0.95)
+      /* rgba(211, 108, 40, 0.95), */
+      /* rgba(83, 73, 49, 0.95) */
+      rgba(34, 32, 32, 0.95),
+      rgba(48, 48, 44, 0.95)
     ),
     url('../src/assets/image/foodforall.jpeg');
   background-size: auto;

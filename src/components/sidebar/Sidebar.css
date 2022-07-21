@@ -29,9 +29,10 @@
 }
 
 .sidebar__title > div > img {
-  width: 75px;
+  width: 100px;
   object-fit: contain;
-  box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #5a5656;
+  border-radius: 8px;
+  margin-left: 60px;
 }
 
 .sidebar__title > div > h1 {

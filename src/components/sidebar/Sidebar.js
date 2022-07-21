@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './Sidebar.css';
 import { useDispatch } from 'react-redux';
-import foodforallOptimism from '../../assets/image/foodforallOptimism.jpeg';
+import foodforallpng from '../../assets/image/foodforallpng.jpeg';
 import Footer from '../footer/Footer';
 
 const data = JSON.parse(localStorage.getItem('user'));
@@ -224,8 +224,8 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
     <div className={sidebarOpen ? 'sidebar-responsive' : ''} id="sidebar">
       <div className="sidebar__title">
         <div className="sidebar__img">
-          <img src={foodforallOptimism} alt="food for all logo" />
-          <h1>Optimist</h1>
+          <img src={foodforallpng} alt="food for all logo" />
+          {/* <h1>Optimist</h1> */}
         </div>
         <i
           className="fa fa-times"
