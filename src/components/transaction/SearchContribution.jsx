@@ -45,7 +45,9 @@ const SearchContribution = () => {
 
   return (
     <div className="form-container trans-form">
-      <h2 className="title">Search Contribution</h2>
+      <div className="inner-container">
+        <h2 className="title">Search Contribution</h2>
+      </div>
       <div id="error" style={{ display: 'none' }}></div>
       <form className="add-customer-form" autoComplete="off">
         <label htmlFor="contribution_number">
