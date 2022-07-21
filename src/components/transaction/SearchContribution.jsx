@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './AddTransaction.css';
+import './SearchContribution.css';
 
 /* eslint-disable */
 
@@ -44,7 +45,7 @@ const SearchContribution = () => {
   };
 
   return (
-    <div className="form-container trans-form">
+    <div className="Search-contr-container trans-form">
       <div className="inner-container">
         <h2 className="title">Search Contribution</h2>
       </div>
