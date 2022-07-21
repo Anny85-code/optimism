@@ -1,12 +1,17 @@
 .form-container {
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
   align-items: center;
   gap: 20px;
   font-family: 'Gumela', sans-serif;
   margin: 1.25rem 1.25rem 1.25rem 15rem;
   box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #967777;
   border-radius: 8px;
+  background: #CA955C;
+}
+
+#cus-inner {
+  background: #898AA6;
 }
 
 .update-cus-container {

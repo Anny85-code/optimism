@@ -32,7 +32,9 @@ const AddCustomer = () => {
 
   return (
     <div className="form-container update-cus-container">
-      <h3 className="title">Add Customer</h3>
+      <div className="inner-container" id="cus-inner">
+        <h3 className="title">Add Customer</h3>
+      </div>
       <form className="add-customer-form">
         <div className="form-group">
           <label htmlFor="name">
