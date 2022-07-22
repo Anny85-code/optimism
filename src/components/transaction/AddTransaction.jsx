@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { getCustomerFromApi } from '../../redux/forms/customerReducer';
+import { sendErrors } from '../../redux/forms/errors';
 import Loader from '../loader/Loader';
 import './AddTransaction.css';
 
@@ -45,7 +46,10 @@ const AddTransaction = () => {
   };
 
   const handdleNext = () => {
-    localStorage.setItem('cardNumber', cardNumber);
+    const errorMsg = `There's no customer with CARD NO. ${cardNumber}`;
+    cardNumber <= customers.data.length
+      ? localStorage.setItem('cardNumber', cardNumber)
+      : dispatch(sendErrors({ nilCardNo: errorMsg }));
   };
 
   useEffect(() => {
