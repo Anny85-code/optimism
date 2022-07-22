@@ -41,10 +41,12 @@ const Register = () => {
 
   return (
     <div className="form-container form1">
-      <div className="form-group form2">
+      <div className="form2">
         <div className="column mt-5">
           <div className="d-flex justify-content-center align-items-center flex-column shadow-lg rounded w-50 mx-auto p-5">
-            <h3 className="title">Register A Marketer</h3>
+            <div className="inner-container">
+              <h3 className="title">Register A Marketer</h3>
+            </div>
             <br />
             {error ? (
               <div>

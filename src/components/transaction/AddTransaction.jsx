@@ -45,13 +45,15 @@ const AddTransaction = () => {
 
   return (
     <div className="form-container trans-form">
-      <h2 className="title">Collect contribution</h2>
-      <span style={{ color: 'white' }}>
+      <div className="inner-container">
+        <h2 className="title">Collect contribution</h2>
+      </div>
+      <span style={{ color: '#0078AA' }}>
         Enter Card number to move to the next page
       </span>
       <div id="error" style={{ display: 'none' }}></div>
-      <form className="add-customer-form" autoComplete="off">
-        <label htmlFor="name">
+      <form className="add-customer-form search-form" autoComplete="off">
+        <label htmlFor="name" id="contr-num">
           Card Number *
           <input
             type="text"

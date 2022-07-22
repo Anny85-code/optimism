@@ -41,7 +41,7 @@ const Main = () => {
           <div className="main__container">
             <div className="main__title">
               <img src={hello} alt="hello logo" />
-              <div className="main__greetings">
+            <div className="main__greetings">
                 <h1>Hello {user.name}</h1>
                 <h4>
                   Welcome to another brand new day {user.name}! Today is {today}
@@ -58,7 +58,7 @@ const Main = () => {
                 </div>
               </div>
               <div className="cards">
-                <i class="fa fa-line-chart fa-2x text-green" />
+                <i class="fa fa-line-chart fa-2x text-red" />
                 <div className="card__inner">
                   <p className="text-primary-p">Number of Transactions</p>
                   <span className="font-bold text-title">
@@ -74,14 +74,14 @@ const Main = () => {
                 </div>
               </div>
               <div className="cards">
-                <i className="fa fa-group fa-2x text-green" />
+                <i className="fa fa-group fa-2x text-red" />
                 <div className="card__inner">
                   <p className="text-primary-p">Number of Admins</p>
                   <span className="font-bold text-title">{numOfAdmins}</span>
                 </div>
               </div>
               <div className="cards">
-                <i className="fa fa-cart-plus fa-2x text-green" />
+                <i className="fa fa-cart-plus fa-2x text-red" />
                 <div className="card__inner">
                   <p className="text-primary-p">Number of Products</p>
                   <span className="font-bold text-title">{numOfProducts}</span>

@@ -13,7 +13,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #3ea175;
+  background-color: #f5a5a5;
   border-radius: 10px;
 }
 
@@ -41,8 +41,10 @@ body {
   background-image:
     linear-gradient(
       321deg,
-      rgba(211, 108, 40, 0.95),
-      rgba(83, 73, 49, 0.95)
+      /* rgba(211, 108, 40, 0.95), */
+      /* rgba(83, 73, 49, 0.95) */
+      rgba(240, 239, 233, 0.95),
+      rgba(165, 165, 156, 0.95)
     ),
     url('../src/assets/image/foodforall.jpeg');
   background-size: auto;

@@ -82,14 +82,18 @@ const Contribution = () => {
 
   return (
     <div className="contribution-form">
-      <h2 className="title1">Contribution details</h2>
-      <center style={{ color: 'white' }}>Enter no. of days to continue!</center>
+      <div className="inner-container">
+        <h2 className="title1">Contribution details</h2>
+      </div>
+      <center style={{ color: 'red' }}>
+        Enter no. of days to continue!
+      </center>
       <h3 className="details">Customer details</h3>
       <form onSubmit={handleSubmit} className="add-customer-form">
         <div className="contribution-container">
-          <p>Name: {name}</p>
-          <p>Daily Contribution: {daily_contribution}</p>
-          <h3>Transaction Details</h3>
+          <p className="contr-name">Name: {name}</p>
+          <p className="d-contr">Daily Contribution: {daily_contribution}</p>
+          <h3 id="details">Transaction Details</h3>
           <input
             type="number"
             className="form-control days-input"
@@ -100,8 +104,8 @@ const Contribution = () => {
             onChange={handleDays}
           />
           <p>Amount: NGN {amount}</p>
-          <p>Previous payment date: {lastDate}</p>
-          <p>Current payment date: {currentDate}</p>
+          <p className="p-p">Previous payment date: {lastDate}</p>
+          <p className="c-p">Current payment date: {currentDate}</p>
         </div>
         {go && (
           <NavLink to="/transactions" style={{ textDecoration: 'none' }}>

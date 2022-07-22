@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './AddTransaction.css';
+import './SearchContribution.css';
 
 /* eslint-disable */
 
@@ -44,11 +45,13 @@ const SearchContribution = () => {
   };
 
   return (
-    <div className="form-container trans-form">
-      <h2 className="title">Search Contribution</h2>
+    <div className="Search-contr-container trans-form">
+      <div className="inner-container">
+        <h2 className="title">Search Contribution</h2>
+      </div>
       <div id="error" style={{ display: 'none' }}></div>
-      <form className="add-customer-form" autoComplete="off">
-        <label htmlFor="contribution_number">
+      <form className="add-customer-form search-form" autoComplete="off">
+        <label htmlFor="contribution_number" id="contr-num">
           Contribution Number *
           <input
             type="text"

@@ -1,0 +1,20 @@
+.Search-contr-container {
+  align-items: center;
+  gap: 20px;
+  font-family: 'Gumela', sans-serif;
+  margin: 1.25rem 1.25rem 1.25rem 15rem;
+  box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #967777;
+  border-radius: 8px;
+  background: #f3faf6;
+}
+
+.search-form {
+  margin-top: 100px;
+  padding: 20px;
+}
+
+#contr-num {
+  color: #e9224d;
+  font-weight: bolder;
+  margin-bottom: 5px;
+}
