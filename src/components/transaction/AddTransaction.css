@@ -5,7 +5,7 @@
 }
 
 .add-trans-btn {
-  background-color: #00bcd4;
+  background-color: #f06a6a;
   width: 200px;
   height: 50px;
   padding: 10px;
@@ -22,9 +22,15 @@
 @media only screen and (max-width: 978px) {
   .trans-btn {
     width: 250px;
+    margin-top: 30px;
   }
 
   .trans-form {
-    padding-left: 20px;
+    margin: 20px;
+    width: 320px;
+  }
+
+  .add-trans-btn {
+    margin-left: -15px;
   }
 }

@@ -48,7 +48,7 @@ const AddTransaction = () => {
       <div className="inner-container">
         <h2 className="title">Collect contribution</h2>
       </div>
-      <span style={{ color: '#0078AA' }}>
+      <span style={{ color: 'red' }}>
         Enter Card number to move to the next page
       </span>
       <div id="error" style={{ display: 'none' }}></div>
