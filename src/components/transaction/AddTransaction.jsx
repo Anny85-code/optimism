@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { ThreeDots } from 'react-loader-spinner';
 import { getCustomerFromApi } from '../../redux/forms/customerReducer';
 import { sendErrors } from '../../redux/forms/errors';
-import Loader from '../loader/Loader';
 import './AddTransaction.css';
 
 /* eslint-disable */
 
 const AddTransaction = () => {
-  const [cardNumber, setCardNumber] = useState('');
+  const [cardNumber, setCardNumber] = useState(0);
   const error = document.getElementById('error');
   const [status, setStatus] = useState(false);
   const dispatch = useDispatch();
   const customers = useSelector((state) => state.customer);
+  const customerExists = cardNumber > 0 && cardNumber <= customers.data.length;
 
   const getInput = (e) => {
     const input = e.target.value;
@@ -27,6 +28,7 @@ const AddTransaction = () => {
       if (extractCustomerId.match(/[a-zA-Z]$/)) {
         e.target.setAttribute('disabled', true);
         document.getElementById('resetInput').style.display = 'block';
+        document.getElementById('nextbtn').style.display = 'none';
         error.innerText = 'Wrong Card No.\n Remove letters after /';
         error.style.display = 'block';
         error.style.color = 'white';
@@ -47,7 +49,7 @@ const AddTransaction = () => {
 
   const handdleNext = () => {
     const errorMsg = `There's no customer with CARD NO. ${cardNumber}`;
-    cardNumber <= customers.data.length
+    customerExists
       ? localStorage.setItem('cardNumber', cardNumber)
       : dispatch(sendErrors({ nilCardNo: errorMsg }));
   };
@@ -74,6 +76,7 @@ const AddTransaction = () => {
                 id="card_number"
                 name="card number"
                 placeholder="card number"
+                autoFocus
                 required
                 autoCorrect="off"
                 onChange={getInput}
@@ -87,23 +90,31 @@ const AddTransaction = () => {
               </span>
             </label>
             <div className="form-group btn1 trans-btn">
-              {status && (
-                <NavLink to="/contribution" style={{ textDecoration: 'none' }}>
-                  <button
-                    type="submit"
-                    className="add-trans-btn"
-                    onClick={handdleNext}
-                  >
-                    Next
-                    <i className="fa fa-arrow-right" id="toggle-btn" />
-                  </button>
-                </NavLink>
+              {customerExists && (
+                <>
+                  {status && (
+                    <NavLink
+                      to="/contribution"
+                      style={{ textDecoration: 'none' }}
+                    >
+                      <button
+                        type="submit"
+                        className="add-trans-btn"
+                        id="nextbtn"
+                        onClick={handdleNext}
+                      >
+                        Next
+                        <i className="fa fa-arrow-right" id="toggle-btn" />
+                      </button>
+                    </NavLink>
+                  )}
+                </>
               )}
             </div>
           </form>
         </div>
       ) : (
-        <Loader />
+        <ThreeDots color="#15a715" height={200} width={200} />
       )}
     </>
   );
