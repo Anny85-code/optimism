@@ -4,6 +4,7 @@
 
 #sidebar {
   background: #fae8ed;
+
   /* background: #020509; */
   grid-area: sidebar;
   overflow-y: auto;
@@ -17,6 +18,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   /* color: #f3f4f6; */
   color: #020509;
   margin-bottom: 30px;
@@ -49,7 +51,7 @@
 
 .sidebar__menu > h2 {
   /* color: #3ea175; */
-  color: #FF1818;
+  color: #ff1818;
   font-size: 16px;
   margin-top: 15px;
   margin-bottom: 5px;
@@ -76,6 +78,7 @@
 
 .sidebar__link > a {
   text-decoration: none;
+
   /* color: #a5aaad; */
   color: #020509;
   font-weight: 700;

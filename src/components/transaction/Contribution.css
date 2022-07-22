@@ -12,9 +12,9 @@
 .inner-container {
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
-  height : 150px;
+  height: 150px;
   width: inherit;
-  background : #F2DF3A;
+  background: #f2df3a;
   border-bottom-left-radius: 60% 50%;
   border-bottom-right-radius: 60% 50%;
   padding-top: 70px;
@@ -46,17 +46,17 @@
   font-weight: bolder;
 }
 
-#details{
+#details {
   color: #f72727;
   font-weight: bolder;
   margin-bottom: 5px;
 }
 
-.contr-name{
+.contr-name {
   color: #440303;
 }
 
-.d-contr{
+.d-contr {
   color: #533535;
 }
 
@@ -86,7 +86,7 @@
   color: #332829;
 }
 
-.c-p{
+.c-p {
   color: #2e2424;
 }
 
