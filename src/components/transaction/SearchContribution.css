@@ -10,10 +10,11 @@
 
 .search-form {
   margin-top: 100px;
+  padding: 20px;
 }
 
 #contr-num {
-  color: #355764;
+  color: #e9224d;
   font-weight: bolder;
   margin-bottom: 5px;
 }
