@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { getCustomerFromApi } from '../../redux/forms/customerReducer';
 import './AddTransaction.css';
 
 /* eslint-disable */
@@ -8,6 +10,7 @@ const AddTransaction = () => {
   const [cardNumber, setCardNumber] = useState('');
   const error = document.getElementById('error');
   const [status, setStatus] = useState(false);
+  const dispatch = useDispatch();
 
   const getInput = (e) => {
     const input = e.target.value;
@@ -42,6 +45,10 @@ const AddTransaction = () => {
   const handdleNext = () => {
     localStorage.setItem('cardNumber', cardNumber);
   };
+
+  useEffect(() => {
+    dispatch(getCustomerFromApi());
+  }, []);
 
   return (
     <div className="form-container trans-form">
