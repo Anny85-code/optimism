@@ -54,6 +54,10 @@
   margin: 30px;
 }
 
+.search-header {
+  color: crimson;
+}
+
 .search-text {
   font-size: 20px;
   font-weight: bold;
