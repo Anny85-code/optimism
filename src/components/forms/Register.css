@@ -100,4 +100,9 @@ select {
   #eye {
     margin: 1.6875rem 0 0 13.75rem;
   }
+
+  .title {
+    margin: 0;
+  }
+
 }
