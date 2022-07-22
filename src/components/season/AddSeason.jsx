@@ -79,7 +79,9 @@ const AddSeason = () => {
 
   return (
     <div className="form-container">
-      <h2 className="title">Create new season</h2>
+      <div className="inner-container">
+        <h2 className="title">Create new season</h2>
+      </div>
       <div id="error" style={{ display: 'none' }}></div>
       <form className="add-customer-form" autoComplete="off">
         <label htmlFor="name">
