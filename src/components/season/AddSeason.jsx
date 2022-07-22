@@ -78,7 +78,7 @@ const AddSeason = () => {
   }, []);
 
   return (
-    <div className="form-container">
+    <div className="form-container season-cont">
       <div className="inner-container">
         <h2 className="title">Create new season</h2>
       </div>
