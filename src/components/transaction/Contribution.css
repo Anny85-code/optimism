@@ -42,22 +42,22 @@
 .details {
   font-size: 24px;
   margin: 20px 0 -10px 20px;
-  color: #355764;
+  color: #f72727;
   font-weight: bolder;
 }
 
 #details{
-  color: #355764;
+  color: #f72727;
   font-weight: bolder;
   margin-bottom: 5px;
 }
 
 .contr-name{
-  color: #5A8F7B;
+  color: #440303;
 }
 
 .d-contr{
-  color: #81CACF;
+  color: #533535;
 }
 
 .days-input {
@@ -74,7 +74,7 @@
 .title1 {
   font-size: 30px;
   font-weight: bolder;
-  color: rgb(26, 24, 24);
+  color: rgb(190, 12, 12);
   text-align: center;
 }
 
@@ -83,11 +83,11 @@
 }
 
 .p-p {
-  color: #3AB4F2;
+  color: #332829;
 }
 
 .c-p{
-  color: #0078AA;
+  color: #2e2424;
 }
 
 @media only screen and (max-width: 978px) {

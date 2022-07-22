@@ -1,5 +1,6 @@
 .register-form {
   margin-top: 10px;
+  padding: 20px;
 }
 
 .form2 {
@@ -31,7 +32,7 @@ select {
   outline: none;
   border: none;
   border-radius: 5px;
-  background-color: #3ea175;
+  background-color: #f72727;
   color: #fff;
   font-size: 15px;
   font-weight: bold;

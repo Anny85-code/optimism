@@ -3,7 +3,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Neonderthaw&display=swap');
 
 #sidebar {
-  background: #020509;
+  background: #fae8ed;
+  /* background: #020509; */
   grid-area: sidebar;
   overflow-y: auto;
   padding: 20px;
@@ -16,7 +17,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #f3f4f6;
+  /* color: #f3f4f6; */
+  color: #020509;
   margin-bottom: 30px;
   font-family: 'Quintessential', sans-serif;
 }
@@ -46,7 +48,8 @@
 }
 
 .sidebar__menu > h2 {
-  color: #3ea175;
+  /* color: #3ea175; */
+  color: #FF1818;
   font-size: 16px;
   margin-top: 15px;
   margin-bottom: 5px;
@@ -55,24 +58,26 @@
 }
 
 .sidebar__link {
-  color: #f3faf6;
+  /* color: #f3faf6; */
+  color: #020509;
   padding: 10px;
   border-radius: 3px;
   margin-bottom: 5px;
 }
 
 .active_menu_link {
-  background: rgb(62, 161, 117, 0.3);
-  color: #3ea175;
+  background: rgba(240, 4, 4, 0.3);
+  color: #ee2b2b;
 }
 
 .active_menu_link a {
-  color: #3ea175 !important;
+  color: #f82323 !important;
 }
 
 .sidebar__link > a {
   text-decoration: none;
-  color: #a5aaad;
+  /* color: #a5aaad; */
+  color: #020509;
   font-weight: 700;
   font-size: 15px;
 }

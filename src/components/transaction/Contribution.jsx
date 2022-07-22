@@ -85,7 +85,7 @@ const Contribution = () => {
       <div className="inner-container">
         <h2 className="title1">Contribution details</h2>
       </div>
-      <center style={{ color: '#0078AA' }}>
+      <center style={{ color: 'red' }}>
         Enter no. of days to continue!
       </center>
       <h3 className="details">Customer details</h3>

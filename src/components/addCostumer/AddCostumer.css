@@ -1,18 +1,13 @@
 .form-container {
-  /* display: flex;
-  flex-direction: column; */
   align-items: center;
   gap: 20px;
   font-family: 'Gumela', sans-serif;
   margin: 1.25rem 1.25rem 1.25rem 15rem;
   box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #967777;
   border-radius: 8px;
-  background: #CA955C;
+  background: #d3dad6;
 }
 
-#cus-inner {
-  background: #898AA6;
-}
 
 .update-cus-container {
   padding-bottom: 20px;
@@ -39,7 +34,7 @@
 .title {
   font-size: 30px;
   font-weight: bold;
-  color: rgb(26, 24, 24);
+  color: #f72727;
   margin: 20px;
   text-align: center;
 }
@@ -89,7 +84,7 @@ label {
   outline: none;
   border: none;
   border-radius: 5px;
-  background-color: #3ea175;
+  background-color: #f72727;
   color: #fff;
   font-size: 15px;
   font-weight: bold;
@@ -98,7 +93,7 @@ label {
 }
 
 .add-item-btn {
-  background-color: #00bcd4;
+  background-color: #f88585;
   border-radius: 3px;
   color: #fff;
   cursor: pointer;
@@ -125,7 +120,7 @@ label {
   border: 1px solid #000;
   width: 50px;
   margin-left: 16.25rem;
-  color: #00bcd4;
+  color: #ff899c;
   border-radius: 0.25rem;
 }
 
