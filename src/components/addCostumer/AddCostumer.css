@@ -133,7 +133,7 @@ label {
   }
 
   .form-group {
-    margin: 0.625rem;
+    margin: 0 0 0 1.25rem;
   }
 
   form {
@@ -161,15 +161,15 @@ label {
     margin: 0 0 10px -45px;
   }
 
-  .art-cus {
-    margin-left: 4.0625rem;
-  }
-
   .upload-image {
     margin-left: 5.5rem;
   }
 
   .edit-cs-btn {
     margin-left: 15px;
+  }
+
+  .upload-container {
+    margin-left: 20px;
   }
 }
