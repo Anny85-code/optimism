@@ -129,16 +129,17 @@
 
 #drop-menu {
   width: 100%;
-  background: #020509;
+  background: crimson;
   padding: 10px 0 10px 40px;
   box-shadow: 0 0 10px #000;
   list-style-type: none;
   margin-bottom: -25px;
+  border-radius: 5px;
 }
 
 #drop-menu > li {
   text-decoration: none;
-  color: #a5aaad;
+  color: rgb(252, 252, 92);
   font-weight: 700;
   margin-bottom: 8px;
   font-size: 14px;
