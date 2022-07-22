@@ -78,12 +78,12 @@ const AddSeason = () => {
   }, []);
 
   return (
-    <div className="form-container season-cont">
+    <div className="form-container">
       <div className="inner-container">
         <h2 className="title">Create new season</h2>
       </div>
       <div id="error" style={{ display: 'none' }}></div>
-      <form className="add-customer-form" autoComplete="off">
+      <form className="add-customer-form season-cont" autoComplete="off">
         <label htmlFor="name">
           Name *
           <input
