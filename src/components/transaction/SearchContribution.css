@@ -18,3 +18,10 @@
   font-weight: bolder;
   margin-bottom: 5px;
 }
+
+@media only screen and (max-width: 768px) {
+  .Search-contr-container {
+    margin: 1.25rem;
+  }
+}
+  
