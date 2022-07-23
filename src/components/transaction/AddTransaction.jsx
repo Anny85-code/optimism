@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { ThreeDots } from 'react-loader-spinner';
 import { getCustomerFromApi } from '../../redux/forms/customerReducer';
 import { sendErrors } from '../../redux/forms/errors';
+import Loader from '../loader/Loader';
 import './AddTransaction.css';
 
 /* eslint-disable */
@@ -114,7 +114,7 @@ const AddTransaction = () => {
           </form>
         </div>
       ) : (
-        <ThreeDots color="#15a715" height={200} width={200} />
+        <Loader />
       )}
     </>
   );
