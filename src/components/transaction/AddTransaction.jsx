@@ -1,13 +1,20 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { getCustomerFromApi } from '../../redux/forms/customerReducer';
+import { sendErrors } from '../../redux/forms/errors';
+import Loader from '../loader/Loader';
 import './AddTransaction.css';
 
 /* eslint-disable */
 
 const AddTransaction = () => {
-  const [cardNumber, setCardNumber] = useState('');
+  const [cardNumber, setCardNumber] = useState(0);
   const error = document.getElementById('error');
   const [status, setStatus] = useState(false);
+  const dispatch = useDispatch();
+  const customers = useSelector((state) => state.customer);
+  const customerExists = cardNumber > 0 && cardNumber <= customers.data.length;
 
   const getInput = (e) => {
     const input = e.target.value;
@@ -21,6 +28,7 @@ const AddTransaction = () => {
       if (extractCustomerId.match(/[a-zA-Z]$/)) {
         e.target.setAttribute('disabled', true);
         document.getElementById('resetInput').style.display = 'block';
+        document.getElementById('nextbtn').style.display = 'none';
         error.innerText = 'Wrong Card No.\n Remove letters after /';
         error.style.display = 'block';
         error.style.color = 'white';
@@ -40,17 +48,24 @@ const AddTransaction = () => {
   };
 
   const handdleNext = () => {
-    localStorage.setItem('cardNumber', cardNumber);
+    const errorMsg = `There's no customer with CARD NO. ${cardNumber}`;
+    customerExists
+      ? localStorage.setItem('cardNumber', cardNumber)
+      : dispatch(sendErrors({ nilCardNo: errorMsg }));
   };
 
+  useEffect(() => {
+    dispatch(getCustomerFromApi());
+  }, []);
+
   return (
-    <div className="form-container trans-form">
-      <div className="inner-container">
-        <h2 className="title">Collect contribution</h2>
-      </div>
-      <span style={{ color: 'red' }}>
-        Enter Card number to move to the next page
-      </span>
+    <>
+      {customers.data.length ? (
+        <div className="form-container trans-form">
+          <h2 className="title">Collect contribution</h2>
+          <span style={{ color: 'white' }}>
+            Enter Card number to move to the next page
+     </span>
       <div id="error" style={{ display: 'none' }}></div>
       <form className="add-customer-form search-form" autoComplete="off">
         <label htmlFor="name" id="contr-num">
@@ -70,25 +85,37 @@ const AddTransaction = () => {
             style={{ display: 'none', color: 'white', fontSize: '12px' }}
             onClick={handleReset}
           >
-            Reset
-          </span>
-        </label>
-        <div className="form-group btn1 trans-btn">
-          {status && (
-            <NavLink to="/contribution" style={{ textDecoration: 'none' }}>
-              <button
-                type="submit"
-                className="add-trans-btn"
-                onClick={handdleNext}
-              >
-                Next
-                <i className="fa fa-arrow-right" id="toggle-btn" />
-              </button>
-            </NavLink>
-          )}
+            Reset   
+              </span>
+            </label>
+            <div className="form-group btn1 trans-btn">
+              {customerExists && (
+                <>
+                  {status && (
+                    <NavLink
+                      to="/contribution"
+                      style={{ textDecoration: 'none' }}
+                    >
+                      <button
+                        type="submit"
+                        className="add-trans-btn"
+                        id="nextbtn"
+                        onClick={handdleNext}
+                      >
+                        Next
+                        <i className="fa fa-arrow-right" id="toggle-btn" />
+                      </button>
+                    </NavLink>
+                  )}
+                </>
+              )}
+            </div>
+          </form>
         </div>
-      </form>
-    </div>
+      ) : (
+        <Loader />
+      )}
+    </>
   );
 };
 /* eslint-enable */

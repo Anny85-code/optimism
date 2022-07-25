@@ -9,21 +9,22 @@ import {
   getTransactionFromApi,
   postTransactionToApi,
 } from '../../redux/forms/transactionReducer';
+import Loader from '../loader/Loader';
 import './Contribution.css';
 
 const Contribution = () => {
-  const dispatch = useDispatch();
-  const { cardNumber } = localStorage;
   const customerDetails = useSelector((state) => state.oneCustomer);
   const customersTransactions = useSelector((state) => state.transactions);
   const seasons = useSelector((state) => state.seasons);
-  const lastSeason = seasons.data.length;
   const season = useSelector((state) => state.oneSeason);
   const seasonData = season.data;
   const { start_date } = seasonData;
   const myData = customersTransactions.data;
+  const { cardNumber } = localStorage;
+  const lastSeason = seasons.data.length;
   let oneCustomerTransactions = [];
   const [go, setGo] = useState(false);
+  const dispatch = useDispatch();
 
   myData.map((trans) => {
     if (trans.customer_id === +cardNumber) {
@@ -60,6 +61,11 @@ const Contribution = () => {
     }
   };
 
+  const handleRetry = () => {
+    window.pushState({}, '', '/');
+    window.location.reload();
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const transactionData = {
@@ -82,43 +88,59 @@ const Contribution = () => {
 
   return (
     <div className="contribution-form">
-      <div className="inner-container">
-        <h2 className="title1">Contribution details</h2>
-      </div>
-      <center style={{ color: 'red' }}>
-        Enter no. of days to continue!
-      </center>
-      <h3 className="details">Customer details</h3>
-      <form onSubmit={handleSubmit} className="add-customer-form">
-        <div className="contribution-container">
-          <p className="contr-name">Name: {name}</p>
-          <p className="d-contr">Daily Contribution: {daily_contribution}</p>
-          <h3 id="details">Transaction Details</h3>
-          <input
-            type="number"
-            className="form-control days-input"
-            id="days_number"
-            placeholder="No. of days"
-            required
-            autoCorrect="off"
-            onChange={handleDays}
-          />
-          <p>Amount: NGN {amount}</p>
-          <p className="p-p">Previous payment date: {lastDate}</p>
-          <p className="c-p">Current payment date: {currentDate}</p>
-        </div>
-        {go && (
-          <NavLink to="/transactions" style={{ textDecoration: 'none' }}>
+      {lastDate ? (
+        <>
+          {' '}
+          <h2 className="title1">Contribution details</h2>
+          <center style={{ color: 'white' }}>
+            Enter no. of days to continue!
+          </center>
+          <h3 className="details">Customer details</h3>
+          <form onSubmit={handleSubmit} className="add-customer-form">
+            <div className="contribution-container">
+              <p>Name: {name}</p>
+              <p>Daily Contribution: {daily_contribution}</p>
+              <h3>Transaction Details</h3>
+              <input
+                type="number"
+                className="form-control days-input"
+                id="days_number"
+                placeholder="No. of days"
+                required
+                autoCorrect="off"
+                onChange={handleDays}
+              />
+              <p>Amount: NGN {amount}</p>
+              <p>Previous payment date: {lastDate}</p>
+              <p>Current payment date: {currentDate}</p>
+            </div>
+            {go && (
+              <NavLink to="/transactions" style={{ textDecoration: 'none' }}>
+                <button
+                  type="button"
+                  className="add-customer-btn cont-btn"
+                  onClick={handleSubmit}
+                >
+                  Add
+                </button>
+              </NavLink>
+            )}
+          </form>
+        </>
+      ) : (
+        <>
+          <Loader />
+          <NavLink to="/customers" style={{ textDecoration: 'none' }}>
             <button
               type="button"
               className="add-customer-btn cont-btn"
-              onClick={handleSubmit}
+              onClick={handleRetry}
             >
-              Add
+              Retry
             </button>
           </NavLink>
-        )}
-      </form>
+        </>
+      )}
     </div>
   );
 };

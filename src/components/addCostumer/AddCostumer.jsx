@@ -1,26 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { getSeasonFromApi } from '../../redux/forms/seasonReducer';
 import ImageUpload from '../images/imageUpload';
 import './AddCostumer.css';
 /* eslint-disable */
 const AddCustomer = () => {
+  const dispatch = useDispatch();
+  const seasons = useSelector((state) => state.seasons);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [address, setAddress] = useState('');
   const picture = localStorage.getItem('image_str');
   const condition = name === '';
-  // const condition2 = email === '';
   const condition3 = phone.length != 11;
   const condition4 = address === '';
-  // const condition5 = !picture.includes('cloudinary');
   const genTruth = condition || condition3 || condition4;
+  const seasonData = seasons.data;
+  const lastSeason = seasonData[seasonData.length - 1];
+
+  useEffect(() => {
+    dispatch(getSeasonFromApi());
+  }, []);
 
   const handleAddItem = () => {
     const user = JSON.parse(localStorage.getItem('user'));
     const { id } = user.user;
     const customer = {
       user_id: id,
+      season_id: lastSeason.id,
       name,
       email,
       phone,
