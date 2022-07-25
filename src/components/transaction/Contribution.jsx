@@ -61,6 +61,11 @@ const Contribution = () => {
     }
   };
 
+  const handleRetry = () => {
+    window.pushState({}, '', '/');
+    window.location.reload();
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const transactionData = {
@@ -123,7 +128,18 @@ const Contribution = () => {
           </form>
         </>
       ) : (
-        <Loader />
+        <>
+          <Loader />
+          <NavLink to="/customers" style={{ textDecoration: 'none' }}>
+            <button
+              type="button"
+              className="add-customer-btn cont-btn"
+              onClick={handleRetry}
+            >
+              Retry
+            </button>
+          </NavLink>
+        </>
       )}
     </div>
   );
