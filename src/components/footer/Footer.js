@@ -10,9 +10,9 @@ const Footer = () => {
         {Foter()}
         &nbsp;
         <p>Designed and Developed with 💖 by</p>
-        <a href="https://www.linkedin.com/in/brytebee/">&nbsp;Bright</a>
+        <a style={{ color: 'blue' }} href="https://www.linkedin.com/in/brytebee/">&nbsp;Bright</a>
         <p> &nbsp;&</p>
-        <a href="https://www.linkedin.com/in/aniekan-udo-665b65213/">
+        <a style={{ color: 'blue' }} href="https://www.linkedin.com/in/aniekan-udo-665b65213/">
           &nbsp;Anny
         </a>
       </div>

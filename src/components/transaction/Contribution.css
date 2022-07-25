@@ -6,6 +6,19 @@
   margin: 1.25rem 1.25rem 1.25rem 15.6rem;
   box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #967777;
   border-radius: 8px;
+  background: #f3faf6;
+}
+
+.inner-container {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  height: 150px;
+  width: inherit;
+  background: #f2df3a;
+  border-bottom-left-radius: 60% 50%;
+  border-bottom-right-radius: 60% 50%;
+  padding-top: 70px;
+  margin-bottom: 10px;
 }
 
 .contribution-container {
@@ -28,14 +41,29 @@
 
 .details {
   font-size: 24px;
-  margin: 0 0 -10px 20px;
-  color: rgb(26, 24, 24);
+  margin: 20px 0 -10px 20px;
+  color: #f72727;
+  font-weight: bolder;
+}
+
+#details {
+  color: #f72727;
+  font-weight: bolder;
+  margin-bottom: 5px;
+}
+
+.contr-name {
+  color: #440303;
+}
+
+.d-contr {
+  color: #533535;
 }
 
 .days-input {
   height: 30px;
   outline: none;
-  box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #967777;
+  box-shadow: 5px 5px 13px #f8f6f6, -5px -5px 13px #e2d7d7;
   border-radius: 3px;
   cursor: pointer;
   padding-left: 5px;
@@ -45,14 +73,21 @@
 
 .title1 {
   font-size: 30px;
-  font-weight: bold;
-  color: rgb(26, 24, 24);
-  margin: 20px;
+  font-weight: bolder;
+  color: rgb(190, 12, 12);
   text-align: center;
 }
 
 .cont-btn {
   margin-left: 160px;
+}
+
+.p-p {
+  color: #332829;
+}
+
+.c-p {
+  color: #2e2424;
 }
 
 @media only screen and (max-width: 978px) {

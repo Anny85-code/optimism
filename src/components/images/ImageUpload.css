@@ -17,9 +17,8 @@
   justify-content: center;
   gap: 20px;
   font-family: 'Gumela', sans-serif;
-  margin: 10px;
   border-radius: 8px;
-  margin-left: 50px;
+  margin: 10px 10px 10px 50px;
 }
 
 #file {
@@ -42,7 +41,7 @@
   cursor: pointer;
   box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #d86565;
   border-radius: 5px;
-  background-color: #3ea175;
+  background-color: #f72727;
   color: #fff;
   outline: none;
   border: none;
@@ -56,6 +55,7 @@
     align-items: center;
     justify-content: center;
     width: 200px;
+    margin-left: 5px;
   }
 
   .upload-image {
@@ -65,7 +65,7 @@
 
   .upload-btn {
     width: 200px;
-    margin-left: 30px;
+    margin-left: 25px;
   }
 
   #file {

@@ -31,7 +31,7 @@ const ImageUpload = () => {
   return (
     <>
       <div className="upload-container">
-        <article className="art-container art-cus">
+        <article className="art-container art-mart" id="art-cus">
           <input
             type="file"
             name="file"
@@ -45,7 +45,11 @@ const ImageUpload = () => {
 
         <article>
           {imageData && (
-            <Image cloudName={cldName} publicId={`${imageData.secure_url}`} className="upload-image" />
+            <Image
+              cloudName={cldName}
+              publicId={`${imageData.secure_url}`}
+              className="upload-image"
+            />
           )}
         </article>
       </div>

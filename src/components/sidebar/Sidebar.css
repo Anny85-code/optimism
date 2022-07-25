@@ -3,7 +3,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Neonderthaw&display=swap');
 
 #sidebar {
-  background: #020509;
+  background: #ece9a8;
+
+  /* background: #020509; */
   grid-area: sidebar;
   overflow-y: auto;
   padding: 20px;
@@ -16,7 +18,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #f3f4f6;
+
+  /* color: #f3f4f6; */
+  color: #020509;
   margin-bottom: 30px;
   font-family: 'Quintessential', sans-serif;
 }
@@ -29,9 +33,10 @@
 }
 
 .sidebar__title > div > img {
-  width: 75px;
+  width: 100px;
   object-fit: contain;
-  box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #5a5656;
+  border-radius: 8px;
+  margin-left: 60px;
 }
 
 .sidebar__title > div > h1 {
@@ -45,7 +50,8 @@
 }
 
 .sidebar__menu > h2 {
-  color: #3ea175;
+  /* color: #3ea175; */
+  color: #ff1818;
   font-size: 16px;
   margin-top: 15px;
   margin-bottom: 5px;
@@ -54,24 +60,27 @@
 }
 
 .sidebar__link {
-  color: #f3faf6;
+  /* color: #f3faf6; */
+  color: #020509;
   padding: 10px;
   border-radius: 3px;
   margin-bottom: 5px;
 }
 
 .active_menu_link {
-  background: rgb(62, 161, 117, 0.3);
-  color: #3ea175;
+  background: rgba(240, 4, 4, 0.3);
+  color: #ee2b2b;
 }
 
 .active_menu_link a {
-  color: #3ea175 !important;
+  color: #f82323 !important;
 }
 
 .sidebar__link > a {
   text-decoration: none;
-  color: #a5aaad;
+
+  /* color: #a5aaad; */
+  color: #020509;
   font-weight: 700;
   font-size: 15px;
 }
@@ -120,16 +129,17 @@
 
 #drop-menu {
   width: 100%;
-  background: #020509;
+  background: #ff5d5d;
   padding: 10px 0 10px 40px;
   box-shadow: 0 0 10px #000;
   list-style-type: none;
   margin-bottom: -25px;
+  border-radius: 5px;
 }
 
 #drop-menu > li {
   text-decoration: none;
-  color: #a5aaad;
+  color: rgb(252, 252, 92);
   font-weight: 700;
   margin-bottom: 8px;
   font-size: 14px;
