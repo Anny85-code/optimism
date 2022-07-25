@@ -11,7 +11,6 @@ const Transactions = () => {
   const transactions = useSelector((state) => state.transactions);
   const { customer_id } = transactions.data;
   const customers = useSelector((state) => state.customer);
-  console.log('customers.data', customers.data);
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
 
@@ -25,10 +24,13 @@ const Transactions = () => {
       {transactions.data.map((transaction) => {
         const permitted =
           user.role === 'admin' || transaction.user_id === user.id;
-        const aCustomer = customers.data.filter(
-          (customer) => customer.id === transaction.customer_id
-        );
-        const { name } = aCustomer[0];
+        const aCustomer = {};
+        customers.data.filter((customer) => {
+          if (customer.id === transaction.customer_id) {
+            aCustomer.name = customer.name;
+          }
+        });
+
         console.log(aCustomer);
         if (permitted) {
           return (
@@ -39,7 +41,7 @@ const Transactions = () => {
               <div className="customer-container">
                 <h3>
                   <span className="cus-name">Name:</span>
-                  {name}
+                  {aCustomer.name}
                   <span className="cus-name">Amount:</span>
                   {transaction.amount}
                 </h3>
