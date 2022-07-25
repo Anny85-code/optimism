@@ -44,10 +44,10 @@ const Transactions = () => {
                   <span className="cus-name">Customer's Name:</span>
                   {aCustomer.name}
                 </h3>
-                  <h4>
-                    <span className="cus-name">Amount:</span>
-                    {transaction.amount}
-                  </h4>
+                <h4>
+                  <span className="cus-name">Amount:</span>
+                  {transaction.amount}
+                </h4>
                 <h4>
                   <span className="cus-phone">Date:</span>
                   {Moment(transaction.created_at).format('MMMM DD, LT')}
