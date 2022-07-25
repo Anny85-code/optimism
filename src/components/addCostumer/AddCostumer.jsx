@@ -14,10 +14,8 @@ const AddCustomer = () => {
   const [address, setAddress] = useState('');
   const picture = localStorage.getItem('image_str');
   const condition = name === '';
-  // const condition2 = email === '';
   const condition3 = phone.length != 11;
   const condition4 = address === '';
-  // const condition5 = !picture.includes('cloudinary');
   const genTruth = condition || condition3 || condition4;
   const seasonData = seasons.data;
   const lastSeason = seasonData[seasonData.length - 1];
@@ -38,7 +36,6 @@ const AddCustomer = () => {
       address,
       picture,
     };
-    console.log(customer);
     localStorage.setItem('customer', JSON.stringify(customer));
   };
 
