@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import ImageUpload from '../images/imageUpload';
 import './AddCostumer.css';
 /* eslint-disable */
 const AddCustomer = () => {
+  const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -15,6 +17,10 @@ const AddCustomer = () => {
   const condition4 = address === '';
   // const condition5 = !picture.includes('cloudinary');
   const genTruth = condition || condition3 || condition4;
+
+  useEffect(() => {
+    dispatch();
+  }, []);
 
   const handleAddItem = () => {
     const user = JSON.parse(localStorage.getItem('user'));
