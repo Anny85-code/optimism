@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Moment from 'moment';
 import { getTransactionFromApi } from '../../redux/forms/transactionReducer';
 import { getCustomerFromApi } from '../../redux/forms/customerReducer';
+import './Transactions.css';
 /* eslint-disable */
 
 const Transactions = () => {
@@ -38,17 +39,19 @@ const Transactions = () => {
               key={transaction.id}
               to={`/transactions/${transaction.id}`}
             >
-              <div className="customer-container">
+              <div className="customer-container transactions-container">
                 <h3>
-                  <span className="cus-name">Name:</span>
+                  <span className="cus-name">Customer's Name:</span>
                   {aCustomer.name}
-                  <span className="cus-name">Amount:</span>
-                  {transaction.amount}
                 </h3>
-                <p>
+                  <h4>
+                    <span className="cus-name">Amount:</span>
+                    {transaction.amount}
+                  </h4>
+                <h4>
                   <span className="cus-phone">Date:</span>
                   {Moment(transaction.created_at).format('MMMM DD, LT')}
-                </p>
+                </h4>
               </div>
             </NavLink>
           );

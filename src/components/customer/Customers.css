@@ -25,7 +25,7 @@
 }
 
 .customer-container :nth-child(even) {
-  background-color: rgb(172, 180, 180);
+  background-color: rgb(243, 152, 152);
 }
 
 @media only screen and (max-width: 978px) {
