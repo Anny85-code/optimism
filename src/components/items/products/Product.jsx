@@ -1,42 +1,37 @@
 import React, { useEffect } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import Moment from 'moment';
 import './Product.css';
 /* eslint-disable */
-import { getOneItemFromApi } from '../../redux/forms/OneCustomerReducer';
+import { getOneItemFromApi } from '../../redux/forms/oneItemReducer';
 /* eslint-enable */
-const editUrl = (person) => {
-  const { id } = person;
-  return `/customers/${id}/edit`;
+const editUrl = (product) => {
+  const { id } = product;
+  return `/items/${id}/edit`;
 };
-const data = JSON.parse(localStorage.getItem('user'));
-const { user } = data || {};
-console.log(user);
+const data = JSON.parse(localStorage.getItem('item'));
+const { item } = data || {};
+console.log(item);
 
-const Customer = () => {
+const Product = () => {
   const dispatch = useDispatch();
   const param = useParams();
   const { id } = param;
-  const aCustomers = useSelector((state) => state.oneCustomer);
+  const aProduct = useSelector((state) => state.oneItem);
 
   useEffect(() => {
-    dispatch(getOneCustomerFromApi(id));
+    dispatch(getOneItemFromApi(id));
   }, []);
 
   /* eslint-disable */
 
   const {
     name,
-    phone,
-    address,
-    email,
-    created_at,
+    price,
+    description,
     picture,
-    updated_at,
-    daily_contribution,
-  } = aCustomers.data;
-  const redirect = editUrl(aCustomers.data);
+  } = aProduct.data;
+  const redirect = editUrl(aProduct.data);
 
   return (
     <div className="containa">
@@ -45,23 +40,8 @@ const Customer = () => {
       </div>
       <div className="details-container">
         <h3 className="cus-details">Name: {name}</h3>
-        <p className="cus-details">Phone: {phone}</p>
-        <p className="cus-details">Email: {email}</p>
-        <p className="cus-details">
-          Card No.
-          {user.location_area.slice(0, 3).toUpperCase()}
-          {user.id}/{aCustomers.data.id}
-        </p>
-        <p className="cus-details">
-          Daily Contribution: NGN {daily_contribution}
-        </p>
-        <p className="cus-details">Address: {address}</p>
-        <p className="cus-details">
-          Joined:{Moment(created_at).format('MMMM DD, LT')}
-        </p>
-        <p className="cus-details">
-          Last Updated:{Moment(updated_at).format('MMMM DD, LT')}
-        </p>
+        <p className="cus-details">Price: {price}</p>
+        <p className="cus-details">Description: {description}</p>
       </div>
 
       <div className="image-container">
@@ -78,4 +58,4 @@ const Customer = () => {
 };
 
 /* eslint-enable */
-export default Customer;
+export default Product;
