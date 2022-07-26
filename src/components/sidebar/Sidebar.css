@@ -139,7 +139,19 @@
 
 #drop-menu > li {
   text-decoration: none;
-  color: rgb(252, 252, 92);
+  color: #000;
+  font-weight: 700;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+#drop-menu > li > a {
+  color: #000;
+}
+
+#drop-menu > li {
+  text-decoration: none;
+  color: #000;
   font-weight: 700;
   margin-bottom: 8px;
   font-size: 14px;
