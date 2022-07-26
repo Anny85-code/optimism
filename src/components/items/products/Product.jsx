@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import './Product.css';
+
 /* eslint-disable */
 import { getOneItemFromApi } from '../../../redux/forms/oneItemReducer';
 /* eslint-enable */

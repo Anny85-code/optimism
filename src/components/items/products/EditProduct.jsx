@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getOneItemFromApi } from '../../../redux/forms/oneItemReducer';
 import { postUpdateItemToApi } from '../../../redux/forms/getItemsReducer';
-import './EditProduct.css';
 import ImageUpload from '../../images/imageUpload';
 /* eslint-disable */
 const EditProduct = () => {
