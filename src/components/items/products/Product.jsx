@@ -3,15 +3,15 @@ import { NavLink, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import './Product.css';
 /* eslint-disable */
-import { getOneItemFromApi } from '../../redux/forms/oneItemReducer';
+import { getOneItemFromApi } from '../../../redux/forms/oneItemReducer';
 /* eslint-enable */
 const editUrl = (product) => {
   const { id } = product;
-  return `/items/${id}/edit`;
+  return `/products/${id}/edit`;
 };
-const data = JSON.parse(localStorage.getItem('item'));
-const { item } = data || {};
-console.log(item);
+const data = JSON.parse(localStorage.getItem('user'));
+const { user } = data || {};
+console.log(user);
 
 const Product = () => {
   const dispatch = useDispatch();
@@ -34,6 +34,7 @@ const Product = () => {
   const redirect = editUrl(aProduct.data);
 
   return (
+   
     <div className="containa">
       <div className="image-container">
         <img className="cus-image" src={picture} alt={`${name}`} />
@@ -54,6 +55,7 @@ const Product = () => {
         </div>
       </div>
     </div>
+  
   );
 };
 

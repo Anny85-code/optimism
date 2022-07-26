@@ -85,7 +85,7 @@ export const postUpdateItemToApi = (userData) => async (dispatch) => {
     const errorMsg = sendData.error || sendData.errors;
     dispatch(patchItemDataFailed(errorMsg));
   } else {
-    window.history.pushState({}, '', `/customers/${id}`);
+    window.history.pushState({}, '', `/products/${id}`);
     setTimeout(() => {
       window.location.reload();
     }, 3000);

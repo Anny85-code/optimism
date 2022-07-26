@@ -11,10 +11,10 @@ const EditProduct = () => {
   const { id } = param;
   const item = useSelector((state) => state.oneItem);
   const productId = item.data.id;
-  const [name, setName] = useState(items.data.name);
-  const [price, setPrice] = useState(user.data.price);
-  const [description, setDescription] = useState(user.data.description);
-  let { picture } = items.data;
+  const [name, setName] = useState(item.data.name);
+  const [price, setPrice] = useState(item.data.price);
+  const [description, setDescription] = useState(item.data.description);
+  let { picture } = item.data;
   const [isPending, setIsPending] = useState(false);
   const { error } = useSelector((state) => state.item);
   const dispatch = useDispatch();
@@ -30,8 +30,8 @@ const EditProduct = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const currentProduct = JSON.parse(localStorage.getItem('item'));
-    const { id } = currentProduct.item;
+    const currentUser = JSON.parse(localStorage.getItem('user'));
+    const { id } = currentUser.user;
     picture = localStorage.getItem('image_str');
     const oneItem = {
       id: productId,
@@ -73,7 +73,7 @@ const EditProduct = () => {
                   <input
                     type="text"
                     placeholder="Name"
-                    onChange={setName}
+                    onChange={(e) => setName(e.target.value)}
                     value={name}
                     id="name"
                     name="name"
@@ -90,7 +90,7 @@ const EditProduct = () => {
                   <input
                     type="text"
                     placeholder="price"
-                    onChange={setPrice}
+                    onChange={(e) => setPrice(e.target.value)}
                     value={price}
                     id="price"
                     name="price"
@@ -105,9 +105,9 @@ const EditProduct = () => {
                 <label htmlFor="phone" className="form-label">
                   Description *
                   <input
-                    type="number"
-                    placeholder="Phone"
-                    onChange={setDescription}
+                    type="text"
+                    placeholder="Description"
+                    onChange={(e) => setDescription(e.target.value)}
                     value={description}
                     id="description"
                     name="description"
@@ -146,7 +146,7 @@ const EditProduct = () => {
                     type="submit"
                     className="btn1 btn-secondary1 add-marketer-btn edit-user-btn"
                   >
-                    Edit User
+                    Edit Product
                   </button>
                 )}
                 {isPending && (
@@ -155,7 +155,7 @@ const EditProduct = () => {
                     type="submit"
                     disabled
                   >
-                    Editing User . . .
+                    Editing Product . . .
                   </button>
                 )}
               </div>
