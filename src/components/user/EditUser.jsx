@@ -60,10 +60,12 @@ const EditUser = () => {
 
   return (
     <div className="form-container">
-      <div className="form-group">
+      <div className="">
         <div className="column mt-5">
           <div className="d-flex justify-content-center align-items-center flex-column shadow-lg rounded w-50 mx-auto p-5">
-            <h3 className="title">Update User</h3>
+            <div className="inner-container">
+              <h3 className="title">Update User</h3>
+            </div>
             <br />
             {error ? (
               <div>
@@ -85,13 +87,13 @@ const EditUser = () => {
                   <input
                     type="text"
                     placeholder="Name"
-                    onChange={setName}
                     value={name}
                     id="name"
                     name="name"
                     className="form-control"
                     autoComplete="off"
                     required
+                    onChange={(e) => setName(e.target.value)}
                   />
                 </label>
               </div>
@@ -102,7 +104,7 @@ const EditUser = () => {
                   <input
                     type="text"
                     placeholder="Username"
-                    onChange={setUsername}
+                    onChange={(e) => setUsername(e.target.value)}
                     value={username}
                     id="username"
                     name="username"
@@ -119,7 +121,7 @@ const EditUser = () => {
                   <input
                     type="email"
                     placeholder="Email"
-                    onChange={setEmail}
+                    onChange={(e) => setEmail(e.target.value)}
                     value={email}
                     id="email"
                     name="email"
@@ -136,7 +138,7 @@ const EditUser = () => {
                   <input
                     type="text"
                     placeholder="Location"
-                    onChange={setLocation}
+                    onChange={(e) => setLocation(e.target.value)}
                     value={location}
                     id="location"
                     name="location"
@@ -168,7 +170,7 @@ const EditUser = () => {
                   <input
                     type="number"
                     placeholder="Phone"
-                    onChange={setPhone}
+                    onChange={(e) => setPhone(e.target.value)}
                     value={phone}
                     id="phone"
                     name="phone"
@@ -185,7 +187,7 @@ const EditUser = () => {
                   <input
                     type="text"
                     placeholder="Address"
-                    onChange={setAddress}
+                    onChange={(e) => setAddress(e.target.value)}
                     value={address}
                     id="address"
                     name="address"

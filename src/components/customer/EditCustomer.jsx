@@ -58,7 +58,9 @@ const EditCustomer = () => {
 
   return (
     <div className="form-container">
-      <h3 className="title">Update Customer</h3>
+      <div className="inner-container">
+        <h3 className="title">Update Customer</h3>
+      </div>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="name">

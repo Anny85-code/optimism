@@ -181,6 +181,10 @@ main {
   font-size: 14px;
 }
 
+.welcome-date {
+  font-size: 24px;
+}
+
 @media only screen and (max-width: 320px) {
   .main__cards {
     grid-template-columns: 1fr;
