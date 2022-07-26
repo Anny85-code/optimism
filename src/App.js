@@ -14,6 +14,7 @@ import EditCustomer from './components/customer/EditCustomer';
 import Users from './components/user/Users';
 import User from './components/user/User';
 import EditUser from './components/user/EditUser';
+import EditProduct from './components/items/products/EditProduct';
 // import AddItemCustomer from './components/addCostumer/addItemCustomer/AddItemCustomer';
 import AddProduct from './components/items/products/AddProducts';
 import ViewItems from './components/items/ViewItems';
@@ -72,6 +73,7 @@ const App = () => {
                 <Route path="/customers/:id/edit" element={<EditCustomer />} />
                 <Route path="/users" element={<Users />} />
                 <Route path="/users/:id" element={<User />} />
+                <Route path="/items/:id/edit" element={<EditProduct />} />
                 <Route path="/users/:id/edit" element={<EditUser />} />
                 <Route path="/products" element={<ViewItems />} />
                 <Route path="/addproduct" element={<AddProduct />} />
