@@ -5,7 +5,7 @@ import Moment from 'moment';
 import { getOneCustomerTransFromApi } from '../../redux/forms/oneCustomerTransactReducer';
 import Loader from '../loader/Loader';
 /* eslint-disable */
-const CustomerTransacts = () => {
+const UserTransacts = () => {
   const dispatch = useDispatch();
   const param = useParams();
   const { id } = param;
@@ -72,4 +72,4 @@ const CustomerTransacts = () => {
   );
 };
 /* eslint-enable */
-export default CustomerTransacts;
+export default UserTransacts;

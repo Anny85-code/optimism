@@ -30,6 +30,7 @@ import AddItemToCustomer from './components/addCostumer/AddItemToCustomer';
 import SearchContribution from './components/transaction/SearchContribution';
 import CustomerTransacts from './components/customer/CustomerTransacts';
 import Product from './components/items/products/Product';
+import UserTransacts from './components/user/UserTransacts';
 
 const App = () => {
   const [sideBarOpen, setSideBarOpen] = useState(false);
@@ -80,6 +81,10 @@ const App = () => {
                 <Route
                   path="/customers/:id/transactions"
                   element={<CustomerTransacts />}
+                />
+                <Route
+                  path="/users/:id/transactions"
+                  element={<UserTransacts />}
                 />
                 <Route path="/products" element={<ViewItems />} />
                 <Route path="/addproduct" element={<AddProduct />} />
