@@ -1,4 +1,4 @@
-import { auto } from '@popperjs/core';
+// import { auto } from '@popperjs/core';
 import React from 'react';
 // import { Audio, Grid, Puff, Rings, ThreeDots } from 'react-loader-spinner';
 import { Grid } from 'react-loader-spinner';
