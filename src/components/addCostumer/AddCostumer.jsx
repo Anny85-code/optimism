@@ -47,7 +47,9 @@ const AddCustomer = () => {
       <form className="add-customer-form">
         <div className="form-group">
           <label htmlFor="name">
-            Name *
+            <span>
+              Name <span style={{ color: 'crimson' }}>*</span>
+            </span>
             <input
               type="text"
               className="form-control"
@@ -77,7 +79,9 @@ const AddCustomer = () => {
         </div>
         <div className="form-group">
           <label htmlFor="phone">
-            Phone *
+            <span>
+              Phone <span style={{ color: 'crimson' }}>*</span>
+            </span>
             <input
               type="number"
               className="form-control"
@@ -92,7 +96,9 @@ const AddCustomer = () => {
         </div>
         <div className="form-group">
           <label htmlFor="address">
-            Address *
+            <span>
+              Address <span style={{ color: 'crimson' }}>*</span>
+            </span>
             <input
               type="text"
               className="form-control"
