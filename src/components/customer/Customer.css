@@ -1,12 +1,12 @@
 .containa {
-  margin: 20px 20px 20px 100px;
+  margin: 20px 20px 20px 50px;
   padding: 20px;
   background-color: azure;
   border-radius: 8px;
   text-align: center;
   text-decoration: none;
   height: 480px;
-  width: 850px;
+  width: 950px;
   display: flex;
   flex-direction: row;
 }
@@ -55,6 +55,21 @@
 
 #new-img-editor {
   text-align: center;
+}
+
+.view-trans {
+  width: 9.5rem;
+  height: 1.875rem;
+  padding: 6px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background-color: #f72727;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 5px 5px 13px #f7f1f1, -5px -5px 13px #e2dcdc;
 }
 
 @media only screen and (max-width: 978px) {
