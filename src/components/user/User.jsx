@@ -67,6 +67,11 @@ const User = () => {
           <i className="fa fa-edit" />
         </NavLink>
       </div>
+      <div className="allTrans">
+        <NavLink to={allTrans}>
+          <button type="button">View Transactions</button>
+        </NavLink>
+      </div>
     </div>
   );
 };
