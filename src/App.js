@@ -75,7 +75,7 @@ const App = () => {
                 <Route path="/users/:id" element={<User />} />
                 <Route path="/users/:id/edit" element={<EditUser />} />
                 <Route
-                  path="/users/:id/transactions"
+                  path="/customers/:id/transactions"
                   element={<CustomerTransacts />}
                 />
                 <Route path="/products" element={<ViewItems />} />
