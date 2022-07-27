@@ -44,6 +44,10 @@ const CustomerTransacts = () => {
                   <span className="cus-name">Total amount contributed:</span>
                   {total}
                 </h3>
+                <h3>
+                  <span className="cus-name">Total days paid:</span>
+                  {total_days}
+                </h3>
               </div>
               {trans.map((transaction) => (
                 <NavLink
