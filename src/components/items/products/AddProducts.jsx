@@ -75,7 +75,12 @@ const AddProduct = () => {
           </label>
         </div>
         <div className="form-group">
-          <label htmlFor="picture">Picture *{ImageUpload()}</label>
+          <label htmlFor="picture">
+            <span>
+              Picture <span style={{ color: 'crimson' }}>*</span>
+            </span>
+            {ImageUpload()}
+          </label>
         </div>
         <div className="form-group">
           <label htmlFor="address">

@@ -85,7 +85,9 @@ const AddSeason = () => {
       <div id="error" style={{ display: 'none' }}></div>
       <form className="add-customer-form season-cont" autoComplete="off">
         <label htmlFor="name">
-          Name *
+          <span>
+            Name <span style={{ color: 'crimson' }}>*</span>
+          </span>
           <input
             type="text"
             className="form-control"
@@ -99,7 +101,9 @@ const AddSeason = () => {
           />
         </label>
         <label htmlFor="number_of_days">
-          Number of Days *
+          <span>
+            Number of Days <span style={{ color: 'crimson' }}>*</span>
+          </span>
           <input
             type="number"
             className="form-control"
@@ -113,7 +117,7 @@ const AddSeason = () => {
           />
         </label>
         <label htmlFor="start_date">
-          Start Date *
+          <span>Start Date <span style={{ color: 'crimson' }}>*</span></span>
           <DatePicker
             dateFormat="yyyy/MM/dd"
             selected={startDate}
