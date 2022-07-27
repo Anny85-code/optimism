@@ -42,7 +42,9 @@ const AddProduct = () => {
       <form onSubmit={handleSubmit} className="add-customer-form">
         <div className="form-group">
           <label htmlFor="name">
-            Name *
+            <span>
+              Name <span style={{ color: 'crimson' }}>*</span>
+            </span>
             <input
               type="text"
               className="form-control"
@@ -57,7 +59,9 @@ const AddProduct = () => {
         </div>
         <div className="form-group">
           <label htmlFor="price">
-            Price *
+            <span>
+              Price <span style={{ color: 'crimson' }}>*</span>
+            </span>
             <input
               type="number"
               className="form-control"
@@ -75,7 +79,9 @@ const AddProduct = () => {
         </div>
         <div className="form-group">
           <label htmlFor="address">
-            Description *
+            <span>
+              Description <span style={{ color: 'crimson' }}>*</span>
+            </span>
             <input
               type="text"
               className="form-control"
