@@ -11,7 +11,7 @@ const CustomerTransacts = () => {
   const { id } = param;
   const transactions = useSelector((state) => state.customerTransactions);
   const { data } = transactions;
-  const { trans, user_name, total } = data || {};
+  const { trans, user_name, total, total_days } = data || {};
 
   useEffect(() => {
     dispatch(getOneCustomerTransFromApi(id));
