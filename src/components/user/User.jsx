@@ -40,6 +40,7 @@ const User = () => {
     updated_at,
   } = user.data;
   const redirect = editUrl(user.data);
+  const allTrans = transUrl(user.data);
 
   return (
     <div className="containa user-container">
