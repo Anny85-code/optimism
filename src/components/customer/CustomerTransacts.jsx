@@ -11,7 +11,7 @@ const CustomerTransacts = () => {
   const { id } = param;
   const transactions = useSelector((state) => state.customerTransactions);
   const { data } = transactions;
-  const { trans, user_name } = data || {};
+  const { trans, user_name, total } = data || {};
 
   useEffect(() => {
     dispatch(getOneCustomerTransFromApi(id));
@@ -34,27 +34,35 @@ const CustomerTransacts = () => {
               </button>
             </>
           ) : (
-            trans.map((transaction) => (
-              <NavLink
-                key={transaction.id}
-                to={`/transactions/${transaction.id}`}
-              >
-                <div className="customer-container transactions-container">
-                  <h3>
-                    <span className="cus-name">Customer's Name:</span>
-                    {user_name}
-                  </h3>
-                  <h4>
-                    <span className="cus-name">Amount:</span>
-                    {transaction.amount}
-                  </h4>
-                  <h4>
-                    <span className="cus-phone">Date:</span>
-                    {Moment(transaction.created_at).format('MMMM DD, LT')}
-                  </h4>
-                </div>
-              </NavLink>
-            ))
+            <>
+              <div>
+                <h3>
+                  <span className="cus-name">Customer's Name:</span>
+                  {user_name}
+                </h3>
+                <h3>
+                  <span className="cus-name">Total amount contributed:</span>
+                  {total}
+                </h3>
+              </div>
+              {trans.map((transaction) => (
+                <NavLink
+                  key={transaction.id}
+                  to={`/transactions/${transaction.id}`}
+                >
+                  <div className="customer-container transactions-container">
+                    <h4>
+                      <span className="cus-name">Amount:</span>
+                      {transaction.amount}
+                    </h4>
+                    <h4>
+                      <span className="cus-phone">Date:</span>
+                      {Moment(transaction.created_at).format('MMMM DD, LT')}
+                    </h4>
+                  </div>
+                </NavLink>
+              ))}
+            </>
           )}
         </>
       ) : (
