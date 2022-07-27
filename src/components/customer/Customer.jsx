@@ -78,7 +78,7 @@ const Customer = () => {
             </NavLink>
           )}
         </div>
-        <div className="edit">
+        <div className="allTrans">
           {user.role === 'admin' && (
             <NavLink to={allTrans} style={{ textDecoration: 'none' }}>
               <i className="fa fa-money" />
