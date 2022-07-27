@@ -2,11 +2,13 @@ import axios from 'axios';
 import endpoint from '../../assets/url/url';
 
 const GET_ONE_CUSTOMER =
-  'src/redux/customerreducer/get_one_customer'.toUpperCase();
+  'src/redux/onecustomerreducer/get_one_customer'.toUpperCase();
 const FAILED_GET_ONE_CUSTOMER =
-  'src/redux/customerreducer/failed_get_one_customer'.toUpperCase();
+  'src/redux/onecustomerreducer/failed_get_one_customer'.toUpperCase();
 const GET_ONE_CUSTOMERS_REQUEST =
-  'src/redux/customerreducer/get_one_customer_request'.toUpperCase();
+  'src/redux/onecustomerreducer/get_one_customer_request'.toUpperCase();
+const GET_ONE_CUSTOMER_TRANS =
+  'SRC/REDUX/ONECUSTOMER_REDUCER/GET_ONE_CUSTOMER_TRANS';
 const url = `${endpoint}/customers`;
 const { token } = localStorage;
 
