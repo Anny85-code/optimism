@@ -41,8 +41,10 @@ const Transactions = () => {
             >
               <div className="customer-container transactions-container">
                 <h3>
-                  <span className="cus-name">Customer's Name:</span>
-                  {aCustomer.name}
+                  <span className="cus-name">
+                    Customer&apos;s Name:
+                    <span className="cus-trans-info">{aCustomer.name}</span>
+                  </span>
                 </h3>
                 <h4>
                   <span className="cus-name">Amount:</span>

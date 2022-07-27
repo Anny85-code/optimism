@@ -52,7 +52,9 @@ const SearchContribution = () => {
       <div id="error" style={{ display: 'none' }}></div>
       <form className="add-customer-form search-form" autoComplete="off">
         <label htmlFor="contribution_number" id="contr-num">
-          Contribution Number *
+          <span>
+            Contribution Number <span style={{ color: 'crimson' }}>*</span>
+          </span>
           <input
             type="text"
             className="form-control"
