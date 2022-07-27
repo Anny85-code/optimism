@@ -20,11 +20,11 @@ const CustomerTransacts = () => {
   return (
     <div>
       <h1>Hi</h1>
-      {/* {data.map((el) => (
+      {data.map((el) => (
         <div key={el.id}>
           <p>{el.amount}</p>
         </div>
-      ))} */}
+      ))}
     </div>
     /*
     <div>
