@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Quintessential&display=swap');
-/* stylint:disable */
+
+/* stylelint-disable */
 .custrans-name {
   display: flex;
   justify-content: space-between;
@@ -72,10 +73,10 @@
   .no-trans {
     font-size: 30px;
   }
-  
+
   .no-trans-btn {
     margin: 20px 0 20px 30px;
   }
 }
 
-/* stylint:enable */
+/* stylelint-enable */
