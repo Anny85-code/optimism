@@ -27,6 +27,7 @@ import Transactions from './components/transaction/Transactions';
 import Transaction from './components/transaction/transaction';
 import AddItemToCustomer from './components/addCostumer/AddItemToCustomer';
 import SearchContribution from './components/transaction/SearchContribution';
+import CustomerTransacts from './components/customer/CustomerTransacts';
 
 const App = () => {
   const [sideBarOpen, setSideBarOpen] = useState(false);
@@ -73,6 +74,10 @@ const App = () => {
                 <Route path="/users" element={<Users />} />
                 <Route path="/users/:id" element={<User />} />
                 <Route path="/users/:id/edit" element={<EditUser />} />
+                <Route
+                  path="/users/:id/transactions"
+                  element={<CustomerTransacts />}
+                />
                 <Route path="/products" element={<ViewItems />} />
                 <Route path="/addproduct" element={<AddProduct />} />
                 <Route path="/addseason" element={<AddSeason />} />
