@@ -55,23 +55,17 @@ const CustomerTransacts = () => {
                 </h3>
                 <h6
                   className="columns i"
-                  style={{ borderBottom: '1px solid #705050' }}
+                  style={{ borderBottom: '2px solid #705050' }}
                 ></h6>
                 <h6
                   className="columns i"
                   id="a"
-                  style={{ borderBottom: '1px solid #705050' }}
+                  style={{ borderBottom: '2px solid #705050' }}
                 ></h6>
                 <h3 className="columns" id="col">
                   {total}
                 </h3>
               </div>
-              {/* <div className="custrans-name">
-                <h3 className="columns"></h3>
-                <h3 className="columns"></h3>
-                <h3 className="columns"></h3>
-                <h3 className="columns"></h3>
-              </div> */}
               {trans.map((transaction) => (
                 <NavLink
                   key={transaction.id}
@@ -87,7 +81,7 @@ const CustomerTransacts = () => {
                         <h4
                           className="columns i"
                           id="top"
-                          style={{ borderRight: '1px solid #705050' }}
+                          style={{ borderRight: '2px solid #705050' }}
                         >
                           {transaction.amount}
                         </h4>
