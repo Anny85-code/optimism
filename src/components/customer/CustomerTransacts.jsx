@@ -4,7 +4,7 @@ import { NavLink, useParams } from 'react-router-dom';
 import Moment from 'moment';
 import { getOneCustomerTransFromApi } from '../../redux/forms/oneCustomerTransactReducer';
 import Loader from '../loader/Loader';
-
+/* eslint-disable */
 const CustomerTransacts = () => {
   const dispatch = useDispatch();
   const param = useParams();
@@ -63,5 +63,5 @@ const CustomerTransacts = () => {
     </div>
   );
 };
-
+/* eslint-enable */
 export default CustomerTransacts;
