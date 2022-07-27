@@ -1,5 +1,5 @@
 import React from 'react';
-/* eslint-disable*/
+/* eslint-disable */
 const MyFood = () => {
   return (
     <div>
@@ -7,5 +7,5 @@ const MyFood = () => {
     </div>
   );
 };
-/* eslint-enable*/
+/* eslint-enable */
 export default MyFood;
