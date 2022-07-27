@@ -11,6 +11,11 @@ const editUrl = (person) => {
   return `/users/${id}/edit`;
 };
 
+const transUrl = (person) => {
+  const { id } = person;
+  return `/users/${id}/transactions`;
+};
+
 const User = () => {
   const dispatch = useDispatch();
   const param = useParams();
