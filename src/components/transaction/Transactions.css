@@ -8,3 +8,10 @@
   color: #2e4a66;
   width: 50rem;
 }
+
+.cus-trans-info {
+  color: rgb(248, 66, 66);
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Gumela', sans-serif;
+}

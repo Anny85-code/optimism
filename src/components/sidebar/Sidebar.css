@@ -5,7 +5,7 @@
 #sidebar {
   background: #ece9a8;
 
-  /* background: #020509; */
+  /* background: #f8ce52; */
   grid-area: sidebar;
   overflow-y: auto;
   padding: 20px;
@@ -139,10 +139,14 @@
 
 #drop-menu > li {
   text-decoration: none;
-  color: rgb(252, 252, 92);
+  color: #000;
   font-weight: 700;
   margin-bottom: 8px;
   font-size: 14px;
+}
+
+#drop-menu > li > a {
+  color: #000;
 }
 
 @media only screen and (max-width: 978px) {
