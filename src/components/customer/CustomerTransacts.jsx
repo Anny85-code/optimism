@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 const CustomerTransacts = () => {
-  console.log('CustomerTransacts');
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch();
+  }, []);
+
   return (
     <div>
       <h1>CustomerTransacts</h1>
