@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useParams } from 'react-router-dom';
 import Moment from 'moment';
-import { getOneCustomerTransFromApi } from '../../redux/forms/oneCustomerTransactReducer';
 import Loader from '../loader/Loader';
+import { getOneUserTransFromApi } from '../../redux/forms/oneUserTransactReducer';
 /* eslint-disable */
 const UserTransacts = () => {
   const dispatch = useDispatch();
@@ -14,7 +14,7 @@ const UserTransacts = () => {
   const { trans, user_name, total } = data || {};
 
   useEffect(() => {
-    dispatch(getOneCustomerTransFromApi(id));
+    dispatch(getOneUserTransFromApi(id));
   }, []);
 
   return (
