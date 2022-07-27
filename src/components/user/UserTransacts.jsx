@@ -9,7 +9,7 @@ const UserTransacts = () => {
   const dispatch = useDispatch();
   const param = useParams();
   const { id } = param;
-  const transactions = useSelector((state) => state.customerTransactions);
+  const transactions = useSelector((state) => state.userTransacts);
   const { data } = transactions;
   const { trans, user_name, total } = data || {};
 
@@ -37,11 +37,11 @@ const UserTransacts = () => {
             <>
               <div>
                 <h3>
-                  <span className="cus-name">Customer's Name:</span>
+                  <span className="cus-name">Collected by:</span>
                   {user_name}
                 </h3>
                 <h3>
-                  <span className="cus-name">Total amount contributed:</span>
+                  <span className="cus-name">Total amount collected:</span>
                   {total}
                 </h3>
               </div>

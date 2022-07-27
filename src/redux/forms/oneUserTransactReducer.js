@@ -2,10 +2,8 @@ import axios from 'axios';
 import endpoint from '../../assets/url/url';
 
 const GET_ONE_USER_TRANS = 'SRC/REDUX/ONEUSER_REDUCER/GET_ONE_USER_TRANS';
-const FAILED_GET_ONE_USER_TRANS =
-  'SRC/REDUX/ONEUSER_REDUCER/FAILED_GET_ONE_USER_TRANS';
-const GET_ONE_USER_TRANS_REQUEST =
-  'SRC/REDUX/ONEUSER_REDUCER/GET_ONE_USER_TRANS';
+const FAILED_GET_ONE_USER_TRANS = 'SRC/REDUX/ONEUSER_REDUCER/FAILED_GET_ONE_USER_TRANS';
+const GET_ONE_USER_TRANS_REQUEST = 'SRC/REDUX/ONEUSER_REDUCER/GET_ONE_USER_TRANS';
 const url = `${endpoint}/users`;
 const { token } = localStorage;
 
@@ -45,7 +43,7 @@ const oneUserTransactsReducer = (
     loading: false,
     error: null,
   },
-  action
+  action,
 ) => {
   switch (action.type) {
     case GET_ONE_USER_TRANS:
