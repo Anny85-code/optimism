@@ -11,6 +11,8 @@ const CustomerTransacts = () => {
   const { id } = param;
   const transactions = useSelector((state) => state.customerTransactions);
   const { data } = transactions;
+  const { trans, user_name } = data || {};
+  console.log(trans, user_name);
 
   useEffect(() => {
     dispatch(getOneCustomerTransFromApi(id));
@@ -18,9 +20,9 @@ const CustomerTransacts = () => {
 
   return (
     <div>
-      {data ? (
+      {trans ? (
         <>
-          {data.length <= 0 ? (
+          {trans.length <= 0 ? (
             <>
               <p>No transactions yet!</p>
               <button type="button">
@@ -33,16 +35,16 @@ const CustomerTransacts = () => {
               </button>
             </>
           ) : (
-            data.map((transaction) => (
+            trans.map((transaction) => (
               <NavLink
                 key={transaction.id}
                 to={`/transactions/${transaction.id}`}
               >
                 <div className="customer-container transactions-container">
-                  {/* <h3>
-                <span className="cus-name">Customer's Name:</span>
-                {aCustomer.name}
-              </h3> */}
+                  <h3>
+                    <span className="cus-name">Customer's Name:</span>
+                    {user_name}
+                  </h3>
                   <h4>
                     <span className="cus-name">Amount:</span>
                     {transaction.amount}
