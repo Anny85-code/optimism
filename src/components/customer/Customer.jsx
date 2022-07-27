@@ -10,9 +10,14 @@ const editUrl = (person) => {
   const { id } = person;
   return `/customers/${id}/edit`;
 };
+
+const transUrl = (person) => {
+  const { id } = person;
+  return `/customers/${id}/transactions`;
+};
+
 const data = JSON.parse(localStorage.getItem('user'));
 const { user } = data || {};
-console.log(user);
 
 const Customer = () => {
   const dispatch = useDispatch();
@@ -37,6 +42,7 @@ const Customer = () => {
     daily_contribution,
   } = aCustomers.data;
   const redirect = editUrl(aCustomers.data);
+  const allTrans = transUrl(aCustomers.data);
 
   return (
     <div className="containa">
@@ -69,6 +75,13 @@ const Customer = () => {
           {user.role === 'admin' && (
             <NavLink to={redirect} style={{ textDecoration: 'none' }}>
               <i className="fa fa-edit" />
+            </NavLink>
+          )}
+        </div>
+        <div className="allTrans">
+          {user.role === 'admin' && (
+            <NavLink to={allTrans} style={{ textDecoration: 'none' }}>
+              <i className="fa fa-money" />
             </NavLink>
           )}
         </div>

@@ -28,6 +28,7 @@ import Transactions from './components/transaction/Transactions';
 import Transaction from './components/transaction/transaction';
 import AddItemToCustomer from './components/addCostumer/AddItemToCustomer';
 import SearchContribution from './components/transaction/SearchContribution';
+import CustomerTransacts from './components/customer/CustomerTransacts';
 import Product from './components/items/products/Product';
 
 const App = () => {
@@ -76,6 +77,10 @@ const App = () => {
                 <Route path="/users/:id" element={<User />} />
                 <Route path="/products/:id/edit" element={<EditProduct />} />
                 <Route path="/users/:id/edit" element={<EditUser />} />
+                <Route
+                  path="/customers/:id/transactions"
+                  element={<CustomerTransacts />}
+                />
                 <Route path="/products" element={<ViewItems />} />
                 <Route path="/addproduct" element={<AddProduct />} />
                 <Route path="/addseason" element={<AddSeason />} />
