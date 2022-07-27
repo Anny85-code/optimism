@@ -47,10 +47,12 @@ const EditProduct = () => {
 
   return (
     <div className="form-container">
-      <div className="form-group">
+      <div className="">
         <div className="column mt-5">
           <div className="d-flex justify-content-center align-items-center flex-column shadow-lg rounded w-50 mx-auto p-5">
-            <h3 className="title">Update Product</h3>
+            <div className="inner-container">
+              <h3 className="title">Update Product</h3>
+            </div>
             <br />
             {error ? (
               <div>
