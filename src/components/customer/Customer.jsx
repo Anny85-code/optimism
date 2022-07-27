@@ -16,6 +16,11 @@ const transUrl = (person) => {
   return `/customers/${id}/transactions`;
 };
 
+const myFoodUrl = (person) => {
+  const { id } = person;
+  return `/customers/${id}/myfood`;
+};
+
 const data = JSON.parse(localStorage.getItem('user'));
 const { user } = data || {};
 
@@ -43,6 +48,7 @@ const Customer = () => {
   } = aCustomers.data;
   const redirect = editUrl(aCustomers.data);
   const allTrans = transUrl(aCustomers.data);
+  const myfood = myFoodUrl(aCustomers.data);
 
   return (
     <div className="containa">
@@ -82,7 +88,20 @@ const Customer = () => {
           {user.role === 'admin' && (
             <NavLink to={allTrans} style={{ textDecoration: 'none' }}>
               <div>
-               <button type="button" className="view-trans">View transactions</button>
+                <button type="button" className="view-trans">
+                  View transactions
+                </button>
+              </div>
+            </NavLink>
+          )}
+        </div>
+        <div className="myfood">
+          {user.role === 'admin' && (
+            <NavLink to={myfood} style={{ textDecoration: 'none' }}>
+              <div>
+                <button type="button" className="view-trans">
+                  View transactions
+                </button>
               </div>
             </NavLink>
           )}
