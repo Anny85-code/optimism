@@ -66,7 +66,9 @@ const Register = () => {
             <form className="register-form">
               <div>
                 <label htmlFor="name" className="form-label">
-                  Name *
+                  <span>
+                    Name <span style={{ color: 'crimson' }}>*</span>
+                  </span>
                   <input
                     type="text"
                     placeholder="Name"
@@ -82,7 +84,9 @@ const Register = () => {
               <br />
               <div>
                 <label htmlFor="username" className="form-label">
-                  username *
+                  <span>
+                    username <span style={{ color: 'crimson' }}>*</span>
+                  </span>
                   <input
                     type="text"
                     placeholder="Username"
@@ -98,7 +102,9 @@ const Register = () => {
               <br />
               <div>
                 <label htmlFor="email" className="form-label">
-                  Email address *
+                  <span>
+                    Email address <span style={{ color: 'crimson' }}>*</span>
+                  </span>
                   <input
                     type="email"
                     placeholder="Email"
@@ -114,7 +120,9 @@ const Register = () => {
               <br />
               <div>
                 <label htmlFor="password" className="form-label">
-                  Password *
+                  <span>
+                    Password <span style={{ color: 'crimson' }}>*</span>
+                  </span>
                   <input
                     type={passwordShown ? 'text' : 'password'}
                     placeholder="Password"
@@ -135,7 +143,10 @@ const Register = () => {
               <br />
               <div>
                 <label htmlFor="password_confirmation" className="form-label">
-                  Password confirmation *
+                  <span>
+                    Password confirmation
+                    <span style={{ color: 'crimson' }}>*</span>
+                  </span>
                   <input
                     type={passwordShown ? 'text' : 'password'}
                     placeholder="Password Confirmation"
@@ -189,7 +200,9 @@ const Register = () => {
               <br />
               <div>
                 <label htmlFor="phone" className="form-label">
-                  Phone *
+                  <span>
+                    Phone <span style={{ color: 'crimson' }}>*</span>
+                  </span>
                   <input
                     type="number"
                     placeholder="Phone"

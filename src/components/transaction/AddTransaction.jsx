@@ -71,7 +71,9 @@ const AddTransaction = () => {
           <div id="error" style={{ display: 'none' }}></div>
           <form className="add-customer-form search-form" autoComplete="off">
             <label htmlFor="name" id="contr-num">
-              Card Number *
+              <span>
+                Card Number <span style={{ color: 'crimson' }}>*</span>
+              </span>
               <input
                 type="text"
                 className="form-control"
