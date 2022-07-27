@@ -65,7 +65,7 @@ export const getOneCustomerFromApi = (id) => async (dispatch) => {
 export const getOneCustomerTransFromApi = (id) => async (dispatch) => {
   dispatch(fetchOneCustomerTransRequest());
   try {
-    const response = await axios.get(`${url}/${id}`, {
+    const response = await axios.get(`${url}/${id}/transactions`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
