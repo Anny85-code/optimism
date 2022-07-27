@@ -9,6 +9,10 @@ const GET_ONE_CUSTOMERS_REQUEST =
   'src/redux/onecustomerreducer/get_one_customer_request'.toUpperCase();
 const GET_ONE_CUSTOMER_TRANS =
   'SRC/REDUX/ONECUSTOMER_REDUCER/GET_ONE_CUSTOMER_TRANS';
+const FAILED_GET_ONE_CUSTOMER_TRANS =
+  'SRC/REDUX/ONECUSTOMER_REDUCER/FAILED_GET_ONE_CUSTOMER_TRANS';
+const GET_ONE_CUSTOMER_TRANS_REQUEST =
+  'SRC/REDUX/ONECUSTOMER_REDUCER/GET_ONE_CUSTOMER_TRANS';
 const url = `${endpoint}/customers`;
 const { token } = localStorage;
 
@@ -17,8 +21,18 @@ const fetchOneCustomerData = (payload) => ({
   payload,
 });
 
+const fetchOneCustomerTransData = (payload) => ({
+  type: GET_ONE_CUSTOMER_TRANS,
+  payload,
+});
+
 const fetchOneCustomersDataFailed = (payload) => ({
   type: FAILED_GET_ONE_CUSTOMER,
+  payload,
+});
+
+const fetchOneCustomersTransDataFailed = (payload) => ({
+  type: FAILED_GET_ONE_CUSTOMER_TRANS,
   payload,
 });
 
@@ -29,7 +43,7 @@ const fetchOneCustomerRequest = () => ({
 });
 
 const fetchOneCustomerTransRequest = () => ({
-  type: GET_ONE_CUSTOMERS_REQUEST,
+  type: GET_ONE_CUSTOMER_TRANS_REQUEST,
   loading: true,
   error: null,
 });
@@ -85,6 +99,25 @@ const OneCustomerReducer = (
         error: action.error,
       };
     case GET_ONE_CUSTOMERS_REQUEST:
+      return {
+        ...state,
+        loading: true,
+        error: null,
+      };
+    case GET_ONE_CUSTOMER_TRANS:
+      return {
+        ...state,
+        data: action.payload,
+        loading: false,
+        error: null,
+      };
+    case FAILED_GET_ONE_CUSTOMER_TRANS:
+      return {
+        ...state,
+        loading: false,
+        error: action.error,
+      };
+    case GET_ONE_CUSTOMER_TRANS_REQUEST:
       return {
         ...state,
         loading: true,
