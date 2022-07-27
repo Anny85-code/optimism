@@ -1,0 +1,135 @@
+.custrans-name {
+  display: flex;
+  justify-content: space-between;
+}
+
+.transact-customer-container {
+  border: 1px solid #705050;
+  border-radius: 8px;
+  padding: 20px;
+  width: 950px;
+  height: auto;
+  margin: 20px 20px 20px 50px;
+}
+
+.columns {
+  width: 240px;
+  text-align: center;
+  font-size: 18px;
+  /* border-left: 1px solid #705050; */
+}
+
+#col {
+  margin-top: 20px;
+  border-bottom: 1px solid #705050;
+}
+
+.i {
+  border-left: 1px solid #705050;
+}
+
+#a {
+  border-right: 1px solid #705050;
+}
+
+/* #top {
+  border-top: 1px solid #705050;
+} */
+
+/*#col {
+  margin-right: 20px;
+} */
+
+.h-name {
+  flex: 1.5;
+}
+
+.h-des {
+  flex: 6;
+}
+
+.h-status {
+  flex: 1.5;
+}
+
+.h-join {
+  flex: 2;
+  color: #fff;
+}
+
+.n {
+  height: 30px;
+  margin: 0;
+  border-left: 1px solid rgb(129, 126, 126);
+  padding-left: 5px;
+}
+
+.ul-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.Btn-li {
+  display: flex;
+}
+
+.table-container ul {
+  border: 1px solid rgb(129, 126, 126);
+}
+
+.li-content:nth-child(even) {
+  background-color: rgba(148, 147, 147, 0.502);
+}
+
+.table-container ul li {
+  border: 1px solid rgb(129, 126, 126);
+  display: flex;
+}
+
+.name {
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  flex: 1.5;
+  margin: 0;
+}
+
+.des {
+  flex: 6;
+}
+
+.content {
+  border-left: 1px solid rgb(129, 126, 126);
+  height: 300px;
+  padding-left: 5px;
+}
+
+.status {
+  flex: 1.5;
+}
+
+.join {
+  flex: 2;
+}
+
+.btn1 {
+  background-color: rgb(129, 126, 126);
+  font-size: 11px;
+  color: #fff;
+  padding: 6px;
+}
+
+.btn2 {
+  font-size: 15px;
+}
+
+.leave-btn {
+  color: red;
+  border: 1px solid red;
+}
+
+.active-btn {
+  background-color: rgb(43, 175, 236);
+  color: #fff;
+  padding: 6px;
+}

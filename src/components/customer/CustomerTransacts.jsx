@@ -4,6 +4,7 @@ import { NavLink, useParams } from 'react-router-dom';
 import Moment from 'moment';
 import { getOneCustomerTransFromApi } from '../../redux/forms/oneCustomerTransactReducer';
 import Loader from '../loader/Loader';
+import './CustomerTransaction.css';
 /* eslint-disable */
 const CustomerTransacts = () => {
   const dispatch = useDispatch();
@@ -18,7 +19,7 @@ const CustomerTransacts = () => {
   }, []);
 
   return (
-    <div>
+    <div className="transact-customer-container">
       {trans ? (
         <>
           {trans.length <= 0 ? (
@@ -35,31 +36,65 @@ const CustomerTransacts = () => {
             </>
           ) : (
             <>
-              <div>
-                <h3>
-                  <span className="cus-name">Customer's Name:</span>
+              <div className="custrans-name">
+                <h4 className="columns">
+                  <span className="cus-name1">Customer's Name</span>
+                </h4>
+                <h4 className="columns i">Date</h4>
+                <h4 className="columns i" id="a">
+                  Amount
+                </h4>
+                <h4 className="columns">
+                  <span className="cus-name1 ">Total amount contributed</span>
+                </h4>
+              </div>
+
+              <div className="custrans-name">
+                <h3 className="columns" id="col">
                   {user_name}
                 </h3>
-                <h3>
-                  <span className="cus-name">Total amount contributed:</span>
+                <h6
+                  className="columns i"
+                  style={{ borderBottom: '1px solid #705050' }}
+                ></h6>
+                <h6
+                  className="columns i"
+                  id="a"
+                  style={{ borderBottom: '1px solid #705050' }}
+                ></h6>
+                <h3 className="columns" id="col">
                   {total}
                 </h3>
               </div>
+              {/* <div className="custrans-name">
+                <h3 className="columns"></h3>
+                <h3 className="columns"></h3>
+                <h3 className="columns"></h3>
+                <h3 className="columns"></h3>
+              </div> */}
               {trans.map((transaction) => (
                 <NavLink
                   key={transaction.id}
                   to={`/transactions/${transaction.id}`}
                 >
-                  <div className="customer-container transactions-container">
-                    <h4>
-                      <span className="cus-name">Amount:</span>
-                      {transaction.amount}
-                    </h4>
-                    <h4>
-                      <span className="cus-phone">Date:</span>
-                      {Moment(transaction.created_at).format('MMMM DD, LT')}
-                    </h4>
-                  </div>
+                  <ul>
+                    <li>
+                      <div className="custrans-name">
+                        <h4 className="columns"></h4>
+                        <h4 className="columns i" id="top">
+                          {Moment(transaction.created_at).format('MMMM DD, LT')}
+                        </h4>
+                        <h4
+                          className="columns i"
+                          id="top"
+                          style={{ borderRight: '1px solid #705050' }}
+                        >
+                          {transaction.amount}
+                        </h4>
+                        <h4 className="columns "></h4>
+                      </div>
+                    </li>
+                  </ul>
                 </NavLink>
               ))}
             </>
