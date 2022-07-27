@@ -1,9 +1,12 @@
 import axios from 'axios';
 import endpoint from '../../assets/url/url';
 
-const GET_ONE_CUSTOMER = 'src/redux/customerreducer/get_one_customer'.toUpperCase();
-const FAILED_GET_ONE_CUSTOMER = 'src/redux/customerreducer/failed_get_one_customer'.toUpperCase();
-const GET_ONE_CUSTOMERS_REQUEST = 'src/redux/customerreducer/get_one_customer_request'.toUpperCase();
+const GET_ONE_CUSTOMER =
+  'src/redux/customerreducer/get_one_customer'.toUpperCase();
+const FAILED_GET_ONE_CUSTOMER =
+  'src/redux/customerreducer/failed_get_one_customer'.toUpperCase();
+const GET_ONE_CUSTOMERS_REQUEST =
+  'src/redux/customerreducer/get_one_customer_request'.toUpperCase();
 const url = `${endpoint}/customers`;
 const { token } = localStorage;
 
@@ -23,6 +26,12 @@ const fetchOneCustomerRequest = () => ({
   error: null,
 });
 
+const fetchOneCustomerTransRequest = () => ({
+  type: GET_ONE_CUSTOMERS_REQUEST,
+  loading: true,
+  error: null,
+});
+
 export const getOneCustomerFromApi = (id) => async (dispatch) => {
   dispatch(fetchOneCustomerRequest());
   try {
@@ -37,13 +46,27 @@ export const getOneCustomerFromApi = (id) => async (dispatch) => {
   }
 };
 
+export const getOneCustomerTransFromApi = (id) => async (dispatch) => {
+  dispatch(fetchOneCustomerTransRequest());
+  try {
+    const response = await axios.get(`${url}/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    dispatch(fetchOneCustomerTransData(response.data));
+  } catch (error) {
+    dispatch(fetchOneCustomersTransDataFailed(error.message));
+  }
+};
+
 const OneCustomerReducer = (
   state = {
     data: [],
     loading: false,
     error: null,
   },
-  action,
+  action
 ) => {
   switch (action.type) {
     case GET_ONE_CUSTOMER:
