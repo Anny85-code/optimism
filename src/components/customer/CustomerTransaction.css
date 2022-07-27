@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Quintessential&display=swap');
 /* stylint:disable */
 .custrans-name {
   display: flex;
@@ -31,6 +32,29 @@
 
 #a {
   border-right: 2px solid #705050;
+}
+
+.no-trans{
+  text-align: center;
+  font-size: 50px;
+  font-family: 'Quintessential', sans-serif;
+  color: crimson;
+}
+
+.no-trans-btn{
+  margin: 20px 0 20px 350px;
+  background-color: crimson;
+  width: 250px;
+  height: 50px;
+  padding: 10px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #d86565;
 }
 
 @media only screen and (max-width: 768px) {
