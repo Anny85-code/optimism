@@ -42,7 +42,7 @@ const Transactions = () => {
               <div className="customer-container transactions-container">
                 <h3>
                   <span className="cus-name">
-                    Customer's Name:{' '}
+                    Customer&apos;s Name:
                     <span className="cus-trans-info">{aCustomer.name}</span>
                   </span>
                 </h3>
