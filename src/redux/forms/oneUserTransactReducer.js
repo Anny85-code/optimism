@@ -6,21 +6,21 @@ const FAILED_GET_ONE_USER_TRANS =
   'SRC/REDUX/ONEUSER_REDUCER/FAILED_GET_ONE_USER_TRANS';
 const GET_ONE_USER_TRANS_REQUEST =
   'SRC/REDUX/ONEUSER_REDUCER/GET_ONE_USER_TRANS';
-const url = `${endpoint}/customers`;
+const url = `${endpoint}/users`;
 const { token } = localStorage;
 
-const fetchOneCustomerTransData = (payload) => ({
-  type: GET_ONE_CUSTOMER_TRANS,
+const fetchOneUserTransData = (payload) => ({
+  type: GET_ONE_USER_TRANS,
   payload,
 });
 
-const fetchOneCustomersTransDataFailed = (payload) => ({
-  type: FAILED_GET_ONE_CUSTOMER_TRANS,
+const fetchOneUserTransDataFailed = (payload) => ({
+  type: FAILED_GET_ONE_USER_TRANS,
   payload,
 });
 
-const fetchOneCustomerTransRequest = () => ({
-  type: GET_ONE_CUSTOMER_TRANS_REQUEST,
+const fetchOneUserTransRequest = () => ({
+  type: GET_ONE_USER_TRANS_REQUEST,
   loading: true,
   error: null,
 });
