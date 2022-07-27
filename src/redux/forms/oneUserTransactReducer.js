@@ -39,7 +39,7 @@ export const getOneUserTransFromApi = (id) => async (dispatch) => {
   }
 };
 
-const OneUserTransactsReducer = (
+const oneUserTransactsReducer = (
   state = {
     data: [],
     loading: false,
@@ -72,4 +72,4 @@ const OneUserTransactsReducer = (
   }
 };
 
-export default OneUserTransactsReducer;
+export default oneUserTransactsReducer;
