@@ -25,17 +25,17 @@ const fetchOneUserTransRequest = () => ({
   error: null,
 });
 
-export const getOneCustomerTransFromApi = (id) => async (dispatch) => {
-  dispatch(fetchOneCustomerTransRequest());
+export const getOneUserTransFromApi = (id) => async (dispatch) => {
+  dispatch(fetchOneUserTransRequest());
   try {
     const response = await axios.get(`${url}/${id}/transactions`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
-    dispatch(fetchOneCustomerTransData(response.data));
+    dispatch(fetchOneUserTransData(response.data));
   } catch (error) {
-    dispatch(fetchOneCustomersTransDataFailed(error.message));
+    dispatch(fetchOneUserTransDataFailed(error.message));
   }
 };
 
