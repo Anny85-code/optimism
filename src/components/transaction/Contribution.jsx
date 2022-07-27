@@ -90,8 +90,9 @@ const Contribution = () => {
     <div className="contribution-form">
       {lastDate ? (
         <>
-          {' '}
-          <h2 className="title1">Contribution details</h2>
+          <div className="inner-container">
+            <h2 className="title1">Contribution details</h2>
+          </div>
           <center style={{ color: 'white' }}>
             Enter no. of days to continue!
           </center>
