@@ -42,6 +42,7 @@ const Customer = () => {
     daily_contribution,
   } = aCustomers.data;
   const redirect = editUrl(aCustomers.data);
+  const allTrans = transUrl(aCustomers.data);
 
   return (
     <div className="containa">
@@ -74,6 +75,13 @@ const Customer = () => {
           {user.role === 'admin' && (
             <NavLink to={redirect} style={{ textDecoration: 'none' }}>
               <i className="fa fa-edit" />
+            </NavLink>
+          )}
+        </div>
+        <div className="edit">
+          {user.role === 'admin' && (
+            <NavLink to={allTrans} style={{ textDecoration: 'none' }}>
+              <i className="fa fa-gears" />
             </NavLink>
           )}
         </div>
