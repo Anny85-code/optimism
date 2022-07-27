@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Quintessential&display=swap');
+
+/* stylelint-disable */
+.custrans-name {
+  display: flex;
+  justify-content: space-between;
+}
+
+.transact-customer-container {
+  border: 2px solid #705050;
+  border-radius: 8px;
+  width: 950px;
+  height: fit-content;
+  margin: 20px 20px 20px 50px;
+}
+
+.columns {
+  width: 240px;
+  text-align: center;
+  font-size: 18px;
+  padding-top: 20px;
+}
+
+#col {
+  margin-top: 20px;
+  border-bottom: 2px solid #705050;
+}
+
+.i {
+  border-left: 2px solid #705050;
+  color: #000;
+}
+
+#a {
+  border-right: 2px solid #705050;
+}
+
+.no-trans {
+  text-align: center;
+  font-size: 50px;
+  font-family: 'Quintessential', sans-serif;
+  color: crimson;
+}
+
+.no-trans-btn {
+  margin: 20px 0 20px 350px;
+  background-color: crimson;
+  width: 250px;
+  height: 50px;
+  padding: 10px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #d86565;
+}
+
+@media only screen and (max-width: 768px) {
+  .transact-customer-container {
+    width: 320px;
+    margin: 20px;
+  }
+
+  .columns {
+    width: 100px;
+    font-size: 12px;
+    padding-top: 5px;
+  }
+
+  .no-trans {
+    font-size: 30px;
+  }
+
+  .no-trans-btn {
+    margin: 20px 0 20px 30px;
+  }
+}
+
+/* stylelint-enable */

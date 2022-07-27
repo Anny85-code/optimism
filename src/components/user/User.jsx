@@ -64,7 +64,7 @@ const User = () => {
       </div>
       <div className="edit">
         <NavLink to={redirect}>
-          <i className="fa fa-edit" />
+          <i className="fa fa-edit text-red" />
         </NavLink>
       </div>
       <div className="allTrans">

@@ -28,6 +28,7 @@
 
 .item-item-name {
   text-align: left;
+  color: black;
 }
 
 .item-name li img {
@@ -36,6 +37,7 @@
 
 .item-price {
   justify-self: end;
+  color: black;
 }
 
 @media only screen and (max-width: 768px) {

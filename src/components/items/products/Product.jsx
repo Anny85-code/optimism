@@ -34,7 +34,6 @@ const Product = () => {
   const redirect = editUrl(aProduct.data);
 
   return (
-   
     <div className="containa">
       <div className="image-container">
         <img className="cus-image" src={picture} alt={`${name}`} />
@@ -49,13 +48,12 @@ const Product = () => {
         <div className="edit">
           {user.role === 'admin' && (
             <NavLink to={redirect} style={{ textDecoration: 'none' }}>
-              <i className="fa fa-edit" />
+              <i className="fa fa-edit text-red" />
             </NavLink>
           )}
         </div>
       </div>
     </div>
-  
   );
 };
 

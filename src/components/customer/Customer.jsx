@@ -74,14 +74,16 @@ const Customer = () => {
         <div className="edit">
           {user.role === 'admin' && (
             <NavLink to={redirect} style={{ textDecoration: 'none' }}>
-              <i className="fa fa-edit" />
+              <i className="fa fa-edit text-red" />
             </NavLink>
           )}
         </div>
         <div className="allTrans">
           {user.role === 'admin' && (
             <NavLink to={allTrans} style={{ textDecoration: 'none' }}>
-              <i className="fa fa-money" />
+              <div>
+               <button type="button" className="view-trans">View transactions</button>
+              </div>
             </NavLink>
           )}
         </div>
