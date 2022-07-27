@@ -3,7 +3,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Neonderthaw&display=swap');
 
 #sidebar {
-  background: #FFEA11;
+  background: #ece9a8;
+
+  /* background: #f8ce52; */
   grid-area: sidebar;
   overflow-y: auto;
   padding: 20px;

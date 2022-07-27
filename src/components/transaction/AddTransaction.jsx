@@ -62,30 +62,32 @@ const AddTransaction = () => {
     <>
       {customers.data.length ? (
         <div className="form-container trans-form">
-          <h2 className="title">Collect contribution</h2>
-          <span style={{ color: 'white' }}>
+          <div className="inner-container">
+            <h2 className="title">Collect contribution</h2>
+          </div>
+          <span style={{ color: 'crimson' }}>
             Enter Card number to move to the next page
-     </span>
-      <div id="error" style={{ display: 'none' }}></div>
-      <form className="add-customer-form search-form" autoComplete="off">
-        <label htmlFor="name" id="contr-num">
-          Card Number *
-          <input
-            type="text"
-            className="form-control"
-            id="card_number"
-            name="card number"
-            placeholder="card number"
-            required
-            autoCorrect="off"
-            onChange={getInput}
-          />
-          <span
-            id="resetInput"
-            style={{ display: 'none', color: 'white', fontSize: '12px' }}
-            onClick={handleReset}
-          >
-            Reset   
+          </span>
+          <div id="error" style={{ display: 'none' }}></div>
+          <form className="add-customer-form search-form" autoComplete="off">
+            <label htmlFor="name" id="contr-num">
+              Card Number *
+              <input
+                type="text"
+                className="form-control"
+                id="card_number"
+                name="card number"
+                placeholder="card number"
+                required
+                autoCorrect="off"
+                onChange={getInput}
+              />
+              <span
+                id="resetInput"
+                style={{ display: 'none', color: 'white', fontSize: '12px' }}
+                onClick={handleReset}
+              >
+                Reset
               </span>
             </label>
             <div className="form-group btn1 trans-btn">
