@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { getOneItemFromApi } from '../../../redux/forms/oneItemReducer';
 import { postUpdateItemToApi } from '../../../redux/forms/getItemsReducer';
 import ImageUpload from '../../images/imageUpload';
+import './EditProduct.css';
 /* eslint-disable */
 const EditProduct = () => {
   const param = useParams();
@@ -46,7 +47,7 @@ const EditProduct = () => {
   };
 
   return (
-    <div className="form-container">
+    <div className="form-container editproduct">
       <div className="">
         <div className="column mt-5">
           <div className="d-flex justify-content-center align-items-center flex-column shadow-lg rounded w-50 mx-auto p-5">
