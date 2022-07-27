@@ -10,9 +10,14 @@ const editUrl = (person) => {
   const { id } = person;
   return `/customers/${id}/edit`;
 };
+
+const transUrl = (person) => {
+  const { id } = person;
+  return `/customers/${id}/transactions`;
+};
+
 const data = JSON.parse(localStorage.getItem('user'));
 const { user } = data || {};
-console.log(user);
 
 const Customer = () => {
   const dispatch = useDispatch();
