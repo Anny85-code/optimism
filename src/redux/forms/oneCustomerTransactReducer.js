@@ -26,20 +26,6 @@ const fetchOneCustomerTransRequest = () => ({
   error: null,
 });
 
-export const getOneCustomerFromApi = (id) => async (dispatch) => {
-  dispatch(fetchOneCustomerRequest());
-  try {
-    const response = await axios.get(`${url}/${id}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    dispatch(fetchOneCustomerData(response.data));
-  } catch (error) {
-    dispatch(fetchOneCustomersDataFailed(error.message));
-  }
-};
-
 export const getOneCustomerTransFromApi = (id) => async (dispatch) => {
   dispatch(fetchOneCustomerTransRequest());
   try {
