@@ -100,7 +100,7 @@ const Customer = () => {
             <NavLink to={myfood} style={{ textDecoration: 'none' }}>
               <div>
                 <button type="button" className="view-trans">
-                  View transactions
+                  My food
                 </button>
               </div>
             </NavLink>
