@@ -12,7 +12,6 @@ const CustomerTransacts = () => {
   const transactions = useSelector((state) => state.customerTransactions);
   const { data } = transactions;
   const { trans, user_name } = data || {};
-  console.log(trans, user_name);
 
   useEffect(() => {
     dispatch(getOneCustomerTransFromApi(id));
