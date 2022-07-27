@@ -34,14 +34,14 @@
   border-right: 2px solid #705050;
 }
 
-.no-trans{
+.no-trans {
   text-align: center;
   font-size: 50px;
   font-family: 'Quintessential', sans-serif;
   color: crimson;
 }
 
-.no-trans-btn{
+.no-trans-btn {
   margin: 20px 0 20px 350px;
   background-color: crimson;
   width: 250px;
@@ -68,7 +68,14 @@
     font-size: 12px;
     padding-top: 5px;
   }
-}
+
+  .no-trans {
+    font-size: 30px;
+  }
   
+  .no-trans-btn {
+    margin: 20px 0 20px 30px;
+  }
+}
 
 /* stylint:enable */
