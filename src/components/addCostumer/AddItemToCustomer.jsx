@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { postCustomerToApi } from '../../redux/forms/customerReducer';
 import { getItemFromApi } from '../../redux/forms/getItemsReducer';
 import { postMyFoodToApi } from '../../redux/forms/myFoodReducer';
@@ -133,13 +134,15 @@ const AddItemToCustomer = () => {
           <h3 className="qty-sub-total">Sub total:&nbsp;{subTotal}</h3>
           <h1 className="qty-p-total">Grand total: &nbsp;{grandTotal}</h1>
         </div>
-        <button
-          type="button"
-          onClick={handleContribution}
-          className="finish-btn"
-        >
-          Preview
-        </button>
+        <NavLink to="/customerpreview" style={{ textDecoration: 'none' }}>
+          <button
+            type="button"
+            onClick={handleContribution}
+            className="finish-btn"
+          >
+            Preview
+          </button>
+        </NavLink>
       </div>
     </div>
   );
