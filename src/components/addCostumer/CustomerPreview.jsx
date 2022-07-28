@@ -13,13 +13,16 @@ const CustomerPreview = () => {
   const grandTotal = myFood.reduce((a, b) => b.subTotal + a, 0);
 
   const handleSubmit = () => {
-    const items = {
-      item_id: myFood.id,
-      quantity: myFood.qauntity,
-      customer_id: myFood.customer_id,
-    };
-    dispatch(postCustomerToApi(customer));
-    dispatch(postMyFoodToApi(items));
+    const items = {};
+    myFood.map((food) => {
+      items.item_id = food.id;
+      items.quantity = food.qauntity;
+      items.customer_id = food.customer_id;
+    });
+
+    console.log(items, customer);
+    // dispatch(postCustomerToApi(customer));
+    // dispatch(postMyFoodToApi(items));
     localStorage.removeItem('updated_customer');
     localStorage.removeItem('myfood');
     localStorage.removeItem('customer');
