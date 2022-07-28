@@ -10,28 +10,28 @@ const GET_MYFOOD_REQUEST = 'SRC/REDUX/MY_FOOD_REDUCER/GET_MYFOOD_REQUEST';
 const url = `${endpoint}/customers`;
 const { token } = localStorage;
 
-const sendSeasonDataFailed = (payload) => ({
-  type: FAILED_POST_SEASON,
+const sendMyFoodDataFailed = (payload) => ({
+  type: FAILED_POST_MYFOOD,
   payload,
 });
 
-const patchSeasonDataFailed = (payload) => ({
-  type: FAILED_PATCH_SEASON,
+const patchMyFoodDataFailed = (payload) => ({
+  type: FAILED_PATCH_MYFOOD,
   payload,
 });
 
-const fetchSeasonsData = (payload) => ({
-  type: GET_SEASON,
+const fetchMyFoodData = (payload) => ({
+  type: GET_MYFOOD,
   payload,
 });
 
-const fetchSeasonsDataFailed = (payload) => ({
-  type: FAILED_GET_SEASON,
+const fetchMyFoodDataFailed = (payload) => ({
+  type: FAILED_GET_MYFOOD,
   payload,
 });
 
-const fetchSeasonRequest = () => ({
-  type: GET_SEASONS_REQUEST,
+const fetchMyFoodRequest = () => ({
+  type: GET_MYFOOD_REQUEST,
   loading: true,
   error: null,
 });
