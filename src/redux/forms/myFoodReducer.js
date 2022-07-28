@@ -72,8 +72,8 @@ export const postUpdateMyFoodToApi = (userData) => async (dispatch) => {
   }
 };
 
-export const getSeasonFromApi = () => async (dispatch) => {
-  dispatch(fetchSeasonRequest());
+export const getMyFoodFromApi = () => async (dispatch) => {
+  dispatch(fetchMyFoodRequest());
   try {
     const response = await axios.get(url, {
       headers: {
@@ -81,9 +81,9 @@ export const getSeasonFromApi = () => async (dispatch) => {
       },
     });
 
-    dispatch(fetchSeasonsData(response.data));
+    dispatch(fetchMyFoodData(response.data));
   } catch (error) {
-    dispatch(fetchSeasonsDataFailed(error.message));
+    dispatch(fetchMyFoodDataFailed(error.message));
   }
 };
 
