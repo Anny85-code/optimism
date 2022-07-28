@@ -47,15 +47,15 @@ export const postMyFoodToApi = (userData) => async (dispatch) => {
     const errorMsg = sendData.error || sendData.errors;
     dispatch(sendMyFoodDataFailed(errorMsg));
   } else {
-    window.history.pushState({}, '', '/seasons');
-    <Navigate to="/seasons" />;
+    window.history.pushState({}, '', '/customers');
+    <Navigate to="/customers" />;
     // setTimeout(() => {
     // window.location.reload();
     // }, 5000);
   }
 };
 
-export const postUpdateSeasonToApi = (userData) => async (dispatch) => {
+export const postUpdateMyFoodToApi = (userData) => async (dispatch) => {
   const { id } = userData;
   const sendData = axios.patch(`${url}/${id}`, userData, {
     headers: {
@@ -65,9 +65,9 @@ export const postUpdateSeasonToApi = (userData) => async (dispatch) => {
 
   if (sendData.error || sendData.errors || sendData.rejected) {
     const errorMsg = sendData.error || sendData.errors;
-    dispatch(patchSeasonDataFailed(errorMsg));
+    dispatch(patchMyFoodDataFailed(errorMsg));
   } else {
-    window.history.pushState({}, '', `/seasons/${id}`);
+    window.history.pushState({}, '', `/customers/${id}`);
     // window.location.reload();
   }
 };
