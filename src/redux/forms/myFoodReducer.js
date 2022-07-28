@@ -36,7 +36,7 @@ const fetchMyFoodRequest = () => ({
   error: null,
 });
 
-export const postSeasonToApi = (userData) => async (dispatch) => {
+export const postMyFoodToApi = (userData) => async (dispatch) => {
   const sendData = axios.post(url, userData, {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -45,7 +45,7 @@ export const postSeasonToApi = (userData) => async (dispatch) => {
 
   if (sendData.error || sendData.errors || sendData.rejected) {
     const errorMsg = sendData.error || sendData.errors;
-    dispatch(sendSeasonDataFailed(errorMsg));
+    dispatch(sendMyFoodDataFailed(errorMsg));
   } else {
     window.history.pushState({}, '', '/seasons');
     <Navigate to="/seasons" />;
