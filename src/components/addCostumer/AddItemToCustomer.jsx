@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { postCustomerToApi } from '../../redux/forms/customerReducer';
 import { getItemFromApi } from '../../redux/forms/getItemsReducer';
 import { getOneItemFromApi } from '../../redux/forms/oneItemReducer';
 import './AddItemToCustomer.css';
@@ -59,10 +60,11 @@ const AddItemToCustomer = () => {
     if (grandTotal > 0) {
       let customer = JSON.parse(localStorage.getItem('customer'));
       const userData = { ...customer, daily_contribution: grandTotal };
-      localStorage.setItem('updated_customer', JSON.stringify(userData));
       localStorage.setItem('myfood', JSON.stringify(total));
+      dispatch(postCustomerToApi(userData));
       localStorage.removeItem('customer');
       localStorage.removeItem('image_str');
+      window.history.pushState({}, '', '/customerpreview');
     }
   };
 
@@ -129,15 +131,15 @@ const AddItemToCustomer = () => {
           <h3 className="qty-sub-total">Sub total:&nbsp;{subTotal}</h3>
           <h1 className="qty-p-total">Grand total: &nbsp;{grandTotal}</h1>
         </div>
-        <NavLink to="/customerpreview" style={{ textDecoration: 'none' }}>
-          <button
-            type="button"
-            onClick={handleContribution}
-            className="finish-btn"
-          >
-            Preview
-          </button>
-        </NavLink>
+        {/* <NavLink to="/customerpreview" style={{ textDecoration: 'none' }}> */}
+        <button
+          type="button"
+          onClick={handleContribution}
+          className="finish-btn"
+        >
+          Preview
+        </button>
+        {/* </NavLink> */}
       </div>
     </div>
   );

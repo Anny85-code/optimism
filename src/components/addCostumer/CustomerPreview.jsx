@@ -1,6 +1,6 @@
 import React from 'react';
-import { postCustomerToApi } from '../../redux/forms/customerReducer';
-import { postMyFoodToApi } from '../../redux/forms/myFoodReducer';
+// import { postCustomerToApi } from '../../redux/forms/customerReducer';
+// import { postMyFoodToApi } from '../../redux/forms/myFoodReducer';
 /* eslint-disable */
 const CustomerPreview = () => {
   const customer = JSON.parse(localStorage.getItem('updated_customer'));
@@ -14,8 +14,8 @@ const CustomerPreview = () => {
       quantity: myFood.qauntity,
       customer_id: myFood.customer_id,
     };
-    dispatch(postCustomerToApi(customer));
-    dispatch(postMyFoodToApi(items));
+    // dispatch(postCustomerToApi(customer));
+    // dispatch(postMyFoodToApi(items));
     localStorage.removeItem('updated_customer');
     localStorage.removeItem('myfood');
   };
@@ -27,9 +27,11 @@ const CustomerPreview = () => {
     window.location.reload();
   };
 
-  const handleEdit = () => {};
+  // const handleEdit = () => {
+  //   window.history.pushState({}, '', '/');
+  //   window.location.reload();
+  // };
 
-  console.log(customer, myFood);
   return (
     <div>
       <div>
@@ -63,9 +65,9 @@ const CustomerPreview = () => {
       <button type="button" onClick={handleSubmit}>
         Add Customer
       </button>
-      <button type="button" onClick={handleEdit}>
+      {/* <button type="button" onClick={handleEdit}>
         Edit
-      </button>
+      </button> */}
     </div>
   );
 };
