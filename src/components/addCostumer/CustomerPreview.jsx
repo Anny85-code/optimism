@@ -43,7 +43,7 @@ const CustomerPreview = () => {
       {customer.length ? (
         <>
           {customer.map((cust) => (
-            <div>
+            <div key={cust.id}>
               <h1>Customer Info</h1>
               <div>
                 <img
