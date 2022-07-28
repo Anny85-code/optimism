@@ -22,6 +22,7 @@ import oneItemReducer from './forms/oneItemReducer';
 import errorReducer from './forms/errors';
 import OneCustomerTransactsReducer from './forms/oneCustomerTransactReducer';
 import oneUserTransactsReducer from './forms/oneUserTransactReducer';
+import myFoodReducer from './forms/myFoodReducer';
 
 const rootReducer = combineReducers({
   user: userReducer,
@@ -38,6 +39,7 @@ const rootReducer = combineReducers({
   errors: errorReducer,
   customerTransactions: OneCustomerTransactsReducer,
   userTransacts: oneUserTransactsReducer,
+  myFood: myFoodReducer,
 });
 
 const store = createStore(rootReducer, compose(applyMiddleware(logger, thunk)));
