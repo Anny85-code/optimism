@@ -2,15 +2,11 @@ import axios from 'axios';
 import { Navigate } from 'react-router-dom';
 import endpoint from '../../assets/url/url';
 
-const FAILED_POST_SEASON =
-  'src/redux/seasonreducer/failed_post_season'.toUpperCase();
-const FAILED_PATCH_SEASON =
-  'src/redux/seasonreducer/failed_patch_season'.toUpperCase();
-const GET_SEASON = 'src/redux/seasonreducer/get_season'.toUpperCase();
-const FAILED_GET_SEASON =
-  'src/redux/seasonreducer/failed_get_season'.toUpperCase();
-const GET_SEASONS_REQUEST =
-  'src/redux/seasonreducer/get_season_request'.toUpperCase();
+const FAILED_POST_MYFOOD = 'SRC/REDUX/MY_FOOD_REDUCER/FAILED_POST_MYFOOD';
+const FAILED_PATCH_MYFOOD = 'SRC/REDUX/MY_FOOD_REDUCER/FAILED_PATCH_MYFOOD';
+const GET_MYFOOD = 'SRC/REDUX/MY_FOOD_REDUCER/GET_MYFOOD';
+const FAILED_GET_MYFOOD = 'SRC/REDUX/MY_FOOD_REDUCER/FAILED_GET_MYFOOD';
+const GET_MYFOOD_REQUEST = 'SRC/REDUX/MY_FOOD_REDUCER/GET_MYFOOD_REQUEST';
 const url = `${endpoint}/seasons`;
 const { token } = localStorage;
 
