@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { postCustomerToApi } from '../../redux/forms/customerReducer';
 import { getItemFromApi } from '../../redux/forms/getItemsReducer';
-import { postMyFoodToApi } from '../../redux/forms/myFoodReducer';
 import { getOneItemFromApi } from '../../redux/forms/oneItemReducer';
 import './AddItemToCustomer.css';
 /* eslint-disable */
@@ -64,8 +62,6 @@ const AddItemToCustomer = () => {
       console.log(userData, total);
       localStorage.setItem('updated_customer', JSON.stringify(userData));
       localStorage.setItem('myfood', JSON.stringify(total));
-      // dispatch(postCustomerToApi(userData));
-      // dispatch(postMyFoodToApi(total));
       localStorage.removeItem('customer');
       localStorage.removeItem('image_str');
     }
