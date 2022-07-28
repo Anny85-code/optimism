@@ -16,9 +16,16 @@ const CustomerPreview = () => {
     };
     dispatch(postCustomerToApi(customer));
     dispatch(postMyFoodToApi(items));
+    localStorage.removeItem('updated_customer');
+    localStorage.removeItem('myfood');
   };
 
-  const handleCancel = () => {};
+  const handleCancel = () => {
+    localStorage.removeItem('updated_customer');
+    localStorage.removeItem('myfood');
+    window.pusState({}, '', '/');
+    window.location.reload();
+  };
 
   const handleEdit = () => {};
 
