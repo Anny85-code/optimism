@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { postCustomerToApi } from '../../redux/forms/customerReducer';
 import { getItemFromApi } from '../../redux/forms/getItemsReducer';
+import { postMyFoodToApi } from '../../redux/forms/myFoodReducer';
 import { getOneItemFromApi } from '../../redux/forms/oneItemReducer';
 import './AddItemToCustomer.css';
 /* eslint-disable */
@@ -23,7 +24,7 @@ const AddItemToCustomer = () => {
     }
   };
 
-const getFormattedPrice = (price) =>
+  const getFormattedPrice = (price) =>
     new Intl.NumberFormat('en-IN', {
       style: 'currency',
       currency: 'NGN',
@@ -40,7 +41,9 @@ const getFormattedPrice = (price) =>
       qauntity,
       subTotal,
     };
-    setTotal([...total, eachItem]);
+    if (eachItem.qauntity > 0) {
+      setTotal([...total, eachItem]);
+    }
     setQuantity(0);
     setSubTotal(0);
   };
@@ -57,7 +60,11 @@ const getFormattedPrice = (price) =>
     if (grandTotal > 0) {
       let customer = JSON.parse(localStorage.getItem('customer'));
       const userData = { ...customer, daily_contribution: grandTotal };
-      dispatch(postCustomerToApi(userData));
+      console.log(userData, total);
+      localStorage.setItem('updated_customer', JSON.stringify(userData));
+      localStorage.setItem('myfood', JSON.stringify(total));
+      // dispatch(postCustomerToApi(userData));
+      // dispatch(postMyFoodToApi(total));
       localStorage.removeItem('customer');
       localStorage.removeItem('image_str');
     }
@@ -131,7 +138,7 @@ const getFormattedPrice = (price) =>
           onClick={handleContribution}
           className="finish-btn"
         >
-          Add Customer
+          Preview
         </button>
       </div>
     </div>
