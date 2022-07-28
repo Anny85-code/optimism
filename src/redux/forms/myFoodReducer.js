@@ -87,7 +87,7 @@ export const getMyFoodFromApi = () => async (dispatch) => {
   }
 };
 
-const seasonReducer = (
+const myFoodReducer = (
   state = {
     data: [],
     loading: false,
@@ -96,31 +96,31 @@ const seasonReducer = (
   action
 ) => {
   switch (action.type) {
-    case GET_SEASON:
+    case GET_MYFOOD:
       return {
         ...state,
         data: action.payload,
         loading: false,
         error: null,
       };
-    case FAILED_GET_SEASON:
+    case FAILED_GET_MYFOOD:
       return {
         ...state,
         loading: false,
         error: action.error,
       };
-    case GET_SEASONS_REQUEST:
+    case GET_MYFOOD_REQUEST:
       return {
         ...state,
         loading: true,
         error: null,
       };
-    case FAILED_POST_SEASON:
-    case FAILED_PATCH_SEASON:
+    case FAILED_POST_MYFOOD:
+    case FAILED_PATCH_MYFOOD:
       return { error: action.errorMsg };
     default:
       return state;
   }
 };
 
-export default seasonReducer;
+export default myFoodReducer;
