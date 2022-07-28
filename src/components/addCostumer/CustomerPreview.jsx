@@ -23,7 +23,7 @@ const CustomerPreview = () => {
   const handleCancel = () => {
     localStorage.removeItem('updated_customer');
     localStorage.removeItem('myfood');
-    window.pusState({}, '', '/');
+    window.history.pushState({}, '', '/');
     window.location.reload();
   };
 
