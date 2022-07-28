@@ -59,7 +59,6 @@ const AddItemToCustomer = () => {
     if (grandTotal > 0) {
       let customer = JSON.parse(localStorage.getItem('customer'));
       const userData = { ...customer, daily_contribution: grandTotal };
-      console.log(userData, total);
       localStorage.setItem('updated_customer', JSON.stringify(userData));
       localStorage.setItem('myfood', JSON.stringify(total));
       localStorage.removeItem('customer');
