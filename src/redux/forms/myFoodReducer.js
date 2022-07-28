@@ -7,7 +7,7 @@ const FAILED_PATCH_MYFOOD = 'SRC/REDUX/MY_FOOD_REDUCER/FAILED_PATCH_MYFOOD';
 const GET_MYFOOD = 'SRC/REDUX/MY_FOOD_REDUCER/GET_MYFOOD';
 const FAILED_GET_MYFOOD = 'SRC/REDUX/MY_FOOD_REDUCER/FAILED_GET_MYFOOD';
 const GET_MYFOOD_REQUEST = 'SRC/REDUX/MY_FOOD_REDUCER/GET_MYFOOD_REQUEST';
-const url = `${endpoint}/customers`;
+const url = `${endpoint}/customer_items`;
 const { token } = localStorage;
 
 const sendMyFoodDataFailed = (payload) => ({
