@@ -8,7 +8,6 @@ const CustomerPreview = () => {
   const customers = useSelector((state) => state.customer);
   const fone = JSON.parse(localStorage.getItem('customer')).phone;
   const customer = customers.data.filter((cust) => cust.phone === fone);
-  console.log(customers, customer);
   const myFood = JSON.parse(localStorage.getItem('myfood'));
   const grandTotal = myFood.reduce((a, b) => b.subTotal + a, 0);
 
@@ -17,10 +16,10 @@ const CustomerPreview = () => {
     myFood.map((food) => {
       items.item_id = food.id;
       items.quantity = food.qauntity;
-      items.customer_id = food.customer_id;
+      items.customer_id = customer[0].id;
     });
 
-    console.log(items, customer);
+    console.log(items, customer[0]);
     // dispatch(postCustomerToApi(customer));
     // dispatch(postMyFoodToApi(items));
     localStorage.removeItem('updated_customer');
