@@ -8,7 +8,9 @@ const CustomerPreview = () => {
     // dispatch(postMyFoodToApi(total));
   };
 
-  localStorage.getItem('');
+  const customer = JSON.parse(localStorage.getItem('updated_customer'));
+  const myFood = JSON.parse(localStorage.getItem('myfood'));
+  console.log(customer, myFood);
   return (
     <div>
       <h1>CustomerPreview</h1>

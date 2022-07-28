@@ -40,7 +40,7 @@ const AddItemToCustomer = () => {
       qauntity,
       subTotal,
     };
-    if (eachItem.qauntity > 0) {
+    if (eachItem.subTotal > 0) {
       setTotal([...total, eachItem]);
     }
     setQuantity(0);
@@ -120,7 +120,7 @@ const AddItemToCustomer = () => {
                 onClick={handleSub}
                 className="sum-item-btn"
               >
-                Sum Item
+                Add Item
               </button>
             </li>
           </ul>
