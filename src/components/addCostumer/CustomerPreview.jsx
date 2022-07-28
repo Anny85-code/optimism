@@ -1,10 +1,11 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Loader from '../loader/Loader';
-import { postCustomerToApi } from '../../redux/forms/customerReducer';
+// import { postCustomerToApi } from '../../redux/forms/customerReducer';
 import { postMyFoodToApi } from '../../redux/forms/myFoodReducer';
 /* eslint-disable */
 const CustomerPreview = () => {
+  const dispatch = useDispatch();
   const customers = useSelector((state) => state.customer);
   const fone = JSON.parse(localStorage.getItem('customer')).phone;
   const customer = customers.data.filter((cust) => cust.phone === fone);
@@ -21,7 +22,7 @@ const CustomerPreview = () => {
 
     console.log(items, customer[0]);
     // dispatch(postCustomerToApi(customer));
-    // dispatch(postMyFoodToApi(items));
+    dispatch(postMyFoodToApi(items));
     localStorage.removeItem('updated_customer');
     localStorage.removeItem('myfood');
     localStorage.removeItem('customer');
