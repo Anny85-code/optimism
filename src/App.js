@@ -32,6 +32,7 @@ import CustomerTransacts from './components/customer/CustomerTransacts';
 import Product from './components/items/products/Product';
 import UserTransacts from './components/user/UserTransacts';
 import MyFood from './components/myfood/MyFood';
+import CustomerPreview from './components/addCostumer/CustomerPreview';
 
 const App = () => {
   const [sideBarOpen, setSideBarOpen] = useState(false);
@@ -72,6 +73,7 @@ const App = () => {
               path="/searchcontribution"
               element={<SearchContribution />}
             />
+            <Route path="/customerpreview" element={<CustomerPreview />} />
             {user.role === 'admin' && (
               <>
                 <Route path="/register" element={<Register />} />
