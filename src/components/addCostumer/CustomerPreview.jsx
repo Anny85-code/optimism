@@ -1,17 +1,26 @@
 import React from 'react';
-// import { postCustomerToApi } from '../../redux/forms/customerReducer';
-// import { postMyFoodToApi } from '../../redux/forms/myFoodReducer';
+import { postCustomerToApi } from '../../redux/forms/customerReducer';
+import { postMyFoodToApi } from '../../redux/forms/myFoodReducer';
 /* eslint-disable */
 const CustomerPreview = () => {
   const customer = JSON.parse(localStorage.getItem('updated_customer'));
   const myFood = JSON.parse(localStorage.getItem('myfood'));
   const grandTotal = myFood.reduce((a, b) => b.subTotal + a, 0);
+  const { address, daily_contribution, email, name, phone, picture } = customer;
+
   const handleSubmit = () => {
-    // dispatch(postCustomerToApi(userData));
-    // dispatch(postMyFoodToApi(total));
+    const items = {
+      item_id: myFood.id,
+      quantity: myFood.qauntity,
+      customer_id: myFood.customer_id,
+    };
+    dispatch(postCustomerToApi(customer));
+    dispatch(postMyFoodToApi(items));
   };
 
-  const { address, daily_contribution, email, name, phone, picture } = customer;
+  const handleCancel = () => {};
+
+  const handleEdit = () => {};
 
   console.log(customer, myFood);
   return (
@@ -41,6 +50,15 @@ const CustomerPreview = () => {
         ))}
         <p>Grand total NGN {grandTotal}</p>
       </div>
+      <button type="button" onClick={handleCancel}>
+        Cancel
+      </button>
+      <button type="button" onClick={handleSubmit}>
+        Add Customer
+      </button>
+      <button type="button" onClick={handleEdit}>
+        Edit
+      </button>
     </div>
   );
 };
