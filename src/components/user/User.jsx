@@ -62,6 +62,7 @@ const User = () => {
           Last Updated: {Moment(updated_at).format('MMMM DD, LT')}
         </p>
       </div>
+      <div className="btns-container">
       <div className="edit">
         <NavLink to={redirect}>
           <i className="fa fa-edit text-red" />
@@ -69,9 +70,12 @@ const User = () => {
       </div>
       <div className="allTrans">
         <NavLink to={allTrans}>
-          <button type="button">View Transactions</button>
+          <button type="button" className="view-trans">
+            View Transactions
+          </button>
         </NavLink>
       </div>
+     </div>
     </div>
   );
 };

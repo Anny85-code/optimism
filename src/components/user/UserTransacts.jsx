@@ -4,6 +4,7 @@ import { NavLink, useParams } from 'react-router-dom';
 import Moment from 'moment';
 import Loader from '../loader/Loader';
 import { getOneUserTransFromApi } from '../../redux/forms/oneUserTransactReducer';
+import './UserTransaction.css';
 /* eslint-disable */
 const UserTransacts = () => {
   const dispatch = useDispatch();
@@ -23,8 +24,10 @@ const UserTransacts = () => {
         <>
           {trans.length <= 0 ? (
             <>
-              <p>No transactions yet!</p>
-              <button type="button">
+              <div className="user-no-tran">
+                <p className="no-trans">No transactions yet!</p>
+              </div>
+              <button type="button" className="no-trans-btn user-btn">
                 <NavLink
                   to="/addtransaction"
                   style={{ textDecoration: 'none' }}

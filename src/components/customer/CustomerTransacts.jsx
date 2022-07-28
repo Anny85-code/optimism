@@ -41,8 +41,9 @@ const CustomerTransacts = () => {
                   <span className="cus-name1">Customer's Name</span>
                 </h4>
                 <h4 className="columns i">Date</h4>
+                <h4 className="columns i">Amount</h4>
                 <h4 className="columns i" id="a">
-                  Amount
+                  Total days paid
                 </h4>
                 <h4 className="columns">
                   <span className="cus-name1 ">Total amount contributed</span>
@@ -62,12 +63,18 @@ const CustomerTransacts = () => {
                   id="a"
                   style={{ borderBottom: '2px solid #705050' }}
                 ></h6>
+                <h3
+                  className="columns "
+                  id="col"
+                  style={{
+                    borderRight: '2px solid #705050',
+                    borderBottom: '2px solid #705050',
+                  }}
+                >
+                  {total_days}
+                </h3>
                 <h3 className="columns" id="col">
                   {total}
-                </h3>
-                <h3>
-                  <span className="cus-name">Total days paid:</span>
-                  {total_days}
                 </h3>
               </div>
               {trans.map((transaction) => (
@@ -89,6 +96,10 @@ const CustomerTransacts = () => {
                         >
                           {transaction.amount}
                         </h4>
+                        <h4
+                          className="columns "
+                          style={{ borderRight: '2px solid #705050' }}
+                        ></h4>
                         <h4 className="columns "></h4>
                       </div>
                     </li>
