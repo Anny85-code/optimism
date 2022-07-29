@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+// import { NavLink } from 'react-router-dom';
 import { postCustomerToApi } from '../../redux/forms/customerReducer';
 import { getItemFromApi } from '../../redux/forms/getItemsReducer';
 import { getOneItemFromApi } from '../../redux/forms/oneItemReducer';
@@ -23,7 +24,7 @@ const AddItemToCustomer = () => {
     }
   };
 
-const getFormattedPrice = (price) =>
+  const getFormattedPrice = (price) =>
     new Intl.NumberFormat('en-IN', {
       style: 'currency',
       currency: 'NGN',
@@ -40,7 +41,9 @@ const getFormattedPrice = (price) =>
       qauntity,
       subTotal,
     };
-    setTotal([...total, eachItem]);
+    if (eachItem.subTotal > 0) {
+      setTotal([...total, eachItem]);
+    }
     setQuantity(0);
     setSubTotal(0);
   };
@@ -57,9 +60,10 @@ const getFormattedPrice = (price) =>
     if (grandTotal > 0) {
       let customer = JSON.parse(localStorage.getItem('customer'));
       const userData = { ...customer, daily_contribution: grandTotal };
+      localStorage.setItem('myfood', JSON.stringify(total));
       dispatch(postCustomerToApi(userData));
-      localStorage.removeItem('customer');
-      localStorage.removeItem('image_str');
+      window.history.pushState({}, '', '/customerpreview');
+      window.location.reload();
     }
   };
 
@@ -74,9 +78,10 @@ const getFormattedPrice = (price) =>
         <ul className="pic-previous">
           <li>
             <i
-              className="fa fa-arrow-left"
+              className="fa fa-arrow-left fa-2x text-red"
               id="toggle-btn"
               onClick={handlePrevious}
+              style={{ cursor: 'pointer' }}
             />
           </li>
           <li>
@@ -84,9 +89,10 @@ const getFormattedPrice = (price) =>
           </li>
           <li>
             <i
-              className="fa fa-arrow-right"
+              className="fa fa-arrow-right fa-2x text-red"
               id="toggle-btn"
               onClick={handleNext}
+              style={{ cursor: 'pointer' }}
             />
           </li>
         </ul>
@@ -117,7 +123,7 @@ const getFormattedPrice = (price) =>
                 onClick={handleSub}
                 className="sum-item-btn"
               >
-                Sum Item
+                Add Item
               </button>
             </li>
           </ul>
@@ -126,13 +132,15 @@ const getFormattedPrice = (price) =>
           <h3 className="qty-sub-total">Sub total:&nbsp;{subTotal}</h3>
           <h1 className="qty-p-total">Grand total: &nbsp;{grandTotal}</h1>
         </div>
+        {/* <NavLink to="/customerpreview" style={{ textDecoration: 'none' }}> */}
         <button
           type="button"
           onClick={handleContribution}
           className="finish-btn"
         >
-          Add Customer
+          Preview
         </button>
+        {/* </NavLink> */}
       </div>
     </div>
   );

@@ -1,17 +1,15 @@
 import React, { useEffect } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-
 /* eslint-disable */
 import { getOneItemFromApi } from '../../../redux/forms/oneItemReducer';
-/* eslint-enable */
+
 const editUrl = (product) => {
   const { id } = product;
   return `/products/${id}/edit`;
 };
 const data = JSON.parse(localStorage.getItem('user'));
 const { user } = data || {};
-console.log(user);
 
 const Product = () => {
   const dispatch = useDispatch();
@@ -23,14 +21,7 @@ const Product = () => {
     dispatch(getOneItemFromApi(id));
   }, []);
 
-  /* eslint-disable */
-
-  const {
-    name,
-    price,
-    description,
-    picture,
-  } = aProduct.data;
+  const { name, price, description, picture } = aProduct.data;
   const redirect = editUrl(aProduct.data);
 
   return (
@@ -56,6 +47,5 @@ const Product = () => {
     </div>
   );
 };
-
 /* eslint-enable */
 export default Product;
