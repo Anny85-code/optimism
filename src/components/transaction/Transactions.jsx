@@ -32,7 +32,6 @@ const Transactions = () => {
           }
         });
 
-        console.log(aCustomer);
         if (permitted) {
           return (
             <NavLink
