@@ -23,40 +23,37 @@ const MyFoods = () => {
 
   return (
     <div>
-      {customer ? (
-        <div>
-          <h1>Name: {name}</h1>
-          <p> Contribution: {daily_contribution}</p>
-        </div>
+      {name ? (
+        <>
+          <div>
+            <h1>Name: {name}</h1>
+            <p> Contribution: {daily_contribution}</p>
+          </div>
+          {food.map((food) => {
+            const myFoods = Object.values(JSON.parse(food.items));
+            return (
+              <div key={food.id} className="customer-container">
+                <div>
+                  {myFoods ? (
+                    myFoods.map((myFood) => (
+                      <div key={myFood.id}>
+                        <h2>Item: {myFood.name}</h2>
+                        <p>Price: {myFood.price}</p>
+                        <p>Qty: {myFood.qauntity}</p>
+                        <p>Sub total NGN {myFood.subTotal}</p>
+                      </div>
+                    ))
+                  ) : (
+                    <p>No items to show!</p>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </>
       ) : (
         <Loader />
       )}
-      {/* {foods ? (
-        food.map((food) => {
-          console.log(Object.values(JSON.parse(food.items)));
-          const myFoods = Object.values(JSON.parse(food.items));
-          return (
-            <div key={food.id} className="customer-container">
-              <div>
-                {myFoods ? (
-                  myFoods.map((myFood) => (
-                    <div key={myFood.id}>
-                      <h2>Item: {myFood.name}</h2>
-                      <p>Price: {myFood.price}</p>
-                      <p>Qty: {myFood.qauntity}</p>
-                      <p>Sub total NGN {myFood.subTotal}</p>
-                    </div>
-                  ))
-                ) : (
-                  <p>No items to show!</p>
-                )}
-              </div>
-            </div>
-          );
-        })
-      ) : (
-        <Loader />
-      )} */}
     </div>
   );
 };
