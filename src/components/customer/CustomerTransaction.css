@@ -7,11 +7,18 @@
 }
 
 .transact-customer-container {
-  border: 2px solid #705050;
+  border: 2px solid crimson;
   border-radius: 8px;
   width: 950px;
   height: fit-content;
   margin: 20px 20px 20px 50px;
+}
+
+.custransactname {
+  color: rgb(70, 54, 3);
+  font-family: 'Quintessential', cursive;
+  font-size: 25px;
+  font-weight: bolder;
 }
 
 .columns {
@@ -22,17 +29,17 @@
 }
 
 #col {
-  margin-top: 20px;
-  border-bottom: 2px solid #705050;
+  /* margin-top: 20px; */
+  border-bottom: 2px solid crimson;
 }
 
 .i {
-  border-left: 2px solid #705050;
+  border-left: 2px solid crimson;
   color: #000;
 }
 
 #a {
-  border-right: 2px solid #705050;
+  border-right: 2px solid crimson;
 }
 
 .no-trans {

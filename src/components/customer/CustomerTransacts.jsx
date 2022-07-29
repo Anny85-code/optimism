@@ -41,8 +41,9 @@ const CustomerTransacts = () => {
                   <span className="cus-name1">Customer's Name</span>
                 </h4>
                 <h4 className="columns i">Date</h4>
+                <h4 className="columns i">Amount</h4>
                 <h4 className="columns i" id="a">
-                  Amount
+                  Total days paid
                 </h4>
                 <h4 className="columns">
                   <span className="cus-name1 ">Total amount contributed</span>
@@ -51,23 +52,28 @@ const CustomerTransacts = () => {
 
               <div className="custrans-name">
                 <h3 className="columns" id="col">
-                  {user_name}
+                  <p className="custransactname">{user_name}</p>
                 </h3>
                 <h6
                   className="columns i"
-                  style={{ borderBottom: '2px solid #705050' }}
+                  style={{ borderBottom: '2px solid crimson' }}
                 ></h6>
                 <h6
                   className="columns i"
-                  id="a"
-                  style={{ borderBottom: '2px solid #705050' }}
+                  style={{ borderBottom: '2px solid crimson' }}
                 ></h6>
+                <h3
+                  className="columns i"
+                  id="col"
+                  style={{
+                    borderRight: '2px solid crimson',
+                    borderBottom: '2px solid crimson',
+                  }}
+                >
+                  {total_days}
+                </h3>
                 <h3 className="columns" id="col">
                   {total}
-                </h3>
-                <h3>
-                  <span className="cus-name">Total days paid:</span>
-                  {total_days}
                 </h3>
               </div>
               {trans.map((transaction) => (
@@ -82,13 +88,11 @@ const CustomerTransacts = () => {
                         <h4 className="columns i" id="top">
                           {Moment(transaction.created_at).format('MMMM DD, LT')}
                         </h4>
+                        <h4 className="columns i">{transaction.amount}</h4>
                         <h4
                           className="columns i"
-                          id="top"
-                          style={{ borderRight: '2px solid #705050' }}
-                        >
-                          {transaction.amount}
-                        </h4>
+                          style={{ borderRight: '2px solid crimson' }}
+                        ></h4>
                         <h4 className="columns "></h4>
                       </div>
                     </li>

@@ -93,7 +93,7 @@ const Contribution = () => {
           <div className="inner-container">
             <h2 className="title1">Contribution details</h2>
           </div>
-          <center style={{ color: 'white' }}>
+          <center style={{ color: 'crimson' }}>
             Enter no. of days to continue!
           </center>
           <h3 className="details">Customer details</h3>
@@ -101,7 +101,7 @@ const Contribution = () => {
             <div className="contribution-container">
               <p>Name: {name}</p>
               <p>Daily Contribution: {daily_contribution}</p>
-              <h3>Transaction Details</h3>
+              <h3 className="details">Transaction Details</h3>
               <input
                 type="number"
                 className="form-control days-input"

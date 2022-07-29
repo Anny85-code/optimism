@@ -1,0 +1,105 @@
+.start-date-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.start-date {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: crimson;
+  text-align: center;
+}
+
+.start-d {
+  font-size: 1.9rem;
+  font-weight: bold;
+  color: rgb(75, 7, 20);
+  margin: 20px 0 20px 40px;
+  text-align: center;
+}
+
+.start-date-picker {
+  width: 200px;
+  height: 40px;
+  border-radius: 5px;
+}
+
+.date-picker-container {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+}
+
+.user-btn {
+  margin-left: 350px;
+}
+
+.user-no-tran {
+  margin-left: 240px;
+  width: 500px;
+}
+
+.user-transact-btn {
+  width: 300px;
+  height: 40px;
+  padding: 10px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background-color: #f72727;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #d86565;
+}
+
+.no-transact-p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: rgb(61, 4, 15);
+  text-align: center;
+  font-family: 'Gumeland', cursive;
+  margin: 30px;
+}
+
+@media only screen and (max-width: 978px) {
+  .cust-tansact-container1 {
+    width: 320px;
+  }
+
+  .start-date-container {
+    width: 320px;
+  }
+
+  .date-picker-container {
+    width: 320px;
+  }
+
+  .start-date-picker {
+    width: 120px;
+  }
+
+  .user-transact-btn {
+    width: 200px;
+  }
+
+  .transact-customer-container {
+    font-size: 12px;
+  }
+
+  .columns {
+    font-size: 8px;
+  }
+
+  .custransactname {
+    font-size: 12px;
+  }
+}

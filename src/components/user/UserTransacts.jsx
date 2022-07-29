@@ -5,6 +5,7 @@ import DatePicker from 'react-datepicker';
 import Moment from 'moment';
 import Loader from '../loader/Loader';
 import { getOneUserTransFromApi } from '../../redux/forms/oneUserTransactReducer';
+import './UserTransaction.css';
 /* eslint-disable */
 const UserTransacts = () => {
   const dispatch = useDispatch();
@@ -34,86 +35,142 @@ const UserTransacts = () => {
   };
 
   return (
-    <div>
-      {trans ? (
-        <>
-          {trans.length <= 0 ? (
-            <>
-              <p>No transactions yet!</p>
-              <button type="button">
-                <NavLink
-                  to="/addtransaction"
-                  style={{ textDecoration: 'none' }}
-                >
-                  Add New Transaction
-                </NavLink>
-              </button>
-            </>
-          ) : (
-            <>
-              <div>
-                <h3>
-                  <span className="cus-name">Collected by:</span>
-                  {user_name}
-                </h3>
-                <h3>
-                  <span className="cus-name">Total amount collected:</span>
-                  {total}
-                </h3>
-                <label htmlFor="start_date">
-                  Start Date
-                  <DatePicker
-                    // portalId="root-portal"
-                    dateFormat="yyyy/MM/dd"
-                    selected={sDate}
-                    // showMonthDropdown
-                    // showYearDropdown
-                    dropdownMode="select"
-                    onChange={(date) => setSDate(date)}
-                    style={{ margin: 0 }}
-                  />
-                </label>
-                <button type="button" onClick={handleFilter}>
-                  Filter
-                </button>
-                <div>
-                  <p>Total by filtered date</p>
-                  <p>{filtaTotal}</p>
-                </div>
-                <div>
-                  <p>No. of Transactions</p>
-                  <p>{transNo}</p>
-                </div>
-              </div>
-              {filtaTrans.length >= 1 ? (
-                filtaTrans.map((transaction) => (
+    <div className="cust-tansact-container1">
+      <div className="start-date-container">
+        <h3 className="details start-d">Start Date</h3>
+        <div className="date-picker-container">
+          <label htmlFor="start_date" className="start-date">
+            <DatePicker
+              // portalId="root-portal"
+              dateFormat="yyyy/MM/dd"
+              selected={sDate}
+              // showMonthDropdown
+              // showYearDropdown
+              dropdownMode="select"
+              onChange={(date) => setSDate(date)}
+              style={{ margin: 0 }}
+              className="start-date-picker"
+            />
+          </label>
+          <button
+            type="button"
+            onClick={handleFilter}
+            className="user-transact-btn"
+          >
+            Filter
+          </button>
+        </div>
+      </div>
+      <div className="transact-customer-container">
+        {trans ? (
+          <>
+            {trans.length <= 0 ? (
+              <>
+                <p>No transactions yet!</p>
+                <button type="button">
                   <NavLink
-                    key={transaction.id}
-                    to={`/transactions/${transaction.id}`}
+                    to="/addtransaction"
+                    style={{ textDecoration: 'none' }}
                   >
-                    <div className="customer-container transactions-container">
-                      <h4>
-                        <span className="cus-name">Amount:</span>
-                        {transaction.amount}
-                      </h4>
-                      <h4>
-                        <span className="cus-phone">Date:</span>
-                        {Moment(transaction.created_at).format('MMMM DD, LT')}
-                      </h4>
-                    </div>
+                    Add New Transaction
                   </NavLink>
-                ))
-              ) : (
-                <>
-                  <p>No transactions to show!</p>
-                </>
-              )}
-            </>
-          )}
-        </>
-      ) : (
-        <Loader />
-      )}
+                </button>
+              </>
+            ) : (
+              <>
+                <div className="custrans-name">
+                  <h4 className="columns">
+                    <span className="cus-name1">Collected by</span>
+                  </h4>
+                  <h4 className="columns i">
+                    <span className="cus-name1">Date</span>
+                  </h4>
+                  <h3 className="columns i">
+                    <span className="cus-name1">Amount</span>
+                  </h3>
+                  <h3 className="columns i" d="a">
+                    <span className="cus-name1">Total by filtered date</span>
+                  </h3>
+
+                  <h3 className="columns i " id="a">
+                    <span className="cus-name1">No. of Transactions</span>
+                  </h3>
+
+                  <h3 className="columns">
+                    <span className="cus-name1">Total amount collected</span>
+                  </h3>
+                </div>
+
+                <div className="custrans-name">
+                  <h4 className="columns" id="col">
+                    <p className="custransactname">{user_name}</p>
+                  </h4>
+                  <h4
+                    className="columns i"
+                    style={{ borderBottom: '2px solid crimson' }}
+                  ></h4>
+                  <h3
+                    className="columns i"
+                    style={{ borderBottom: '2px solid crimson' }}
+                  ></h3>
+                  <h3 className="columns i" id="col">
+                    {filtaTotal}
+                  </h3>
+
+                  <h3
+                    className="columns i"
+                    id="col"
+                    style={{
+                      borderRight: '2px solid crimson',
+                      borderBottom: '2px solid crimson',
+                    }}
+                  >
+                    {transNo}
+                  </h3>
+
+                  <h3 className="columns" id="col">
+                    {total}
+                  </h3>
+                </div>
+                {filtaTrans.length >= 1 ? (
+                  filtaTrans.map((transaction) => (
+                    <NavLink
+                      key={transaction.id}
+                      to={`/transactions/${transaction.id}`}
+                    >
+                      <ul>
+                        <li>
+                          <div className="custrans-name">
+                            <h4 className="columns"></h4>
+                            <h4 className="columns i" id="top">
+                              {Moment(transaction.created_at).format(
+                                'MMMM DD, LT'
+                              )}
+                            </h4>
+                            <h4 className="columns i">{transaction.amount}</h4>
+                            <h4 className="columns i"></h4>
+                            <h4
+                              className="columns i"
+                              style={{ borderRight: '2px solid crimson' }}
+                            ></h4>
+                            <h4 className="columns "></h4>
+                          </div>
+                        </li>
+                      </ul>
+                    </NavLink>
+                  ))
+                ) : (
+                  <>
+                    <p className="no-transact-p">No transactions to show!</p>
+                  </>
+                )}
+              </>
+            )}
+          </>
+        ) : (
+          <Loader />
+        )}
+      </div>
     </div>
   );
 };

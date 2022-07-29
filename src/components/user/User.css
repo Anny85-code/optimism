@@ -3,6 +3,13 @@
   padding: 20px;
 }
 
+.btns-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  gap: 20px;
+}
+
 @media only screen and (max-width: 978px) {
   .user-container {
     height: auto;
