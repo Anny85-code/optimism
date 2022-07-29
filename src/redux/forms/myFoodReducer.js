@@ -47,11 +47,15 @@ export const postMyFoodToApi = (userData) => async (dispatch) => {
     const errorMsg = sendData.error || sendData.errors;
     dispatch(sendMyFoodDataFailed(errorMsg));
   } else {
-    window.history.pushState({}, '', '/customers');
+    setTimeout(() => {
+      window.history.pushState({}, '', '/customers');
       <Navigate to="/customers" />;
-    // setTimeout(() => {
-    // window.location.reload();
-    // }, 5000);
+      localStorage.removeItem('updated_customer');
+      localStorage.removeItem('myfood');
+      localStorage.removeItem('customer');
+      localStorage.removeItem('image_str');
+      window.location.reload();
+    }, 3000);
   }
 };
 
@@ -93,7 +97,7 @@ const myFoodReducer = (
     loading: false,
     error: null,
   },
-  action,
+  action
 ) => {
   switch (action.type) {
     case GET_MYFOOD:

@@ -21,12 +21,6 @@ const CustomerPreview = () => {
     };
 
     dispatch(postMyFoodToApi(data));
-    localStorage.removeItem('updated_customer');
-    localStorage.removeItem('myfood');
-    localStorage.removeItem('customer');
-    localStorage.removeItem('image_str');
-    window.history.pushState({}, '', '/customers');
-    window.location.reload();
   };
 
   const handleCancel = () => {
