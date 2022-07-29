@@ -24,9 +24,9 @@ const UserTransacts = () => {
         <>
           {trans.length <= 0 ? (
             <>
-              <div className="user-no-tran">
-                <p className="no-trans">No transactions yet!</p>
-              </div>
+              
+                <p className="no-trans user-no-tran">No transactions yet!</p>
+             
               <button type="button" className="no-trans-btn user-btn">
                 <NavLink
                   to="/addtransaction"
