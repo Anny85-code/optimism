@@ -13,19 +13,21 @@ const CustomerPreview = () => {
   const grandTotal = myFood.reduce((a, b) => b.subTotal + a, 0);
 
   const handleSubmit = () => {
+    const items = myFood.map((food) => JSON.stringify(food));
     const data = {
       customer_id: customer[0].id,
-      items: myFood,
+      items,
     };
 
     // dispatch(postCustomerToApi(customer));
+    console.log(data);
     dispatch(postMyFoodToApi(data));
     localStorage.removeItem('updated_customer');
     localStorage.removeItem('myfood');
     localStorage.removeItem('customer');
     localStorage.removeItem('image_str');
-    window.history.pushState({}, '', '/customers');
-    window.location.reload();
+    // window.history.pushState({}, '', '/customers');
+    // window.location.reload();
   };
 
   const handleCancel = () => {
