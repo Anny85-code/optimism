@@ -3,7 +3,7 @@
   padding: 20px;
 }
 
-.btns-container{
+.btns-container {
   display: flex;
   flex-direction: column;
   margin-top: 40px;
