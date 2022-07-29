@@ -56,19 +56,18 @@ const CustomerTransacts = () => {
                 </h3>
                 <h6
                   className="columns i"
-                  style={{ borderBottom: '2px solid #705050' }}
+                  style={{ borderBottom: '2px solid crimson' }}
                 ></h6>
                 <h6
                   className="columns i"
-                  id="a"
-                  style={{ borderBottom: '2px solid #705050' }}
+                  style={{ borderBottom: '2px solid crimson' }}
                 ></h6>
                 <h3
-                  className="columns "
+                  className="columns i"
                   id="col"
                   style={{
-                    borderRight: '2px solid #705050',
-                    borderBottom: '2px solid #705050',
+                    borderRight: '2px solid crimson',
+                    borderBottom: '2px solid crimson',
                   }}
                 >
                   {total_days}
@@ -91,14 +90,12 @@ const CustomerTransacts = () => {
                         </h4>
                         <h4
                           className="columns i"
-                          id="top"
-                          style={{ borderRight: '2px solid #705050' }}
                         >
                           {transaction.amount}
                         </h4>
                         <h4
-                          className="columns "
-                          style={{ borderRight: '2px solid #705050' }}
+                          className="columns i"
+                          style={{ borderRight: '2px solid crimson' }}
                         ></h4>
                         <h4 className="columns "></h4>
                       </div>

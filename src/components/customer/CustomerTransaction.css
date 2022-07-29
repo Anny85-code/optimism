@@ -7,7 +7,7 @@
 }
 
 .transact-customer-container {
-  border: 2px solid #705050;
+  border: 2px solid crimson;
   border-radius: 8px;
   width: 950px;
   height: fit-content;
@@ -18,21 +18,21 @@
   width: 240px;
   text-align: center;
   font-size: 18px;
-  padding-top: 20px;
+  padding-top: 20px;;
 }
 
 #col {
-  margin-top: 20px;
-  border-bottom: 2px solid #705050;
+  /* margin-top: 20px; */
+  border-bottom: 2px solid crimson;
 }
 
 .i {
-  border-left: 2px solid #705050;
+  border-left: 2px solid crimson;
   color: #000;
 }
 
 #a {
-  border-right: 2px solid #705050;
+  border-right: 2px solid crimson;
 }
 
 .no-trans {
