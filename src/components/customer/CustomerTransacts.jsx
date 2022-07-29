@@ -52,7 +52,7 @@ const CustomerTransacts = () => {
 
               <div className="custrans-name">
                 <h3 className="columns" id="col">
-                  {user_name}
+                  <p className="custransactname">{user_name}</p>
                 </h3>
                 <h6
                   className="columns i"
@@ -88,11 +88,7 @@ const CustomerTransacts = () => {
                         <h4 className="columns i" id="top">
                           {Moment(transaction.created_at).format('MMMM DD, LT')}
                         </h4>
-                        <h4
-                          className="columns i"
-                        >
-                          {transaction.amount}
-                        </h4>
+                        <h4 className="columns i">{transaction.amount}</h4>
                         <h4
                           className="columns i"
                           style={{ borderRight: '2px solid crimson' }}

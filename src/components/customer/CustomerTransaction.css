@@ -14,11 +14,18 @@
   margin: 20px 20px 20px 50px;
 }
 
+.custransactname {
+  color: rgb(70, 54, 3);
+  font-family: 'Quintessential', cursive;
+  font-size: 25px;
+  font-weight: bolder;
+}
+
 .columns {
   width: 240px;
   text-align: center;
   font-size: 18px;
-  padding-top: 20px;;
+  padding-top: 20px;
 }
 
 #col {
