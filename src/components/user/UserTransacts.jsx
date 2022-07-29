@@ -122,6 +122,7 @@ import DatePicker from 'react-datepicker';
 import Moment from 'moment';
 import Loader from '../loader/Loader';
 import { getOneUserTransFromApi } from '../../redux/forms/oneUserTransactReducer';
+import './UserTransaction.css';
 /* eslint-disable */
 const UserTransacts = () => {
   const dispatch = useDispatch();
@@ -152,23 +153,27 @@ const UserTransacts = () => {
 
   return (
     <div>
-      <div>
-        <label htmlFor="start_date">
-          Start Date
-          <DatePicker
-            // portalId="root-portal"
-            dateFormat="yyyy/MM/dd"
-            selected={sDate}
-            // showMonthDropdown
-            // showYearDropdown
-            dropdownMode="select"
-            onChange={(date) => setSDate(date)}
-            style={{ margin: 0 }}
-          />
-        </label>
-        <button type="button" onClick={handleFilter}>
-          Filter
-        </button>
+      <div className="start-date-container">
+        Start Date
+        <div className="date-picker-container">
+       
+          <label htmlFor="start_date" className="start-date">
+            <DatePicker
+              // portalId="root-portal"
+              dateFormat="yyyy/MM/dd"
+              selected={sDate}
+              // showMonthDropdown
+              // showYearDropdown
+              dropdownMode="select"
+              onChange={(date) => setSDate(date)}
+              style={{ margin: 0 }}
+              className="start-date-picker"
+            />
+          </label>
+          <button type="button" onClick={handleFilter} className="user-transact-btn">
+            Filter
+          </button>
+        </div>
       </div>
       <div className="transact-customer-container">
         {trans ? (
@@ -198,12 +203,10 @@ const UserTransacts = () => {
                     <span className="cus-name1">Amount</span>
                   </h3>
                   <h3 className="columns i" d="a">
-                  
                     <span className="cus-name1">Total by filtered date</span>
                   </h3>
 
                   <h3 className="columns i " id="a">
-                   
                     <span className="cus-name1">No. of Transactions</span>
                   </h3>
 
@@ -224,11 +227,7 @@ const UserTransacts = () => {
                     className="columns i"
                     style={{ borderBottom: '2px solid crimson' }}
                   ></h3>
-                  <h3
-                    className="columns i"
-                    id="col"
-                   
-                  >
+                  <h3 className="columns i" id="col">
                     {filtaTotal}
                   </h3>
 
@@ -263,10 +262,7 @@ const UserTransacts = () => {
                               )}
                             </h4>
                             <h4 className="columns i">{transaction.amount}</h4>
-                            <h4
-                              className="columns i"
-                            
-                            ></h4>
+                            <h4 className="columns i"></h4>
                             <h4
                               className="columns i"
                               style={{ borderRight: '2px solid crimson' }}
