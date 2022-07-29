@@ -21,31 +21,33 @@ const MyFoods = () => {
   }, []);
 
   return (
-    <div>
+    <div className="transact-customer-container">
       {name ? (
         <>
           <div>
-            <h1>Name: {name}</h1>
-            <p> Contribution: {daily_contribution}</p>
+            <h4>Name: {name}</h4>
+            <h4> Contribution: {daily_contribution}</h4>
+            <h4></h4>
+            <h4></h4>
+            <h4></h4>
+            <h4></h4>
           </div>
           {food.map((food) => {
             const myFoods = Object.values(JSON.parse(food.items));
             return (
               <div key={food.id} className="customer-container">
-                <div>
-                  {myFoods ? (
-                    myFoods.map((myFood) => (
-                      <div key={myFood.id}>
-                        <h2>Item: {myFood.name}</h2>
-                        <p>Price: {myFood.price}</p>
-                        <p>Qty: {myFood.qauntity}</p>
-                        <p>Sub total NGN {myFood.subTotal}</p>
-                      </div>
-                    ))
-                  ) : (
-                    <p>No items to show!</p>
-                  )}
-                </div>
+                {myFoods ? (
+                  myFoods.map((myFood) => (
+                    <div key={myFood.id}>
+                      <h2>Item: {myFood.name}</h2>
+                      <p>Price: {myFood.price}</p>
+                      <p>Qty: {myFood.qauntity}</p>
+                      <p>Sub total NGN {myFood.subTotal}</p>
+                    </div>
+                  ))
+                ) : (
+                  <p>No items to show!</p>
+                )}
               </div>
             );
           })}
