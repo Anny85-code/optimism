@@ -25,12 +25,44 @@ const MyFoods = () => {
       {name ? (
         <>
           <div>
-            <h4>Name: {name}</h4>
-            <h4> Contribution: {daily_contribution}</h4>
-            <h4></h4>
-            <h4></h4>
-            <h4></h4>
-            <h4></h4>
+            <h4 className="columns">
+                    <span className="cus-name1">Name</span>
+                  </h4>
+             <h4 className="columns i">
+                    <span className="cus-name1">Contribution</span>
+                  </h4>
+             <h3 className="columns i">
+                    <span className="cus-name1">Item</span>
+                  </h3>
+           <h3 className="columns i" d="a">
+                    <span className="cus-name1">Price</span>
+                  </h3>
+           <h3 className="columns i " id="a">
+                    <span className="cus-name1">Quantity</span>
+                  </h3>
+            <h3 className="columns">
+                    <span className="cus-name1">Sub total</span>
+                  </h3>
+          </div>
+          <div>
+            <h4 className="columns">
+                    <span className="cus-name1">Name</span>
+                  </h4>
+             <h4 className="columns i">
+                    <span className="cus-name1">Contribution</span>
+                  </h4>
+             <h3 className="columns i">
+                    <span className="cus-name1">Item</span>
+                  </h3>
+           <h3 className="columns i" d="a">
+                    <span className="cus-name1">Price</span>
+                  </h3>
+           <h3 className="columns i " id="a">
+                    <span className="cus-name1">Quantity</span>
+                  </h3>
+            <h3 className="columns">
+                    <span className="cus-name1">Sub total</span>
+                  </h3>
           </div>
           {food.map((food) => {
             const myFoods = Object.values(JSON.parse(food.items));
@@ -60,3 +92,7 @@ const MyFoods = () => {
 };
 /* eslint-enable */
 export default MyFoods;
+
+
+ <h4>Name: {name}</h4>
+            <h4> Contribution: {daily_contribution}</h4>
