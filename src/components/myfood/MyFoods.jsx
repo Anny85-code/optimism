@@ -14,7 +14,7 @@ const MyFoods = () => {
   const customerData = customer.data;
   const { data } = foods || {};
   const food = data.filter((food) => food.customer_id == param.id);
-  const { name } = customerData;
+  const { name, daily_contribution } = customerData;
 
   useEffect(() => {
     dispatch(getMyFoodFromApi());
@@ -23,14 +23,15 @@ const MyFoods = () => {
 
   return (
     <div>
-      {customerData ? (
+      {customer ? (
         <div>
-          <h1>{name}</h1>
+          <h1>Name: {name}</h1>
+          <p> Contribution: {daily_contribution}</p>
         </div>
       ) : (
         <Loader />
       )}
-      {food ? (
+      {/* {foods ? (
         food.map((food) => {
           console.log(Object.values(JSON.parse(food.items)));
           const myFoods = Object.values(JSON.parse(food.items));
@@ -55,7 +56,7 @@ const MyFoods = () => {
         })
       ) : (
         <Loader />
-      )}
+      )} */}
     </div>
   );
 };
