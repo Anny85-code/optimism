@@ -31,7 +31,7 @@ import SearchContribution from './components/transaction/SearchContribution';
 import CustomerTransacts from './components/customer/CustomerTransacts';
 import Product from './components/items/products/Product';
 import UserTransacts from './components/user/UserTransacts';
-import MyFood from './components/myfood/MyFood';
+import MyFoods from './components/myfood/MyFoods';
 import CustomerPreview from './components/addCostumer/CustomerPreview';
 
 const App = () => {
@@ -68,7 +68,7 @@ const App = () => {
             <Route path="/transactions/:id" element={<Transaction />} />
             <Route path="/addproducts" element={<AddItemToCustomer />} />
             <Route path="/custumers" element={<Customers />} />
-            <Route path="/customers/:id/myfood" element={<MyFood />} />
+            <Route path="/customers/:id/myfood" element={<MyFoods />} />
             <Route
               path="/searchcontribution"
               element={<SearchContribution />}
