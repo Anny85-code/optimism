@@ -152,7 +152,7 @@ const UserTransacts = () => {
   };
 
   return (
-    <div>
+    <div className="cust-tansact-container1">
       <div className="start-date-container">
         <h3 className="details start-d">Start Date</h3>
         <div className="date-picker-container">
@@ -278,7 +278,7 @@ const UserTransacts = () => {
                   ))
                 ) : (
                   <>
-                    <p>No transactions to show!</p>
+                    <p className="no-transact-p">No transactions to show!</p>
                   </>
                 )}
               </>
