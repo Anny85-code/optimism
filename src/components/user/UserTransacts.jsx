@@ -19,14 +19,13 @@ const UserTransacts = () => {
   }, []);
 
   return (
-    <div>
+    <div className="transact-customer-container">
       {trans ? (
         <>
           {trans.length <= 0 ? (
             <>
-              
-                <p className="no-trans user-no-tran">No transactions yet!</p>
-             
+              <p className="no-trans user-no-tran">No transactions yet!</p>
+
               <button type="button" className="no-trans-btn user-btn">
                 <NavLink
                   to="/addtransaction"
@@ -38,14 +37,41 @@ const UserTransacts = () => {
             </>
           ) : (
             <>
-              <div>
-                <h3>
-                  <span className="cus-name">Collected by:</span>
-                  {user_name}
+              <div className="custrans-name">
+                <h4 className="columns">
+                  <span className="cus-name1">Collected by</span>
+                </h4>
+                <h4 className="columns i">
+                  <span className="cus-name1">Date</span>
+                </h4>
+                <h3 className="columns i" id="a">
+                  <span className="cus-name1">Amount</span>
                 </h3>
-                <h3>
-                  <span className="cus-name">Total amount collected:</span>
-                  {total}
+                <h3 className="columns">
+                  <span className="cus-name1">Total amount collected</span>
+                </h3>
+              </div>
+              <div className="custrans-name">
+                <h3 className="columns" id="col">
+                  <span className="cus-name1">
+                    <p className="custransactname">{user_name}</p>
+                  </span>
+                </h3>
+                <h3
+                  className="columns i"
+                  style={{ borderBottom: '2px solid crimson' }}
+                >
+                  <span className="cus-name1"></span>
+                </h3>
+                <h3
+                  className="columns i"
+                  style={{ borderBottom: '2px solid crimson' }}
+                  id="a"
+                >
+                  <span className="cus-name1"></span>
+                </h3>
+                <h3 className="columns" id="col">
+                  <span className="cus-name1"> {total}</span>
                 </h3>
               </div>
               {trans.map((transaction) => (
@@ -53,16 +79,27 @@ const UserTransacts = () => {
                   key={transaction.id}
                   to={`/transactions/${transaction.id}`}
                 >
-                  <div className="customer-container transactions-container">
-                    <h4>
-                      <span className="cus-name">Amount:</span>
-                      {transaction.amount}
-                    </h4>
-                    <h4>
-                      <span className="cus-phone">Date:</span>
-                      {Moment(transaction.created_at).format('MMMM DD, LT')}
-                    </h4>
-                  </div>
+                  <ul>
+                    <li>
+                      <div className="custrans-name">
+                        <h4 className="columns"></h4>
+                        <h4 className="columns i" id="top">
+                          <span>
+                            {Moment(transaction.created_at).format(
+                              'MMMM DD, LT'
+                            )}
+                          </span>
+                        </h4>
+                        <h4
+                          className="columns i"
+                          style={{ borderRight: '2px solid crimson' }}
+                        >
+                          {transaction.amount}
+                        </h4>
+                        <h4 className="columns "></h4>
+                      </div>
+                    </li>
+                  </ul>
                 </NavLink>
               ))}
             </>
