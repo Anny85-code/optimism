@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom';
 import { getMyFoodFromApi } from '../../redux/forms/myFoodReducer';
 import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
 import Loader from '../loader/Loader';
-
 /* eslint-disable */
 const MyFoods = () => {
   const dispatch = useDispatch();
@@ -58,5 +57,4 @@ const MyFoods = () => {
   );
 };
 /* eslint-enable */
-
 export default MyFoods;

@@ -48,7 +48,7 @@ export const postMyFoodToApi = (userData) => async (dispatch) => {
     dispatch(sendMyFoodDataFailed(errorMsg));
   } else {
     window.history.pushState({}, '', '/customers');
-    <Navigate to="/customers" />;
+      <Navigate to="/customers" />;
     // setTimeout(() => {
     // window.location.reload();
     // }, 5000);
@@ -93,7 +93,7 @@ const myFoodReducer = (
     loading: false,
     error: null,
   },
-  action
+  action,
 ) => {
   switch (action.type) {
     case GET_MYFOOD:
