@@ -154,9 +154,8 @@ const UserTransacts = () => {
   return (
     <div>
       <div className="start-date-container">
-        Start Date
+        <h3 className="details start-d">Start Date</h3>
         <div className="date-picker-container">
-       
           <label htmlFor="start_date" className="start-date">
             <DatePicker
               // portalId="root-portal"
@@ -170,7 +169,11 @@ const UserTransacts = () => {
               className="start-date-picker"
             />
           </label>
-          <button type="button" onClick={handleFilter} className="user-transact-btn">
+          <button
+            type="button"
+            onClick={handleFilter}
+            className="user-transact-btn"
+          >
             Filter
           </button>
         </div>

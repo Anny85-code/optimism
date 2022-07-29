@@ -18,6 +18,14 @@
   text-align: center;
 }
 
+.start-d {
+  font-size: 1.9rem;
+  font-weight: bold;
+  color: rgb(75, 7, 20);
+  margin: 20px 0 20px 40px;
+  text-align: center;
+}
+
 .start-date-picker{
  width: 200px;
  height: 40px;
