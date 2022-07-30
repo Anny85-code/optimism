@@ -116,7 +116,7 @@ const CustomerPreview = () => {
                         className="columns i"
                         style={{ borderRight: '2px solid crimson' }}
                       >
-                        {item.subTotal}
+                        {` NGN ${item.subTotal}` }
                       </h4>
                       <h4 className="columns "></h4>
                     </div>
