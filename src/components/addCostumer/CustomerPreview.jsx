@@ -143,8 +143,3 @@ const CustomerPreview = () => {
 };
 /* eslint-enable */
 export default CustomerPreview;
-
-//  <h3>Item: {item.name}</h3>
-//                     <p>Price: {item.price}</p>
-//                     <p>Qty: {item.qauntity}</p>
-//                     <p>Sub total NGN {item.subTotal}</p>
