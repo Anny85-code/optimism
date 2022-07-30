@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { getMyFoodFromApi } from '../../redux/forms/myFoodReducer';
 import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
 import Loader from '../loader/Loader';
+import './Myfood.css';
 /* eslint-disable */
 const MyFoods = () => {
   const dispatch = useDispatch();
@@ -79,7 +80,7 @@ const MyFoods = () => {
               <div key={food.id} >
                 {myFoods ? (
                   myFoods.map((myFood) => (
-                    <ul>
+                    <ul className="n-child">
                       <li><div key={myFood.id} className="custrans-name">
                     <h4 className="columns"></h4>
                       <h4 className="columns i" id="top">
