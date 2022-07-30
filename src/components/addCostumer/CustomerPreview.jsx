@@ -123,7 +123,6 @@ const CustomerPreview = () => {
                   </li>
                 </ul>
               ))}
-              {/* <p>Grand total NGN {grandTotal}</p> */}
             </div>
           </div>
           <div className="cust-preview-btn">
