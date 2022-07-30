@@ -68,7 +68,7 @@ const CustomerPreview = () => {
             <div className="transact-customer-container-p">
               <div className="custrans-name">
                 <h4 className="columns">
-                  <span className="cus-name1">Item</span>
+                  <span className="cus-name1">Items</span>
                 </h4>
                 <h4 className="columns i">Price</h4>
                 <h4 className="columns i">Quantity</h4>
