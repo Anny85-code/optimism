@@ -38,7 +38,9 @@ const UserTransacts = () => {
     <div className="cust-tansact-container1">
       <div className="start-date-container">
         <h3 className="details start-d">Marketer Transaction details</h3>
-        <p style={{ textAlign: 'center', color: 'crimson', marginLeft: '60px'}}>
+        <p
+          style={{ textAlign: 'center', color: 'crimson', marginLeft: '60px' }}
+        >
           Please select a date
         </p>
         <div className="date-picker-container">
@@ -132,7 +134,7 @@ const UserTransacts = () => {
                   </h3>
 
                   <h3 className="columns" id="col">
-                    {total}
+                    {`NGN ${total}` }
                   </h3>
                 </div>
                 {filtaTrans.length >= 1 ? (
@@ -150,7 +152,7 @@ const UserTransacts = () => {
                                 'MMMM DD, LT'
                               )}
                             </h4>
-                            <h4 className="columns i">{transaction.amount}</h4>
+                            <h4 className="columns i">{`NGN ${transaction.amount}`}</h4>
                             <h4 className="columns i"></h4>
                             <h4
                               className="columns i"

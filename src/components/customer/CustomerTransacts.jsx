@@ -73,7 +73,7 @@ const CustomerTransacts = () => {
                   {total_days}
                 </h3>
                 <h3 className="columns" id="col">
-                  {total}
+                  {` NGN ${total}`}
                 </h3>
               </div>
               {trans.map((transaction) => (
@@ -81,14 +81,14 @@ const CustomerTransacts = () => {
                   key={transaction.id}
                   to={`/transactions/${transaction.id}`}
                 >
-                  <ul>
+                  <ul className="n-child">
                     <li>
                       <div className="custrans-name">
                         <h4 className="columns"></h4>
                         <h4 className="columns i" id="top">
                           {Moment(transaction.created_at).format('MMMM DD, LT')}
                         </h4>
-                        <h4 className="columns i">{transaction.amount}</h4>
+                        <h4 className="columns i">{` NGN ${transaction.amount}`}</h4>
                         <h4
                           className="columns i"
                           style={{ borderRight: '2px solid crimson' }}

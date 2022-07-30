@@ -52,7 +52,7 @@ const MyFoods = () => {
              <h4
                     className="columns i"
                     style={{ borderBottom: '2px solid crimson' }}
-                  >{daily_contribution}</h4>
+                  >{` NGN ${daily_contribution}` }</h4>
              <h3
                     className="columns i"
                     style={{ borderBottom: '2px solid crimson' }}
@@ -86,14 +86,14 @@ const MyFoods = () => {
                           <h4 className="columns"></h4>
                           <h4 className="columns i" id="top"></h4>
                           <h4 className="columns i">{myFood.name}</h4>
-                          <h4 className="columns i">{myFood.price}</h4>
+                          <h4 className="columns i">{` NGN ${myFood.price}` }</h4>
                           <h4
                             className="columns i"
                             style={{ borderRight: '2px solid crimson' }}
                           >
                             {myFood.qauntity}
                           </h4>
-                          <h4 className="columns ">{myFood.subTotal}</h4>
+                          <h4 className="columns ">{` NGN ${myFood.subTotal}` }</h4>
                         </div>
                       </li>
                     </ul>
