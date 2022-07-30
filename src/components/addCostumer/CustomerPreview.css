@@ -4,6 +4,12 @@
  gap: 20px;
  height: 400px;
 }
+
+.cus-info{
+  font-size: 30px;
+  margin: 20px;
+}
+
 .cus-details-container{
   display: flex;
   justify-content: space-around;

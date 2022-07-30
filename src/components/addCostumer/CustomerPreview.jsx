@@ -42,7 +42,7 @@ const CustomerPreview = () => {
         <>
           {customer.map((cust) => (
             <div key={cust.id} className="containa cus-preview-container">
-              <h1>Customer Info</h1>
+              <h1 className="details cus-info">Customer Info</h1>
               <div className="cus-details-container">
                 <div className="image-container">
                   <img
@@ -63,8 +63,14 @@ const CustomerPreview = () => {
               </div>
             </div>
           ))}
-          <div>
+          <div className="transact-customer-container">
             <h1>Customer Food Items</h1>
+            <div>
+              <h4></h4>
+              <h4></h4>
+              <h4></h4>
+              <h4></h4>
+            </div>
             {myFood.map((item) => (
               <div key={item.id}>
                 <h3>Item: {item.name}</h3>
