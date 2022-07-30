@@ -119,7 +119,7 @@ const UserTransacts = () => {
                     style={{ borderBottom: '2px solid crimson' }}
                   ></h3>
                   <h3 className="columns i" id="col">
-                    {filtaTotal}
+                    {` NGN ${filtaTotal}` }
                   </h3>
 
                   <h3
