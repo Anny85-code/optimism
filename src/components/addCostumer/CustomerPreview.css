@@ -1,6 +1,4 @@
 .cus-preview-main-container{
-   /* margin: 20px 20px 20px 50px; */
-  /* padding: 20px; */
   background-color: azure;
   border-radius: 8px;
   text-align: center;
@@ -10,14 +8,12 @@
   padding: 0;
   margin: 20px;
   padding: 20px;
-  /* display: flex;
-  flex-direction: row; */
 }
 
 .transact-customer-container-p {
   border: 2px solid crimson;
   border-radius: 8px;
-  width: 950px;
+  width: 920px;
   height: fit-content;
   margin: 20px;
 }
@@ -49,4 +45,17 @@
   width: 300px;
   height: 250px;
   border-radius: 8px;
+}
+
+.cust-preview-btn{
+  width: 400px;
+  height: 80px;
+  display: flex;
+  justify-content: space-around;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.p-btn {
+  margin-top: 30px;
 }

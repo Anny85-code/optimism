@@ -126,12 +126,14 @@ const CustomerPreview = () => {
               {/* <p>Grand total NGN {grandTotal}</p> */}
             </div>
           </div>
-          <button type="button" onClick={handleCancel}>
-            Cancel
-          </button>
-          <button type="button" onClick={handleSubmit}>
-            Add Customer
-          </button>
+          <div className="cust-preview-btn">
+            <button type="button" onClick={handleCancel} className="view-trans p-btn">
+              Cancel
+            </button>
+            <button type="button" onClick={handleSubmit} className="view-trans p-btn">
+              Add Customer
+            </button>
+          </div>
         </>
       ) : (
         <Loader />
