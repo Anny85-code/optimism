@@ -46,6 +46,14 @@
   font-weight: bolder;
 }
 
+.t-details{
+  margin: 0 0 10px 1px;
+}
+
+.r-btn{
+  margin: 20px 0 10px 30px;
+}
+
 #details {
   color: #f72727;
   font-weight: bolder;
