@@ -37,8 +37,8 @@ const UserTransacts = () => {
   return (
     <div className="cust-tansact-container1">
       <div className="start-date-container">
-        <h3 className="details start-d">Start Date</h3>
-        <p style={{ textAlign: 'center', color: 'crimson' }}>
+        <h3 className="details start-d">Marketer Transaction details</h3>
+        <p style={{ textAlign: 'center', color: 'crimson', marginLeft: '60px'}}>
           Please select a date
         </p>
         <div className="date-picker-container">

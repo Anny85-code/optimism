@@ -111,12 +111,3 @@ const MyFoods = () => {
 };
 /* eslint-enable */
 export default MyFoods;
-
-
-//  <h4>Name: {name}</h4>
-//             <h4> Contribution: {daily_contribution}</h4>
-
-//             <h2>Item: {myFood.name}</h2>
-//                       <p>Price: {myFood.price}</p>
-//                       <p>Qty: {myFood.qauntity}</p>
-//                       <p>Sub total NGN {myFood.subTotal}</p>
