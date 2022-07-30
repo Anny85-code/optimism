@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Loader from '../loader/Loader';
 import { postMyFoodToApi } from '../../redux/forms/myFoodReducer';
+import './CustomerPreview.css';
 /* eslint-disable */
 const CustomerPreview = () => {
   const dispatch = useDispatch();
@@ -36,46 +37,102 @@ const CustomerPreview = () => {
   // };
 
   return (
-    <div>
+    <div className="cus-preview-main-container">
       {customer.length ? (
         <>
           {customer.map((cust) => (
-            <div key={cust.id}>
-              <h1>Customer Info</h1>
-              <div>
-                <img
-                  src={cust.picture}
-                  alt={`${cust.name}`}
-                  style={{ width: '70px' }}
-                />
-              </div>
-              <div>
-                <h3>Name: {cust.name}</h3>
-                <p>Phone: {cust.phone}</p>
-                <p>Email: {cust.email}</p>
-                <p>Daily Contribution: NGN {cust.daily_contribution}</p>
-                <p>Address: {cust.address}</p>
+            <div key={cust.id} className="cus-preview-container">
+              <h1 className="details cus-info">Customer Info</h1>
+              <div className="cus-details-container">
+                <div className="image-container">
+                  <img
+                    src={cust.picture}
+                    alt={`${cust.name}`}
+                    className="cus-p-image"
+                  />
+                </div>
+                <div className="details-container">
+                  <h3 className="cus-details">Name: {cust.name}</h3>
+                  <p className="cus-details">Phone: {cust.phone}</p>
+                  <p className="cus-details">Email: {cust.email}</p>
+                  <p className="cus-details">
+                    Daily Contribution: NGN {cust.daily_contribution}
+                  </p>
+                  <p className="cus-details">Address: {cust.address}</p>
+                </div>
               </div>
             </div>
           ))}
-          <div>
-            <h1>Customer Food Items</h1>
-            {myFood.map((item) => (
-              <div key={item.id}>
-                <h3>Item: {item.name}</h3>
-                <p>Price: {item.price}</p>
-                <p>Qty: {item.qauntity}</p>
-                <p>Sub total NGN {item.subTotal}</p>
+          <div className="food-item-mobile">
+            <h1 className="details cus-info food-item">Customer Food Items</h1>
+            <div className="transact-customer-container-p">
+              <div className="custrans-name">
+                <h4 className="columns">
+                  <span className="cus-name1">Items</span>
+                </h4>
+                <h4 className="columns i">Price</h4>
+                <h4 className="columns i">Quantity</h4>
+                <h4 className="columns i" id="a">
+                  Sub total
+                </h4>
+                <h4 className="columns">
+                  <span className="cus-name1 ">Grand total NGN</span>
+                </h4>
               </div>
-            ))}
-            <p>Grand total NGN {grandTotal}</p>
+              <div className="custrans-name">
+                <h3 className="columns" id="col">
+                  <p className="custransactname"></p>
+                </h3>
+                <h6
+                  className="columns i"
+                  style={{ borderBottom: '2px solid crimson' }}
+                ></h6>
+                <h6
+                  className="columns i"
+                  style={{ borderBottom: '2px solid crimson' }}
+                ></h6>
+                <h3
+                  className="columns i"
+                  id="col"
+                  style={{
+                    borderRight: '2px solid crimson',
+                    borderBottom: '2px solid crimson',
+                  }}
+                ></h3>
+                <h3 className="columns" id="col">
+                  {grandTotal}
+                </h3>
+              </div>
+              {myFood.map((item) => (
+                <ul className="n-child">
+                  <li>
+                    <div key={item.id} className="custrans-name">
+                      <h4 className="columns">{item.name}</h4>
+                      <h4 className="columns i" id="top">
+                        {item.price}
+                      </h4>
+                      <h4 className="columns i">{item.qauntity}</h4>
+                      <h4
+                        className="columns i"
+                        style={{ borderRight: '2px solid crimson' }}
+                      >
+                        {item.subTotal}
+                      </h4>
+                      <h4 className="columns "></h4>
+                    </div>
+                  </li>
+                </ul>
+              ))}
+            </div>
           </div>
-          <button type="button" onClick={handleCancel}>
-            Cancel
-          </button>
-          <button type="button" onClick={handleSubmit}>
-            Add Customer
-          </button>
+          <div className="cust-preview-btn">
+            <button type="button" onClick={handleCancel} className="view-trans p-btn">
+              Cancel
+            </button>
+            <button type="button" onClick={handleSubmit} className="view-trans p-btn">
+              Add Customer
+            </button>
+          </div>
         </>
       ) : (
         <Loader />
