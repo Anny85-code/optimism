@@ -77,27 +77,31 @@ const MyFoods = () => {
           {food.map((food) => {
             const myFoods = Object.values(JSON.parse(food.items));
             return (
-              <div key={food.id} >
+              <div key={food.id}>
                 {myFoods ? (
                   myFoods.map((myFood) => (
                     <ul className="n-child">
-                      <li><div key={myFood.id} className="custrans-name">
-                    <h4 className="columns"></h4>
-                      <h4 className="columns i" id="top">
-                            </h4>
-                       <h4 className="columns i">{myFood.name}</h4>
-                      <h4 className="columns i">{myFood.price}</h4>
-                     <h4
-                              className="columns i"
-                              style={{ borderRight: '2px solid crimson' }}
-                            >{myFood.qauntity}</h4>
-                     <h4 className="columns ">{myFood.subTotal}</h4>
-                    </div></li>
+                      <li>
+                        <div key={myFood.id} className="custrans-name">
+                          <h4 className="columns"></h4>
+                          <h4 className="columns i" id="top"></h4>
+                          <h4 className="columns i">{myFood.name}</h4>
+                          <h4 className="columns i">{myFood.price}</h4>
+                          <h4
+                            className="columns i"
+                            style={{ borderRight: '2px solid crimson' }}
+                          >
+                            {myFood.qauntity}
+                          </h4>
+                          <h4 className="columns ">{myFood.subTotal}</h4>
+                        </div>
+                      </li>
                     </ul>
-                    
                   ))
                 ) : (
-                  <p>No items to show!</p>
+                  <>
+                    <p className="no-transact-p">No items to show!</p>
+                  </>
                 )}
               </div>
             );
