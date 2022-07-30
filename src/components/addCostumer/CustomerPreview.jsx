@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Loader from '../loader/Loader';
 import { postMyFoodToApi } from '../../redux/forms/myFoodReducer';
+import './CustomerPreview.css';
 /* eslint-disable */
 const CustomerPreview = () => {
   const dispatch = useDispatch();
@@ -40,21 +41,25 @@ const CustomerPreview = () => {
       {customer.length ? (
         <>
           {customer.map((cust) => (
-            <div key={cust.id}>
+            <div key={cust.id} className="containa cus-preview-container">
               <h1>Customer Info</h1>
-              <div>
-                <img
-                  src={cust.picture}
-                  alt={`${cust.name}`}
-                  style={{ width: '70px' }}
-                />
-              </div>
-              <div>
-                <h3>Name: {cust.name}</h3>
-                <p>Phone: {cust.phone}</p>
-                <p>Email: {cust.email}</p>
-                <p>Daily Contribution: NGN {cust.daily_contribution}</p>
-                <p>Address: {cust.address}</p>
+              <div className="cus-details-container">
+                <div className="image-container">
+                  <img
+                    src={cust.picture}
+                    alt={`${cust.name}`}
+                    className="cus-p-image"
+                  />
+                </div>
+                <div className="details-container">
+                  <h3 className="cus-details">Name: {cust.name}</h3>
+                  <p className="cus-details">Phone: {cust.phone}</p>
+                  <p className="cus-details">Email: {cust.email}</p>
+                  <p className="cus-details">
+                    Daily Contribution: NGN {cust.daily_contribution}
+                  </p>
+                  <p className="cus-details">Address: {cust.address}</p>
+                </div>
               </div>
             </div>
           ))}

@@ -1,0 +1,17 @@
+.cus-preview-container{
+ display: flex;
+ flex-direction: column;
+ gap: 20px;
+ height: 400px;
+}
+.cus-details-container{
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.cus-p-image{
+  width: 300px;
+  height: 250px;
+  border-radius: 8px;
+}
