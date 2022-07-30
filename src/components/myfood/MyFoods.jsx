@@ -33,7 +33,7 @@ const MyFoods = () => {
                     <span className="cus-name1">Contribution</span>
                   </h4>
              <h3 className="columns i">
-                    <span className="cus-name1">Item</span>
+                    <span className="cus-name1">Items</span>
                   </h3>
            <h3 className="columns i" d="a">
                     <span className="cus-name1">Price</span>
