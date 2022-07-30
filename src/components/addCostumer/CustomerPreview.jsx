@@ -63,7 +63,7 @@ const CustomerPreview = () => {
               </div>
             </div>
           ))}
-          <div className="">
+          <div className="food-item-mobile">
             <h1 className="details cus-info food-item">Customer Food Items</h1>
             <div className="transact-customer-container-p">
               <div className="custrans-name">
