@@ -76,7 +76,7 @@ const CustomerPreview = () => {
                   Sub total
                 </h4>
                 <h4 className="columns">
-                  <span className="cus-name1 ">Grand total NGN</span>
+                  <span className="cus-name1 ">Grand total</span>
                 </h4>
               </div>
               <div className="custrans-name">
@@ -100,7 +100,7 @@ const CustomerPreview = () => {
                   }}
                 ></h3>
                 <h3 className="columns" id="col">
-                  {grandTotal}
+                  {`NGN ${grandTotal}`}
                 </h3>
               </div>
               {myFood.map((item) => (
@@ -109,7 +109,7 @@ const CustomerPreview = () => {
                     <div key={item.id} className="custrans-name">
                       <h4 className="columns">{item.name}</h4>
                       <h4 className="columns i" id="top">
-                        {item.price}
+                        {`NGN ${item.price}` }
                       </h4>
                       <h4 className="columns i">{item.qauntity}</h4>
                       <h4
@@ -126,10 +126,18 @@ const CustomerPreview = () => {
             </div>
           </div>
           <div className="cust-preview-btn">
-            <button type="button" onClick={handleCancel} className="view-trans p-btn">
+            <button
+              type="button"
+              onClick={handleCancel}
+              className="view-trans p-btn"
+            >
               Cancel
             </button>
-            <button type="button" onClick={handleSubmit} className="view-trans p-btn">
+            <button
+              type="button"
+              onClick={handleSubmit}
+              className="view-trans p-btn"
+            >
               Add Customer
             </button>
           </div>
