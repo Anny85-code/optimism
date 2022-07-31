@@ -51,7 +51,7 @@ const Customer = () => {
   const myfood = myFoodUrl(aCustomers.data);
 
   return (
-    <div className="containa">
+    <div className="containa cus-food-cont">
       <div className="image-container">
         <img className="cus-image" src={picture} alt={`${name}`} />
       </div>
