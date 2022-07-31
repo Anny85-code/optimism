@@ -81,7 +81,7 @@ const CustomerTransacts = () => {
                   key={transaction.id}
                   to={`/transactions/${transaction.id}`}
                 >
-                  <ul className="n-child">
+                  <ul id="p-child">
                     <li>
                       <div className="custrans-name">
                         <h4 className="columns"></h4>
