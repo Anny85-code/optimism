@@ -82,11 +82,11 @@
 
 @media only screen and (max-width: 978px) {
   .containa {
-    width: 18.75rem;
+    width: 20rem;
     gap: -20px;
     display: flex;
     flex-direction: column;
-    margin: 1.25rem 0 1.25rem 1.875rem;
+    margin: 1.25rem;
   }
 
   .cus-food-cont {

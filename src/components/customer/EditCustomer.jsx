@@ -57,7 +57,7 @@ const EditCustomer = () => {
   };
 
   return (
-    <div className="form-container">
+    <div className="form-container edit-cus-cont">
       <div className="inner-container">
         <h3 className="title">Update Customer</h3>
       </div>
