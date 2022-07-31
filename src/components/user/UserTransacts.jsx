@@ -4,6 +4,7 @@ import { NavLink, useParams } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import Moment from 'moment';
 import Loader from '../loader/Loader';
+import 'react-datepicker/dist/react-datepicker.css';
 import { getOneUserTransFromApi } from '../../redux/forms/oneUserTransactReducer';
 import './UserTransaction.css';
 /* eslint-disable */

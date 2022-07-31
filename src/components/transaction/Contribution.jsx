@@ -101,7 +101,7 @@ const Contribution = () => {
             <div className="contribution-container">
               <p>Name: {name}</p>
               <p>Daily Contribution: {daily_contribution}</p>
-              <h3 className="details">Transaction Details</h3>
+              <h3 className="details t-details">Transaction Details</h3>
               <input
                 type="number"
                 className="form-control days-input"
@@ -134,7 +134,7 @@ const Contribution = () => {
           <NavLink to="/customers" style={{ textDecoration: 'none' }}>
             <button
               type="button"
-              className="add-customer-btn cont-btn"
+              className="add-customer-btn r-btn"
               onClick={handleRetry}
             >
               Retry

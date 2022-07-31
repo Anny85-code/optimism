@@ -56,23 +56,33 @@ const Customer = () => {
         <img className="cus-image" src={picture} alt={`${name}`} />
       </div>
       <div className="details-container">
-        <h3 className="cus-details">Name: {name}</h3>
-        <p className="cus-details">Phone: {phone}</p>
-        <p className="cus-details">Email: {email}</p>
+        <h3 className="cus-details">
+          <span>Name:</span> {name}
+        </h3>
         <p className="cus-details">
-          Card No.
+          <span>Phone:</span> {phone}
+        </p>
+        <p className="cus-details">
+          <span>Email:</span> {email}
+        </p>
+        <p className="cus-details">
+          <span>Card No.</span>
           {user.location_area.slice(0, 3).toUpperCase()}
           {user.id}/{aCustomers.data.id}
         </p>
         <p className="cus-details">
-          Daily Contribution: NGN {daily_contribution}
-        </p>
-        <p className="cus-details">Address: {address}</p>
-        <p className="cus-details">
-          Joined:{Moment(created_at).format('MMMM DD, LT')}
+          <span>Daily Contribution:</span> NGN {daily_contribution}
         </p>
         <p className="cus-details">
-          Last Updated:{Moment(updated_at).format('MMMM DD, LT')}
+          <span>Address:</span> {address}
+        </p>
+        <p className="cus-details">
+          <span>Joined:</span>
+          {Moment(created_at).format('MMMM DD, LT')}
+        </p>
+        <p className="cus-details">
+          <span>Last Updated:</span>
+          {Moment(updated_at).format('MMMM DD, LT')}
         </p>
       </div>
 

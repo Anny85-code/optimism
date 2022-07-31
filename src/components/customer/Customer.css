@@ -33,6 +33,10 @@
   color: crimson;
 }
 
+.cus-details > span {
+  color: #49220b;
+}
+
 .image-container {
   padding: 4px;
   gap: 30px;
