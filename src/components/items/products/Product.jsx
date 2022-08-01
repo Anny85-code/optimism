@@ -30,7 +30,9 @@ const Product = () => {
         <img className="cus-image" src={picture} alt={`${name}`} />
       </div>
       <div className="details-container">
-        <h3 className="cus-details">Name: {name}</h3>
+        <h3 className="cus-details">
+          <span>Name:</span> {name}
+        </h3>
         <p className="cus-details">Price: {price}</p>
         <p className="cus-details">Description: {description}</p>
       </div>
