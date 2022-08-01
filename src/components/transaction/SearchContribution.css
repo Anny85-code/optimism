@@ -19,6 +19,10 @@
   margin-bottom: 5px;
 }
 
+.cont-button {
+  margin-left: -25px;
+}
+
 @media only screen and (max-width: 768px) {
   .Search-contr-container {
     margin: 1.25rem;

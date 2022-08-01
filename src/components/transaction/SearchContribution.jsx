@@ -81,7 +81,7 @@ const SearchContribution = () => {
             >
               <button
                 type="submit"
-                className="add-trans-btn"
+                className="add-trans-btn cont-button"
                 onClick={handdleNext}
               >
                 Next
