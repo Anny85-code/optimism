@@ -6,8 +6,8 @@
   text-align: center;
   text-decoration: none;
   height: fit-content;
-  width: 56.25rem;
-  margin: 20px 20px 20px 30px;
+  width: 59.375rem;
+  margin: 20px 20px 20px 45px;
   padding: 20px;
 }
 
@@ -16,7 +16,7 @@
   border-radius: 8px;
   width: 55rem;
   height: fit-content;
-  margin: 20px 20px 20px 10px;
+  margin: 20px 20px 20px 15px;
 }
 
 .cus-preview-container {
