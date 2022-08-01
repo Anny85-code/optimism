@@ -35,6 +35,10 @@ const UserTransacts = () => {
     setTransNo(sameDay.length);
   };
 
+  const comma = (num) => {
+  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
   return (
     <div className="cust-tansact-container1">
       <div className="start-date-container">
@@ -120,7 +124,7 @@ const UserTransacts = () => {
                     style={{ borderBottom: '2px solid crimson' }}
                   ></h3>
                   <h3 className="columns i" id="col">
-                    {` NGN ${filtaTotal}` }
+                    {` NGN ${comma(filtaTotal)}`}
                   </h3>
 
                   <h3
@@ -135,7 +139,7 @@ const UserTransacts = () => {
                   </h3>
 
                   <h3 className="columns" id="col">
-                    {`NGN ${total}` }
+                    {`NGN ${comma(total)}`}
                   </h3>
                 </div>
                 {filtaTrans.length >= 1 ? (
@@ -144,7 +148,7 @@ const UserTransacts = () => {
                       key={transaction.id}
                       to={`/transactions/${transaction.id}`}
                     >
-                      <ul className="n-child">
+                      <ul id="p-child">
                         <li>
                           <div className="custrans-name">
                             <h4 className="columns"></h4>
@@ -153,7 +157,7 @@ const UserTransacts = () => {
                                 'MMMM DD, LT'
                               )}
                             </h4>
-                            <h4 className="columns i">{`NGN ${transaction.amount}`}</h4>
+                            <h4 className="columns i">{`NGN ${comma(transaction.amount)}`}</h4>
                             <h4 className="columns i"></h4>
                             <h4
                               className="columns i"
