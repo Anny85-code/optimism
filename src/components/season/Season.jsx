@@ -32,7 +32,9 @@ const Season = () => {
         <h4 className="cus-details">
           <span>Name:</span> {name}
         </h4>
-        <p className="cus-details">Number of days: {number_of_days}</p>
+        <p className="cus-details">
+          <span>Number of days:</span> {number_of_days}
+        </p>
         <p className="cus-details">Start date: {start_date}</p>
         <p className="cus-details">End date: {end_date}</p>
         <p className="cus-details">
