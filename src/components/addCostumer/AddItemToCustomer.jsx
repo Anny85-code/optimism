@@ -80,7 +80,6 @@ const AddItemToCustomer = () => {
           <li>
             <i
               className="fa fa-arrow-left fa-2x text-red"
-              id="toggle-btn"
               onClick={handlePrevious}
               style={{ cursor: 'pointer' }}
             />
@@ -91,7 +90,6 @@ const AddItemToCustomer = () => {
           <li>
             <i
               className="fa fa-arrow-right fa-2x text-red"
-              id="toggle-btn"
               onClick={handleNext}
               style={{ cursor: 'pointer' }}
             />

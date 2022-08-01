@@ -70,7 +70,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 30px;
+  gap: 10px;
 }
 
 .qty-i-name {
@@ -182,7 +182,7 @@ ul {
   }
 
   .quantity-pic-container {
-    width: 100%;
+    width: 20rem;
   }
 
   .quantity-pic {
