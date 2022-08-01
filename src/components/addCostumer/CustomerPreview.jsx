@@ -31,6 +31,10 @@ const CustomerPreview = () => {
     window.location.reload();
   };
 
+  const comma = (num) => {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  };
+
   // const handleEdit = () => {
   //   window.history.pushState({}, '', '/');
   //   window.location.reload();
@@ -63,7 +67,7 @@ const CustomerPreview = () => {
                   </p>
                   <p className="cus-details">
                     <span>Daily Contribution:</span>
-                    {` NGN ${cust.daily_contribution}` }
+                    {` NGN ${comma(cust.daily_contribution)}`}
                   </p>
                   <p className="cus-details">
                     <span>Address:</span> {cust.address}
@@ -109,7 +113,7 @@ const CustomerPreview = () => {
                   }}
                 ></h3>
                 <h3 className="columns" id="col">
-                  {`NGN ${grandTotal}`}
+                  {`NGN ${comma(grandTotal)}`}
                 </h3>
               </div>
               {myFood.map((item) => (
@@ -118,14 +122,14 @@ const CustomerPreview = () => {
                     <div key={item.id} className="custrans-name">
                       <h4 className="columns">{item.name}</h4>
                       <h4 className="columns i" id="top">
-                        {`NGN ${item.price}`}
+                        {`NGN ${comma(item.price)}`}
                       </h4>
                       <h4 className="columns i">{item.qauntity}</h4>
                       <h4
                         className="columns i"
                         style={{ borderRight: '2px solid crimson' }}
                       >
-                        {` NGN ${item.subTotal}`}
+                        {` NGN ${comma(item.subTotal)}`}
                       </h4>
                       <h4 className="columns "></h4>
                     </div>
