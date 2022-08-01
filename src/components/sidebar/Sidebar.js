@@ -225,7 +225,6 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
       <div className="sidebar__title">
         <div className="sidebar__img">
           <img src={foodforalllogo} alt="food for all logo" />
-          {/* <h1>Optimist</h1> */}
         </div>
         <i
           className="fa fa-times"
