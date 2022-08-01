@@ -70,6 +70,10 @@
   background-color: rgb(243, 152, 152);
 }
 
+#p-child > li {
+  border-bottom: 2px solid rgb(243, 152, 152);
+}
+
 @media only screen and (max-width: 768px) {
   .transact-customer-container {
     width: 320px;
