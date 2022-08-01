@@ -83,7 +83,9 @@ const EditUser = () => {
             <form className="register-form" onSubmit={handleSubmit}>
               <div>
                 <label htmlFor="name" className="form-label">
-                  Name *
+                  <span>
+                    Name <span style={{ color: 'crimson' }}>*</span>
+                  </span>
                   <input
                     type="text"
                     placeholder="Name"
@@ -100,7 +102,9 @@ const EditUser = () => {
               <br />
               <div>
                 <label htmlFor="username" className="form-label">
-                  username *
+                  <span>
+                    username <span style={{ color: 'crimson' }}>*</span>
+                  </span>
                   <input
                     type="text"
                     placeholder="Username"
@@ -117,7 +121,9 @@ const EditUser = () => {
               <br />
               <div>
                 <label htmlFor="email" className="form-label">
-                  Email address *
+                  <span>
+                    Email address <span style={{ color: 'crimson' }}>*</span>
+                  </span>
                   <input
                     type="email"
                     placeholder="Email"
@@ -166,7 +172,9 @@ const EditUser = () => {
               <br />
               <div>
                 <label htmlFor="phone" className="form-label">
-                  Phone *
+                  <span>
+                    Phone <span style={{ color: 'crimson' }}>*</span>
+                  </span>
                   <input
                     type="number"
                     placeholder="Phone"
@@ -215,7 +223,7 @@ const EditUser = () => {
               <div id="new-img-editor" style={{ display: 'none' }}>
                 <label htmlFor="picture" className="form-label">
                   <h4 className="p-text">Picture</h4>
-                  {ImageUpload()}
+                  <div className="product-i-edit">{ImageUpload()}</div>
                 </label>
               </div>
               <br />

@@ -129,7 +129,12 @@ label {
   }
 
   .form-container {
+    width: 20rem;
     margin: 1.25rem;
+  }
+
+  .edit-cus-cont {
+    height: 62.25rem;
   }
 
   .form-group {

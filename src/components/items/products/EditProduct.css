@@ -1,3 +1,11 @@
+.product-i-edit {
+  margin-left: -25px;
+}
+
+.product-i {
+  margin-left: 65px;
+}
+
 @media only screen and (max-width: 768px) {
   .editproduct {
     width: 320px;

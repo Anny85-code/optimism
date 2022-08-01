@@ -57,14 +57,16 @@ const EditCustomer = () => {
   };
 
   return (
-    <div className="form-container">
+    <div className="form-container edit-cus-cont">
       <div className="inner-container">
         <h3 className="title">Update Customer</h3>
       </div>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="name">
-            Name *
+            <span>
+              Name <span style={{ color: 'crimson' }}>*</span>
+            </span>
             <input
               type="text"
               className="form-control"
@@ -94,7 +96,9 @@ const EditCustomer = () => {
         </div>
         <div className="form-group">
           <label htmlFor="phone">
-            Phone *
+            <span>
+              Phone <span style={{ color: 'crimson' }}>*</span>
+            </span>
             <input
               type="number"
               className="form-control"
@@ -109,7 +113,9 @@ const EditCustomer = () => {
         </div>
         <div className="form-group">
           <label htmlFor="address">
-            Address *
+            <span>
+              Address <span style={{ color: 'crimson' }}>*</span>
+            </span>
             <input
               type="text"
               className="form-control"
@@ -124,7 +130,9 @@ const EditCustomer = () => {
         </div>
         <div className="form-group">
           <label htmlFor="daily_contribution">
-            Daily Contribution *
+            <span>
+              Daily Contribution <span style={{ color: 'crimson' }}>*</span>
+            </span>
             <input
               disabled
               type="text"
