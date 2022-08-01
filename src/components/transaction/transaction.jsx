@@ -24,6 +24,11 @@ const Transaction = () => {
   }, []);
 
   /* eslint-disable */
+  const comma = (num) => {
+    const number = parseInt(num);
+    const newText = number.toLocaleString();
+    return newText;
+  };
 
   const {
     amount,
@@ -34,6 +39,7 @@ const Transaction = () => {
   } = transaction.data;
   const { name, picture, daily_contribution } = customer.data;
 
+  
   return (
     <div className="containa transaction">
       <div className="image-container">
@@ -42,7 +48,7 @@ const Transaction = () => {
       <div className="details-container">
         <h3 className="cus-details">Name: {name}</h3>
         <p className="cus-details">
-          Daily Contribution: NGN {daily_contribution}
+          Daily Contribution: {`NGN ${comma(daily_contribution)}`}
         </p>
         <p className="cus-details">
           Previous contribution date: {previous_contribution_date}
@@ -56,7 +62,7 @@ const Transaction = () => {
           {user.location_area.slice(0, 3).toUpperCase()}
           {user.id}/{transaction.data.id}
         </p>
-        <p className="cus-details">Amount: {amount}</p>
+        <p className="cus-details">Amount: {`NGN ${comma(amount)}`}</p>
         <p className="cus-details">
           Date of transaction:{Moment(created_at).format('MMMM DD, LT')}
         </p>
