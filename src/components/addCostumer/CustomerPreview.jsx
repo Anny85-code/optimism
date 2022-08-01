@@ -52,13 +52,22 @@ const CustomerPreview = () => {
                   />
                 </div>
                 <div className="details-container">
-                  <h3 className="cus-details">Name: {cust.name}</h3>
-                  <p className="cus-details">Phone: {cust.phone}</p>
-                  <p className="cus-details">Email: {cust.email}</p>
+                  <h3 className="cus-details">
+                    <span>Name:</span> {cust.name}
+                  </h3>
                   <p className="cus-details">
-                    Daily Contribution: NGN {cust.daily_contribution}
+                    <span>Phone:</span> {cust.phone}
                   </p>
-                  <p className="cus-details">Address: {cust.address}</p>
+                  <p className="cus-details">
+                    <span>Email:</span> {cust.email}
+                  </p>
+                  <p className="cus-details">
+                    <span>Daily Contribution:</span>
+                    {` NGN ${cust.daily_contribution}` }
+                  </p>
+                  <p className="cus-details">
+                    <span>Address:</span> {cust.address}
+                  </p>
                 </div>
               </div>
             </div>
@@ -109,14 +118,14 @@ const CustomerPreview = () => {
                     <div key={item.id} className="custrans-name">
                       <h4 className="columns">{item.name}</h4>
                       <h4 className="columns i" id="top">
-                        {`NGN ${item.price}` }
+                        {`NGN ${item.price}`}
                       </h4>
                       <h4 className="columns i">{item.qauntity}</h4>
                       <h4
                         className="columns i"
                         style={{ borderRight: '2px solid crimson' }}
                       >
-                        {` NGN ${item.subTotal}` }
+                        {` NGN ${item.subTotal}`}
                       </h4>
                       <h4 className="columns "></h4>
                     </div>

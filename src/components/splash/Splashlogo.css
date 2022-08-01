@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-.splashcontainer {
+/* .splashcontainer {
   position: relative;
   width: 100%;
   display: flex;
@@ -112,4 +112,4 @@
   .splashcontainer {
     display: none;
   }
-}
+} */

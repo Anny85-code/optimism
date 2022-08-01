@@ -31,10 +31,11 @@
 }
 
 .sidebar__title > div > img {
-  width: 100px;
+  width: 200px;
+  height: 100px;
   object-fit: contain;
   border-radius: 8px;
-  margin-left: 60px;
+  margin-left: 8px;
 }
 
 .sidebar__title > div > h1 {
