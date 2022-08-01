@@ -89,7 +89,7 @@ const UserTransacts = () => {
                     <span className="cus-name1">Collected by</span>
                   </h4>
                   <h4 className="columns i">
-                    <span className="cus-name1">Date</span>
+                    <span className="cus-name1">Date & Time</span>
                   </h4>
                   <h3 className="columns i">
                     <span className="cus-name1">Amount</span>

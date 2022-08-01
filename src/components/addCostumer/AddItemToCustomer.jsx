@@ -12,7 +12,7 @@ const AddItemToCustomer = () => {
   const items = useSelector((state) => state.item);
   const lastItem = items.data.length;
   const [current, setCurrent] = useState(1);
-  const [qauntity, setQuantity] = useState(0);
+  const [qauntity, setQuantity] = useState(1);
   const [subTotal, setSubTotal] = useState(0);
   const [total, setTotal] = useState([]);
   const { name, price, description, picture } = item.data;
@@ -49,7 +49,8 @@ const AddItemToCustomer = () => {
   };
 
   const handleQuantity = (e) => {
-    setQuantity(+e.target.value);
+    if (e.target.value > 0){ 
+      setQuantity(+e.target.value);}
   };
 
   const handleSub = () => {
@@ -79,7 +80,6 @@ const AddItemToCustomer = () => {
           <li>
             <i
               className="fa fa-arrow-left fa-2x text-red"
-              id="toggle-btn"
               onClick={handlePrevious}
               style={{ cursor: 'pointer' }}
             />
@@ -90,7 +90,6 @@ const AddItemToCustomer = () => {
           <li>
             <i
               className="fa fa-arrow-right fa-2x text-red"
-              id="toggle-btn"
               onClick={handleNext}
               style={{ cursor: 'pointer' }}
             />

@@ -40,7 +40,7 @@ const CustomerTransacts = () => {
                 <h4 className="columns">
                   <span className="cus-name1">Customer's Name</span>
                 </h4>
-                <h4 className="columns i">Date</h4>
+                <h4 className="columns i">Date & Time</h4>
                 <h4 className="columns i">Amount</h4>
                 <h4 className="columns i" id="a">
                   Total days paid
