@@ -27,10 +27,10 @@ const MyFoods = () => {
         <>
           <div className="custrans-name">
             <h4 className="columns">
-                    <span className="cus-name1">Name</span>
+                    <span className="cus-name-name">Name</span>
                   </h4>
              <h4 className="columns i">
-                    <span className="cus-name1">Contribution</span>
+                    <span className="cus-name2">Contribution</span>
                   </h4>
              <h3 className="columns i">
                     <span className="cus-name1">Items</span>

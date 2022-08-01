@@ -1,3 +1,10 @@
 .n-child:nth-child(even) {
   background-color: rgb(243, 152, 152);
 }
+
+@media screen and (max-width: 978px) {
+  .cus-name-name{
+    font-size: 10px;
+  }
+}
+  
