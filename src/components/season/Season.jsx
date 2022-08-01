@@ -35,7 +35,9 @@ const Season = () => {
         <p className="cus-details">
           <span>Number of days:</span> {number_of_days}
         </p>
-        <p className="cus-details">Start date: {start_date}</p>
+        <p className="cus-details">
+          <span>Start date:</span> {start_date}
+        </p>
         <p className="cus-details">End date: {end_date}</p>
         <p className="cus-details">
           Created by {creatorName} on {Moment(created_at).format('MMMM DD, LT')}
