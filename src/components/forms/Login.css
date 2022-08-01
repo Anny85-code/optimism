@@ -66,6 +66,14 @@
   }
 
   #login-eye {
-    margin: -1.6825rem 0 0 7.1875rem;
+    margin: -1.6825rem 0 0 6.5625rem;
+  }
+
+  .btn-login{
+    margin-left: -12px;
+  }
+
+  .login-input {
+    margin-left: -15px;
   }
 }

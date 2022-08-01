@@ -61,7 +61,7 @@ const Login = () => {
                     onChange={onchange}
                     id="username"
                     name="username"
-                    className="form-control-login"
+                    className="form-control-login login-input"
                   />
                 </label>
               </div>
@@ -76,7 +76,7 @@ const Login = () => {
                     onChange={onchange}
                     id="password"
                     name="password"
-                    className="form-control-login"
+                    className="form-control-login login-input"
                   />
                   <i
                     className="fa fa-eye-slash"
