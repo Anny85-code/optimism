@@ -138,7 +138,7 @@ const EditProduct = () => {
               <div id="new-img-editor" style={{ display: 'none' }}>
                 <label htmlFor="picture" className="form-label">
                   <h4 className="p-text">Picture</h4>
-                  {ImageUpload()}
+                  <div className="product-i-edit">{ImageUpload()}</div>
                 </label>
               </div>
               <br />
