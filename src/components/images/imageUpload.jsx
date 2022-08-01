@@ -48,7 +48,7 @@ const ImageUpload = () => {
             <Image
               cloudName={cldName}
               publicId={`${imageData.secure_url}`}
-              className="upload-image"
+              className="upload-image product-i"
             />
           )}
         </article>
