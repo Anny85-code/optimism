@@ -71,7 +71,9 @@ const EditProduct = () => {
             <form className="register-form" onSubmit={handleSubmit}>
               <div>
                 <label htmlFor="name" className="form-label">
-                  Name *
+                  <span>
+                    Name <span style={{ color: 'crimson' }}>*</span>
+                  </span>
                   <input
                     type="text"
                     placeholder="Name"
@@ -88,7 +90,9 @@ const EditProduct = () => {
               <br />
               <div>
                 <label htmlFor="email" className="form-label">
-                  price *
+                  <span>
+                    price <span style={{ color: 'crimson' }}>*</span>
+                  </span>
                   <input
                     type="text"
                     placeholder="price"
@@ -105,7 +109,9 @@ const EditProduct = () => {
               <br />
               <div>
                 <label htmlFor="phone" className="form-label">
-                  Description *
+                  <span>
+                    Description <span style={{ color: 'crimson' }}>*</span>
+                  </span>
                   <input
                     type="text"
                     placeholder="Description"
