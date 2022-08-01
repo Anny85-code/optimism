@@ -139,7 +139,7 @@ const UserTransacts = () => {
                   </h3>
 
                   <h3 className="columns" id="col">
-                    {`NGN ${total}`}
+                    {`NGN ${comma(total)}`}
                   </h3>
                 </div>
                 {filtaTrans.length >= 1 ? (
@@ -157,7 +157,7 @@ const UserTransacts = () => {
                                 'MMMM DD, LT'
                               )}
                             </h4>
-                            <h4 className="columns i">{`NGN ${transaction.amount}`}</h4>
+                            <h4 className="columns i">{`NGN ${comma(transaction.amount)}`}</h4>
                             <h4 className="columns i"></h4>
                             <h4
                               className="columns i"
