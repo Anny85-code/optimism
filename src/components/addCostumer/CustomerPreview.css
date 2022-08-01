@@ -6,17 +6,17 @@
   text-align: center;
   text-decoration: none;
   height: fit-content;
-  width: 1000px;
-  margin: 20px;
+  width: 900px;
+  margin: 20px 20px 20px 30px;
   padding: 20px;
 }
 
 .transact-customer-container-p {
   border: 2px solid crimson;
   border-radius: 8px;
-  width: 920px;
+  width: 880px;
   height: fit-content;
-  margin: 20px;
+  margin: 20px 20px 20px 10px;
 }
 
 .cus-preview-container {
