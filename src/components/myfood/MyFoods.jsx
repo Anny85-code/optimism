@@ -21,58 +21,56 @@ const MyFoods = () => {
     dispatch(getOneCustomerFromApi(param.id));
   }, []);
 
+  const comma = (num) => {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  };
+
   return (
     <div className="transact-customer-container">
       {name ? (
         <>
           <div className="custrans-name">
             <h4 className="columns">
-                    <span className="cus-name-name">Name</span>
-                  </h4>
-             <h4 className="columns i">
-                    <span className="cus-name2">Contribution</span>
-                  </h4>
-             <h3 className="columns i">
-                    <span className="cus-name1">Items</span>
-                  </h3>
-           <h3 className="columns i" d="a">
-                    <span className="cus-name1">Price</span>
-                  </h3>
-           <h3 className="columns i " id="a">
-                    <span className="cus-name1">Quantity</span>
-                  </h3>
+              <span className="cus-name-name">Name</span>
+            </h4>
+            <h4 className="columns i">
+              <span className="cus-name2">Contribution</span>
+            </h4>
+            <h3 className="columns i">
+              <span className="cus-name1">Items</span>
+            </h3>
+            <h3 className="columns i" d="a">
+              <span className="cus-name1">Price</span>
+            </h3>
+            <h3 className="columns i " id="a">
+              <span className="cus-name1">Quantity</span>
+            </h3>
             <h3 className="columns">
-                    <span className="cus-name1">Sub total</span>
-                  </h3>
+              <span className="cus-name1">Sub total</span>
+            </h3>
           </div>
           <div className="custrans-name">
             <h4 className="columns" id="col">
-                    <p className="custransactname">{name}</p>
-                  </h4>
-             <h4
-                    className="columns i"
-                    style={{ borderBottom: '2px solid crimson' }}
-                  >{` NGN ${daily_contribution}` }</h4>
-             <h3
-                    className="columns i"
-                    style={{ borderBottom: '2px solid crimson' }}
-                  ></h3>
-            <h3 className="columns i" id="col">
-                    
-                  </h3>
-           <h3
-                    className="columns i"
-                    id="col"
-                    style={{
-                      borderRight: '2px solid crimson',
-                      borderBottom: '2px solid crimson',
-                    }}
-                  >
-                    
-                  </h3>
-            <h3 className="columns" id="col">
-                   
-                  </h3>
+              <p className="custransactname">{name}</p>
+            </h4>
+            <h4
+              className="columns i"
+              style={{ borderBottom: '2px solid crimson' }}
+            >{` NGN ${comma(daily_contribution)}`}</h4>
+            <h3
+              className="columns i"
+              style={{ borderBottom: '2px solid crimson' }}
+            ></h3>
+            <h3 className="columns i" id="col"></h3>
+            <h3
+              className="columns i"
+              id="col"
+              style={{
+                borderRight: '2px solid crimson',
+                borderBottom: '2px solid crimson',
+              }}
+            ></h3>
+            <h3 className="columns" id="col"></h3>
           </div>
           {food.map((food) => {
             const myFoods = Object.values(JSON.parse(food.items));
@@ -86,14 +84,16 @@ const MyFoods = () => {
                           <h4 className="columns"></h4>
                           <h4 className="columns i" id="top"></h4>
                           <h4 className="columns i">{myFood.name}</h4>
-                          <h4 className="columns i">{` NGN ${myFood.price}` }</h4>
+                          <h4 className="columns i">{` NGN ${comma(
+                            myFood.price
+                          )}`}</h4>
                           <h4
                             className="columns i"
                             style={{ borderRight: '2px solid crimson' }}
                           >
                             {myFood.qauntity}
                           </h4>
-                          <h4 className="columns ">{` NGN ${myFood.subTotal}` }</h4>
+                          <h4 className="columns ">{` NGN ${comma(myFood.subTotal)}`}</h4>
                         </div>
                       </li>
                     </ul>
