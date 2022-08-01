@@ -51,8 +51,7 @@
   font-family: 'Neonderthaw', sans-serif;
   font-size: 30px;
   color: #fff;
-
-  /* margin-top: 90px; */
+  margin-top: 90px;
 }
 
 @media only screen and (max-width: 768px) {
