@@ -50,6 +50,12 @@ const Customer = () => {
   const allTrans = transUrl(aCustomers.data);
   const myfood = myFoodUrl(aCustomers.data);
 
+  const comma = (num) => {
+    const number = parseInt(num);
+    const newText = number.toLocaleString();
+    return newText;
+  };
+
   return (
     <div className="containa cus-food-cont">
       <div className="image-container">
@@ -71,7 +77,7 @@ const Customer = () => {
           {user.id}/{aCustomers.data.id}
         </p>
         <p className="cus-details">
-          <span>Daily Contribution:</span> NGN {daily_contribution}
+          <span>Daily Contribution:</span>{` NGN ${comma(daily_contribution)}`}
         </p>
         <p className="cus-details">
           <span>Address:</span> {address}

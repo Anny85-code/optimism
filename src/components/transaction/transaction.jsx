@@ -23,7 +23,6 @@ const Transaction = () => {
     dispatch(getOneTransactionFromApi(id));
   }, []);
 
-  
   /* eslint-disable */
   const comma = (num) => {
     const number = parseInt(num);
