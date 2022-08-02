@@ -19,7 +19,7 @@
   box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #d86565;
 }
 
-@media only screen and (max-width: 978px) {
+@media only screen and (max-width: 450px) {
   .trans-btn {
     width: 250px;
     margin-top: 30px;

@@ -23,7 +23,7 @@
   margin-left: -25px;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 450px) {
   .Search-contr-container {
     margin: 1.25rem;
   }
