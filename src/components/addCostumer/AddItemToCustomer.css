@@ -156,7 +156,7 @@ ul {
   box-shadow: 5px 5px 13px #f7f1f1, -5px -5px 13px #e2dcdc;
 }
 
-@media only screen and (max-width: 978px) {
+@media only screen and (max-width: 450px) {
   .items-to-costumer {
     display: flex;
     flex-direction: column;

@@ -74,7 +74,7 @@
   border-bottom: 2px solid rgb(243, 152, 152);
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 450px) {
   .transact-customer-container {
     width: 320px;
     margin: 20px;
