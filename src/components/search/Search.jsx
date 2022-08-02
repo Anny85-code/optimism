@@ -13,7 +13,7 @@ const Search = () => {
   const useID = user.id;
 
   /* eslint-disable*/
-  const FilterCustomer = allCustomers.data.filter((customer) => {
+  const filterCustomer = allCustomers.data.filter((customer) => {
     return customer.user_id === useID;
   });
   const handleSearch = () => {
@@ -32,7 +32,7 @@ const Search = () => {
 
   const handleChange = (event) => {
     const typedContent = event.target.value;
-    const filteredCustomer = FilterCustomer.filter((customer) =>
+    const filteredCustomer = filterCustomer.filter((customer) =>
       customer.name.toLowerCase().includes(typedContent.toLowerCase())
     );
     setACustomer(filteredCustomer);
