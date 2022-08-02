@@ -13,7 +13,7 @@
   margin-left: auto;
   margin-right: auto;
   padding: 30px;
-  background: #f8d408;
+  background: #fdf890;
   border-radius: 25px;
   height: 37.5rem;
 }
@@ -23,13 +23,13 @@
 }
 
 .splash__image > img {
-  height: 18.75rem;
-  width: 21.875rem;
-  box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #967777;
+  height: 150px;
+  width: 400px;
   position: absolute;
   top: 3.75rem;
-  left: 37%;
-  margin-top: 1.875rem;
+  left: 35%;
+  margin-top: 7.875rem;
+  border-radius: 5px;
 }
 
 .splash-btn {
@@ -41,7 +41,7 @@
   outline: none;
   border: none;
   border-radius: 5px;
-  background-color: rgb(175, 5, 5);
+  background-color: rgb(243, 19, 19);
   color: #fff;
   font-weight: bold;
   cursor: pointer;
@@ -50,11 +50,11 @@
 .splash-text {
   font-family: 'Neonderthaw', sans-serif;
   font-size: 30px;
-  color: #fff;
+  color: rgb(82, 16, 16);
   margin-top: 90px;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 450px) {
   .splash__image > img {
     height: 100px;
     width: 150px;

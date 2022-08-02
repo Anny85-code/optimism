@@ -6,7 +6,7 @@
   margin-left: 65px;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 450px) {
   .editproduct {
     width: 320px;
     margin: 20px;

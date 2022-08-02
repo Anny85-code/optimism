@@ -60,7 +60,7 @@
   margin-top: 30px;
 }
 
-@media only screen and (max-width: 978px) {
+@media only screen and (max-width: 450px) {
   .cus-preview-main-container {
     display: flex;
     flex-direction: column;
