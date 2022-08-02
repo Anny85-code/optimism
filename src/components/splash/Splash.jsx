@@ -2,12 +2,13 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Splash.css';
 import './Splashlogo.css';
-import foodforall from '../../assets/image/foodforall.jpeg';
+// import foodforall from '../../assets/image/foodforall.jpeg';
+import foodforalllogo from '../../assets/image/foodforalllogo.png';
 
 const Splash = () => (
   <div className="splash-container">
     <div className="splash__image">
-      <img src={foodforall} alt="splash-logo" />
+      <img src={foodforalllogo} alt="splash-logo" />
       {/* <div className="splashcontainer">
         <div className="ring" />
         <div className="ring" />
