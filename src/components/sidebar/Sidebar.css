@@ -16,8 +16,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  /* color: #f3f4f6; */
   color: #020509;
   margin-bottom: 30px;
   font-family: 'Quintessential', sans-serif;
@@ -49,7 +47,6 @@
 }
 
 .sidebar__menu > h2 {
-  /* color: #3ea175; */
   color: #ff1818;
   font-size: 16px;
   margin-top: 15px;
@@ -59,7 +56,6 @@
 }
 
 .sidebar__link {
-  /* color: #f3faf6; */
   color: #020509;
   padding: 10px;
   border-radius: 3px;
@@ -77,8 +73,6 @@
 
 .sidebar__link > a {
   text-decoration: none;
-
-  /* color: #a5aaad; */
   color: #020509;
   font-weight: 700;
   font-size: 15px;

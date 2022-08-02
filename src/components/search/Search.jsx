@@ -8,7 +8,14 @@ const Search = () => {
   const dispatch = useDispatch();
   const allCustomers = useSelector((state) => state.customer);
   const [aCustomer, setACustomer] = useState('');
+  const data = JSON.parse(localStorage.getItem('user'));
+  const { user } = data || {};
+  const useID = user.id;
+
   /* eslint-disable*/
+  const FilterCustomer = allCustomers.data.filter((customer) => {
+    return customer.user_id === useID;
+  });
   const handleSearch = () => {
     document.getElementById('search-container1').style.display = 'none';
   };
@@ -25,7 +32,7 @@ const Search = () => {
 
   const handleChange = (event) => {
     const typedContent = event.target.value;
-    const filteredCustomer = allCustomers.data.filter((customer) =>
+    const filteredCustomer = FilterCustomer.filter((customer) =>
       customer.name.toLowerCase().includes(typedContent.toLowerCase())
     );
     setACustomer(filteredCustomer);
