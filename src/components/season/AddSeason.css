@@ -14,7 +14,7 @@
   margin-left: -40px;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 450px) {
   .season-btn {
     margin-left: -20px;
   }

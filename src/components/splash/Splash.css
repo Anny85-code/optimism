@@ -54,7 +54,7 @@
   margin-top: 90px;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 450px) {
   .splash__image > img {
     height: 100px;
     width: 150px;
