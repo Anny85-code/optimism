@@ -12,7 +12,7 @@ const AddItemToCustomer = () => {
   const items = useSelector((state) => state.item);
   const lastItem = items.data.length;
   const [current, setCurrent] = useState(1);
-  const [qauntity, setQuantity] = useState(1);
+  const [qauntity, setQuantity] = useState(0);
   const [subTotal, setSubTotal] = useState(0);
   const [total, setTotal] = useState([]);
   const { name, price, description, picture } = item.data;
