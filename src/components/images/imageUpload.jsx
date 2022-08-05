@@ -9,7 +9,6 @@ const ImageUpload = () => {
   const [imageData, setImageData] = useState('');
 
   localStorage.setItem('image_str', imageData.secure_url);
-
   const uploadImage = (e) => {
     e.preventDefault();
     const formData = new FormData();

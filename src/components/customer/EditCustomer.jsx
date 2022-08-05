@@ -26,20 +26,19 @@ const EditCustomer = () => {
   const [dailyContribution, setDailyContribution] = useState(
     aCustomers.data.daily_contribution
   );
-  let { picture } = aCustomers.data;
+  const [picture, setPicture] = useState(aCustomers.data.picture);
 
   const handleEditPic = () => {
     document.getElementById('img-editor').style.display = 'none';
     document.getElementById('new-img-editor').style.display = 'block';
   };
 
-  // const picture = localStorage.getItem('image_str');
   const [isPending, setIsPending] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const user = JSON.parse(localStorage.getItem('user'));
-    picture = localStorage.getItem('image_str');
+    setPicture(localStorage.getItem('image_str'));
     const { id } = user.user;
     const customer = {
       id: customerId,
@@ -52,6 +51,7 @@ const EditCustomer = () => {
       dailyContribution,
     };
     setIsPending(true);
+    console.log(customer);
     dispatch(postUpdateCustomerToApi(customer));
     setIsPending(false);
   };
