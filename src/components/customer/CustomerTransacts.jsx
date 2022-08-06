@@ -13,6 +13,8 @@ const CustomerTransacts = () => {
   const transactions = useSelector((state) => state.customerTransactions);
   const { data } = transactions;
   const { trans, user_name, total, total_days } = data || {};
+  const currentUser = JSON.parse(localStorage.getItem('user'));
+  const { user } = currentUser || {};
 
   useEffect(() => {
     dispatch(getOneCustomerTransFromApi(id));
@@ -49,9 +51,11 @@ const CustomerTransacts = () => {
                 <h4 className="columns i" id="a">
                   Total days paid
                 </h4>
-                <h4 className="columns">
-                  <span className="cus-name1 ">Total amount contributed</span>
-                </h4>
+                {user.role === 'admin' && (
+                  <h4 className="columns">
+                    <span className="cus-name1 ">Total amount contributed</span>
+                  </h4>
+                )}
               </div>
 
               <div className="custrans-name">
@@ -80,7 +84,7 @@ const CustomerTransacts = () => {
                   {` NGN ${comma(total)}`}
                 </h3>
               </div>
-              {trans.map((transaction) => (
+              {trans?.map((transaction) => (
                 <NavLink
                   key={transaction.id}
                   to={`/transactions/${transaction.id}`}
@@ -92,12 +96,14 @@ const CustomerTransacts = () => {
                         <h4 className="columns i" id="top">
                           {Moment(transaction.created_at).format('MMMM DD, LT')}
                         </h4>
-                        <h4 className="columns i">{` NGN ${comma(transaction.amount)}`}</h4>
+                        <h4 className="columns i">{` NGN ${comma(
+                          transaction.amount
+                        )}`}</h4>
                         <h4
                           className="columns i"
                           style={{ borderRight: '2px solid crimson' }}
                         ></h4>
-                        <h4 className="columns"></h4>
+                        {user.role === 'admin' && <h4 className="columns"></h4>}
                       </div>
                     </li>
                   </ul>
