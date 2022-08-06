@@ -6,7 +6,7 @@ import { getOneCustomerTransFromApi } from '../../redux/forms/oneCustomerTransac
 import Loader from '../loader/Loader';
 import './CustomerTransaction.css';
 /* eslint-disable */
-const CustomerTransacts = () => {
+const CustomerTransactsMark = () => {
   const dispatch = useDispatch();
   const param = useParams();
   const { id } = param;
@@ -119,4 +119,4 @@ const CustomerTransacts = () => {
   );
 };
 /* eslint-enable */
-export default CustomerTransacts;
+export default CustomerTransactsMark;
