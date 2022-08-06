@@ -1,7 +1,7 @@
 {
   "name": "foodforall-optimistic",
   "version": "0.1.0",
-  "homepage": "https://Anny85-code.github.io/optimism/",
+  "homepage": "https://Anny85-code.github.io/optimism",
   "private": true,
   "dependencies": {
     "@popperjs/core": "^2.11.5",
