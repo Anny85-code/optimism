@@ -70,6 +70,10 @@ const App = () => {
             <Route path="/custumers" element={<Customers />} />
             <Route path="/customers/:id/myfood" element={<MyFoods />} />
             <Route
+              path="/customers/:id/transactions"
+              element={<CustomerTransacts />}
+            />
+            <Route
               path="/searchcontribution"
               element={<SearchContribution />}
             />
@@ -82,10 +86,6 @@ const App = () => {
                 <Route path="/users/:id" element={<User />} />
                 <Route path="/products/:id/edit" element={<EditProduct />} />
                 <Route path="/users/:id/edit" element={<EditUser />} />
-                <Route
-                  path="/customers/:id/transactions"
-                  element={<CustomerTransacts />}
-                />
                 <Route
                   path="/users/:id/transactions"
                   element={<UserTransacts />}
