@@ -80,9 +80,11 @@ const CustomerTransacts = () => {
                 >
                   {total_days}
                 </h3>
-                <h3 className="columns" id="col">
-                  {` NGN ${comma(total)}`}
-                </h3>
+                {user.role === 'admin' && (
+                  <h3 className="columns" id="col">
+                    {` NGN ${comma(total)}`}
+                  </h3>
+                )}
               </div>
               {trans?.map((transaction) => (
                 <NavLink
