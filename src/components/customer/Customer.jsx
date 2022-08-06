@@ -16,6 +16,11 @@ const transUrl = (person) => {
   return `/customers/${id}/transactions`;
 };
 
+const transUrlMark = (person) => {
+  const { id } = person;
+  return `/customers/${id}/transactionsmark`;
+};
+
 const myFoodUrl = (person) => {
   const { id } = person;
   return `/customers/${id}/myfood`;
@@ -49,6 +54,7 @@ const Customer = () => {
   const redirect = editUrl(aCustomers.data);
   const allTrans = transUrl(aCustomers.data);
   const myfood = myFoodUrl(aCustomers.data);
+  const allTransMark = transUrlMark(aCustomers.data);
 
   const comma = (num) => {
     const number = parseInt(num);
@@ -106,6 +112,13 @@ const Customer = () => {
             <div>
               <button type="button" className="view-trans">
                 View transactions
+              </button>
+            </div>
+          </NavLink>
+          <NavLink to={allTransMark} style={{ textDecoration: 'none' }}>
+            <div>
+              <button type="button" className="view-trans">
+                View transactionsMark
               </button>
             </div>
           </NavLink>
