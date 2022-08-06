@@ -77,7 +77,8 @@ const Customer = () => {
           {user.id}/{aCustomers.data.id}
         </p>
         <p className="cus-details">
-          <span>Daily Contribution:</span>{` NGN ${comma(daily_contribution)}`}
+          <span>Daily Contribution:</span>
+          {` NGN ${comma(daily_contribution)}`}
         </p>
         <p className="cus-details">
           <span>Address:</span> {address}
@@ -101,15 +102,13 @@ const Customer = () => {
           )}
         </div>
         <div className="allTrans">
-          {user.role === 'admin' && (
-            <NavLink to={allTrans} style={{ textDecoration: 'none' }}>
-              <div>
-                <button type="button" className="view-trans">
-                  View transactions
-                </button>
-              </div>
-            </NavLink>
-          )}
+          <NavLink to={allTrans} style={{ textDecoration: 'none' }}>
+            <div>
+              <button type="button" className="view-trans">
+                View transactions
+              </button>
+            </div>
+          </NavLink>
         </div>
         <div className="myfood">
           {user.role === 'admin' && (
