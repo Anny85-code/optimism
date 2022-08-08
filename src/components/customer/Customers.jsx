@@ -71,6 +71,3 @@ const Customers = () => {
 };
 /* eslint-enable */
 export default Customers;
-
-
-  // <p>Total No of Customers: {allCustomers.data.length}</p>;
