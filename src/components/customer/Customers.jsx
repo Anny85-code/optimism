@@ -39,7 +39,7 @@ const Customers = () => {
             borderBottom: '2px solid crimson',
           }}
         ></h3>
-        <h3 className="columns" id="col">
+        <h3 className="columns" id="col" style={{ color: 'crimson'}}>
           {allCustomers.data.length}
         </h3>
       </div>
