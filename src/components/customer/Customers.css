@@ -13,7 +13,7 @@
   margin-right: 5px;
 }
 
-.cus-name2{
+.cus-name2 {
   padding: 0 10px;
 }
 
@@ -26,7 +26,7 @@
   background: #fff;
 }
 
-.custrans-name1{
+.custrans-name1 {
   display: flex;
 }
 
@@ -46,6 +46,9 @@
 }
 
 @media only screen and (max-width: 450px) {
+  .transact-customer-container1 {
+    margin: 20px;
+  }
   .cus-name {
     font-size: 15px;
   }
@@ -58,7 +61,7 @@
     font-size: 12px;
   }
 
-  .customer-container  {
+  .customer-container {
     width: 20rem;
     margin: 1.25rem;
   }

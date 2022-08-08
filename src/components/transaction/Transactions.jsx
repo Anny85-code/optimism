@@ -20,8 +20,37 @@ const Transactions = () => {
     dispatch(getCustomerFromApi(customer_id));
   }, []);
 
+  const comma = (num) => {
+  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
   return (
-    <div>
+    <div className="transact-customer-container1">
+      <div className="custrans-name1">
+        <h4 className="columns">
+          <span className="cus-name1">Customer's Name</span>
+        </h4>
+        <h4 className="columns i" id="a">
+          Amount
+        </h4>
+        <h4 className="columns">
+          <span className="cus-name2 ">Date</span>
+        </h4>
+      </div>
+      <div className="custrans-name1">
+        <h3 className="columns" id="col">
+          <p className="custransactname"></p>
+        </h3>
+        <h3
+          className="columns i"
+          id="col"
+          style={{
+            borderRight: '2px solid crimson',
+            borderBottom: '2px solid crimson',
+          }}
+        ></h3>
+        <h3 className="columns" id="col" style={{ color: 'crimson' }}>
+        </h3>
+      </div>
       {transactions.data.map((transaction) => {
         const permitted =
           user.role === 'admin' || transaction.user_id === user.id;
@@ -38,22 +67,24 @@ const Transactions = () => {
               key={transaction.id}
               to={`/transactions/${transaction.id}`}
             >
-              <div className="customer-container transactions-container">
-                <h3>
-                  <span className="cus-name">
-                    Customer&apos;s Name:
-                    <span className="cus-trans-info">{aCustomer.name}</span>
-                  </span>
-                </h3>
-                <h4>
-                  <span className="cus-name">Amount:</span>
-                  {transaction.amount}
-                </h4>
-                <h4>
-                  <span className="cus-phone">Date:</span>
-                  {Moment(transaction.created_at).format('MMMM DD, LT')}
-                </h4>
-              </div>
+              <ul id="p-child">
+                <li>
+                  <div className="custrans-name1">
+                    <h4 className="columns" style={{ color: 'crimson' }}>
+                      {aCustomer.name}
+                    </h4>
+                    <h4
+                      className="columns i"
+                      style={{ borderRight: '2px solid crimson' }}
+                    >
+                      {` NGN ${comma(transaction.amount)}`}
+                    </h4>
+                    <h4 className="columns" style={{ color: '#000' }}>
+                      {Moment(transaction.created_at).format('MMMM DD, LT')}
+                    </h4>
+                  </div>
+                </li>
+              </ul>
             </NavLink>
           );
         }
