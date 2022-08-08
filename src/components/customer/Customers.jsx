@@ -16,7 +16,18 @@ const Customers = () => {
   /* eslint-disable */
   return (
     <div>
-      <p>Total No of Customers: {allCustomers.data.length}</p>
+      <div className="custrans-name">
+        <h4 className="columns">
+          <span className="cus-name1">Customer's Name</span>
+        </h4>
+        <h4 className="columns i" id="a">
+         Phone
+        </h4>
+        <h4 className="columns">
+          <span className="cus-name1 ">Total number of customers</span>
+        </h4>
+      </div>
+
       {allCustomers.data.map((customer) => {
         const permitted = user.role === 'admin' || customer.user_id === user.id;
         if (permitted)
@@ -40,3 +51,6 @@ const Customers = () => {
 };
 /* eslint-enable */
 export default Customers;
+
+
+  // <p>Total No of Customers: {allCustomers.data.length}</p>;
