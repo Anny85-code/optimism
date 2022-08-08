@@ -76,12 +76,13 @@ const CustomerTransacts = () => {
                   style={{
                     borderRight: '2px solid crimson',
                     borderBottom: '2px solid crimson',
+                    color: 'crimson',
                   }}
                 >
                   {total_days}
                 </h3>
                 {user.role === 'admin' && (
-                  <h3 className="columns" id="col">
+                  <h3 className="columns" id="col" style={{ color: 'crimson' }}>
                     {` NGN ${comma(total)}`}
                   </h3>
                 )}

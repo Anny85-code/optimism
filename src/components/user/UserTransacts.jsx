@@ -123,7 +123,11 @@ const UserTransacts = () => {
                     className="columns i"
                     style={{ borderBottom: '2px solid crimson' }}
                   ></h3>
-                  <h3 className="columns i" id="col">
+                  <h3
+                    className="columns i"
+                    id="col"
+                    style={{ color: 'crimson' }}
+                  >
                     {` NGN ${comma(filtaTotal)}`}
                   </h3>
 
@@ -133,12 +137,13 @@ const UserTransacts = () => {
                     style={{
                       borderRight: '2px solid crimson',
                       borderBottom: '2px solid crimson',
+                      color: 'crimson',
                     }}
                   >
                     {transNo}
                   </h3>
 
-                  <h3 className="columns" id="col">
+                  <h3 className="columns" id="col" style={{ color: 'crimson' }}>
                     {`NGN ${comma(total)}`}
                   </h3>
                 </div>
@@ -157,7 +162,9 @@ const UserTransacts = () => {
                                 'MMMM DD, LT'
                               )}
                             </h4>
-                            <h4 className="columns i">{`NGN ${comma(transaction.amount)}`}</h4>
+                            <h4 className="columns i">{`NGN ${comma(
+                              transaction.amount
+                            )}`}</h4>
                             <h4 className="columns i"></h4>
                             <h4
                               className="columns i"
