@@ -115,13 +115,6 @@ const Customer = () => {
               </button>
             </div>
           </NavLink>
-          <NavLink to={allTransMark} style={{ textDecoration: 'none' }}>
-            <div>
-              <button type="button" className="view-trans">
-                View transactionsMark
-              </button>
-            </div>
-          </NavLink>
         </div>
         <div className="myfood">
           {user.role === 'admin' && (
