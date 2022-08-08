@@ -16,6 +16,7 @@ const Customers = () => {
   /* eslint-disable */
   return (
     <div>
+      <p>Total No of Customers: {allCustomers.data.length}</p>
       {allCustomers.data.map((customer) => {
         const permitted = user.role === 'admin' || customer.user_id === user.id;
         if (permitted)
