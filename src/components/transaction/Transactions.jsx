@@ -86,10 +86,9 @@ const Transactions = () => {
                 </li>
               </ul>
             </NavLink>
-          );
+          )
         }
       })}
-      ;
     </div>
   );
 };

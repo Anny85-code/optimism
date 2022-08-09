@@ -17,6 +17,10 @@
 }
 
 @media only screen and (max-width: 450px) {
+  .transact-customer-container1 {
+    width: 320px;
+    margin: 20px;
+  }
   .transactions-container {
     width: 320px;
     margin: 20px;
