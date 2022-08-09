@@ -1,6 +1,7 @@
 .user-container {
   height: 550px;
   padding: 20px;
+  margin: 20px 0 20px 40px;
 }
 
 .btns-container {
@@ -13,5 +14,7 @@
 @media only screen and (max-width: 450px) {
   .user-container {
     height: auto;
+    width: 20rem;
+    margin: 20px
   }
 }
