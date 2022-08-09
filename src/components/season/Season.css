@@ -9,5 +9,6 @@
 @media only screen and (max-width: 450px) {
   .season-cont {
     height: 25rem;
+    margin: 20px;
   }
 }
