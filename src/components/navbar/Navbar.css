@@ -7,8 +7,6 @@
   justify-content: space-between;
   padding: 0 30px 0 30px;
   border-bottom: 1px solid lightgray;
-
-  /* box-shadow: 5px 5px 13px #ededed, -5px -5px 13px #000; */
   box-shadow: 4px 4px 10px rgba(233 222 222 /10%);
 }
 
@@ -31,8 +29,6 @@
 
 .navbar__left .active_link {
   color: #265acc;
-
-  /* border-bottom: 3px solid #265acc; */
   padding-bottom: 12px;
 }
 
@@ -59,11 +55,11 @@
 .navbar__right > a > img {
   width: 35px;
   height: 35px;
-  box-shadow: 5px 5px 13px #ededed, -5px -5px 13px #000;
+  box-shadow: 5px 5px 13px #ff5d5d, -5px -5px 13px #000;
 }
 
 .navbar__right > a > .fa {
-  box-shadow: 5px 5px 13px #ededed, -5px -5px 13px #000;
+  box-shadow: 5px 5px 13px #ff5d5d, -5px -5px 13px #000;
 }
 
 #logout-nav {
