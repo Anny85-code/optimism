@@ -1,12 +1,12 @@
 .containa {
   margin: 1.25rem 1.25rem 1.25rem 2.5rem;
-  padding: 20px;
+  padding: 1.25rem;
   background-color: azure;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   text-align: center;
   text-decoration: none;
-  height: 480px;
-  width: 950px;
+  height: 30rem;
+  width: 59.375rem;
   display: flex;
   flex-direction: row;
 }
