@@ -1,24 +1,24 @@
 /* stylelint-disable */
 .cus-name {
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 700;
   color: #2e4a66;
-  margin-right: 5px;
+  margin-right: 0.3125rem;
 }
 
 .cus-phone {
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 700;
   color: #0f5f08;
-  margin-right: 5px;
+  margin-right: 0.3125rem;
 }
 
 .transact-customer-container1 {
   border: 2px solid crimson;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   width: fit-content;
   height: fit-content;
-  margin: 20px 20px 20px 150px;
+  margin: 1.25rem 1.25rem 1.25rem 9.375rem;
   background: #fff;
 }
 
@@ -28,9 +28,9 @@
 
 .customer-container {
   margin: 1.25rem 1.25rem 1.25rem 8.125rem;
-  padding: 4px;
+  padding: 0.25rem;
   background-color: azure;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   text-align: center;
   height: 3.125rem;
   color: #2e4a66;
@@ -43,18 +43,18 @@
 
 @media only screen and (max-width: 450px) {
   .transact-customer-container1 {
-    margin: 20px;
+    margin: 1.25rem;
   }
   .cus-name {
-    font-size: 15px;
+    font-size: 0.9375rem;
   }
 
   .cus-phone {
-    font-size: 15px;
+    font-size: 0.9375rem;
   }
 
   .customer-container > h3 {
-    font-size: 12px;
+    font-size: 0.75rem;
   }
 
   .customer-container {
