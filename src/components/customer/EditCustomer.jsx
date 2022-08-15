@@ -1,9 +1,9 @@
+/* eslint-disable */
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { NavLink, useParams } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { postUpdateCustomerToApi } from '../../redux/forms/customerReducer';
-/* eslint-disable */
 import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
 import '../addCostumer/AddCostumer.css';
 import ImageUpload from '../images/imageUpload';
@@ -161,14 +161,16 @@ const EditCustomer = () => {
             {ImageUpload()}
           </label>
         </div>
-        <div className="form-group btn1 edit-cs-btn">
-          <button
-            type="submit"
-            className="btn1 btn-secondary1 add-marketer-btn update-cus-button"
-          >
-            Update Customer Items
-          </button>
-        </div>
+        <NavLink to="/addproducts" style={{ textDecoration: 'none' }}>
+          <div className="form-group btn1 edit-cs-btn">
+            <button
+              type="submit"
+              className="btn1 btn-secondary1 add-marketer-btn update-cus-button"
+            >
+              Update Customer Items
+            </button>
+          </div>
+        </NavLink>
       </form>
     </div>
   );
