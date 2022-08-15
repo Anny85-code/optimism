@@ -25,9 +25,12 @@ const CustomerPreview = () => {
     };
 
     const retrievedCustomer = JSON.parse(localStorage.getItem('customer'));
-
+    const newCustomer = {
+      ...retrievedCustomer,
+      daily_contribution: grandTotal,
+    };
     dispatch(postMyFoodToApi(data));
-    dispatch(postUpdateCustomerToApi(retrievedCustomer));
+    dispatch(postUpdateCustomerToApi(newCustomer));
   };
 
   const handleCancel = () => {
