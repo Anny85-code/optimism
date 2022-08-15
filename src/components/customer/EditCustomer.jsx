@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
-import { postUpdateCustomerToApi } from '../../redux/forms/customerReducer';
 import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
 import '../addCostumer/AddCostumer.css';
 import ImageUpload from '../images/imageUpload';
@@ -21,10 +20,10 @@ const EditCustomer = () => {
   }, []);
 
   const customerId = aCustomers.data.id;
-  const [name, setName] = useState(customer.name);
-  const [email, setEmail] = useState(customer.email);
-  const [phone, setPhone] = useState(customer.phone);
-  const [address, setAddress] = useState(customer.address);
+  const [name, setName] = useState(customer?.name);
+  const [email, setEmail] = useState(customer?.email);
+  const [phone, setPhone] = useState(customer?.phone);
+  const [address, setAddress] = useState(customer?.address);
   const [dailyContribution, setDailyContribution] = useState(
     customer.daily_contribution
   );
@@ -50,7 +49,6 @@ const EditCustomer = () => {
       picture,
       dailyContribution,
     };
-    dispatch(postUpdateCustomerToApi(customer));
   };
 
   return (

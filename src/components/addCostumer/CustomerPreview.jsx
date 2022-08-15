@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import Loader from '../loader/Loader';
 import { postMyFoodToApi } from '../../redux/forms/myFoodReducer';
+import { postUpdateCustomerToApi } from '../../redux/forms/customerReducer';
 import './CustomerPreview.css';
 /* eslint-disable */
 const CustomerPreview = () => {
@@ -24,6 +25,7 @@ const CustomerPreview = () => {
     };
 
     dispatch(postMyFoodToApi(data));
+    dispatch(postUpdateCustomerToApi(customer));
   };
 
   const handleCancel = () => {
