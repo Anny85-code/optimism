@@ -153,6 +153,13 @@ const CustomerPreview = () => {
             >
               Add Customer
             </button>
+            <button
+              type="button"
+              onClick={handleSubmit}
+              className="view-trans p-btn"
+            >
+              Edit
+            </button>
           </div>
         </>
       ) : (
