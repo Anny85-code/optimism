@@ -34,8 +34,6 @@ const EditCustomer = () => {
     document.getElementById('new-img-editor').style.display = 'block';
   };
 
-  const [isPending, setIsPending] = useState(false);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const user = JSON.parse(localStorage.getItem('user'));
@@ -51,10 +49,7 @@ const EditCustomer = () => {
       picture,
       dailyContribution,
     };
-    setIsPending(true);
-    console.log(customer);
     dispatch(postUpdateCustomerToApi(customer));
-    setIsPending(false);
   };
 
   return (
@@ -167,19 +162,12 @@ const EditCustomer = () => {
           </label>
         </div>
         <div className="form-group btn1 edit-cs-btn">
-          {!isPending && (
-            <button
-              type="submit"
-              className="btn1 btn-secondary1 add-marketer-btn update-cus-button"
-            >
-              Update Customer
-            </button>
-          )}
-          {isPending && (
-            <button type="submit" disabled>
-              Updating Customer . . .
-            </button>
-          )}
+          <button
+            type="submit"
+            className="btn1 btn-secondary1 add-marketer-btn update-cus-button"
+          >
+            Update Customer Items
+          </button>
         </div>
       </form>
     </div>
