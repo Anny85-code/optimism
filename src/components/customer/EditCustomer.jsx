@@ -49,7 +49,7 @@ const EditCustomer = () => {
       picture,
       dailyContribution,
     };
-    localStorage.setItem('customer', customer);
+    localStorage.setItem('customer', JSON.stringify(customer));
   };
 
   return (
