@@ -24,8 +24,10 @@ const CustomerPreview = () => {
       items: JSON.stringify(myFoodObj),
     };
 
+    const retrievedCustomer = JSON.parse(localStorage.getItem('customer'));
+
     dispatch(postMyFoodToApi(data));
-    dispatch(postUpdateCustomerToApi(customer));
+    dispatch(postUpdateCustomerToApi(retrievedCustomer));
   };
 
   const handleCancel = () => {
