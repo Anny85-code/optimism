@@ -64,7 +64,7 @@ const CustomerPreview = () => {
                   </p>
                   <p className="cus-details">
                     <span>Daily Contribution:</span>
-                    {` NGN ${comma(cust.daily_contribution)}`}
+                    {` NGN ${comma(grandTotal ?? cust.daily_contribution)}`}
                   </p>
                   <p className="cus-details">
                     <span>Address:</span> {cust.address}
