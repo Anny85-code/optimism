@@ -13,20 +13,21 @@ const EditCustomer = () => {
   const dispatch = useDispatch();
   const { id } = param;
   const aCustomers = useSelector((state) => state.oneCustomer);
+  const customer = aCustomers?.data;
 
   useEffect(() => {
     dispatch(getOneCustomerFromApi(id));
   }, []);
 
   const customerId = aCustomers.data.id;
-  const [name, setName] = useState(aCustomers.data.name);
-  const [email, setEmail] = useState(aCustomers.data.email);
-  const [phone, setPhone] = useState(aCustomers.data.phone);
-  const [address, setAddress] = useState(aCustomers.data.address);
+  const [name, setName] = useState(customer.name);
+  const [email, setEmail] = useState(customer.email);
+  const [phone, setPhone] = useState(customer.phone);
+  const [address, setAddress] = useState(customer.address);
   const [dailyContribution, setDailyContribution] = useState(
-    aCustomers.data.daily_contribution
+    customer.daily_contribution
   );
-  const [picture, setPicture] = useState(aCustomers.data.picture);
+  const [picture, setPicture] = useState(customer.picture);
 
   const handleEditPic = () => {
     document.getElementById('img-editor').style.display = 'none';
@@ -58,6 +59,7 @@ const EditCustomer = () => {
 
   return (
     <div className="form-container edit-cus-cont">
+      {/* {name ? } */}
       <div className="inner-container">
         <h3 className="title">Update Customer</h3>
       </div>
