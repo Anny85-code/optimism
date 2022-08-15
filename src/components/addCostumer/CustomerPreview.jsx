@@ -8,16 +8,17 @@ const CustomerPreview = () => {
   const dispatch = useDispatch();
   const customers = useSelector((state) => state.customer);
   const fone = JSON.parse(localStorage.getItem('customer')).phone;
-  const customer = customers.data.filter((cust) => cust.phone === fone);
+  const customer = customers?.data?.filter((cust) => cust.phone === fone);
   const myFood = JSON.parse(localStorage.getItem('myfood'));
   const grandTotal = myFood.reduce((a, b) => b.subTotal + a, 0);
+  const id = customer[0]?.id;
 
   const handleSubmit = () => {
     const myFoodObj = {};
     myFood.map((fooda) => (myFoodObj[fooda.id] = fooda));
 
     const data = {
-      customer_id: customer[0].id,
+      customer_id: id,
       items: JSON.stringify(myFoodObj),
     };
 
@@ -35,10 +36,10 @@ const CustomerPreview = () => {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   };
 
-  // const handleEdit = () => {
-  //   window.history.pushState({}, '', '/');
-  //   window.location.reload();
-  // };
+  const handleEdit = () => {
+    window.history.pushState({}, '', `/customers/${id}/edit`);
+    window.location.reload();
+  };
 
   return (
     <div className="cus-preview-main-container">
@@ -155,7 +156,7 @@ const CustomerPreview = () => {
             </button>
             <button
               type="button"
-              onClick={handleSubmit}
+              onClick={handleEdit}
               className="view-trans p-btn"
             >
               Edit
