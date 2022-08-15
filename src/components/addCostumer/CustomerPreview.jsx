@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import Loader from '../loader/Loader';
 import { postMyFoodToApi } from '../../redux/forms/myFoodReducer';
 import './CustomerPreview.css';
@@ -34,11 +35,6 @@ const CustomerPreview = () => {
 
   const comma = (num) => {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  };
-
-  const handleEdit = () => {
-    window.history.pushState({}, '', `/customers/${id}/edit`);
-    window.location.reload();
   };
 
   return (
@@ -154,13 +150,14 @@ const CustomerPreview = () => {
             >
               Add Customer
             </button>
-            <button
-              type="button"
-              onClick={handleEdit}
-              className="view-trans p-btn"
+            <NavLink
+              to={`/customers/${id}/edit`}
+              style={{ textDecoration: 'none' }}
             >
-              Edit
-            </button>
+              <button type="button" className="view-trans p-btn">
+                Edit
+              </button>
+            </NavLink>
           </div>
         </>
       ) : (
