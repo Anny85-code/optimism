@@ -7,6 +7,7 @@ import { postUpdateCustomerToApi } from '../../redux/forms/customerReducer';
 import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
 import '../addCostumer/AddCostumer.css';
 import ImageUpload from '../images/imageUpload';
+import Loader from '../loader/Loader';
 
 const EditCustomer = () => {
   const param = useParams();
@@ -175,7 +176,7 @@ const EditCustomer = () => {
           </form>
         </>
       ) : (
-        ''
+        <Loader />
       )}
     </div>
   );
