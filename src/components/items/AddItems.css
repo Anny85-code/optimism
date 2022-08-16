@@ -47,11 +47,11 @@
   }
 
   .item-name li img {
-    margin-left: 10px;
+    margin-left: 0.625rem;
   }
 
   .item-name {
-    font-size: 15px;
+    font-size: 0.9375rem;
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
   }
