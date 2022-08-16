@@ -5,7 +5,7 @@ main {
 }
 
 .main__container {
-  padding: 20px 35px;
+  padding: 1.25rem 2.1875rem;
 }
 
 .main__title {
@@ -14,19 +14,19 @@ main {
 }
 
 .main__title > img {
-  max-height: 100px;
+  max-height: 6.25rem;
   object-fit: contain;
-  margin-right: 20px;
+  margin-right: 1.25rem;
 }
 
 .main__greetings {
-  font-size: 24px;
+  font-size: 1.5rem;
   color: #990f0f;
-  margin-bottom: 5px;
+  margin-bottom: 0.3125rem;
 }
 
 .main__greetings > p {
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 700;
   color: #a5aaad;
 }
@@ -34,19 +34,19 @@ main {
 .main__cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 30px;
-  margin: 20px 0;
+  grid-gap: 1.875rem;
+  margin: 1.25rem 0;
 }
 
 .cards {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 70px;
+  height: 4.375rem;
   background: #fff;
-  border-radius: 5px;
+  border-radius: 0.3125rem;
   box-shadow: 5px 5px 13px #ededed, -5px -5px 13px #ededed;
-  padding: 25px;
+  padding: 1.5625rem;
 }
 
 .card__inner {
@@ -56,21 +56,21 @@ main {
 }
 
 .card__inner > span {
-  font-size: 25px;
+  font-size: 1.5625rem;
 }
 
 .charts {
   display: flex;
   grid-template-columns: 1fr 1fr;
-  gap: 30px;
-  margin-top: 50px;
+  gap: 1.875rem;
+  margin-top: 3.125rem;
 }
 
 .charts__inner {
   background: #fff;
-  border-radius: 5px;
+  border-radius: 0.3125rem;
   box-shadow: 5px 5px 13px #ededed, -5px -5px 13px #ededed;
-  padding: 25px;
+  padding: 1.5625rem;
 }
 
 .charts__left__title {
@@ -80,19 +80,19 @@ main {
 }
 
 .charts__left__title > div > h1 {
-  font-size: 24px;
+  font-size: 1.5rem;
   color: #2e4a66;
-  margin-bottom: 5px;
+  margin-bottom: 0.3125rem;
 }
 
 .charts__left__title > div > p {
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 700;
   color: #a5aaad;
 }
 
 .charts__left__title > i {
-  font-size: 20px;
+  font-size: 1.25rem;
   color: #fff;
   background: #ffc100;
   border-radius: 200px 0 200px 200px;
