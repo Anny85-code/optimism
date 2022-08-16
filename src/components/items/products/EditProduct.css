@@ -1,14 +1,14 @@
 .product-i-edit {
-  margin-left: -25px;
+  margin-left: -1.5625rem;
 }
 
 .product-i {
-  margin-left: 65px;
+  margin-left: 4.0625rem;
 }
 
 @media only screen and (max-width: 450px) {
   .editproduct {
-    width: 320px;
-    margin: 20px;
+    width: 20rem;
+    margin: 1.25rem;
   }
 }
