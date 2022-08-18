@@ -16,10 +16,10 @@ const transUrl = (person) => {
   return `/customers/${id}/transactions`;
 };
 
-const transUrlMark = (person) => {
-  const { id } = person;
-  return `/customers/${id}/transactionsmark`;
-};
+// const transUrlMark = (person) => {
+//   const { id } = person;
+//   return `/customers/${id}/transactionsmark`;
+// };
 
 const myFoodUrl = (person) => {
   const { id } = person;
@@ -54,7 +54,8 @@ const Customer = () => {
   const redirect = editUrl(aCustomers.data);
   const allTrans = transUrl(aCustomers.data);
   const myfood = myFoodUrl(aCustomers.data);
-  const allTransMark = transUrlMark(aCustomers.data);
+  localStorage.setItem('customer', JSON.stringify(aCustomers.data));
+  // const allTransMark = transUrlMark(aCustomers.data);
 
   const comma = (num) => {
     const number = parseInt(num);
