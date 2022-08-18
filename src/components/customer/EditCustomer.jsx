@@ -20,10 +20,10 @@ const EditCustomer = () => {
   }, []);
 
   const customerId = aCustomers.data.id;
-  const [name, setName] = useState(customer?.name);
-  const [email, setEmail] = useState(customer?.email);
-  const [phone, setPhone] = useState(customer?.phone);
-  const [address, setAddress] = useState(customer?.address);
+  const [name, setName] = useState(customer.name);
+  const [email, setEmail] = useState(customer.email);
+  const [phone, setPhone] = useState(customer.phone);
+  const [address, setAddress] = useState(customer.address);
   const [dailyContribution, setDailyContribution] = useState(
     customer.daily_contribution
   );
@@ -54,7 +54,9 @@ const EditCustomer = () => {
 
   return (
     <div className="form-container edit-cus-cont">
-      {name ? (
+      {console.log(aCustomers.data.name)}
+      {/* {!aCustomers.data.name && <Loader />} */}
+      {aCustomers.data.name ? (
         <>
           <div className="inner-container">
             <h3 className="title">Update Customer</h3>
