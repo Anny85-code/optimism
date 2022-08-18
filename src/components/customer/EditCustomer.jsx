@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css';
 import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
 import '../addCostumer/AddCostumer.css';
 import ImageUpload from '../images/imageUpload';
@@ -164,16 +166,27 @@ const EditCustomer = () => {
                 {ImageUpload()}
               </label>
             </div>
-            <NavLink to="/addproducts" style={{ textDecoration: 'none' }}>
-              <div className="form-group btn1 edit-cs-btn">
+            <div className="form-group btn1 edit-cs-btn">
+              <NavLink to="/addproducts" style={{ textDecoration: 'none' }}>
+                <Tippy content="Select new items to change this customer's Daily contribution.">
+                  <button
+                    type="submit"
+                    className="btn1 btn-secondary1 add-marketer-btn update-cus-button"
+                  >
+                    Update Customer Items
+                  </button>
+                </Tippy>
+              </NavLink>
+              <Tippy content="Complete the changes.">
                 <button
+                  onClick={handleSave}
                   type="submit"
                   className="btn1 btn-secondary1 add-marketer-btn update-cus-button"
                 >
-                  Update Customer Items
+                  Save
                 </button>
-              </div>
-            </NavLink>
+              </Tippy>
+            </div>
           </form>
         </>
       ) : (
