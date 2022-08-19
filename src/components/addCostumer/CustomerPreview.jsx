@@ -5,6 +5,7 @@ import Loader from '../loader/Loader';
 import {
   getMyFoodFromApi,
   postMyFoodToApi,
+  postUpdateMyFoodToApi,
 } from '../../redux/forms/myFoodReducer';
 import { postUpdateCustomerToApi } from '../../redux/forms/customerReducer';
 import './CustomerPreview.css';
@@ -20,7 +21,7 @@ const CustomerPreview = () => {
   const grandTotal = myFood.reduce((a, b) => b.subTotal + a, 0);
   const id = customer[0]?.id;
   const oldFood = data.filter((food) => food.customer_id === id);
-  console.log(oldFood[0]?.id);
+  const oldFoodId = oldFood[0]?.id;
 
   useEffect(() => {
     dispatch(getMyFoodFromApi());
@@ -35,13 +36,19 @@ const CustomerPreview = () => {
       items: JSON.stringify(myFoodObj),
     };
 
+    const newData = {
+      ...data,
+      id: oldFoodId,
+    };
+
     const retrievedCustomer = JSON.parse(localStorage.getItem('customer'));
     const newCustomer = {
       ...retrievedCustomer,
       daily_contribution: grandTotal,
     };
-    dispatch(postMyFoodToApi(data));
-    console.log(data, newCustomer);
+    oldFoodId
+      ? dispatch(postUpdateMyFoodToApi(newData))
+      : dispatch(postMyFoodToApi(data));
     dispatch(postUpdateCustomerToApi(newCustomer));
   };
 
