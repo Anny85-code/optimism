@@ -9,6 +9,7 @@ import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
 import '../addCostumer/AddCostumer.css';
 import ImageUpload from '../images/imageUpload';
 import Loader from '../loader/Loader';
+import { postUpdateCustomerToApi } from '../../redux/forms/customerReducer';
 
 const EditCustomer = () => {
   const param = useParams();
@@ -36,10 +37,8 @@ const EditCustomer = () => {
     document.getElementById('new-img-editor').style.display = 'block';
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const getCustomer = () => {
     const user = JSON.parse(localStorage.getItem('user'));
-    setPicture(localStorage.getItem('image_str'));
     const { id } = user.user;
     const customer = {
       id: customerId,
@@ -51,7 +50,19 @@ const EditCustomer = () => {
       picture,
       dailyContribution,
     };
+    return customer;
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setPicture(localStorage.getItem('image_str'));
+    const customer = getCustomer();
     localStorage.setItem('customer', JSON.stringify(customer));
+  };
+
+  const handleSave = () => {
+    const customer = getCustomer();
+    dispatch(postUpdateCustomerToApi(customer));
   };
 
   return (
