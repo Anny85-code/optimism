@@ -1,19 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // import { NavLink } from 'react-router-dom';
 import Loader from '../loader/Loader';
-import { postMyFoodToApi } from '../../redux/forms/myFoodReducer';
+import {
+  getMyFoodFromApi,
+  postMyFoodToApi,
+} from '../../redux/forms/myFoodReducer';
 import { postUpdateCustomerToApi } from '../../redux/forms/customerReducer';
 import './CustomerPreview.css';
 /* eslint-disable */
 const CustomerPreview = () => {
   const dispatch = useDispatch();
   const customers = useSelector((state) => state.customer);
+  const foods = useSelector((state) => state.myFood);
+  const { data } = foods || {};
   const fone = JSON.parse(localStorage.getItem('customer')).phone;
   const customer = customers?.data?.filter((cust) => cust.phone === fone);
   const myFood = JSON.parse(localStorage.getItem('myfood'));
   const grandTotal = myFood.reduce((a, b) => b.subTotal + a, 0);
   const id = customer[0]?.id;
+  const oldFood = data.filter((food) => food.customer_id === id);
+  console.log(oldFood[0]?.id);
+
+  useEffect(() => {
+    dispatch(getMyFoodFromApi());
+  }, []);
 
   const handleSubmit = () => {
     const myFoodObj = {};
@@ -29,9 +40,9 @@ const CustomerPreview = () => {
       ...retrievedCustomer,
       daily_contribution: grandTotal,
     };
-    // dispatch(postMyFoodToApi(data));
+    dispatch(postMyFoodToApi(data));
     console.log(data, newCustomer);
-    // dispatch(postUpdateCustomerToApi(newCustomer));
+    dispatch(postUpdateCustomerToApi(newCustomer));
   };
 
   const handleCancel = () => {
