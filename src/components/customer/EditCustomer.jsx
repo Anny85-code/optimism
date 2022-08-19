@@ -23,14 +23,14 @@ const EditCustomer = () => {
   }, []);
 
   const customerId = aCustomers.data.id;
-  const [name, setName] = useState(customer.name);
-  const [email, setEmail] = useState(customer.email);
-  const [phone, setPhone] = useState(customer.phone);
-  const [address, setAddress] = useState(customer.address);
+  const [name, setName] = useState(customer?.name);
+  const [email, setEmail] = useState(customer?.email);
+  const [phone, setPhone] = useState(customer?.phone);
+  const [address, setAddress] = useState(customer?.address);
   const [dailyContribution, setDailyContribution] = useState(
-    customer.daily_contribution
+    customer?.daily_contribution
   );
-  const [picture, setPicture] = useState(customer.picture);
+  const [picture, setPicture] = useState(customer?.picture);
 
   const handleEditPic = () => {
     document.getElementById('img-editor').style.display = 'none';
@@ -68,7 +68,6 @@ const EditCustomer = () => {
   return (
     <div className="form-container edit-cus-cont">
       {console.log(aCustomers.data.name)}
-      {/* {!aCustomers.data.name && <Loader />} */}
       {aCustomers.data.name ? (
         <>
           <div className="inner-container">
@@ -87,7 +86,7 @@ const EditCustomer = () => {
                   name="name"
                   placeholder="Name"
                   required
-                  value={name}
+                  value={aCustomers.data.name}
                   onChange={(e) => setName(e.target.value)}
                 />
               </label>
@@ -102,7 +101,7 @@ const EditCustomer = () => {
                   name="email"
                   placeholder="Email"
                   required
-                  value={email}
+                  value={aCustomers.data.email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </label>
@@ -174,7 +173,7 @@ const EditCustomer = () => {
             <div id="new-img-editor" style={{ display: 'none' }}>
               <label htmlFor="picture" className="form-label">
                 <h4 className="p-text">Picture</h4>
-                {ImageUpload()}
+                {ImageUpload}
               </label>
             </div>
             <div className="form-group btn1 edit-cs-btn">
