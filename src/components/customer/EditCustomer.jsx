@@ -175,7 +175,7 @@ const EditCustomer = () => {
                 {ImageUpload}
               </label>
             </div>
-            <div className="form-group btn1 edit-cs-btn">
+            <div className=" btn1 edit-cs-btn">
               <NavLink to="/addproducts" style={{ textDecoration: 'none' }}>
                 <Tippy content="Select new items to change this customer's Daily contribution.">
                   <button
