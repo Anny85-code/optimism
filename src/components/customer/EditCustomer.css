@@ -1,0 +1,37 @@
+.edit-cs-btn {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 5rem;
+  padding: 1.25rem 1.25rem 2.5rem 1.25rem;
+}
+
+.edit-cus-btn1 {
+  width: 12.5rem;
+  height: 3.125rem;
+  padding: 10px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background-color: #f72727;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #d86565;
+}
+
+@media only screen and (max-width: 450px) {
+  .edit-cus-btn1 {
+    width: 6.25rem;
+    font-size: 0.625rem;
+    height: 2.5rem;
+  }
+
+  .edit-cs-btn {
+    width: 20rem;
+    margin-left: 0.625rem;
+  }
+}

@@ -10,6 +10,7 @@ import '../addCostumer/AddCostumer.css';
 import ImageUpload from '../images/imageUpload';
 import Loader from '../loader/Loader';
 import { postUpdateCustomerToApi } from '../../redux/forms/customerReducer';
+import './EditCustomer.css';
 
 const EditCustomer = () => {
   const param = useParams();
@@ -175,12 +176,12 @@ const EditCustomer = () => {
                 {ImageUpload}
               </label>
             </div>
-            <div className=" btn1 edit-cs-btn">
+            <div className="btn1 edit-cs-btn">
               <NavLink to="/addproducts" style={{ textDecoration: 'none' }}>
                 <Tippy content="Select new items to change this customer's Daily contribution.">
                   <button
                     type="submit"
-                    className="btn1 btn-secondary1 add-marketer-btn update-cus-button"
+                    className="btn1 btn-secondary1 edit-cus-btn1 update-cus-button"
                   >
                     Update Customer Items
                   </button>
@@ -190,7 +191,7 @@ const EditCustomer = () => {
                 <button
                   onClick={handleSave}
                   type="submit"
-                  className="btn1 btn-secondary1 add-marketer-btn update-cus-button"
+                  className="btn1 btn-secondary1 edit-cus-btn1 update-cus-button"
                 >
                   Save
                 </button>

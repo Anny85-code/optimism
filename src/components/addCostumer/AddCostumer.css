@@ -123,17 +123,6 @@ label {
   border-radius: 0.25rem;
 }
 
-.edit-cs-btn {
-  width: 80%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin-left: 5rem;
-  padding: 1.25rem;
-}
-
-
 @media only screen and (max-width: 450px) {
   input {
     width: 15.625rem;
@@ -183,6 +172,7 @@ label {
 
   .edit-cs-btn {
     margin-left: 15px;
+    width: 18.75rem;
   }
 
   .upload-container {
