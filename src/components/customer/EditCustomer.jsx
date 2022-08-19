@@ -67,7 +67,6 @@ const EditCustomer = () => {
 
   return (
     <div className="form-container edit-cus-cont">
-      {console.log(aCustomers.data.name)}
       {aCustomers.data.name ? (
         <>
           <div className="inner-container">

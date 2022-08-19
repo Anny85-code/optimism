@@ -29,8 +29,9 @@ const CustomerPreview = () => {
       ...retrievedCustomer,
       daily_contribution: grandTotal,
     };
-    dispatch(postMyFoodToApi(data));
-    dispatch(postUpdateCustomerToApi(newCustomer));
+    // dispatch(postMyFoodToApi(data));
+    console.log(data, newCustomer);
+    // dispatch(postUpdateCustomerToApi(newCustomer));
   };
 
   const handleCancel = () => {
