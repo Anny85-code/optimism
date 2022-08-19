@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import Loader from '../loader/Loader';
 import { postMyFoodToApi } from '../../redux/forms/myFoodReducer';
 import { postUpdateCustomerToApi } from '../../redux/forms/customerReducer';
@@ -157,14 +157,14 @@ const CustomerPreview = () => {
             >
               Add Customer
             </button>
-            <NavLink
+            {/* <NavLink
               to={`/customers/${id}/edit`}
               style={{ textDecoration: 'none' }}
             >
               <button type="button" className="view-trans p-btn">
                 Edit
               </button>
-            </NavLink>
+            </NavLink> */}
           </div>
         </>
       ) : (
