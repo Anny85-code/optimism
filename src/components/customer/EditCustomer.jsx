@@ -86,7 +86,7 @@ const EditCustomer = () => {
                   name="name"
                   placeholder="Name"
                   required
-                  value={aCustomers.data.name}
+                  value={name}
                   onChange={(e) => setName(e.target.value)}
                 />
               </label>
@@ -101,7 +101,7 @@ const EditCustomer = () => {
                   name="email"
                   placeholder="Email"
                   required
-                  value={aCustomers.data.email}
+                  value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </label>
