@@ -1,27 +1,55 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+// import { NavLink } from 'react-router-dom';
 import Loader from '../loader/Loader';
-import { postMyFoodToApi } from '../../redux/forms/myFoodReducer';
+import {
+  getMyFoodFromApi,
+  postMyFoodToApi,
+  postUpdateMyFoodToApi,
+} from '../../redux/forms/myFoodReducer';
+import { postUpdateCustomerToApi } from '../../redux/forms/customerReducer';
 import './CustomerPreview.css';
 /* eslint-disable */
 const CustomerPreview = () => {
   const dispatch = useDispatch();
   const customers = useSelector((state) => state.customer);
+  const foods = useSelector((state) => state.myFood);
+  const { data } = foods || {};
   const fone = JSON.parse(localStorage.getItem('customer')).phone;
-  const customer = customers.data.filter((cust) => cust.phone === fone);
+  const customer = customers?.data?.filter((cust) => cust.phone === fone);
   const myFood = JSON.parse(localStorage.getItem('myfood'));
   const grandTotal = myFood.reduce((a, b) => b.subTotal + a, 0);
+  const id = customer[0]?.id;
+  const oldFood = data.filter((food) => food.customer_id === id);
+  const oldFoodId = oldFood[0]?.id;
+
+  useEffect(() => {
+    dispatch(getMyFoodFromApi());
+  }, []);
 
   const handleSubmit = () => {
     const myFoodObj = {};
     myFood.map((fooda) => (myFoodObj[fooda.id] = fooda));
 
     const data = {
-      customer_id: customer[0].id,
+      customer_id: id,
       items: JSON.stringify(myFoodObj),
     };
 
-    dispatch(postMyFoodToApi(data));
+    const newData = {
+      ...data,
+      id: oldFoodId,
+    };
+
+    const retrievedCustomer = JSON.parse(localStorage.getItem('customer'));
+    const newCustomer = {
+      ...retrievedCustomer,
+      daily_contribution: grandTotal,
+    };
+    oldFoodId
+      ? dispatch(postUpdateMyFoodToApi(newData))
+      : dispatch(postMyFoodToApi(data));
+    dispatch(postUpdateCustomerToApi(newCustomer));
   };
 
   const handleCancel = () => {
@@ -34,11 +62,6 @@ const CustomerPreview = () => {
   const comma = (num) => {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   };
-
-  // const handleEdit = () => {
-  //   window.history.pushState({}, '', '/');
-  //   window.location.reload();
-  // };
 
   return (
     <div className="cus-preview-main-container">
@@ -67,7 +90,7 @@ const CustomerPreview = () => {
                   </p>
                   <p className="cus-details">
                     <span>Daily Contribution:</span>
-                    {` NGN ${comma(cust.daily_contribution)}`}
+                    {` NGN ${comma(grandTotal ?? cust.daily_contribution)}`}
                   </p>
                   <p className="cus-details">
                     <span>Address:</span> {cust.address}
@@ -153,6 +176,14 @@ const CustomerPreview = () => {
             >
               Add Customer
             </button>
+            {/* <NavLink
+              to={`/customers/${id}/edit`}
+              style={{ textDecoration: 'none' }}
+            >
+              <button type="button" className="view-trans p-btn">
+                Edit
+              </button>
+            </NavLink> */}
           </div>
         </>
       ) : (
