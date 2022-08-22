@@ -34,9 +34,11 @@ const Customer = () => {
   const param = useParams();
   const { id } = param;
   const aCustomers = useSelector((state) => state.oneCustomer);
+  const regAdmin = aCustomers?.data?.user_id;
 
   useEffect(() => {
     dispatch(getOneCustomerFromApi(id));
+    dispatch();
   }, []);
 
   const {
