@@ -51,10 +51,10 @@ const Customer = () => {
     updated_at,
     daily_contribution,
   } = aCustomers.data;
-  const redirect = editUrl(aCustomers.data);
-  const allTrans = transUrl(aCustomers.data);
-  const myfood = myFoodUrl(aCustomers.data);
-  localStorage.setItem('customer', JSON.stringify(aCustomers.data));
+  const redirect = editUrl(aCustomers?.data);
+  const allTrans = transUrl(aCustomers?.data);
+  const myfood = myFoodUrl(aCustomers?.data);
+  localStorage.setItem('customer', JSON.stringify(aCustomers?.data));
   // const allTransMark = transUrlMark(aCustomers.data);
 
   const comma = (num) => {
@@ -80,8 +80,8 @@ const Customer = () => {
         </p>
         <p className="cus-details">
           <span>Card No.</span>
-          {user.location_area.slice(0, 3).toUpperCase()}
-          {user.id}/{aCustomers.data.id}
+          {user?.location_area?.slice(0, 3).toUpperCase()}
+          {user?.id}/{aCustomers?.data?.id}
         </p>
         <p className="cus-details">
           <span>Daily Contribution:</span>
