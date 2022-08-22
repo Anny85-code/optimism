@@ -39,8 +39,9 @@ const Customers = () => {
             borderBottom: '2px solid crimson',
           }}
         ></h3>
-        <h3 className="columns" id="col" style={{ color: 'crimson'}}>
-          {allCustomers.data.length}
+        <h3 className="columns" id="col" style={{ color: 'crimson' }}>
+          {user.role === 'admin' && allCustomers.data.length}
+          {user.role === 'marketer' && 0}
         </h3>
       </div>
 
@@ -52,7 +53,9 @@ const Customers = () => {
               <ul id="p-child">
                 <li>
                   <div className="custrans-name1">
-                    <h4 className="columns" style={{color: 'crimson'}}>{customer.name}</h4>
+                    <h4 className="columns" style={{ color: 'crimson' }}>
+                      {customer.name}
+                    </h4>
                     <h4
                       className="columns i"
                       style={{ borderRight: '2px solid crimson' }}
