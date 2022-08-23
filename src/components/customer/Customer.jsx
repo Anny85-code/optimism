@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Moment from 'moment';
 import './Customer.css';
 import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
+import { getOneUserFromApi } from '../../redux/forms/oneUserManReducer';
 
 const editUrl = (person) => {
   const { id } = person;
@@ -34,11 +35,14 @@ const Customer = () => {
   const param = useParams();
   const { id } = param;
   const aCustomers = useSelector((state) => state.oneCustomer);
-  const regAdmin = aCustomers?.data?.user_id;
+  const regAdmin = useSelector((state) => state.oneUser);
+  const adminNo = aCustomers?.data?.user_id;
+
+  console.log(regAdmin?.data);
 
   useEffect(() => {
     dispatch(getOneCustomerFromApi(id));
-    dispatch();
+    dispatch(getOneUserFromApi(adminNo));
   }, []);
 
   const {
@@ -65,6 +69,7 @@ const Customer = () => {
 
   return (
     <div className="containa cus-food-cont">
+      {console.log('moi', regAdmin.data.location_area ? true : false)}
       <div className="image-container">
         <img className="cus-image" src={picture} alt={`${name}`} />
       </div>
@@ -80,8 +85,12 @@ const Customer = () => {
         </p>
         <p className="cus-details">
           <span>Card No.</span>
-          {user?.location_area?.slice(0, 3).toUpperCase()}
-          {user?.id}/{aCustomers?.data?.id}
+          {regAdmin.data.location_area ? (
+            `${regAdmin.data.location_area?.slice(0, 3).toUpperCase()}
+          ${regAdmin.data.id}/${aCustomers?.data?.id}`
+          ) : (
+            <p>loading...</p>
+          )}
         </p>
         <p className="cus-details">
           <span>Daily Contribution:</span>
