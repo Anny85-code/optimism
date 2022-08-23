@@ -7,7 +7,6 @@ import './Customer.css';
 import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
 import { getOneUserFromApi } from '../../redux/forms/oneUserManReducer';
 import Loader from '../loader/Loader';
-import { useState } from 'react';
 
 const editUrl = (person) => {
   const { id } = person;
@@ -41,8 +40,6 @@ const Customer = () => {
   const adminNo = aCustomers?.data?.user_id;
   const { loading } = regAdmin;
 
-  console.log(regAdmin?.data, loading);
-
   useEffect(() => {
     dispatch(getOneCustomerFromApi(id));
     dispatch(getOneUserFromApi(adminNo));
@@ -54,6 +51,7 @@ const Customer = () => {
     address,
     email,
     created_at,
+    card_number,
     picture,
     updated_at,
     daily_contribution,
@@ -91,10 +89,11 @@ const Customer = () => {
             </p>
             <p className="cus-details">
               <span>Card No.</span>
-              {regAdmin.data.location_area &&
+              {card_number}
+              {/* {regAdmin.data.location_area &&
                 `${regAdmin.data.location_area.slice(0, 3).toUpperCase()}${
                   regAdmin.data.id
-                }/${aCustomers.data.id}`}
+                }/${aCustomers.data.id}`} */}
             </p>
             <p className="cus-details">
               <span>Daily Contribution:</span>
