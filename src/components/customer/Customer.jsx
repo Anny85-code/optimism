@@ -6,6 +6,8 @@ import Moment from 'moment';
 import './Customer.css';
 import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
 import { getOneUserFromApi } from '../../redux/forms/oneUserManReducer';
+import Loader from '../loader/Loader';
+import { useState } from 'react';
 
 const editUrl = (person) => {
   const { id } = person;
@@ -37,8 +39,9 @@ const Customer = () => {
   const aCustomers = useSelector((state) => state.oneCustomer);
   const regAdmin = useSelector((state) => state.oneUser);
   const adminNo = aCustomers?.data?.user_id;
+  const { loading } = regAdmin;
 
-  console.log(regAdmin?.data);
+  console.log(regAdmin?.data, loading);
 
   useEffect(() => {
     dispatch(getOneCustomerFromApi(id));
@@ -68,77 +71,80 @@ const Customer = () => {
   };
 
   return (
-    <div className="containa cus-food-cont">
-      {console.log('moi', regAdmin.data.location_area ? true : false)}
-      <div className="image-container">
-        <img className="cus-image" src={picture} alt={`${name}`} />
-      </div>
-      <div className="details-container">
-        <h3 className="cus-details">
-          <span>Name:</span> {name}
-        </h3>
-        <p className="cus-details">
-          <span>Phone:</span> {phone}
-        </p>
-        <p className="cus-details">
-          <span>Email:</span> {email}
-        </p>
-        <p className="cus-details">
-          <span>Card No.</span>
-          {regAdmin.data.location_area ? (
-            `${regAdmin.data.location_area?.slice(0, 3).toUpperCase()}
-          ${regAdmin.data.id}/${aCustomers?.data?.id}`
-          ) : (
-            <p>loading...</p>
-          )}
-        </p>
-        <p className="cus-details">
-          <span>Daily Contribution:</span>
-          {` NGN ${comma(daily_contribution)}`}
-        </p>
-        <p className="cus-details">
-          <span>Address:</span> {address}
-        </p>
-        <p className="cus-details">
-          <span>Joined:</span>
-          {Moment(created_at).format('MMMM DD, LT')}
-        </p>
-        <p className="cus-details">
-          <span>Last Updated:</span>
-          {Moment(updated_at).format('MMMM DD, LT')}
-        </p>
-      </div>
+    <>
+      {loading ? (
+        <Loader />
+      ) : (
+        <div className="containa cus-food-cont">
+          <div className="image-container">
+            <img className="cus-image" src={picture} alt={`${name}`} />
+          </div>
+          <div className="details-container">
+            <h3 className="cus-details">
+              <span>Name:</span> {name}
+            </h3>
+            <p className="cus-details">
+              <span>Phone:</span> {phone}
+            </p>
+            <p className="cus-details">
+              <span>Email:</span> {email}
+            </p>
+            <p className="cus-details">
+              <span>Card No.</span>
+              {regAdmin.data.location_area &&
+                `${regAdmin.data.location_area.slice(0, 3).toUpperCase()}${
+                  regAdmin.data.id
+                }/${aCustomers.data.id}`}
+            </p>
+            <p className="cus-details">
+              <span>Daily Contribution:</span>
+              {` NGN ${comma(daily_contribution)}`}
+            </p>
+            <p className="cus-details">
+              <span>Address:</span> {address}
+            </p>
+            <p className="cus-details">
+              <span>Joined:</span>
+              {Moment(created_at).format('MMMM DD, LT')}
+            </p>
+            <p className="cus-details">
+              <span>Last Updated:</span>
+              {Moment(updated_at).format('MMMM DD, LT')}
+            </p>
+          </div>
 
-      <div className="image-container">
-        <div className="edit">
-          {user.role === 'admin' && (
-            <NavLink to={redirect} style={{ textDecoration: 'none' }}>
-              <i className="fa fa-edit text-red" />
-            </NavLink>
-          )}
-        </div>
-        <div className="allTrans">
-          <NavLink to={allTrans} style={{ textDecoration: 'none' }}>
-            <div>
-              <button type="button" className="view-trans">
-                View transactions
-              </button>
+          <div className="image-container">
+            <div className="edit">
+              {user.role === 'admin' && (
+                <NavLink to={redirect} style={{ textDecoration: 'none' }}>
+                  <i className="fa fa-edit text-red" />
+                </NavLink>
+              )}
             </div>
-          </NavLink>
+            <div className="allTrans">
+              <NavLink to={allTrans} style={{ textDecoration: 'none' }}>
+                <div>
+                  <button type="button" className="view-trans">
+                    View transactions
+                  </button>
+                </div>
+              </NavLink>
+            </div>
+            <div className="myfood">
+              {user.role === 'admin' && (
+                <NavLink to={myfood} style={{ textDecoration: 'none' }}>
+                  <div>
+                    <button type="button" className="view-trans">
+                      My food
+                    </button>
+                  </div>
+                </NavLink>
+              )}
+            </div>
+          </div>
         </div>
-        <div className="myfood">
-          {user.role === 'admin' && (
-            <NavLink to={myfood} style={{ textDecoration: 'none' }}>
-              <div>
-                <button type="button" className="view-trans">
-                  My food
-                </button>
-              </div>
-            </NavLink>
-          )}
-        </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };
 
