@@ -84,6 +84,13 @@ const User = () => {
           </NavLink>
         </div>
         <div className="allTrans">
+          <NavLink to="/users">
+            <button type="button" className="view-trans" onClick={handleDel}>
+              Delete
+            </button>
+          </NavLink>
+        </div>
+        <div className="allTrans">
           <NavLink to={allTrans}>
             <button type="button" className="view-trans">
               View Transactions
