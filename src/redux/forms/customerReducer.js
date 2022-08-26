@@ -3,11 +3,15 @@ import { Navigate } from 'react-router-dom';
 import endpoint from '../../assets/url/url';
 
 // const POST_CUSTOMER = 'src/redux/customerreducer/post_customer'.toUpperCase();
-const FAILED_POST_CUSTOMER = 'src/redux/customerreducer/failed_post_customer'.toUpperCase();
-const FAILED_PATCH_CUSTOMER = 'src/redux/customerreducer/failed_patch_customer'.toUpperCase();
+const FAILED_POST_CUSTOMER =
+  'src/redux/customerreducer/failed_post_customer'.toUpperCase();
+const FAILED_PATCH_CUSTOMER =
+  'src/redux/customerreducer/failed_patch_customer'.toUpperCase();
 const GET_CUSTOMER = 'src/redux/customerreducer/get_customer'.toUpperCase();
-const FAILED_GET_CUSTOMER = 'src/redux/customerreducer/failed_get_customer'.toUpperCase();
-const GET_CUSTOMERS_REQUEST = 'src/redux/customerreducer/get_customer_request'.toUpperCase();
+const FAILED_GET_CUSTOMER =
+  'src/redux/customerreducer/failed_get_customer'.toUpperCase();
+const GET_CUSTOMERS_REQUEST =
+  'src/redux/customerreducer/get_customer_request'.toUpperCase();
 const url = `${endpoint}/customers`;
 const { token } = localStorage;
 
@@ -49,10 +53,10 @@ export const postCustomerToApi = (userData) => async (dispatch) => {
     dispatch(sendCustomerDataFailed(errorMsg));
   } else {
     window.history.pushState({}, '', '/customers');
-      <Navigate to="/customers" />;
-      setTimeout(() => {
-        window.location.reload();
-      }, 3000);
+    <Navigate to="/customers" />;
+    setTimeout(() => {
+      window.location.reload();
+    }, 3000);
   }
 };
 
@@ -64,14 +68,16 @@ export const postUpdateCustomerToApi = (userData) => async (dispatch) => {
     },
   });
 
+  console.log(id);
+
   if (sendData.error || sendData.errors || sendData.rejected) {
     const errorMsg = sendData.error || sendData.errors;
     dispatch(patchCustomerDataFailed(errorMsg));
   } else {
-    window.history.pushState({}, '', `/customers/${id}`);
-    setTimeout(() => {
-      window.location.reload();
-    }, 3000);
+    // window.history.pushState({}, '', `/customers/${id}`);
+    // setTimeout(() => {
+    //   window.location.reload();
+    // }, 3000);
   }
 };
 
@@ -96,7 +102,7 @@ const customerReducer = (
     loading: false,
     error: null,
   },
-  action,
+  action
 ) => {
   switch (action.type) {
     case GET_CUSTOMER:

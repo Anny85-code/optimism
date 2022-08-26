@@ -68,6 +68,10 @@ const Customer = () => {
     return newText;
   };
 
+  const handleDel = function () {
+    console.log(id);
+  };
+
   return (
     <>
       {loading ? (
@@ -140,6 +144,21 @@ const Customer = () => {
                 </NavLink>
               )}
             </div>
+            {/* <div className="myfood">
+              {user.role === 'admin' && (
+                <NavLink to="/customers" style={{ textDecoration: 'none' }}>
+                  <div>
+                    <button
+                      type="button"
+                      className="view-trans"
+                      onClick={handleDel}
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </NavLink>
+              )}
+            </div> */}
           </div>
         </div>
       )}
