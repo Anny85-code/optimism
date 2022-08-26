@@ -42,7 +42,7 @@ export const postMyFoodToApi = (userData) => async (dispatch) => {
       Authorization: `Bearer ${token}`,
     },
   });
-  console.log(userData);
+
   if (sendData.error || sendData.errors || sendData.rejected) {
     const errorMsg = sendData.error || sendData.errors;
     dispatch(sendMyFoodDataFailed(errorMsg));

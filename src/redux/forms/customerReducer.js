@@ -68,16 +68,14 @@ export const postUpdateCustomerToApi = (userData) => async (dispatch) => {
     },
   });
 
-  console.log(id);
-
   if (sendData.error || sendData.errors || sendData.rejected) {
     const errorMsg = sendData.error || sendData.errors;
     dispatch(patchCustomerDataFailed(errorMsg));
   } else {
-    // window.history.pushState({}, '', `/customers/${id}`);
-    // setTimeout(() => {
-    //   window.location.reload();
-    // }, 3000);
+    window.history.pushState({}, '', `/customers/${id}`);
+    setTimeout(() => {
+      window.location.reload();
+    }, 3000);
   }
 };
 
