@@ -47,15 +47,15 @@ export const postMyFoodToApi = (userData) => async (dispatch) => {
     const errorMsg = sendData.error || sendData.errors;
     dispatch(sendMyFoodDataFailed(errorMsg));
   } else {
-    // setTimeout(() => {
-    //   window.history.pushState({}, '', '/customers');
-    //     <Navigate to="/customers" />;
-    //     localStorage.removeItem('updated_customer');
-    //     localStorage.removeItem('myfood');
-    //     localStorage.removeItem('customer');
-    //     localStorage.removeItem('image_str');
-    //     window.location.reload();
-    // }, 3000);
+    setTimeout(() => {
+      window.history.pushState({}, '', '/customers');
+      <Navigate to="/customers" />;
+      localStorage.removeItem('updated_customer');
+      localStorage.removeItem('myfood');
+      localStorage.removeItem('customer');
+      localStorage.removeItem('image_str');
+      window.location.reload();
+    }, 3000);
   }
 };
 
@@ -71,7 +71,7 @@ export const postUpdateMyFoodToApi = (userData) => async (dispatch) => {
     const errorMsg = sendData.error || sendData.errors;
     dispatch(patchMyFoodDataFailed(errorMsg));
   } else {
-    // window.history.pushState({}, '', `/customers/${id}`);
+    window.history.pushState({}, '', `/customers/${id}`);
     // window.location.reload();
   }
 };
