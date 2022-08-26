@@ -22,6 +22,13 @@ const CustomerPreview = () => {
   const id = customer[0]?.id;
   const oldFood = data.filter((food) => food.customer_id === id);
   const oldFoodId = oldFood[0]?.id;
+  const userData = JSON.parse(localStorage.getItem('user'));
+  const { user } = userData || {};
+  const cardNumber = `${user.location_area.slice(0, 3).toUpperCase()}${
+    user.id
+  }/${id}`;
+
+  console.log(cardNumber);
 
   useEffect(() => {
     dispatch(getMyFoodFromApi());
@@ -45,7 +52,10 @@ const CustomerPreview = () => {
     const newCustomer = {
       ...retrievedCustomer,
       daily_contribution: grandTotal,
+      card_number: cardNumber,
+      id,
     };
+    console.log(newCustomer);
     oldFoodId
       ? dispatch(postUpdateMyFoodToApi(newData))
       : dispatch(postMyFoodToApi(data));

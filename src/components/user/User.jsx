@@ -3,7 +3,10 @@ import { NavLink, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 // import '../customer/Customer.css';
 import Moment from 'moment';
-import { getOneUserFromApi } from '../../redux/forms/oneUserManReducer';
+import {
+  delOneUserFromApi,
+  getOneUserFromApi,
+} from '../../redux/forms/oneUserManReducer';
 import './User.css';
 
 const editUrl = (person) => {
@@ -41,6 +44,10 @@ const User = () => {
   } = user.data;
   const redirect = editUrl(user.data);
   const allTrans = transUrl(user.data);
+
+  const handleDel = function () {
+    dispatch(delOneUserFromApi(id));
+  };
 
   return (
     <div className="containa user-container">
@@ -87,6 +94,13 @@ const User = () => {
           <NavLink to={allTrans}>
             <button type="button" className="view-trans">
               View Transactions
+            </button>
+          </NavLink>
+        </div>
+        <div className="allTrans">
+          <NavLink to="/users">
+            <button type="button" className="view-trans" onClick={handleDel}>
+              Delete
             </button>
           </NavLink>
         </div>
