@@ -21,8 +21,8 @@ const Transactions = () => {
   }, []);
 
   const comma = (num) => {
-  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  };
   return (
     <div className="transact-customer-container1">
       <div className="custrans-name1">
@@ -48,10 +48,9 @@ const Transactions = () => {
             borderBottom: '2px solid crimson',
           }}
         ></h3>
-        <h3 className="columns" id="col" style={{ color: 'crimson' }}>
-        </h3>
+        <h3 className="columns" id="col" style={{ color: 'crimson' }}></h3>
       </div>
-      {transactions.data.map((transaction) => {
+      {transactions.data.transactions.map((transaction) => {
         const permitted =
           user.role === 'admin' || transaction.user_id === user.id;
         const aCustomer = {};
@@ -86,7 +85,7 @@ const Transactions = () => {
                 </li>
               </ul>
             </NavLink>
-          )
+          );
         }
       })}
     </div>
