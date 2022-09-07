@@ -190,35 +190,33 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
     </>
   );
 
-   const ContributionSection = (
-     <>
-       <div className="sidebar__link" onClick={toggleDropdownContribution}>
-         <i className="fa fa-gears" />
-         <a href="#">Contribution Management</a>
-         <i
-           className="fa fa-caret-right"
-           // onClick={toggleDropdownTransaction}
-           id="toggle-btn"
-         />
-         <ul
-           className={!dropdownContribution ? 'dropdown-off' : 'dropdown-on'}
-           id="drop-menu"
-         >
-          
-           
-           <li>
-             <NavLink
-               to="/searchcontribution"
-               style={{ textDecoration: 'none' }}
-               onClick={closeSideBar}
-             >
-               Search Contribution
-             </NavLink>
-           </li>
-         </ul>
-       </div>
-     </>
-   );
+  const ContributionSection = (
+    <>
+      <div className="sidebar__link" onClick={toggleDropdownContribution}>
+        <i className="fa fa-gears" />
+        <a href="#">Contribution Management</a>
+        <i
+          className="fa fa-caret-right"
+          // onClick={toggleDropdownTransaction}
+          id="toggle-btn"
+        />
+        <ul
+          className={!dropdownContribution ? 'dropdown-off' : 'dropdown-on'}
+          id="drop-menu"
+        >
+          <li>
+            <NavLink
+              to="/searchcontribution"
+              style={{ textDecoration: 'none' }}
+              onClick={closeSideBar}
+            >
+              Search Contribution
+            </NavLink>
+          </li>
+        </ul>
+      </div>
+    </>
+  );
 
   return (
     <div className={sidebarOpen ? 'sidebar-responsive' : ''} id="sidebar">
@@ -256,7 +254,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
             </div>
             <div className="sidebar__link" onClick={toggleDropdownMarkerter}>
               <i className="fa fa-gears" />
-              <a href="#">Marketer Management</a>
+              <a href="#">Staff Management</a>
               <i className="fa fa-caret-right" id="toggle-btn" />
               <ul
                 className={!dropdownMarketer ? 'dropdown-off' : 'dropdown-on'}
@@ -318,7 +316,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
             </div>
             {seasonSection}
             {ContributionSection}
-        
+
             <h2>PAYMENT</h2>
             <div className="sidebar__link">
               <i className="fa fa-question" />
