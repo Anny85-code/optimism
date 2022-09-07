@@ -16,7 +16,9 @@ const Main = () => {
   const customers = useSelector((state) => state.customer);
   const numOfCustomers = customers.data.length;
   const transactions = useSelector((state) => state.transactions);
-  const numOfTransactions = transactions.data.length;
+  console.log(transactions.data.total, transactions.data.transactions);
+  const numOfTransactions = transactions?.data?.transactions?.length;
+  const totalTransactions = transactions.data.total;
   const users = useSelector((state) => state.userManReducer);
   const marketers = users.data.filter((user) => user.role === 'marketer');
   const numOfMarketers = marketers.length;
@@ -41,7 +43,7 @@ const Main = () => {
           <div className="main__container">
             <div className="main__title">
               <img src={hello} alt="hello logo" />
-            <div className="main__greetings">
+              <div className="main__greetings">
                 <h1>Hello {user.name}</h1>
                 <h4>
                   Welcome to another brand new day {user.name}! Today is {today}
@@ -85,6 +87,15 @@ const Main = () => {
                 <div className="card__inner">
                   <p className="text-primary-p">Number of Products</p>
                   <span className="font-bold text-title">{numOfProducts}</span>
+                </div>
+              </div>
+              <div className="cards">
+                <i className="fa fa-cart-plus fa-2x text-red" />
+                <div className="card__inner">
+                  <p className="text-primary-p">Total Sales</p>
+                  <span className="font-bold text-title">
+                    NGN{totalTransactions}
+                  </span>
                 </div>
               </div>
             </div>
@@ -140,7 +151,8 @@ const Main = () => {
               <div className="main__greetings">
                 <h1>Hello {user.name}</h1>
                 <p>
-                  Welcome to another lovely day {user.name}!<span className="welcome-date">Today is {today}.</span> 
+                  Welcome to another lovely day {user.name}!
+                  <span className="welcome-date">Today is {today}.</span>
                 </p>
                 <h4>As you know, everybody must eat, so Let's talk food!</h4>
               </div>
