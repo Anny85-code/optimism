@@ -19,7 +19,7 @@ const Contribution = () => {
   const season = useSelector((state) => state.oneSeason);
   const seasonData = season.data;
   const { start_date } = seasonData;
-  const myData = customersTransactions.data;
+  const myData = customersTransactions.data.transactions;
   const { cardNumber } = localStorage;
   const lastSeason = seasons.data.length;
   let oneCustomerTransactions = [];
