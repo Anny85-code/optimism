@@ -105,7 +105,9 @@ const CustomerTransacts = () => {
                         <h4
                           className="columns i"
                           style={{ borderRight: '2px solid crimson' }}
-                        ></h4>
+                        >
+                          {transaction.days_paid_for} days
+                        </h4>
                         {user.role === 'admin' && <h4 className="columns"></h4>}
                       </div>
                     </li>
