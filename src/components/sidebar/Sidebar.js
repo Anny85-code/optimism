@@ -310,7 +310,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
         )}
         {user.role === 'supervisor' ? staffSection : null}
         {user.role === 'supervisor' ? null : customerSection}
-        {user.role === 'marketer' ? transactionSection : transactionSection}
+        {user.role === 'supervisor' ? null : transactionSection}
         {user.role === 'admin' && (
           <>
             <div className="sidebar__link" onClick={toggleDropdownProduct}>
