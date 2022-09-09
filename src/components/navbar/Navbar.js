@@ -23,21 +23,43 @@ const Navbar = ({ sideBarOpen, openSideBar }) => {
   const [activeA, setActiveA] = useState(false);
   const [activeB, setActiveB] = useState(false);
   const [activeC, setActiveC] = useState(false);
+  const [activeD, setActiveD] = useState(false);
+  const [activeE, setActiveE] = useState(false);
 
   const handleActiveA = () => {
     setActiveA(true);
     setActiveB(false);
     setActiveC(false);
+    setActiveD(false);
+    setActiveE(false);
   };
   const handleActiveB = () => {
     setActiveA(false);
     setActiveB(true);
     setActiveC(false);
+    setActiveD(false);
+    setActiveE(false);
   };
   const handleActiveC = () => {
     setActiveA(false);
     setActiveB(false);
     setActiveC(true);
+    setActiveD(false);
+    setActiveE(false);
+  };
+  const handleActiveD = () => {
+    setActiveA(false);
+    setActiveB(false);
+    setActiveC(false);
+    setActiveD(true);
+    setActiveE(false);
+  };
+  const handleActiveE = () => {
+    setActiveA(false);
+    setActiveB(false);
+    setActiveC(false);
+    setActiveD(false);
+    setActiveE(true);
   };
 
   const openSearch = () => {
@@ -65,7 +87,21 @@ const Navbar = ({ sideBarOpen, openSideBar }) => {
               onClick={handleActiveB}
               className={activeB ? 'active_link' : ''}
             >
-              Staff
+              Admins
+            </NavLink>
+            <NavLink
+              to="/users"
+              onClick={handleActiveD}
+              className={activeD ? 'active_link' : ''}
+            >
+              Supervisors
+            </NavLink>
+            <NavLink
+              to="/users"
+              onClick={handleActiveE}
+              className={activeE ? 'active_link' : ''}
+            >
+              Marketers
             </NavLink>
             <NavLink
               to="/"
