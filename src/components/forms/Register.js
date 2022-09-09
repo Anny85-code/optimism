@@ -29,6 +29,7 @@ const Register = () => {
       avatar: picture,
       role: select.toLocaleLowerCase(),
       location_area: locationArea,
+      user_id: user.id,
     };
     dispatch(registerUserToApi(userPostData));
   };
