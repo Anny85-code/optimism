@@ -8,18 +8,17 @@ const { user } = data || {};
 
 /* eslint-disable */
 const Navbar = ({ sideBarOpen, openSideBar }) => {
+  const isLoggedIn = localStorage.getItem('isLoggedIn');
+  const dispatch = useDispatch();
 
-    const isLoggedIn = localStorage.getItem('isLoggedIn');
-    const dispatch = useDispatch();
-
-    const handleLogout = () => {
-      localStorage.removeItem('user');
-      localStorage.removeItem('token');
-      localStorage.removeItem('isLoggedIn');
-      dispatch({ type: 'LOGGED_OUT' });
-      window.history.pushState({}, '', '/');
-      window.location.reload();
-    };
+  const handleLogout = () => {
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
+    localStorage.removeItem('isLoggedIn');
+    dispatch({ type: 'LOGGED_OUT' });
+    window.history.pushState({}, '', '/');
+    window.location.reload();
+  };
 
   const [activeA, setActiveA] = useState(false);
   const [activeB, setActiveB] = useState(false);
@@ -66,14 +65,14 @@ const Navbar = ({ sideBarOpen, openSideBar }) => {
               onClick={handleActiveB}
               className={activeB ? 'active_link' : ''}
             >
-              Users
+              Staff
             </NavLink>
             <NavLink
               to="/"
               onClick={handleActiveC}
               className={activeC ? 'active_link' : ''}
             >
-              Admin
+              Dashboard
             </NavLink>
           </>
         ) : (
