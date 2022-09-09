@@ -16,10 +16,12 @@ const Users = () => {
     <div>
       {allUsers.data.map((user) => (
         <NavLink key={user.id} to={`/users/${user.id}`}>
-          <div className="customer-container">
-            <h3>{user.name}</h3>
-            <p>{user.phone}</p>
-          </div>
+          {user.role === 'admin' && (
+            <div className="customer-container">
+              <h3>{user.name}</h3>
+              <p>{user.phone}</p>
+            </div>
+          )}
         </NavLink>
       ))}
     </div>
