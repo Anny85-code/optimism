@@ -221,7 +221,11 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
   const staffSection = (
     <div className="sidebar__link" onClick={toggleDropdownMarkerter}>
       <i className="fa fa-gears" />
-      <a href="#">Staff Management</a>
+      <a href="#">
+        {user.role === 'supervisor'
+          ? 'Marketer Management'
+          : 'Staff Management'}
+      </a>
       <i className="fa fa-caret-right" id="toggle-btn" />
       <ul
         className={!dropdownMarketer ? 'dropdown-off' : 'dropdown-on'}
