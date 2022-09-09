@@ -218,6 +218,55 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
     </>
   );
 
+  const staffSection = (
+    <div className="sidebar__link" onClick={toggleDropdownMarkerter}>
+      <i className="fa fa-gears" />
+      <a href="#">Staff Management</a>
+      <i className="fa fa-caret-right" id="toggle-btn" />
+      <ul
+        className={!dropdownMarketer ? 'dropdown-off' : 'dropdown-on'}
+        id="drop-menu"
+      >
+        <li>
+          <NavLink
+            to="/register"
+            style={{ textDecoration: 'none' }}
+            onClick={closeSideBar}
+          >
+            Add New Staff
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/users"
+            style={{ textDecoration: 'none' }}
+            onClick={closeSideBar}
+          >
+            View All Admins
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/userssupervisors"
+            style={{ textDecoration: 'none' }}
+            onClick={closeSideBar}
+          >
+            View All Supervisors
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/usersmarketers"
+            style={{ textDecoration: 'none' }}
+            onClick={closeSideBar}
+          >
+            View All Marketers
+          </NavLink>
+        </li>
+      </ul>
+    </div>
+  );
+
   return (
     <div className={sidebarOpen ? 'sidebar-responsive' : ''} id="sidebar">
       <div className="sidebar__title">
@@ -252,54 +301,10 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
               <i className="fa fa-gears" />
               <a href="#">Employee Management</a>
             </div>
-            <div className="sidebar__link" onClick={toggleDropdownMarkerter}>
-              <i className="fa fa-gears" />
-              <a href="#">Staff Management</a>
-              <i className="fa fa-caret-right" id="toggle-btn" />
-              <ul
-                className={!dropdownMarketer ? 'dropdown-off' : 'dropdown-on'}
-                id="drop-menu"
-              >
-                <li>
-                  <NavLink
-                    to="/register"
-                    style={{ textDecoration: 'none' }}
-                    onClick={closeSideBar}
-                  >
-                    Add New Staff
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to="/users"
-                    style={{ textDecoration: 'none' }}
-                    onClick={closeSideBar}
-                  >
-                    View All Admins
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to="/userssupervisors"
-                    style={{ textDecoration: 'none' }}
-                    onClick={closeSideBar}
-                  >
-                    View All Supervisors
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to="/usersmarketers"
-                    style={{ textDecoration: 'none' }}
-                    onClick={closeSideBar}
-                  >
-                    View All Marketers
-                  </NavLink>
-                </li>
-              </ul>
-            </div>
+            {staffSection}
           </>
         )}
+        {user.role === 'supervisor' ? staffSection : null}
         {user.role === 'marketer' ? customerSection : customerSection}
         {user.role === 'marketer' ? transactionSection : transactionSection}
         {user.role === 'admin' && (
