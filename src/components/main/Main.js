@@ -133,7 +133,7 @@ const Main = () => {
 
                   <div className="card3 cd">
                     <h1 className="h-card">Users</h1>
-                    <p>12,678</p>
+                    <p>{users.data.length}</p>
                   </div>
 
                   <div className="card4 cd">
