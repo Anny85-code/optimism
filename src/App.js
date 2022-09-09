@@ -89,6 +89,10 @@ const App = () => {
                   path="/userssupervisors"
                   element={<UsersSupervisors />}
                 />
+                <Route
+                  path="/userssupervisors"
+                  element={<UsersSupervisors />}
+                />
                 <Route path="/users/:id" element={<User />} />
                 <Route path="/products/:id/edit" element={<EditProduct />} />
                 <Route path="/users/:id/edit" element={<EditUser />} />
