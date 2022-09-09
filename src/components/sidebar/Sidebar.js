@@ -275,7 +275,25 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
                     style={{ textDecoration: 'none' }}
                     onClick={closeSideBar}
                   >
-                    View All Staff
+                    View All Admins
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/userssupervisors"
+                    style={{ textDecoration: 'none' }}
+                    onClick={closeSideBar}
+                  >
+                    View All Supervisors
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/usersmarketers"
+                    style={{ textDecoration: 'none' }}
+                    onClick={closeSideBar}
+                  >
+                    View All Marketers
                   </NavLink>
                 </li>
               </ul>
