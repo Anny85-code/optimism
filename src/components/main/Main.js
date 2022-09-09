@@ -22,6 +22,8 @@ const Main = () => {
   const users = useSelector((state) => state.userManReducer);
   const marketers = users.data.filter((user) => user.role === 'marketer');
   const numOfMarketers = marketers.length;
+  const supervisors = users.data.filter((user) => user.role === 'supervisor');
+  const numOfSupervisors = supervisors.length;
   const admins = users.data.filter((user) => user.role === 'admin');
   const numOfAdmins = admins.length;
   const products = useSelector((state) => state.item);
@@ -90,11 +92,11 @@ const Main = () => {
                 </div>
               </div>
               <div className="cards">
-                <i className="fa fa-cart-plus fa-2x text-red" />
+                <i className="fa fa-user-o fa-2x text-green" />
                 <div className="card__inner">
-                  <p className="text-primary-p">Total Sales</p>
+                  <p className="text-primary-p">Number of Supervisors</p>
                   <span className="font-bold text-title">
-                    NGN{totalTransactions}
+                    {numOfSupervisors}
                   </span>
                 </div>
               </div>
@@ -126,7 +128,7 @@ const Main = () => {
 
                   <div className="card2 cd">
                     <h1 className="h-card">Sales</h1>
-                    <p>$516,678</p>
+                    <p>NGN{totalTransactions}</p>
                   </div>
 
                   <div className="card3 cd">
