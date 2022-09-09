@@ -16,7 +16,6 @@ import UsersSupervisors from './components/user/UsersSupervisors';
 import User from './components/user/User';
 import EditUser from './components/user/EditUser';
 import EditProduct from './components/items/products/EditProduct';
-// import AddItemCustomer from './components/addCostumer/addItemCustomer/AddItemCustomer';
 import AddProduct from './components/items/products/AddProducts';
 import ViewItems from './components/items/ViewItems';
 import Search from './components/search/Search';
@@ -64,7 +63,6 @@ const App = () => {
             <Route path="/customers" element={<Customers />} />
             <Route path="/customers/:id" element={<Customer />} />
             <Route path="/addcustomer" element={<AddCustomer />} />
-            {/* <Route path="/additemcustomer" element={<AddItemCustomer />} /> */}
             <Route path="/addtransaction" element={<AddTransaction />} />
             <Route path="/contribution" element={<Contribution />} />
             <Route path="/transactions" element={<Transactions />} />
@@ -81,7 +79,7 @@ const App = () => {
               element={<SearchContribution />}
             />
             <Route path="/customerpreview" element={<CustomerPreview />} />
-            {user.role === 'admin' && (
+            {user.role !== 'marketer' && (
               <>
                 <Route path="/register" element={<Register />} />
                 <Route path="/customers/:id/edit" element={<EditCustomer />} />

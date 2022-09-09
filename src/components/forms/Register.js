@@ -10,6 +10,8 @@ const Register = () => {
   const { error } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const [select, setSelect] = useState('PLEASE SELECT ...');
+  const data = JSON.parse(localStorage.getItem('user'));
+  const { user } = data || {};
 
   const onchange = (e) => {
     setState({
@@ -45,7 +47,11 @@ const Register = () => {
         <div className="column mt-5">
           <div className="d-flex justify-content-center align-items-center flex-column shadow-lg rounded w-50 mx-auto p-5">
             <div className="inner-container">
-              <h3 className="title">Register A Marketer</h3>
+              <h3 className="title">
+                {user.role === 'supervisor'
+                  ? 'Register A Marketer'
+                  : 'Staff Registration'}
+              </h3>
             </div>
             <br />
             {error ? (
@@ -192,9 +198,13 @@ const Register = () => {
                     <option defaultValue="PLEASE SELECT ...">
                       PLEASE SELECT ...
                     </option>
-                    <option value="Admin">Admin</option>
                     <option value="Marketer">Marketer</option>
-                    <option value="Supervisor">Supervisor</option>
+                    {user.role === 'supervisor' ? null : (
+                      <>
+                        <option value="Supervisor">Supervisor</option>
+                        <option value="Admin">Admin</option>
+                      </>
+                    )}
                   </select>
                 </label>
               </div>
