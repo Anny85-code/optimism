@@ -35,6 +35,7 @@ import UserTransacts from './components/user/UserTransacts';
 import MyFoods from './components/myfood/MyFoods';
 import CustomerPreview from './components/addCostumer/CustomerPreview';
 import { ItemsStats } from './components/items/products/ItemsStats';
+import UsersMarketers from './components/user/UsersMarketers';
 
 const App = () => {
   const [sideBarOpen, setSideBarOpen] = useState(false);
@@ -89,10 +90,7 @@ const App = () => {
                   path="/userssupervisors"
                   element={<UsersSupervisors />}
                 />
-                <Route
-                  path="/userssupervisors"
-                  element={<UsersSupervisors />}
-                />
+                <Route path="/usersmarketers" element={<UsersMarketers />} />
                 <Route path="/users/:id" element={<User />} />
                 <Route path="/products/:id/edit" element={<EditProduct />} />
                 <Route path="/users/:id/edit" element={<EditUser />} />

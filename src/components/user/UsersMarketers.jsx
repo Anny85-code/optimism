@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 // import '../customer/Customer.css';
 import { getUsersFromApi } from '../../redux/forms/userManReducer';
 
-const UsersSupervisors = () => {
+const UsersMarketers = () => {
   const dispatch = useDispatch();
   const allUsers = useSelector((state) => state.userManReducer);
 
@@ -28,4 +28,4 @@ const UsersSupervisors = () => {
   );
 };
 
-export default UsersSupervisors;
+export default UsersMarketers;
