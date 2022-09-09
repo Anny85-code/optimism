@@ -16,7 +16,6 @@ const Main = () => {
   const customers = useSelector((state) => state.customer);
   const numOfCustomers = customers.data.length;
   const transactions = useSelector((state) => state.transactions);
-  console.log(transactions.data.total, transactions.data.transactions);
   const numOfTransactions = transactions?.data?.transactions?.length;
   const totalTransactions = transactions.data.total;
   const users = useSelector((state) => state.userManReducer);
