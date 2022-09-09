@@ -309,7 +309,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
           </>
         )}
         {user.role === 'supervisor' ? staffSection : null}
-        {user.role === 'marketer' ? customerSection : customerSection}
+        {user.role === 'supervisor' ? null : customerSection}
         {user.role === 'marketer' ? transactionSection : transactionSection}
         {user.role === 'admin' && (
           <>
