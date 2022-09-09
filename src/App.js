@@ -12,6 +12,7 @@ import Sidebar from './components/sidebar/Sidebar';
 import Splash from './components/splash/Splash';
 import EditCustomer from './components/customer/EditCustomer';
 import Users from './components/user/Users';
+import UsersSupervisors from './components/user/UsersSupervisors';
 import User from './components/user/User';
 import EditUser from './components/user/EditUser';
 import EditProduct from './components/items/products/EditProduct';
@@ -84,6 +85,7 @@ const App = () => {
                 <Route path="/register" element={<Register />} />
                 <Route path="/customers/:id/edit" element={<EditCustomer />} />
                 <Route path="/users" element={<Users />} />
+                <Route path="/userssupervisor" element={<UsersSupervisors />} />
                 <Route path="/users/:id" element={<User />} />
                 <Route path="/products/:id/edit" element={<EditProduct />} />
                 <Route path="/users/:id/edit" element={<EditUser />} />
