@@ -90,7 +90,7 @@ const Navbar = ({ sideBarOpen, openSideBar }) => {
               Admins
             </NavLink>
             <NavLink
-              to="/users"
+              to="/userssupervisors"
               onClick={handleActiveD}
               className={activeD ? 'active_link' : ''}
             >
