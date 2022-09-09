@@ -73,13 +73,24 @@ const Navbar = ({ sideBarOpen, openSideBar }) => {
       </div>
 
       <div className="navbar__left">
-        <NavLink
-          to="/customers"
-          onClick={handleActiveA}
-          className={activeA ? 'active_link' : ''}
-        >
-          Customers
-        </NavLink>
+        {user.role === 'supervisor' ? null : (
+          <NavLink
+            to="/customers"
+            onClick={handleActiveA}
+            className={activeA ? 'active_link' : ''}
+          >
+            Customers
+          </NavLink>
+        )}
+        {user.role === 'marketer' ? null : (
+          <NavLink
+            to="/usersmarketers"
+            onClick={handleActiveE}
+            className={activeE ? 'active_link' : ''}
+          >
+            Marketers
+          </NavLink>
+        )}
         {user.role === 'admin' ? (
           <>
             <NavLink
@@ -95,13 +106,6 @@ const Navbar = ({ sideBarOpen, openSideBar }) => {
               className={activeD ? 'active_link' : ''}
             >
               Supervisors
-            </NavLink>
-            <NavLink
-              to="/usersmarketers"
-              onClick={handleActiveE}
-              className={activeE ? 'active_link' : ''}
-            >
-              Marketers
             </NavLink>
             <NavLink
               to="/"
