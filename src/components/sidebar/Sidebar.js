@@ -233,27 +233,31 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
             style={{ textDecoration: 'none' }}
             onClick={closeSideBar}
           >
-            Add New Staff
+            {user.role === 'supervisor' ? 'Add New Marketer' : 'Add New Staff'}
           </NavLink>
         </li>
-        <li>
-          <NavLink
-            to="/users"
-            style={{ textDecoration: 'none' }}
-            onClick={closeSideBar}
-          >
-            View All Admins
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/userssupervisors"
-            style={{ textDecoration: 'none' }}
-            onClick={closeSideBar}
-          >
-            View All Supervisors
-          </NavLink>
-        </li>
+        {user.role === 'admin' ? (
+          <>
+            <li>
+              <NavLink
+                to="/users"
+                style={{ textDecoration: 'none' }}
+                onClick={closeSideBar}
+              >
+                View All Admins
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/userssupervisors"
+                style={{ textDecoration: 'none' }}
+                onClick={closeSideBar}
+              >
+                View All Supervisors
+              </NavLink>
+            </li>
+          </>
+        ) : null}
         <li>
           <NavLink
             to="/usersmarketers"
