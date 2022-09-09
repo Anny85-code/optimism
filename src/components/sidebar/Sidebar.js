@@ -266,7 +266,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
                     style={{ textDecoration: 'none' }}
                     onClick={closeSideBar}
                   >
-                    Add New Marketer
+                    Add New Staff
                   </NavLink>
                 </li>
                 <li>
@@ -275,7 +275,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
                     style={{ textDecoration: 'none' }}
                     onClick={closeSideBar}
                   >
-                    View All Marketers
+                    View All Staff
                   </NavLink>
                 </li>
               </ul>
