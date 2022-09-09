@@ -16,7 +16,7 @@ const UsersSupervisors = () => {
     <div>
       {allUsers.data.map((user) => (
         <NavLink key={user.id} to={`/users/${user.id}`}>
-          {user.role === 'supervisor' && (
+          {user.role === 'marketer' && (
             <div className="customer-container">
               <h3>{user.name}</h3>
               <p>{user.phone}</p>
