@@ -8,15 +8,17 @@ import { getUsersFromApi } from '../../redux/forms/userManReducer';
 
 const Customers = () => {
   const dispatch = useDispatch();
-  const allCustomers = useSelector((state) => state.customer);
+  const allCustomers = useSelector((state) => state.customer?.data);
   const allUsers = useSelector((state) => state.userManReducer?.data);
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
   const marketer = allUsers.filter((users) => users.id === user.id);
   const marketerId = marketer[0]?.id;
-  const marketerCustomer = allCustomers.data.filter(
+  const marketerCustomer = allCustomers.filter(
     (customer) => user.id === customer.user_id
   );
+
+  console.log(allCustomers, allUsers);
 
   useEffect(() => {
     dispatch(getCustomerFromApi());
@@ -49,17 +51,17 @@ const Customers = () => {
           }}
         ></h3>
         <h3 className="columns" id="col" style={{ color: 'crimson' }}>
-          {user.role === 'admin' && allCustomers.data.length}
+          {user.role === 'admin' && allCustomers.length}
           {user.role === 'marketer' && marketerCustomer.length}
         </h3>
       </div>
 
-      {allCustomers.data.map((customer) => {
+      {allCustomers.map((customer) => {
         const permitted =
           user.role === 'admin' ||
           user.role === 'superadmin' ||
           customer.user_id === user.id ||
-          customer.user_id === marketerId;
+          customer.id === marketerId;
 
         if (permitted)
           return (
