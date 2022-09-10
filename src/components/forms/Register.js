@@ -199,12 +199,14 @@ const Register = () => {
                     <option defaultValue="PLEASE SELECT ...">
                       PLEASE SELECT ...
                     </option>
-                    <option value="Marketer">Marketer</option>
-                    {user.role === 'supervisor' ? null : (
-                      <>
-                        <option value="Supervisor">Supervisor</option>
-                        <option value="Admin">Admin</option>
-                      </>
+                    {user.role === 'superadmin' && (
+                      <option value="Admin">Admin</option>
+                    )}
+                    {user.role === 'admin' && (
+                      <option value="Supervisor">Supervisor</option>
+                    )}
+                    {user.role === 'supervisor' && (
+                      <option value="Marketer">Marketer</option>
                     )}
                   </select>
                 </label>

@@ -6,9 +6,10 @@ import { getUsersFromApi } from '../../redux/forms/userManReducer';
 /* eslint-disable */
 const UsersMarketers = () => {
   const dispatch = useDispatch();
-  const allUsers = useSelector((state) => state.userManReducer);
+  const allUsers = useSelector((state) => state.userManReducer?.data);
   const data = JSON.parse(localStorage.getItem('user'));
   const userr = data.user || {};
+  console.log(allUsers);
 
   useEffect(() => {
     dispatch(getUsersFromApi());
@@ -16,17 +17,22 @@ const UsersMarketers = () => {
 
   return (
     <div>
-      {allUsers.data.map((user) => {
-        const permitted = userr.role === 'admin' || userr.user_id === user.id;
-        permitted && (
-          <NavLink key={user.id} to={`/users/${user.id}`}>
-            {user.role === 'marketer' && (
-              <div className="customer-container">
-                <h3>{user.name}</h3>
-                <p>{user.phone}</p>
-              </div>
-            )}
-          </NavLink>
+      {allUsers.map((user) => {
+        const permitted =
+          userr.role === 'admin' ||
+          userr.role === 'superadmin' ||
+          user.user_id === userr.id;
+        return (
+          permitted && (
+            <NavLink key={user.id} to={`/users/${user.id}`}>
+              {user.role === 'marketer' && (
+                <div className="customer-container">
+                  <h3>{user.name}</h3>
+                  <p>{user.phone}</p>
+                </div>
+              )}
+            </NavLink>
+          )
         );
       })}
     </div>
