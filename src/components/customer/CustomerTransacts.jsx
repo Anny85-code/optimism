@@ -29,17 +29,21 @@ const CustomerTransacts = () => {
       {trans ? (
         <>
           {trans.length <= 0 ? (
-            <>
+            user.role === 'supervisor' ? (
               <p className="no-trans">No transactions yet!</p>
-              <button type="button" className="no-trans-btn">
-                <NavLink
-                  to="/addtransaction"
-                  style={{ textDecoration: 'none' }}
-                >
-                  Add New Transaction
-                </NavLink>
-              </button>
-            </>
+            ) : (
+              <>
+                <p className="no-trans">No transactions yet!</p>
+                <button type="button" className="no-trans-btn">
+                  <NavLink
+                    to="/addtransaction"
+                    style={{ textDecoration: 'none' }}
+                  >
+                    Add New Transaction
+                  </NavLink>
+                </button>
+              </>
+            )
           ) : (
             <>
               <div className="custrans-name">
