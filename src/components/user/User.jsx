@@ -1,7 +1,7 @@
+/* eslint-disable */
 import React, { useEffect } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-// import '../customer/Customer.css';
 import Moment from 'moment';
 import {
   delOneUserFromApi,
@@ -29,7 +29,6 @@ const User = () => {
     dispatch(getOneUserFromApi(id));
   }, []);
 
-  /* eslint-disable */
   const {
     name,
     username,
@@ -94,6 +93,13 @@ const User = () => {
           <NavLink to={allTrans}>
             <button type="button" className="view-trans">
               View Transactions
+            </button>
+          </NavLink>
+        </div>
+        <div className="allTrans">
+          <NavLink to="/customers">
+            <button type="button" className="view-trans">
+              My Customers
             </button>
           </NavLink>
         </div>
