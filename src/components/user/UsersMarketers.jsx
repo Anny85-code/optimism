@@ -9,7 +9,6 @@ const UsersMarketers = () => {
   const allUsers = useSelector((state) => state.userManReducer?.data);
   const data = JSON.parse(localStorage.getItem('user'));
   const userr = data.user || {};
-  console.log(allUsers);
 
   useEffect(() => {
     dispatch(getUsersFromApi());
