@@ -26,7 +26,8 @@ const User = () => {
   const user = useSelector((state) => state.oneUser);
   const data = JSON.parse(localStorage.getItem('user'));
   const loggedUser = data.user || {};
-  const permitted = loggedUser === 'superadmin' || loggedUser === 'admin';
+  const permitted =
+    loggedUser.role === 'superadmin' || loggedUser.role === 'admin';
 
   useEffect(() => {
     dispatch(getOneUserFromApi(id));
