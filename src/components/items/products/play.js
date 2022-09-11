@@ -48,7 +48,7 @@ const result = Object.entries(
     }
 
     return { ...acc, [car]: [value] };
-  }, [])
+  }, []),
 ).map(([car, values]) => ({ car, values }));
 
 console.log(result);
