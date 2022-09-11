@@ -30,7 +30,7 @@ const Transactions = () => {
   return (
     <div className="transact-customer-container1">
       {transactions ? (
-        transactions.map((el) => (
+        transactions.map((_) => (
           <div className="transact-customer-container1">
             <div className="custrans-name1">
               <h4 className="columns">
