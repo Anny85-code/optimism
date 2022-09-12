@@ -14,9 +14,14 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
   const dispatch = useDispatch();
 
   const handleLogout = () => {
-    localStorage.removeItem('user');
-    localStorage.removeItem('token');
-    localStorage.removeItem('isLoggedIn');
+    // localStorage.removeItem('user');
+    // localStorage.removeItem('token');
+    // localStorage.removeItem('isLoggedIn');
+    // localStorage.removeItem('customer');
+    // localStorage.removeItem('image_str');
+    // localStorage.removeItem('cardNumber');
+    // localStorage.removeItem('tasks:');
+    localStorage.clear();
     dispatch({ type: 'LOGGED_OUT' });
     window.history.pushState({}, '', '/');
     window.location.reload();
