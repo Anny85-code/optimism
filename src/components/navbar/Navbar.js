@@ -91,15 +91,17 @@ const Navbar = ({ sideBarOpen, openSideBar }) => {
             Marketers
           </NavLink>
         )}
+        {user.role === 'superadmin' && (
+          <NavLink
+            to="/users"
+            onClick={handleActiveB}
+            className={activeB ? 'active_link' : ''}
+          >
+            Admins
+          </NavLink>
+        )}
         {user.role === 'admin' ? (
           <>
-            <NavLink
-              to="/users"
-              onClick={handleActiveB}
-              className={activeB ? 'active_link' : ''}
-            >
-              Admins
-            </NavLink>
             <NavLink
               to="/userssupervisors"
               onClick={handleActiveD}
