@@ -7,8 +7,11 @@ import './ImageUpload.css';
 const ImageUpload = () => {
   const [selectedImages, setSelectedImages] = useState([]);
   const [imageData, setImageData] = useState('');
+  const li = 'https://asset.cloudinary.com/dpuwic8rw/';
+  const nk = 'db7ff6ac7cce2020caa0d063bdf0e662';
+  const link = li + nk;
 
-  localStorage.setItem('image_str', imageData.secure_url);
+  localStorage.setItem('image_str', imageData.secure_url ?? link);
   const uploadImage = (e) => {
     e.preventDefault();
     const formData = new FormData();
