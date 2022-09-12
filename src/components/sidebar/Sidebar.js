@@ -218,6 +218,8 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
     </>
   );
 
+  const admins = user.role === 'admin' || user.role === 'superadmin';
+
   const staffSection = (
     <div className="sidebar__link" onClick={toggleDropdownMarkerter}>
       <i className="fa fa-gears" />
@@ -240,7 +242,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
             {user.role === 'supervisor' ? 'Add New Marketer' : 'Add New Staff'}
           </NavLink>
         </li>
-        {user.role === 'admin' ? (
+        {admins ? (
           <>
             <li>
               <NavLink
@@ -294,7 +296,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
             Dashboard
           </NavLink>
         </div>
-        {user.role === 'admin' && (
+        {admins && (
           <>
             <h2>MNG</h2>
             <div className="sidebar__link">
@@ -315,7 +317,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
         {user.role === 'supervisor' ? staffSection : null}
         {user.role === 'supervisor' ? null : customerSection}
         {user.role === 'supervisor' ? null : transactionSection}
-        {user.role === 'admin' && (
+        {admins && (
           <>
             <div className="sidebar__link" onClick={toggleDropdownProduct}>
               <i className="fa fa-gears" />
