@@ -66,6 +66,8 @@ const Navbar = ({ sideBarOpen, openSideBar }) => {
     document.getElementById('search-container1').style.display = 'block';
   };
 
+  const admins = user.role === 'admin' || user.role === 'superadmin';
+
   return (
     <nav className="navbar">
       <div className="nav-icon" onClick={() => openSideBar()}>
@@ -100,7 +102,7 @@ const Navbar = ({ sideBarOpen, openSideBar }) => {
             Admins
           </NavLink>
         )}
-        {user.role === 'admin' ? (
+        {admins ? (
           <>
             <NavLink
               to="/userssupervisors"
