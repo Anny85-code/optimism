@@ -1,7 +1,7 @@
+/* eslint-disable */
 import React, { useEffect } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-// import '../customer/Customer.css';
 import Moment from 'moment';
 import {
   delOneUserFromApi,
@@ -24,12 +24,15 @@ const User = () => {
   const param = useParams();
   const { id } = param;
   const user = useSelector((state) => state.oneUser);
+  const data = JSON.parse(localStorage.getItem('user'));
+  const loggedUser = data.user || {};
+  const permitted =
+    loggedUser.role === 'superadmin' || loggedUser.role === 'admin';
 
   useEffect(() => {
     dispatch(getOneUserFromApi(id));
   }, []);
 
-  /* eslint-disable */
   const {
     name,
     username,
@@ -85,25 +88,40 @@ const User = () => {
         </p>
       </div>
       <div className="btns-container">
-        <div className="edit">
-          <NavLink to={redirect}>
-            <i className="fa fa-edit text-red" />
-          </NavLink>
-        </div>
+        {permitted && (
+          <>
+            <div className="edit">
+              <NavLink to={redirect}>
+                <i className="fa fa-edit text-red" />
+              </NavLink>
+            </div>
+            <div className="allTrans">
+              <NavLink to={allTrans}>
+                <button type="button" className="view-trans">
+                  View Transactions
+                </button>
+              </NavLink>
+            </div>
+          </>
+        )}
         <div className="allTrans">
-          <NavLink to={allTrans}>
+          <NavLink to="/customers">
             <button type="button" className="view-trans">
-              View Transactions
+              My Customers
             </button>
           </NavLink>
         </div>
-        <div className="allTrans">
-          <NavLink to="/users">
-            <button type="button" className="view-trans" onClick={handleDel}>
-              Delete
-            </button>
-          </NavLink>
-        </div>
+        {permitted && (
+          <div className="allTrans">
+            <NavLink to={redirect.slice(0, -5)}>
+              {' '}
+              {/*This code is a placeholder for when we implement the delete user action in the backend*/}
+              <button type="button" className="view-trans" onClick={handleDel}>
+                Delete
+              </button>
+            </NavLink>
+          </div>
+        )}
       </div>
     </div>
   );

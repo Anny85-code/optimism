@@ -19,14 +19,14 @@ const Contribution = () => {
   const season = useSelector((state) => state.oneSeason);
   const seasonData = season.data;
   const { start_date } = seasonData;
-  const myData = customersTransactions.data;
+  const myData = customersTransactions.data.transactions;
   const { cardNumber } = localStorage;
   const lastSeason = seasons.data.length;
   let oneCustomerTransactions = [];
   const [go, setGo] = useState(false);
   const dispatch = useDispatch();
 
-  myData.map((trans) => {
+  myData?.map((trans) => {
     if (trans.customer_id === +cardNumber) {
       oneCustomerTransactions.push(trans);
     }

@@ -3,20 +3,26 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCustomerFromApi } from '../../redux/forms/customerReducer';
 import './Customers.css';
+import { getUsersFromApi } from '../../redux/forms/userManReducer';
 /* eslint-disable */
 
 const Customers = () => {
   const dispatch = useDispatch();
-  const allCustomers = useSelector((state) => state.customer);
+  const allCustomers = useSelector((state) => state.customer?.data);
+  const allUsers = useSelector((state) => state.userManReducer?.data);
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
-  const marketerCustomer = allCustomers.data.filter(
+  const marketer = allUsers.filter((users) => users.id === user.id);
+  const marketerId = marketer[0]?.id;
+  const marketerCustomer = allCustomers.filter(
     (customer) => user.id === customer.user_id
   );
 
   useEffect(() => {
     dispatch(getCustomerFromApi());
+    dispatch(getUsersFromApi());
   }, []);
+
   return (
     <div className="transact-customer-container1">
       <div className="custrans-name1">
@@ -43,13 +49,18 @@ const Customers = () => {
           }}
         ></h3>
         <h3 className="columns" id="col" style={{ color: 'crimson' }}>
-          {user.role === 'admin' && allCustomers.data.length}
+          {user.role === 'admin' && allCustomers.length}
           {user.role === 'marketer' && marketerCustomer.length}
         </h3>
       </div>
 
-      {allCustomers.data.map((customer) => {
-        const permitted = user.role === 'admin' || customer.user_id === user.id;
+      {allCustomers.map((customer) => {
+        const permitted =
+          user.role === 'admin' ||
+          user.role === 'superadmin' ||
+          customer.user_id === user.id ||
+          customer.id === marketerId;
+
         if (permitted)
           return (
             <NavLink key={customer.id} to={`/customers/${customer.id}`}>

@@ -28,8 +28,6 @@ const CustomerPreview = () => {
     user.id
   }/${id}`;
 
-  console.log(cardNumber);
-
   useEffect(() => {
     dispatch(getMyFoodFromApi());
   }, []);
@@ -55,7 +53,7 @@ const CustomerPreview = () => {
       card_number: cardNumber,
       id,
     };
-    console.log(newCustomer);
+
     oldFoodId
       ? dispatch(postUpdateMyFoodToApi(newData))
       : dispatch(postMyFoodToApi(data));

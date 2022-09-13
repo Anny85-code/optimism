@@ -14,9 +14,14 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
   const dispatch = useDispatch();
 
   const handleLogout = () => {
-    localStorage.removeItem('user');
-    localStorage.removeItem('token');
-    localStorage.removeItem('isLoggedIn');
+    // localStorage.removeItem('user');
+    // localStorage.removeItem('token');
+    // localStorage.removeItem('isLoggedIn');
+    // localStorage.removeItem('customer');
+    // localStorage.removeItem('image_str');
+    // localStorage.removeItem('cardNumber');
+    // localStorage.removeItem('tasks:');
+    localStorage.clear();
     dispatch({ type: 'LOGGED_OUT' });
     window.history.pushState({}, '', '/');
     window.location.reload();
@@ -190,35 +195,92 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
     </>
   );
 
-   const ContributionSection = (
-     <>
-       <div className="sidebar__link" onClick={toggleDropdownContribution}>
-         <i className="fa fa-gears" />
-         <a href="#">Contribution Management</a>
-         <i
-           className="fa fa-caret-right"
-           // onClick={toggleDropdownTransaction}
-           id="toggle-btn"
-         />
-         <ul
-           className={!dropdownContribution ? 'dropdown-off' : 'dropdown-on'}
-           id="drop-menu"
-         >
-          
-           
-           <li>
-             <NavLink
-               to="/searchcontribution"
-               style={{ textDecoration: 'none' }}
-               onClick={closeSideBar}
-             >
-               Search Contribution
-             </NavLink>
-           </li>
-         </ul>
-       </div>
-     </>
-   );
+  const ContributionSection = (
+    <>
+      <div className="sidebar__link" onClick={toggleDropdownContribution}>
+        <i className="fa fa-gears" />
+        <a href="#">Contribution Management</a>
+        <i
+          className="fa fa-caret-right"
+          // onClick={toggleDropdownTransaction}
+          id="toggle-btn"
+        />
+        <ul
+          className={!dropdownContribution ? 'dropdown-off' : 'dropdown-on'}
+          id="drop-menu"
+        >
+          <li>
+            <NavLink
+              to="/searchcontribution"
+              style={{ textDecoration: 'none' }}
+              onClick={closeSideBar}
+            >
+              Search Contribution
+            </NavLink>
+          </li>
+        </ul>
+      </div>
+    </>
+  );
+
+  const admins = user.role === 'admin' || user.role === 'superadmin';
+
+  const staffSection = (
+    <div className="sidebar__link" onClick={toggleDropdownMarkerter}>
+      <i className="fa fa-gears" />
+      <a href="#">
+        {user.role === 'supervisor'
+          ? 'Marketer Management'
+          : 'Staff Management'}
+      </a>
+      <i className="fa fa-caret-right" id="toggle-btn" />
+      <ul
+        className={!dropdownMarketer ? 'dropdown-off' : 'dropdown-on'}
+        id="drop-menu"
+      >
+        <li>
+          <NavLink
+            to="/register"
+            style={{ textDecoration: 'none' }}
+            onClick={closeSideBar}
+          >
+            {user.role === 'supervisor' ? 'Add New Marketer' : 'Add New Staff'}
+          </NavLink>
+        </li>
+        {admins ? (
+          <>
+            <li>
+              <NavLink
+                to="/users"
+                style={{ textDecoration: 'none' }}
+                onClick={closeSideBar}
+              >
+                View All Admins
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/userssupervisors"
+                style={{ textDecoration: 'none' }}
+                onClick={closeSideBar}
+              >
+                View All Supervisors
+              </NavLink>
+            </li>
+          </>
+        ) : null}
+        <li>
+          <NavLink
+            to="/usersmarketers"
+            style={{ textDecoration: 'none' }}
+            onClick={closeSideBar}
+          >
+            View All Marketers
+          </NavLink>
+        </li>
+      </ul>
+    </div>
+  );
 
   return (
     <div className={sidebarOpen ? 'sidebar-responsive' : ''} id="sidebar">
@@ -239,7 +301,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
             Dashboard
           </NavLink>
         </div>
-        {user.role === 'admin' && (
+        {admins && (
           <>
             <h2>MNG</h2>
             <div className="sidebar__link">
@@ -254,39 +316,13 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
               <i className="fa fa-gears" />
               <a href="#">Employee Management</a>
             </div>
-            <div className="sidebar__link" onClick={toggleDropdownMarkerter}>
-              <i className="fa fa-gears" />
-              <a href="#">Marketer Management</a>
-              <i className="fa fa-caret-right" id="toggle-btn" />
-              <ul
-                className={!dropdownMarketer ? 'dropdown-off' : 'dropdown-on'}
-                id="drop-menu"
-              >
-                <li>
-                  <NavLink
-                    to="/register"
-                    style={{ textDecoration: 'none' }}
-                    onClick={closeSideBar}
-                  >
-                    Add New Marketer
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to="/users"
-                    style={{ textDecoration: 'none' }}
-                    onClick={closeSideBar}
-                  >
-                    View All Marketers
-                  </NavLink>
-                </li>
-              </ul>
-            </div>
+            {staffSection}
           </>
         )}
-        {user.role === 'marketer' ? customerSection : customerSection}
-        {user.role === 'marketer' ? transactionSection : transactionSection}
-        {user.role === 'admin' && (
+        {user.role === 'supervisor' ? staffSection : null}
+        {user.role === 'supervisor' ? null : customerSection}
+        {user.role === 'supervisor' ? null : transactionSection}
+        {admins && (
           <>
             <div className="sidebar__link" onClick={toggleDropdownProduct}>
               <i className="fa fa-gears" />
@@ -318,7 +354,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
             </div>
             {seasonSection}
             {ContributionSection}
-        
+
             <h2>PAYMENT</h2>
             <div className="sidebar__link">
               <i className="fa fa-question" />

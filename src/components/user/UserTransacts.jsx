@@ -15,6 +15,8 @@ const UserTransacts = () => {
   const transactions = useSelector((state) => state.userTransacts);
   const { data } = transactions;
   const { trans, user_name, total } = data || {};
+  const info = JSON.parse(localStorage.getItem('user'));
+  const { user } = info || {};
   const [sDate, setSDate] = useState(new Date());
   const [filtaTrans, setFiltaTrans] = useState([]);
   const [filtaTotal, setFiltaTotal] = useState(0);
@@ -36,8 +38,8 @@ const UserTransacts = () => {
   };
 
   const comma = (num) => {
-  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  };
 
   return (
     <div className="cust-tansact-container1">
@@ -77,14 +79,16 @@ const UserTransacts = () => {
             {trans.length <= 0 ? (
               <>
                 <p className="no-trans">No transactions yet!</p>
-                <button type="button" className="no-trans-btn">
-                  <NavLink
-                    to="/addtransaction"
-                    style={{ textDecoration: 'none' }}
-                  >
-                    Add New Transaction
-                  </NavLink>
-                </button>
+                {user.role === 'supervisor' ? null : (
+                  <button type="button" className="no-trans-btn">
+                    <NavLink
+                      to="/addtransaction"
+                      style={{ textDecoration: 'none' }}
+                    >
+                      Add New Transaction
+                    </NavLink>
+                  </button>
+                )}
               </>
             ) : (
               <>

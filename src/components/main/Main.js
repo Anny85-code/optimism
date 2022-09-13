@@ -8,24 +8,28 @@ import { getTransactionFromApi } from '../../redux/forms/transactionReducer';
 import { getUsersFromApi } from '../../redux/forms/userManReducer';
 import { getItemFromApi } from '../../redux/forms/getItemsReducer';
 
-const data = JSON.parse(localStorage.getItem('user'));
-const { user } = data || {};
 /* eslint-disable */
 const Main = () => {
   const dispatch = useDispatch();
   const customers = useSelector((state) => state.customer);
   const numOfCustomers = customers.data.length;
   const transactions = useSelector((state) => state.transactions);
-  const numOfTransactions = transactions.data.length;
+  const numOfTransactions = transactions?.data?.transactions?.length;
+  const totalTransactions = transactions.data.total;
   const users = useSelector((state) => state.userManReducer);
   const marketers = users.data.filter((user) => user.role === 'marketer');
   const numOfMarketers = marketers.length;
-  const admins = users.data.filter((user) => user.role === 'admin');
-  const numOfAdmins = admins.length;
+  const supervisors = users.data.filter((user) => user.role === 'supervisor');
+  const numOfSupervisors = supervisors.length;
+  const _admins = users.data.filter((user) => user.role === 'admin');
+  const numOfAdmins = _admins.length;
   const products = useSelector((state) => state.item);
   const numOfProducts = products.data.length;
   const date = new Date();
   const today = date.toDateString();
+  const data = JSON.parse(localStorage.getItem('user'));
+  const { user } = data || {};
+  const admins = user.role === 'admin' || user.role === 'superadmin';
 
   useEffect(() => {
     dispatch(getCustomerFromApi());
@@ -36,12 +40,12 @@ const Main = () => {
 
   return (
     <>
-      {user.role === 'admin' ? (
+      {admins ? (
         <main>
           <div className="main__container">
             <div className="main__title">
               <img src={hello} alt="hello logo" />
-            <div className="main__greetings">
+              <div className="main__greetings">
                 <h1>Hello {user.name}</h1>
                 <h4>
                   Welcome to another brand new day {user.name}! Today is {today}
@@ -87,6 +91,15 @@ const Main = () => {
                   <span className="font-bold text-title">{numOfProducts}</span>
                 </div>
               </div>
+              <div className="cards">
+                <i className="fa fa-user-o fa-2x text-green" />
+                <div className="card__inner">
+                  <p className="text-primary-p">Number of Supervisors</p>
+                  <span className="font-bold text-title">
+                    {numOfSupervisors}
+                  </span>
+                </div>
+              </div>
             </div>
             <div className="charts">
               <div className="charts__left">
@@ -115,12 +128,12 @@ const Main = () => {
 
                   <div className="card2 cd">
                     <h1 className="h-card">Sales</h1>
-                    <p>$516,678</p>
+                    <p>NGN{totalTransactions}</p>
                   </div>
 
                   <div className="card3 cd">
                     <h1 className="h-card">Users</h1>
-                    <p>12,678</p>
+                    <p>{users.data.length}</p>
                   </div>
 
                   <div className="card4 cd">
@@ -140,7 +153,8 @@ const Main = () => {
               <div className="main__greetings">
                 <h1>Hello {user.name}</h1>
                 <p>
-                  Welcome to another lovely day {user.name}!<span className="welcome-date">Today is {today}.</span> 
+                  Welcome to another lovely day {user.name}!
+                  <span className="welcome-date">Today is {today}.</span>
                 </p>
                 <h4>As you know, everybody must eat, so Let's talk food!</h4>
               </div>

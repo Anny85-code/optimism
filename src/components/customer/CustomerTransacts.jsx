@@ -29,17 +29,21 @@ const CustomerTransacts = () => {
       {trans ? (
         <>
           {trans.length <= 0 ? (
-            <>
+            user.role === 'supervisor' ? (
               <p className="no-trans">No transactions yet!</p>
-              <button type="button" className="no-trans-btn">
-                <NavLink
-                  to="/addtransaction"
-                  style={{ textDecoration: 'none' }}
-                >
-                  Add New Transaction
-                </NavLink>
-              </button>
-            </>
+            ) : (
+              <>
+                <p className="no-trans">No transactions yet!</p>
+                <button type="button" className="no-trans-btn">
+                  <NavLink
+                    to="/addtransaction"
+                    style={{ textDecoration: 'none' }}
+                  >
+                    Add New Transaction
+                  </NavLink>
+                </button>
+              </>
+            )
           ) : (
             <>
               <div className="custrans-name">
@@ -105,7 +109,9 @@ const CustomerTransacts = () => {
                         <h4
                           className="columns i"
                           style={{ borderRight: '2px solid crimson' }}
-                        ></h4>
+                        >
+                          {transaction.days_paid_for} days
+                        </h4>
                         {user.role === 'admin' && <h4 className="columns"></h4>}
                       </div>
                     </li>

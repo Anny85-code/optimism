@@ -8,42 +8,65 @@ const { user } = data || {};
 
 /* eslint-disable */
 const Navbar = ({ sideBarOpen, openSideBar }) => {
+  const isLoggedIn = localStorage.getItem('isLoggedIn');
+  const dispatch = useDispatch();
 
-    const isLoggedIn = localStorage.getItem('isLoggedIn');
-    const dispatch = useDispatch();
-
-    const handleLogout = () => {
-      localStorage.removeItem('user');
-      localStorage.removeItem('token');
-      localStorage.removeItem('isLoggedIn');
-      dispatch({ type: 'LOGGED_OUT' });
-      window.history.pushState({}, '', '/');
-      window.location.reload();
-    };
+  const handleLogout = () => {
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
+    localStorage.removeItem('isLoggedIn');
+    dispatch({ type: 'LOGGED_OUT' });
+    window.history.pushState({}, '', '/');
+    window.location.reload();
+  };
 
   const [activeA, setActiveA] = useState(false);
   const [activeB, setActiveB] = useState(false);
   const [activeC, setActiveC] = useState(false);
+  const [activeD, setActiveD] = useState(false);
+  const [activeE, setActiveE] = useState(false);
 
   const handleActiveA = () => {
     setActiveA(true);
     setActiveB(false);
     setActiveC(false);
+    setActiveD(false);
+    setActiveE(false);
   };
   const handleActiveB = () => {
     setActiveA(false);
     setActiveB(true);
     setActiveC(false);
+    setActiveD(false);
+    setActiveE(false);
   };
   const handleActiveC = () => {
     setActiveA(false);
     setActiveB(false);
     setActiveC(true);
+    setActiveD(false);
+    setActiveE(false);
+  };
+  const handleActiveD = () => {
+    setActiveA(false);
+    setActiveB(false);
+    setActiveC(false);
+    setActiveD(true);
+    setActiveE(false);
+  };
+  const handleActiveE = () => {
+    setActiveA(false);
+    setActiveB(false);
+    setActiveC(false);
+    setActiveD(false);
+    setActiveE(true);
   };
 
   const openSearch = () => {
     document.getElementById('search-container1').style.display = 'block';
   };
+
+  const admins = user.role === 'admin' || user.role === 'superadmin';
 
   return (
     <nav className="navbar">
@@ -52,28 +75,48 @@ const Navbar = ({ sideBarOpen, openSideBar }) => {
       </div>
 
       <div className="navbar__left">
-        <NavLink
-          to="/customers"
-          onClick={handleActiveA}
-          className={activeA ? 'active_link' : ''}
-        >
-          Customers
-        </NavLink>
-        {user.role === 'admin' ? (
+        {user.role === 'supervisor' ? null : (
+          <NavLink
+            to="/customers"
+            onClick={handleActiveA}
+            className={activeA ? 'active_link' : ''}
+          >
+            Customers
+          </NavLink>
+        )}
+        {user.role === 'marketer' ? null : (
+          <NavLink
+            to="/usersmarketers"
+            onClick={handleActiveE}
+            className={activeE ? 'active_link' : ''}
+          >
+            Marketers
+          </NavLink>
+        )}
+        {user.role === 'superadmin' && (
+          <NavLink
+            to="/users"
+            onClick={handleActiveB}
+            className={activeB ? 'active_link' : ''}
+          >
+            Admins
+          </NavLink>
+        )}
+        {admins ? (
           <>
             <NavLink
-              to="/users"
-              onClick={handleActiveB}
-              className={activeB ? 'active_link' : ''}
+              to="/userssupervisors"
+              onClick={handleActiveD}
+              className={activeD ? 'active_link' : ''}
             >
-              Users
+              Supervisors
             </NavLink>
             <NavLink
               to="/"
               onClick={handleActiveC}
               className={activeC ? 'active_link' : ''}
             >
-              Admin
+              Dashboard
             </NavLink>
           </>
         ) : (

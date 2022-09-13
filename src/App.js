@@ -12,10 +12,10 @@ import Sidebar from './components/sidebar/Sidebar';
 import Splash from './components/splash/Splash';
 import EditCustomer from './components/customer/EditCustomer';
 import Users from './components/user/Users';
+import UsersSupervisors from './components/user/UsersSupervisors';
 import User from './components/user/User';
 import EditUser from './components/user/EditUser';
 import EditProduct from './components/items/products/EditProduct';
-// import AddItemCustomer from './components/addCostumer/addItemCustomer/AddItemCustomer';
 import AddProduct from './components/items/products/AddProducts';
 import ViewItems from './components/items/ViewItems';
 import Search from './components/search/Search';
@@ -33,6 +33,8 @@ import Product from './components/items/products/Product';
 import UserTransacts from './components/user/UserTransacts';
 import MyFoods from './components/myfood/MyFoods';
 import CustomerPreview from './components/addCostumer/CustomerPreview';
+import { ItemsStats } from './components/items/products/ItemsStats';
+import UsersMarketers from './components/user/UsersMarketers';
 
 const App = () => {
   const [sideBarOpen, setSideBarOpen] = useState(false);
@@ -61,7 +63,6 @@ const App = () => {
             <Route path="/customers" element={<Customers />} />
             <Route path="/customers/:id" element={<Customer />} />
             <Route path="/addcustomer" element={<AddCustomer />} />
-            {/* <Route path="/additemcustomer" element={<AddItemCustomer />} /> */}
             <Route path="/addtransaction" element={<AddTransaction />} />
             <Route path="/contribution" element={<Contribution />} />
             <Route path="/transactions" element={<Transactions />} />
@@ -78,11 +79,16 @@ const App = () => {
               element={<SearchContribution />}
             />
             <Route path="/customerpreview" element={<CustomerPreview />} />
-            {user.role === 'admin' && (
+            {user.role !== 'marketer' && (
               <>
                 <Route path="/register" element={<Register />} />
                 <Route path="/customers/:id/edit" element={<EditCustomer />} />
                 <Route path="/users" element={<Users />} />
+                <Route
+                  path="/userssupervisors"
+                  element={<UsersSupervisors />}
+                />
+                <Route path="/usersmarketers" element={<UsersMarketers />} />
                 <Route path="/users/:id" element={<User />} />
                 <Route path="/products/:id/edit" element={<EditProduct />} />
                 <Route path="/users/:id/edit" element={<EditUser />} />
@@ -96,6 +102,7 @@ const App = () => {
                 <Route path="/seasons" element={<Seasons />} />
                 <Route path="/season/:id" element={<Season />} />
                 <Route path="/products/:id" element={<Product />} />
+                <Route path="/itemsstats" element={<ItemsStats />} />
               </>
             )}
           </Routes>

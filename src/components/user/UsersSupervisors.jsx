@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 // import '../customer/Customer.css';
 import { getUsersFromApi } from '../../redux/forms/userManReducer';
 
-const Users = () => {
+const UsersSupervisors = () => {
   const dispatch = useDispatch();
   const allUsers = useSelector((state) => state.userManReducer);
 
@@ -16,7 +16,7 @@ const Users = () => {
     <div>
       {allUsers.data.map((user) => (
         <NavLink key={user.id} to={`/users/${user.id}`}>
-          {user.role === 'admin' && (
+          {user.role === 'supervisor' && (
             <div className="customer-container">
               <h3>{user.name}</h3>
               <p>{user.phone}</p>
@@ -28,4 +28,4 @@ const Users = () => {
   );
 };
 
-export default Users;
+export default UsersSupervisors;
