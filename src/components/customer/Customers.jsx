@@ -18,8 +18,6 @@ const Customers = () => {
     (customer) => user.id === customer.user_id
   );
 
-  console.log(allCustomers, allUsers);
-
   useEffect(() => {
     dispatch(getCustomerFromApi());
     dispatch(getUsersFromApi());
