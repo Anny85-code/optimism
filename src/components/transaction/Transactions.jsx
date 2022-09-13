@@ -29,7 +29,6 @@ const Transactions = () => {
   };
   return (
     <div className="transact-customer-container1">
-      <div className="transact-customer-container1">
         <div className="custrans-name1">
           <h4 className="columns">
             <span className="cus-name1">Customer's Name</span>
@@ -94,7 +93,6 @@ const Transactions = () => {
               );
             }
           })}
-      </div>
     </div>
   );
 };
