@@ -26,7 +26,7 @@ const Contribution = () => {
   const [go, setGo] = useState(false);
   const dispatch = useDispatch();
 
-  myData.map((trans) => {
+  myData?.map((trans) => {
     if (trans.customer_id === +cardNumber) {
       oneCustomerTransactions.push(trans);
     }
