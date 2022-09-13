@@ -126,20 +126,24 @@ const Main = () => {
                     <p>$56,678</p>
                   </div>
 
-                  <div className="card2 cd">
-                    <h1 className="h-card">Sales</h1>
-                    <p>NGN{totalTransactions}</p>
-                  </div>
+                  {user.role === 'superadmin' && (
+                    <>
+                      <div className="card2 cd">
+                        <h1 className="h-card">Sales</h1>
+                        <p>NGN{totalTransactions}</p>
+                      </div>
 
-                  <div className="card3 cd">
-                    <h1 className="h-card">Users</h1>
-                    <p>{users.data.length}</p>
-                  </div>
+                      <div className="card3 cd">
+                        <h1 className="h-card">Users</h1>
+                        <p>{users.data.length}</p>
+                      </div>
 
-                  <div className="card4 cd">
-                    <h1 className="h-card">Orders</h1>
-                    <p>56,678</p>
-                  </div>
+                      <div className="card4 cd">
+                        <h1 className="h-card">Orders</h1>
+                        <p>56,678</p>
+                      </div>
+                    </>
+                  )}
                 </div>
               </div>
             </div>
