@@ -118,6 +118,49 @@ const CustomerTransacts = () => {
                   </ul>
                 </NavLink>
               ))}
+              <div className="custrans-name">
+                <h4 className="columns">
+                  <span className="cus-name1"></span>
+                </h4>
+                <h4 className="columns i"></h4>
+                <h4 className="columns i"></h4>
+                <h4 className="columns i" id="a">
+                </h4>
+                {user.role === 'admin' && (
+                  <h4 className="columns">
+                    <span className="cus-name1 ">Total amount contributed</span>
+                  </h4>
+                )}
+              </div>
+
+              <div className="custrans-name">
+                <h3 className="columns" id="col">
+                  <p className="custransactname"></p>
+                </h3>
+                <h6
+                  className="columns i"
+                  style={{ borderBottom: '2px solid crimson' }}
+                ></h6>
+                <h6
+                  className="columns i"
+                  style={{ borderBottom: '2px solid crimson' }}
+                ></h6>
+                <h3
+                  className="columns i"
+                  id="col"
+                  style={{
+                    borderRight: '2px solid crimson',
+                    borderBottom: '2px solid crimson',
+                    color: 'crimson',
+                  }}
+                >
+                </h3>
+                {user.role === 'admin' && (
+                  <h3 className="columns" id="col" style={{ color: 'crimson' }}>
+                    {` NGN ${comma(total)}`}
+                  </h3>
+                )}
+              </div>
             </>
           )}
         </>
