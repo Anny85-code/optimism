@@ -8,8 +8,6 @@ import { getTransactionFromApi } from '../../redux/forms/transactionReducer';
 import { getUsersFromApi } from '../../redux/forms/userManReducer';
 import { getItemFromApi } from '../../redux/forms/getItemsReducer';
 
-const data = JSON.parse(localStorage.getItem('user'));
-const { user } = data || {};
 /* eslint-disable */
 const Main = () => {
   const dispatch = useDispatch();
@@ -23,12 +21,15 @@ const Main = () => {
   const numOfMarketers = marketers.length;
   const supervisors = users.data.filter((user) => user.role === 'supervisor');
   const numOfSupervisors = supervisors.length;
-  const admins = users.data.filter((user) => user.role === 'admin');
-  const numOfAdmins = admins.length;
+  const _admins = users.data.filter((user) => user.role === 'admin');
+  const numOfAdmins = _admins.length;
   const products = useSelector((state) => state.item);
   const numOfProducts = products.data.length;
   const date = new Date();
   const today = date.toDateString();
+  const data = JSON.parse(localStorage.getItem('user'));
+  const { user } = data || {};
+  const admins = user.role === 'admin' || user.role === 'superadmin';
 
   useEffect(() => {
     dispatch(getCustomerFromApi());
@@ -39,7 +40,7 @@ const Main = () => {
 
   return (
     <>
-      {user.role === 'admin' ? (
+      {admins ? (
         <main>
           <div className="main__container">
             <div className="main__title">
