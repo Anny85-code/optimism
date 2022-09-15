@@ -113,7 +113,8 @@ const User = () => {
         </div>
         {permitted && (
           <div className="allTrans">
-            <NavLink to={redirect.slice(0, -5)}>
+            {/* <NavLink to={redirect.slice(0, -5)}> */}
+            <NavLink to="/users">
               {' '}
               {/*This code is a placeholder for when we implement the delete user action in the backend*/}
               <button type="button" className="view-trans" onClick={handleDel}>

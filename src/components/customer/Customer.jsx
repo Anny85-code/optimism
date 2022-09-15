@@ -4,7 +4,10 @@ import { NavLink, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Moment from 'moment';
 import './Customer.css';
-import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
+import {
+  delOneCustomerFromApi,
+  getOneCustomerFromApi,
+} from '../../redux/forms/OneCustomerReducer';
 import { getOneUserFromApi } from '../../redux/forms/oneUserManReducer';
 import Loader from '../loader/Loader';
 
@@ -70,7 +73,7 @@ const Customer = () => {
   };
 
   const handleDel = function () {
-    console.log(id);
+    dispatch(delOneCustomerFromApi(id));
   };
 
   return (
