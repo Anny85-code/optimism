@@ -62,7 +62,7 @@ const Register = () => {
                 ) : (
                   error.map((errorItem) => (
                     <div key={errorItem}>
-                      <p>{errorItem}</p>
+                      <center style={{ color: 'red' }}>{errorItem}</center>
                     </div>
                   ))
                 )}
