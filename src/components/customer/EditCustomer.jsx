@@ -39,11 +39,11 @@ const EditCustomer = () => {
   };
 
   const getCustomer = () => {
-    const user = JSON.parse(localStorage.getItem('user'));
-    const { id } = user.user;
+    // const user = JSON.parse(localStorage.getItem('user'));
+    // const { id } = user.user;
     const customer = {
       id: customerId,
-      user_id: id,
+      // user_id: id,
       name,
       email,
       phone,
