@@ -55,7 +55,7 @@ const Contribution = () => {
 
   const handleDays = (e) => {
     const input = +e.target.value;
-    if (input > 0) {
+    if (input >= 0) {
       setDaysNo(input);
       setGo(input > 0);
     }

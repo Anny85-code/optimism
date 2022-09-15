@@ -8,21 +8,31 @@ import './AddTransaction.css';
 
 /* eslint-disable */
 
+const customerEx = (cardNumber, data) => {
+  const ids = [];
+  const len = data.filter((cus) => {
+    ids.push(cus.id);
+    return cardNumber === cus.id;
+  });
+  const highest = ids.sort().pop();
+  console.log('max', highest, len);
+  return len.length > 0 && cardNumber <= highest;
+};
+
 const AddTransaction = () => {
   const [cardNumber, setCardNumber] = useState(0);
   const error = document.getElementById('error');
   const [status, setStatus] = useState(false);
   const dispatch = useDispatch();
   const customers = useSelector((state) => state.customer);
-  const customerExists = cardNumber > 0 && cardNumber <= customers.data.length;
+  const customerExists =
+    cardNumber > 0 && customerEx(cardNumber, customers.data);
+  // const customaExists = customerEx(cardNumber, customers.data);
+  // const customerExists = customaExists;
+  // console.log(customerExists);
 
   const getInput = (e) => {
     const input = e.target.value;
-    if (input.length > 5) {
-      setStatus(true);
-    } else {
-      setStatus(false);
-    }
     const extractCustomerId = input.split('/')[1];
     if (extractCustomerId) {
       if (extractCustomerId.match(/[a-zA-Z]$/)) {
@@ -37,6 +47,8 @@ const AddTransaction = () => {
         setCardNumber(intId);
       }
     }
+    input.length > 5 ? setStatus(true) : setStatus(false);
+    return input.length;
   };
 
   const handleReset = () => {
