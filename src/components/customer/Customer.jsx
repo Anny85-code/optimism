@@ -122,7 +122,7 @@ const Customer = () => {
 
           <div className="image-container">
             <div className="edit">
-              {user.role === 'admin' && (
+              {admins && (
                 <NavLink to={redirect} style={{ textDecoration: 'none' }}>
                   <i className="fa fa-edit text-red" />
                 </NavLink>
@@ -138,7 +138,7 @@ const Customer = () => {
               </NavLink>
             </div>
             <div className="myfood">
-              {user.role === 'admin' && (
+              {admins && (
                 <NavLink to={myfood} style={{ textDecoration: 'none' }}>
                   <div>
                     <button type="button" className="view-trans">

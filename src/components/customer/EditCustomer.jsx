@@ -54,6 +54,8 @@ const EditCustomer = () => {
     return customer;
   };
 
+  console.log(getCustomer());
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setPicture(localStorage.getItem('image_str'));
