@@ -39,6 +39,7 @@ const Customer = () => {
   const regAdmin = useSelector((state) => state.oneUser);
   const adminNo = aCustomers?.data?.user_id;
   const { loading } = regAdmin;
+  const admins = user.role === 'admin' || user.role === 'superadmin';
 
   useEffect(() => {
     dispatch(getOneCustomerFromApi(id));
@@ -144,8 +145,8 @@ const Customer = () => {
                 </NavLink>
               )}
             </div>
-            {/* <div className="myfood">
-              {user.role === 'admin' && (
+            <div className="myfood">
+              {admins && (
                 <NavLink to="/customers" style={{ textDecoration: 'none' }}>
                   <div>
                     <button
@@ -158,7 +159,7 @@ const Customer = () => {
                   </div>
                 </NavLink>
               )}
-            </div> */}
+            </div>
           </div>
         </div>
       )}
