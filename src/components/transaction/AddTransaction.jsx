@@ -15,7 +15,6 @@ const customerEx = (cardNumber, data) => {
     return cardNumber === cus.id;
   });
   const highest = ids.sort().pop();
-  console.log('max', highest, len);
   return len.length > 0 && cardNumber <= highest;
 };
 
@@ -27,9 +26,6 @@ const AddTransaction = () => {
   const customers = useSelector((state) => state.customer);
   const customerExists =
     cardNumber > 0 && customerEx(cardNumber, customers.data);
-  // const customaExists = customerEx(cardNumber, customers.data);
-  // const customerExists = customaExists;
-  // console.log(customerExists);
 
   const getInput = (e) => {
     const input = e.target.value;
@@ -48,7 +44,6 @@ const AddTransaction = () => {
       }
     }
     input.length > 5 ? setStatus(true) : setStatus(false);
-    return input.length;
   };
 
   const handleReset = () => {

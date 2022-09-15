@@ -32,60 +32,56 @@
 // // console.log(Object.keys(ui));
 // console.log(obj);
 
-// const arr = [
-//   {
-//     car: 'audi',
-//     value: 5,
-//   },
-//   {
-//     car: 'audi',
-//     value: 7,
-//   },
-//   {
-//     car: 'fiat',
-//     value: 2,
-//   },
-//   {
-//     car: 'fiat',
-//     value: 8,
-//   },
-//   {
-//     car: 'benz',
-//     value: 4,
-//   },
-//   {
-//     car: 'Toyota',
-//     value: 8,
-//   },
-//   {
-//     car: 'benz',
-//     value: 8,
-//   },
-//   {
-//     car: 'Toyota',
-//     value: 5,
-//   },
-// ];
+const arr = [
+  {
+    car: 'audi',
+    value: 5,
+  },
+  {
+    car: 'audi',
+    value: 7,
+  },
+  {
+    car: 'fiat',
+    value: 2,
+  },
+  {
+    car: 'fiat',
+    value: 8,
+  },
+  {
+    car: 'benz',
+    value: 4,
+  },
+  {
+    car: 'Toyota',
+    value: 8,
+  },
+  {
+    car: 'benz',
+    value: 8,
+  },
+  {
+    car: 'Toyota',
+    value: 5,
+  },
+];
 
-// const result = Object.entries(
-//   arr.reduce((acc, { car, value }) => {
-//     if (acc[car]) {
-//       return {
-//         ...acc,
-//         [car]: [...acc[car], value],
-//       };
-//     }
+const result = Object.entries(
+  arr.reduce((acc, { car, value }) => {
+    if (acc[car]) {
+      return {
+        ...acc,
+        [car]: [...acc[car], value],
+      };
+    }
 
-//     return { ...acc, [car]: [value] };
-//   }, [])
-// );
+    return { ...acc, [car]: [value] };
+  }, [])
+);
 // .map(([car, values]) => {
 //   const total = values.reduce((a, b) => a + b);
 //   return { car, values, total };
 // });
 
-// console.log(result);
-
-const ids = [52, 4, 7, 1, -45, 72];
-
-console.log(ids.sort().pop());
+console.log(result);
