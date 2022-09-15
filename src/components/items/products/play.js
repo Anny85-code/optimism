@@ -77,7 +77,7 @@ const result = Object.entries(
     }
 
     return { ...acc, [car]: [value] };
-  }, [])
+  }, []),
 );
 // .map(([car, values]) => {
 //   const total = values.reduce((a, b) => a + b);
