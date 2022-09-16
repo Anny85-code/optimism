@@ -151,7 +151,7 @@ const Customer = () => {
             <div className="myfood">
               {admins && (
                 <NavLink to="/customers" style={{ textDecoration: 'none' }}>
-                  <div>
+                  <div className="del">
                     <button
                       type="button"
                       className="view-trans"
