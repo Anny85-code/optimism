@@ -17,6 +17,7 @@ const Customers = () => {
   const marketerCustomer = allCustomers.filter(
     (customer) => user.id === customer.user_id
   );
+  const admins = user.role === 'admin' || user.role === 'superadmin';
 
   useEffect(() => {
     dispatch(getCustomerFromApi());
@@ -49,17 +50,14 @@ const Customers = () => {
           }}
         ></h3>
         <h3 className="columns" id="col" style={{ color: 'crimson' }}>
-          {user.role === 'admin' && allCustomers.length}
+          {admins && allCustomers.length}
           {user.role === 'marketer' && marketerCustomer.length}
         </h3>
       </div>
 
       {allCustomers.map((customer) => {
         const permitted =
-          user.role === 'admin' ||
-          user.role === 'superadmin' ||
-          customer.user_id === user.id ||
-          customer.id === marketerId;
+          admins || customer.user_id === user.id || customer.id === marketerId;
 
         if (permitted)
           return (
