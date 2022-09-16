@@ -6,14 +6,25 @@ import { getMyFoodFromApi } from '../../../redux/forms/myFoodReducer';
 export const ItemsStats = () => {
   const dispatch = useDispatch();
   const foods = useSelector((state) => state.myFood?.data);
-  const iii = foods.map((customer) => {
-    const myFoods = Object.values(JSON.parse(customer.items));
-    return myFoods.map((food) => {
-      return [food.name, food.qauntity];
+  const array = [];
+
+  foods.map(({ items }) => {
+    const itema = JSON.parse(items);
+    const ab = Object.values(itema);
+    ab.map((el) => {
+      const { id, name, qauntity } = el;
+      array.push({ id, name, qauntity });
     });
   });
 
-  console.log(iii);
+  const ans = Object.values(
+    array.reduce((obj, item) => {
+      obj[item.id]
+        ? (obj[item.id].qauntity += item.qauntity)
+        : (obj[item.id] = item);
+      return obj;
+    }, {})
+  );
 
   useEffect(() => {
     dispatch(getMyFoodFromApi());
@@ -21,32 +32,13 @@ export const ItemsStats = () => {
 
   return (
     <div>
-      {foods.map((eachCustomer) => {
-        // if key exists?
-        // value += current value
-        // else
-        // create a new key with the current value
-        const myFoods = Object.values(JSON.parse(eachCustomer.items));
-        // myFoods.map((food) => {
-        //   if (summary[food.name]) {
-        //     summary[food.name] += food.qauntity;
-        //   } else {
-        //     summary[food.name] = food.qauntity;
-        //   }
-        // });
-        return (
-          <div key={eachCustomer.id}>
-            <p>{eachCustomer.id}</p>
-            {myFoods.map((food) => (
-              <div key={food.id}>
-                <p>
-                  {food.name} **** {food.qauntity}{' '}
-                </p>
-              </div>
-            ))}
-          </div>
-        );
-      })}
+      {ans.map((food, i) => (
+        <div key={food.id}>
+          <p>
+            {i + 1}***{`${food.name} - ${food.id}`}---{}---{food.qauntity}
+          </p>
+        </div>
+      ))}
     </div>
   );
   /* eslint-enable */
