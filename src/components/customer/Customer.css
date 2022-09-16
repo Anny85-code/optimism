@@ -16,6 +16,10 @@
   margin: 1.25rem 1.25rem 1.25rem 5rem;
 }
 
+.del {
+  margin-top: 20px;
+}
+
 .details-container {
   margin: 0 1.25rem 1.25rem 1.25rem;
   padding: 0 0.9375rem 0.9375rem 0.9375rem;
