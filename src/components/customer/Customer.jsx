@@ -4,7 +4,10 @@ import { NavLink, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Moment from 'moment';
 import './Customer.css';
-import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
+import {
+  delOneCustomerFromApi,
+  getOneCustomerFromApi,
+} from '../../redux/forms/OneCustomerReducer';
 import { getOneUserFromApi } from '../../redux/forms/oneUserManReducer';
 import Loader from '../loader/Loader';
 
@@ -39,6 +42,7 @@ const Customer = () => {
   const regAdmin = useSelector((state) => state.oneUser);
   const adminNo = aCustomers?.data?.user_id;
   const { loading } = regAdmin;
+  const admins = user.role === 'admin' || user.role === 'superadmin';
 
   useEffect(() => {
     dispatch(getOneCustomerFromApi(id));
@@ -69,7 +73,7 @@ const Customer = () => {
   };
 
   const handleDel = function () {
-    console.log(id);
+    dispatch(delOneCustomerFromApi(id));
   };
 
   return (
@@ -144,8 +148,8 @@ const Customer = () => {
                 </NavLink>
               )}
             </div>
-            {/* <div className="myfood">
-              {user.role === 'admin' && (
+            <div className="myfood">
+              {admins && (
                 <NavLink to="/customers" style={{ textDecoration: 'none' }}>
                   <div>
                     <button
@@ -158,7 +162,7 @@ const Customer = () => {
                   </div>
                 </NavLink>
               )}
-            </div> */}
+            </div>
           </div>
         </div>
       )}

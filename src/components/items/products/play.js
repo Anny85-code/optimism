@@ -1,8 +1,21 @@
 // const obj = {};
 // const arr = [
 //   { a: 10, b: 15, c: 5 },
-//   { a: 2, b: 18, c: 8 },
+//   { a: 2, b: 18, c: 8, d: 20 },
 // ];
+
+// arr.map((object) => {
+//   for (const key in object) {
+//     // if (Object.hasOwnProperty.call(object, key)) {
+//     //   // const element = object[key];
+//     //   console.log(key);
+//     // }
+//     if (key) {
+//       obj[key] = object[key];
+//     }
+//   }
+//   console.log(obj);
+// });
 
 // arr.map((ob) => {
 //   const ay = Object.keys(ob);
@@ -36,6 +49,22 @@ const arr = [
     car: 'fiat',
     value: 8,
   },
+  {
+    car: 'benz',
+    value: 4,
+  },
+  {
+    car: 'Toyota',
+    value: 8,
+  },
+  {
+    car: 'benz',
+    value: 8,
+  },
+  {
+    car: 'Toyota',
+    value: 5,
+  },
 ];
 
 const result = Object.entries(
@@ -49,6 +78,10 @@ const result = Object.entries(
 
     return { ...acc, [car]: [value] };
   }, []),
-).map(([car, values]) => ({ car, values }));
+);
+// .map(([car, values]) => {
+//   const total = values.reduce((a, b) => a + b);
+//   return { car, values, total };
+// });
 
 console.log(result);

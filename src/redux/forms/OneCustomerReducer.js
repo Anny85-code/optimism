@@ -59,7 +59,7 @@ export const getOneCustomerFromApi = (id) => async (dispatch) => {
 export const delOneCustomerFromApi = (id) => async (dispatch) => {
   dispatch(delOneCustomerRequest());
   try {
-    const response = await axios.get(`${url}/${id}`, {
+    const response = await axios.delete(`${url}/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
