@@ -6,19 +6,19 @@ import { getMyFoodFromApi } from '../../../redux/forms/myFoodReducer';
 export const ItemsStats = () => {
   const dispatch = useDispatch();
   const foods = useSelector((state) => state.myFood?.data);
-  const array = [];
+  const foodArray = [];
 
   foods.map(({ items }) => {
-    const itema = JSON.parse(items);
-    const ab = Object.values(itema);
-    ab.map((el) => {
-      const { id, name, qauntity } = el;
-      array.push({ id, name, qauntity });
+    const foodItems = JSON.parse(items);
+    const food = Object.values(foodItems);
+    food.map((order) => {
+      const { id, name, qauntity } = order;
+      foodArray.push({ id, name, qauntity });
     });
   });
 
-  const ans = Object.values(
-    array.reduce((obj, item) => {
+  const foodArr = Object.values(
+    foodArray.reduce((obj, item) => {
       obj[item.id]
         ? (obj[item.id].qauntity += item.qauntity)
         : (obj[item.id] = item);
@@ -32,7 +32,7 @@ export const ItemsStats = () => {
 
   return (
     <div>
-      {ans.map((food, i) => (
+      {foodArr.map((food, i) => (
         <div key={food.id}>
           <p>
             {i + 1}***{`${food.name} - ${food.id}`}---{}---{food.qauntity}
