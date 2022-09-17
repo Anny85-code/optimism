@@ -83,7 +83,7 @@ const AddSeason = () => {
         <h2 className="title">Create new season</h2>
       </div>
       <div id="error" style={{ display: 'none' }}></div>
-      <form className="add-customer-form season-cont" autoComplete="off">
+      <form className="add-customer-form season-form" autoComplete="off">
         <label htmlFor="name">
           <span>
             Name <span style={{ color: 'crimson' }}>*</span>

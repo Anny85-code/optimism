@@ -2,7 +2,7 @@
   width: 50rem;
   gap: 1.25rem;
   font-family: 'Gumela', sans-serif;
-  margin: 1.25rem 1.25rem 1.25rem 7.5rem;
+  margin: 1.25rem 1.25rem 1.25rem 12.5rem;
   box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #967777;
   border-radius: 8px;
   background: #f72727;
@@ -33,6 +33,7 @@
 
 .item-name li img {
   margin-left: 1.875rem;
+  margin-top: 8px;
 }
 
 .item-price {
