@@ -24,7 +24,7 @@ const ViewItems = () => {
                 <h3>{item.name}</h3>
               </li>
               <li>
-                <img 
+                <img
                   src={item.picture}
                   alt={item.picture}
                   style={{ width: '70px', height: '60px', borderRadius: '5px' }}
