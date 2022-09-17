@@ -10,7 +10,7 @@ const Loader = () => (
   <Grid color="#f10d0d" height={80} width={80} />
   <Puff color="#47906d" height={280} width={280} />
   <Rings color="#f10d0d" height={250} width={250} /> */}
-    <Grid color="crimson" height={200} width={200} />
+    <Grid color="crimson" height={100} width={100} />
   </div>
 );
 
