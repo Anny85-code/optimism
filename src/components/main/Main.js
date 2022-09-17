@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import './Main.css';
 import hello from '../../assets/image/hello.jfif';
 import ChartWithCrosshair from '../chart/Chart_with_Crosshair';
@@ -138,10 +139,12 @@ const Main = () => {
                         <p>{users.data.length}</p>
                       </div>
 
-                      <div className="card4 cd">
-                        <h1 className="h-card">Orders</h1>
-                        <p>56,678</p>
-                      </div>
+                      <NavLink to="/itemsstats">
+                        <div className="card4 cd">
+                          <h1 className="h-card">Orders</h1>
+                          <p>See Order</p>
+                        </div>
+                      </NavLink>
                     </>
                   )}
                 </div>

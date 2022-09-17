@@ -27,10 +27,10 @@ export const ItemsStats = () => {
   );
 
   const allOrderTotal = foodArr.reduce((acc, obj) => acc + obj.qauntity, 0);
-  localStorage.setItem('order', allOrderTotal);
 
   useEffect(() => {
     dispatch(getMyFoodFromApi());
+    localStorage.setItem('order', allOrderTotal);
   }, []);
 
   return (
