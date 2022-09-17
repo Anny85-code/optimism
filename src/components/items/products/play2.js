@@ -253,6 +253,7 @@ const array = [];
 bigObj.map(({ items }) => {
   const itema = JSON.parse(items);
   const ab = Object.values(itema);
+  // console.log(ab);
   ab.map((el) => {
     const { id, name, qauntity } = el;
     array.push({ id, name, qauntity });
@@ -266,4 +267,9 @@ const ans = array.reduce((obj, item) => {
   return obj;
 }, {});
 
-// console.log(ans);
+const allOrderTotal = Object.values(ans).reduce(
+  (acc, obj) => acc + obj.qauntity,
+  0
+);
+
+console.log(allOrderTotal);

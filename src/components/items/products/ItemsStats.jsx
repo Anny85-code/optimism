@@ -26,12 +26,17 @@ export const ItemsStats = () => {
     }, {})
   );
 
+  const allOrderTotal = foodArr.reduce((acc, obj) => acc + obj.qauntity, 0);
+
   useEffect(() => {
     dispatch(getMyFoodFromApi());
   }, []);
 
   return (
     <div>
+      <p>Total Orders: {allOrderTotal}</p>
+      <br />
+      <br />
       {foodArr.map((food, i) => (
         <div key={food.id}>
           <p>
