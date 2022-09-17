@@ -271,5 +271,3 @@ const allOrderTotal = Object.values(ans).reduce(
   (acc, obj) => acc + obj.qauntity,
   0
 );
-
-console.log(allOrderTotal);
