@@ -6,47 +6,45 @@ import { getMyFoodFromApi } from '../../../redux/forms/myFoodReducer';
 export const ItemsStats = () => {
   const dispatch = useDispatch();
   const foods = useSelector((state) => state.myFood?.data);
-  const iii = foods.map((customer) => {
-    const myFoods = Object.values(JSON.parse(customer.items));
-    return myFoods.map((food) => {
-      return [food.name, food.qauntity];
+  const foodArray = [];
+
+  foods.map(({ items }) => {
+    const foodItems = JSON.parse(items);
+    const food = Object.values(foodItems);
+    food.map((order) => {
+      const { id, name, qauntity } = order;
+      foodArray.push({ id, name, qauntity });
     });
   });
 
-  console.log(iii);
+  const foodArr = Object.values(
+    foodArray.reduce((obj, item) => {
+      obj[item.id]
+        ? (obj[item.id].qauntity += item.qauntity)
+        : (obj[item.id] = item);
+      return obj;
+    }, {})
+  );
+
+  const allOrderTotal = foodArr.reduce((acc, obj) => acc + obj.qauntity, 0);
 
   useEffect(() => {
     dispatch(getMyFoodFromApi());
+    localStorage.setItem('order', allOrderTotal);
   }, []);
 
   return (
     <div>
-      {foods.map((eachCustomer) => {
-        // if key exists?
-        // value += current value
-        // else
-        // create a new key with the current value
-        const myFoods = Object.values(JSON.parse(eachCustomer.items));
-        // myFoods.map((food) => {
-        //   if (summary[food.name]) {
-        //     summary[food.name] += food.qauntity;
-        //   } else {
-        //     summary[food.name] = food.qauntity;
-        //   }
-        // });
-        return (
-          <div key={eachCustomer.id}>
-            <p>{eachCustomer.id}</p>
-            {myFoods.map((food) => (
-              <div key={food.id}>
-                <p>
-                  {food.name} **** {food.qauntity}{' '}
-                </p>
-              </div>
-            ))}
-          </div>
-        );
-      })}
+      <p>Total Orders: {allOrderTotal}</p>
+      <br />
+      <br />
+      {foodArr.map((food, i) => (
+        <div key={food.id}>
+          <p>
+            {i + 1}***{`${food.name} - ${food.id}`}---{}---{food.qauntity}
+          </p>
+        </div>
+      ))}
     </div>
   );
   /* eslint-enable */
