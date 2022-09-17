@@ -2,6 +2,14 @@
   padding: 20px;
 }
 
+.season-form{
+  padding: 20px;
+}
+
+.season-form > label {
+  margin-top: 2.5rem;
+}
+
 .end-date {
   font-size: 1.375rem;
   font-weight: bold;
