@@ -76,7 +76,7 @@ const Navbar = ({ sideBarOpen, openSideBar }) => {
       </div>
 
       <div className="navbar__left">
-        {user.role === 'supervisor' ? null : (
+        {user.role === 'supervisor' || admins ? null : (
           <NavLink
             to="/customers"
             onClick={handleActiveA}
