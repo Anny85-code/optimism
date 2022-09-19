@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import DatePicker from 'react-datepicker';
@@ -21,6 +21,7 @@ const Transactions = () => {
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
   const admins = user.role === 'admin' || user.role === 'superadmin';
+  const [sDate, setSDate] = useState(new Date());
 
   useEffect(() => {
     dispatch(getTransactionFromApi());
@@ -44,7 +45,7 @@ const Transactions = () => {
             <DatePicker
               // portalId="root-portal"
               dateFormat="yyyy/MM/dd"
-              // selected={sDate}
+              selected={sDate}
               // showMonthDropdown
               // showYearDropdown
               dropdownMode="select"
