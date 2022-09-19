@@ -107,7 +107,10 @@ const User = () => {
         <div className="allTrans">
           <NavLink to="/customers">
             <button type="button" className="view-trans">
-              My Customers
+              {user.data.role === 'marketer' && 'My Customers'}
+              {user.data.role === 'admin' && 'Supervisors'}
+              {user.data.role === 'supervisor' && 'Marketers'}
+              {user.data.role === 'superadmin' && 'Admins'}
             </button>
           </NavLink>
         </div>
