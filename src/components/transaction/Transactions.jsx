@@ -16,17 +16,32 @@ const Transactions = () => {
     (state) => state.transactions?.data?.transactions
   );
   // const { customer_id } = transactions;
-  console.log(transactions);
+  // console.log(transactions);
   const customers = useSelector((state) => state.customer);
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
   const admins = user.role === 'admin' || user.role === 'superadmin';
   const [sDate, setSDate] = useState(new Date());
+  const [filtaTrans, setFiltaTrans] = useState([]);
+  const [filtaTotal, setFiltaTotal] = useState(0);
+  const [transNo, setTransNo] = useState(0);
 
   useEffect(() => {
     dispatch(getTransactionFromApi());
     // dispatch(getCustomerFromApi(customer_id));
   }, []);
+
+  const handleFilter = () => {
+    const selDate = sDate.toDateString();
+    const sameDay = transactions.filter(
+      (el) => selDate == new Date(el.created_at).toDateString()
+    );
+    const fTotal = sameDay.reduce((a, b) => a + +b.amount, 0);
+    setFiltaTotal(fTotal);
+    setFiltaTrans(sameDay);
+    setTransNo(sameDay.length);
+  };
+  console.log(filtaTrans);
 
   const comma = (num) => {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -56,7 +71,7 @@ const Transactions = () => {
           </label>
           <button
             type="button"
-            // onClick={handleFilter}
+            onClick={handleFilter}
             className="user-transact-btn"
           >
             Filter
@@ -90,7 +105,7 @@ const Transactions = () => {
           <h3 className="columns" id="col" style={{ color: 'crimson' }}></h3>
         </div>
         {transactions &&
-          transactions.map((transaction) => {
+          filtaTrans.map((transaction) => {
             const permitted = admins || transaction.user_id === user.id;
             const aCustomer = {};
             customers.data.filter((customer) => {
