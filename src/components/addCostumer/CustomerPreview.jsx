@@ -9,6 +9,7 @@ import {
 } from '../../redux/forms/myFoodReducer';
 import { postUpdateCustomerToApi } from '../../redux/forms/customerReducer';
 import './CustomerPreview.css';
+import { delOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
 /* eslint-disable */
 const CustomerPreview = () => {
   const dispatch = useDispatch();
@@ -63,6 +64,7 @@ const CustomerPreview = () => {
   const handleCancel = () => {
     localStorage.removeItem('updated_customer');
     localStorage.removeItem('myfood');
+    dispatch(delOneCustomerFromApi(id));
     window.history.pushState({}, '', '/');
     window.location.reload();
   };
