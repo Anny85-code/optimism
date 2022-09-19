@@ -184,15 +184,17 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
               Add New Transaction
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              to="/transactions"
-              style={{ textDecoration: 'none' }}
-              onClick={closeSideBar}
-            >
-              View All Transactions
-            </NavLink>
-          </li>
+          {!admins && (
+            <li>
+              <NavLink
+                to="/transactions"
+                style={{ textDecoration: 'none' }}
+                onClick={closeSideBar}
+              >
+                View All Transactions
+              </NavLink>
+            </li>
+          )}
         </ul>
       </div>
     </>
