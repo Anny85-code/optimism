@@ -9,13 +9,14 @@ import './AddTransaction.css';
 /* eslint-disable */
 
 const customerEx = (cardNumber, data) => {
-  const ids = [];
+  // const ids = [];
   const len = data.filter((cus) => {
-    ids.push(cus.id);
+    // ids.push(cus.id);
     return cardNumber === cus.id;
   });
-  const highest = ids.sort().pop();
-  return len.length > 0 && cardNumber <= highest;
+  // const highest = ids.sort().pop();
+  return len.length > 0;
+  //  && cardNumber <= highest;
 };
 
 const AddTransaction = () => {
