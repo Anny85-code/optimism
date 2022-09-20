@@ -65,6 +65,7 @@ const User = () => {
       : supervisor
       ? '/usersmarketers'
       : '/customers';
+    localStorage.setItem('_id', id);
     return (
       <NavLink to={link}>
         <button type="button" className="view-trans">
