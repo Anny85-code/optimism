@@ -17,6 +17,7 @@ const Customers = () => {
   const marketerCustomer = allCustomers.filter(
     (customer) => user.id === customer.user_id
   );
+  const reId = localStorage.getItem('_id');
   const admins = user.role === 'admin' || user.role === 'superadmin';
 
   useEffect(() => {
@@ -57,7 +58,9 @@ const Customers = () => {
 
       {allCustomers.map((customer) => {
         const permitted =
-          admins || customer.user_id === user.id || customer.id === marketerId;
+          (admins && +reId === customer.user_id) ||
+          customer.user_id === user.id ||
+          customer.id === marketerId;
 
         if (permitted)
           return (
@@ -68,6 +71,7 @@ const Customers = () => {
                     <h4 className="columns" style={{ color: 'crimson' }}>
                       {customer.name}
                     </h4>
+                    {console.log(+reId, customer.user_id, customer.id)}
                     <h4
                       className="columns i"
                       style={{ borderRight: '2px solid crimson' }}
