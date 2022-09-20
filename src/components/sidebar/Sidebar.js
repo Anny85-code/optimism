@@ -261,7 +261,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
                 View All Admins
               </NavLink>
             </li>
-            <li>
+            {/* <li>
               <NavLink
                 to="/userssupervisors"
                 style={{ textDecoration: 'none' }}
@@ -269,10 +269,10 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
               >
                 View All Supervisors
               </NavLink>
-            </li>
+            </li> */}
           </>
         ) : null}
-        <li>
+        {/* <li>
           <NavLink
             to="/usersmarketers"
             style={{ textDecoration: 'none' }}
@@ -280,7 +280,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
           >
             View All Marketers
           </NavLink>
-        </li>
+        </li> */}
       </ul>
     </div>
   );
