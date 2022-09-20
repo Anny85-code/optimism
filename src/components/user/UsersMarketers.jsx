@@ -9,6 +9,7 @@ const UsersMarketers = () => {
   const allUsers = useSelector((state) => state.userManReducer?.data);
   const data = JSON.parse(localStorage.getItem('user'));
   const userr = data.user || {};
+  const reId = localStorage.getItem('_id');
 
   useEffect(() => {
     dispatch(getUsersFromApi());
@@ -19,7 +20,7 @@ const UsersMarketers = () => {
       {allUsers.map((user) => {
         const permitted =
           userr.role === 'admin' ||
-          userr.role === 'superadmin' ||
+          (userr.role === 'superadmin' && +reId === user.user_id) ||
           user.user_id === userr.id;
         return (
           permitted && (

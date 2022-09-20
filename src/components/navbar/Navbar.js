@@ -76,7 +76,7 @@ const Navbar = ({ sideBarOpen, openSideBar }) => {
       </div>
 
       <div className="navbar__left">
-        {user.role === 'supervisor' ? null : (
+        {user.role === 'supervisor' || admins ? null : (
           <NavLink
             to="/customers"
             onClick={handleActiveA}
@@ -85,7 +85,7 @@ const Navbar = ({ sideBarOpen, openSideBar }) => {
             Customers
           </NavLink>
         )}
-        {user.role === 'marketer' ? null : (
+        {/* {user.role === 'marketer' ? null : (
           <NavLink
             to="/usersmarketers"
             onClick={handleActiveE}
@@ -93,7 +93,7 @@ const Navbar = ({ sideBarOpen, openSideBar }) => {
           >
             Marketers
           </NavLink>
-        )}
+        )} */}
         {user.role === 'superadmin' && (
           <NavLink
             to="/users"
@@ -105,13 +105,13 @@ const Navbar = ({ sideBarOpen, openSideBar }) => {
         )}
         {admins ? (
           <>
-            <NavLink
+            {/* <NavLink
               to="/userssupervisors"
               onClick={handleActiveD}
               className={activeD ? 'active_link' : ''}
             >
               Supervisors
-            </NavLink>
+            </NavLink> */}
             <NavLink
               to="/"
               onClick={handleActiveC}

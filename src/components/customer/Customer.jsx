@@ -42,7 +42,10 @@ const Customer = () => {
   const regAdmin = useSelector((state) => state.oneUser);
   const adminNo = aCustomers?.data?.user_id;
   const { loading } = regAdmin;
-  const admins = user.role === 'admin' || user.role === 'superadmin';
+  const admins =
+    user.role === 'admin' ||
+    user.role === 'superadmin' ||
+    user.role === 'supervisor';
 
   useEffect(() => {
     dispatch(getOneCustomerFromApi(id));

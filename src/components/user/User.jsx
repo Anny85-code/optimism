@@ -52,6 +52,32 @@ const User = () => {
     dispatch(delOneUserFromApi(id));
   };
 
+  const navigation = () => {
+    const marketer = user.data.role === 'marketer';
+    const admin = user.data.role === 'admin';
+    const supervisor = user.data.role === 'supervisor';
+    const superadmin = user.data.role === 'superadmin';
+
+    const link = superadmin
+      ? '/users'
+      : admin
+      ? '/userssupervisors'
+      : supervisor
+      ? '/usersmarketers'
+      : '/customers';
+    localStorage.setItem('_id', id);
+    return (
+      <NavLink to={link}>
+        <button type="button" className="view-trans">
+          {marketer && 'My Customers'}
+          {admin && 'Supervisors'}
+          {supervisor && 'Marketers'}
+          {superadmin && 'Admins'}
+        </button>
+      </NavLink>
+    );
+  };
+
   return (
     <div className="containa user-container">
       <div className="image-container">
@@ -104,19 +130,10 @@ const User = () => {
             </div>
           </>
         )}
-        <div className="allTrans">
-          <NavLink to="/customers">
-            <button type="button" className="view-trans">
-              My Customers
-            </button>
-          </NavLink>
-        </div>
+        <div className="allTrans">{navigation()}</div>
         {permitted && (
           <div className="allTrans">
-            {/* <NavLink to={redirect.slice(0, -5)}> */}
             <NavLink to="/users">
-              {' '}
-              {/*This code is a placeholder for when we implement the delete user action in the backend*/}
               <button type="button" className="view-trans" onClick={handleDel}>
                 Delete
               </button>

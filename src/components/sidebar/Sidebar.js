@@ -12,6 +12,7 @@ const { user } = data || {};
 const Sidebar = ({ sidebarOpen, closeSideBar }) => {
   const isLoggedIn = localStorage.getItem('isLoggedIn');
   const dispatch = useDispatch();
+  const admins = user.role === 'admin' || user.role === 'superadmin';
 
   const handleLogout = () => {
     // localStorage.removeItem('user');
@@ -107,15 +108,17 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
               Add New Customer
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              to="/customers"
-              style={{ textDecoration: 'none' }}
-              onClick={closeSideBar}
-            >
-              View All Customers
-            </NavLink>
-          </li>
+          {!admins && (
+            <li>
+              <NavLink
+                to="/customers"
+                style={{ textDecoration: 'none' }}
+                onClick={closeSideBar}
+              >
+                View All Customers
+              </NavLink>
+            </li>
+          )}
         </ul>
       </div>
     </>
@@ -181,15 +184,17 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
               Add New Transaction
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              to="/transactions"
-              style={{ textDecoration: 'none' }}
-              onClick={closeSideBar}
-            >
-              View All Transactions
-            </NavLink>
-          </li>
+          {!admins && (
+            <li>
+              <NavLink
+                to="/transactions"
+                style={{ textDecoration: 'none' }}
+                onClick={closeSideBar}
+              >
+                View All Transactions
+              </NavLink>
+            </li>
+          )}
         </ul>
       </div>
     </>
@@ -222,8 +227,6 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
       </div>
     </>
   );
-
-  const admins = user.role === 'admin' || user.role === 'superadmin';
 
   const staffSection = (
     <div className="sidebar__link" onClick={toggleDropdownMarkerter}>
@@ -258,7 +261,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
                 View All Admins
               </NavLink>
             </li>
-            <li>
+            {/* <li>
               <NavLink
                 to="/userssupervisors"
                 style={{ textDecoration: 'none' }}
@@ -266,10 +269,10 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
               >
                 View All Supervisors
               </NavLink>
-            </li>
+            </li> */}
           </>
         ) : null}
-        <li>
+        {/* <li>
           <NavLink
             to="/usersmarketers"
             style={{ textDecoration: 'none' }}
@@ -277,7 +280,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
           >
             View All Marketers
           </NavLink>
-        </li>
+        </li> */}
       </ul>
     </div>
   );
