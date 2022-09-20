@@ -71,7 +71,6 @@ const Customers = () => {
                     <h4 className="columns" style={{ color: 'crimson' }}>
                       {customer.name}
                     </h4>
-                    {console.log(+reId, customer.user_id, customer.id)}
                     <h4
                       className="columns i"
                       style={{ borderRight: '2px solid crimson' }}
