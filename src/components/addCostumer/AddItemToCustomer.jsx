@@ -101,11 +101,11 @@ const AddItemToCustomer = () => {
             />
           </li>
           <li>
-            <img
-              src={picture ? picture : <Loader />}
-              alt={name}
-              className="quantity-pic"
-            />
+            {picture ? (
+              <img src={picture} alt={name} className="quantity-pic" />
+            ) : (
+              <Loader />
+            )}
           </li>
           <li>
             <i
