@@ -85,7 +85,7 @@ const Navbar = ({ sideBarOpen, openSideBar }) => {
             Customers
           </NavLink>
         )}
-        {/* {user.role === 'marketer' ? null : (
+        {user.role === 'supervisor' && (
           <NavLink
             to="/usersmarketers"
             onClick={handleActiveE}
@@ -93,7 +93,7 @@ const Navbar = ({ sideBarOpen, openSideBar }) => {
           >
             Marketers
           </NavLink>
-        )} */}
+        )}
         {user.role === 'superadmin' && (
           <NavLink
             to="/users"
@@ -103,23 +103,23 @@ const Navbar = ({ sideBarOpen, openSideBar }) => {
             Admins
           </NavLink>
         )}
+        {user.role === 'admin' && (
+          <NavLink
+            to="/userssupervisors"
+            onClick={handleActiveD}
+            className={activeD ? 'active_link' : ''}
+          >
+            Supervisors
+          </NavLink>
+        )}
         {admins ? (
-          <>
-            {/* <NavLink
-              to="/userssupervisors"
-              onClick={handleActiveD}
-              className={activeD ? 'active_link' : ''}
-            >
-              Supervisors
-            </NavLink> */}
-            <NavLink
-              to="/"
-              onClick={handleActiveC}
-              className={activeC ? 'active_link' : ''}
-            >
-              Dashboard
-            </NavLink>
-          </>
+          <NavLink
+            to="/"
+            onClick={handleActiveC}
+            className={activeC ? 'active_link' : ''}
+          >
+            Dashboard
+          </NavLink>
         ) : (
           ''
         )}
