@@ -14,6 +14,7 @@ const AddItemToCustomer = () => {
   const [qauntity, setQuantity] = useState(0);
   const [subTotal, setSubTotal] = useState(0);
   const [total, setTotal] = useState([]);
+  const [itemId, setItemId] = useState(0);
   const { name, price, description, picture } = item.data;
   const grandTotal = total.reduce((a, b) => b.subTotal + a, 0);
 
@@ -29,8 +30,8 @@ const AddItemToCustomer = () => {
       currency: 'NGN',
     }).format(price);
 
-  const handleGoTo = (e) => {
-    console.log(e.target);
+  const handleGoTo = () => {
+    setCurrent(+itemId);
   };
 
   const handleNext = () => {
@@ -80,7 +81,13 @@ const AddItemToCustomer = () => {
   return (
     <div className="items-to-costumer">
       <div className="quantity-pic-container">
-        <input type="number" name="enterItem" id="enterItem" />
+        <input
+          type="number"
+          name="enterItem"
+          id="enterItem"
+          placeholder="Enter id"
+          onChange={(e) => setItemId(e.target.value)}
+        />
         <button type="button" onClick={handleGoTo}>
           Go To
         </button>
