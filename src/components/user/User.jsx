@@ -61,11 +61,20 @@ const User = () => {
     const myCustomers = customers.filter(
       (customer) => customer.user_id === +id
     );
+    const exportData = myCustomers.map((cus) => {
+      return {
+        id: cus.id,
+        name: cus.name,
+        phone: cus.phone,
+        address: cus.address,
+      };
+    });
+    console.log(exportData);
     console.log(myCustomers);
-    const ws = utils.json_to_sheet(myCustomers);
-    const wb = utils.book_new();
-    utils.book_append_sheet(wb, ws, 'Data');
-    writeFileXLSX(wb, 'SheetJSReactAoO.xlsx');
+    // const ws = utils.json_to_sheet(exportData);
+    // const wb = utils.book_new();
+    // utils.book_append_sheet(wb, ws, 'Data');
+    // writeFileXLSX(wb, 'SheetJSReactAoO.xlsx');
   };
 
   const navigation = () => {
