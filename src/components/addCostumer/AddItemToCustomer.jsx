@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { postCustomerToApi } from '../../redux/forms/customerReducer';
 import { getItemFromApi } from '../../redux/forms/getItemsReducer';
 import { getOneItemFromApi } from '../../redux/forms/oneItemReducer';
-import Loader from '../loader/Loader';
 import './AddItemToCustomer.css';
 /* eslint-disable */
 const AddItemToCustomer = () => {
