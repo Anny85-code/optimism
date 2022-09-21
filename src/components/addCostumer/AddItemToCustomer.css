@@ -18,11 +18,8 @@
 .items-to-costumer {
   display: grid;
   grid-template-columns: 4fr 1.5fr;
-  /* width: 56.25rem; */
   gap: 1.25rem;
   font-family: 'Gumela', sans-serif;
-  /* margin: 1.25rem 1.25rem 1.25rem 5rem; */
-  /* box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #967777; */
   border-radius: 8px;
   align-content: center;
   justify-content: center;
@@ -194,6 +191,7 @@ ul {
   font-weight: bold;
   cursor: pointer;
   box-shadow: 5px 5px 13px #f7f1f1, -5px -5px 13px #e2dcdc;
+  margin-top: 0.3125rem;
 }
 
 
@@ -204,6 +202,11 @@ ul {
     flex-direction: column;
     width: 20rem;
     margin: 1.25rem;
+  }
+
+  .items-to-costumer-main {
+    width: 20rem;
+    gap: 2rem;
   }
 
   .products-container {

@@ -85,7 +85,7 @@ const AddItemToCustomer = () => {
           type="number"
           name="enterItem"
           id="enterItem"
-          placeholder="Enter id"
+          placeholder="Enter Product id"
           onChange={(e) => setItemId(e.target.value)}
         />
         <button type="button" onClick={handleGoTo}>
