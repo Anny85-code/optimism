@@ -81,6 +81,7 @@ const AddItemToCustomer = () => {
   return (
     <div className="items-to-costumer">
       <div className="quantity-pic-container">
+        <div className="input-item-container">
         <input
           type="number"
           name="enterItem"
@@ -91,6 +92,7 @@ const AddItemToCustomer = () => {
         <button type="button" onClick={handleGoTo}>
           Go To
         </button>
+        </div>
         <ul className="pic-previous">
           <li>
             <i
