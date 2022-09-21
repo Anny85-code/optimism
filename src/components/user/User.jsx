@@ -70,10 +70,13 @@ const User = () => {
       };
     });
 
-    const ws = utils.json_to_sheet(exportData);
+    const ws = utils.json_to_sheet(exportData.sort((a, b) => a.id - b.id));
     const wb = utils.book_new();
     utils.book_append_sheet(wb, ws, 'Data');
-    writeFileXLSX(wb, 'SheetJSReactAoO.xlsx');
+    writeFileXLSX(
+      wb,
+      `Customer_${user.data.location_area.replace(' ', '_')}.xlsx`
+    );
   };
 
   const navigation = () => {
