@@ -28,6 +28,7 @@ const User = () => {
   const loggedUser = data.user || {};
   const permitted =
     loggedUser.role === 'superadmin' || loggedUser.role === 'admin';
+  const downBtn = permitted && user.data.role === 'marketer';
 
   useEffect(() => {
     dispatch(getOneUserFromApi(id));
@@ -140,6 +141,7 @@ const User = () => {
             </NavLink>
           </div>
         )}
+        {}
       </div>
     </div>
   );
