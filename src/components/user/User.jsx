@@ -69,12 +69,11 @@ const User = () => {
         address: cus.address,
       };
     });
-    console.log(exportData);
-    console.log(myCustomers);
-    // const ws = utils.json_to_sheet(exportData);
-    // const wb = utils.book_new();
-    // utils.book_append_sheet(wb, ws, 'Data');
-    // writeFileXLSX(wb, 'SheetJSReactAoO.xlsx');
+
+    const ws = utils.json_to_sheet(exportData);
+    const wb = utils.book_new();
+    utils.book_append_sheet(wb, ws, 'Data');
+    writeFileXLSX(wb, 'SheetJSReactAoO.xlsx');
   };
 
   const navigation = () => {
