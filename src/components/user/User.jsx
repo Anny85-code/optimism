@@ -8,6 +8,7 @@ import {
   getOneUserFromApi,
 } from '../../redux/forms/oneUserManReducer';
 import './User.css';
+import { getCustomerFromApi } from '../../redux/forms/customerReducer';
 
 const editUrl = (person) => {
   const { id } = person;
@@ -24,14 +25,16 @@ const User = () => {
   const param = useParams();
   const { id } = param;
   const user = useSelector((state) => state.oneUser);
+  const customers = useSelector((state) => state.customer?.data);
   const data = JSON.parse(localStorage.getItem('user'));
   const loggedUser = data.user || {};
   const permitted =
     loggedUser.role === 'superadmin' || loggedUser.role === 'admin';
-  const downBtn = permitted && user.data.role === 'marketer';
+  const downBtnRight = permitted && user.data.role === 'marketer';
 
   useEffect(() => {
     dispatch(getOneUserFromApi(id));
+    dispatch(getCustomerFromApi());
   }, []);
 
   const {
@@ -51,6 +54,14 @@ const User = () => {
 
   const handleDel = function () {
     dispatch(delOneUserFromApi(id));
+  };
+
+  const handleExp = () => {
+    const myCustomers = customers.filter((customer) => {
+      return customer.user_id === +id;
+      // console.log(customer.user_id, +id);
+    });
+    console.log(myCustomers);
   };
 
   const navigation = () => {
@@ -141,7 +152,13 @@ const User = () => {
             </NavLink>
           </div>
         )}
-        {}
+        {downBtnRight && (
+          <div className="allTrans">
+            <button type="button" className="view-trans" onClick={handleExp}>
+              Export
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
