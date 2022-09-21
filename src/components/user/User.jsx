@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { utils, writeFileXLSX } from 'xlsx';
 import Moment from 'moment';
 import {
   delOneUserFromApi,
@@ -57,11 +58,14 @@ const User = () => {
   };
 
   const handleExp = () => {
-    const myCustomers = customers.filter((customer) => {
-      return customer.user_id === +id;
-      // console.log(customer.user_id, +id);
-    });
+    const myCustomers = customers.filter(
+      (customer) => customer.user_id === +id
+    );
     console.log(myCustomers);
+    const ws = utils.json_to_sheet(myCustomers);
+    const wb = utils.book_new();
+    utils.book_append_sheet(wb, ws, 'Data');
+    writeFileXLSX(wb, 'SheetJSReactAoO.xlsx');
   };
 
   const navigation = () => {
