@@ -91,24 +91,25 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
 
   const customerSection = (
     <>
-      <div className="sidebar__link" onClick={toggleDropdownCustomer}>
-        <i className="fa fa-gears" />
-        <a href="#">Customer Management</a>
-        <i className="fa fa-caret-right" id="toggle-btn" />
-        <ul
-          className={!dropdownCustomer ? 'dropdown-off' : 'dropdown-on'}
-          id="drop-menu"
-        >
-          <li>
-            <NavLink
-              to="/addcustomer"
-              style={{ textDecoration: 'none' }}
-              onClick={closeSideBar}
-            >
-              Add New Customer
-            </NavLink>
-          </li>
-          {!admins && (
+      {!admins && (
+        <div className="sidebar__link" onClick={toggleDropdownCustomer}>
+          <i className="fa fa-gears" />
+          <a href="#">Customer Management</a>
+          <i className="fa fa-caret-right" id="toggle-btn" />
+          <ul
+            className={!dropdownCustomer ? 'dropdown-off' : 'dropdown-on'}
+            id="drop-menu"
+          >
+            <li>
+              <NavLink
+                to="/addcustomer"
+                style={{ textDecoration: 'none' }}
+                onClick={closeSideBar}
+              >
+                Add New Customer
+              </NavLink>
+            </li>
+
             <li>
               <NavLink
                 to="/customers"
@@ -118,9 +119,9 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
                 View All Customers
               </NavLink>
             </li>
-          )}
-        </ul>
-      </div>
+          </ul>
+        </div>
+      )}
     </>
   );
 
@@ -250,37 +251,39 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
             {user.role === 'supervisor' ? 'Add New Marketer' : 'Add New Staff'}
           </NavLink>
         </li>
-        {admins ? (
-          <>
-            <li>
-              <NavLink
-                to="/users"
-                style={{ textDecoration: 'none' }}
-                onClick={closeSideBar}
-              >
-                View All Admins
-              </NavLink>
-            </li>
-            {/* <li>
-              <NavLink
-                to="/userssupervisors"
-                style={{ textDecoration: 'none' }}
-                onClick={closeSideBar}
-              >
-                View All Supervisors
-              </NavLink>
-            </li> */}
-          </>
-        ) : null}
-        {/* <li>
-          <NavLink
-            to="/usersmarketers"
-            style={{ textDecoration: 'none' }}
-            onClick={closeSideBar}
-          >
-            View All Marketers
-          </NavLink>
-        </li> */}
+        {user.role === 'superadmin' && (
+          <li>
+            <NavLink
+              to="/users"
+              style={{ textDecoration: 'none' }}
+              onClick={closeSideBar}
+            >
+              View All Admins
+            </NavLink>
+          </li>
+        )}
+        {user.role === 'admin' && (
+          <li>
+            <NavLink
+              to="/userssupervisors"
+              style={{ textDecoration: 'none' }}
+              onClick={closeSideBar}
+            >
+              View All Supervisors
+            </NavLink>
+          </li>
+        )}
+        {user.role === 'supervisor' && (
+          <li>
+            <NavLink
+              to="/usersmarketers"
+              style={{ textDecoration: 'none' }}
+              onClick={closeSideBar}
+            >
+              View All Marketers
+            </NavLink>
+          </li>
+        )}
       </ul>
     </div>
   );
