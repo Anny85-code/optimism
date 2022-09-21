@@ -29,6 +29,10 @@ const AddItemToCustomer = () => {
       currency: 'NGN',
     }).format(price);
 
+  const handleGoTo = (e) => {
+    console.log(e.target);
+  };
+
   const handleNext = () => {
     if (current < lastItem) {
       setCurrent(current + 1);
@@ -76,6 +80,10 @@ const AddItemToCustomer = () => {
   return (
     <div className="items-to-costumer">
       <div className="quantity-pic-container">
+        <input type="number" name="enterItem" id="enterItem" />
+        <button type="button" onClick={handleGoTo}>
+          Go To
+        </button>
         <ul className="pic-previous">
           <li>
             <i
