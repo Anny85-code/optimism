@@ -66,7 +66,6 @@ const User = () => {
         id: cus.id,
         name: cus.name,
         phone: cus.phone,
-        address: cus.address,
       };
     });
 
