@@ -15,6 +15,7 @@ This project is a contribution application that allows users to keep track and m
 - React
 - Rails
 - Bootstrap
+- Postgres
 
 ## Getting Started
 
