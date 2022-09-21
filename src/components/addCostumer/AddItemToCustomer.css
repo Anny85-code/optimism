@@ -1,13 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Quintessential&display=swap');
 
-.items-to-costumer {
-  display: grid;
-  grid-template-columns: 4fr 1.5fr;
+.items-to-costumer-main {
+  display: flex;
+  flex-direction: column;
   width: 56.25rem;
-  gap: 20px;
+  gap: 5rem;
   font-family: 'Gumela', sans-serif;
   margin: 1.25rem 1.25rem 1.25rem 5rem;
   box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #967777;
+  border-radius: 8px;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  background: rgb(248, 244, 244);
+}
+
+.items-to-costumer {
+  display: grid;
+  grid-template-columns: 4fr 1.5fr;
+  gap: 1.25rem;
+  font-family: 'Gumela', sans-serif;
   border-radius: 8px;
   align-content: center;
   justify-content: center;
@@ -156,12 +168,43 @@ ul {
   box-shadow: 5px 5px 13px #f7f1f1, -5px -5px 13px #e2dcdc;
 }
 
+.input-item-container {
+  margin: 1.25rem;
+  display: flex;
+  gap: 1.25rem;
+}
+
+.input-item-container > input {
+  width: 10rem;
+}
+
+.input-item-container > button {
+  width: 6.25rem;
+  height: 1.875rem;
+  padding: 6px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background-color: #f72727;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 5px 5px 13px #f7f1f1, -5px -5px 13px #e2dcdc;
+  margin-top: 0.3125rem;
+}
+
 @media only screen and (max-width: 450px) {
   .items-to-costumer {
     display: flex;
     flex-direction: column;
     width: 20rem;
     margin: 1.25rem;
+  }
+
+  .items-to-costumer-main {
+    width: 20rem;
+    gap: 2rem;
   }
 
   .products-container {

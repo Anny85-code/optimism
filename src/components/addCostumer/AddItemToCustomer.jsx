@@ -79,80 +79,84 @@ const AddItemToCustomer = () => {
   }, [current]);
 
   return (
-    <div className="items-to-costumer">
-      <div className="quantity-pic-container">
+    <div className="items-to-costumer-main">
+      <div className="input-item-container">
         <input
           type="number"
           name="enterItem"
           id="enterItem"
-          placeholder="Enter id"
+          placeholder="Enter Product id"
           onChange={(e) => setItemId(e.target.value)}
         />
         <button type="button" onClick={handleGoTo}>
           Go To
         </button>
-        <ul className="pic-previous">
-          <li>
-            <i
-              className="fa fa-arrow-left fa-2x text-red"
-              onClick={handlePrevious}
-              style={{ cursor: 'pointer' }}
-            />
-          </li>
-          <li>
-            <img src={picture} alt={name} className="quantity-pic" />
-          </li>
-          <li>
-            <i
-              className="fa fa-arrow-right fa-2x text-red"
-              onClick={handleNext}
-              style={{ cursor: 'pointer' }}
-            />
-          </li>
-        </ul>
       </div>
-      <div className="products-container">
-        <div className="product-name-container">
-          <ul className="product-name-price">
+      <div className="items-to-costumer">
+        <div className="quantity-pic-container">
+          <ul className="pic-previous">
             <li>
-              <h4 className="qty-i-name">{name}</h4>
-            </li>
-            <li className="qunatity-price">
-              <h4>{getFormattedPrice(price)}</h4>
-            </li>
-          </ul>
-          <h4 className="qty-desc">{description}</h4>
-          <ul className="input-add">
-            <li>
-              <input
-                type="number"
-                onChange={handleQuantity}
-                value={qauntity.toString()}
-                className="quantity-input"
+              <i
+                className="fa fa-arrow-left fa-2x text-red"
+                onClick={handlePrevious}
+                style={{ cursor: 'pointer' }}
               />
             </li>
             <li>
-              <button
-                type="button"
-                onClick={handleSub}
-                className="sum-item-btn"
-              >
-                Add Item
-              </button>
+              <img src={picture} alt={name} className="quantity-pic" />
+            </li>
+            <li>
+              <i
+                className="fa fa-arrow-right fa-2x text-red"
+                onClick={handleNext}
+                style={{ cursor: 'pointer' }}
+              />
             </li>
           </ul>
         </div>
-        <div>
-          <h3 className="qty-sub-total">Sub total:&nbsp;{subTotal}</h3>
-          <h1 className="qty-p-total">Grand total: &nbsp;{grandTotal}</h1>
+        <div className="products-container">
+          <div className="product-name-container">
+            <ul className="product-name-price">
+              <li>
+                <h4 className="qty-i-name">{name}</h4>
+              </li>
+              <li className="qunatity-price">
+                <h4>{getFormattedPrice(price)}</h4>
+              </li>
+            </ul>
+            <h4 className="qty-desc">{description}</h4>
+            <ul className="input-add">
+              <li>
+                <input
+                  type="number"
+                  onChange={handleQuantity}
+                  value={qauntity.toString()}
+                  className="quantity-input"
+                />
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={handleSub}
+                  className="sum-item-btn"
+                >
+                  Add Item
+                </button>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="qty-sub-total">Sub total:&nbsp;{subTotal}</h3>
+            <h1 className="qty-p-total">Grand total: &nbsp;{grandTotal}</h1>
+          </div>
+          <button
+            type="button"
+            onClick={handleContribution}
+            className="finish-btn"
+          >
+            Preview
+          </button>
         </div>
-        <button
-          type="button"
-          onClick={handleContribution}
-          className="finish-btn"
-        >
-          Preview
-        </button>
       </div>
     </div>
   );
