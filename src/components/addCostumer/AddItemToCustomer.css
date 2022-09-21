@@ -194,8 +194,6 @@ ul {
   margin-top: 0.3125rem;
 }
 
-
-
 @media only screen and (max-width: 450px) {
   .items-to-costumer {
     display: flex;
