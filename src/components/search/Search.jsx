@@ -11,15 +11,14 @@ const Search = () => {
   const [aCustomer, setACustomer] = useState('');
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
-  const useID = user.id;
+  const admins = user.role === 'superadmin' || user.role === 'admin';
 
-  const filterCustomer = [];
-  allCustomers.map((customer) => {
-    console.log(customer.user_id);
-    if (customer.user_id === useID) {
-      filterCustomer.push(customer);
-    }
-  });
+  // const filterCustomer = [];
+  // allCustomers.map((customer) => {
+  //   if (customer.user_id === useID) {
+  //     filterCustomer.push(customer);
+  //   }
+  // });
 
   const handleSearch = () => {
     document.getElementById('search-container1').style.display = 'none';
@@ -63,17 +62,24 @@ const Search = () => {
       </div>
       <>
         {aCustomer &&
-          aCustomer.slice(0, 5).map((customer) => (
-            <NavLink key={customer.id} to={`/customers/${customer.id}`}>
-              <div className="dropdown-row">
-                <div className="search-text">
-                  <p onClick={handleSelected}>
-                    {customer.card_number} - {customer.name}
-                  </p>
-                </div>
-              </div>
-            </NavLink>
-          ))}
+          aCustomer.slice(0, 5).map((customer) => {
+            const permitted = user.id === customer.user_id || admins;
+            return (
+              <>
+                {permitted && (
+                  <NavLink key={customer.id} to={`/customers/${customer.id}`}>
+                    <div className="dropdown-row">
+                      <div className="search-text">
+                        <p onClick={handleSelected}>
+                          {customer.card_number} - {customer.name}
+                        </p>
+                      </div>
+                    </div>
+                  </NavLink>
+                )}
+              </>
+            );
+          })}
       </>
     </div>
   );
