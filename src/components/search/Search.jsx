@@ -13,13 +13,6 @@ const Search = () => {
   const { user } = data || {};
   const admins = user.role === 'superadmin' || user.role === 'admin';
 
-  // const filterCustomer = [];
-  // allCustomers.map((customer) => {
-  //   if (customer.user_id === useID) {
-  //     filterCustomer.push(customer);
-  //   }
-  // });
-
   const handleSearch = () => {
     document.getElementById('search-container1').style.display = 'none';
     document.getElementById('search-input').value = '';
