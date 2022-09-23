@@ -67,32 +67,26 @@ const Customers = () => {
       </div>
 
       {newData &&
-        newData.map((customer) => {
-          return (
-            <>
-              {data && (
-                <NavLink key={customer.id} to={`/customers/${customer.id}`}>
-                  <ul id="p-child">
-                    <li>
-                      <div className="custrans-name1">
-                        <h4 className="columns" style={{ color: 'crimson' }}>
-                          {customer.name}
-                        </h4>
-                        <h4
-                          className="columns i"
-                          style={{ borderRight: '2px solid crimson' }}
-                        >
-                          {customer.phone}
-                        </h4>
-                        <h4 className="columns"></h4>
-                      </div>
-                    </li>
-                  </ul>
-                </NavLink>
-              )}
-            </>
-          );
-        })}
+        newData.map((customer) => (
+          <NavLink key={customer.id} to={`/customers/${customer.id}`}>
+            <ul id="p-child">
+              <li>
+                <div className="custrans-name1">
+                  <h4 className="columns" style={{ color: 'crimson' }}>
+                    {customer.name}
+                  </h4>
+                  <h4
+                    className="columns i"
+                    style={{ borderRight: '2px solid crimson' }}
+                  >
+                    {customer.phone}
+                  </h4>
+                  <h4 className="columns"></h4>
+                </div>
+              </li>
+            </ul>
+          </NavLink>
+        ))}
     </div>
   );
 };
