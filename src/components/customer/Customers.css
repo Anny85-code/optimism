@@ -46,21 +46,6 @@
   display: flex;
 }
 
-.pre-btn {
-  width: 6.25rem;
-  height: 1.875rem;
-  padding: 6px;
-  outline: none;
-  border: none;
-  border-radius: 5px;
-  background-color: #f72727;
-  color: #fff;
-  font-size: 15px;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 5px 5px 13px #f7f1f1, -5px -5px 13px #e2dcdc;
-}
-
 .pre-text {
   margin: 10px 20px;
   font-size: 15px;
@@ -77,6 +62,7 @@
 @media only screen and (max-width: 450px) {
   .transact-customer-container1 {
     margin: 1.25rem;
+    width: 20rem;
   }
   .cus-name {
     font-size: 0.9375rem;
@@ -94,5 +80,10 @@
     width: 20rem;
     margin: 1.25rem;
   }
+
+  .pre-next-cont {
+    margin-left: 25%;
+}
+
 }
 /* stylelint-enable */

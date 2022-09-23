@@ -118,7 +118,6 @@ const Customers = () => {
           className="fa fa-caret-left fa-2x text-red"
           onClick={handPrevious}
           style={{ cursor: 'pointer' }}
-          id="pre-btn"
         />
         <p className="pre-text">
           {pr + 1} - {nx < len ? nx : len} <span>of</span> {len}
@@ -127,7 +126,6 @@ const Customers = () => {
           className="fa fa-caret-right fa-2x text-red"
           onClick={handleNext}
           style={{ cursor: 'pointer' }}
-          id="pre-btn"
         />
       </div>
     </div>
