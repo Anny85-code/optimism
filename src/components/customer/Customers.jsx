@@ -62,27 +62,30 @@ const Customers = () => {
           customer.user_id === user.id ||
           customer.id === marketerId;
 
-        if (permitted)
-          return (
-            <NavLink key={customer.id} to={`/customers/${customer.id}`}>
-              <ul id="p-child">
-                <li>
-                  <div className="custrans-name1">
-                    <h4 className="columns" style={{ color: 'crimson' }}>
-                      {customer.name}
-                    </h4>
-                    <h4
-                      className="columns i"
-                      style={{ borderRight: '2px solid crimson' }}
-                    >
-                      {customer.phone}
-                    </h4>
-                    <h4 className="columns"></h4>
-                  </div>
-                </li>
-              </ul>
-            </NavLink>
-          );
+        return (
+          <>
+            {permitted && (
+              <NavLink key={customer.id} to={`/customers/${customer.id}`}>
+                <ul id="p-child">
+                  <li>
+                    <div className="custrans-name1">
+                      <h4 className="columns" style={{ color: 'crimson' }}>
+                        {customer.name}
+                      </h4>
+                      <h4
+                        className="columns i"
+                        style={{ borderRight: '2px solid crimson' }}
+                      >
+                        {customer.phone}
+                      </h4>
+                      <h4 className="columns"></h4>
+                    </div>
+                  </li>
+                </ul>
+              </NavLink>
+            )}
+          </>
+        );
       })}
     </div>
   );
