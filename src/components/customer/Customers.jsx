@@ -48,8 +48,10 @@ const Customers = () => {
   };
 
   const handPrevious = () => {
-    // setPr(pr + 10);
-    // setNx(nx - 10);
+    if (pr > 1) {
+      setPr(pr - 10);
+      setNx(nx - 10);
+    }
   };
 
   return (
