@@ -95,6 +95,14 @@ const Customers = () => {
       ) : (
         <Loader />
       )}
+      <div>
+        <button type="button" onClick={handPrevious}>
+          previous
+        </button>
+        <button type="button" onClick={handleNext}>
+          next
+        </button>
+      </div>
     </>
   );
 };
