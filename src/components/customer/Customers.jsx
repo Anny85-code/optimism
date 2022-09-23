@@ -25,6 +25,16 @@ const Customers = () => {
     dispatch(getUsersFromApi());
   }, []);
 
+  const newData = allCustomers.filter((customer) => {
+    if (
+      (admins && +reId === customer.user_id) ||
+      customer.user_id === user.id ||
+      customer.id === marketerId
+    ) {
+      return customer;
+    }
+  });
+
   return (
     <div className="transact-customer-container1">
       <div className="custrans-name1">
@@ -56,37 +66,33 @@ const Customers = () => {
         </h3>
       </div>
 
-      {allCustomers.map((customer) => {
-        const permitted =
-          (admins && +reId === customer.user_id) ||
-          customer.user_id === user.id ||
-          customer.id === marketerId;
-
-        return (
-          <>
-            {permitted && (
-              <NavLink key={customer.id} to={`/customers/${customer.id}`}>
-                <ul id="p-child">
-                  <li>
-                    <div className="custrans-name1">
-                      <h4 className="columns" style={{ color: 'crimson' }}>
-                        {customer.name}
-                      </h4>
-                      <h4
-                        className="columns i"
-                        style={{ borderRight: '2px solid crimson' }}
-                      >
-                        {customer.phone}
-                      </h4>
-                      <h4 className="columns"></h4>
-                    </div>
-                  </li>
-                </ul>
-              </NavLink>
-            )}
-          </>
-        );
-      })}
+      {newData &&
+        newData.map((customer) => {
+          return (
+            <>
+              {data && (
+                <NavLink key={customer.id} to={`/customers/${customer.id}`}>
+                  <ul id="p-child">
+                    <li>
+                      <div className="custrans-name1">
+                        <h4 className="columns" style={{ color: 'crimson' }}>
+                          {customer.name}
+                        </h4>
+                        <h4
+                          className="columns i"
+                          style={{ borderRight: '2px solid crimson' }}
+                        >
+                          {customer.phone}
+                        </h4>
+                        <h4 className="columns"></h4>
+                      </div>
+                    </li>
+                  </ul>
+                </NavLink>
+              )}
+            </>
+          );
+        })}
     </div>
   );
 };
