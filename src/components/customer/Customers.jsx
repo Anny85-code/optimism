@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCustomerFromApi } from '../../redux/forms/customerReducer';
@@ -20,6 +20,8 @@ const Customers = () => {
   );
   const reId = localStorage.getItem('_id');
   const admins = user.role === 'admin' || user.role === 'superadmin';
+  const [nx, setNx] = useState(10);
+  const [pr, setPr] = useState(0);
 
   useEffect(() => {
     dispatch(getCustomerFromApi());
@@ -36,9 +38,25 @@ const Customers = () => {
     }
   });
 
+  const len = newData.length;
+
+  const handleNext = () => {
+    if (nx <= len) {
+      setNx(nx + 10);
+      setPr(pr + 10);
+    }
+  };
+
+  const handPrevious = () => {
+    if (pr > 1) {
+      setPr(pr - 10);
+      setNx(nx - 10);
+    }
+  };
+
   return (
     <>
-      {newData ? (
+      {len > 0 ? (
         <div className="transact-customer-container1">
           <div className="custrans-name1">
             <h4 className="columns">
@@ -66,12 +84,12 @@ const Customers = () => {
             <h3 className="columns" id="col" style={{ color: 'crimson' }}>
               {/* {admins && allCustomers.length}
               {user.role === 'marketer' && marketerCustomer.length} */}
-              {newData.length}
+              {len}
             </h3>
           </div>
 
           {newData &&
-            newData.map((customer) => (
+            newData.slice(pr, nx).map((customer) => (
               <NavLink key={customer.id} to={`/customers/${customer.id}`}>
                 <ul id="p-child">
                   <li>
@@ -95,6 +113,17 @@ const Customers = () => {
       ) : (
         <Loader />
       )}
+      <div>
+        <button type="button" onClick={handPrevious}>
+          previous
+        </button>
+        <p>
+          {pr + 1} - {nx < len ? nx : len} of {len}
+        </p>
+        <button type="button" onClick={handleNext}>
+          next
+        </button>
+      </div>
     </>
   );
 };
