@@ -38,7 +38,7 @@ const Customers = () => {
 
   return (
     <>
-      {newData ? (
+      {newData.length > 0 ? (
         <div className="transact-customer-container1">
           <div className="custrans-name1">
             <h4 className="columns">
@@ -71,7 +71,7 @@ const Customers = () => {
           </div>
 
           {newData &&
-            newData.map((customer) => (
+            newData.slice(0, 10).map((customer) => (
               <NavLink key={customer.id} to={`/customers/${customer.id}`}>
                 <ul id="p-child">
                   <li>
