@@ -64,8 +64,9 @@ const Customers = () => {
               }}
             ></h3>
             <h3 className="columns" id="col" style={{ color: 'crimson' }}>
-              {admins && allCustomers.length}
-              {user.role === 'marketer' && marketerCustomer.length}
+              {/* {admins && allCustomers.length}
+              {user.role === 'marketer' && marketerCustomer.length} */}
+              {newData.length}
             </h3>
           </div>
 
