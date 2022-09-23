@@ -55,7 +55,7 @@ const Customers = () => {
   };
 
   return (
-    <>
+    <div>
       {len > 0 ? (
         <div className="transact-customer-container1">
           <div className="custrans-name1">
@@ -113,18 +113,24 @@ const Customers = () => {
       ) : (
         <Loader />
       )}
-      <div>
-        <button type="button" onClick={handPrevious}>
-          previous
-        </button>
-        <p>
-          {pr + 1} - {nx < len ? nx : len} of {len}
+      <div className="pre-next-cont">
+        <i
+          className="fa fa-caret-left fa-2x text-red"
+          onClick={handPrevious}
+          style={{ cursor: 'pointer' }}
+          id="pre-btn"
+        />
+        <p className="pre-text">
+          {pr + 1} - {nx < len ? nx : len} <span>of</span> {len}
         </p>
-        <button type="button" onClick={handleNext}>
-          next
-        </button>
+        <i
+          className="fa fa-caret-right fa-2x text-red"
+          onClick={handleNext}
+          style={{ cursor: 'pointer' }}
+          id="pre-btn"
+        />
       </div>
-    </>
+    </div>
   );
 };
 /* eslint-enable */
