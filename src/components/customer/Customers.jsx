@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getCustomerFromApi } from '../../redux/forms/customerReducer';
 import './Customers.css';
 import { getUsersFromApi } from '../../redux/forms/userManReducer';
-import Loader from '../loader/Loader';
+// import Loader from '../loader/Loader';
 /* eslint-disable */
 
 const Customers = () => {
@@ -20,6 +20,8 @@ const Customers = () => {
   );
   const reId = localStorage.getItem('_id');
   const admins = user.role === 'admin' || user.role === 'superadmin';
+  const supervisor = user.role === 'supervisor';
+  // const marketer = user.role === 'marketer';
   const [nx, setNx] = useState(10);
   const [pr, setPr] = useState(0);
 
@@ -31,12 +33,16 @@ const Customers = () => {
   const newData = allCustomers.filter((customer) => {
     if (
       (admins && +reId === customer.user_id) ||
-      customer.user_id === user.id ||
-      customer.id === marketerId
+      (supervisor && +reId === customer.user_id)
+      // customer.user_id === user.id ||
+      // customer.id === marketerId ||
+      // customer.user_id === +reId
     ) {
       return customer;
     }
   });
+
+  console.log(newData, +reId);
 
   const len = newData.length;
 
@@ -56,7 +62,8 @@ const Customers = () => {
 
   return (
     <div>
-      {len > 0 ? (
+      {
+        // len > 0 ?
         <div className="transact-customer-container1">
           <div className="custrans-name1">
             <h4 className="columns">
@@ -110,9 +117,10 @@ const Customers = () => {
               </NavLink>
             ))}
         </div>
-      ) : (
-        <Loader />
-      )}
+        // : (
+        //   <Loader />
+        // )
+      }
       <div className="pre-next-cont">
         <i
           className="fa fa-caret-left fa-2x text-red"
