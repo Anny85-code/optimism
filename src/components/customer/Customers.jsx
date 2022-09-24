@@ -10,14 +10,8 @@ import { getUsersFromApi } from '../../redux/forms/userManReducer';
 const Customers = () => {
   const dispatch = useDispatch();
   const allCustomers = useSelector((state) => state.customer?.data);
-  const allUsers = useSelector((state) => state.userManReducer?.data);
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
-  const marketer = allUsers.filter((users) => users.id === user.id);
-  const marketerId = marketer[0]?.id;
-  const marketerCustomer = allCustomers.filter(
-    (customer) => user.id === customer.user_id
-  );
   const reId = localStorage.getItem('_id');
   const admins = user.role === 'admin' || user.role === 'superadmin';
   const supervisor = user.role === 'supervisor';
@@ -27,7 +21,6 @@ const Customers = () => {
 
   useEffect(() => {
     dispatch(getCustomerFromApi());
-    dispatch(getUsersFromApi());
   }, []);
 
   const newData = allCustomers.filter((customer) => {
@@ -39,9 +32,6 @@ const Customers = () => {
       return customer;
     }
   });
-
-  console.log(newData, +reId);
-
   const len = newData.length;
 
   const handleNext = () => {
