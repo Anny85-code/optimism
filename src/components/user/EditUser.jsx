@@ -47,9 +47,7 @@ const EditUser = () => {
       location_area: location,
       username,
     };
-    setIsPending(true);
     dispatch(postUpdateUserToApi(oneUser));
-    setIsPending(false);
   };
 
   const [position, setPosition] = useState(user.data.position);
@@ -228,23 +226,12 @@ const EditUser = () => {
               </div>
               <br />
               <div className="form-group btn1">
-                {!isPending && (
-                  <button
-                    type="submit"
-                    className="btn1 btn-secondary1 add-marketer-btn edit-user-btn"
-                  >
-                    Edit User
-                  </button>
-                )}
-                {isPending && (
-                  <button
-                    className="btn1 btn-secondary1"
-                    type="submit"
-                    disabled
-                  >
-                    Editing User . . .
-                  </button>
-                )}
+                <button
+                  type="submit"
+                  className="btn1 btn-secondary1 add-marketer-btn edit-user-btn"
+                >
+                  Save
+                </button>
               </div>
             </form>
           </div>

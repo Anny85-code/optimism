@@ -25,7 +25,7 @@ export const postUpdateUserToApi = (userData) => async (dispatch) => {
     dispatch(patchUserDataFailed(errorMsg));
   } else {
     window.history.pushState({}, '', `/users/${id}`);
-    // window.location.reload();
+    window.location.reload();
   }
 };
 
