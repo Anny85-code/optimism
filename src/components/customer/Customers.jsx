@@ -21,7 +21,7 @@ const Customers = () => {
   const reId = localStorage.getItem('_id');
   const admins = user.role === 'admin' || user.role === 'superadmin';
   const supervisor = user.role === 'supervisor';
-  // const marketer = user.role === 'marketer';
+  const isMarketer = user.role === 'marketer';
   const [nx, setNx] = useState(10);
   const [pr, setPr] = useState(0);
 
@@ -33,10 +33,8 @@ const Customers = () => {
   const newData = allCustomers.filter((customer) => {
     if (
       (admins && +reId === customer.user_id) ||
-      (supervisor && +reId === customer.user_id)
-      // customer.user_id === user.id ||
-      // customer.id === marketerId ||
-      // customer.user_id === +reId
+      (supervisor && +reId === customer.user_id) ||
+      (isMarketer && user.id === customer.user_id)
     ) {
       return customer;
     }
