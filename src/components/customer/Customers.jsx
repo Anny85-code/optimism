@@ -3,8 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCustomerFromApi } from '../../redux/forms/customerReducer';
 import './Customers.css';
-import { getUsersFromApi } from '../../redux/forms/userManReducer';
-// import Loader from '../loader/Loader';
+import Loader from '../loader/Loader';
 /* eslint-disable */
 
 const Customers = () => {
@@ -50,8 +49,7 @@ const Customers = () => {
 
   return (
     <div>
-      {
-        // len > 0 ?
+      {len > 0 ? (
         <div className="transact-customer-container1">
           <div className="custrans-name1">
             <h4 className="columns">
@@ -105,10 +103,9 @@ const Customers = () => {
               </NavLink>
             ))}
         </div>
-        // : (
-        //   <Loader />
-        // )
-      }
+      ) : (
+        <Loader />
+      )}
       <div className="pre-next-cont">
         <i
           className="fa fa-caret-left fa-2x text-red"
