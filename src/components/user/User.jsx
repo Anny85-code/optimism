@@ -114,6 +114,8 @@ const User = () => {
     <>
       <div id="delete" style={{ display: 'none', zIndex: 2 }}>
         <p>Are you sure you want to delete?</p>
+        <button type="button">Yes</button>
+        <button type="button">No</button>
       </div>
       <div className="containa user-container">
         <div className="image-container">
