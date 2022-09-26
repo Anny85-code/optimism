@@ -10,6 +10,7 @@ import {
 } from '../../redux/forms/oneUserManReducer';
 import './User.css';
 import { getCustomerFromApi } from '../../redux/forms/customerReducer';
+import { render } from '@testing-library/react';
 
 const editUrl = (person) => {
   const { id } = person;
@@ -78,6 +79,11 @@ const User = () => {
     );
   };
 
+  const handleDelSam = () => {
+    const deleteS = document.getElementById('delete');
+    deleteS.style.display = 'block';
+  };
+
   const navigation = () => {
     const marketer = user.data.role === 'marketer';
     const admin = user.data.role === 'admin';
@@ -105,76 +111,100 @@ const User = () => {
   };
 
   return (
-    <div className="containa user-container">
-      <div className="image-container">
-        <img src={avatar} alt={`${name}`} className="cus-image" />
+    <>
+      <div id="delete" style={{ display: 'none', zIndex: 2 }}>
+        <p>Are you sure you want to delete?</p>
       </div>
-      <div className="details-container">
-        <h3 className="cus-details">
-          <span>Name:</span> {name}
-        </h3>
-        <p className="cus-details">
-          <span>Username:</span> {username}
-        </p>
-        <p className="cus-details">
-          <span>Role:</span> {role}
-        </p>
-        <p className="cus-details">
-          <span>Phone:</span> {phone}
-        </p>
-        <p className="cus-details">
-          <span>Email:</span> {email}
-        </p>
-        <p className="cus-details">
-          <span>Location:</span> {location_area}
-        </p>
-        <p className="cus-details">
-          <span>Address: </span>
-          {address}
-        </p>
-        <p className="cus-details">
-          <span>Joined:</span> {Moment(created_at).format('MMMM DD, LT')}
-        </p>
-        <p className="cus-details">
-          <span>Last Updated:</span> {Moment(updated_at).format('MMMM DD, LT')}
-        </p>
-      </div>
-      <div className="btns-container">
-        {permitted && (
-          <>
-            <div className="edit">
-              <NavLink to={redirect}>
-                <i className="fa fa-edit text-red" />
-              </NavLink>
-            </div>
+      <div className="containa user-container">
+        <div className="image-container">
+          <img src={avatar} alt={`${name}`} className="cus-image" />
+        </div>
+        <div className="details-container">
+          <h3 className="cus-details">
+            <span>Name:</span> {name}
+          </h3>
+          <p className="cus-details">
+            <span>Username:</span> {username}
+          </p>
+          <p className="cus-details">
+            <span>Role:</span> {role}
+          </p>
+          <p className="cus-details">
+            <span>Phone:</span> {phone}
+          </p>
+          <p className="cus-details">
+            <span>Email:</span> {email}
+          </p>
+          <p className="cus-details">
+            <span>Location:</span> {location_area}
+          </p>
+          <p className="cus-details">
+            <span>Address: </span>
+            {address}
+          </p>
+          <p className="cus-details">
+            <span>Joined:</span> {Moment(created_at).format('MMMM DD, LT')}
+          </p>
+          <p className="cus-details">
+            <span>Last Updated:</span>{' '}
+            {Moment(updated_at).format('MMMM DD, LT')}
+          </p>
+        </div>
+        <div className="btns-container">
+          {permitted && (
+            <>
+              <div className="edit">
+                <NavLink to={redirect}>
+                  <i className="fa fa-edit text-red" />
+                </NavLink>
+              </div>
+              <div className="allTrans">
+                <NavLink to={allTrans}>
+                  <button type="button" className="view-trans">
+                    View Transactions
+                  </button>
+                </NavLink>
+              </div>
+            </>
+          )}
+          <div className="allTrans">{navigation()}</div>
+          {permitted && (
             <div className="allTrans">
-              <NavLink to={allTrans}>
-                <button type="button" className="view-trans">
-                  View Transactions
+              <NavLink to="/users">
+                <button
+                  type="button"
+                  className="view-trans"
+                  onClick={handleDel}
+                >
+                  Delete
                 </button>
               </NavLink>
             </div>
-          </>
-        )}
-        <div className="allTrans">{navigation()}</div>
-        {permitted && (
-          <div className="allTrans">
-            <NavLink to="/users">
-              <button type="button" className="view-trans" onClick={handleDel}>
-                Delete
+          )}
+          {permitted && (
+            <div className="allTrans">
+              {/* <NavLink to="/users"> */}
+              <button
+                style={{ zIndex: '25' }}
+                type="button"
+                className="view-trans delStyle"
+                onClick={handleDelSam}
+              >
+                DeleteSam
               </button>
-            </NavLink>
-          </div>
-        )}
-        {downBtnRight && (
-          <div className="allTrans">
-            <button type="button" className="view-trans" onClick={handleExp}>
-              Export
-            </button>
-          </div>
-        )}
+              {/* </NavLink> */}
+            </div>
+          )}
+          {downBtnRight && (
+            <div className="allTrans">
+              <button type="button" className="view-trans" onClick={handleExp}>
+                Export
+              </button>
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 /* eslint-enable */
