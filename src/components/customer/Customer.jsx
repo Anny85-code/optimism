@@ -84,90 +84,101 @@ const Customer = () => {
       {loading ? (
         <Loader />
       ) : (
-        <div className="containa cus-food-cont">
-          <div className="image-container">
-            <img className="cus-image" src={picture} alt={`${name}`} />
+        <>
+          <div id="delete" className="delStyle">
+            <p>Are you sure you want to delete?</p>
+            <button type="button" id="yes" onClick={handleConfirm}>
+              Yes
+            </button>
+            <button type="button" id="no" onClick={handleConfirm}>
+              No
+            </button>
           </div>
-          <div className="details-container">
-            <h3 className="cus-details">
-              <span>Name:</span> {name}
-            </h3>
-            <p className="cus-details">
-              <span>Phone:</span> {phone}
-            </p>
-            <p className="cus-details">
-              <span>Email:</span> {email}
-            </p>
-            <p className="cus-details">
-              <span>Card No.</span>
-              {card_number}
-              {/* {regAdmin.data.location_area &&
+          <div className="containa cus-food-cont">
+            <div className="image-container">
+              <img className="cus-image" src={picture} alt={`${name}`} />
+            </div>
+            <div className="details-container">
+              <h3 className="cus-details">
+                <span>Name:</span> {name}
+              </h3>
+              <p className="cus-details">
+                <span>Phone:</span> {phone}
+              </p>
+              <p className="cus-details">
+                <span>Email:</span> {email}
+              </p>
+              <p className="cus-details">
+                <span>Card No.</span>
+                {card_number}
+                {/* {regAdmin.data.location_area &&
                 `${regAdmin.data.location_area.slice(0, 3).toUpperCase()}${
                   regAdmin.data.id
                 }/${aCustomers.data.id}`} */}
-            </p>
-            <p className="cus-details">
-              <span>Daily Contribution:</span>
-              {` NGN ${comma(daily_contribution)}`}
-            </p>
-            <p className="cus-details">
-              <span>Address:</span> {address}
-            </p>
-            <p className="cus-details">
-              <span>Joined:</span>
-              {Moment(created_at).format('MMMM DD, LT')}
-            </p>
-            <p className="cus-details">
-              <span>Last Updated:</span>
-              {Moment(updated_at).format('MMMM DD, LT')}
-            </p>
-          </div>
+              </p>
+              <p className="cus-details">
+                <span>Daily Contribution:</span>
+                {` NGN ${comma(daily_contribution)}`}
+              </p>
+              <p className="cus-details">
+                <span>Address:</span> {address}
+              </p>
+              <p className="cus-details">
+                <span>Joined:</span>
+                {Moment(created_at).format('MMMM DD, LT')}
+              </p>
+              <p className="cus-details">
+                <span>Last Updated:</span>
+                {Moment(updated_at).format('MMMM DD, LT')}
+              </p>
+            </div>
 
-          <div className="image-container">
-            <div className="edit">
-              {admins && (
-                <NavLink to={redirect} style={{ textDecoration: 'none' }}>
-                  <i className="fa fa-edit text-red" />
-                </NavLink>
-              )}
-            </div>
-            <div className="allTrans">
-              <NavLink to={allTrans} style={{ textDecoration: 'none' }}>
-                <div>
-                  <button type="button" className="view-trans">
-                    View transactions
-                  </button>
-                </div>
-              </NavLink>
-            </div>
-            <div className="myfood">
-              {admins && (
-                <NavLink to={myfood} style={{ textDecoration: 'none' }}>
+            <div className="image-container">
+              <div className="edit">
+                {admins && (
+                  <NavLink to={redirect} style={{ textDecoration: 'none' }}>
+                    <i className="fa fa-edit text-red" />
+                  </NavLink>
+                )}
+              </div>
+              <div className="allTrans">
+                <NavLink to={allTrans} style={{ textDecoration: 'none' }}>
                   <div>
                     <button type="button" className="view-trans">
-                      My food
+                      View transactions
                     </button>
                   </div>
                 </NavLink>
-              )}
-            </div>
-            <div className="myfood">
-              {admins && (
-                <NavLink to="/customers" style={{ textDecoration: 'none' }}>
-                  <div className="del">
-                    <button
-                      type="button"
-                      className="view-trans"
-                      onClick={handleDel}
-                    >
-                      Delete
-                    </button>
-                  </div>
-                </NavLink>
-              )}
+              </div>
+              <div className="myfood">
+                {admins && (
+                  <NavLink to={myfood} style={{ textDecoration: 'none' }}>
+                    <div>
+                      <button type="button" className="view-trans">
+                        My food
+                      </button>
+                    </div>
+                  </NavLink>
+                )}
+              </div>
+              <div className="myfood">
+                {admins && (
+                  <NavLink to="/customers" style={{ textDecoration: 'none' }}>
+                    <div className="del">
+                      <button
+                        type="button"
+                        className="view-trans"
+                        onClick={handleDel}
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  </NavLink>
+                )}
+              </div>
             </div>
           </div>
-        </div>
+        </>
       )}
     </>
   );
