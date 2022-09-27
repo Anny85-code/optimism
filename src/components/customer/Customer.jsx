@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React, { useEffect } from 'react';
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink, useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Moment from 'moment';
 import './Customer.css';
@@ -42,6 +42,7 @@ const Customer = () => {
   const regAdmin = useSelector((state) => state.oneUser);
   const adminNo = aCustomers?.data?.user_id;
   const { loading } = regAdmin;
+  const navigate = useNavigate();
   const admins =
     user.role === 'admin' ||
     user.role === 'superadmin' ||
@@ -174,17 +175,15 @@ const Customer = () => {
               </div>
               <div className="myfood">
                 {admins && (
-                  <NavLink to="/customers" style={{ textDecoration: 'none' }}>
-                    <div className="del">
-                      <button
-                        type="button"
-                        className="view-trans"
-                        onClick={handleDel}
-                      >
-                        Delete
-                      </button>
-                    </div>
-                  </NavLink>
+                  <div className="del">
+                    <button
+                      type="button"
+                      className="view-trans"
+                      onClick={handleDel}
+                    >
+                      Delete
+                    </button>
+                  </div>
                 )}
               </div>
             </div>
