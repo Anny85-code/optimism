@@ -83,7 +83,7 @@ const User = () => {
     }
   };
 
-  const handleDelSam = () => {
+  const handleDel = () => {
     const deleteS = document.getElementById('delete');
     deleteS.style.display = 'block';
   };
@@ -184,9 +184,9 @@ const User = () => {
               <button
                 type="button"
                 className="view-trans delStyle"
-                onClick={handleDelSam}
+                onClick={handleDel}
               >
-                DeleteSam
+                Delete
               </button>
               {/* </NavLink> */}
             </div>
