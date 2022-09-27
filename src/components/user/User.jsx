@@ -180,22 +180,8 @@ const User = () => {
           <div className="allTrans">{navigation()}</div>
           {permitted && (
             <div className="allTrans">
-              <NavLink to="/users">
-                <button
-                  type="button"
-                  className="view-trans"
-                  onClick={handleDel}
-                >
-                  Delete
-                </button>
-              </NavLink>
-            </div>
-          )}
-          {permitted && (
-            <div className="allTrans">
               {/* <NavLink to="/users"> */}
               <button
-                style={{ zIndex: '25' }}
                 type="button"
                 className="view-trans delStyle"
                 onClick={handleDelSam}
