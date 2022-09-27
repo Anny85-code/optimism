@@ -77,7 +77,7 @@ const Customer = () => {
 
   const handleConfirm = (e) => {
     if (e.target.id === 'yes') {
-      dispatch(delOneUserFromApi(id));
+      dispatch(delOneCustomerFromApi(id));
       navigate(-1);
     } else if (e.target.id === 'no') {
       const deleteS = document.getElementById('delete');
