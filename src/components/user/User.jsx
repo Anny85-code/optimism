@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { utils, writeFileXLSX } from 'xlsx';
@@ -10,7 +10,6 @@ import {
 } from '../../redux/forms/oneUserManReducer';
 import './User.css';
 import { getCustomerFromApi } from '../../redux/forms/customerReducer';
-import { render } from '@testing-library/react';
 
 const editUrl = (person) => {
   const { id } = person;
@@ -33,7 +32,6 @@ const User = () => {
   const permitted =
     loggedUser.role === 'superadmin' || loggedUser.role === 'admin';
   const downBtnRight = permitted && user.data.role === 'marketer';
-  const [confirm, setConfirm] = useState(false);
 
   useEffect(() => {
     dispatch(getOneUserFromApi(id));
@@ -82,7 +80,10 @@ const User = () => {
 
   const handleConfirm = (e) => {
     if (e.target.id === 'yes') {
-      setConfirm(true);
+      dispatch(delOneUserFromApi(id));
+    } else if (e.target.id === 'no') {
+      const deleteS = document.getElementById('delete');
+      deleteS.style.display = 'none';
     }
   };
 
@@ -116,8 +117,6 @@ const User = () => {
       </NavLink>
     );
   };
-
-  console.log(confirm);
 
   return (
     <>
