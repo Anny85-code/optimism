@@ -75,10 +75,6 @@ const Customer = () => {
     return newText;
   };
 
-  const handleDel = function () {
-    dispatch(delOneCustomerFromApi(id));
-  };
-
   const handleConfirm = (e) => {
     if (e.target.id === 'yes') {
       dispatch(delOneUserFromApi(id));
