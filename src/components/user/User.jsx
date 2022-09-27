@@ -53,10 +53,6 @@ const User = () => {
   const redirect = editUrl(user.data);
   const allTrans = transUrl(user.data);
 
-  const handleDel = function () {
-    dispatch(delOneUserFromApi(id));
-  };
-
   const handleExp = () => {
     const myCustomers = customers.filter(
       (customer) => customer.user_id === +id
