@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { utils, writeFileXLSX } from 'xlsx';
@@ -33,6 +33,7 @@ const User = () => {
   const permitted =
     loggedUser.role === 'superadmin' || loggedUser.role === 'admin';
   const downBtnRight = permitted && user.data.role === 'marketer';
+  const [confirm, setConfirm] = useState(false);
 
   useEffect(() => {
     dispatch(getOneUserFromApi(id));
@@ -79,6 +80,12 @@ const User = () => {
     );
   };
 
+  const handleConfirm = (e) => {
+    if (e.target.id === 'yes') {
+      setConfirm(true);
+    }
+  };
+
   const handleDelSam = () => {
     const deleteS = document.getElementById('delete');
     deleteS.style.display = 'block';
@@ -110,12 +117,18 @@ const User = () => {
     );
   };
 
+  console.log(confirm);
+
   return (
     <>
       <div id="delete" style={{ display: 'none', zIndex: 2 }}>
         <p>Are you sure you want to delete?</p>
-        <button type="button">Yes</button>
-        <button type="button">No</button>
+        <button type="button" id="yes" onClick={handleConfirm}>
+          Yes
+        </button>
+        <button type="button" id="no" onClick={handleConfirm}>
+          No
+        </button>
       </div>
       <div className="containa user-container">
         <div className="image-container">
