@@ -79,6 +79,21 @@ const Customer = () => {
     dispatch(delOneCustomerFromApi(id));
   };
 
+  const handleConfirm = (e) => {
+    if (e.target.id === 'yes') {
+      dispatch(delOneUserFromApi(id));
+      navigate(-1);
+    } else if (e.target.id === 'no') {
+      const deleteS = document.getElementById('delete');
+      deleteS.style.display = 'none';
+    }
+  };
+
+  const handleDel = () => {
+    const deleteS = document.getElementById('delete');
+    deleteS.style.display = 'block';
+  };
+
   return (
     <>
       {loading ? (
