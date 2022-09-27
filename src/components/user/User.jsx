@@ -116,7 +116,7 @@ const User = () => {
 
   return (
     <>
-      <div id="delete" style={{ display: 'none', zIndex: 2 }}>
+      <div id="delete" className=" delStyle">
         <p>Are you sure you want to delete?</p>
         <button type="button" id="yes" onClick={handleConfirm}>
           Yes
@@ -181,11 +181,7 @@ const User = () => {
           {permitted && (
             <div className="allTrans">
               {/* <NavLink to="/users"> */}
-              <button
-                type="button"
-                className="view-trans delStyle"
-                onClick={handleDel}
-              >
+              <button type="button" className="view-trans" onClick={handleDel}>
                 Delete
               </button>
               {/* </NavLink> */}
