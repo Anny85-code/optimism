@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React, { useEffect } from 'react';
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink, useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { utils, writeFileXLSX } from 'xlsx';
 import Moment from 'moment';
@@ -32,6 +32,7 @@ const User = () => {
   const permitted =
     loggedUser.role === 'superadmin' || loggedUser.role === 'admin';
   const downBtnRight = permitted && user.data.role === 'marketer';
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(getOneUserFromApi(id));
@@ -77,6 +78,7 @@ const User = () => {
   const handleConfirm = (e) => {
     if (e.target.id === 'yes') {
       dispatch(delOneUserFromApi(id));
+      navigate(-1);
     } else if (e.target.id === 'no') {
       const deleteS = document.getElementById('delete');
       deleteS.style.display = 'none';
@@ -116,7 +118,7 @@ const User = () => {
 
   return (
     <>
-      <div id="delete" className=" delStyle">
+      <div id="delete" className="delStyle">
         <p>Are you sure you want to delete?</p>
         <button type="button" id="yes" onClick={handleConfirm}>
           Yes
