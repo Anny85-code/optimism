@@ -97,7 +97,7 @@ const Customer = () => {
         <Loader />
       ) : (
         <>
-          <div id="delete" className="delStyle">
+          <div id="delete" className="del-style">
             <p>Are you sure you want to delete?</p>
             <button type="button" id="yes" onClick={handleConfirm}>
               Yes
