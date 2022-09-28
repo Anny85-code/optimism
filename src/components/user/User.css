@@ -13,13 +13,21 @@
 }
 
 .del-style {
-  width: 400px;
-  height: 400px;
+  width: 600px;
+  height: 200px;
+  border-radius: 8px;
+  border: 2px solid crimson;
   background: #fff;
-  margin: 100px 0 0 600px;
+  margin: 200px 0 0 600px;
   display: none;
   z-index: 9;
   position: absolute;
+  padding: 30px;
+  text-align: center;
+}
+
+.del-style > p {
+  margin-bottom: 30px;
 }
 
 @media only screen and (max-width: 450px) {
