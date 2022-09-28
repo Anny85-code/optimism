@@ -118,7 +118,7 @@ const User = () => {
 
   return (
     <>
-      <div id="delete" className="delStyle">
+      <div id="delete" className="del-style">
         <p>Are you sure you want to delete?</p>
         <button type="button" id="yes" onClick={handleConfirm}>
           Yes
@@ -126,6 +126,7 @@ const User = () => {
         <button type="button" id="no" onClick={handleConfirm}>
           No
         </button>
+        
       </div>
       <div className="containa user-container">
         <div className="image-container">
