@@ -126,6 +126,7 @@ const User = () => {
         <button type="button" id="no" onClick={handleConfirm}>
           No
         </button>
+        
       </div>
       <div className="containa user-container">
         <div className="image-container">
