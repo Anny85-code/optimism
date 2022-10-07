@@ -163,15 +163,13 @@ const Customer = () => {
                 </NavLink>
               </div>
               <div className="myfood">
-                {admins && (
-                  <NavLink to={myfood} style={{ textDecoration: 'none' }}>
-                    <div>
-                      <button type="button" className="view-trans">
-                        My food
-                      </button>
-                    </div>
-                  </NavLink>
-                )}
+                <NavLink to={myfood} style={{ textDecoration: 'none' }}>
+                  <div>
+                    <button type="button" className="view-trans">
+                      My food
+                    </button>
+                  </div>
+                </NavLink>
               </div>
               <div className="myfood">
                 {admins && (
