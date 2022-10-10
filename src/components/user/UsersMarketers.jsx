@@ -19,8 +19,8 @@ const UsersMarketers = () => {
     <div>
       {allUsers.map((user) => {
         const permitted =
-          userr.role === 'admin' ||
-          (userr.role === 'superadmin' && +reId === user.user_id) ||
+          ((userr.role === 'admin' || userr.role === 'superadmin') &&
+            +reId === user.user_id) ||
           user.user_id === userr.id;
         return (
           permitted && (
