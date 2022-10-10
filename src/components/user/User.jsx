@@ -172,30 +172,26 @@ const User = () => {
         </div>
         <div className="btns-container">
           {permitted && (
-            <>
-              <div className="edit">
-                <NavLink to={redirect}>
-                  <i className="fa fa-edit text-red" />
-                </NavLink>
-              </div>
-              <div className="allTrans">
-                <NavLink to={allTrans}>
-                  <button type="button" className="view-trans">
-                    View Transactions
-                  </button>
-                </NavLink>
-              </div>
-            </>
+            <div className="edit">
+              <NavLink to={redirect}>
+                <i className="fa fa-edit text-red" />
+              </NavLink>
+            </div>
           )}
           <div className="allTrans">{navigation()}</div>
           {seeMarketersDaily && (
             <div className="allTrans">
-              <button
-                type="button"
-                className="view-trans"
-                onClick={handleDailyTrans}
-              >
-                Daily Transactions
+              <NavLink to={allTrans}>
+                <button type="button" className="view-trans">
+                  View Transactions
+                </button>
+              </NavLink>
+            </div>
+          )}
+          {downBtnRight && (
+            <div className="allTrans">
+              <button type="button" className="view-trans" onClick={handleExp}>
+                Export
               </button>
             </div>
           )}
@@ -206,13 +202,6 @@ const User = () => {
                 Delete
               </button>
               {/* </NavLink> */}
-            </div>
-          )}
-          {downBtnRight && (
-            <div className="allTrans">
-              <button type="button" className="view-trans" onClick={handleExp}>
-                Export
-              </button>
             </div>
           )}
         </div>
