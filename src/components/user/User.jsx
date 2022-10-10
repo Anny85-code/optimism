@@ -33,8 +33,8 @@ const User = () => {
     loggedUser.role === 'superadmin' || loggedUser.role === 'admin';
   const downBtnRight = permitted && user.data.role === 'marketer';
   const seeMarketersDaily =
-    permitted ||
-    (loggedUser.role === 'supervisor' && user.data.role === 'marketer');
+    (permitted || loggedUser.role === 'supervisor') &&
+    user.data.role === 'marketer';
 
   const navigate = useNavigate();
 
