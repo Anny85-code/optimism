@@ -32,6 +32,10 @@ const User = () => {
   const permitted =
     loggedUser.role === 'superadmin' || loggedUser.role === 'admin';
   const downBtnRight = permitted && user.data.role === 'marketer';
+  const seeMarketersDaily =
+    permitted ||
+    (loggedUser.role === 'supervisor' && user.data.role === 'marketer');
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -126,7 +130,6 @@ const User = () => {
         <button type="button" id="no" onClick={handleConfirm}>
           No
         </button>
-        
       </div>
       <div className="containa user-container">
         <div className="image-container">
@@ -181,6 +184,17 @@ const User = () => {
             </>
           )}
           <div className="allTrans">{navigation()}</div>
+          <div className="allTrans">
+            {seeMarketersDaily && (
+              <button
+                type="button"
+                className="view-trans"
+                onClick={handleDailyTrans}
+              >
+                Daily Transactions
+              </button>
+            )}
+          </div>
           {permitted && (
             <div className="allTrans">
               {/* <NavLink to="/users"> */}
