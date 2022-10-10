@@ -21,6 +21,7 @@ const UserTransacts = () => {
   const [filtaTrans, setFiltaTrans] = useState([]);
   const [filtaTotal, setFiltaTotal] = useState(0);
   const [transNo, setTransNo] = useState(0);
+  const admins = user.role === 'admin' || user.role === 'superadmin';
 
   useEffect(() => {
     dispatch(getOneUserTransFromApi(id));
