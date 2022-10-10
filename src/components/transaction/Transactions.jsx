@@ -16,7 +16,6 @@ const Transactions = () => {
     (state) => state.transactions?.data?.transactions
   );
   // const { customer_id } = transactions;
-  // console.log(transactions);
   const customers = useSelector((state) => state.customer);
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
@@ -41,7 +40,6 @@ const Transactions = () => {
     setFiltaTrans(sameDay);
     setTransNo(sameDay.length);
   };
-  console.log(filtaTotal);
 
   const comma = (num) => {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
