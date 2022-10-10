@@ -188,8 +188,8 @@ const User = () => {
             </>
           )}
           <div className="allTrans">{navigation()}</div>
-          <div className="allTrans">
-            {seeMarketersDaily && (
+          {seeMarketersDaily && (
+            <div className="allTrans">
               <button
                 type="button"
                 className="view-trans"
@@ -197,8 +197,8 @@ const User = () => {
               >
                 Daily Transactions
               </button>
-            )}
-          </div>
+            </div>
+          )}
           {permitted && (
             <div className="allTrans">
               {/* <NavLink to="/users"> */}
