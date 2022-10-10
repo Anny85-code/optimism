@@ -120,10 +120,6 @@ const User = () => {
     );
   };
 
-  const handleDailyTrans = () => {
-    console.log();
-  };
-
   return (
     <>
       <div id="delete" className="del-style">
