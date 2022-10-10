@@ -41,7 +41,6 @@ const Transactions = () => {
     setFiltaTrans(sameDay);
     setTransNo(sameDay.length);
   };
-  console.log(filtaTrans);
 
   const comma = (num) => {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
