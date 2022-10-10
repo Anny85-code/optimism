@@ -41,6 +41,7 @@ const Transactions = () => {
     setFiltaTrans(sameDay);
     setTransNo(sameDay.length);
   };
+  console.log(filtaTotal);
 
   const comma = (num) => {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -75,6 +76,7 @@ const Transactions = () => {
           >
             Filter
           </button>
+          {filtaTotal > 0 && <div>Today's Total {filtaTotal}</div>}
         </div>
       </div>
       <div className="transact-customer-container1">
