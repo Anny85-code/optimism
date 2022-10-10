@@ -76,7 +76,9 @@ const Transactions = () => {
           >
             Filter
           </button>
-          {filtaTotal > 0 && <div>Today's Total {filtaTotal}</div>}
+          {filtaTotal > 0 && (
+            <div className="user-transact-btn">Total - NGN {filtaTotal}</div>
+          )}
         </div>
       </div>
       <div className="transact-customer-container1">
