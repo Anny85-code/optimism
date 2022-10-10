@@ -110,10 +110,11 @@ const UserTransacts = () => {
                   <h3 className="columns i " id="a">
                     <span className="cus-name1">No. of Transactions</span>
                   </h3>
-
-                  <h3 className="columns">
-                    <span className="cus-name1">Total amount collected</span>
-                  </h3>
+                  {admins && (
+                    <h3 className="columns">
+                      <span className="cus-name1">Total amount collected</span>
+                    </h3>
+                  )}
                 </div>
 
                 <div className="custrans-name">
@@ -147,10 +148,15 @@ const UserTransacts = () => {
                   >
                     {transNo}
                   </h3>
-
-                  <h3 className="columns" id="col" style={{ color: 'crimson' }}>
-                    {`NGN ${comma(total)}`}
-                  </h3>
+                  {admins && (
+                    <h3
+                      className="columns"
+                      id="col"
+                      style={{ color: 'crimson' }}
+                    >
+                      {`NGN ${comma(total)}`}
+                    </h3>
+                  )}
                 </div>
                 {filtaTrans.length >= 1 ? (
                   filtaTrans.map((transaction) => (
@@ -175,7 +181,7 @@ const UserTransacts = () => {
                               className="columns i"
                               style={{ borderRight: '2px solid crimson' }}
                             ></h4>
-                            <h4 className="columns "></h4>
+                            {admins && <h4 className="columns "></h4>}
                           </div>
                         </li>
                       </ul>
