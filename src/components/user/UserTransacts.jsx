@@ -20,8 +20,25 @@ const UserTransacts = () => {
   const [sDate, setSDate] = useState(new Date());
   const [filtaTrans, setFiltaTrans] = useState([]);
   const [filtaTotal, setFiltaTotal] = useState(0);
+  const [nx, setNx] = useState(10);
+  const [pr, setPr] = useState(0);
   const [transNo, setTransNo] = useState(0);
   const admins = user.role === 'admin' || user.role === 'superadmin';
+  const len = filtaTrans.length;
+
+  const handleNext = () => {
+    if (nx <= len) {
+      setNx(nx + 10);
+      setPr(pr + 10);
+    }
+  };
+
+  const handPrevious = () => {
+    if (pr > 1) {
+      setPr(pr - 10);
+      setNx(nx - 10);
+    }
+  };
 
   useEffect(() => {
     dispatch(getOneUserTransFromApi(id));
@@ -198,6 +215,21 @@ const UserTransacts = () => {
         ) : (
           <Loader />
         )}
+      </div>
+      <div className="pre-next-cont">
+        <i
+          className="fa fa-caret-left fa-2x text-red"
+          onClick={handPrevious}
+          style={{ cursor: 'pointer' }}
+        />
+        <p className="pre-text">
+          {pr + 1} - {nx < len ? nx : len} <span>of</span> {len}
+        </p>
+        <i
+          className="fa fa-caret-right fa-2x text-red"
+          onClick={handleNext}
+          style={{ cursor: 'pointer' }}
+        />
       </div>
     </div>
   );
