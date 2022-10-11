@@ -176,7 +176,7 @@ const UserTransacts = () => {
                   )}
                 </div>
                 {len >= 1 ? (
-                  len.slice(pr, nx).map((transaction) => (
+                  filtaTrans.slice(pr, nx).map((transaction) => (
                     <NavLink
                       key={transaction.id}
                       to={`/transactions/${transaction.id}`}
