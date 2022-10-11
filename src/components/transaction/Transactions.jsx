@@ -53,29 +53,35 @@ const Transactions = () => {
         >
           Please select a date
         </p>
-        <div className="date-picker-container">
-          <label htmlFor="start_date" className="start-date">
-            <DatePicker
-              // portalId="root-portal"
-              dateFormat="yyyy/MM/dd"
-              selected={sDate}
-              // showMonthDropdown
-              // showYearDropdown
-              dropdownMode="select"
-              onChange={(date) => setSDate(date)}
-              style={{ margin: 0 }}
-              className="start-date-picker"
-            />
-          </label>
-          <button
-            type="button"
-            onClick={handleFilter}
-            className="user-transact-btn"
-          >
-            Filter
-          </button>
+        <div className="date-picker-container date-picker-trans">
+          <div>
+            <label htmlFor="start_date" className="start-date">
+              <DatePicker
+                // portalId="root-portal"
+                dateFormat="yyyy/MM/dd"
+                selected={sDate}
+                // showMonthDropdown
+                // showYearDropdown
+                dropdownMode="select"
+                onChange={(date) => setSDate(date)}
+                style={{ margin: 0 }}
+                className="start-date-picker-tran"
+              />
+            </label>
+          </div>
+          <div>
+            <button
+              type="button"
+              onClick={handleFilter}
+              className="user-transact-btn-filter"
+            >
+              Filter
+            </button>
+          </div>
           {filtaTotal > 0 && (
-            <div className="user-transact-btn">Total - NGN {filtaTotal}</div>
+            <div className="user-transact-btn-total">
+              Total - NGN {filtaTotal}
+            </div>
           )}
         </div>
       </div>
