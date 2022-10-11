@@ -35,7 +35,6 @@ const User = () => {
   const seeMarketersDaily =
     (permitted || loggedUser.role === 'supervisor') &&
     user.data.role === 'marketer';
-
   const navigate = useNavigate();
 
   useEffect(() => {
