@@ -162,7 +162,7 @@ const Transactions = () => {
             }
           })}
       </div>
-      {filtaTrans.length > 0 && (
+      {filtaTrans.length > 5 && (
         <div className="pre-next-cont">
           <i
             className="fa fa-caret-left fa-2x text-red"

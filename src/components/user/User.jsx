@@ -193,11 +193,9 @@ const User = () => {
           )}
           {permitted && (
             <div className="allTrans">
-              {/* <NavLink to="/users"> */}
               <button type="button" className="view-trans" onClick={handleDel}>
                 Delete
               </button>
-              {/* </NavLink> */}
             </div>
           )}
         </div>

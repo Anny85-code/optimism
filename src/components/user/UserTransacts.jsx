@@ -175,8 +175,8 @@ const UserTransacts = () => {
                     </h3>
                   )}
                 </div>
-                {filtaTrans.length >= 1 ? (
-                  filtaTrans.slice(pr, nx).map((transaction) => (
+                {len >= 1 ? (
+                  len.slice(pr, nx).map((transaction) => (
                     <NavLink
                       key={transaction.id}
                       to={`/transactions/${transaction.id}`}
@@ -216,7 +216,7 @@ const UserTransacts = () => {
           <Loader />
         )}
       </div>
-      {filtaTrans.length > 0 && (
+      {len > 5 && (
         <div className="pre-next-cont">
           <i
             className="fa fa-caret-left fa-2x text-red"

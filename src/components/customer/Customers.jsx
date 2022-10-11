@@ -104,21 +104,23 @@ const Customers = () => {
       ) : (
         <Loader />
       )}
-      <div className="pre-next-cont">
-        <i
-          className="fa fa-caret-left fa-2x text-red"
-          onClick={handPrevious}
-          style={{ cursor: 'pointer' }}
-        />
-        <p className="pre-text">
-          {pr + 1} - {nx < len ? nx : len} <span>of</span> {len}
-        </p>
-        <i
-          className="fa fa-caret-right fa-2x text-red"
-          onClick={handleNext}
-          style={{ cursor: 'pointer' }}
-        />
-      </div>
+      {len && (
+        <div className="pre-next-cont">
+          <i
+            className="fa fa-caret-left fa-2x text-red"
+            onClick={handPrevious}
+            style={{ cursor: 'pointer' }}
+          />
+          <p className="pre-text">
+            {pr + 1} - {nx < len ? nx : len} <span>of</span> {len}
+          </p>
+          <i
+            className="fa fa-caret-right fa-2x text-red"
+            onClick={handleNext}
+            style={{ cursor: 'pointer' }}
+          />
+        </div>
+      )}
     </div>
   );
 };
