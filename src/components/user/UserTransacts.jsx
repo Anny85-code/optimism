@@ -23,7 +23,7 @@ const UserTransacts = () => {
   const [nx, setNx] = useState(5);
   const [pr, setPr] = useState(0);
   const [transNo, setTransNo] = useState(0);
-  const admins = user.role === 'admin' || user.role === 'superadmin';
+  const superadmins = user.role === 'superadmin';
   const len = filtaTrans.length;
 
   const handleNext = () => {
@@ -127,7 +127,7 @@ const UserTransacts = () => {
                   <h3 className="columns i " id="a">
                     <span className="cus-name1">No. of Transactions</span>
                   </h3>
-                  {admins && (
+                  {superadmins && (
                     <h3 className="columns">
                       <span className="cus-name1">Total amount collected</span>
                     </h3>
@@ -165,7 +165,7 @@ const UserTransacts = () => {
                   >
                     {transNo}
                   </h3>
-                  {admins && (
+                  {superadmins && (
                     <h3
                       className="columns"
                       id="col"
@@ -198,7 +198,7 @@ const UserTransacts = () => {
                               className="columns i"
                               style={{ borderRight: '2px solid crimson' }}
                             ></h4>
-                            {admins && <h4 className="columns "></h4>}
+                            {superadmins && <h4 className="columns "></h4>}
                           </div>
                         </li>
                       </ul>
