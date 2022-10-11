@@ -20,8 +20,14 @@
   font-size: 1.9rem;
   font-weight: bold;
   color: rgb(75, 7, 20);
-  margin: 20px 0 20px 40px;
+  margin: 20px 0 20px 130px;
   text-align: center;
+}
+
+.start-date-container > p {
+  text-align: center;
+  color: crimson;
+  margin-left: 130px;
 }
 
 .start-date-picker {
@@ -109,5 +115,13 @@
 
   .userTrans-pre-next-cont {
     margin-left: 25%;
+  }
+
+  .start-d {
+    margin: 20px 0 20px 40px;
+  }
+
+  .start-date-container > p {
+    margin-left: 30px;
   }
 }
