@@ -20,7 +20,25 @@ const UserTransacts = () => {
   const [sDate, setSDate] = useState(new Date());
   const [filtaTrans, setFiltaTrans] = useState([]);
   const [filtaTotal, setFiltaTotal] = useState(0);
+  const [nx, setNx] = useState(5);
+  const [pr, setPr] = useState(0);
   const [transNo, setTransNo] = useState(0);
+  const admins = user.role === 'admin' || user.role === 'superadmin';
+  const len = filtaTrans.length;
+
+  const handleNext = () => {
+    if (nx <= len) {
+      setNx(nx + 5);
+      setPr(pr + 5);
+    }
+  };
+
+  const handPrevious = () => {
+    if (pr > 1) {
+      setPr(pr - 5);
+      setNx(nx - 5);
+    }
+  };
 
   useEffect(() => {
     dispatch(getOneUserTransFromApi(id));
@@ -109,10 +127,11 @@ const UserTransacts = () => {
                   <h3 className="columns i " id="a">
                     <span className="cus-name1">No. of Transactions</span>
                   </h3>
-
-                  <h3 className="columns">
-                    <span className="cus-name1">Total amount collected</span>
-                  </h3>
+                  {admins && (
+                    <h3 className="columns">
+                      <span className="cus-name1">Total amount collected</span>
+                    </h3>
+                  )}
                 </div>
 
                 <div className="custrans-name">
@@ -146,13 +165,18 @@ const UserTransacts = () => {
                   >
                     {transNo}
                   </h3>
-
-                  <h3 className="columns" id="col" style={{ color: 'crimson' }}>
-                    {`NGN ${comma(total)}`}
-                  </h3>
+                  {admins && (
+                    <h3
+                      className="columns"
+                      id="col"
+                      style={{ color: 'crimson' }}
+                    >
+                      {`NGN ${comma(total)}`}
+                    </h3>
+                  )}
                 </div>
                 {filtaTrans.length >= 1 ? (
-                  filtaTrans.map((transaction) => (
+                  filtaTrans.slice(pr, nx).map((transaction) => (
                     <NavLink
                       key={transaction.id}
                       to={`/transactions/${transaction.id}`}
@@ -174,7 +198,7 @@ const UserTransacts = () => {
                               className="columns i"
                               style={{ borderRight: '2px solid crimson' }}
                             ></h4>
-                            <h4 className="columns "></h4>
+                            {admins && <h4 className="columns "></h4>}
                           </div>
                         </li>
                       </ul>
@@ -191,6 +215,21 @@ const UserTransacts = () => {
         ) : (
           <Loader />
         )}
+      </div>
+      <div className="pre-next-cont">
+        <i
+          className="fa fa-caret-left fa-2x text-red"
+          onClick={handPrevious}
+          style={{ cursor: 'pointer' }}
+        />
+        <p className="pre-text">
+          {pr + 1} - {nx < len ? nx : len} <span>of</span> {len}
+        </p>
+        <i
+          className="fa fa-caret-right fa-2x text-red"
+          onClick={handleNext}
+          style={{ cursor: 'pointer' }}
+        />
       </div>
     </div>
   );

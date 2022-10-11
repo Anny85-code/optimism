@@ -16,7 +16,6 @@ const Transactions = () => {
     (state) => state.transactions?.data?.transactions
   );
   // const { customer_id } = transactions;
-  // console.log(transactions);
   const customers = useSelector((state) => state.customer);
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
@@ -75,6 +74,9 @@ const Transactions = () => {
           >
             Filter
           </button>
+          {filtaTotal > 0 && (
+            <div className="user-transact-btn">Total - NGN {filtaTotal}</div>
+          )}
         </div>
       </div>
       <div className="transact-customer-container1">

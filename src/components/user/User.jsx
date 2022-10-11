@@ -32,6 +32,10 @@ const User = () => {
   const permitted =
     loggedUser.role === 'superadmin' || loggedUser.role === 'admin';
   const downBtnRight = permitted && user.data.role === 'marketer';
+  const seeMarketersDaily =
+    (permitted || loggedUser.role === 'supervisor') &&
+    user.data.role === 'marketer';
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -126,7 +130,6 @@ const User = () => {
         <button type="button" id="no" onClick={handleConfirm}>
           No
         </button>
-        
       </div>
       <div className="containa user-container">
         <div className="image-container">
@@ -165,29 +168,20 @@ const User = () => {
         </div>
         <div className="btns-container">
           {permitted && (
-            <>
-              <div className="edit">
-                <NavLink to={redirect}>
-                  <i className="fa fa-edit text-red" />
-                </NavLink>
-              </div>
-              <div className="allTrans">
-                <NavLink to={allTrans}>
-                  <button type="button" className="view-trans">
-                    View Transactions
-                  </button>
-                </NavLink>
-              </div>
-            </>
+            <div className="edit">
+              <NavLink to={redirect}>
+                <i className="fa fa-edit text-red" />
+              </NavLink>
+            </div>
           )}
           <div className="allTrans">{navigation()}</div>
-          {permitted && (
+          {seeMarketersDaily && (
             <div className="allTrans">
-              {/* <NavLink to="/users"> */}
-              <button type="button" className="view-trans" onClick={handleDel}>
-                Delete
-              </button>
-              {/* </NavLink> */}
+              <NavLink to={allTrans}>
+                <button type="button" className="view-trans">
+                  View Transactions
+                </button>
+              </NavLink>
             </div>
           )}
           {downBtnRight && (
@@ -195,6 +189,15 @@ const User = () => {
               <button type="button" className="view-trans" onClick={handleExp}>
                 Export
               </button>
+            </div>
+          )}
+          {permitted && (
+            <div className="allTrans">
+              {/* <NavLink to="/users"> */}
+              <button type="button" className="view-trans" onClick={handleDel}>
+                Delete
+              </button>
+              {/* </NavLink> */}
             </div>
           )}
         </div>
