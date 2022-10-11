@@ -16,6 +16,50 @@
   font-family: 'Gumela', sans-serif;
 }
 
+.user-transact-btn-total {
+  width: 200px;
+  margin-left: 25px;
+  height: 40px;
+  padding: 10px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #000;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 5px 5px 13px #332a2a, -5px -5px 13px #353131;
+}
+
+.user-transact-btn-filter {
+  margin-left: 30px;
+  width: 200px;
+  height: 40px;
+  padding: 10px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background-color: #f72727;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #d86565;
+}
+
+.start-date-picker-tran {
+  width: 200px;
+  height: 40px;
+  border-radius: 5px;
+}
+
+.date-picker-trans {
+  justify-content: space-between;
+  gap: 30px;
+  margin-left: 12.5%;
+}
+
 @media only screen and (max-width: 450px) {
   .transact-customer-container1 {
     width: 320px;
@@ -25,5 +69,26 @@
   .transactions-container {
     width: 320px;
     margin: 20px;
+  }
+
+  .date-picker-trans {
+    width: 300px;
+    margin-left: 5px;
+    gap: 5px;
+  }
+
+  .user-transact-btn-total {
+    width: 150px;
+    margin-left: 10px;
+    font-size: 12px;
+  }
+
+  .user-transact-btn-filter {
+    width: 100px;
+    margin-left: 10px;
+  }
+
+  .start-date-picker-tran {
+    width: 80px;
   }
 }

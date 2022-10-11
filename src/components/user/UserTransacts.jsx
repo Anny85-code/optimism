@@ -217,7 +217,7 @@ const UserTransacts = () => {
         )}
       </div>
       {len > 5 && (
-        <div className="pre-next-cont">
+        <div className="pre-next-cont userTrans-pre-next-cont">
           <i
             className="fa fa-caret-left fa-2x text-red"
             onClick={handPrevious}
