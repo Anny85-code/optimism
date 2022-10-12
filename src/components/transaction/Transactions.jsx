@@ -65,7 +65,7 @@ const Transactions = () => {
   return (
     <div className="cust-tansact-container1">
       <div className="start-date-container">
-        <h3 className="details start-d">Marketer Transaction details</h3>
+        <h3 className="details start-d">Marketer Transaction Details</h3>
         <p>Please select a date</p>
         <div className="date-picker-container date-picker-trans">
           <div>
