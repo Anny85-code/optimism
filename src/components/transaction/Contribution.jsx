@@ -116,6 +116,7 @@ const Contribution = () => {
                 className="form-control days-input"
                 name=""
                 id=""
+                onChange={(e) => console.log(e.target.value)}
               />
               <p>Amount: NGN {amount}</p>
               <p>Previous payment date: {lastDate}</p>
