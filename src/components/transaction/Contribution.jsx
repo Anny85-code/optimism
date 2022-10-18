@@ -111,6 +111,12 @@ const Contribution = () => {
                 autoCorrect="off"
                 onChange={handleDays}
               />
+              <input
+                type="date"
+                className="form-control days-input"
+                name=""
+                id=""
+              />
               <p>Amount: NGN {amount}</p>
               <p>Previous payment date: {lastDate}</p>
               <p>Current payment date: {currentDate}</p>
