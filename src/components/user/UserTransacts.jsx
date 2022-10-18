@@ -58,7 +58,7 @@ const UserTransacts = () => {
   const handleFilter2 = () => {
     const selDate = sDate.toDateString();
     const sameDay = trans.filter(
-      (el) => selDate == new Date(el.created_at).toDateString()
+      (el) => selDate == new Date(el.transaction_date).toDateString()
     );
     const fTotal = sameDay.reduce((a, b) => a + +b.amount, 0);
     setFiltaTotal(fTotal);
@@ -102,7 +102,7 @@ const UserTransacts = () => {
           </button>
           <button
             type="button"
-            onClick={handleFilter}
+            onClick={handleFilter2}
             className="user-transact-btn"
           >
             Trans Filta
