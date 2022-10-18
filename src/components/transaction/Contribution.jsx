@@ -76,7 +76,7 @@ const Contribution = () => {
       days_paid_for: daysNo,
       previous_contribution_date: lastDate,
       current_contribution_date: currentDate,
-      trDate,
+      transaction_date: trDate,
     };
     dispatch(postTransactionToApi(transactionData));
   };
