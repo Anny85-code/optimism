@@ -86,6 +86,22 @@
   margin-left: 3%;
 }
 
+.user-transact-btn-total1 {
+  width: 200px;
+  margin-left: 25px;
+  height: 40px;
+  padding: 10px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background-color: #f72727;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 5px 5px 13px #332a2a, -5px -5px 13px #353131;
+}
+
 @media only screen and (max-width: 450px) {
   .cust-tansact-container1 {
     width: 320px;
@@ -129,5 +145,17 @@
 
   .start-date-container > p {
     margin-left: 30px;
+  }
+
+  .date-picker-trans1 {
+    width: 300px;
+    margin-left: 5%;
+    gap: 5px;
+  }
+
+  .user-transact-btn-total1 {
+    width: 80px;
+    margin-left: 10px;
+    font-size: 12px;
   }
 }
