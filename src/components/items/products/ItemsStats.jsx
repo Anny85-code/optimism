@@ -37,12 +37,19 @@ export const ItemsStats = () => {
     localStorage.setItem('order', allOrderTotal);
   }, []);
 
+   const comma = (num) => {
+     const number = parseInt(num);
+     const newText = number.toLocaleString();
+     return newText;
+   };
+
+
   return (
     <div className="transact-customer-container">
       {superadmin && (
         <>
           <div id="col">
-            <h2 className="total-orders">Total Orders: {allOrderTotal}</h2>
+            <h2 className="total-orders">Total Orders: {comma(allOrderTotal)}</h2>
           </div>
           <div className="custrans-name">
             <h4 className="columns">
@@ -91,7 +98,7 @@ export const ItemsStats = () => {
                     >
                       {`${food.id}`}
                     </h4>
-                    <h4 className="columns">{food.qauntity}</h4>
+                    <h4 className="columns">{comma(food.qauntity)}</h4>
                   </div>
                 </li>
               </ul>
