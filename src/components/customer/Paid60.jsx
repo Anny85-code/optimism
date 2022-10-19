@@ -7,7 +7,7 @@ const PaidSixty = () => {
   const { user } = data || {};
   const admins = user.role === 'admin' || user.role === 'superadmin';
 
-  console.log(customers);
+  // console.log(customers);
 
   useEffect(() => {
     // dispatch(getOneCustomerTransFromApi(id));
