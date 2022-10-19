@@ -80,6 +80,12 @@
   margin-left: 45%;
 }
 
+.date-picker-trans1 {
+  justify-content: space-between;
+  gap: 30px;
+  margin-left: 3%;
+}
+
 @media only screen and (max-width: 450px) {
   .cust-tansact-container1 {
     width: 320px;
