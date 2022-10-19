@@ -1,12 +1,15 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import { Image } from 'cloudinary-react';
 import { cldName, imgApi } from '../../assets/url/url';
+import { sendErrors } from '../../redux/forms/errors';
 import './ImageUpload.css';
 
 const ImageUpload = () => {
   const [selectedImages, setSelectedImages] = useState([]);
   const [imageData, setImageData] = useState('');
+  const dispatch = useDispatch();
   const li = 'https://asset.cloudinary.com/dpuwic8rw/';
   const nk = 'db7ff6ac7cce2020caa0d063bdf0e662';
   const link = li + nk;
@@ -23,7 +26,7 @@ const ImageUpload = () => {
         const response = await axios.post(imgApi, formData);
         setImageData(response.data);
       } catch (error) {
-        console.error(error);
+        dispatch(sendErrors(error));
       }
     };
 
