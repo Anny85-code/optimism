@@ -104,12 +104,12 @@ const UserTransacts = () => {
               Filter
             </button>
           </div>
-          <div>
+          <div className='trans-filter'>
             <button
               type="button"
               onClick={handleFilter2}
               // className="user-transact-btn"
-              className="user-transact-btn-total"
+              className="user-transact-btn-total1"
               style={{ background: '#f72727', color: '#fff' }}
             >
               Trans Filter
