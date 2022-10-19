@@ -39,6 +39,12 @@ const Main = () => {
     dispatch(getItemFromApi());
   }, []);
 
+   const comma = (num) => {
+     const number = parseInt(num);
+     const newText = number.toLocaleString();
+     return newText;
+   };
+
   return (
     <>
       {admins ? (
@@ -59,7 +65,9 @@ const Main = () => {
                 <i className="fa fa-user-o fa-2x text-lightblue" />
                 <div className="card__inner">
                   <p className="text-primary-p">Number of Customers</p>
-                  <span className="font-bold text-title">{numOfCustomers}</span>
+                  <span className="font-bold text-title">
+                    {comma(numOfCustomers)}
+                  </span>
                 </div>
               </div>
               <div className="cards">
@@ -67,7 +75,7 @@ const Main = () => {
                 <div className="card__inner">
                   <p className="text-primary-p">Number of Transactions</p>
                   <span className="font-bold text-title">
-                    {numOfTransactions}
+                    {comma(numOfTransactions)}
                   </span>
                 </div>
               </div>
@@ -75,21 +83,27 @@ const Main = () => {
                 <i className="fa fa-user-o fa-2x text-yellow" />
                 <div className="card__inner">
                   <p className="text-primary-p">Number of Marketers</p>
-                  <span className="font-bold text-title">{numOfMarketers}</span>
+                  <span className="font-bold text-title">
+                    {comma(numOfMarketers)}
+                  </span>
                 </div>
               </div>
               <div className="cards">
                 <i className="fa fa-group fa-2x text-red" />
                 <div className="card__inner">
                   <p className="text-primary-p">Number of Admins</p>
-                  <span className="font-bold text-title">{numOfAdmins}</span>
+                  <span className="font-bold text-title">
+                    {comma(numOfAdmins)}
+                  </span>
                 </div>
               </div>
               <div className="cards">
                 <i className="fa fa-cart-plus fa-2x text-red" />
                 <div className="card__inner">
                   <p className="text-primary-p">Number of Products</p>
-                  <span className="font-bold text-title">{numOfProducts}</span>
+                  <span className="font-bold text-title">
+                    {comma(numOfProducts)}
+                  </span>
                 </div>
               </div>
               <div className="cards">
@@ -97,7 +111,7 @@ const Main = () => {
                 <div className="card__inner">
                   <p className="text-primary-p">Number of Supervisors</p>
                   <span className="font-bold text-title">
-                    {numOfSupervisors}
+                    {comma(numOfSupervisors)}
                   </span>
                 </div>
               </div>
@@ -133,12 +147,15 @@ const Main = () => {
                     <>
                       <div className="card2 cd">
                         <h1 className="h-card">Sales</h1>
-                        <p>NGN{totalTransactions}</p>
+                        <p style={{ color: '#1c551c' }}>
+                          <span style={{ color: '#0b4b09' }}>NGN </span>
+                          {comma(totalTransactions)}
+                        </p>
                       </div>
 
                       <div className="card3 cd">
                         <h1 className="h-card">Users</h1>
-                        <p>{users.data.length}</p>
+                        <p>{comma(users.data.length)}</p>
                       </div>
 
                       <NavLink to="/itemsstats">
