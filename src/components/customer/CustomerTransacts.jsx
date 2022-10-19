@@ -124,8 +124,7 @@ const CustomerTransacts = () => {
                 </h4>
                 <h4 className="columns i"></h4>
                 <h4 className="columns i"></h4>
-                <h4 className="columns i" id="a">
-                </h4>
+                <h4 className="columns i" id="a"></h4>
                 {user.role === 'admin' && (
                   <h4 className="columns">
                     <span className="cus-name1 ">Total amount contributed</span>
@@ -153,8 +152,7 @@ const CustomerTransacts = () => {
                     borderBottom: '2px solid crimson',
                     color: 'crimson',
                   }}
-                >
-                </h3>
+                ></h3>
                 {user.role === 'admin' && (
                   <h3 className="columns" id="col" style={{ color: 'crimson' }}>
                     {` NGN ${comma(total)}`}
