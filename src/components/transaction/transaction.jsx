@@ -16,7 +16,9 @@ const Transaction = () => {
   const { id } = param;
   const transaction = useSelector((state) => state.oneTransaction);
   const customer = useSelector((state) => state.oneCustomer);
-  const customerId = JSON.parse(localStorage.getItem('cardNumber'));
+  const cardNum = JSON.parse(localStorage.getItem('cardNumber'));
+  const transCusId = transaction?.data?.customer_id;
+  const customerId = cardNum ?? transCusId;
 
   useEffect(() => {
     dispatch(getOneCustomerFromApi(customerId));
@@ -37,43 +39,49 @@ const Transaction = () => {
     days_paid_for,
     created_at,
   } = transaction.data;
-  const { name, picture, daily_contribution } = customer.data;
+  const { name, picture, daily_contribution } = customer?.data;
 
-  
   return (
     <div className="containa transaction">
-      <div className="image-container">
-        <img className="cus-image" src={picture} alt={`${name}`} />
-      </div>
-      <div className="details-container">
-        <h3 className="cus-details">
-          <span>Name:</span> {name}
-        </h3>
-        <p className="cus-details">
-          <span>Daily Contribution:</span> {`NGN ${comma(daily_contribution)}`}
-        </p>
-        <p className="cus-details">
-          <span>Previous contribution date:</span> {previous_contribution_date}
-        </p>
-        <p className="cus-details">
-          <span>Current contribution date:</span> {current_contribution_date}
-        </p>
-        <p className="cus-details">
-          <span>Days paid for:</span> {days_paid_for}
-        </p>
-        <p className="cus-details">
-          <span>Transaction No.</span>
-          {user.location_area.slice(0, 3).toUpperCase()}
-          {user.id}/{transaction.data.id}
-        </p>
-        <p className="cus-details">
-          <span>Amount:</span> {`NGN ${comma(amount)}`}
-        </p>
-        <p className="cus-details">
-          <span>Date of transaction:</span>
-          {Moment(created_at).format('MMMM DD, LT')}
-        </p>
-      </div>
+      {transCusId && (
+        <>
+          <div className="image-container">
+            <img className="cus-image" src={picture} alt={`${name}`} />
+          </div>
+          <div className="details-container">
+            <h3 className="cus-details">
+              <span>Name:</span> {name}
+            </h3>
+            <p className="cus-details">
+              <span>Daily Contribution:</span>{' '}
+              {`NGN ${comma(daily_contribution)}`}
+            </p>
+            <p className="cus-details">
+              <span>Previous contribution date:</span>{' '}
+              {previous_contribution_date}
+            </p>
+            <p className="cus-details">
+              <span>Current contribution date:</span>{' '}
+              {current_contribution_date}
+            </p>
+            <p className="cus-details">
+              <span>Days paid for:</span> {days_paid_for}
+            </p>
+            <p className="cus-details">
+              <span>Transaction No.</span>
+              {user.location_area.slice(0, 3).toUpperCase()}
+              {user.id}/{transaction.data.id}
+            </p>
+            <p className="cus-details">
+              <span>Amount:</span> {`NGN ${comma(amount)}`}
+            </p>
+            <p className="cus-details">
+              <span>Date of transaction:</span>
+              {Moment(created_at).format('MMMM DD, LT')}
+            </p>
+          </div>
+        </>
+      )}
     </div>
   );
 };

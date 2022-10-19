@@ -122,10 +122,12 @@ const Main = () => {
                   <i className="fa fa-use" />
                 </div>
                 <div className="charts__right__cards">
-                  <div className="card1 cd">
-                    <h1 className="h-card">Income</h1>
-                    <p>$56,678</p>
-                  </div>
+                  <NavLink to="/paidsixty">
+                    <div className="card1 cd">
+                      <h1 className="h-card">Paid 60%</h1>
+                      <p>View Customers</p>
+                    </div>
+                  </NavLink>
 
                   {user.role === 'superadmin' && (
                     <>

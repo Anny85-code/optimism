@@ -24,6 +24,7 @@ const Contribution = () => {
   const lastSeason = seasons.data.length;
   let oneCustomerTransactions = [];
   const [go, setGo] = useState(false);
+  const [trDate, setTrDate] = useState(new Date().toLocaleDateString());
   const dispatch = useDispatch();
 
   myData?.map((trans) => {
@@ -75,6 +76,7 @@ const Contribution = () => {
       days_paid_for: daysNo,
       previous_contribution_date: lastDate,
       current_contribution_date: currentDate,
+      transaction_date: trDate,
     };
     dispatch(postTransactionToApi(transactionData));
   };
@@ -110,6 +112,13 @@ const Contribution = () => {
                 required
                 autoCorrect="off"
                 onChange={handleDays}
+              />
+              <input
+                type="date"
+                className="form-control days-input"
+                name=""
+                id=""
+                onChange={(e) => setTrDate(e.target.value)}
               />
               <p>Amount: NGN {amount}</p>
               <p>Previous payment date: {lastDate}</p>
