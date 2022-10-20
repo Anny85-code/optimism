@@ -92,11 +92,6 @@ const Transactions = () => {
               Filter
             </button>
           </div>
-          {filtaTotal > 0 && (
-            <div className="user-transact-btn-total">
-              Total - NGN {filtaTotal}
-            </div>
-          )}
         </div>
 
         {/* <div className="start-date-container">
