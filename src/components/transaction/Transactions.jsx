@@ -59,6 +59,17 @@ const Transactions = () => {
     setTransNo(sameDay.length);
   };
 
+  const handleFilter2 = () => {
+    const selDate = sDate.toDateString();
+    const sameDay = trans.filter(
+      (el) => selDate == new Date(el.transaction_date).toDateString()
+    );
+    const fTotal = sameDay.reduce((a, b) => a + +b.amount, 0);
+    setFiltaTotal(fTotal);
+    setFiltaTrans(sameDay);
+    setTransNo(sameDay.length);
+  };
+
   const comma = (num) => {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   };
@@ -103,7 +114,7 @@ const Transactions = () => {
           <div className="trans-filter">
             <button
               type="button"
-              onClick={handleFilter2}
+              // onClick={handleFilter2}
               // className="user-transact-btn"
               className="user-transact-btn-total1"
               style={{ background: '#f72727', color: '#fff' }}
