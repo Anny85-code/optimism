@@ -65,9 +65,17 @@ const Transactions = () => {
   return (
     <div className="cust-tansact-container1">
       <div className="start-date-container">
-        <h3 className="details start-d">Marketer Transaction Details</h3>
-        <p>Please select a date</p>
-        <div className="date-picker-container date-picker-trans">
+        <h3 className="details start-d">Marketer Transaction details</h3>
+        <p
+          style={{
+            textAlign: 'center',
+            color: 'crimson',
+            marginLeft: '60px',
+          }}
+        >
+          Please select a date
+        </p>
+        <div className="date-picker-container date-picker-trans1">
           <div>
             <label htmlFor="start_date" className="start-date">
               <DatePicker
@@ -92,58 +100,20 @@ const Transactions = () => {
               Filter
             </button>
           </div>
-        </div>
-
-        {/* <div className="start-date-container">
-          <h3 className="details start-d">Marketer Transaction details</h3>
-          <p
-            style={{
-              textAlign: 'center',
-              color: 'crimson',
-              marginLeft: '60px',
-            }}
-          >
-            Please select a date
-          </p>
-          <div className="date-picker-container date-picker-trans1">
-            <div>
-              <label htmlFor="start_date" className="start-date">
-                <DatePicker
-                  // portalId="root-portal"
-                  dateFormat="yyyy/MM/dd"
-                  selected={sDate}
-                  // showMonthDropdown
-                  // showYearDropdown
-                  dropdownMode="select"
-                  onChange={(date) => setSDate(date)}
-                  style={{ margin: 0 }}
-                  className="start-date-picker-tran"
-                />
-              </label>
-            </div>
-            <div>
-              <button
-                type="button"
-                onClick={handleFilter}
-                className="user-transact-btn-filter"
-              >
-                Filter
-              </button>
-            </div>
-            <div className="trans-filter">
-              <button
-                type="button"
-                onClick={handleFilter2}
-                // className="user-transact-btn"
-                className="user-transact-btn-total1"
-                style={{ background: '#f72727', color: '#fff' }}
-              >
-                Trans Filter
-              </button>
-            </div>
+          <div className="trans-filter">
+            <button
+              type="button"
+              onClick={handleFilter2}
+              // className="user-transact-btn"
+              className="user-transact-btn-total1"
+              style={{ background: '#f72727', color: '#fff' }}
+            >
+              Trans Filter
+            </button>
           </div>
-        </div> */}
+        </div>
       </div>
+
       <div className="transact-customer-container1">
         <div className="custrans-name1">
           <h4 className="columns">
