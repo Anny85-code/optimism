@@ -164,40 +164,42 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
 
   const transactionSection = (
     <>
-      <div className="sidebar__link" onClick={toggleDropdownTransaction}>
-        <i className="fa fa-gears" />
-        <a href="#">Transaction Management</a>
-        <i
-          className="fa fa-caret-right"
-          // onClick={toggleDropdownTransaction}
-          id="toggle-btn"
-        />
-        <ul
-          className={!dropdownTransaction ? 'dropdown-off' : 'dropdown-on'}
-          id="drop-menu"
-        >
-          <li>
-            <NavLink
-              to="/addtransaction"
-              style={{ textDecoration: 'none' }}
-              onClick={closeSideBar}
-            >
-              Add New Transaction
-            </NavLink>
-          </li>
-          {!admins && (
-            <li>
-              <NavLink
-                to="/transactions"
-                style={{ textDecoration: 'none' }}
-                onClick={closeSideBar}
-              >
-                View All Transactions
-              </NavLink>
-            </li>
-          )}
-        </ul>
-      </div>
+      {!admins && (
+        <div className="sidebar__link" onClick={toggleDropdownTransaction}>
+          <i className="fa fa-gears" />
+          <a href="#">Transaction Management</a>
+          <i
+            className="fa fa-caret-right"
+            // onClick={toggleDropdownTransaction}
+            id="toggle-btn"
+          />
+          <ul
+            className={!dropdownTransaction ? 'dropdown-off' : 'dropdown-on'}
+            id="drop-menu"
+          >
+            <>
+              <li>
+                <NavLink
+                  to="/addtransaction"
+                  style={{ textDecoration: 'none' }}
+                  onClick={closeSideBar}
+                >
+                  Add New Transaction
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/transactions"
+                  style={{ textDecoration: 'none' }}
+                  onClick={closeSideBar}
+                >
+                  View All Transactions
+                </NavLink>
+              </li>
+            </>
+          </ul>
+        </div>
+      )}
     </>
   );
 
