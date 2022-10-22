@@ -32,6 +32,27 @@ const Main = () => {
   const { user } = data || {};
   const admins = user.role === 'admin' || user.role === 'superadmin';
 
+  function handleNill() {
+    const myCustomers = customers.data.filter(
+      (customer) => customer.card_number === null
+    );
+    const exportData = myCustomers.map((cus) => {
+      return {
+        id: cus.id,
+        name: cus.name,
+        phone: cus.phone,
+      };
+    });
+
+    const ws = utils.json_to_sheet(exportData.sort((a, b) => a.id - b.id));
+    const wb = utils.book_new();
+    utils.book_append_sheet(wb, ws, 'Data');
+    writeFileXLSX(
+      wb,
+      `Customer_${user.data.location_area.replace(' ', '_')}.xlsx`
+    );
+  }
+
   useEffect(() => {
     dispatch(getCustomerFromApi());
     dispatch(getTransactionFromApi());
@@ -39,11 +60,11 @@ const Main = () => {
     dispatch(getItemFromApi());
   }, []);
 
-   const comma = (num) => {
-     const number = parseInt(num);
-     const newText = number.toLocaleString();
-     return newText;
-   };
+  const comma = (num) => {
+    const number = parseInt(num);
+    const newText = number.toLocaleString();
+    return newText;
+  };
 
   return (
     <>
@@ -113,6 +134,11 @@ const Main = () => {
                   <span className="font-bold text-title">
                     {comma(numOfSupervisors)}
                   </span>
+                </div>
+              </div>
+              <div className="cards" onClick={handleNill}>
+                <div className="card__inner">
+                  <p className="text-primary-p">Null</p>
                 </div>
               </div>
             </div>
