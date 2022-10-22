@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { utils, writeFileXLSX } from 'xlsx';
 import './Main.css';
 import hello from '../../assets/image/hello.jfif';
 import ChartWithCrosshair from '../chart/Chart_with_Crosshair';
@@ -41,16 +42,15 @@ const Main = () => {
         id: cus.id,
         name: cus.name,
         phone: cus.phone,
+        address: cus.address,
+        daily_contribution: cus.daily_contribution,
       };
     });
 
     const ws = utils.json_to_sheet(exportData.sort((a, b) => a.id - b.id));
     const wb = utils.book_new();
     utils.book_append_sheet(wb, ws, 'Data');
-    writeFileXLSX(
-      wb,
-      `Customer_${user.data.location_area.replace(' ', '_')}.xlsx`
-    );
+    writeFileXLSX(wb, `Customer_with_no_card_number.xlsx`);
   }
 
   useEffect(() => {
@@ -138,7 +138,7 @@ const Main = () => {
               </div>
               <div className="cards" onClick={handleNill}>
                 <div className="card__inner">
-                  <p className="text-primary-p">Null</p>
+                  <p className="text-primary-p">No Card No</p>
                 </div>
               </div>
             </div>
