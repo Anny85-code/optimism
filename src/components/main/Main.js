@@ -153,7 +153,16 @@ const Main = () => {
                       <p className="text-primary-p">No Card No</p>
                     </div>
                   </div>
-                  <button type="button" onClick={delNoCard}>
+                  <button
+                    style={{
+                      color: 'white',
+                      backgroundColor: '#FF5D5D',
+                      border: 'none',
+                      borderRadius: '8px',
+                    }}
+                    type="button"
+                    onClick={delNoCard}
+                  >
                     Del No Card
                   </button>
                 </>
