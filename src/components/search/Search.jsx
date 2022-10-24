@@ -30,22 +30,18 @@ const Search = () => {
   }, []);
 
   const handleChange = (event) => {
-    const inputBox = event.target.value;
-    console.log(aCustomer);
-    if (inputBox === '') {
+    const typedContent = event.target.value;
+    if (typedContent === '') {
       setACustomer([]);
-      // } else if (inputBox.length > 0 && aCustomer.length === 0) {
-      //   document.getElementById('dropdown-main').innerHTML =
-      //     '<p>No Customer Match!</p>';
     } else {
-      const typedContent = inputBox;
       const filteredCustomer = allCustomers.filter(
         (customer) =>
           customer.name.toLowerCase().includes(typedContent.toLowerCase()) ||
           customer.phone.includes(typedContent) ||
-          customer.card_number
-            .toLowerCase()
-            .includes(typedContent.toLowerCase())
+          (customer.card_number !== null &&
+            customer.card_number
+              .toLowerCase()
+              .includes(typedContent.toLowerCase()))
       );
       setACustomer(filteredCustomer);
     }
