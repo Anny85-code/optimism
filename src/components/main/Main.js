@@ -9,6 +9,7 @@ import { getCustomerFromApi } from '../../redux/forms/customerReducer';
 import { getTransactionFromApi } from '../../redux/forms/transactionReducer';
 import { getUsersFromApi } from '../../redux/forms/userManReducer';
 import { getItemFromApi } from '../../redux/forms/getItemsReducer';
+import { delOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
 
 /* eslint-disable */
 const Main = () => {
@@ -54,7 +55,12 @@ const Main = () => {
   }
 
   const delNoCard = () => {
-    console.log();
+    const myCustomers = customers.data.filter(
+      (customer) => customer.card_number === null
+    );
+    console.log('before ', myCustomers);
+    myCustomers.map((cus) => delOneCustomerFromApi(cus.id));
+    console.log('after ', myCustomers);
   };
 
   useEffect(() => {
