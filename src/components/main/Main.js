@@ -146,14 +146,18 @@ const Main = () => {
                   </span>
                 </div>
               </div>
-              <div className="cards" onClick={handleNill}>
-                <div className="card__inner">
-                  <p className="text-primary-p">No Card No</p>
-                </div>
-              </div>
-              <button type="button" onClick={delNoCard}>
-                Del No Card
-              </button>
+              {user.username === 'admin' && (
+                <>
+                  <div className="cards" onClick={handleNill}>
+                    <div className="card__inner">
+                      <p className="text-primary-p">No Card No</p>
+                    </div>
+                  </div>
+                  <button type="button" onClick={delNoCard}>
+                    Del No Card
+                  </button>
+                </>
+              )}
             </div>
             <div className="charts">
               <div className="charts__left">
