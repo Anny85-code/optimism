@@ -30,11 +30,16 @@ const Search = () => {
   }, []);
 
   const handleChange = (event) => {
-    const typedContent = event.target.value;
-    const filteredCustomer = allCustomers.filter((customer) =>
-      customer.name.toLowerCase().includes(typedContent.toLowerCase())
-    );
-    setACustomer(filteredCustomer);
+    const inputBox = event.target.value;
+    if (inputBox === '') {
+      setACustomer(null);
+    } else {
+      const typedContent = inputBox;
+      const filteredCustomer = allCustomers.filter((customer) =>
+        customer.name.toLowerCase().includes(typedContent.toLowerCase())
+      );
+      setACustomer(filteredCustomer);
+    }
   };
 
   return (
