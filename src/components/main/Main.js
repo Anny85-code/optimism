@@ -58,9 +58,7 @@ const Main = () => {
     const myCustomers = customers.data.filter(
       (customer) => customer.card_number === null
     );
-    console.log('before ', myCustomers);
     myCustomers.map((cus) => dispatch(delOneCustomerFromApi(cus.id)));
-    console.log('after ', myCustomers);
   };
 
   useEffect(() => {
