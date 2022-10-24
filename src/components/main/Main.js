@@ -59,7 +59,7 @@ const Main = () => {
       (customer) => customer.card_number === null
     );
     console.log('before ', myCustomers);
-    myCustomers.map((cus) => delOneCustomerFromApi(cus.id));
+    myCustomers.map((cus) => dispatch(delOneCustomerFromApi(cus.id)));
     console.log('after ', myCustomers);
   };
 
