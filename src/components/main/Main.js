@@ -53,6 +53,10 @@ const Main = () => {
     writeFileXLSX(wb, `Customer_with_no_card_number.xlsx`);
   }
 
+  const delNoCard = () => {
+    console.log();
+  };
+
   useEffect(() => {
     dispatch(getCustomerFromApi());
     dispatch(getTransactionFromApi());
@@ -141,7 +145,9 @@ const Main = () => {
                   <p className="text-primary-p">No Card No</p>
                 </div>
               </div>
-              <button type="button">Del No Card</button>
+              <button type="button" onClick={delNoCard}>
+                Del No Card
+              </button>
             </div>
             <div className="charts">
               <div className="charts__left">
