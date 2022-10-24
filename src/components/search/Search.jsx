@@ -16,7 +16,7 @@ const Search = () => {
   const handleSearch = () => {
     document.getElementById('search-container1').style.display = 'none';
     document.getElementById('search-input').value = '';
-    setACustomer(null);
+    setACustomer([]);
   };
 
   const handleSelected = () => {
@@ -31,12 +31,21 @@ const Search = () => {
 
   const handleChange = (event) => {
     const inputBox = event.target.value;
+    console.log(aCustomer);
     if (inputBox === '') {
-      setACustomer(null);
+      setACustomer([]);
+      // } else if (inputBox.length > 0 && aCustomer.length === 0) {
+      //   document.getElementById('dropdown-main').innerHTML =
+      //     '<p>No Customer Match!</p>';
     } else {
       const typedContent = inputBox;
-      const filteredCustomer = allCustomers.filter((customer) =>
-        customer.name.toLowerCase().includes(typedContent.toLowerCase())
+      const filteredCustomer = allCustomers.filter(
+        (customer) =>
+          customer.name.toLowerCase().includes(typedContent.toLowerCase()) ||
+          customer.phone.includes(typedContent) ||
+          customer.card_number
+            .toLowerCase()
+            .includes(typedContent.toLowerCase())
       );
       setACustomer(filteredCustomer);
     }
@@ -66,7 +75,7 @@ const Search = () => {
               <>
                 {permitted && (
                   <NavLink key={customer.id} to={`/customers/${customer.id}`}>
-                    <div className="dropdown-row">
+                    <div className="dropdown-row" id="dropdown-main">
                       <div className="search-text">
                         <p onClick={handleSelected}>
                           {customer.card_number} - {customer.name}
