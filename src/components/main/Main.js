@@ -141,6 +141,7 @@ const Main = () => {
                   <p className="text-primary-p">No Card No</p>
                 </div>
               </div>
+              <button type="button">Del No Card</button>
             </div>
             <div className="charts">
               <div className="charts__left">
