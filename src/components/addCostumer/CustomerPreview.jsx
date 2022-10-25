@@ -23,7 +23,6 @@ const CustomerPreview = () => {
   const grandTotal = myFood.reduce((a, b) => b.subTotal + a, 0);
   const id = customer[0]?.id;
   const oldFood = data.filter((food) => food.customer_id === id);
-  console.log(retrievedCustomer);
   const oldFoodId = oldFood[0]?.id;
   const userData = JSON.parse(localStorage.getItem('user'));
   const { user } = userData || {};
