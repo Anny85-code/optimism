@@ -34,11 +34,9 @@ const CustomerPreview = () => {
 
   function onBackButtonEvent() {
     localStorage.removeItem('myfood');
-    retrievedCustomer.card_number ?? dispatch(delOneCustomerFromApi(id));
-    localStorage.removeItem('updated_customer');
-    localStorage.removeItem('customer');
-    window.history.pushState({}, '', '/');
-    window.location.reload();
+    console.log(retrievedCustomer.card_number === undefined);
+    retrievedCustomer.card_number === undefined &&
+      dispatch(delOneCustomerFromApi(id));
   }
 
   useEffect(() => {
