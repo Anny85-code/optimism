@@ -19,10 +19,6 @@ const Search = () => {
     setACustomer([]);
   };
 
-  const handleSelected = () => {
-    document.getElementById('search-container1').style.display = 'none';
-  };
-
   useEffect(() => {
     dispatch(getCustomerFromApi());
   }, []);
@@ -71,7 +67,7 @@ const Search = () => {
                   <NavLink key={customer.id} to={`/customers/${customer.id}`}>
                     <div className="dropdown-row" id="dropdown-main">
                       <div className="search-text">
-                        <p onClick={handleSelected}>
+                        <p onClick={handleSearch}>
                           {customer.card_number} - {customer.name}
                         </p>
                       </div>
