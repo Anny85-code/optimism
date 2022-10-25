@@ -16,18 +16,30 @@ const CustomerPreview = () => {
   const customers = useSelector((state) => state.customer);
   const foods = useSelector((state) => state.myFood);
   const { data } = foods || {};
-  const fone = JSON.parse(localStorage.getItem('customer')).phone;
+  const retrievedCustomer = JSON.parse(localStorage.getItem('customer'));
+  const fone = retrievedCustomer.phone;
   const customer = customers?.data?.filter((cust) => cust.phone === fone);
   const myFood = JSON.parse(localStorage.getItem('myfood'));
   const grandTotal = myFood.reduce((a, b) => b.subTotal + a, 0);
   const id = customer[0]?.id;
   const oldFood = data.filter((food) => food.customer_id === id);
+  console.log(oldFood);
   const oldFoodId = oldFood[0]?.id;
   const userData = JSON.parse(localStorage.getItem('user'));
   const { user } = userData || {};
   const cardNumber = `${user.location_area.slice(0, 3).toUpperCase()}${
     user.id
   }/${id}`;
+
+  window.addEventListener('popstate', onBackButtonEvent);
+
+  function onBackButtonEvent() {
+    localStorage.removeItem('updated_customer');
+    localStorage.removeItem('myfood');
+    retrievedCustomer.cardNumber ?? dispatch(delOneCustomerFromApi(id));
+    window.history.pushState({}, '', '/');
+    window.location.reload();
+  }
 
   useEffect(() => {
     dispatch(getMyFoodFromApi());
@@ -47,7 +59,6 @@ const CustomerPreview = () => {
       id: oldFoodId,
     };
 
-    const retrievedCustomer = JSON.parse(localStorage.getItem('customer'));
     const newCustomer = {
       ...retrievedCustomer,
       daily_contribution: grandTotal,
