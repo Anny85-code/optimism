@@ -23,7 +23,7 @@ const CustomerPreview = () => {
   const grandTotal = myFood.reduce((a, b) => b.subTotal + a, 0);
   const id = customer[0]?.id;
   const oldFood = data.filter((food) => food.customer_id === id);
-  console.log(oldFood);
+  console.log(retrievedCustomer);
   const oldFoodId = oldFood[0]?.id;
   const userData = JSON.parse(localStorage.getItem('user'));
   const { user } = userData || {};
@@ -34,9 +34,10 @@ const CustomerPreview = () => {
   window.addEventListener('popstate', onBackButtonEvent);
 
   function onBackButtonEvent() {
-    localStorage.removeItem('updated_customer');
     localStorage.removeItem('myfood');
-    retrievedCustomer.cardNumber ?? dispatch(delOneCustomerFromApi(id));
+    retrievedCustomer.card_number ?? dispatch(delOneCustomerFromApi(id));
+    localStorage.removeItem('updated_customer');
+    localStorage.removeItem('customer');
     window.history.pushState({}, '', '/');
     window.location.reload();
   }
@@ -74,6 +75,7 @@ const CustomerPreview = () => {
 
   const handleCancel = () => {
     localStorage.removeItem('updated_customer');
+    localStorage.removeItem('customer');
     localStorage.removeItem('myfood');
     dispatch(delOneCustomerFromApi(id));
     window.history.pushState({}, '', '/');
