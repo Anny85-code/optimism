@@ -20,9 +20,7 @@ const Search = () => {
   };
 
   const handleSelected = () => {
-    setTimeout(() => {
-      window.location.reload();
-    }, 1000);
+    document.getElementById('search-container1').style.display = 'none';
   };
 
   useEffect(() => {
