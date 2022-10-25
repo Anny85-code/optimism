@@ -67,7 +67,6 @@ const AddItemToCustomer = () => {
       let customer = JSON.parse(localStorage.getItem('customer'));
       const userData = { ...customer, daily_contribution: grandTotal };
       localStorage.setItem('myfood', JSON.stringify(total));
-      console.log(userData);
       userData.id ?? dispatch(postCustomerToApi(userData));
       window.history.pushState({}, '', '/customerpreview');
     }
