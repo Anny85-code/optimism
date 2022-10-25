@@ -5,7 +5,10 @@ import { utils, writeFileXLSX } from 'xlsx';
 import './Main.css';
 import hello from '../../assets/image/hello.jfif';
 import ChartWithCrosshair from '../chart/Chart_with_Crosshair';
-import { getCustomerFromApi } from '../../redux/forms/customerReducer';
+import {
+  getCustomerFromApi,
+  // postUpdateCustomerToApi,
+} from '../../redux/forms/customerReducer';
 import { getTransactionFromApi } from '../../redux/forms/transactionReducer';
 import { getUsersFromApi } from '../../redux/forms/userManReducer';
 import { getItemFromApi } from '../../redux/forms/getItemsReducer';
@@ -37,7 +40,19 @@ const Main = () => {
   function handleNill() {
     const myCustomers = customers.data.filter(
       (customer) => customer.card_number === null
+      // ========{ To Update bad card number/ user location } =========
+      // customer.card_number !== null && customer.card_number.includes('U/M86')
     );
+
+    // =========={ To Update bad card number/ user location, also uncomment the reload in postCustomerUpdate function }==========
+    // const cusWithNewCardNo = myCustomers.map((cus) => {
+    //   const newCardNo = cus.card_number.replace('U/M86', 'UMI86');
+    //   const newCus = { ...cus, card_number: newCardNo };
+    //   return newCus;
+    // });
+
+    // cusWithNewCardNo.map((cus) => dispatch(postUpdateCustomerToApi(cus)));
+
     const exportData = myCustomers.map((cus) => {
       return {
         id: cus.id,
@@ -47,6 +62,18 @@ const Main = () => {
         daily_contribution: cus.daily_contribution,
       };
     });
+
+    // ======={ To Update bad card number/ user location, exported data to view changes }========
+    // const exportData = cusWithNewCardNo.map((cus) => {
+    //   return {
+    //     id: cus.id,
+    //     name: cus.name,
+    //     phone: cus.phone,
+    //     address: cus.address,
+    //     daily_contribution: cus.daily_contribution,
+    //     cardNumber: cus.card_number,
+    //   };
+    // });
 
     const ws = utils.json_to_sheet(exportData.sort((a, b) => a.id - b.id));
     const wb = utils.book_new();
