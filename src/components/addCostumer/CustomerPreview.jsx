@@ -34,7 +34,6 @@ const CustomerPreview = () => {
 
   function onBackButtonEvent() {
     localStorage.removeItem('myfood');
-    console.log(retrievedCustomer.card_number === undefined);
     retrievedCustomer.card_number === undefined &&
       dispatch(delOneCustomerFromApi(id));
   }
