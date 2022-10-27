@@ -70,7 +70,9 @@
 .search-text > p {
   margin: 15px;
   border-bottom: 0;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+  border-bottom: 1px #773c3c dotted;
+  width: fit-content;
 }
 
 #closeSearchIcon {
@@ -102,7 +104,7 @@
     position: fixed;
     z-index: 1;
     top: 20px;
-    left: -50px;
+    left: -48px;
   }
 
   .search-header {
@@ -131,7 +133,8 @@
   }
 
   .search-text > p {
-    font-size: 12px;
+    font-size: 10px;
+    margin: 20px 5px;
   }
 
   .pre-next-search {
