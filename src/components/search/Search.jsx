@@ -86,7 +86,7 @@ const Search = () => {
               <div className="dropdown-row">
                 {permitted && (
                   <NavLink key={customer.id} to={`/customers/${customer.id}`}>
-                    <div className="dropdown-row" id="dropdown-main">
+                    <div id="dropdown-main">
                       <div className="search-text">
                         <p onClick={handleSearch}>
                           {customer.card_number} - {customer.name}
@@ -100,7 +100,7 @@ const Search = () => {
           })}
       </>
       {len > 5 && (
-        <div className="pre-next-cont">
+        <div className="pre-next-cont dropdown-row">
           <i
             className="fa fa-caret-left fa-2x text-red"
             onClick={handPrevious}
