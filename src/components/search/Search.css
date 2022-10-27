@@ -134,7 +134,7 @@
 
   .search-text > p {
     font-size: 10px;
-    margin-bottom: 20px;
+    margin: 20px 5px;
   }
 
   .pre-next-search {
