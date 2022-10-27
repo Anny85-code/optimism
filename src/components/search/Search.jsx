@@ -42,18 +42,16 @@ const Search = () => {
   }, []);
 
   const handleChange = (event) => {
-    const typedContent = event.target.value;
+    const typedContent = event.target.value?.toLowerCase();
     if (typedContent === '') {
       setACustomer([]);
     } else {
       const filteredCustomer = allCustomers.filter(
         (customer) =>
-          customer.name.toLowerCase().includes(typedContent.toLowerCase()) ||
+          customer.name.toLowerCase().includes(typedContent) ||
           customer.phone.includes(typedContent) ||
           (customer.card_number !== null &&
-            customer.card_number
-              .toLowerCase()
-              .includes(typedContent.toLowerCase()))
+            customer.card_number.toLowerCase().includes(typedContent))
       );
       setACustomer(filteredCustomer);
     }
