@@ -18,9 +18,12 @@ const Search = () => {
   const len = aCustomer.length;
 
   const handleNext = () => {
-    if (nx <= len) {
+    if (nx < len) {
       setNx(nx + 5);
       setPr(pr + 5);
+    }
+    if (pr > len) {
+      setPr(1);
     }
   };
 
@@ -43,8 +46,10 @@ const Search = () => {
 
   const handleChange = (event) => {
     const typedContent = event.target.value?.toLowerCase();
-    if (typedContent === '') {
+    if (typedContent === '' || !typedContent) {
       setACustomer([]);
+      setPr(0);
+      setNx(5);
     } else {
       const filteredCustomer = allCustomers.filter(
         (customer) =>
@@ -78,7 +83,7 @@ const Search = () => {
           aCustomer.slice(pr, nx).map((customer) => {
             const permitted = user.id === customer.user_id || admins;
             return (
-              <>
+              <div className="dropdown-row">
                 {permitted && (
                   <NavLink key={customer.id} to={`/customers/${customer.id}`}>
                     <div className="dropdown-row" id="dropdown-main">
@@ -90,7 +95,7 @@ const Search = () => {
                     </div>
                   </NavLink>
                 )}
-              </>
+              </div>
             );
           })}
       </>
