@@ -52,6 +52,7 @@ const Main = () => {
     // });
 
     // cusWithNewCardNo.map((cus) => dispatch(postUpdateCustomerToApi(cus)));
+    // ============= Used to play with update card number info ================
 
     const exportData = myCustomers.map((cus) => {
       return {
@@ -74,6 +75,7 @@ const Main = () => {
     //     cardNumber: cus.card_number,
     //   };
     // });
+    // ============= Used to play with update card number info ================
 
     const ws = utils.json_to_sheet(exportData.sort((a, b) => a.id - b.id));
     const wb = utils.book_new();

@@ -12,6 +12,24 @@ const Search = () => {
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
   const admins = user.role === 'superadmin' || user.role === 'admin';
+  const [nx, setNx] = useState(5);
+  const [pr, setPr] = useState(0);
+
+  const len = aCustomer.length;
+
+  const handleNext = () => {
+    if (nx <= len) {
+      setNx(nx + 5);
+      setPr(pr + 5);
+    }
+  };
+
+  const handPrevious = () => {
+    if (pr > 1) {
+      setPr(pr - 5);
+      setNx(nx - 5);
+    }
+  };
 
   const handleSearch = () => {
     document.getElementById('search-container1').style.display = 'none';
@@ -59,7 +77,7 @@ const Search = () => {
       </div>
       <>
         {aCustomer &&
-          aCustomer.slice(0, 5).map((customer) => {
+          aCustomer.slice(pr, nx).map((customer) => {
             const permitted = user.id === customer.user_id || admins;
             return (
               <>
@@ -78,6 +96,23 @@ const Search = () => {
             );
           })}
       </>
+      {len > 5 && (
+        <div className="pre-next-cont">
+          <i
+            className="fa fa-caret-left fa-2x text-red"
+            onClick={handPrevious}
+            style={{ cursor: 'pointer' }}
+          />
+          <p className="pre-text">
+            {pr + 1} - {nx < len ? nx : len} <span>of</span> {len}
+          </p>
+          <i
+            className="fa fa-caret-right fa-2x text-red"
+            onClick={handleNext}
+            style={{ cursor: 'pointer' }}
+          />
+        </div>
+      )}
     </div>
   );
 };
