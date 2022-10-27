@@ -100,13 +100,13 @@ const Search = () => {
           })}
       </>
       {len > 5 && (
-        <div className="pre-next-cont">
+        <div className="pre-next-cont pre-next-search">
           <i
             className="fa fa-caret-left fa-2x text-red"
             onClick={handPrevious}
             style={{ cursor: 'pointer' }}
           />
-          <p className="pre-text">
+          <p className="pre-text pre-text-search">
             {pr + 1} - {nx < len ? nx : len} <span>of</span> {len}
           </p>
           <i
