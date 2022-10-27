@@ -100,7 +100,7 @@ const Search = () => {
           })}
       </>
       {len > 5 && (
-        <div className="pre-next-cont dropdown-row">
+        <div className="pre-next-cont">
           <i
             className="fa fa-caret-left fa-2x text-red"
             onClick={handPrevious}
