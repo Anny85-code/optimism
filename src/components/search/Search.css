@@ -70,6 +70,7 @@
 .search-text > p {
   margin: 15px;
   border-bottom: 0;
+  margin-bottom: 20px;
 }
 
 #closeSearchIcon {
@@ -79,6 +80,10 @@
   font-size: 30px;
   color: crimson;
   cursor: pointer;
+}
+
+.pre-next-search {
+  margin-left: 30%;
 }
 
 @media only screen and (max-width: 450px) {
@@ -123,5 +128,23 @@
 
   .search-text {
     margin: -10px 0 0 10px;
+  }
+
+  .search-text > p {
+    font-size: 12px;
+  }
+
+  .pre-next-search {
+    font-size: 12px;
+    margin-left: 20%;
+  }
+
+  .pre-text-search {
+    margin: 6px 10px;
+    font-size: 12px;
+  }
+
+  .pre-text-search > span {
+    margin: 0 5px;
   }
 }
