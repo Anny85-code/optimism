@@ -13,6 +13,7 @@ const UserTransacts = () => {
   const param = useParams();
   const { id } = param;
   const transactions = useSelector((state) => state.userTransacts);
+  const customers = useSelector((state) => state.customer?.data);
   const { data } = transactions;
   const { trans, user_name, total } = data || {};
   const info = JSON.parse(localStorage.getItem('user'));
@@ -104,7 +105,7 @@ const UserTransacts = () => {
               Filter
             </button>
           </div>
-          <div className='trans-filter'>
+          <div className="trans-filter">
             <button
               type="button"
               onClick={handleFilter2}
@@ -202,34 +203,48 @@ const UserTransacts = () => {
                   )}
                 </div>
                 {len >= 1 ? (
-                  filtaTrans.slice(pr, nx).map((transaction) => (
-                    <NavLink
-                      key={transaction.id}
-                      to={`/transactions/${transaction.id}`}
-                    >
-                      <ul id="p-child">
-                        <li>
-                          <div className="custrans-name">
-                            <h4 className="columns"></h4>
-                            <h4 className="columns i" id="top">
-                              {Moment(transaction.created_at).format(
-                                'MMMM DD, LT'
-                              )}
-                            </h4>
-                            <h4 className="columns i">{`NGN ${comma(
-                              transaction.amount
-                            )}`}</h4>
-                            <h4 className="columns i"></h4>
-                            <h4
-                              className="columns i"
-                              style={{ borderRight: '2px solid crimson' }}
-                            ></h4>
-                            {superadmins && <h4 className="columns "></h4>}
-                          </div>
-                        </li>
-                      </ul>
-                    </NavLink>
-                  ))
+                  filtaTrans.slice(pr, nx).map((transaction) => {
+                    const [customer] = customers.filter(
+                      (cus) => cus.id === transaction.customer_id
+                    );
+                    {
+                      console.log(transaction);
+                    }
+                    return (
+                      <NavLink
+                        key={transaction.id}
+                        to={`/transactions/${transaction.id}`}
+                      >
+                        <ul id="p-child">
+                          <li>
+                            <div className="custrans-name">
+                              <h4 className="columns">{customer.name}</h4>
+                              <h4 className="columns i" id="top">
+                                {Moment(transaction.created_at).format(
+                                  'MMMM DD, LT'
+                                )}
+                              </h4>
+                              <h4 className="columns i">{`NGN ${comma(
+                                transaction.amount
+                              )}`}</h4>
+                              <h4 className="columns i">
+                                NGN {customer.daily_contribution} daily
+                              </h4>
+                              <h4
+                                className="columns i"
+                                style={{ borderRight: '2px solid crimson' }}
+                              >
+                                {transaction.days_paid_for > 1
+                                  ? `${transaction.days_paid_for} days`
+                                  : `${transaction.days_paid_for} day`}
+                              </h4>
+                              {superadmins && <h4 className="columns "></h4>}
+                            </div>
+                          </li>
+                        </ul>
+                      </NavLink>
+                    );
+                  })
                 ) : (
                   <>
                     <p className="no-transact-p">No transactions to show!</p>
