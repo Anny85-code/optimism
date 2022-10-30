@@ -189,7 +189,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
               </li>
               <li>
                 <NavLink
-                  to="/transactions"
+                  to={`/users/${user.id}/transactions`}
                   style={{ textDecoration: 'none' }}
                   onClick={closeSideBar}
                 >
