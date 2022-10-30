@@ -207,9 +207,7 @@ const UserTransacts = () => {
                     const [customer] = customers.filter(
                       (cus) => cus.id === transaction.customer_id
                     );
-                    {
-                      console.log(transaction);
-                    }
+
                     return (
                       <NavLink
                         key={transaction.id}
