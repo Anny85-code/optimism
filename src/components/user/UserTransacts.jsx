@@ -21,7 +21,8 @@ const UserTransacts = () => {
   const [sDate, setSDate] = useState(new Date());
   const [filtaTrans, setFiltaTrans] = useState([]);
   const [filtaTotal, setFiltaTotal] = useState(0);
-  const [nx, setNx] = useState(5);
+  const sliceChunk = 10;
+  const [nx, setNx] = useState(sliceChunk);
   const [pr, setPr] = useState(0);
   const [transNo, setTransNo] = useState(0);
   const superadmins = user.role === 'superadmin';
@@ -29,15 +30,15 @@ const UserTransacts = () => {
 
   const handleNext = () => {
     if (nx <= len) {
-      setNx(nx + 5);
-      setPr(pr + 5);
+      setNx(nx + sliceChunk);
+      setPr(pr + sliceChunk);
     }
   };
 
   const handPrevious = () => {
     if (pr > 1) {
-      setPr(pr - 5);
-      setNx(nx - 5);
+      setPr(pr - sliceChunk);
+      setNx(nx - sliceChunk);
     }
   };
 
