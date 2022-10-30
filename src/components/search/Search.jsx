@@ -12,15 +12,16 @@ const Search = () => {
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
   const admins = user.role === 'superadmin' || user.role === 'admin';
-  const [nx, setNx] = useState(5);
+  const sliceChunk = 5;
+  const [nx, setNx] = useState(sliceChunk);
   const [pr, setPr] = useState(0);
 
   const len = aCustomer.length;
 
   const handleNext = () => {
     if (nx < len) {
-      setNx(nx + 5);
-      setPr(pr + 5);
+      setNx(nx + sliceChunk);
+      setPr(pr + sliceChunk);
     }
     if (pr > len) {
       setPr(1);
@@ -29,8 +30,11 @@ const Search = () => {
 
   const handPrevious = () => {
     if (pr > 1) {
-      setPr(pr - 5);
-      setNx(nx - 5);
+      setPr(pr - sliceChunk);
+      setNx(nx - sliceChunk);
+    }
+    if (pr > len) {
+      setNx(sliceChunk);
     }
   };
 
