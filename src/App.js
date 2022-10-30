@@ -79,6 +79,7 @@ const App = () => {
               path="/searchcontribution"
               element={<SearchContribution />}
             />
+            <Route path="/users/:id/transactions" element={<UserTransacts />} />
             <Route path="/customerpreview" element={<CustomerPreview />} />
             {user.role !== 'marketer' && (
               <>
@@ -94,10 +95,6 @@ const App = () => {
                 <Route path="/users/:id" element={<User />} />
                 <Route path="/products/:id/edit" element={<EditProduct />} />
                 <Route path="/users/:id/edit" element={<EditUser />} />
-                <Route
-                  path="/users/:id/transactions"
-                  element={<UserTransacts />}
-                />
                 <Route path="/products" element={<ViewItems />} />
                 <Route path="/addproduct" element={<AddProduct />} />
                 <Route path="/addseason" element={<AddSeason />} />
