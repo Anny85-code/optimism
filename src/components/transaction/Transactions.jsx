@@ -30,7 +30,7 @@ const Transactions = () => {
   const len = filtaTrans.length;
 
   const handleNext = () => {
-    if (nx <= len) {
+    if (nx < len) {
       setNx(nx + 5);
       setPr(pr + 5);
     }
