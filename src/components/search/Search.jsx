@@ -33,9 +33,6 @@ const Search = () => {
       setPr(pr - sliceChunk);
       setNx(nx - sliceChunk);
     }
-    if (pr > len) {
-      setNx(sliceChunk);
-    }
   };
 
   const handleSearch = () => {
