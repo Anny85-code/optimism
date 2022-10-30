@@ -15,7 +15,8 @@ const Customers = () => {
   const admins = user.role === 'admin' || user.role === 'superadmin';
   const supervisor = user.role === 'supervisor';
   const isMarketer = user.role === 'marketer';
-  const [nx, setNx] = useState(10);
+  const sliceChunk = 10;
+  const [nx, setNx] = useState(sliceChunk);
   const [pr, setPr] = useState(0);
 
   useEffect(() => {
@@ -35,15 +36,15 @@ const Customers = () => {
 
   const handleNext = () => {
     if (nx <= len) {
-      setNx(nx + 10);
-      setPr(pr + 10);
+      setNx(nx + sliceChunk);
+      setPr(pr + sliceChunk);
     }
   };
 
   const handPrevious = () => {
     if (pr > 1) {
-      setPr(pr - 10);
-      setNx(nx - 10);
+      setPr(pr - sliceChunk);
+      setNx(nx - sliceChunk);
     }
   };
 
