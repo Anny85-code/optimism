@@ -24,7 +24,7 @@ const Contribution = () => {
   // const { start_date } = season;
   // const lastSeason = seasons.data.length;
   const [go, setGo] = useState(false);
-  // const [daysNo, setDaysNo] = useState(0);
+  const [daysNo, setDaysNo] = useState(0);
   // const [trDate, setTrDate] = useState(new Date().toLocaleDateString());
   const dispatch = useDispatch();
 
@@ -37,7 +37,16 @@ const Contribution = () => {
   // const AddDaysToDate = date.setDate(date.getDate() + daysNo);
   // const convertDate = new Date(AddDaysToDate);
   const { name, daily_contribution } = customer;
-  // const amount = daysNo * daily_contribution;
+
+  const handleDays = (e) => {
+    const input = +e.target.value;
+    if (input > 0) {
+      setDaysNo(input);
+      setGo(input > 0);
+    }
+  };
+
+  const amount = daysNo * daily_contribution;
   // const { user } = JSON.parse(localStorage.getItem('user'));
 
   // const currentDate =
@@ -48,14 +57,6 @@ const Contribution = () => {
   //   convertDate.getDate();
 
   console.log({ customer, transactions });
-
-  const handleDays = (e) => {
-    const input = +e.target.value;
-    if (input > 0) {
-      setDaysNo(input);
-      setGo(input > 0);
-    }
-  };
 
   // const handleRetry = () => {
   //   window.pushState({}, '', '/');
@@ -116,8 +117,8 @@ const Contribution = () => {
                 id=""
                 onChange={(e) => setTrDate(e.target.value)}
               />
-              {/* <p>Amount: NGN {amount}</p>
-              <p>Previous payment date: {lastDate}</p>
+              <p>Amount: NGN {amount}</p>
+              {/* <p>Previous payment date: {lastDate}</p>
               <p>Current payment date: {currentDate}</p> */}
             </div>
             {go && (
