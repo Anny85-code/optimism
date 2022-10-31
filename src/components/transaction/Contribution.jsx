@@ -17,6 +17,8 @@ const Contribution = () => {
   const { cardNumber } = localStorage;
   const customer = useSelector((state) => state.oneCustomer?.data);
   const transactions = useSelector((state) => state.customerTransactions?.data);
+
+  const isReady = customer && transactions;
   // const transactions = useSelector(
   //   (state) => state.transactions?.data?.transactions
   // );
@@ -87,68 +89,59 @@ const Contribution = () => {
 
   return (
     <div className="contribution-form">
-      {/* {lastDate ? (
-        <>
-          <div className="inner-container">
-            <h2 className="title1">Contribution details</h2>
-          </div>
-          <center style={{ color: 'crimson' }}>
-            Enter no. of days to continue!
-          </center>
-          <h3 className="details">Customer details</h3>
-          <form onSubmit={handleSubmit} className="add-customer-form">
-            <div className="contribution-container">
-              <p>Name: {name}</p>
-              <p>Daily Contribution: {daily_contribution}</p>
-              <h3 className="details t-details">Transaction Details</h3>
-              <input
-                type="number"
-                className="form-control days-input"
-                id="days_number"
-                placeholder="No. of days"
-                required
-                autoCorrect="off"
-                onChange={handleDays}
-              />
-              <input
-                type="date"
-                className="form-control days-input"
-                name=""
-                id=""
-                onChange={(e) => setTrDate(e.target.value)}
-              />
-              <p>Amount: NGN {amount}</p>
-              <p>Previous payment date: {lastDate}</p>
-              <p>Current payment date: {currentDate}</p>
-            </div>
-            {go && (
-              <NavLink to="/transactions" style={{ textDecoration: 'none' }}>
-                <button
-                  type="button"
-                  className="add-customer-btn cont-btn"
-                  onClick={handleSubmit}
-                >
-                  Add
-                </button>
-              </NavLink>
-            )}
-          </form>
-        </>
+      {isReady ? (
+        // <>
+        //   <div className="inner-container">
+        //     <h2 className="title1">Contribution details</h2>
+        //   </div>
+        //   <center style={{ color: 'crimson' }}>
+        //     Enter no. of days to continue!
+        //   </center>
+        //   <h3 className="details">Customer details</h3>
+        //   <form onSubmit={handleSubmit} className="add-customer-form">
+        //     <div className="contribution-container">
+        //       <p>Name: {name}</p>
+        //       <p>Daily Contribution: {daily_contribution}</p>
+        //       <h3 className="details t-details">Transaction Details</h3>
+        //       <input
+        //         type="number"
+        //         className="form-control days-input"
+        //         id="days_number"
+        //         placeholder="No. of days"
+        //         required
+        //         autoCorrect="off"
+        //         onChange={handleDays}
+        //       />
+        //       <input
+        //         type="date"
+        //         className="form-control days-input"
+        //         name=""
+        //         id=""
+        //         onChange={(e) => setTrDate(e.target.value)}
+        //       />
+        //       <p>Amount: NGN {amount}</p>
+        //       <p>Previous payment date: {lastDate}</p>
+        //       <p>Current payment date: {currentDate}</p>
+        //     </div>
+        //     {go && (
+        //       <NavLink to="/transactions" style={{ textDecoration: 'none' }}>
+        //         <button
+        //           type="button"
+        //           className="add-customer-btn cont-btn"
+        //           onClick={handleSubmit}
+        //         >
+        //           Add
+        //         </button>
+        //       </NavLink>
+        //     )}
+        //   </form>
+        // </>
+        <p>Hi</p>
       ) : (
         <>
           <Loader />
-          <NavLink to="/customers" style={{ textDecoration: 'none' }}>
-            <button
-              type="button"
-              className="add-customer-btn r-btn"
-              onClick={handleRetry}
-            >
-              Retry
-            </button>
-          </NavLink>
         </>
-      )} */}
-      <p>Hello</p>
+      )}
     </div>
   );
 };
