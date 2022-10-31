@@ -1,10 +1,11 @@
+/* eslint-disable */
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
+import { getOneCustomerTransFromApi } from '../../redux/forms/oneCustomerTransactReducer';
 import { getOneSeasonFromApi } from '../../redux/forms/oneSeasonReducer';
 import { getSeasonFromApi } from '../../redux/forms/seasonReducer';
-/* eslint-disable */
 import {
   getTransactionFromApi,
   postTransactionToApi,
@@ -13,47 +14,45 @@ import Loader from '../loader/Loader';
 import './Contribution.css';
 
 const Contribution = () => {
-  const customer = useSelector((state) => state.oneCustomer?.data);
-  const transactions = useSelector(
-    (state) => state.transactions?.data.transactions
-  );
-  const seasons = useSelector((state) => state.seasons);
-  const season = useSelector((state) => state.oneSeason?.data);
-  const { start_date } = season;
   const { cardNumber } = localStorage;
-  const lastSeason = seasons.data.length;
-  const [go, setGo] = useState(false);
-  const [daysNo, setDaysNo] = useState(0);
-  const [trDate, setTrDate] = useState(new Date().toLocaleDateString());
+  const customer = useSelector((state) => state.oneCustomer?.data);
+  const transactions = useSelector((state) => state.customerTransactions?.data);
+  // const transactions = useSelector(
+  //   (state) => state.transactions?.data?.transactions
+  // );
+  // const seasons = useSelector((state) => state.seasons);
+  // const season = useSelector((state) => state.oneSeason?.data);
+  // const { start_date } = season;
+  // const lastSeason = seasons.data.length;
+  // const [go, setGo] = useState(false);
+  // const [daysNo, setDaysNo] = useState(0);
+  // const [trDate, setTrDate] = useState(new Date().toLocaleDateString());
   const dispatch = useDispatch();
 
-  const transaction = transactions.filter(
-    (trans) => trans.customer_id === +cardNumber
-  );
-  console.log(transaction);
+  // const lastTransaction = transaction?.slice(-1);
+  // let lastDate;
+  // lastTransaction.length
+  //   ? (lastDate = lastTransaction[0]?.current_contribution_date)
+  //   : (lastDate = start_date);
+  // const date = new Date(lastDate);
+  // const AddDaysToDate = date.setDate(date.getDate() + daysNo);
+  // const convertDate = new Date(AddDaysToDate);
+  // const { name, daily_contribution } = customer;
+  // const amount = daysNo * daily_contribution;
+  // const { user } = JSON.parse(localStorage.getItem('user'));
 
-  const lastTransaction = transaction.slice(-1);
-  let lastDate;
-  lastTransaction.length
-    ? (lastDate = lastTransaction[0]?.current_contribution_date)
-    : (lastDate = start_date);
-  const date = new Date(lastDate);
-  const AddDaysToDate = date.setDate(date.getDate() + daysNo);
-  const convertDate = new Date(AddDaysToDate);
-  const { name, daily_contribution } = customer;
-  const amount = daysNo * daily_contribution;
-  const { user } = JSON.parse(localStorage.getItem('user'));
+  // const currentDate =
+  //   convertDate.getFullYear() +
+  //   '-' +
+  //   (convertDate.getMonth() + 1) +
+  //   '-' +
+  //   convertDate.getDate();
 
-  const currentDate =
-    convertDate.getFullYear() +
-    '-' +
-    (convertDate.getMonth() + 1) +
-    '-' +
-    convertDate.getDate();
+  console.log({ customer, transactions });
 
   const handleDays = (e) => {
     const input = +e.target.value;
-    if (input >= 0) {
+    if (input > 0) {
       setDaysNo(input);
       setGo(input > 0);
     }
@@ -81,14 +80,14 @@ const Contribution = () => {
 
   useEffect(() => {
     dispatch(getOneCustomerFromApi(cardNumber));
-    dispatch(getTransactionFromApi());
-    dispatch(getSeasonFromApi());
-    dispatch(getOneSeasonFromApi(lastSeason));
+    dispatch(getOneCustomerTransFromApi(cardNumber));
+    // dispatch(getSeasonFromApi());
+    // dispatch(getOneSeasonFromApi(lastSeason));
   }, []);
 
   return (
     <div className="contribution-form">
-      {lastDate ? (
+      {/* {lastDate ? (
         <>
           <div className="inner-container">
             <h2 className="title1">Contribution details</h2>
@@ -148,7 +147,8 @@ const Contribution = () => {
             </button>
           </NavLink>
         </>
-      )}
+      )} */}
+      <p>Hello</p>
     </div>
   );
 };
