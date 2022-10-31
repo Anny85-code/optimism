@@ -14,49 +14,51 @@ import Loader from '../loader/Loader';
 import './Contribution.css';
 
 const Contribution = () => {
+  const { user } = JSON.parse(localStorage.getItem('user'));
   const { cardNumber } = localStorage;
   const customer = useSelector((state) => state.oneCustomer?.data);
   const transactions = useSelector((state) => state.customerTransactions?.data);
 
   const isReady = customer && transactions;
-  // const seasons = useSelector((state) => state.seasons);
-  // const season = useSelector((state) => state.oneSeason?.data);
-  // const { start_date } = season;
-  // const lastSeason = seasons.data.length;
+  const seasons = useSelector((state) => state.seasons);
+  const lastSeason = seasons.data.length;
+  const season = useSelector((state) => state.oneSeason?.data);
+  const { start_date } = season;
   const [go, setGo] = useState(false);
   const [daysNo, setDaysNo] = useState(0);
-  // const [trDate, setTrDate] = useState(new Date().toLocaleDateString());
+  const [trDate, setTrDate] = useState(new Date().toLocaleDateString());
   const dispatch = useDispatch();
 
-  // const lastTransaction = transactions?.slice(-1);
-  // let lastDate;
-  // lastTransaction.length
-  //   ? (lastDate = lastTransaction[0]?.current_contribution_date)
-  //   : (lastDate = start_date);
-  // const date = new Date(lastDate);
-  // const AddDaysToDate = date.setDate(date.getDate() + daysNo);
-  // const convertDate = new Date(AddDaysToDate);
+  const lastTransaction = transactions?.trans
+    ?.sort((a, b) => a.id - b.id)
+    ?.slice(-1);
+  let lastDate;
+  lastTransaction?.length
+    ? (lastDate = lastTransaction[0]?.current_contribution_date)
+    : (lastDate = start_date);
+  const date = new Date(lastDate);
+  const AddDaysToDate = date.setDate(date.getDate() + daysNo);
+  const convertDate = new Date(AddDaysToDate);
   const { name, daily_contribution } = customer;
 
   const handleDays = (e) => {
     const input = +e.target.value;
-    if (input > 0) {
+    if ((input) => 0) {
       setDaysNo(input);
       setGo(input > 0);
     }
   };
 
   const amount = daysNo * daily_contribution;
-  // const { user } = JSON.parse(localStorage.getItem('user'));
 
-  // const currentDate =
-  //   convertDate.getFullYear() +
-  //   '-' +
-  //   (convertDate.getMonth() + 1) +
-  //   '-' +
-  //   convertDate.getDate();
+  const currentDate =
+    convertDate.getFullYear() +
+    '-' +
+    (convertDate.getMonth() + 1) +
+    '-' +
+    convertDate.getDate();
 
-  console.log({ customer, transactions });
+  console.log({ lastTransaction });
 
   // const handleRetry = () => {
   //   window.pushState({}, '', '/');
@@ -81,8 +83,8 @@ const Contribution = () => {
   useEffect(() => {
     dispatch(getOneCustomerFromApi(cardNumber));
     dispatch(getOneCustomerTransFromApi(cardNumber));
-    // dispatch(getSeasonFromApi());
-    // dispatch(getOneSeasonFromApi(lastSeason));
+    dispatch(getSeasonFromApi());
+    dispatch(getOneSeasonFromApi(lastSeason));
   }, []);
 
   return (
@@ -118,8 +120,8 @@ const Contribution = () => {
                 onChange={(e) => setTrDate(e.target.value)}
               />
               <p>Amount: NGN {amount}</p>
-              {/* <p>Previous payment date: {lastDate}</p>
-              <p>Current payment date: {currentDate}</p> */}
+              <p>Previous payment date: {lastDate}</p>
+              <p>Current payment date: {currentDate}</p>
             </div>
             {go && (
               <NavLink to="/transactions" style={{ textDecoration: 'none' }}>
