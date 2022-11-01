@@ -1,18 +1,12 @@
 import axios from 'axios';
 import endpoint from '../../assets/url/url';
 
-const GET_ONE_CUSTOMER =
-  'src/redux/onecustomerreducer/get_one_customer'.toUpperCase();
-const FAILED_GET_ONE_CUSTOMER =
-  'src/redux/onecustomerreducer/failed_get_one_customer'.toUpperCase();
-const GET_ONE_CUSTOMERS_REQUEST =
-  'src/redux/onecustomerreducer/get_one_customer_request'.toUpperCase();
-const DEL_ONE_CUSTOMER =
-  'src/redux/onecustomerreducer/del_one_customer'.toUpperCase();
-const FAILED_DEL_ONE_CUSTOMER =
-  'src/redux/onecustomerreducer/failed_del_one_customer'.toUpperCase();
-const DEL_ONE_CUSTOMERS_REQUEST =
-  'src/redux/onecustomerreducer/del_one_customer_request'.toUpperCase();
+const GET_ONE_CUSTOMER = 'src/redux/onecustomerreducer/get_one_customer'.toUpperCase();
+const FAILED_GET_ONE_CUSTOMER = 'src/redux/onecustomerreducer/failed_get_one_customer'.toUpperCase();
+const GET_ONE_CUSTOMERS_REQUEST = 'src/redux/onecustomerreducer/get_one_customer_request'.toUpperCase();
+const DEL_ONE_CUSTOMER = 'src/redux/onecustomerreducer/del_one_customer'.toUpperCase();
+const FAILED_DEL_ONE_CUSTOMER = 'src/redux/onecustomerreducer/failed_del_one_customer'.toUpperCase();
+const DEL_ONE_CUSTOMERS_REQUEST = 'src/redux/onecustomerreducer/del_one_customer_request'.toUpperCase();
 const url = `${endpoint}/customers`;
 const { token } = localStorage;
 
@@ -83,7 +77,7 @@ const OneCustomerReducer = (
     loading: false,
     error: null,
   },
-  action
+  action,
 ) => {
   switch (action.type) {
     case GET_ONE_CUSTOMER:
