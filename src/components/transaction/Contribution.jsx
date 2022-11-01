@@ -6,10 +6,7 @@ import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
 import { getOneCustomerTransFromApi } from '../../redux/forms/oneCustomerTransactReducer';
 import { getOneSeasonFromApi } from '../../redux/forms/oneSeasonReducer';
 import { getSeasonFromApi } from '../../redux/forms/seasonReducer';
-import {
-  getTransactionFromApi,
-  postTransactionToApi,
-} from '../../redux/forms/transactionReducer';
+import { postTransactionToApi } from '../../redux/forms/transactionReducer';
 import Loader from '../loader/Loader';
 import './Contribution.css';
 
@@ -43,7 +40,7 @@ const Contribution = () => {
 
   const handleDays = (e) => {
     const input = +e.target.value;
-    if ((input) => 0) {
+    if (input >= 0) {
       setDaysNo(input);
       setGo(input > 0);
     }
@@ -57,13 +54,6 @@ const Contribution = () => {
     (convertDate.getMonth() + 1) +
     '-' +
     convertDate.getDate();
-
-  console.log({ lastTransaction });
-
-  // const handleRetry = () => {
-  //   window.pushState({}, '', '/');
-  //   window.location.reload();
-  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
