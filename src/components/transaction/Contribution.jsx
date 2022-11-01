@@ -71,8 +71,7 @@ const Contribution = () => {
       current_contribution_date: currentDate,
       transaction_date: trDate,
     };
-    // dispatch(postTransactionToApi(transactionData));
-    console.log(transactionData);
+    dispatch(postTransactionToApi(transactionData));
   };
 
   return (
