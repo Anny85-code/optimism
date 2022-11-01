@@ -69,6 +69,7 @@ const AddItemToCustomer = () => {
       localStorage.setItem('myfood', JSON.stringify(total));
       userData.id ?? dispatch(postCustomerToApi(userData));
       window.history.pushState({}, '', '/customerpreview');
+      window.location.reload();
     }
   };
 
