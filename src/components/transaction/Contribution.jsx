@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
 import { getOneCustomerTransFromApi } from '../../redux/forms/oneCustomerTransactReducer';
-import { getOneSeasonFromApi } from '../../redux/forms/oneSeasonReducer';
 import { getSeasonFromApi } from '../../redux/forms/seasonReducer';
 import { postTransactionToApi } from '../../redux/forms/transactionReducer';
 import Loader from '../loader/Loader';
@@ -16,23 +15,29 @@ const Contribution = () => {
   const customer = useSelector((state) => state.oneCustomer?.data);
   const transactions = useSelector((state) => state.customerTransactions?.data);
 
-  const isReady = customer && transactions;
-  const seasons = useSelector((state) => state.seasons);
-  const lastSeason = seasons.data.length;
-  const season = useSelector((state) => state.oneSeason?.data);
-  const { start_date } = season;
+  const seasons = useSelector((state) => state.seasons?.data);
+  const lastSeason = seasons?.sort((a, x) => a.id - x.id)?.slice(-1);
+  const isReady = customer && transactions && lastSeason;
+  const [lSea] = lastSeason;
   const [go, setGo] = useState(false);
   const [daysNo, setDaysNo] = useState(0);
   const [trDate, setTrDate] = useState(new Date().toLocaleDateString());
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(getOneCustomerFromApi(cardNumber));
+    dispatch(getOneCustomerTransFromApi(cardNumber));
+  }, []);
+  useEffect(() => {
+    dispatch(getSeasonFromApi());
+  }, []);
+
+  const startDate = lSea?.start_date;
   const lastTransaction = transactions?.trans
     ?.sort((a, b) => a.id - b.id)
     ?.slice(-1);
-  let lastDate;
-  lastTransaction?.length
-    ? (lastDate = lastTransaction[0]?.current_contribution_date)
-    : (lastDate = start_date);
+  const lastDate = lastTransaction?.[0]?.current_contribution_date ?? startDate;
+
   const date = new Date(lastDate);
   const AddDaysToDate = date.setDate(date.getDate() + daysNo);
   const convertDate = new Date(AddDaysToDate);
@@ -42,7 +47,7 @@ const Contribution = () => {
     const input = +e.target.value;
     if (input >= 0) {
       setDaysNo(input);
-      setGo(input > 0);
+      setGo(input >= 1);
     }
   };
 
@@ -69,13 +74,6 @@ const Contribution = () => {
     // dispatch(postTransactionToApi(transactionData));
     console.log(transactionData);
   };
-
-  useEffect(() => {
-    dispatch(getOneCustomerFromApi(cardNumber));
-    dispatch(getOneCustomerTransFromApi(cardNumber));
-    dispatch(getSeasonFromApi());
-    dispatch(getOneSeasonFromApi(lastSeason));
-  }, []);
 
   return (
     <div className="contribution-form">
@@ -110,8 +108,12 @@ const Contribution = () => {
                 onChange={(e) => setTrDate(e.target.value)}
               />
               <p>Amount: NGN {amount}</p>
-              <p>Previous payment date: {lastDate}</p>
-              <p>Current payment date: {currentDate}</p>
+              {seasons && (
+                <>
+                  <p>Previous payment date: {lastDate}</p>
+                  <p>Current payment date: {currentDate}</p>
+                </>
+              )}
             </div>
             {go && (
               <NavLink to="/transactions" style={{ textDecoration: 'none' }}>
