@@ -1,12 +1,9 @@
 import axios from 'axios';
 import endpoint from '../../assets/url/url';
 
-const GET_PERCENTAGE =
-  'src/redux/percentagereducer/get_percentage'.toUpperCase();
-const FAILED_GET_PERCENTAGE =
-  'src/redux/percentagereducer/failed_get_percentage'.toUpperCase();
-const GET_PERCENTAGES_REQUEST =
-  'src/redux/percentagereducer/get_percentage_request'.toUpperCase();
+const GET_PERCENTAGE = 'src/redux/percentagereducer/get_percentage'.toUpperCase();
+const FAILED_GET_PERCENTAGE = 'src/redux/percentagereducer/failed_get_percentage'.toUpperCase();
+const GET_PERCENTAGES_REQUEST = 'src/redux/percentagereducer/get_percentage_request'.toUpperCase();
 const url = `${endpoint}/customers/percentages`;
 const { token } = localStorage;
 
@@ -47,7 +44,7 @@ const percentagesReducer = (
     loading: false,
     error: null,
   },
-  action
+  action,
 ) => {
   switch (action.type) {
     case GET_PERCENTAGE:
