@@ -10,24 +10,24 @@ const GET_PERCENTAGES_REQUEST =
 const url = `${endpoint}/percentages`;
 const { token } = localStorage;
 
-const fetchCustomersData = (payload) => ({
+const fetchPercentageData = (payload) => ({
   type: GET_PERCENTAGE,
   payload,
 });
 
-const fetchCustomersDataFailed = (payload) => ({
+const fetchPercentageDataFailed = (payload) => ({
   type: FAILED_GET_PERCENTAGE,
   payload,
 });
 
-const fetchCustomerRequest = () => ({
+const fetchPercentageRequest = () => ({
   type: GET_PERCENTAGES_REQUEST,
   loading: true,
   error: null,
 });
 
-export const getCustomerFromApi = () => async (dispatch) => {
-  dispatch(fetchCustomerRequest());
+export const getPercentageFromApi = () => async (dispatch) => {
+  dispatch(fetchPercentageRequest());
   try {
     const response = await axios.get(url, {
       headers: {
@@ -35,9 +35,9 @@ export const getCustomerFromApi = () => async (dispatch) => {
       },
     });
 
-    dispatch(fetchCustomersData(response.data));
+    dispatch(fetchPercentageData(response.data));
   } catch (error) {
-    dispatch(fetchCustomersDataFailed(error.message));
+    dispatch(fetchPercentageDataFailed(error.message));
   }
 };
 
