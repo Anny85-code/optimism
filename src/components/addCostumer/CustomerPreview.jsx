@@ -56,12 +56,18 @@ const CustomerPreview = () => {
       id: oldFoodId,
     };
 
-    const newCustomer = {
+    let newCustomer = {
       ...retrievedCustomer,
       daily_contribution: grandTotal,
-      card_number: cardNumber,
       id,
     };
+
+    if (!newCustomer.card_number) {
+      newCustomer = {
+        ...newCustomer,
+        card_number: cardNumber,
+      };
+    }
 
     oldFoodId
       ? dispatch(postUpdateMyFoodToApi(newData))
