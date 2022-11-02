@@ -1,26 +1,27 @@
 import axios from 'axios';
 import endpoint from '../../assets/url/url';
 
-const GET_CUSTOMER = 'src/redux/customerreducer/get_customer'.toUpperCase();
-const FAILED_GET_CUSTOMER =
-  'src/redux/customerreducer/failed_get_customer'.toUpperCase();
-const GET_CUSTOMERS_REQUEST =
-  'src/redux/customerreducer/get_customer_request'.toUpperCase();
-const url = `${endpoint}/customers`;
+const GET_PERCENTAGE =
+  'src/redux/percentagereducer/get_percentage'.toUpperCase();
+const FAILED_GET_PERCENTAGE =
+  'src/redux/percentagereducer/failed_get_percentage'.toUpperCase();
+const GET_PERCENTAGES_REQUEST =
+  'src/redux/percentagereducer/get_percentage_request'.toUpperCase();
+const url = `${endpoint}/percentages`;
 const { token } = localStorage;
 
 const fetchCustomersData = (payload) => ({
-  type: GET_CUSTOMER,
+  type: GET_PERCENTAGE,
   payload,
 });
 
 const fetchCustomersDataFailed = (payload) => ({
-  type: FAILED_GET_CUSTOMER,
+  type: FAILED_GET_PERCENTAGE,
   payload,
 });
 
 const fetchCustomerRequest = () => ({
-  type: GET_CUSTOMERS_REQUEST,
+  type: GET_PERCENTAGES_REQUEST,
   loading: true,
   error: null,
 });
@@ -49,20 +50,20 @@ const percentagesReducer = (
   action
 ) => {
   switch (action.type) {
-    case GET_CUSTOMER:
+    case GET_PERCENTAGE:
       return {
         ...state,
         data: action.payload,
         loading: false,
         error: null,
       };
-    case FAILED_GET_CUSTOMER:
+    case FAILED_GET_PERCENTAGE:
       return {
         ...state,
         loading: false,
         error: action.error,
       };
-    case GET_CUSTOMERS_REQUEST:
+    case GET_PERCENTAGES_REQUEST:
       return {
         ...state,
         loading: true,
