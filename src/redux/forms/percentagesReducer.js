@@ -1,12 +1,6 @@
 import axios from 'axios';
-import { Navigate } from 'react-router-dom';
 import endpoint from '../../assets/url/url';
 
-// const POST_CUSTOMER = 'src/redux/customerreducer/post_customer'.toUpperCase();
-const FAILED_POST_CUSTOMER =
-  'src/redux/customerreducer/failed_post_customer'.toUpperCase();
-const FAILED_PATCH_CUSTOMER =
-  'src/redux/customerreducer/failed_patch_customer'.toUpperCase();
 const GET_CUSTOMER = 'src/redux/customerreducer/get_customer'.toUpperCase();
 const FAILED_GET_CUSTOMER =
   'src/redux/customerreducer/failed_get_customer'.toUpperCase();
@@ -74,9 +68,6 @@ const percentagesReducer = (
         loading: true,
         error: null,
       };
-    case FAILED_POST_CUSTOMER:
-    case FAILED_PATCH_CUSTOMER:
-      return { error: action.errorMsg };
     default:
       return state;
   }
