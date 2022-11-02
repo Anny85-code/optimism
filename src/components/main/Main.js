@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
@@ -13,8 +14,8 @@ import { getTransactionFromApi } from '../../redux/forms/transactionReducer';
 import { getUsersFromApi } from '../../redux/forms/userManReducer';
 import { getItemFromApi } from '../../redux/forms/getItemsReducer';
 import { delOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
+// import { delOneTransFromApi } from '../../redux/forms/OneTransactionReducer';
 
-/* eslint-disable */
 const Main = () => {
   const dispatch = useDispatch();
   const customers = useSelector((state) => state.customer);
@@ -89,6 +90,13 @@ const Main = () => {
     );
     myCustomers.map((cus) => dispatch(delOneCustomerFromApi(cus.id)));
   };
+
+  // ================ Used to destroy all transactions in the app ====================
+  // const delNoCard = () => {
+  //   transactions.data.transactions.map((trans) =>
+  //     dispatch(delOneTransFromApi(trans.id))
+  //   );
+  // };
 
   useEffect(() => {
     dispatch(getCustomerFromApi());

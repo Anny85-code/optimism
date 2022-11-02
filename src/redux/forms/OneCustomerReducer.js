@@ -65,7 +65,7 @@ export const delOneCustomerFromApi = (id) => async (dispatch) => {
       },
     });
     dispatch(delOneCustomerData(response.data));
-    window;
+    window.location.reload();
   } catch (error) {
     dispatch(delOneCustomersDataFailed(error.message));
   }
