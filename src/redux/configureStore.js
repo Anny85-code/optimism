@@ -23,7 +23,7 @@ import errorReducer from './forms/errors';
 import OneCustomerTransactsReducer from './forms/oneCustomerTransactReducer';
 import oneUserTransactsReducer from './forms/oneUserTransactReducer';
 import myFoodReducer from './forms/myFoodReducer';
-import percentagesReducer from './forms/myFoodReducer';
+import percentagesReducer from './forms/percentagesReducer';
 
 const rootReducer = combineReducers({
   user: userReducer,
