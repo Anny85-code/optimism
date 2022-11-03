@@ -22,20 +22,25 @@ const PaidSixty = () => {
     toggle();
   };
 
+  const renderData = (per) => (
+    <NavLink
+      style={{ color: 'black' }}
+      key={per.id}
+      to={`/customers/${per.id}`}
+    >
+      <p>{per.name}</p>
+      <p>{per.total_days}</p>
+      <p>{per.daily}</p>
+      <p>{per.total_cash}</p>
+    </NavLink>
+  );
+
   const toggle = () => {
     if (select === 'sixty') {
-      return percents?.sixty?.map((per) => (
-        <NavLink key={per.id} to={`/customers/${per.id}`}>
-          <p style={{ color: 'black' }}>{per.name}</p>
-        </NavLink>
-      ));
+      return percents?.sixty?.map((per) => renderData(per));
     }
     if (select === 'hundred') {
-      return percents?.hundred?.map((per) => (
-        <NavLink key={per.id} to={`/customers/${per.id}`}>
-          <p style={{ color: 'black' }}>{per.name}</p>
-        </NavLink>
-      ));
+      return percents?.hundred?.map((per) => renderData(per));
     }
   };
 
@@ -45,16 +50,11 @@ const PaidSixty = () => {
         <div>
           <div>
             <label htmlFor="role" className="form-label">
-              Please select
-              <select
-                name="role"
-                id="role"
-                value={select}
-                onChange={handlePercent}
-              >
+              Please Select Percentage
+              <select value={select} onChange={handlePercent}>
                 <option defaultValue="PLEASE SELECT ...">Select Percent</option>
-                <option value="sixty">sixty</option>
-                <option value="hundred">hundred</option>
+                <option value="sixty">Sixty</option>
+                <option value="hundred">Hundred</option>
               </select>
             </label>
           </div>
