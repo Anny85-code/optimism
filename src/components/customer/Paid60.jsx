@@ -31,7 +31,7 @@ const PaidSixty = () => {
       <p>{per.name}</p>
       <p>{per.total_days}</p>
       <p>{per.daily}</p>
-      <p>{per.total_cash}</p>
+      <p>{per.total}</p>
     </NavLink>
   );
 
@@ -58,6 +58,7 @@ const PaidSixty = () => {
               </select>
             </label>
           </div>
+          <p>{select === 'sixty' ? percents._60 : percents._100}</p>
           {toggle()}
         </div>
       )}
