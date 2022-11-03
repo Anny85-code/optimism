@@ -11,39 +11,54 @@ const PaidSixty = () => {
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
   const admins = user.role === 'admin' || user.role === 'superadmin';
-  const [select, setSelect] = useState('PLEASE SELECT ...');
+  const [select, setSelect] = useState('sixty');
 
   useEffect(() => {
     dispatch(getPercentageFromApi());
   }, []);
 
+  const handlePercent = (e) => {
+    setSelect(e.target.value);
+    toggle();
+  };
+
+  const toggle = () => {
+    if (select === 'sixty') {
+      return percents?.sixty?.map((per) => (
+        <NavLink key={per.id} to={`/customers/${per.id}`}>
+          <p style={{ color: 'black' }}>{per.name}</p>
+        </NavLink>
+      ));
+    }
+    if (select === 'hundred') {
+      return percents?.hundred?.map((per) => (
+        <NavLink key={per.id} to={`/customers/${per.id}`}>
+          <p style={{ color: 'black' }}>{per.name}</p>
+        </NavLink>
+      ));
+    }
+  };
+
   return (
     <div>
       {admins && (
         <div>
-          <p>Please select</p>
           <div>
             <label htmlFor="role" className="form-label">
-              Position
+              Please select
               <select
                 name="role"
                 id="role"
                 value={select}
-                onChange={(e) => setSelect(e.target.value)}
+                onChange={handlePercent}
               >
-                <option defaultValue="PLEASE SELECT ...">
-                  PLEASE SELECT ...
-                </option>
-                <option value="Admin">sixty</option>
-                <option value="Supervisor">hundred</option>
+                <option defaultValue="PLEASE SELECT ...">Select Percent</option>
+                <option value="sixty">sixty</option>
+                <option value="hundred">hundred</option>
               </select>
             </label>
           </div>
-          {percents?.hundred?.map((per) => (
-            <NavLink key={per.id} to={`/customers/${per.id}`}>
-              <p style={{ color: 'black' }}>{per.name}</p>
-            </NavLink>
-          ))}
+          {toggle()}
         </div>
       )}
       {!admins && <p>Unauthorized to see this page!</p>}
