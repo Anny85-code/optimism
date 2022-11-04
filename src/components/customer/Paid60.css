@@ -1,0 +1,29 @@
+.main-percent-conrainer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.percent-input {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+#opt-id {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.percent-input > label > center {
+  color: crimson;
+  margin: 40px 0 0 0;
+  font-size: 25px;
+}
+
+.select-percent {
+  width: 400px;
+  margin: 40px auto;
+  /* margin-right: auto; */
+}
