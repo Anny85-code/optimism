@@ -25,5 +25,14 @@
 .select-percent {
   width: 400px;
   margin: 40px auto;
-  /* margin-right: auto; */
+}
+
+@media only screen and (max-width: 480px){
+  .select-percent {
+  width: 200px;
+}
+
+  .percent-input > label > center {
+  font-size: 18px;
+}
 }
