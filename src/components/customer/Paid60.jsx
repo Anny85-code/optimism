@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { getPercentageFromApi } from '../../redux/forms/percentagesReducer';
+import './Paid60.css';
 
 const PaidSixty = () => {
   const dispatch = useDispatch();
@@ -22,16 +23,37 @@ const PaidSixty = () => {
     toggle();
   };
 
+  const comma = (num) => {
+    const number = parseInt(num);
+    const newText = number.toLocaleString();
+    return newText;
+  };
+
   const renderData = (per) => (
     <NavLink
       style={{ color: 'black' }}
       key={per.id}
       to={`/customers/${per.id}`}
     >
-      <p>{per.name}</p>
-      <p>{per.total_days}</p>
-      <p>{per.daily}</p>
-      <p>{per.total}</p>
+      <div>
+        <ul id="p-child">
+          <li>
+            <div className="custrans-name">
+              <h4 className="columns">{per.name}</h4>
+              <h4 className="columns i" id="top">
+                {per.total_days}
+              </h4>
+              <h4
+                className="columns i"
+                style={{ borderRight: '2px solid crimson' }}
+              >
+                {comma(per.daily)}
+              </h4>
+              <h4 className="columns">{comma(per.total)}</h4>
+            </div>
+          </li>
+        </ul>
+      </div>
     </NavLink>
   );
 
@@ -45,24 +67,72 @@ const PaidSixty = () => {
   };
 
   return (
-    <div>
-      {admins && (
-        <div>
+    <div className="main-percent-conrainer">
+      <div className="percent-input">
+        <label htmlFor="role" className="form-label">
+          <center>Please Select Percentage</center>
+          <select
+            value={select}
+            onChange={handlePercent}
+            className="select-percent"
+            id="opt-id"
+          >
+            <option defaultValue="PLEASE SELECT ...">Select Percent</option>
+            <option value="sixty">60%</option>
+            <option value="hundred">100%</option>
+          </select>
+        </label>
+      </div>
+
+      <div className="transact-customer-container">
+        {admins && (
           <div>
-            <label htmlFor="role" className="form-label">
-              Please Select Percentage
-              <select value={select} onChange={handlePercent}>
-                <option defaultValue="PLEASE SELECT ...">Select Percent</option>
-                <option value="sixty">60%</option>
-                <option value="hundred">100%</option>
-              </select>
-            </label>
+            <div id="col">
+              <h2 className="total-orders">
+                Total: {select === 'sixty' ? percents._60 : percents._100}
+              </h2>
+            </div>
+            <div className="custrans-name">
+              <h4 className="columns">
+                <span className="cus-name1">Customer Name</span>
+              </h4>
+              <h4 className="columns i">Days Paid For</h4>
+              <h4 className="columns i" id="a">
+                Daily Contribution
+              </h4>
+              <h4 className="columns">
+                <span className="cus-name1 ">Total Amount</span>
+              </h4>
+            </div>
+
+            <div className="custrans-name">
+              <h3 className="columns" id="col">
+                <p className="custransactname"></p>
+              </h3>
+              <h6
+                className="columns i"
+                style={{ borderBottom: '2px solid crimson' }}
+              ></h6>
+              <h3
+                className="columns i"
+                id="col"
+                style={{
+                  borderRight: '2px solid crimson',
+                  borderBottom: '2px solid crimson',
+                  color: 'crimson',
+                }}
+              ></h3>
+              <h3
+                className="columns"
+                id="col"
+                style={{ color: 'crimson' }}
+              ></h3>
+            </div>
+            {toggle()}
           </div>
-          <p>{select === 'sixty' ? percents._60 : percents._100}</p>
-          {toggle()}
-        </div>
-      )}
-      {!admins && <p>Unauthorized to see this page!</p>}
+        )}
+        {!admins && <p>Unauthorized to see this page!</p>}
+      </div>
     </div>
   );
 };
