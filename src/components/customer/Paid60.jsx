@@ -53,8 +53,8 @@ const PaidSixty = () => {
               Please Select Percentage
               <select value={select} onChange={handlePercent}>
                 <option defaultValue="PLEASE SELECT ...">Select Percent</option>
-                <option value="sixty">Sixty</option>
-                <option value="hundred">Hundred</option>
+                <option value="sixty">60%</option>
+                <option value="hundred">100%</option>
               </select>
             </label>
           </div>
