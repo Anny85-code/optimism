@@ -40,17 +40,17 @@ const PaidSixty = () => {
         <ul id="p-child">
           <li>
             <div className="custrans-name">
-              <p className="columns">{per.name}</p>
-              <p className="columns i" id="top">
+              <h4 className="columns">{per.name}</h4>
+              <h4 className="columns i" id="top">
                 {per.total_days}
-              </p>
-              <p
+              </h4>
+              <h4
                 className="columns i"
                 style={{ borderRight: '2px solid crimson' }}
               >
                 {comma(per.daily)}
-              </p>
-              <p className="columns">{comma(per.total)}</p>
+              </h4>
+              <h4 className="columns">{comma(per.total)}</h4>
             </div>
           </li>
         </ul>
