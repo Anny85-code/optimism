@@ -8,7 +8,6 @@
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  
 }
 
 #opt-id {
@@ -27,12 +26,12 @@
   margin: 40px auto;
 }
 
-@media only screen and (max-width: 480px){
+@media only screen and (max-width: 480px) {
   .select-percent {
-  width: 200px;
-}
+    width: 200px;
+  }
 
   .percent-input > label > center {
-  font-size: 18px;
-}
+    font-size: 18px;
+  }
 }
