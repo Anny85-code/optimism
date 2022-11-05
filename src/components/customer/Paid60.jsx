@@ -50,7 +50,7 @@ const PaidSixty = () => {
               >
                 {comma(per.daily)}
               </h4>
-              <h4 className="columns">{comma(per.total)}</h4>
+              <h4 className="columns">NGN {comma(per.total)}</h4>
             </div>
           </li>
         </ul>
