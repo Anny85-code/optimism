@@ -1,5 +1,11 @@
 .total-orders {
   text-align: center;
   height: 40px;
-  margin: 20px;
+  margin: 20px 0 10px 0;
+}
+
+@media only screen and (max-width: 480px) {
+  .total-orders {
+    margin: 15px 0 -10px 0;
+  }
 }
