@@ -8,7 +8,7 @@ import Loader from '../loader/Loader';
 
 const Customers = () => {
   const dispatch = useDispatch();
-  const allCustomers = useSelector((state) => state.customer?.data);
+  const allCustomers = useSelector((state) => state.customer?.data?.customers);
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
   const reId = localStorage.getItem('_id');
@@ -23,7 +23,7 @@ const Customers = () => {
     dispatch(getCustomerFromApi());
   }, []);
 
-  const newData = allCustomers.filter((customer) => {
+  const newData = allCustomers?.filter((customer) => {
     if (
       (admins && +reId === customer.user_id) ||
       (supervisor && +reId === customer.user_id) ||
@@ -32,7 +32,7 @@ const Customers = () => {
       return customer;
     }
   });
-  const len = newData.length;
+  const len = newData?.length;
 
   const handleNext = () => {
     if (nx <= len) {
