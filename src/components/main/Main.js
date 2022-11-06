@@ -18,8 +18,8 @@ import { delOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
 
 const Main = () => {
   const dispatch = useDispatch();
-  const customers = useSelector((state) => state.customer);
-  const numOfCustomers = customers.data.length;
+  const customers = useSelector((state) => state.customer?.data);
+  const numOfCustomers = customers?.customers_no;
   const transactions = useSelector((state) => state.transactions);
   const numOfTransactions = transactions?.data?.transactions?.length;
   const totalTransactions = transactions.data.total;
@@ -39,7 +39,7 @@ const Main = () => {
   const admins = user.role === 'admin' || user.role === 'superadmin';
 
   function handleNill() {
-    const myCustomers = customers.data.filter(
+    const myCustomers = customers?.customers?.filter(
       (customer) => customer.card_number === null
       // ========{ To Update bad card number/ user location } =========
       // customer.card_number !== null && customer.card_number.includes('U/M86')
@@ -85,7 +85,7 @@ const Main = () => {
   }
 
   const delNoCard = () => {
-    const myCustomers = customers.data.filter(
+    const myCustomers = customers?.customers?.filter(
       (customer) => customer.card_number === null
     );
     myCustomers.map((cus) => dispatch(delOneCustomerFromApi(cus.id)));
