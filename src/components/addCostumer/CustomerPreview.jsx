@@ -18,7 +18,9 @@ const CustomerPreview = () => {
   const { data } = foods || {};
   const retrievedCustomer = JSON.parse(localStorage.getItem('customer'));
   const fone = retrievedCustomer.phone;
-  const customer = customers?.data?.filter((cust) => cust.phone === fone);
+  const customer = customers?.data?.customers.filter(
+    (cust) => cust.phone === fone
+  );
   const myFood = JSON.parse(localStorage.getItem('myfood'));
   const grandTotal = myFood.reduce((a, b) => b.subTotal + a, 0);
   const id = customer[0]?.id;
