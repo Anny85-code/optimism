@@ -7,7 +7,7 @@ import './Search.css';
 /* eslint-disable*/
 const Search = () => {
   const dispatch = useDispatch();
-  const allCustomers = useSelector((state) => state.customer?.data);
+  const allCustomers = useSelector((state) => state.customer?.data?.customers);
   const [aCustomer, setACustomer] = useState('');
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
@@ -52,7 +52,7 @@ const Search = () => {
       setPr(0);
       setNx(5);
     } else {
-      const filteredCustomer = allCustomers.filter(
+      const filteredCustomer = allCustomers?.filter(
         (customer) =>
           customer.name.toLowerCase().includes(typedContent) ||
           customer.phone.includes(typedContent) ||
