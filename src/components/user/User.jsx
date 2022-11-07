@@ -26,7 +26,7 @@ const User = () => {
   const param = useParams();
   const { id } = param;
   const user = useSelector((state) => state.oneUser);
-  const customers = useSelector((state) => state.customer?.data);
+  const customers = useSelector((state) => state.customer?.data?.customers);
   const data = JSON.parse(localStorage.getItem('user'));
   const loggedUser = data.user || {};
   const permitted =
