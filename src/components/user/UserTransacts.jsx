@@ -13,7 +13,7 @@ const UserTransacts = () => {
   const param = useParams();
   const { id } = param;
   const transactions = useSelector((state) => state.userTransacts);
-  const customers = useSelector((state) => state.customer?.data);
+  const customers = useSelector((state) => state.customer?.data?.customers);
   const { data } = transactions;
   const { trans, user_name, total } = data || {};
   const info = JSON.parse(localStorage.getItem('user'));
