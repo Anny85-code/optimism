@@ -16,7 +16,7 @@ const Transactions = () => {
     (state) => state.transactions?.data?.transactions
   );
   // const { customer_id } = transactions;
-  const customers = useSelector((state) => state.customer);
+  const customers = useSelector((state) => state.customer?.data?.customers);
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
   const admins = user.role === 'admin' || user.role === 'superadmin';
@@ -156,7 +156,7 @@ const Transactions = () => {
           filtaTrans.slice(pr, nx).map((transaction) => {
             const permitted = admins || transaction.user_id === user.id;
             const aCustomer = {};
-            customers.data.filter((customer) => {
+            customers?.filter((customer) => {
               if (customer.id === transaction.customer_id) {
                 aCustomer.name = customer.name;
               }
