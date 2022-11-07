@@ -13,7 +13,7 @@ import { delOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
 /* eslint-disable */
 const CustomerPreview = () => {
   const dispatch = useDispatch();
-  const customers = useSelector((state) => state.customer.data?.customers);
+  const customers = useSelector((state) => state.customer?.data?.customers);
   const foods = useSelector((state) => state.myFood);
   const { data } = foods || {};
   const retrievedCustomer = JSON.parse(localStorage.getItem('customer'));
@@ -21,7 +21,7 @@ const CustomerPreview = () => {
   const customer = customers?.filter((cust) => cust.phone === fone);
   const myFood = JSON.parse(localStorage.getItem('myfood'));
   const grandTotal = myFood.reduce((a, b) => b.subTotal + a, 0);
-  const id = customer[0]?.id;
+  const id = customer?.[0]?.id;
   const oldFood = data.filter((food) => food.customer_id === id);
   const oldFoodId = oldFood[0]?.id;
   const userData = JSON.parse(localStorage.getItem('user'));
@@ -30,13 +30,10 @@ const CustomerPreview = () => {
     user.id
   }/${id}`;
 
-  window.addEventListener('popstate', onBackButtonEvent);
+  const onBackButtonEvent = () =>
+    retrievedCustomer.card_number === undefined && handleCancel();
 
-  function onBackButtonEvent() {
-    localStorage.removeItem('myfood');
-    retrievedCustomer.card_number === undefined &&
-      dispatch(delOneCustomerFromApi(id));
-  }
+  window.addEventListener('popstate', onBackButtonEvent);
 
   useEffect(() => {
     dispatch(getMyFoodFromApi());
@@ -76,12 +73,14 @@ const CustomerPreview = () => {
   };
 
   const handleCancel = () => {
-    localStorage.removeItem('updated_customer');
-    localStorage.removeItem('customer');
-    localStorage.removeItem('myfood');
     dispatch(delOneCustomerFromApi(id));
-    window.history.pushState({}, '', '/');
-    window.location.reload();
+    setTimeout(() => {
+      window.history.pushState({}, '', '/addcustomer');
+      window.location.reload();
+      localStorage.removeItem('updated_customer');
+      localStorage.removeItem('customer');
+      localStorage.removeItem('myfood');
+    }, 3000);
   };
 
   const comma = (num) => {
@@ -90,9 +89,9 @@ const CustomerPreview = () => {
 
   return (
     <div className="cus-preview-main-container">
-      {customer.length ? (
+      {customer?.length ? (
         <>
-          {customer.map((cust) => (
+          {customer?.map((cust) => (
             <div key={cust.id} className="cus-preview-container">
               <h1 className="details cus-info">Customer Info</h1>
               <div className="cus-details-container">
