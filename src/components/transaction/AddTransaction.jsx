@@ -24,9 +24,9 @@ const AddTransaction = () => {
   const error = document.getElementById('error');
   const [status, setStatus] = useState(false);
   const dispatch = useDispatch();
-  const customers = useSelector((state) => state.customer);
+  const customers = useSelector((state) => state.customer?.data);
   const customerExists =
-    cardNumber > 0 && customerEx(cardNumber, customers.data);
+    cardNumber > 0 && customerEx(cardNumber, customers?.customers);
 
   const getInput = (e) => {
     const input = e.target.value;
@@ -68,7 +68,7 @@ const AddTransaction = () => {
 
   return (
     <>
-      {customers.data.length ? (
+      {customers?.customers_no ? (
         <div className="form-container trans-form">
           <div className="inner-container">
             <h2 className="title">Collect contribution</h2>
