@@ -16,7 +16,7 @@ const Search = () => {
   const [nx, setNx] = useState(sliceChunk);
   const [pr, setPr] = useState(0);
 
-  const len = aCustomer.length;
+  const len = aCustomer?.length;
 
   const handleNext = () => {
     if (nx < len) {
@@ -81,7 +81,7 @@ const Search = () => {
       </div>
       <>
         {aCustomer &&
-          aCustomer.slice(pr, nx).map((customer) => {
+          aCustomer?.slice(pr, nx).map((customer) => {
             const permitted = user.id === customer.user_id || admins;
             return (
               <div className="dropdown-row">
