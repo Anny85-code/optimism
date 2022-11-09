@@ -205,7 +205,7 @@ const UserTransacts = () => {
                 </div>
                 {len >= 1 ? (
                   filtaTrans.slice(pr, nx).map((transaction) => {
-                    const [customer] = customers.filter(
+                    const [customer] = customers?.filter(
                       (cus) => cus.id === transaction.customer_id
                     );
 
@@ -217,7 +217,7 @@ const UserTransacts = () => {
                         <ul id="p-child">
                           <li>
                             <div className="custrans-name">
-                              <h4 className="columns">{customer.name}</h4>
+                              <h4 className="columns">{customer?.name}</h4>
                               <h4 className="columns i" id="top">
                                 {Moment(transaction.created_at).format(
                                   'MMMM DD, LT'
@@ -227,7 +227,7 @@ const UserTransacts = () => {
                                 transaction.amount
                               )}`}</h4>
                               <h4 className="columns i">
-                                NGN {customer.daily_contribution} daily
+                                NGN {customer?.daily_contribution} daily
                               </h4>
                               <h4
                                 className="columns i"
