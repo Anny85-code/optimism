@@ -70,13 +70,6 @@ const Search = () => {
         (customer) => customer.user_id === user.id
       );
 
-      // const filteredCustomer = firstFilter?.filter(
-      //   (customer) =>
-      //     customer.name.toLowerCase().includes(typedContent) ||
-      //     customer.phone.includes(typedContent) ||
-      //     (customer.card_number !== null &&
-      //       customer.card_number.toLowerCase().includes(typedContent))
-      // );
       const marketerData = myFilter(marketerFilter, typedContent);
       console.log(marketerData);
 
