@@ -11,7 +11,10 @@ const Search = () => {
   const [aCustomer, setACustomer] = useState('');
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
-  const admins = user.role === 'superadmin' || user.role === 'admin';
+  const admins =
+    user.role === 'superadmin' ||
+    user.role === 'admin' ||
+    user.role === 'marketer';
   const sliceChunk = 5;
   const [nx, setNx] = useState(sliceChunk);
   const [pr, setPr] = useState(0);
@@ -52,14 +55,20 @@ const Search = () => {
       setPr(0);
       setNx(5);
     } else {
-      const filteredCustomer = allCustomers?.filter(
+      const firstFilter = allCustomers?.filter(
+        (customer) => customer.user_id === user.id
+      );
+
+      const filteredCustomer = firstFilter?.filter(
         (customer) =>
           customer.name.toLowerCase().includes(typedContent) ||
           customer.phone.includes(typedContent) ||
           (customer.card_number !== null &&
             customer.card_number.toLowerCase().includes(typedContent))
       );
-      setACustomer(filteredCustomer);
+      if (user.role === 'marketer') {
+        setACustomer(filteredCustomer);
+      }
     }
   };
 
@@ -85,17 +94,17 @@ const Search = () => {
             const permitted = user.id === customer.user_id || admins;
             return (
               <div className="dropdown-row">
-                {permitted && (
-                  <NavLink key={customer.id} to={`/customers/${customer.id}`}>
-                    <div id="dropdown-main">
-                      <div className="search-text">
-                        <p onClick={handleSearch}>
-                          {customer.card_number} - {customer.name}
-                        </p>
-                      </div>
+                {/* {permitted && ( */}
+                <NavLink key={customer.id} to={`/customers/${customer.id}`}>
+                  <div id="dropdown-main">
+                    <div className="search-text">
+                      <p onClick={handleSearch}>
+                        {customer.card_number} - {customer.name}
+                      </p>
                     </div>
-                  </NavLink>
-                )}
+                  </div>
+                </NavLink>
+                {/* )} */}
               </div>
             );
           })}
