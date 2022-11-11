@@ -91,10 +91,8 @@ const Search = () => {
       <>
         {aCustomer &&
           aCustomer?.slice(pr, nx).map((customer) => {
-            const permitted = user.id === customer.user_id || admins;
             return (
               <div className="dropdown-row">
-                {/* {permitted && ( */}
                 <NavLink key={customer.id} to={`/customers/${customer.id}`}>
                   <div id="dropdown-main">
                     <div className="search-text">
@@ -104,7 +102,6 @@ const Search = () => {
                     </div>
                   </div>
                 </NavLink>
-                {/* )} */}
               </div>
             );
           })}
