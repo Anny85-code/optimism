@@ -44,6 +44,17 @@ const Search = () => {
     setACustomer([]);
   };
 
+  const myFilter = (data, typedContent) => {
+    const newData = data.filter(
+      (customer) =>
+        customer.name.toLowerCase().includes(typedContent) ||
+        customer.phone.includes(typedContent) ||
+        (customer.card_number !== null &&
+          customer.card_number.toLowerCase().includes(typedContent))
+    );
+    return newData;
+  };
+
   useEffect(() => {
     dispatch(getCustomerFromApi());
   }, []);
@@ -55,19 +66,22 @@ const Search = () => {
       setPr(0);
       setNx(5);
     } else {
-      const firstFilter = allCustomers?.filter(
+      const marketerFilter = allCustomers?.filter(
         (customer) => customer.user_id === user.id
       );
 
-      const filteredCustomer = firstFilter?.filter(
-        (customer) =>
-          customer.name.toLowerCase().includes(typedContent) ||
-          customer.phone.includes(typedContent) ||
-          (customer.card_number !== null &&
-            customer.card_number.toLowerCase().includes(typedContent))
-      );
+      // const filteredCustomer = firstFilter?.filter(
+      //   (customer) =>
+      //     customer.name.toLowerCase().includes(typedContent) ||
+      //     customer.phone.includes(typedContent) ||
+      //     (customer.card_number !== null &&
+      //       customer.card_number.toLowerCase().includes(typedContent))
+      // );
+      const marketerData = myFilter(marketerFilter, typedContent);
+      console.log(marketerData);
+
       if (user.role === 'marketer') {
-        setACustomer(filteredCustomer);
+        setACustomer(marketerData);
       }
     }
   };
