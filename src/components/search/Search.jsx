@@ -2,23 +2,22 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { getCustomerFromApi } from '../../redux/forms/customerReducer';
+import { getUsersFromApi } from '../../redux/forms/userManReducer';
 import './Search.css';
 
 /* eslint-disable*/
 const Search = () => {
   const dispatch = useDispatch();
   const allCustomers = useSelector((state) => state.customer?.data?.customers);
+  const users = useSelector((state) => state.userManReducer?.data);
   const [aCustomer, setACustomer] = useState('');
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
-  const admins =
-    user.role === 'superadmin' ||
-    user.role === 'admin' ||
-    user.role === 'marketer';
+  const marketers = users.filter((el) => el.user_id === user.id);
+  const admins = user.role === 'superadmin' || user.role === 'admin';
   const sliceChunk = 5;
   const [nx, setNx] = useState(sliceChunk);
   const [pr, setPr] = useState(0);
-
   const len = aCustomer?.length;
 
   const handleNext = () => {
@@ -45,18 +44,18 @@ const Search = () => {
   };
 
   const myFilter = (data, typedContent) => {
-    const newData = data.filter(
+    return data.filter(
       (customer) =>
         customer.name.toLowerCase().includes(typedContent) ||
         customer.phone.includes(typedContent) ||
         (customer.card_number !== null &&
           customer.card_number.toLowerCase().includes(typedContent))
     );
-    return newData;
   };
 
   useEffect(() => {
     dispatch(getCustomerFromApi());
+    dispatch(getUsersFromApi());
   }, []);
 
   const handleChange = (event) => {
@@ -71,7 +70,6 @@ const Search = () => {
       );
 
       const marketerData = myFilter(marketerFilter, typedContent);
-      console.log(marketerData);
 
       if (user.role === 'marketer') {
         setACustomer(marketerData);
