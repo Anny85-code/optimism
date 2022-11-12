@@ -14,6 +14,7 @@ const Search = () => {
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
   const marketers = users.filter((el) => el.user_id === user.id);
+  // console.log(marketers);
   const admins = user.role === 'superadmin' || user.role === 'admin';
   const sliceChunk = 5;
   const [nx, setNx] = useState(sliceChunk);
@@ -44,13 +45,27 @@ const Search = () => {
   };
 
   const myFilter = (data, typedContent) => {
-    return data.filter(
+    return data?.filter(
       (customer) =>
         customer.name.toLowerCase().includes(typedContent) ||
         customer.phone.includes(typedContent) ||
         (customer.card_number !== null &&
           customer.card_number.toLowerCase().includes(typedContent))
     );
+  };
+
+  const getCustomerIds = (ob) => ob?.map((item) => item?.user_id);
+  const getMarketerIds = (ob) => ob?.map((item) => item?.id);
+
+  // Unstable
+  const marksCustomers = (custs, marks, typedContent) => {
+    const dCus = myFilter(custs, typedContent);
+    const user_id = getCustomerIds(dCus);
+    const markIDs = getMarketerIds(marks);
+    const aMatch = user_id?.filter((id) => markIDs?.includes(id));
+    if (aMatch) {
+      return dCus;
+    }
   };
 
   useEffect(() => {
@@ -66,13 +81,16 @@ const Search = () => {
       setNx(5);
     } else {
       const marketerFilter = allCustomers?.filter(
-        (customer) => customer.user_id === user.id
+        (cus) => cus.user_id === user.id
       );
-
       const marketerData = myFilter(marketerFilter, typedContent);
-
+      // For marketers
       if (user.role === 'marketer') {
         setACustomer(marketerData);
+      }
+      // For supervisors - Unstable
+      if (user.role !== 'marketer') {
+        setACustomer(myFilter(allCustomers, typedContent));
       }
     }
   };
