@@ -9,13 +9,12 @@ import './Search.css';
 const Search = () => {
   const dispatch = useDispatch();
   const allCustomers = useSelector((state) => state.customer?.data?.customers);
-  const users = useSelector((state) => state.userManReducer?.data);
+  // const users = useSelector((state) => state.userManReducer?.data);
   const [aCustomer, setACustomer] = useState('');
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
-  const marketers = users.filter((el) => el.user_id === user.id);
-  // console.log(marketers);
-  const admins = user.role === 'superadmin' || user.role === 'admin';
+  // const marketers = users.filter((el) => el.user_id === user.id);
+  // const admins = user.role === 'superadmin' || user.role === 'admin';
   const sliceChunk = 5;
   const [nx, setNx] = useState(sliceChunk);
   const [pr, setPr] = useState(0);
@@ -54,19 +53,19 @@ const Search = () => {
     );
   };
 
-  const getCustomerIds = (ob) => ob?.map((item) => item?.user_id);
-  const getMarketerIds = (ob) => ob?.map((item) => item?.id);
+  // const getCustomerIds = (ob) => ob?.map((item) => item?.user_id);
+  // const getMarketerIds = (ob) => ob?.map((item) => item?.id);
 
   // Unstable
-  const marksCustomers = (custs, marks, typedContent) => {
-    const dCus = myFilter(custs, typedContent);
-    const user_id = getCustomerIds(dCus);
-    const markIDs = getMarketerIds(marks);
-    const aMatch = user_id?.filter((id) => markIDs?.includes(id));
-    if (aMatch) {
-      return dCus;
-    }
-  };
+  // const marksCustomers = (custs, marks, typedContent) => {
+  //   const dCus = myFilter(custs, typedContent);
+  //   const user_id = getCustomerIds(dCus);
+  //   const markIDs = getMarketerIds(marks);
+  //   const aMatch = user_id?.filter((id) => markIDs?.includes(id));
+  //   if (aMatch) {
+  //     return dCus;
+  //   }
+  // };
 
   useEffect(() => {
     dispatch(getCustomerFromApi());
@@ -88,7 +87,7 @@ const Search = () => {
       if (user.role === 'marketer') {
         setACustomer(marketerData);
       }
-      // For supervisors - Unstable
+      // For supervisors & admins - Unstable
       if (user.role !== 'marketer') {
         setACustomer(myFilter(allCustomers, typedContent));
       }
