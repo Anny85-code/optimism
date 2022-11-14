@@ -9,6 +9,7 @@ import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
 /* eslint-enable */
 const data = JSON.parse(localStorage.getItem('user'));
 const { user } = data || {};
+const admins = user.role === 'admin' || user.role === 'superadmin';
 
 const Transaction = () => {
   const dispatch = useDispatch();
@@ -44,7 +45,7 @@ const Transaction = () => {
   return (
     <div className="containa transaction">
       {transCusId && (
-        <>
+        <div>
           <div className="image-container">
             <img className="cus-image" src={picture} alt={`${name}`} />
           </div>
@@ -80,7 +81,20 @@ const Transaction = () => {
               {Moment(created_at).format('MMMM DD, LT')}
             </p>
           </div>
-        </>
+          <div>
+            {admins && (
+              <div className="del">
+                <button
+                  type="button"
+                  className="view-trans"
+                  // onClick={handleDel}
+                >
+                  Delete
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
       )}
     </div>
   );
