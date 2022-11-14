@@ -33,6 +33,21 @@ const Transaction = () => {
     return newText;
   };
 
+  const handleConfirm = (e) => {
+    if (e.target.id === 'yes') {
+      dispatch(delOneCustomerFromApi(id));
+      navigate(-1);
+    } else if (e.target.id === 'no') {
+      const deleteS = document.getElementById('delete');
+      deleteS.style.display = 'none';
+    }
+  };
+
+  const handleDel = () => {
+    const deleteS = document.getElementById('delete');
+    deleteS.style.display = 'block';
+  };
+
   const {
     amount,
     previous_contribution_date,
