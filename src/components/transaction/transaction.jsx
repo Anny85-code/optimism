@@ -4,7 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import Moment from 'moment';
 import '../customer/Customer.css';
 /* eslint-disable */
-import { getOneTransactionFromApi } from '../../redux/forms/OneTransactionReducer';
+import {
+  delOneTransFromApi,
+  getOneTransactionFromApi,
+} from '../../redux/forms/OneTransactionReducer';
 import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
 /* eslint-enable */
 const data = JSON.parse(localStorage.getItem('user'));
@@ -35,7 +38,7 @@ const Transaction = () => {
 
   const handleConfirm = (e) => {
     if (e.target.id === 'yes') {
-      dispatch(delOneCustomerFromApi(id));
+      dispatch(delOneTransFromApi(id));
       navigate(-1);
     } else if (e.target.id === 'no') {
       const deleteS = document.getElementById('delete');
