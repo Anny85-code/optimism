@@ -114,7 +114,7 @@ const Transaction = () => {
                 <button
                   type="button"
                   className="view-trans"
-                  // onClick={handleDel}
+                  onClick={handleDel}
                 >
                   Delete
                 </button>
