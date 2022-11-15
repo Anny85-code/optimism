@@ -10,9 +10,6 @@ import {
 } from '../../redux/forms/OneTransactionReducer';
 import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
 /* eslint-enable */
-const data = JSON.parse(localStorage.getItem('user'));
-const { user } = data || {};
-const admins = user.role === 'admin' || user.role === 'superadmin';
 
 const Transaction = () => {
   const dispatch = useDispatch();
@@ -23,6 +20,9 @@ const Transaction = () => {
   const cardNum = JSON.parse(localStorage.getItem('cardNumber'));
   const transCusId = transaction?.data?.customer_id;
   const customerId = cardNum ?? transCusId;
+  const data = JSON.parse(localStorage.getItem('user'));
+  const { user } = data || {};
+  const admins = user.role === 'admin' || user.role === 'superadmin';
 
   useEffect(() => {
     dispatch(getOneCustomerFromApi(customerId));
@@ -39,7 +39,8 @@ const Transaction = () => {
   const handleConfirm = (e) => {
     if (e.target.id === 'yes') {
       dispatch(delOneTransFromApi(id));
-      navigate(-1);
+      window.history.pushState({}, '', `/customers/${id}/transactions`);
+      window.location.reload();
     } else if (e.target.id === 'no') {
       const deleteS = document.getElementById('delete');
       deleteS.style.display = 'none';
