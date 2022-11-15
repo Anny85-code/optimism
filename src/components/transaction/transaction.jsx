@@ -64,6 +64,15 @@ const Transaction = () => {
     <div className="containa transaction">
       {transCusId && (
         <div>
+          <div id="delete" className="del-style">
+            <p>Are you sure you want to delete?</p>
+            <button type="button" id="yes" onClick={handleConfirm}>
+              Yes
+            </button>
+            <button type="button" id="no" onClick={handleConfirm}>
+              No
+            </button>
+          </div>
           <div className="image-container">
             <img className="cus-image" src={picture} alt={`${name}`} />
           </div>
