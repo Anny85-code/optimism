@@ -39,7 +39,7 @@ const Transaction = () => {
   const handleConfirm = (e) => {
     if (e.target.id === 'yes') {
       dispatch(delOneTransFromApi(id));
-      window.history.pushState({}, '', `/customers/${id}/transactions`);
+      window.history.pushState({}, '', `/customers/${customerId}/transactions`);
       window.location.reload();
     } else if (e.target.id === 'no') {
       const deleteS = document.getElementById('delete');
