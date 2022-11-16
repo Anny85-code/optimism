@@ -65,7 +65,7 @@ const Transaction = () => {
     <div className="containa transaction" >
       {transCusId && (
         <div className='tansaction-del-container'>
-          <div id="delete" className="del-style">
+          <div id="delete" className="del-style-transact">
             <p>Are you sure you want to delete?</p>
             <button type="button" id="yes" onClick={handleConfirm}>
               Yes
