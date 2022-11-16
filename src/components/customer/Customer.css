@@ -16,6 +16,48 @@
   margin: 1.25rem 1.25rem 1.25rem 5rem;
 }
 
+.tansaction-del-container {
+  display: flex;
+  gap: 30px;
+}
+
+.del-style-transact {
+  width: 600px;
+  height: 200px;
+  border-radius: 8px;
+  border: 2px solid crimson;
+  background: rgb(243, 243, 99);
+  margin: 100px 0 0 100px;
+  display: none;
+  z-index: 9;
+  position: absolute;
+  padding: 30px;
+  text-align: center;
+}
+
+.del-style-transact > p {
+  margin-bottom: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  color: crimson;
+}
+
+.del-style-transact > button {
+  margin: 30px;
+  background-color: crimson;
+  width: 100px;
+  height: 40px;
+  padding: 0.625rem;
+  outline: none;
+  border: none;
+  border-radius: 0.3125rem;
+  color: white;
+  font-size: 1.125rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #d86565;
+}
+
 .del {
   margin-top: 20px;
 }
@@ -114,5 +156,27 @@
   #new-img-editor {
     text-align: center;
     margin-left: 0.9375rem;
+  }
+
+  .del-style-transact {
+    width: 300px;
+    margin: 200px 0 0 30px;
+  }
+
+  .del-style-transact > button {
+    margin: 20px;
+    width: 50px;
+    height: 30px;
+    font-size: 15px;
+  }
+
+  .tansaction-del-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .transaction {
+    height: 600px;
   }
 }
