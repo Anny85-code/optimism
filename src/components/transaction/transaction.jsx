@@ -62,9 +62,9 @@ const Transaction = () => {
   const { name, picture, daily_contribution } = customer?.data;
 
   return (
-    <div className="containa transaction">
+    <div className="containa transaction" >
       {transCusId && (
-        <div>
+        <div className='tansaction-del-container'>
           <div id="delete" className="del-style">
             <p>Are you sure you want to delete?</p>
             <button type="button" id="yes" onClick={handleConfirm}>

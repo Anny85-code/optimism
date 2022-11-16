@@ -16,6 +16,11 @@
   margin: 1.25rem 1.25rem 1.25rem 5rem;
 }
 
+.tansaction-del-container {
+  display: flex;
+  gap: 30px;
+}
+
 .del {
   margin-top: 20px;
 }
