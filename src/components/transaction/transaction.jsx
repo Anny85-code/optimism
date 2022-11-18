@@ -27,6 +27,7 @@ const Transaction = () => {
   const data1 = Object.keys(transaction.data).length >= 1;
   const data2 = Object.keys(customer.data).length >= 1;
   const isReady = data1 && data2;
+  const markId = localStorage.getItem('_id');
 
   useEffect(() => {
     dispatch(getOneCustomerFromApi(customerId));
@@ -43,7 +44,8 @@ const Transaction = () => {
   const handleConfirm = (e) => {
     if (e.target.id === 'yes') {
       dispatch(delOneTransFromApi(id));
-      window.history.pushState({}, '', `/customers/${customerId}/transactions`);
+      // window.history.pushState({}, '', `/customers/${customerId}/transactions`);
+      window.history.pushState({}, '', `/users/${markId}/transactions`);
       window.location.reload();
     } else if (e.target.id === 'no') {
       const deleteS = document.getElementById('delete');
