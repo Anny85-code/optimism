@@ -79,9 +79,9 @@ const Transaction = () => {
               No
             </button>
           </div>
-          <div className="image-container">
+          {/* <div className="image-container">
             <img className="cus-image" src={picture} alt={`${name}`} />
-          </div>
+          </div> */}
           <div className="details-container">
             <h3 className="cus-details">
               <span>Name:</span> {name}
