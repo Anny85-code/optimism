@@ -64,7 +64,7 @@ const Transaction = () => {
 
   return (
     <div className="containa transaction">
-      {Object.keys(transaction.data).length > 1 ? (
+      {Object.keys(transaction.data).length > 0 ? (
         <div>
           <div id="delete" className="del-style">
             <p>Are you sure you want to delete?</p>
