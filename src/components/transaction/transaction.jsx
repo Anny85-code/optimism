@@ -24,6 +24,9 @@ const Transaction = () => {
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
   const admins = user.role === 'admin' || user.role === 'superadmin';
+  const isReady =
+    Object.keys(transaction.data).length >= 1 &&
+    Object.keys(customer.data).length >= 1;
 
   useEffect(() => {
     dispatch(getOneCustomerFromApi(customerId));
@@ -64,7 +67,7 @@ const Transaction = () => {
 
   return (
     <div className="containa transaction">
-      {Object.keys(transaction.data).length > 0 ? (
+      {isReady ? (
         <div className="tansaction-del-container">
           <div id="delete" className="del-style-transact">
             <p>Are you sure you want to delete?</p>
