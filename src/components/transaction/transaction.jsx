@@ -9,6 +9,7 @@ import {
   getOneTransactionFromApi,
 } from '../../redux/forms/OneTransactionReducer';
 import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
+import Loader from '../loader/Loader';
 /* eslint-enable */
 
 const Transaction = () => {
@@ -63,7 +64,7 @@ const Transaction = () => {
 
   return (
     <div className="containa transaction">
-      {transCusId && (
+      {Object.keys(transaction.data).length > 1 ? (
         <div>
           <div id="delete" className="del-style">
             <p>Are you sure you want to delete?</p>
@@ -123,6 +124,8 @@ const Transaction = () => {
             )}
           </div>
         </div>
+      ) : (
+        <Loader />
       )}
     </div>
   );
