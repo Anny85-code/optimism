@@ -65,8 +65,8 @@ const Transaction = () => {
   return (
     <div className="containa transaction">
       {Object.keys(transaction.data).length > 0 ? (
-        <div>
-          <div id="delete" className="del-style">
+        <div className="tansaction-del-container">
+          <div id="delete" className="del-style-transact">
             <p>Are you sure you want to delete?</p>
             <button type="button" id="yes" onClick={handleConfirm}>
               Yes
