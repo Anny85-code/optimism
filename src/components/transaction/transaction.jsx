@@ -61,6 +61,7 @@ const Transaction = () => {
     previous_contribution_date,
     current_contribution_date,
     days_paid_for,
+    transaction_date,
     created_at,
   } = transaction.data;
   const { name, picture, daily_contribution } = customer?.data;
@@ -101,15 +102,19 @@ const Transaction = () => {
               <span>Days paid for:</span> {days_paid_for}
             </p>
             <p className="cus-details">
-              <span>Transaction No.</span>
+              <span>Transaction No. </span>
               {user.location_area.slice(0, 3).toUpperCase()}
               {user.id}/{transaction.data.id}
+            </p>
+            <p className="cus-details">
+              <span>Payment Date: </span>
+              {Moment(transaction_date).format('MMMM DD, LT')}
             </p>
             <p className="cus-details">
               <span>Amount:</span> {`NGN ${comma(amount)}`}
             </p>
             <p className="cus-details">
-              <span>Date of transaction:</span>
+              <span>Date of transaction: </span>
               {Moment(created_at).format('MMMM DD, LT')}
             </p>
           </div>
