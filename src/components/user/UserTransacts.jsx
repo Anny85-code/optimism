@@ -204,7 +204,7 @@ const UserTransacts = () => {
                   )}
                 </div>
                 {len >= 1 ? (
-                  filtaTrans.slice(pr, nx).map((transaction) => {
+                  filtaTrans?.slice(pr, nx).map((transaction) => {
                     const [customer] = customers?.filter(
                       (cus) => cus.id === transaction.customer_id
                     );
