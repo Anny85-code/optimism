@@ -24,7 +24,6 @@ const TransactionDetails = () => {
 
   useEffect(() => {
     dispatch(getOneCustomerFromApi(customerId));
-    dispatch(getOneTransactionFromApi(id));
   }, []);
 
   const comma = (num) => {
@@ -49,15 +48,6 @@ const TransactionDetails = () => {
     const deleteS = document.getElementById('delete');
     deleteS.style.display = 'block';
   };
-
-  const {
-    amount,
-    previous_contribution_date,
-    current_contribution_date,
-    days_paid_for,
-    transaction_date,
-    created_at,
-  } = transaction.data;
   const { name, picture, daily_contribution } = customer?.data;
 
   return (
