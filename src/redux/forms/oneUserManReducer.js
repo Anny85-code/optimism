@@ -65,6 +65,8 @@ export const delOneUserFromApi = (id) => async (dispatch) => {
       },
     });
     dispatch(delOneUserData(response.data));
+    window.history.pushState({}, '', '/');
+    window.location.reload();
   } catch (error) {
     dispatch(delOneUserDataFailed(error.message));
   }

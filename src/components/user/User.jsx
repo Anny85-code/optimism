@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React, { useEffect } from 'react';
-import { NavLink, useNavigate, useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { utils, writeFileXLSX } from 'xlsx';
 import Moment from 'moment';
@@ -35,7 +35,6 @@ const User = () => {
   const seeMarketersDaily =
     (permitted || loggedUser.role === 'supervisor') &&
     user.data.role === 'marketer';
-  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(getOneUserFromApi(id));
@@ -81,7 +80,6 @@ const User = () => {
   const handleConfirm = (e) => {
     if (e.target.id === 'yes') {
       dispatch(delOneUserFromApi(id));
-      navigate(-1);
     } else if (e.target.id === 'no') {
       const deleteS = document.getElementById('delete');
       deleteS.style.display = 'none';
