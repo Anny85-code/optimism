@@ -36,18 +36,6 @@ const Transaction = () => {
     return newText;
   };
 
-  const handleConfirm = (e) => {
-    if (e.target.id === 'yes') {
-      dispatch(delOneTransFromApi(id));
-      // window.history.pushState({}, '', `/customers/${customerId}/transactions`);
-      window.history.pushState({}, '', `/users/${markId}/transactions`);
-      window.location.reload();
-    } else if (e.target.id === 'no') {
-      const deleteS = document.getElementById('delete');
-      deleteS.style.display = 'none';
-    }
-  };
-
   const handleDel = () => {};
 
   const {
