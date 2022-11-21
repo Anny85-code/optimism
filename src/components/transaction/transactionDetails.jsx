@@ -1,15 +1,16 @@
-/* eslint-disable */
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Moment from 'moment';
 import '../customer/Customer.css';
+/* eslint-disable */
 import {
   delOneTransFromApi,
   getOneTransactionFromApi,
 } from '../../redux/forms/OneTransactionReducer';
 import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
 import Loader from '../loader/Loader';
+/* eslint-enable */
 
 const Transaction = () => {
   const dispatch = useDispatch();
@@ -33,6 +34,7 @@ const Transaction = () => {
     dispatch(getOneTransactionFromApi(id));
   }, []);
 
+  /* eslint-disable */
   const comma = (num) => {
     const number = parseInt(num);
     const newText = number.toLocaleString();
@@ -64,18 +66,6 @@ const Transaction = () => {
     transaction_date,
     created_at,
   } = transaction.data;
-
-  const transDetails = {
-    amount,
-    previous_contribution_date,
-    current_contribution_date,
-    days_paid_for,
-    transaction_date,
-    created_at,
-  };
-
-  localStorage.setItem('transDetails', JSON.stringify(transDetails));
-
   const { name, picture, daily_contribution } = customer?.data;
 
   return (
