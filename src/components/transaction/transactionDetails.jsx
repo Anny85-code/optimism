@@ -95,8 +95,8 @@ const TransactionDetails = () => {
             </p>
             <p className="cus-details">
               <span>Transaction No. </span>
-              {user.location_area.slice(0, 3).toUpperCase()}
-              {user.id}/{transaction.data.id}
+              {/* {user.location_area.slice(0, 3).toUpperCase()} */}
+              TRN{user.id}/{transDet.id}
             </p>
             <p className="cus-details">
               <span>Payment Date: </span>
