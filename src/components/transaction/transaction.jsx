@@ -26,7 +26,6 @@ const Transaction = () => {
   const markId = localStorage.getItem('_id');
 
   useEffect(() => {
-    dispatch(getOneCustomerFromApi(customerId));
     dispatch(getOneTransactionFromApi(id));
   }, []);
 
