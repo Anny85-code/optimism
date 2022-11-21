@@ -4,10 +4,7 @@ import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Moment from 'moment';
 import '../customer/Customer.css';
-import {
-  delOneTransFromApi,
-  getOneTransactionFromApi,
-} from '../../redux/forms/OneTransactionReducer';
+import { delOneTransFromApi } from '../../redux/forms/OneTransactionReducer';
 import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
 import Loader from '../loader/Loader';
 
@@ -21,9 +18,20 @@ const TransactionDetails = () => {
   const admins = user.role === 'admin' || user.role === 'superadmin';
   const isReady = Object.keys(customer.data).length >= 1;
   const markId = localStorage.getItem('_id');
+  const transDet = JSON.parse(localStorage.getItem('transDetails'));
+
+  const {
+    amount,
+    customer_id,
+    previous_contribution_date,
+    current_contribution_date,
+    days_paid_for,
+    transaction_date,
+    created_at,
+  } = transDet;
 
   useEffect(() => {
-    dispatch(getOneCustomerFromApi(customerId));
+    dispatch(getOneCustomerFromApi(customer_id));
   }, []);
 
   const comma = (num) => {

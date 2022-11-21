@@ -10,14 +10,14 @@ import Loader from '../loader/Loader';
 const Transaction = () => {
   const dispatch = useDispatch();
   const param = useParams();
-  const { id } = param;
+  const paramID = param.id;
   const transaction = useSelector((state) => state.oneTransaction);
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
   const isReady = Object.keys(transaction.data).length >= 1;
 
   useEffect(() => {
-    dispatch(getOneTransactionFromApi(id));
+    dispatch(getOneTransactionFromApi(paramID));
   }, []);
 
   const comma = (num) => {
@@ -27,6 +27,7 @@ const Transaction = () => {
   };
 
   const {
+    id,
     amount,
     customer_id,
     previous_contribution_date,
@@ -39,6 +40,7 @@ const Transaction = () => {
   localStorage.setItem(
     'transDetails',
     JSON.stringify({
+      id,
       amount,
       customer_id,
       previous_contribution_date,
@@ -67,8 +69,8 @@ const Transaction = () => {
             </p>
             <p className="cus-details">
               <span>Transaction No. </span>
-              {user.location_area.slice(0, 3).toUpperCase()}
-              {user.id}/{transaction.data.id}
+              {/* {user.location_area.slice(0, 3).toUpperCase()} */}
+              TRN{user.id}/{transaction.data.id}
             </p>
             <p className="cus-details">
               <span>Payment Date: </span>
