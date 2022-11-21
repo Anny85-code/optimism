@@ -4,11 +4,7 @@ import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Moment from 'moment';
 import '../customer/Customer.css';
-import {
-  delOneTransFromApi,
-  getOneTransactionFromApi,
-} from '../../redux/forms/OneTransactionReducer';
-import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
+import { getOneTransactionFromApi } from '../../redux/forms/OneTransactionReducer';
 import Loader from '../loader/Loader';
 
 const Transaction = () => {
@@ -16,14 +12,10 @@ const Transaction = () => {
   const param = useParams();
   const { id } = param;
   const transaction = useSelector((state) => state.oneTransaction);
-  const cardNum = JSON.parse(localStorage.getItem('cardNumber'));
-  const transCusId = transaction?.data?.customer_id;
-  const customerId = cardNum ?? transCusId;
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
   const admins = user.role === 'admin' || user.role === 'superadmin';
   const isReady = Object.keys(transaction.data).length >= 1;
-  const markId = localStorage.getItem('_id');
 
   useEffect(() => {
     dispatch(getOneTransactionFromApi(id));
