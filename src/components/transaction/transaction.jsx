@@ -48,10 +48,7 @@ const Transaction = () => {
     }
   };
 
-  const handleDel = () => {
-    const deleteS = document.getElementById('delete');
-    deleteS.style.display = 'block';
-  };
+  const handleDel = () => {};
 
   const {
     amount,
@@ -123,7 +120,7 @@ const Transaction = () => {
                   className="view-trans"
                   onClick={handleDel}
                 >
-                  Delete
+                  More Details
                 </button>
               </div>
             )}
