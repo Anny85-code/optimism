@@ -25,9 +25,8 @@ const Transaction = () => {
   const { user } = data || {};
   const admins = user.role === 'admin' || user.role === 'superadmin';
   const data1 = Object.keys(transaction.data).length >= 1;
-  // const data2 = Object.keys(customer.data).length >= 1;
-  // const isReady = data1 && data2;
-  const isReady = data1;
+  const data2 = Object.keys(customer.data).length >= 1;
+  const isReady = data1 && data2;
   const markId = localStorage.getItem('_id');
 
   useEffect(() => {
