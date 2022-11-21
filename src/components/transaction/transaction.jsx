@@ -91,17 +91,7 @@ const Transaction = () => {
               No
             </button>
           </div>
-          {/* <div className="image-container">
-            <img className="cus-image" src={picture} alt={`${name}`} />
-          </div> */}
           <div className="details-container">
-            <h3 className="cus-details">
-              <span>Name:</span> {name}
-            </h3>
-            <p className="cus-details">
-              <span>Daily Contribution:</span>{' '}
-              {`NGN ${comma(daily_contribution)}`}
-            </p>
             <p className="cus-details">
               <span>Previous contribution date:</span>{' '}
               {previous_contribution_date}
