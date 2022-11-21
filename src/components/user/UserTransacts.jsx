@@ -47,25 +47,29 @@ const UserTransacts = () => {
   }, []);
 
   const handleFilter = () => {
-    const selDate = sDate.toDateString();
-    const sameDay = trans.filter(
-      (el) => selDate == new Date(el.created_at).toDateString()
-    );
-    const fTotal = sameDay.reduce((a, b) => a + +b.amount, 0);
-    setFiltaTotal(fTotal);
-    setFiltaTrans(sameDay);
-    setTransNo(sameDay.length);
+    if (trans) {
+      const selDate = sDate.toDateString();
+      const sameDay = trans.filter(
+        (el) => selDate == new Date(el.created_at).toDateString()
+      );
+      const fTotal = sameDay.reduce((a, b) => a + +b.amount, 0);
+      setFiltaTotal(fTotal);
+      setFiltaTrans(sameDay);
+      setTransNo(sameDay.length);
+    }
   };
 
   const handleFilter2 = () => {
-    const selDate = sDate.toDateString();
-    const sameDay = trans.filter(
-      (el) => selDate == new Date(el.transaction_date).toDateString()
-    );
-    const fTotal = sameDay.reduce((a, b) => a + +b.amount, 0);
-    setFiltaTotal(fTotal);
-    setFiltaTrans(sameDay);
-    setTransNo(sameDay.length);
+    if (trans) {
+      const selDate = sDate.toDateString();
+      const sameDay = trans.filter(
+        (el) => selDate == new Date(el.transaction_date).toDateString()
+      );
+      const fTotal = sameDay.reduce((a, b) => a + +b.amount, 0);
+      setFiltaTotal(fTotal);
+      setFiltaTrans(sameDay);
+      setTransNo(sameDay.length);
+    }
   };
 
   const comma = (num) => {
