@@ -47,16 +47,17 @@ const Transaction = () => {
     created_at,
   } = transaction.data;
 
-  const transDetails = {
-    amount,
-    previous_contribution_date,
-    current_contribution_date,
-    days_paid_for,
-    transaction_date,
-    created_at,
-  };
-
-  localStorage.setItem('transDetails', JSON.stringify(transDetails));
+  localStorage.setItem(
+    'transDetails',
+    JSON.stringify({
+      amount,
+      previous_contribution_date,
+      current_contribution_date,
+      days_paid_for,
+      transaction_date,
+      created_at,
+    })
+  );
 
   return (
     <div className="containa transaction">
