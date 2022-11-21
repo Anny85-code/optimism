@@ -11,7 +11,7 @@ import {
 import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
 import Loader from '../loader/Loader';
 
-const Transaction = () => {
+const TransactionDetails = () => {
   const dispatch = useDispatch();
   const param = useParams();
   const { id } = param;
@@ -134,4 +134,4 @@ const Transaction = () => {
 };
 
 /* eslint-enable */
-export default Transaction;
+export default TransactionDetails;
