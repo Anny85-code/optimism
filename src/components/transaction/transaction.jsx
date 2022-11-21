@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Moment from 'moment';
 import '../customer/Customer.css';
@@ -26,8 +26,6 @@ const Transaction = () => {
     const newText = number.toLocaleString();
     return newText;
   };
-
-  const handleDel = () => {};
 
   const {
     amount,
@@ -86,13 +84,11 @@ const Transaction = () => {
           <div>
             {admins && (
               <div className="del">
-                <button
-                  type="button"
-                  className="view-trans"
-                  onClick={handleDel}
-                >
-                  More Details
-                </button>
+                <NavLink to="/transactionDetails">
+                  <button type="button" className="view-trans">
+                    More Details
+                  </button>
+                </NavLink>
               </div>
             )}
           </div>
