@@ -63,15 +63,6 @@ const Transaction = () => {
     <div className="containa transaction">
       {isReady ? (
         <div className="tansaction-del-container">
-          <div id="delete" className="del-style-transact">
-            <p>Are you sure you want to delete?</p>
-            <button type="button" id="yes" onClick={handleConfirm}>
-              Yes
-            </button>
-            <button type="button" id="no" onClick={handleConfirm}>
-              No
-            </button>
-          </div>
           <div className="details-container">
             <p className="cus-details">
               <span>Previous contribution date:</span>{' '}
