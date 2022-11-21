@@ -81,7 +81,7 @@ const Transaction = () => {
             </p>
           </div>
           <div className="del">
-            <NavLink to="/transactionDetails">
+            <NavLink to="/transactiondetails">
               <button type="button" className="view-trans">
                 More Details
               </button>
