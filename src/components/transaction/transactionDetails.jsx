@@ -10,8 +10,6 @@ import Loader from '../loader/Loader';
 
 const TransactionDetails = () => {
   const dispatch = useDispatch();
-  const param = useParams();
-  const { id } = param;
   const customer = useSelector((state) => state.oneCustomer);
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
@@ -21,6 +19,7 @@ const TransactionDetails = () => {
   const transDet = JSON.parse(localStorage.getItem('transDetails'));
 
   const {
+    id,
     amount,
     customer_id,
     previous_contribution_date,
