@@ -16,16 +16,13 @@ const Transaction = () => {
   const param = useParams();
   const { id } = param;
   const transaction = useSelector((state) => state.oneTransaction);
-  const customer = useSelector((state) => state.oneCustomer);
   const cardNum = JSON.parse(localStorage.getItem('cardNumber'));
   const transCusId = transaction?.data?.customer_id;
   const customerId = cardNum ?? transCusId;
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
   const admins = user.role === 'admin' || user.role === 'superadmin';
-  const data1 = Object.keys(transaction.data).length >= 1;
-  const data2 = Object.keys(customer.data).length >= 1;
-  const isReady = data1 && data2;
+  const isReady = Object.keys(transaction.data).length >= 1;
   const markId = localStorage.getItem('_id');
 
   useEffect(() => {
@@ -75,8 +72,6 @@ const Transaction = () => {
   };
 
   localStorage.setItem('transDetails', JSON.stringify(transDetails));
-
-  const { name, picture, daily_contribution } = customer?.data;
 
   return (
     <div className="containa transaction">
