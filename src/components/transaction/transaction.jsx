@@ -14,7 +14,6 @@ const Transaction = () => {
   const transaction = useSelector((state) => state.oneTransaction);
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
-  const admins = user.role === 'admin' || user.role === 'superadmin';
   const isReady = Object.keys(transaction.data).length >= 1;
 
   useEffect(() => {
@@ -81,16 +80,12 @@ const Transaction = () => {
               {Moment(created_at).format('MMMM DD, LT')}
             </p>
           </div>
-          <div>
-            {admins && (
-              <div className="del">
-                <NavLink to="/transactionDetails">
-                  <button type="button" className="view-trans">
-                    More Details
-                  </button>
-                </NavLink>
-              </div>
-            )}
+          <div className="del">
+            <NavLink to="/transactionDetails">
+              <button type="button" className="view-trans">
+                More Details
+              </button>
+            </NavLink>
           </div>
         </div>
       ) : (
