@@ -157,43 +157,48 @@ const Transactions = () => {
           <h3 className="columns" id="col" style={{ color: 'crimson' }}></h3>
         </div>
         {transactions &&
-          filtaTrans.slice(pr, nx).map((transaction) => {
-            const permitted = admins || transaction.user_id === user.id;
-            const aCustomer = {};
-            customers?.filter((customer) => {
-              if (customer.id === transaction.customer_id) {
-                aCustomer.name = customer.name;
-              }
-            });
+          filtaTrans
+            .sort((a, b) => b.created_at - a.created_at)
+            .slice(pr, nx)
+            .map((transaction) => {
+              const permitted = admins || transaction.user_id === user.id;
+              const aCustomer = {};
+              customers?.filter((customer) => {
+                if (customer.id === transaction.customer_id) {
+                  aCustomer.name = customer.name;
+                }
+              });
 
-            if (permitted) {
-              return (
-                <NavLink
-                  key={transaction.id}
-                  to={`/transactions/${transaction.id}`}
-                >
-                  <ul id="p-child">
-                    <li>
-                      <div className="custrans-name1">
-                        <h4 className="columns" style={{ color: 'crimson' }}>
-                          {aCustomer.name}
-                        </h4>
-                        <h4
-                          className="columns i"
-                          style={{ borderRight: '2px solid crimson' }}
-                        >
-                          {` NGN ${comma(transaction.amount)}`}
-                        </h4>
-                        <h4 className="columns" style={{ color: '#000' }}>
-                          {Moment(transaction.created_at).format('MMMM DD, LT')}
-                        </h4>
-                      </div>
-                    </li>
-                  </ul>
-                </NavLink>
-              );
-            }
-          })}
+              if (permitted) {
+                return (
+                  <NavLink
+                    key={transaction.id}
+                    to={`/transactions/${transaction.id}`}
+                  >
+                    <ul id="p-child">
+                      <li>
+                        <div className="custrans-name1">
+                          <h4 className="columns" style={{ color: 'crimson' }}>
+                            {aCustomer.name}
+                          </h4>
+                          <h4
+                            className="columns i"
+                            style={{ borderRight: '2px solid crimson' }}
+                          >
+                            {` NGN ${comma(transaction.amount)}`}
+                          </h4>
+                          <h4 className="columns" style={{ color: '#000' }}>
+                            {Moment(transaction.created_at).format(
+                              'MMMM DD, LT'
+                            )}
+                          </h4>
+                        </div>
+                      </li>
+                    </ul>
+                  </NavLink>
+                );
+              }
+            })}
       </div>
       <div>
         {filtaTotal > 0 && (
