@@ -37,6 +37,7 @@ import { ItemsStats } from './components/items/products/ItemsStats';
 import UsersMarketers from './components/user/UsersMarketers';
 import PaidSixty from './components/customer/Paid60';
 import TransactionDetails from './components/transaction/transactionDetails';
+import MarketerItems from './components/items/MarketerItems';
 
 const App = () => {
   const [sideBarOpen, setSideBarOpen] = useState(false);
@@ -107,6 +108,7 @@ const App = () => {
                 <Route path="/season/:id" element={<Season />} />
                 <Route path="/products/:id" element={<Product />} />
                 <Route path="/itemsstats" element={<ItemsStats />} />
+                <Route path="/marketeritems" element={<MarketerItems />} />
               </>
             )}
           </Routes>
