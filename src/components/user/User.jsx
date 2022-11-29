@@ -188,6 +188,15 @@ const User = () => {
               </button>
             </div>
           )}
+          {downBtnRight && (
+            <div className="allTrans">
+              <NavLink to="/marketeritems">
+                <button type="button" className="view-trans">
+                  All Items
+                </button>
+              </NavLink>
+            </div>
+          )}
           {permitted && (
             <div className="allTrans">
               <button type="button" className="view-trans" onClick={handleDel}>
