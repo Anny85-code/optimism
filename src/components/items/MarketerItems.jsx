@@ -5,7 +5,7 @@ import { getMyFoodFromApi } from '../../redux/forms/myFoodReducer';
 import './products/Itemstat.css';
 
 /* eslint-disable */
-export const MarketerItems = () => {
+const MarketerItems = () => {
   const dispatch = useDispatch();
   const foods = useSelector((state) => state.myFood?.data);
   const customers = useSelector((state) => state.customer?.data);
@@ -136,3 +136,5 @@ export const MarketerItems = () => {
   );
   /* eslint-enable */
 };
+
+export default MarketerItems;
