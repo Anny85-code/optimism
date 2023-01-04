@@ -4,7 +4,7 @@ import endpoint from '../../assets/url/url';
 const GET_ONE_SEASON = 'src/redux/seasonreducer/get_one_season'.toUpperCase();
 const FAILED_GET_ONE_SEASON = 'src/redux/seasonreducer/failed_get_one_season'.toUpperCase();
 const GET_ONE_SEASON_REQUEST = 'src/redux/seasonreducer/get_one_season_request'.toUpperCase();
-const url = `${endpoint}/seasons`;
+const url = `${endpoint}/v2_seasons`;
 const { token } = localStorage;
 
 const fetchOneSeasonData = (payload) => ({

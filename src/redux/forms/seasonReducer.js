@@ -7,7 +7,7 @@ const FAILED_PATCH_SEASON = 'src/redux/seasonreducer/failed_patch_season'.toUppe
 const GET_SEASON = 'src/redux/seasonreducer/get_season'.toUpperCase();
 const FAILED_GET_SEASON = 'src/redux/seasonreducer/failed_get_season'.toUpperCase();
 const GET_SEASONS_REQUEST = 'src/redux/seasonreducer/get_season_request'.toUpperCase();
-const url = `${endpoint}/seasons`;
+const url = `${endpoint}/v2_seasons`;
 const { token } = localStorage;
 
 const sendSeasonDataFailed = (payload) => ({
