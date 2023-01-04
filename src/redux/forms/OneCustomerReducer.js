@@ -7,7 +7,7 @@ const GET_ONE_CUSTOMERS_REQUEST = 'src/redux/onecustomerreducer/get_one_customer
 const DEL_ONE_CUSTOMER = 'src/redux/onecustomerreducer/del_one_customer'.toUpperCase();
 const FAILED_DEL_ONE_CUSTOMER = 'src/redux/onecustomerreducer/failed_del_one_customer'.toUpperCase();
 const DEL_ONE_CUSTOMERS_REQUEST = 'src/redux/onecustomerreducer/del_one_customer_request'.toUpperCase();
-const url = `${endpoint}/customers`;
+const url = `${endpoint}/v2_customers`;
 const { token } = localStorage;
 
 const fetchOneCustomerData = (payload) => ({
