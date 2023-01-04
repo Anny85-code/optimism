@@ -8,7 +8,7 @@ const FAILED_POST_ITEM = 'src/redux/itemreducer/failed_post_item'.toUpperCase();
 const GET_ITEMS_REQUEST = 'src/redux/itemreducer/get_items_request'.toUpperCase();
 const FAILED_PATCH_ITEM = 'src/redux/itemreducer/failed_patch_item'.toUpperCase();
 
-const url = `${endpoint}/items`;
+const url = `${endpoint}/v2_items`;
 const { token } = localStorage;
 
 const sendItemsDataFailed = (payload) => ({
