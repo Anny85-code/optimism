@@ -15,7 +15,7 @@ const AddProduct = () => {
   const condition = name === '';
   const condition3 = +price < 1;
   const condition4 = description === '';
-  const condition5 = !picture.includes('cloudinary');
+  const condition5 = !picture?.includes('cloudinary');
   const genTruth = condition || condition3 || condition4 || condition5;
 
   const handleSubmit = async (e) => {

@@ -1,11 +1,11 @@
+/* eslint-disable */
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCustomerFromApi } from '../../redux/forms/customerReducer';
 import { getMyFoodFromApi } from '../../redux/forms/myFoodReducer';
 import './products/Itemstat.css';
 
-/* eslint-disable */
-export const MarketerItems = () => {
+const MarketerItems = () => {
   const dispatch = useDispatch();
   const foods = useSelector((state) => state.myFood?.data);
   const customers = useSelector((state) => state.customer?.data);
@@ -134,5 +134,7 @@ export const MarketerItems = () => {
       {!superadmin && <p>You are unauthorized to see this page</p>}
     </div>
   );
-  /* eslint-enable */
 };
+/* eslint-enable */
+
+export default MarketerItems;
