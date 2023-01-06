@@ -25,147 +25,165 @@ const CustomerTransacts = () => {
   };
 
   return (
-    <div className="transact-customer-container">
+    <>
       {trans ? (
-        <>
-          {trans.length <= 0 ? (
-            user.role === 'supervisor' ? (
-              <p className="no-trans">No transactions yet!</p>
+        <div className="transact-customer-container">
+          <>
+            {trans.length <= 0 ? (
+              user.role === 'supervisor' ? (
+                <p className="no-trans">No transactions yet!</p>
+              ) : (
+                <>
+                  <p className="no-trans">No transactions yet!</p>
+                  <button type="button" className="no-trans-btn">
+                    <NavLink
+                      to="/addtransaction"
+                      style={{ textDecoration: 'none' }}
+                    >
+                      Add New Transaction
+                    </NavLink>
+                  </button>
+                </>
+              )
             ) : (
               <>
-                <p className="no-trans">No transactions yet!</p>
-                <button type="button" className="no-trans-btn">
-                  <NavLink
-                    to="/addtransaction"
-                    style={{ textDecoration: 'none' }}
+                <div className="custrans-name">
+                  <h4 className="columns">
+                    <span className="cus-name1">Customer's Name</span>
+                  </h4>
+                  <h4 className="columns i">Date & Time</h4>
+                  <h4 className="columns i">Amount</h4>
+                  <h4 className="columns i" id="a">
+                    Total days paid
+                  </h4>
+                  {user.role === 'admin' && (
+                    <h4 className="columns">
+                      <span className="cus-name1 ">
+                        Total amount contributed
+                      </span>
+                    </h4>
+                  )}
+                </div>
+
+                <div className="custrans-name">
+                  <h3 className="columns" id="col">
+                    <p className="custransactname">{user_name}</p>
+                  </h3>
+                  <h6
+                    className="columns i"
+                    style={{ borderBottom: '2px solid crimson' }}
+                  ></h6>
+                  <h6
+                    className="columns i"
+                    style={{ borderBottom: '2px solid crimson' }}
+                  ></h6>
+                  <h3
+                    className="columns i"
+                    id="col"
+                    style={{
+                      borderRight: '2px solid crimson',
+                      borderBottom: '2px solid crimson',
+                      color: 'crimson',
+                    }}
                   >
-                    Add New Transaction
+                    {total_days}
+                  </h3>
+                  {user.role === 'admin' && (
+                    <h3
+                      className="columns"
+                      id="col"
+                      style={{ color: 'crimson' }}
+                    >
+                      {` NGN ${comma(total)}`}
+                    </h3>
+                  )}
+                </div>
+                {trans?.map((transaction) => (
+                  <NavLink
+                    key={transaction.id}
+                    to={`/transactions/${transaction.id}`}
+                  >
+                    <ul id="p-child">
+                      <li>
+                        <div className="custrans-name">
+                          <h4 className="columns"></h4>
+                          <h4 className="columns i" id="top">
+                            {Moment(transaction.created_at).format(
+                              'MMMM DD, LT'
+                            )}
+                          </h4>
+                          <h4 className="columns i">{` NGN ${comma(
+                            transaction.amount
+                          )}`}</h4>
+                          <h4
+                            className="columns i"
+                            style={{ borderRight: '2px solid crimson' }}
+                          >
+                            {transaction.days_paid_for} days
+                          </h4>
+                          {user.role === 'admin' && (
+                            <h4 className="columns"></h4>
+                          )}
+                        </div>
+                      </li>
+                    </ul>
                   </NavLink>
-                </button>
+                ))}
+                <div className="custrans-name">
+                  <h4 className="columns">
+                    <span className="cus-name1"></span>
+                  </h4>
+                  <h4 className="columns i"></h4>
+                  <h4 className="columns i"></h4>
+                  <h4 className="columns i" id="a"></h4>
+                  {user.role === 'admin' && (
+                    <h4 className="columns">
+                      <span className="cus-name1 ">
+                        Total amount contributed
+                      </span>
+                    </h4>
+                  )}
+                </div>
+
+                <div className="custrans-name">
+                  <h3 className="columns" id="col">
+                    <p className="custransactname"></p>
+                  </h3>
+                  <h6
+                    className="columns i"
+                    style={{ borderBottom: '2px solid crimson' }}
+                  ></h6>
+                  <h6
+                    className="columns i"
+                    style={{ borderBottom: '2px solid crimson' }}
+                  ></h6>
+                  <h3
+                    className="columns i"
+                    id="col"
+                    style={{
+                      borderRight: '2px solid crimson',
+                      borderBottom: '2px solid crimson',
+                      color: 'crimson',
+                    }}
+                  ></h3>
+                  {user.role === 'admin' && (
+                    <h3
+                      className="columns"
+                      id="col"
+                      style={{ color: 'crimson' }}
+                    >
+                      {` NGN ${comma(total)}`}
+                    </h3>
+                  )}
+                </div>
               </>
-            )
-          ) : (
-            <>
-              <div className="custrans-name">
-                <h4 className="columns">
-                  <span className="cus-name1">Customer's Name</span>
-                </h4>
-                <h4 className="columns i">Date & Time</h4>
-                <h4 className="columns i">Amount</h4>
-                <h4 className="columns i" id="a">
-                  Total days paid
-                </h4>
-                {user.role === 'admin' && (
-                  <h4 className="columns">
-                    <span className="cus-name1 ">Total amount contributed</span>
-                  </h4>
-                )}
-              </div>
-
-              <div className="custrans-name">
-                <h3 className="columns" id="col">
-                  <p className="custransactname">{user_name}</p>
-                </h3>
-                <h6
-                  className="columns i"
-                  style={{ borderBottom: '2px solid crimson' }}
-                ></h6>
-                <h6
-                  className="columns i"
-                  style={{ borderBottom: '2px solid crimson' }}
-                ></h6>
-                <h3
-                  className="columns i"
-                  id="col"
-                  style={{
-                    borderRight: '2px solid crimson',
-                    borderBottom: '2px solid crimson',
-                    color: 'crimson',
-                  }}
-                >
-                  {total_days}
-                </h3>
-                {user.role === 'admin' && (
-                  <h3 className="columns" id="col" style={{ color: 'crimson' }}>
-                    {` NGN ${comma(total)}`}
-                  </h3>
-                )}
-              </div>
-              {trans?.map((transaction) => (
-                <NavLink
-                  key={transaction.id}
-                  to={`/transactions/${transaction.id}`}
-                >
-                  <ul id="p-child">
-                    <li>
-                      <div className="custrans-name">
-                        <h4 className="columns"></h4>
-                        <h4 className="columns i" id="top">
-                          {Moment(transaction.created_at).format('MMMM DD, LT')}
-                        </h4>
-                        <h4 className="columns i">{` NGN ${comma(
-                          transaction.amount
-                        )}`}</h4>
-                        <h4
-                          className="columns i"
-                          style={{ borderRight: '2px solid crimson' }}
-                        >
-                          {transaction.days_paid_for} days
-                        </h4>
-                        {user.role === 'admin' && <h4 className="columns"></h4>}
-                      </div>
-                    </li>
-                  </ul>
-                </NavLink>
-              ))}
-              <div className="custrans-name">
-                <h4 className="columns">
-                  <span className="cus-name1"></span>
-                </h4>
-                <h4 className="columns i"></h4>
-                <h4 className="columns i"></h4>
-                <h4 className="columns i" id="a"></h4>
-                {user.role === 'admin' && (
-                  <h4 className="columns">
-                    <span className="cus-name1 ">Total amount contributed</span>
-                  </h4>
-                )}
-              </div>
-
-              <div className="custrans-name">
-                <h3 className="columns" id="col">
-                  <p className="custransactname"></p>
-                </h3>
-                <h6
-                  className="columns i"
-                  style={{ borderBottom: '2px solid crimson' }}
-                ></h6>
-                <h6
-                  className="columns i"
-                  style={{ borderBottom: '2px solid crimson' }}
-                ></h6>
-                <h3
-                  className="columns i"
-                  id="col"
-                  style={{
-                    borderRight: '2px solid crimson',
-                    borderBottom: '2px solid crimson',
-                    color: 'crimson',
-                  }}
-                ></h3>
-                {user.role === 'admin' && (
-                  <h3 className="columns" id="col" style={{ color: 'crimson' }}>
-                    {` NGN ${comma(total)}`}
-                  </h3>
-                )}
-              </div>
-            </>
-          )}
-        </>
+            )}
+          </>
+        </div>
       ) : (
         <Loader />
       )}
-    </div>
+    </>
   );
 };
 /* eslint-enable */
