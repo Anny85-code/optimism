@@ -242,7 +242,7 @@ const Main = () => {
 
                       <div className="card3 cd">
                         <h1 className="h-card">Users</h1>
-                        <p>{comma(users.data.length)}</p>
+                        <p>{comma(users.data.length) - 2}</p>
                       </div>
 
                       <NavLink to="/itemsstats">
