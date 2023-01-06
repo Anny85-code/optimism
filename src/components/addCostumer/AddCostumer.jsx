@@ -1,10 +1,11 @@
+/* eslint-disable */
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { getSeasonFromApi } from '../../redux/forms/seasonReducer';
 import ImageUpload from '../images/imageUpload';
 import './AddCostumer.css';
-/* eslint-disable */
+
 const AddCustomer = () => {
   const dispatch = useDispatch();
   const seasons = useSelector((state) => state.seasons);
