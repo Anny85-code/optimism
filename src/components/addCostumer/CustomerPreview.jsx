@@ -1,6 +1,6 @@
+/* eslint-disable */
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-// import { NavLink } from 'react-router-dom';
 import Loader from '../loader/Loader';
 import {
   getMyFoodFromApi,
@@ -10,7 +10,7 @@ import {
 import { postUpdateCustomerToApi } from '../../redux/forms/customerReducer';
 import './CustomerPreview.css';
 import { delOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
-/* eslint-disable */
+
 const CustomerPreview = () => {
   const dispatch = useDispatch();
   const customers = useSelector((state) => state.customer?.data?.customers);
@@ -88,9 +88,9 @@ const CustomerPreview = () => {
   };
 
   return (
-    <div className="cus-preview-main-container">
+    <>
       {customer?.length ? (
-        <>
+        <div className="cus-preview-main-container">
           {customer?.map((cust) => (
             <div key={cust.id} className="cus-preview-container">
               <h1 className="details cus-info">Customer Info</h1>
@@ -200,20 +200,12 @@ const CustomerPreview = () => {
             >
               Add Customer
             </button>
-            {/* <NavLink
-              to={`/customers/${id}/edit`}
-              style={{ textDecoration: 'none' }}
-            >
-              <button type="button" className="view-trans p-btn">
-                Edit
-              </button>
-            </NavLink> */}
           </div>
-        </>
+        </div>
       ) : (
         <Loader />
       )}
-    </div>
+    </>
   );
 };
 /* eslint-enable */
