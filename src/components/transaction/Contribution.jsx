@@ -17,8 +17,9 @@ const Contribution = () => {
   const transactions = useSelector((state) => state.customerTransactions);
   const seasons = useSelector((state) => state.seasons?.data);
 
+  console.log(transactions);
   const lastSeason = seasons?.sort((a, x) => a.id - x.id)?.slice(-1);
-  const isReady = customer || (transactions && lastSeason);
+  const isReady = customer && transactions && lastSeason;
   const [lSea] = lastSeason;
   const [go, setGo] = useState(false);
   const [daysNo, setDaysNo] = useState(0);
@@ -72,8 +73,7 @@ const Contribution = () => {
       current_contribution_date: currentDate,
       transaction_date: trDate,
     };
-    console.log(transactionData);
-    // dispatch(postTransactionToApi(transactionData));
+    dispatch(postTransactionToApi(transactionData));
   };
 
   return (
