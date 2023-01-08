@@ -45,7 +45,7 @@ const CustomerPreview = () => {
 
     const data = {
       v2_customer_id: id,
-      user_id: customer.user_id,
+      user_id: customer?.[0].user_id,
       items: JSON.stringify(myFoodObj),
     };
 

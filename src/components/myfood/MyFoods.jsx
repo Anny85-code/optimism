@@ -16,6 +16,8 @@ const MyFoods = () => {
   const food = data.filter((food) => food.customer_id == param.id);
   const { name, daily_contribution } = customerData;
 
+  console.log(foods);
+
   useEffect(() => {
     dispatch(getMyFoodFromApi());
     dispatch(getOneCustomerFromApi(param.id));
@@ -93,7 +95,9 @@ const MyFoods = () => {
                           >
                             {myFood.qauntity}
                           </h4>
-                          <h4 className="columns ">{` NGN ${comma(myFood.subTotal)}`}</h4>
+                          <h4 className="columns ">{` NGN ${comma(
+                            myFood.subTotal
+                          )}`}</h4>
                         </div>
                       </li>
                     </ul>
