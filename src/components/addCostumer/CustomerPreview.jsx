@@ -44,7 +44,8 @@ const CustomerPreview = () => {
     myFood.map((fooda) => (myFoodObj[fooda.id] = fooda));
 
     const data = {
-      customer_id: id,
+      v2_customer_id: id,
+      user_id: customer.user_id,
       items: JSON.stringify(myFoodObj),
     };
 
