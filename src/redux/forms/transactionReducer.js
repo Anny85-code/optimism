@@ -6,7 +6,7 @@ const FAILED_PATCH_TRANSACTION = 'src/redux/transactionreducer/failed_patch_tran
 const GET_TRANSACTION = 'src/redux/transactionreducer/get_transaction'.toUpperCase();
 const FAILED_GET_TRANSACTION = 'src/redux/transactionreducer/failed_get_transaction'.toUpperCase();
 const GET_TRANSACTIONS_REQUEST = 'src/redux/transactionreducer/get_transaction_request'.toUpperCase();
-const url = `${endpoint}/transactions`;
+const url = `${endpoint}/v2_transactions`;
 const { token } = localStorage;
 
 const sendTransactionDataFailed = (payload) => ({

@@ -19,10 +19,10 @@ import { delOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
 const Main = () => {
   const dispatch = useDispatch();
   const customers = useSelector((state) => state.customer?.data);
-  const numOfCustomers = customers?.customers_no;
+  const numOfCustomers = customers?.customers_no ?? 0;
   const transactions = useSelector((state) => state.transactions);
-  const numOfTransactions = transactions?.data?.transactions?.length;
-  const totalTransactions = transactions.data.total;
+  const numOfTransactions = transactions?.data?.transactions?.length ?? 0;
+  const totalTransactions = transactions?.data?.total ?? 0;
   const users = useSelector((state) => state.userManReducer);
   const marketers = users.data.filter((user) => user.role === 'marketer');
   const numOfMarketers = marketers.length;
@@ -150,7 +150,7 @@ const Main = () => {
                 <div className="card__inner">
                   <p className="text-primary-p">Number of Marketers</p>
                   <span className="font-bold text-title">
-                    {comma(numOfMarketers)}
+                    {comma(numOfMarketers) ?? 0}
                   </span>
                 </div>
               </div>
@@ -159,7 +159,7 @@ const Main = () => {
                 <div className="card__inner">
                   <p className="text-primary-p">Number of Admins</p>
                   <span className="font-bold text-title">
-                    {comma(numOfAdmins)}
+                    {comma(numOfAdmins) ?? 0}
                   </span>
                 </div>
               </div>
@@ -168,7 +168,7 @@ const Main = () => {
                 <div className="card__inner">
                   <p className="text-primary-p">Number of Products</p>
                   <span className="font-bold text-title">
-                    {comma(numOfProducts)}
+                    {comma(numOfProducts) ?? 0}
                   </span>
                 </div>
               </div>
@@ -177,7 +177,7 @@ const Main = () => {
                 <div className="card__inner">
                   <p className="text-primary-p">Number of Supervisors</p>
                   <span className="font-bold text-title">
-                    {comma(numOfSupervisors)}
+                    {comma(numOfSupervisors) ?? 0}
                   </span>
                 </div>
               </div>
@@ -242,7 +242,7 @@ const Main = () => {
 
                       <div className="card3 cd">
                         <h1 className="h-card">Users</h1>
-                        <p>{comma(users.data.length)}</p>
+                        <p>{comma(users.data.length) - 2}</p>
                       </div>
 
                       <NavLink to="/itemsstats">

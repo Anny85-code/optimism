@@ -1,21 +1,19 @@
+/* eslint-disable */
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { postItemsToApi } from '../../../redux/forms/getItemsReducer';
 import ImageUpload from '../../images/imageUpload';
-// import './AddProducts.css';
 
-/* eslint-disable */
 const AddProduct = () => {
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
   const picture = localStorage.getItem('image_str');
   const [description, setDescription] = useState('');
-  // const [isPending, setIsPending] = useState(false);
   const dispatch = useDispatch();
   const condition = name === '';
   const condition3 = +price < 1;
   const condition4 = description === '';
-  const condition5 = !picture.includes('cloudinary');
+  const condition5 = !picture?.includes('cloudinary');
   const genTruth = condition || condition3 || condition4 || condition5;
 
   const handleSubmit = async (e) => {
@@ -29,9 +27,7 @@ const AddProduct = () => {
       picture,
       description,
     };
-    // setIsPending(true);
     dispatch(postItemsToApi(product));
-    // setIsPending(false);
   };
 
   return (
@@ -105,16 +101,6 @@ const AddProduct = () => {
               Create Item
             </button>
           )}
-          {/* {!isPending && (
-            <button type="submit" className="add-customer-btn">
-              Create Item
-            </button>
-          )}
-          {isPending && (
-            <button type="submit" disabled>
-              Creating Item . . .
-            </button>
-          )} */}
         </div>
       </form>
     </div>

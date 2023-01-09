@@ -5,18 +5,16 @@ import { getItemFromApi } from '../../redux/forms/getItemsReducer';
 import './AddItems.css';
 
 const ViewItems = () => {
-  const allItems = useSelector((state) => state.item);
+  const allItems = useSelector((state) => state.item?.data);
   const dispatch = useDispatch();
-  // const [isPending, setIsPending] = useState(false);
 
   useEffect(() => {
     dispatch(getItemFromApi());
   }, []);
-  // setIsPending(false);
 
   return (
     <div className="form-container-item-list">
-      {allItems.data.map((item) => (
+      {allItems.map((item) => (
         <NavLink key={item.id} to={`/products/${item.id}`}>
           <div key={item.id}>
             <ul className="item-name">

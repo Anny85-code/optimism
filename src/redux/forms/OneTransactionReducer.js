@@ -20,7 +20,7 @@ const delOneTransData = (payload) => ({
   payload,
 });
 
-const url = `${endpoint}/transactions`;
+const url = `${endpoint}/v2_transactions`;
 const { token } = localStorage;
 
 const fetchOneTransactionData = (payload) => ({

@@ -4,7 +4,7 @@ import endpoint from '../../assets/url/url';
 const GET_PERCENTAGE = 'src/redux/percentagereducer/get_percentage'.toUpperCase();
 const FAILED_GET_PERCENTAGE = 'src/redux/percentagereducer/failed_get_percentage'.toUpperCase();
 const GET_PERCENTAGES_REQUEST = 'src/redux/percentagereducer/get_percentage_request'.toUpperCase();
-const url = `${endpoint}/customers/percentages`;
+const url = `${endpoint}/v2_customers/percentages`;
 const { token } = localStorage;
 
 const fetchPercentageData = (payload) => ({

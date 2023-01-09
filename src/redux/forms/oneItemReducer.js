@@ -4,7 +4,7 @@ import endpoint from '../../assets/url/url';
 const GET_ONE_ITEM = 'src/redux/itemreducer/get_one_item'.toUpperCase();
 const FAILED_GET_ONE_ITEM = 'src/redux/itemreducer/failed_get_one_item'.toUpperCase();
 const GET_ONE_ITEM_REQUEST = 'src/redux/itemreducer/get_one_item_request'.toUpperCase();
-const url = `${endpoint}/items`;
+const url = `${endpoint}/v2_items`;
 const { token } = localStorage;
 
 const fetchOneItemData = (payload) => ({

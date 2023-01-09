@@ -12,10 +12,12 @@ import './Contribution.css';
 const Contribution = () => {
   const { user } = JSON.parse(localStorage.getItem('user'));
   const { cardNumber } = localStorage;
-  const customer = useSelector((state) => state.oneCustomer?.data);
-  const transactions = useSelector((state) => state.customerTransactions?.data);
 
+  const customer = useSelector((state) => state.oneCustomer?.data);
+  const transactions = useSelector((state) => state.customerTransactions);
   const seasons = useSelector((state) => state.seasons?.data);
+
+  console.log(transactions);
   const lastSeason = seasons?.sort((a, x) => a.id - x.id)?.slice(-1);
   const isReady = customer && transactions && lastSeason;
   const [lSea] = lastSeason;
@@ -25,8 +27,8 @@ const Contribution = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getOneCustomerFromApi(cardNumber));
-    dispatch(getOneCustomerTransFromApi(cardNumber));
+    dispatch(getOneCustomerFromApi(+cardNumber));
+    dispatch(getOneCustomerTransFromApi(+cardNumber));
   }, []);
   useEffect(() => {
     dispatch(getSeasonFromApi());
@@ -65,7 +67,7 @@ const Contribution = () => {
     const transactionData = {
       user_id: user.id,
       amount,
-      customer_id: +cardNumber,
+      v2_customer_id: +cardNumber,
       days_paid_for: daysNo,
       previous_contribution_date: lastDate,
       current_contribution_date: currentDate,
@@ -75,64 +77,66 @@ const Contribution = () => {
   };
 
   return (
-    <div className="contribution-form">
+    <>
       {isReady ? (
-        <>
-          <div className="inner-container">
-            <h2 className="title1">Contribution details</h2>
-          </div>
-          <center style={{ color: 'crimson' }}>
-            Enter no. of days to continue!
-          </center>
-          <h3 className="details">Customer details</h3>
-          <form onSubmit={handleSubmit} className="add-customer-form">
-            <div className="contribution-container">
-              <p>Name: {name}</p>
-              <p>Daily Contribution: {daily_contribution}</p>
-              <h3 className="details t-details">Transaction Details</h3>
-              <input
-                type="number"
-                className="form-control days-input"
-                id="days_number"
-                placeholder="No. of days"
-                required
-                autoCorrect="off"
-                onChange={handleDays}
-              />
-              <input
-                type="date"
-                className="form-control days-input"
-                name=""
-                id=""
-                onChange={(e) => setTrDate(e.target.value)}
-              />
-              <p>Amount: NGN {amount}</p>
-              {seasons && (
-                <>
-                  <p>Previous payment date: {lastDate}</p>
-                  <p>Current payment date: {currentDate}</p>
-                </>
-              )}
+        <div className="contribution-form">
+          <>
+            <div className="inner-container">
+              <h2 className="title1">Contribution details</h2>
             </div>
-            {go && (
-              <NavLink to="/transactions" style={{ textDecoration: 'none' }}>
-                <button
-                  type="button"
-                  className="add-customer-btn cont-btn"
-                  onClick={handleSubmit}
-                >
-                  Add
-                </button>
-              </NavLink>
-            )}
-          </form>
-        </>
+            <center style={{ color: 'crimson' }}>
+              Enter no. of days to continue!
+            </center>
+            <h3 className="details">Customer details</h3>
+            <form onSubmit={handleSubmit} className="add-customer-form">
+              <div className="contribution-container">
+                <p>Name: {name}</p>
+                <p>Daily Contribution: {daily_contribution}</p>
+                <h3 className="details t-details">Transaction Details</h3>
+                <input
+                  type="number"
+                  className="form-control days-input"
+                  id="days_number"
+                  placeholder="No. of days"
+                  required
+                  autoCorrect="off"
+                  onChange={handleDays}
+                />
+                <input
+                  type="date"
+                  className="form-control days-input"
+                  name=""
+                  id=""
+                  onChange={(e) => setTrDate(e.target.value)}
+                />
+                <p>Amount: NGN {amount}</p>
+                {seasons && (
+                  <>
+                    <p>Previous payment date: {lastDate}</p>
+                    <p>Current payment date: {currentDate}</p>
+                  </>
+                )}
+              </div>
+              {go && (
+                <NavLink to="/transactions" style={{ textDecoration: 'none' }}>
+                  <button
+                    type="button"
+                    className="add-customer-btn cont-btn"
+                    onClick={handleSubmit}
+                  >
+                    Add
+                  </button>
+                </NavLink>
+              )}
+            </form>
+          </>
+        </div>
       ) : (
         <>
           <Loader />
         </>
       )}
-    </div>
+    </>
   );
 };
 

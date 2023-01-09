@@ -4,7 +4,7 @@ import endpoint from '../../assets/url/url';
 const GET_ONE_CUSTOMER_TRANS = 'SRC/REDUX/ONECUSTOMER_REDUCER/GET_ONE_CUSTOMER_TRANS';
 const FAILED_GET_ONE_CUSTOMER_TRANS = 'SRC/REDUX/ONECUSTOMER_REDUCER/FAILED_GET_ONE_CUSTOMER_TRANS';
 const GET_ONE_CUSTOMER_TRANS_REQUEST = 'SRC/REDUX/ONECUSTOMER_REDUCER/GET_ONE_CUSTOMER_TRANS';
-const url = `${endpoint}/customers`;
+const url = `${endpoint}/v2_customers`;
 const { token } = localStorage;
 
 const fetchOneCustomerTransData = (payload) => ({
