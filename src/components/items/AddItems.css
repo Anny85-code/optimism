@@ -41,7 +41,7 @@
   color: black;
 }
 
-.no-product{
+.no-product {
   border: 1px solid black;
   margin: 30px 0 0 100px;
   background: white;
@@ -84,5 +84,15 @@
     font-size: 0.9375rem;
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
+  }
+
+  .no-product {
+    margin: 20px;
+    height: 300px;
+    width: 320px;
+  }
+
+  .no-product-btn {
+    margin: 30px;
   }
 }
