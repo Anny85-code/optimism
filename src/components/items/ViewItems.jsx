@@ -44,7 +44,15 @@ const ViewItems = () => {
         </div>
       ) : (
         <>
-          <p>There is no Products</p>
+          <div className="no-product">
+            <p className="no-trans">There is no Products</p>
+
+            <button type="button" className="no-product-btn">
+              <NavLink to="/addproduct" style={{ textDecoration: 'none' }}>
+                Add New Product
+              </NavLink>
+            </button>
+          </div>
         </>
       )}
     </>

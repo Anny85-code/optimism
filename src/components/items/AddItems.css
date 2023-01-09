@@ -41,6 +41,35 @@
   color: black;
 }
 
+.no-product{
+  border: 1px solid black;
+  margin: 30px 0 0 100px;
+  background: white;
+  border-radius: 10px;
+  height: 400px;
+  width: 800px;
+}
+
+.no-product > p {
+  margin-top: 60px;
+}
+
+.no-product-btn {
+  margin: 1.25rem 0 1.25rem 17.875rem;
+  background-color: crimson;
+  width: 15.625rem;
+  height: 3.125rem;
+  padding: 0.625rem;
+  outline: none;
+  border: none;
+  border-radius: 0.3125rem;
+  color: white;
+  font-size: 1.125rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #d86565;
+}
+
 @media only screen and (max-width: 450px) {
   .form-container-item-list {
     width: 20rem;
