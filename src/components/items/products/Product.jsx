@@ -24,7 +24,7 @@ const Product = () => {
 
   const { name, price, description, picture } = aProduct.data;
   const redirect = editUrl(aProduct.data);
-
+  
   return (
     <div className="containa">
       <div className="image-container">
