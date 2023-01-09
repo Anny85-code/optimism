@@ -16,6 +16,7 @@ const Product = () => {
   const param = useParams();
   const { id } = param;
   const aProduct = useSelector((state) => state.oneItem);
+  const permitted = user.role === 'admin' || 'superadmin';
 
   useEffect(() => {
     dispatch(getOneItemFromApi(id));
@@ -43,7 +44,7 @@ const Product = () => {
 
       <div className="image-container">
         <div className="edit">
-          {user.role === 'admin' && (
+          {permitted && (
             <NavLink to={redirect} style={{ textDecoration: 'none' }}>
               <i className="fa fa-edit text-red" />
             </NavLink>
