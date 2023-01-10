@@ -17,8 +17,8 @@ const Contribution = () => {
   const transactions = useSelector((state) => state.customerTransactions);
   const seasons = useSelector((state) => state.seasons?.data);
 
-  console.log(transactions);
   const lastSeason = seasons?.sort((a, x) => a.id - x.id)?.slice(-1);
+  console.log({ transactions }, { lastSeason }, { customer });
   const isReady = customer && transactions && lastSeason;
   const [lSea] = lastSeason;
   const [go, setGo] = useState(false);
@@ -35,7 +35,7 @@ const Contribution = () => {
   }, []);
 
   const startDate = lSea?.start_date;
-  const lastTransaction = transactions?.trans
+  const lastTransaction = transactions?.data?.trans
     ?.sort((a, b) => a.id - b.id)
     ?.slice(-1);
   const lastDate = lastTransaction?.[0]?.current_contribution_date ?? startDate;
