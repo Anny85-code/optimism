@@ -18,8 +18,8 @@ const Contribution = () => {
   const seasons = useSelector((state) => state.seasons?.data);
 
   const lastSeason = seasons?.sort((a, x) => a.id - x.id)?.slice(-1);
-  console.log({ transactions }, { lastSeason }, { customer });
-  const isReady = customer && transactions && lastSeason;
+  const isReady =
+    customer.loading && transactions.loading && lastSeason.loading;
   const [lSea] = lastSeason;
   const [go, setGo] = useState(false);
   const [daysNo, setDaysNo] = useState(0);
@@ -78,7 +78,7 @@ const Contribution = () => {
 
   return (
     <>
-      {isReady ? (
+      {!isReady ? (
         <div className="contribution-form">
           <>
             <div className="inner-container">
