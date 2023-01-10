@@ -14,13 +14,10 @@ const Transaction = () => {
   const transaction = useSelector((state) => state.oneTransaction);
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
-  const isReady = Object.keys(transaction.data).length >= 1;
 
   useEffect(() => {
     dispatch(getOneTransactionFromApi(paramID));
   }, []);
-
-  console.log(transaction);
 
   const comma = (num) => {
     const number = parseInt(num);
