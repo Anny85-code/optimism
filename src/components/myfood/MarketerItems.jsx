@@ -12,14 +12,15 @@ const MarketerItems = () => {
   const { user } = data || {};
   const superadmin = user.role === 'superadmin';
 
-  foods.map(({ items }) => {
-    const foodItems = JSON.parse(items);
-    const food = Object.values(foodItems);
-    food.map((order) => {
-      const { id, name, qauntity } = order;
-      foodArray.push({ id, name, qauntity });
+  foods &&
+    foods.map(({ items }) => {
+      const foodItems = JSON.parse(items);
+      const food = Object.values(foodItems);
+      food.map((order) => {
+        const { id, name, qauntity } = order;
+        foodArray.push({ id, name, qauntity });
+      });
     });
-  });
 
   const foodArr = Object.values(
     foodArray.reduce((obj, item) => {
@@ -109,7 +110,9 @@ const MarketerItems = () => {
           ))}
         </>
       )}
-      {!superadmin && <p>You are unauthorized to see this page</p>}
+      {!superadmin && (
+        <p className="no-trans">You are unauthorized to see this page</p>
+      )}
     </div>
   );
   /* eslint-enable */

@@ -109,7 +109,9 @@ const ItemsStats = () => {
           ))}
         </>
       )}
-      {!superadmin && <p>You are unauthorized to see this page</p>}
+      {!superadmin && (
+        <p className="no-trans">You are unauthorized to see this page</p>
+      )}
     </div>
   );
   /* eslint-enable */
