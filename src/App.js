@@ -33,11 +33,11 @@ import Product from './components/items/products/Product';
 import UserTransacts from './components/user/UserTransacts';
 import MyFoods from './components/myfood/MyFoods';
 import CustomerPreview from './components/addCostumer/CustomerPreview';
-import { ItemsStats } from './components/items/products/ItemsStats';
+import ItemsStats from './components/items/products/ItemsStats';
 import UsersMarketers from './components/user/UsersMarketers';
 import PaidSixty from './components/customer/Paid60';
 import TransactionDetails from './components/transaction/transactionDetails';
-import MarketerItems from './components/items/MarketerItems';
+import MarketerItems from './components/myfood/MarketerItems';
 
 const App = () => {
   const [sideBarOpen, setSideBarOpen] = useState(false);
@@ -108,7 +108,10 @@ const App = () => {
                 <Route path="/season/:id" element={<Season />} />
                 <Route path="/products/:id" element={<Product />} />
                 <Route path="/itemsstats" element={<ItemsStats />} />
-                <Route path="/marketeritems" element={<MarketerItems />} />
+                <Route
+                  path="/users/:id/marketeritems"
+                  element={<MarketerItems />}
+                />
               </>
             )}
           </Routes>

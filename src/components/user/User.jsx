@@ -190,7 +190,7 @@ const User = () => {
           )}
           {downBtnRight && (
             <div className="allTrans">
-              <NavLink to="/marketeritems">
+              <NavLink to="marketeritems">
                 <button type="button" className="view-trans">
                   All Items
                 </button>

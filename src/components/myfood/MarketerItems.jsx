@@ -1,37 +1,16 @@
 /* eslint-disable */
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCustomerFromApi } from '../../redux/forms/customerReducer';
-import { getMyFoodFromApi } from '../../redux/forms/myFoodReducer';
-import './products/Itemstat.css';
+import { getMarketerItemsFromApi } from '../../redux/forms/marketerItemsReducer';
+import '../items/products/Itemstat.css';
 
 const MarketerItems = () => {
   const dispatch = useDispatch();
-  const foods = useSelector((state) => state.myFood?.data);
-  const customers = useSelector((state) => state.customer?.data);
+  const foods = useSelector((state) => state.marketerItemsReducer?.data?.items);
   const foodArray = [];
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
   const superadmin = user.role === 'superadmin';
-  const mId = localStorage.getItem('_id');
-
-  // A comparer used to determine if two entries are equal.
-  const isSameUser = (a, b) => a.user_id === +mId && a.id === b.customer_id;
-
-  // Get items that only occur in the left array,
-  // using the compareFunction to determine equality.
-  const onlyInLeft = (left, right, compareFunction) =>
-    left?.filter(
-      (leftValue) =>
-        !right?.some((rightValue) => compareFunction(leftValue, rightValue))
-    );
-
-  const onlyInA = onlyInLeft(customers.customers, foods, isSameUser);
-  const onlyInB = onlyInLeft(foods, customers.customers, isSameUser);
-
-  // const result = [...onlyInA, ...onlyInB];
-
-  console.log(onlyInA, onlyInB);
 
   foods.map(({ items }) => {
     const foodItems = JSON.parse(items);
@@ -54,8 +33,7 @@ const MarketerItems = () => {
   const allOrderTotal = foodArr.reduce((acc, obj) => acc + obj.qauntity, 0);
 
   useEffect(() => {
-    dispatch(getMyFoodFromApi());
-    dispatch(getCustomerFromApi());
+    dispatch(getMarketerItemsFromApi(localStorage.getItem('_id')));
     localStorage.setItem('order', allOrderTotal);
   }, []);
 
@@ -134,6 +112,7 @@ const MarketerItems = () => {
       {!superadmin && <p>You are unauthorized to see this page</p>}
     </div>
   );
+  /* eslint-enable */
 };
-/* eslint-enable */
+
 export default MarketerItems;
