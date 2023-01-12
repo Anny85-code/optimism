@@ -6,13 +6,11 @@ import '../items/products/Itemstat.css';
 
 const MarketerItems = () => {
   const dispatch = useDispatch();
-  const foods = useSelector((state) => state.myFood?.data);
+  const foods = useSelector((state) => state.marketerItemsReducer?.data?.items);
   const foodArray = [];
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
   const superadmin = user.role === 'superadmin';
-
-  console.log(foods);
 
   foods.map(({ items }) => {
     const foodItems = JSON.parse(items);
