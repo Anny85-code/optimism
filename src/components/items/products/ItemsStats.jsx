@@ -4,7 +4,7 @@ import { getMyFoodFromApi } from '../../../redux/forms/myFoodReducer';
 import './Itemstat.css';
 
 /* eslint-disable */
-export const ItemsStats = () => {
+const ItemsStats = () => {
   const dispatch = useDispatch();
   const foods = useSelector((state) => state.myFood?.data);
   const foodArray = [];
@@ -114,3 +114,5 @@ export const ItemsStats = () => {
   );
   /* eslint-enable */
 };
+
+export default ItemsStats;

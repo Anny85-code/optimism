@@ -1,122 +1,120 @@
 /* eslint-disable */
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { getMyFoodFromApi } from '../../redux/forms/myFoodReducer';
-import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
-import Loader from '../loader/Loader';
-import './Myfood.css';
+import { getMarketerItemsFromApi } from '../../redux/forms/marketerItemsReducer';
+import '../items/products/Itemstat.css';
 
 const MarketerItems = () => {
   const dispatch = useDispatch();
-  const param = useParams();
-  const foods = useSelector((state) => state.myFood);
-  const customer = useSelector((state) => state.oneCustomer);
-  const customerData = customer.data;
-  const { data } = foods || {};
-  const food = data.filter((food) => food.customer_id == param.id);
-  const { name, daily_contribution } = customerData;
+  const foods = useSelector((state) => state.myFood?.data);
+  const foodArray = [];
+  const data = JSON.parse(localStorage.getItem('user'));
+  const { user } = data || {};
+  const superadmin = user.role === 'superadmin';
 
   console.log(foods);
 
+  foods.map(({ items }) => {
+    const foodItems = JSON.parse(items);
+    const food = Object.values(foodItems);
+    food.map((order) => {
+      const { id, name, qauntity } = order;
+      foodArray.push({ id, name, qauntity });
+    });
+  });
+
+  const foodArr = Object.values(
+    foodArray.reduce((obj, item) => {
+      obj[item.id]
+        ? (obj[item.id].qauntity += item.qauntity)
+        : (obj[item.id] = item);
+      return obj;
+    }, {})
+  );
+
+  const allOrderTotal = foodArr.reduce((acc, obj) => acc + obj.qauntity, 0);
+
   useEffect(() => {
-    dispatch(getMyFoodFromApi());
-    dispatch(getOneCustomerFromApi(param.id));
+    dispatch(getMarketerItemsFromApi(localStorage.getItem('_id')));
+    localStorage.setItem('order', allOrderTotal);
   }, []);
 
   const comma = (num) => {
-    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    const number = parseInt(num);
+    const newText = number.toLocaleString();
+    return newText;
   };
 
   return (
     <div className="transact-customer-container">
-      {name ? (
+      {superadmin && (
         <>
-          <div className="custrans-name">
-            <h4 className="columns">
-              <span className="cus-name-name">Name</span>
-            </h4>
-            <h4 className="columns i">
-              <span className="cus-name2">Contribution</span>
-            </h4>
-            <h3 className="columns i">
-              <span className="cus-name1">Items</span>
-            </h3>
-            <h3 className="columns i" d="a">
-              <span className="cus-name1">Price</span>
-            </h3>
-            <h3 className="columns i " id="a">
-              <span className="cus-name1">Quantity</span>
-            </h3>
-            <h3 className="columns">
-              <span className="cus-name1">Sub total</span>
-            </h3>
+          <div id="col">
+            <h2 className="total-orders">
+              Total Orders: {comma(allOrderTotal)}
+            </h2>
           </div>
           <div className="custrans-name">
-            <h4 className="columns" id="col">
-              <p className="custransactname">{name}</p>
+            <h4 className="columns">
+              <span className="cus-name1">Serial Number</span>
             </h4>
-            <h4
+            <h4 className="columns i">Items</h4>
+            <h4 className="columns i" id="a">
+              Item's ID
+            </h4>
+            <h4 className="columns">
+              <span className="cus-name1 ">Quantity</span>
+            </h4>
+          </div>
+
+          <div className="custrans-name">
+            <h3 className="columns" id="col">
+              <p className="custransactname"></p>
+            </h3>
+            <h6
               className="columns i"
               style={{ borderBottom: '2px solid crimson' }}
-            >{` NGN ${comma(daily_contribution)}`}</h4>
-            <h3
-              className="columns i"
-              style={{ borderBottom: '2px solid crimson' }}
-            ></h3>
-            <h3 className="columns i" id="col"></h3>
+            ></h6>
             <h3
               className="columns i"
               id="col"
               style={{
                 borderRight: '2px solid crimson',
                 borderBottom: '2px solid crimson',
+                color: 'crimson',
               }}
             ></h3>
-            <h3 className="columns" id="col"></h3>
+            <h3 className="columns" id="col" style={{ color: 'crimson' }}></h3>
           </div>
-          {food.map((food) => {
-            const myFoods = Object.values(JSON.parse(food.items));
-            return (
-              <div key={food.id}>
-                {myFoods ? (
-                  myFoods.map((myFood) => (
-                    <ul className="n-child">
-                      <li>
-                        <div key={myFood.id} className="custrans-name">
-                          <h4 className="columns"></h4>
-                          <h4 className="columns i" id="top"></h4>
-                          <h4 className="columns i">{myFood.name}</h4>
-                          <h4 className="columns i">{` NGN ${comma(
-                            myFood.price
-                          )}`}</h4>
-                          <h4
-                            className="columns i"
-                            style={{ borderRight: '2px solid crimson' }}
-                          >
-                            {myFood.qauntity}
-                          </h4>
-                          <h4 className="columns ">{` NGN ${comma(
-                            myFood.subTotal
-                          )}`}</h4>
-                        </div>
-                      </li>
-                    </ul>
-                  ))
-                ) : (
-                  <>
-                    <p className="no-transact-p">No items to show!</p>
-                  </>
-                )}
-              </div>
-            );
-          })}
+          {foodArr.map((food, i) => (
+            <div key={food.id}>
+              <ul id="p-child">
+                {/* {food.id !== 0 && ( */}
+                <li>
+                  <div className="custrans-name">
+                    <h4 className="columns"> {i + 1}</h4>
+                    <h4 className="columns i" id="top">
+                      {`${food.name}`}
+                    </h4>
+                    <h4
+                      className="columns i"
+                      style={{ borderRight: '2px solid crimson' }}
+                    >
+                      {`${food.id}`}
+                    </h4>
+                    <h4 className="columns">{comma(food.qauntity)}</h4>
+                  </div>
+                </li>
+                {/* )} */}
+              </ul>
+            </div>
+          ))}
         </>
-      ) : (
-        <Loader />
       )}
+      {!superadmin && <p>You are unauthorized to see this page</p>}
     </div>
   );
+  /* eslint-enable */
 };
-/* eslint-enable */
+
 export default MarketerItems;

@@ -33,7 +33,7 @@ import Product from './components/items/products/Product';
 import UserTransacts from './components/user/UserTransacts';
 import MyFoods from './components/myfood/MyFoods';
 import CustomerPreview from './components/addCostumer/CustomerPreview';
-import { ItemsStats } from './components/items/products/ItemsStats';
+import ItemsStats from './components/items/products/ItemsStats';
 import UsersMarketers from './components/user/UsersMarketers';
 import PaidSixty from './components/customer/Paid60';
 import TransactionDetails from './components/transaction/transactionDetails';
