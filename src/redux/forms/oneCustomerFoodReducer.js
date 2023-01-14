@@ -1,12 +1,9 @@
 import axios from 'axios';
 import endpoint from '../../assets/url/url';
 
-const GET_ONE_CUSTOMER_FOOD =
-  'SRC/REDUX/ONECUSTOMER_REDUCER/GET_ONE_CUSTOMER_FOOD';
-const FAILED_GET_ONE_CUSTOMER_FOOD =
-  'SRC/REDUX/ONECUSTOMER_REDUCER/FAILED_GET_ONE_CUSTOMER_FOOD';
-const GET_ONE_CUSTOMER_FOOD_REQUEST =
-  'SRC/REDUX/ONECUSTOMER_REDUCER/GET_ONE_CUSTOMER_FOOD';
+const GET_ONE_CUSTOMER_FOOD = 'SRC/REDUX/ONECUSTOMER_REDUCER/GET_ONE_CUSTOMER_FOOD';
+const FAILED_GET_ONE_CUSTOMER_FOOD = 'SRC/REDUX/ONECUSTOMER_REDUCER/FAILED_GET_ONE_CUSTOMER_FOOD';
+const GET_ONE_CUSTOMER_FOOD_REQUEST = 'SRC/REDUX/ONECUSTOMER_REDUCER/GET_ONE_CUSTOMER_FOOD';
 const url = `${endpoint}/v2_customers`;
 const { token } = localStorage;
 
@@ -46,7 +43,7 @@ const OneCustomerFoodReducer = (
     loading: false,
     error: null,
   },
-  action
+  action,
 ) => {
   switch (action.type) {
     case GET_ONE_CUSTOMER_FOOD:
