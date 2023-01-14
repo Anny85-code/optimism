@@ -1,25 +1,27 @@
+/* eslint-disable */
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { getMyFoodFromApi } from '../../redux/forms/myFoodReducer';
+import { getMarketerItemsFromApi } from '../../redux/forms/marketerItemsReducer';
 import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
 import Loader from '../loader/Loader';
 import './Myfood.css';
-/* eslint-disable */
+
 const MyFoods = () => {
   const dispatch = useDispatch();
   const param = useParams();
-  const foods = useSelector((state) => state.myFood);
   const customer = useSelector((state) => state.oneCustomer);
+  const myFoods = useSelector(
+    (state) => state.marketerItemsReducer?.data?.items
+  );
   const customerData = customer.data;
-  const { data } = foods || {};
-  const food = data.filter((food) => food.customer_id == param.id);
+  const food = myFoods?.filter((food) => food.v2_customer_id == param.id);
   const { name, daily_contribution } = customerData;
-
-  console.log(foods);
+  const UserData = JSON.parse(localStorage.getItem('user'));
+  const { user } = UserData || {};
 
   useEffect(() => {
-    dispatch(getMyFoodFromApi());
+    dispatch(getMarketerItemsFromApi(user.id));
     dispatch(getOneCustomerFromApi(param.id));
   }, []);
 
@@ -74,12 +76,12 @@ const MyFoods = () => {
             ></h3>
             <h3 className="columns" id="col"></h3>
           </div>
-          {food.map((food) => {
+          {food?.map((food) => {
             const myFoods = Object.values(JSON.parse(food.items));
             return (
               <div key={food.id}>
                 {myFoods ? (
-                  myFoods.map((myFood) => (
+                  myFoods?.map((myFood) => (
                     <ul className="n-child">
                       <li>
                         <div key={myFood.id} className="custrans-name">
@@ -117,5 +119,6 @@ const MyFoods = () => {
     </div>
   );
 };
-/* eslint-enable */
+
 export default MyFoods;
+/* eslint-enable */
