@@ -21,7 +21,9 @@ const MyFoods = () => {
   const { user } = UserData || {};
 
   useEffect(() => {
-    dispatch(getMarketerItemsFromApi(user.id));
+    user.role === 'marketer'
+      ? dispatch(getMarketerItemsFromApi(user.id))
+      : dispatch(getMarketerItemsFromApi(localStorage.getItem('_id')));
     dispatch(getOneCustomerFromApi(param.id));
   }, []);
 
