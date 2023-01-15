@@ -1,18 +1,26 @@
 /* eslint-disable */
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import ReactToPrint from 'react-to-print';
+import { useReactToPrint } from 'react-to-print';
 import { getMarketerItemsFromApi } from '../../redux/forms/marketerItemsReducer';
+// import Printer from '../../utils/Printer';
 import '../items/products/Itemstat.css';
 import Loader from '../loader/Loader';
 
 const MarketerItems = () => {
   const dispatch = useDispatch();
-  const foods = useSelector((state) => state.marketerItemsReducer?.data?.items);
+  const mFoods = useSelector((state) => state.marketerItemsReducer);
+  const foods = mFoods?.data?.items;
   const foodArray = [];
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
   const superadmin = user.role === 'superadmin';
+  const componentRef = useRef();
+
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+    documentTitle: 'emp-data',
+  });
 
   foods &&
     foods.map(({ items }) => {
@@ -48,14 +56,13 @@ const MarketerItems = () => {
 
   return (
     <>
-      {foods.loading ? (
+      {mFoods.loading ? (
         <Loader />
       ) : (
-        <div className="transact-customer-container">
+        <div className="transact-customer-container" ref={componentRef}>
           {superadmin && (
-            <>
+            <div>
               <div id="col">
-                <button>Print</button>
                 <h2 className="total-orders">
                   Total Orders: {comma(allOrderTotal)}
                 </h2>
@@ -119,7 +126,17 @@ const MarketerItems = () => {
                   </ul>
                 </div>
               ))}
-            </>
+              {/* <Printer /> */}
+              <center style={{ margin: '12px 0' }}>
+                <button
+                  className="view-trans"
+                  type="button"
+                  onClick={handlePrint}
+                >
+                  Print
+                </button>
+              </center>
+            </div>
           )}
           {!superadmin && (
             <p className="no-trans">You are unauthorized to see this page</p>
