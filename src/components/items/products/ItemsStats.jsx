@@ -1,5 +1,6 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useReactToPrint } from 'react-to-print';
 import { getMyFoodFromApi } from '../../../redux/forms/myFoodReducer';
 import './Itemstat.css';
 
@@ -11,6 +12,12 @@ const ItemsStats = () => {
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
   const superadmin = user.role === 'superadmin';
+  const componentRef = useRef();
+
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+    documentTitle: 'emp-data',
+  });
 
   foods.map(({ items }) => {
     const foodItems = JSON.parse(items);
@@ -46,7 +53,7 @@ const ItemsStats = () => {
   return (
     <div className="transact-customer-container">
       {superadmin && (
-        <>
+        <div ref={componentRef}>
           <div id="col">
             <h2 className="total-orders">
               Total Orders: {comma(allOrderTotal)}
@@ -64,7 +71,6 @@ const ItemsStats = () => {
               <span className="cus-name1 ">Quantity</span>
             </h4>
           </div>
-
           <div className="custrans-name">
             <h3 className="columns" id="col">
               <p className="custransactname"></p>
@@ -107,7 +113,12 @@ const ItemsStats = () => {
               </ul>
             </div>
           ))}
-        </>
+          <center style={{ margin: '12px 0' }}>
+            <button className="view-trans" type="button" onClick={handlePrint}>
+              Print
+            </button>
+          </center>
+        </div>
       )}
       {!superadmin && (
         <p className="no-trans">You are unauthorized to see this page</p>
