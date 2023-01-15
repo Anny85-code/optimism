@@ -210,7 +210,7 @@ const UserTransacts = () => {
                 {len >= 1 ? (
                   filtaTrans?.slice(pr, nx).map((transaction) => {
                     const [customer] = customers?.filter(
-                      (cus) => cus.id === transaction.customer_id
+                      (cus) => cus.id === transaction.v2_customer_id
                     );
 
                     return (
