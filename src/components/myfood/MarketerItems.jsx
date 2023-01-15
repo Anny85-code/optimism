@@ -11,6 +11,7 @@ const MarketerItems = () => {
   const dispatch = useDispatch();
   const mFoods = useSelector((state) => state.marketerItemsReducer);
   const foods = mFoods?.data?.items;
+  const marketer = mFoods?.data?.marketer;
   const foodArray = [];
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
@@ -21,6 +22,8 @@ const MarketerItems = () => {
     content: () => componentRef.current,
     documentTitle: 'emp-data',
   });
+
+  console.log(marketer);
 
   foods &&
     foods.map(({ items }) => {
@@ -64,8 +67,10 @@ const MarketerItems = () => {
             <div>
               <div id="col">
                 <h2 className="total-orders">
-                  Total Orders: {comma(allOrderTotal)}
+                  Marketer: {marketer[1]}
+                  {/* Total Orders: {comma(allOrderTotal)} */}
                 </h2>
+                <center>Location: {marketer[2]}</center>
               </div>
               <div className="custrans-name">
                 <h4 className="columns">
