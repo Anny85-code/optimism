@@ -15,7 +15,7 @@ const UserTransacts = () => {
   const transactions = useSelector((state) => state.userTransacts);
   const customers = useSelector((state) => state.customer?.data?.customers);
   const { data } = transactions;
-  const { trans, user_name, total } = data || {};
+  const { trans, name, loc, total } = data || {};
   const info = JSON.parse(localStorage.getItem('user'));
   const { user } = info || {};
   const [sDate, setSDate] = useState(new Date());
@@ -167,9 +167,10 @@ const UserTransacts = () => {
                 </div>
 
                 <div className="custrans-name">
-                  <h4 className="columns" id="col">
-                    <p className="custransactname">{user_name}</p>
-                  </h4>
+                  <div className="columns" id="col">
+                    <h6 className="custransactname">{name} - </h6>
+                    <p className="custransactname">{loc}</p>
+                  </div>
                   <h4
                     className="columns i"
                     style={{ borderBottom: '2px solid crimson' }}
