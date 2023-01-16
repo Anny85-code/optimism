@@ -18,6 +18,7 @@ import { delOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
 
 const Main = () => {
   const dispatch = useDispatch();
+  const dashData = useSelector((state) => state.dash);
   const customers = useSelector((state) => state.customer?.data);
   const numOfCustomers = customers?.customers_no ?? 0;
   const transactions = useSelector((state) => state.transactions);
