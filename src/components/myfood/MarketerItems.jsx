@@ -67,10 +67,10 @@ const MarketerItems = () => {
             <div>
               <div id="col">
                 <h2 className="total-orders">
-                  Marketer: {marketer[1]}
+                  Marketer: {marketer?.[1]}
                   {/* Total Orders: {comma(allOrderTotal)} */}
                 </h2>
-                <center>Location: {marketer[2]}</center>
+                <center>Location: {marketer?.[2]}</center>
               </div>
               <div className="custrans-name">
                 <h4 className="columns">
