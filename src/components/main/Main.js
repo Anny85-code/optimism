@@ -6,13 +6,7 @@ import { utils, writeFileXLSX } from 'xlsx';
 import './Main.css';
 import hello from '../../assets/image/hello.jfif';
 import ChartWithCrosshair from '../chart/Chart_with_Crosshair';
-import {
-  getCustomerFromApi,
-  // postUpdateCustomerToApi,
-} from '../../redux/forms/customerReducer';
-import { getTransactionFromApi } from '../../redux/forms/transactionReducer';
-import { getUsersFromApi } from '../../redux/forms/userManReducer';
-import { getItemFromApi } from '../../redux/forms/getItemsReducer';
+import { getCustomerFromApi } from '../../redux/forms/customerReducer';
 import { delOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
 import { getDashboard } from '../../redux/forms/getDashboard';
 // import { delOneTransFromApi } from '../../redux/forms/OneTransactionReducer';
@@ -22,19 +16,7 @@ const Main = () => {
   const dash = useSelector((state) => state.dash);
   const dashData = dash?.data;
   const customers = useSelector((state) => state.customer?.data);
-  const numOfCustomers = customers?.customers_no ?? 0;
-  const transactions = useSelector((state) => state.transactions);
-  const numOfTransactions = transactions?.data?.transactions?.length ?? 0;
-  const totalTransactions = transactions?.data?.total ?? 0;
-  const users = useSelector((state) => state.userManReducer);
-  const marketers = users.data.filter((user) => user.role === 'marketer');
-  const numOfMarketers = marketers.length;
-  const supervisors = users.data.filter((user) => user.role === 'supervisor');
-  const numOfSupervisors = supervisors.length;
-  const _admins = users.data.filter((user) => user.role === 'admin');
-  const numOfAdmins = _admins.length;
-  const products = useSelector((state) => state.item);
-  const numOfProducts = products.data.length;
+  // const transactions = useSelector((state) => state.transactions);
   const date = new Date();
   const today = date.toDateString();
   const data = JSON.parse(localStorage.getItem('user'));
@@ -103,9 +85,7 @@ const Main = () => {
 
   useEffect(() => {
     dispatch(getCustomerFromApi());
-    dispatch(getTransactionFromApi());
-    dispatch(getUsersFromApi());
-    dispatch(getItemFromApi());
+    // dispatch(getTransactionFromApi());
     dispatch(getDashboard());
   }, []);
 
