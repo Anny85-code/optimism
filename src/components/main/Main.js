@@ -14,11 +14,13 @@ import { getTransactionFromApi } from '../../redux/forms/transactionReducer';
 import { getUsersFromApi } from '../../redux/forms/userManReducer';
 import { getItemFromApi } from '../../redux/forms/getItemsReducer';
 import { delOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
+import { getDashboard } from '../../redux/forms/getDashboard';
 // import { delOneTransFromApi } from '../../redux/forms/OneTransactionReducer';
 
 const Main = () => {
   const dispatch = useDispatch();
-  const dashData = useSelector((state) => state.dash);
+  const dash = useSelector((state) => state.dash);
+  const dashData = dash?.data;
   const customers = useSelector((state) => state.customer?.data);
   const numOfCustomers = customers?.customers_no ?? 0;
   const transactions = useSelector((state) => state.transactions);
@@ -91,7 +93,7 @@ const Main = () => {
     );
     myCustomers.map((cus) => dispatch(delOneCustomerFromApi(cus.id)));
   };
-
+  console.log(dashData);
   // ================ Used to destroy all transactions in the app ====================
   // const delNoCard = () => {
   //   transactions.data.transactions.map((trans) =>
@@ -104,6 +106,7 @@ const Main = () => {
     dispatch(getTransactionFromApi());
     dispatch(getUsersFromApi());
     dispatch(getItemFromApi());
+    dispatch(getDashboard());
   }, []);
 
   const comma = (num) => {
@@ -133,7 +136,7 @@ const Main = () => {
                 <div className="card__inner">
                   <p className="text-primary-p">Number of Customers</p>
                   <span className="font-bold text-title">
-                    {comma(numOfCustomers)}
+                    {comma(dashData?.customers ?? 0)}
                   </span>
                 </div>
               </div>
@@ -142,7 +145,7 @@ const Main = () => {
                 <div className="card__inner">
                   <p className="text-primary-p">Number of Transactions</p>
                   <span className="font-bold text-title">
-                    {comma(numOfTransactions)}
+                    {comma(dashData?.trans ?? 0)}
                   </span>
                 </div>
               </div>
@@ -151,7 +154,7 @@ const Main = () => {
                 <div className="card__inner">
                   <p className="text-primary-p">Number of Marketers</p>
                   <span className="font-bold text-title">
-                    {comma(numOfMarketers) ?? 0}
+                    {comma(dashData?.marketers ?? 0)}
                   </span>
                 </div>
               </div>
@@ -160,7 +163,7 @@ const Main = () => {
                 <div className="card__inner">
                   <p className="text-primary-p">Number of Admins</p>
                   <span className="font-bold text-title">
-                    {comma(numOfAdmins) ?? 0}
+                    {comma(dashData?.admins ?? 0)}
                   </span>
                 </div>
               </div>
@@ -169,7 +172,7 @@ const Main = () => {
                 <div className="card__inner">
                   <p className="text-primary-p">Number of Products</p>
                   <span className="font-bold text-title">
-                    {comma(numOfProducts) ?? 0}
+                    {comma(dashData?.items ?? 0)}
                   </span>
                 </div>
               </div>
@@ -178,7 +181,7 @@ const Main = () => {
                 <div className="card__inner">
                   <p className="text-primary-p">Number of Supervisors</p>
                   <span className="font-bold text-title">
-                    {comma(numOfSupervisors) ?? 0}
+                    {comma(dashData?.supervs ?? 0)}
                   </span>
                 </div>
               </div>
@@ -237,13 +240,13 @@ const Main = () => {
                         <h1 className="h-card">Sales</h1>
                         <p style={{ color: '#1c551c' }}>
                           <span style={{ color: '#0b4b09' }}>NGN </span>
-                          {comma(totalTransactions)}
+                          {comma(dashData?.sales ?? 0)}
                         </p>
                       </div>
 
                       <div className="card3 cd">
                         <h1 className="h-card">Users</h1>
-                        <p>{comma(users.data.length) - 2}</p>
+                        <p>{comma(dashData?.users) - 2}</p>
                       </div>
 
                       <NavLink to="/itemsstats">
