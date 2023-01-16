@@ -27,6 +27,7 @@ import percentagesReducer from './forms/percentagesReducer';
 import myPercentageReducer from './forms/myPercentageReducer';
 import marketerItemsReducer from './forms/marketerItemsReducer';
 import OneCustomerFoodReducer from './forms/oneCustomerFoodReducer';
+import dashboard from './forms/getDashboard';
 
 const rootReducer = combineReducers({
   user: userReducer,
@@ -48,6 +49,7 @@ const rootReducer = combineReducers({
   myPercent: myPercentageReducer,
   marketerItemsReducer,
   customerFood: OneCustomerFoodReducer,
+  dash: dashboard,
 });
 
 const store = createStore(rootReducer, compose(applyMiddleware(logger, thunk)));
