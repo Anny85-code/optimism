@@ -232,7 +232,11 @@ const Main = () => {
 
                           <div className="card3 cd">
                             <h1 className="h-card">Users</h1>
-                            <p>{comma(dashData?.users) - 2}</p>
+                            {dashData?.users > 2 ? (
+                              <p>{comma(dashData?.users) - 2}</p>
+                            ) : (
+                              <p>0</p>
+                            )}
                           </div>
 
                           <NavLink to="/itemsstats">
