@@ -76,7 +76,7 @@ const Main = () => {
     );
     myCustomers.map((cus) => dispatch(delOneCustomerFromApi(cus.id)));
   };
-  console.log(dashData);
+
   // ================ Used to destroy all transactions in the app ====================
   // const delNoCard = () => {
   //   transactions.data.transactions.map((trans) =>
@@ -111,7 +111,7 @@ const Main = () => {
                 </h4>
               </div>
             </div>
-            {dash?.loading ? (
+            {dash.loading ? (
               <Loader />
             ) : (
               <>
