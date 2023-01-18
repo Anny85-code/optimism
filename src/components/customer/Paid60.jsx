@@ -58,12 +58,20 @@ const PaidSixty = () => {
   );
 
   const toggle = () => {
-    if (select === 'sixty') {
-      return percents?.sixty?.map((per) => renderData(per));
+    switch (select) {
+      case 'sixty':
+        return percents?.sixty?.map((per) => renderData(per));
+      case 'hundred':
+        return percents?.hundred?.map((per) => renderData(per));
+      default:
+        break;
     }
-    if (select === 'hundred') {
-      return percents?.hundred?.map((per) => renderData(per));
-    }
+    // if (select === 'sixty') {
+    //   return percents?.sixty?.map((per) => renderData(per));
+    // }
+    // if (select === 'hundred') {
+    //   return percents?.hundred?.map((per) => renderData(per));
+    // }
   };
 
   return (
