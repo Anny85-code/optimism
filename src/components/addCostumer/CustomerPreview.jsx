@@ -10,20 +10,20 @@ import {
 import { postUpdateCustomerToApi } from '../../redux/forms/customerReducer';
 import './CustomerPreview.css';
 import { delOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
+import { getOneCustomerFoodFromApi } from '../../redux/forms/oneCustomerFoodReducer';
 
 const CustomerPreview = () => {
   const dispatch = useDispatch();
   const customers = useSelector((state) => state.customer?.data?.customers);
-  const foods = useSelector((state) => state.myFood);
-  const { data } = foods || {};
+  const foods = useSelector((state) => state.customerFood);
+  const foodData = foods?.data;
   const retrievedCustomer = JSON.parse(localStorage.getItem('customer'));
   const fone = retrievedCustomer.phone;
   const customer = customers?.filter((cust) => cust.phone === fone);
   const myFood = JSON.parse(localStorage.getItem('myfood'));
   const grandTotal = myFood.reduce((a, b) => b.subTotal + a, 0);
   const id = customer?.[0]?.id;
-  const oldFood = data.filter((food) => food.customer_id === id);
-  const oldFoodId = oldFood[0]?.id;
+  const oldFoodId = foodData?.my_food?.[0]?.id;
   const userData = JSON.parse(localStorage.getItem('user'));
   const { user } = userData || {};
   const cardNumber = `${user.location_area.slice(0, 3).toUpperCase()}${
@@ -36,7 +36,7 @@ const CustomerPreview = () => {
   window.addEventListener('popstate', onBackButtonEvent);
 
   useEffect(() => {
-    dispatch(getMyFoodFromApi());
+    dispatch(getOneCustomerFoodFromApi(retrievedCustomer?.id));
   }, []);
 
   const handleSubmit = () => {
