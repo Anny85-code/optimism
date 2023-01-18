@@ -49,12 +49,12 @@ export const postMyFoodToApi = (userData) => async (dispatch) => {
   } else {
     setTimeout(() => {
       window.history.pushState({}, '', '/customers');
-      <Navigate to="/customers" />;
-      localStorage.removeItem('updated_customer');
-      localStorage.removeItem('myfood');
-      localStorage.removeItem('customer');
-      localStorage.removeItem('image_str');
-      window.location.reload();
+        <Navigate to="/customers" />;
+        localStorage.removeItem('updated_customer');
+        localStorage.removeItem('myfood');
+        localStorage.removeItem('customer');
+        localStorage.removeItem('image_str');
+        window.location.reload();
     }, 3000);
   }
 };
@@ -97,7 +97,7 @@ const myFoodReducer = (
     loading: false,
     error: null,
   },
-  action
+  action,
 ) => {
   switch (action.type) {
     case GET_MYFOOD:
