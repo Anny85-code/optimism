@@ -64,6 +64,8 @@ const PaidSixty = () => {
         return percents?.fourty?.map((per) => renderData(per));
       case 'sixty':
         return percents?.sixty?.map((per) => renderData(per));
+      case 'eighty':
+        return percents?.eighty?.map((per) => renderData(per));
       case 'hundred':
         return percents?.hundred?.map((per) => renderData(per));
       default:
@@ -86,6 +88,7 @@ const PaidSixty = () => {
             <option defaultValue="PLEASE SELECT ...">Select Percent</option>
             <option value="fourty">40%</option>
             <option value="sixty">60%</option>
+            <option value="eighty">80%</option>
             <option value="hundred">100%</option>
           </select>
         </label>
