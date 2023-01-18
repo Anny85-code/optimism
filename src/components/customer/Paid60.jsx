@@ -60,6 +60,8 @@ const PaidSixty = () => {
 
   const toggle = () => {
     switch (select) {
+      case 'twenty':
+        return percents?.twenty?.map((per) => renderData(per));
       case 'fourty':
         return percents?.fourty?.map((per) => renderData(per));
       case 'sixty':
@@ -71,6 +73,23 @@ const PaidSixty = () => {
       default:
         <Loader />;
         break;
+    }
+  };
+
+  const toggleTotal = () => {
+    switch (select) {
+      case 'twenty':
+        return percents?._20;
+      case 'fourty':
+        return percents?._40;
+      case 'sixty':
+        return percents?._60;
+      case 'eighty':
+        return percents?._80;
+      case 'hundred':
+        return percents?._100;
+      default:
+        return 0;
     }
   };
 
@@ -86,6 +105,7 @@ const PaidSixty = () => {
             id="opt-id"
           >
             <option defaultValue="PLEASE SELECT ...">Select Percent</option>
+            <option value="twenty">20%</option>
             <option value="fourty">40%</option>
             <option value="sixty">60%</option>
             <option value="eighty">80%</option>
@@ -98,9 +118,7 @@ const PaidSixty = () => {
         {admins && (
           <div>
             <div id="col">
-              <h2 className="total-orders">
-                Total: {select === 'sixty' ? percents._60 : percents._100}
-              </h2>
+              <h2 className="total-orders">Total: {toggleTotal() ?? 0}</h2>
             </div>
             <div className="custrans-name">
               <h4 className="columns">
