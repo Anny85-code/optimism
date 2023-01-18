@@ -60,8 +60,8 @@ const PaidSixty = () => {
 
   const toggle = () => {
     switch (select) {
-      case 'fifty':
-        return percents?.fifty?.map((per) => renderData(per));
+      case 'fourty':
+        return percents?.fourty?.map((per) => renderData(per));
       case 'sixty':
         return percents?.sixty?.map((per) => renderData(per));
       case 'hundred':
@@ -84,7 +84,7 @@ const PaidSixty = () => {
             id="opt-id"
           >
             <option defaultValue="PLEASE SELECT ...">Select Percent</option>
-            <option value="fifty">50%</option>
+            <option value="fourty">40%</option>
             <option value="sixty">60%</option>
             <option value="hundred">100%</option>
           </select>
