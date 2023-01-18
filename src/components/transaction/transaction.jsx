@@ -28,7 +28,7 @@ const Transaction = () => {
   const {
     id,
     amount,
-    customer_id,
+    v2_customer_id,
     previous_contribution_date,
     current_contribution_date,
     days_paid_for,
@@ -41,7 +41,7 @@ const Transaction = () => {
     JSON.stringify({
       id,
       amount,
-      customer_id,
+      v2_customer_id,
       previous_contribution_date,
       current_contribution_date,
       days_paid_for,
