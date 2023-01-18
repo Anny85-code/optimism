@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { getPercentageFromApi } from '../../redux/forms/percentagesReducer';
+import Loader from '../loader/Loader';
 import './Paid60.css';
 
 const PaidSixty = () => {
@@ -59,19 +60,16 @@ const PaidSixty = () => {
 
   const toggle = () => {
     switch (select) {
+      case 'fifty':
+        return percents?.fifty?.map((per) => renderData(per));
       case 'sixty':
         return percents?.sixty?.map((per) => renderData(per));
       case 'hundred':
         return percents?.hundred?.map((per) => renderData(per));
       default:
+        <Loader />;
         break;
     }
-    // if (select === 'sixty') {
-    //   return percents?.sixty?.map((per) => renderData(per));
-    // }
-    // if (select === 'hundred') {
-    //   return percents?.hundred?.map((per) => renderData(per));
-    // }
   };
 
   return (
@@ -86,6 +84,7 @@ const PaidSixty = () => {
             id="opt-id"
           >
             <option defaultValue="PLEASE SELECT ...">Select Percent</option>
+            <option value="fifty">50%</option>
             <option value="sixty">60%</option>
             <option value="hundred">100%</option>
           </select>
