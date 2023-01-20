@@ -215,8 +215,8 @@ const Main = () => {
                     <div className="charts__right__cards">
                       <NavLink to="/paidsixty">
                         <div className="card1 cd">
-                          <h1 className="h-card">Paid 60%</h1>
-                          <p>View Customers</p>
+                          <p>View Customer's</p>
+                          <h1 className="h-card">Percentage</h1>
                         </div>
                       </NavLink>
 
