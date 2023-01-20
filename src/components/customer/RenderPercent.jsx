@@ -1,19 +1,14 @@
 /* eslint-disable */
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './Paid60.css';
 
-const RenderPercent = (percents) => {
+const RenderPercent = ({ percents }) => {
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
   const admins = user.role === 'admin' || user.role === 'superadmin';
   const [select, setSelect] = useState('sixty');
-
-  const handlePercent = (e) => {
-    setSelect(e.target.value);
-    toggle();
-  };
 
   const comma = (num) => {
     const number = parseInt(num);
@@ -64,6 +59,11 @@ const RenderPercent = (percents) => {
       default:
         break;
     }
+  };
+
+  const handlePercent = (e) => {
+    setSelect(e.target.value);
+    toggle();
   };
 
   const toggleTotal = () => {
@@ -153,6 +153,10 @@ const RenderPercent = (percents) => {
       </div>
     </div>
   );
+};
+
+RenderPercent.propTypes = {
+  percents: PropTypes.object.isRequired,
 };
 
 export default RenderPercent;
