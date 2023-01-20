@@ -38,6 +38,7 @@ import UsersMarketers from './components/user/UsersMarketers';
 import PaidSixty from './components/customer/Paid60';
 import TransactionDetails from './components/transaction/transactionDetails';
 import MarketerItems from './components/myfood/MarketerItems';
+import MarketerPercent from './components/customer/MarketerPercent';
 
 const App = () => {
   const [sideBarOpen, setSideBarOpen] = useState(false);
@@ -111,6 +112,10 @@ const App = () => {
                 <Route
                   path="/users/:id/marketeritems"
                   element={<MarketerItems />}
+                />
+                <Route
+                  path="/users/:id/percent"
+                  element={<MarketerPercent />}
                 />
               </>
             )}
