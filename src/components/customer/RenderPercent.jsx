@@ -8,7 +8,7 @@ const RenderPercent = ({ percents }) => {
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
   const admins = user.role === 'admin' || user.role === 'superadmin';
-  const [select, setSelect] = useState('sixty');
+  const [select, setSelect] = useState('hundred');
 
   const comma = (num) => {
     const number = parseInt(num);
