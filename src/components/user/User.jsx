@@ -197,6 +197,15 @@ const User = () => {
               </NavLink>
             </div>
           )}
+          {downBtnRight && (
+            <div className="allTrans">
+              <NavLink to="percent">
+                <button type="button" className="view-trans">
+                  Pay Percent
+                </button>
+              </NavLink>
+            </div>
+          )}
           {permitted && (
             <div className="allTrans">
               <button type="button" className="view-trans" onClick={handleDel}>

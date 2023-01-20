@@ -44,7 +44,7 @@ const marketerPercentReducer = (
     loading: false,
     error: null,
   },
-  action
+  action,
 ) => {
   switch (action.type) {
     case GET_MARKETER_PERCENT:
