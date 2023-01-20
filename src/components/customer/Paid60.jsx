@@ -8,13 +8,21 @@ import RenderPercent from './RenderPercent';
 */
 const PaidSixty = () => {
   const dispatch = useDispatch();
-  const percents = useSelector((state) => state.percent?.data);
+  const percents = useSelector((state) => state.percent);
 
   useEffect(() => {
     dispatch(getPercentageFromApi());
   }, []);
 
-  return <div>{RenderPercent(percents)}</div>;
+  return (
+    <div>
+      {percents?.loading ? (
+        <Loader />
+      ) : (
+        <RenderPercent percents={percents?.data} />
+      )}
+    </div>
+  );
 };
 
 export default PaidSixty;

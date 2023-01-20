@@ -17,7 +17,7 @@ const MarketerPercent = () => {
 
   return (
     <div>
-      {percents.loading ? (
+      {percents?.loading ? (
         <Loader />
       ) : (
         <RenderPercent percents={percents?.data} />
