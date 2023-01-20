@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPercentageFromApi } from '../../redux/forms/percentagesReducer';
 import RenderPercent from './RenderPercent';
+import Loader from '../loader/Loader';
 /*
 =========== This is the original percentage component ===============
 */
