@@ -4,11 +4,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getCustomerFromApi } from '../../redux/forms/customerReducer';
 import './Customers.css';
 import Loader from '../loader/Loader';
+import { getMarketerCustomersFromApi } from '../../redux/forms/marketerCustomersReducer';
 /* eslint-disable */
 
 const Customers = () => {
   const dispatch = useDispatch();
   const allCustomers = useSelector((state) => state.customer?.data?.customers);
+  const markCustomers = useSelector((state) => state.mCustomers);
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
   const reId = localStorage.getItem('_id');
@@ -21,7 +23,10 @@ const Customers = () => {
 
   useEffect(() => {
     dispatch(getCustomerFromApi());
+    dispatch(getMarketerCustomersFromApi(+reId));
   }, []);
+
+  console.log(markCustomers, +reId);
 
   const newData = allCustomers?.filter((customer) => {
     if (
