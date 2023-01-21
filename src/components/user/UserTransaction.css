@@ -125,6 +125,8 @@
 
   .transact-customer-container {
     font-size: 12px;
+    display: flex;
+    flex-direction: column;
   }
 
   .columns {
