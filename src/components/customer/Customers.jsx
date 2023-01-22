@@ -39,7 +39,7 @@ const Customers = () => {
   //   }
   // });
 
-  console.log(newData);
+  console.log(newData, markCustomers?.loading);
   const len = markCustomers?.data?.no;
 
   const handleNext = () => {
