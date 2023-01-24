@@ -6,7 +6,7 @@ import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
 import { getOneCustomerTransFromApi } from '../../redux/forms/oneCustomerTransactReducer';
 import { getSeasonFromApi } from '../../redux/forms/seasonReducer';
 import { postTransactionToApi } from '../../redux/forms/transactionReducer';
-import ErrorMessage from '../../utils/ErrorMessage';
+import Notice from '../../utils/Notice';
 import Loader from '../loader/Loader';
 import './Contribution.css';
 
@@ -107,7 +107,7 @@ const Contribution = () => {
                 <p>Name: {name}</p>
                 <p>Daily Contribution: {daily_contribution}</p>
                 <h3 className="details t-details">Transaction Details</h3>
-                <ErrorMessage message={error} />
+                <Notice message={error} role="error_msg" />
                 <input
                   type="number"
                   className="form-control days-input"
