@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -5,7 +6,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import './Customers.css';
 import Loader from '../loader/Loader';
 import { getMarketerCustomersFromApi } from '../../redux/forms/marketerCustomersReducer';
-/* eslint-disable */
 
 const Customers = () => {
   const dispatch = useDispatch();

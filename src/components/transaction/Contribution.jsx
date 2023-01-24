@@ -6,6 +6,7 @@ import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
 import { getOneCustomerTransFromApi } from '../../redux/forms/oneCustomerTransactReducer';
 import { getSeasonFromApi } from '../../redux/forms/seasonReducer';
 import { postTransactionToApi } from '../../redux/forms/transactionReducer';
+import ErrorMessage from '../../utils/ErrorMessage';
 import Loader from '../loader/Loader';
 import './Contribution.css';
 
@@ -25,6 +26,8 @@ const Contribution = () => {
   const [daysNo, setDaysNo] = useState(0);
   const [trDate, setTrDate] = useState(new Date().toLocaleDateString());
   const dispatch = useDispatch();
+  const [error, setError] = useState(null);
+  let valid;
 
   useEffect(() => {
     dispatch(getOneCustomerFromApi(+cardNumber));
@@ -73,7 +76,18 @@ const Contribution = () => {
       current_contribution_date: currentDate,
       transaction_date: trDate,
     };
-    dispatch(postTransactionToApi(transactionData));
+
+    valid =
+      transactionData.current_contribution_date !== null &&
+      transactionData.currentDate !== null &&
+      transactionData.transaction_date !== null &&
+      daysNo > 5;
+
+    if (valid) {
+      dispatch(postTransactionToApi(transactionData));
+    } else {
+      setError('Dates are not valid');
+    }
   };
 
   return (
@@ -93,6 +107,7 @@ const Contribution = () => {
                 <p>Name: {name}</p>
                 <p>Daily Contribution: {daily_contribution}</p>
                 <h3 className="details t-details">Transaction Details</h3>
+                <ErrorMessage message={error} />
                 <input
                   type="number"
                   className="form-control days-input"
@@ -118,7 +133,10 @@ const Contribution = () => {
                 )}
               </div>
               {go && (
-                <NavLink to="/transactions" style={{ textDecoration: 'none' }}>
+                <NavLink
+                  to={valid ? '/transactions' : '/contribution'}
+                  style={{ textDecoration: 'none' }}
+                >
                   <button
                     type="button"
                     className="add-customer-btn cont-btn"
