@@ -12,8 +12,6 @@ const GetNullDates = () => {
   const customers = useSelector((state) => state.customer?.data);
   const users = useSelector((state) => state.userManReducer?.data);
 
-  useEffect(() => {}, []);
-
   useEffect(() => {
     dispatch(getTransactionFromApi());
     dispatch(getCustomerFromApi());
@@ -29,7 +27,7 @@ const GetNullDates = () => {
     );
 
     /*=========   GET CUSTOMER NAME    ============*/
-    myTrans.map((tr) =>
+    myTrans?.map((tr) =>
       customers?.customers?.filter((cus) => {
         if (cus.id === tr.v2_customer_id) {
           const newDta = (tr['cus_name'] = cus.name);
@@ -39,7 +37,7 @@ const GetNullDates = () => {
     );
 
     /*=========   GET MARKETER NAME    ============*/
-    myTrans.map((tr) =>
+    myTrans?.map((tr) =>
       users?.filter((user) => {
         if (user.id === tr.user_id) {
           const newDta = (tr['marketer'] = user.name);
@@ -48,7 +46,7 @@ const GetNullDates = () => {
       })
     );
 
-    const exportData = myTrans.map((cus) => {
+    const exportData = myTrans?.map((cus) => {
       return {
         name: cus.cus_name,
         Days_Paid: cus.days_paid_for,
@@ -57,7 +55,7 @@ const GetNullDates = () => {
       };
     });
 
-    const ws = utils.json_to_sheet(exportData.sort((a, b) => a.id - b.id));
+    const ws = utils.json_to_sheet(exportData?.sort((a, b) => a.id - b.id));
     const wb = utils.book_new();
     utils.book_append_sheet(wb, ws, 'Data');
     writeFileXLSX(wb, `Customer_with_no_card_number.xlsx`);

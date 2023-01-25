@@ -10,6 +10,7 @@ import Loader from '../loader/Loader';
 import DeleteNullDates from '../../utils/DeleteNullDates';
 import GetNullDates from '../../utils/GetNullDates';
 import DeleteNoCardNo from '../../utils/DeleteNoCardNo';
+import GetNoCardNo from '../../utils/GetNoCardNo';
 
 const Main = () => {
   const dispatch = useDispatch();
@@ -116,6 +117,7 @@ const Main = () => {
                   </div>
                   {user.username === 'admin' && (
                     <>
+                      <GetNoCardNo />
                       <DeleteNoCardNo />
                       <GetNullDates />
                       <DeleteNullDates />

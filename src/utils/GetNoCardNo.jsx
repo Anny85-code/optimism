@@ -1,9 +1,12 @@
+/* eslint-disable */
 import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { utils, writeFileXLSX } from 'xlsx';
 import { getCustomerFromApi } from '../redux/forms/customerReducer';
 
 const GetNoCardNo = () => {
   const customers = useSelector((state) => state.customer?.data);
+  const dispatch = useDispatch();
 
   function handleNill() {
     const myCustomers = customers?.customers?.filter(
@@ -65,3 +68,4 @@ const GetNoCardNo = () => {
 };
 
 export default GetNoCardNo;
+/* eslint-enable */
