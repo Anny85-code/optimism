@@ -10,14 +10,16 @@ import { getCustomerFromApi } from '../../redux/forms/customerReducer';
 import { delOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
 import { getDashboard } from '../../redux/forms/getDashboard';
 import Loader from '../loader/Loader';
-// import { delOneTransFromApi } from '../../redux/forms/OneTransactionReducer';
+import { getUsersFromApi } from '../../redux/forms/userManReducer';
+import DeleteNullDates from '../../utils/DeleteNullDates';
+import GetNullDates from '../../utils/GetNullDates';
 
 const Main = () => {
   const dispatch = useDispatch();
   const dash = useSelector((state) => state.dash);
   const dashData = dash?.data;
   const customers = useSelector((state) => state.customer?.data);
-  // const transactions = useSelector((state) => state.transactions);
+  const users = useSelector((state) => state.userManReducer?.data);
   const date = new Date();
   const today = date.toDateString();
   const data = JSON.parse(localStorage.getItem('user'));
@@ -86,8 +88,8 @@ const Main = () => {
 
   useEffect(() => {
     dispatch(getCustomerFromApi());
-    // dispatch(getTransactionFromApi());
     dispatch(getDashboard());
+    dispatch(getUsersFromApi());
   }, []);
 
   const comma = (num) => {
@@ -173,23 +175,31 @@ const Main = () => {
                   </div>
                   {user.username === 'admin' && (
                     <>
-                      <div className="cards" onClick={handleNill}>
+                      <div
+                        className="cards"
+                        onClick={handleNill}
+                        style={{ cursor: 'pointer' }}
+                      >
                         <div className="card__inner">
                           <p className="text-primary-p">No Card No</p>
                         </div>
                       </div>
                       <button
+                        className="cards"
                         style={{
                           color: 'white',
                           backgroundColor: '#FF5D5D',
                           border: 'none',
                           borderRadius: '8px',
+                          cursor: 'pointer',
                         }}
                         type="button"
                         onClick={delNoCard}
                       >
                         Del No Card
                       </button>
+                      <GetNullDates />
+                      <DeleteNullDates />
                     </>
                   )}
                 </div>
