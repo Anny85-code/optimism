@@ -1,14 +1,22 @@
 /* eslint-disable */
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { getCustomerFromApi } from '../redux/forms/customerReducer';
 import { getTransactionFromApi } from '../redux/forms/transactionReducer';
+import { getUsersFromApi } from '../redux/forms/userManReducer';
 
 const GetNullDates = () => {
   const dispatch = useDispatch();
   const transactions = useSelector((state) => state.transactions);
+  const customers = useSelector((state) => state.customer?.data);
+  const users = useSelector((state) => state.userManReducer?.data);
+
+  useEffect(() => {}, []);
 
   useEffect(() => {
     dispatch(getTransactionFromApi());
+    dispatch(getCustomerFromApi());
+    dispatch(getUsersFromApi());
   }, []);
 
   function handleNullDates() {

@@ -13,6 +13,7 @@ import Loader from '../loader/Loader';
 import { getUsersFromApi } from '../../redux/forms/userManReducer';
 import DeleteNullDates from '../../utils/DeleteNullDates';
 import GetNullDates from '../../utils/GetNullDates';
+import DeleteNoCardNo from '../../utils/DeleteNoCardNo';
 
 const Main = () => {
   const dispatch = useDispatch();
@@ -71,13 +72,6 @@ const Main = () => {
     utils.book_append_sheet(wb, ws, 'Data');
     writeFileXLSX(wb, `Customer_with_no_card_number.xlsx`);
   }
-
-  const delNoCard = () => {
-    const myCustomers = customers?.customers?.filter(
-      (customer) => customer.card_number === null
-    );
-    myCustomers.map((cus) => dispatch(delOneCustomerFromApi(cus.id)));
-  };
 
   // ================ Used to destroy all transactions in the app ====================
   // const delNoCard = () => {
@@ -184,20 +178,7 @@ const Main = () => {
                           <p className="text-primary-p">No Card No</p>
                         </div>
                       </div>
-                      <button
-                        className="cards"
-                        style={{
-                          color: 'white',
-                          backgroundColor: '#FF5D5D',
-                          border: 'none',
-                          borderRadius: '8px',
-                          cursor: 'pointer',
-                        }}
-                        type="button"
-                        onClick={delNoCard}
-                      >
-                        Del No Card
-                      </button>
+                      <DeleteNoCardNo />
                       <GetNullDates />
                       <DeleteNullDates />
                     </>
