@@ -2,15 +2,11 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { utils, writeFileXLSX } from 'xlsx';
 import './Main.css';
 import hello from '../../assets/image/hello.jfif';
 import ChartWithCrosshair from '../chart/Chart_with_Crosshair';
-import { getCustomerFromApi } from '../../redux/forms/customerReducer';
-import { delOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
 import { getDashboard } from '../../redux/forms/getDashboard';
 import Loader from '../loader/Loader';
-import { getUsersFromApi } from '../../redux/forms/userManReducer';
 import DeleteNullDates from '../../utils/DeleteNullDates';
 import GetNullDates from '../../utils/GetNullDates';
 import DeleteNoCardNo from '../../utils/DeleteNoCardNo';
@@ -19,59 +15,11 @@ const Main = () => {
   const dispatch = useDispatch();
   const dash = useSelector((state) => state.dash);
   const dashData = dash?.data;
-  const customers = useSelector((state) => state.customer?.data);
-  const users = useSelector((state) => state.userManReducer?.data);
   const date = new Date();
   const today = date.toDateString();
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
   const admins = user.role === 'admin' || user.role === 'superadmin';
-
-  function handleNill() {
-    const myCustomers = customers?.customers?.filter(
-      (customer) => customer.card_number === null
-      // ========{ To Update bad card number/ user location } =========
-      // customer.card_number !== null && customer.card_number.includes('U/M86')
-    );
-
-    // =========={ To Update bad card number/ user location, also uncomment the reload in postCustomerUpdate function }==========
-    // const cusWithNewCardNo = myCustomers.map((cus) => {
-    //   const newCardNo = cus.card_number.replace('U/M86', 'UMI86');
-    //   const newCus = { ...cus, card_number: newCardNo };
-    //   return newCus;
-    // });
-
-    // cusWithNewCardNo.map((cus) => dispatch(postUpdateCustomerToApi(cus)));
-    // ============= Used to play with update card number info ================
-
-    const exportData = myCustomers.map((cus) => {
-      return {
-        id: cus.id,
-        name: cus.name,
-        phone: cus.phone,
-        address: cus.address,
-        daily_contribution: cus.daily_contribution,
-      };
-    });
-
-    // ======={ To Update bad card number/ user location, exported data to view changes }========
-    // const exportData = cusWithNewCardNo.map((cus) => {
-    //   return {
-    //     id: cus.id,
-    //     name: cus.name,
-    //     phone: cus.phone,
-    //     address: cus.address,
-    //     daily_contribution: cus.daily_contribution,
-    //     cardNumber: cus.card_number,
-    //   };
-    // });
-    // ============= Used to play with update card number info ================
-
-    const ws = utils.json_to_sheet(exportData.sort((a, b) => a.id - b.id));
-    const wb = utils.book_new();
-    utils.book_append_sheet(wb, ws, 'Data');
-    writeFileXLSX(wb, `Customer_with_no_card_number.xlsx`);
-  }
 
   // ================ Used to destroy all transactions in the app ====================
   // const delNoCard = () => {
@@ -79,11 +27,10 @@ const Main = () => {
   //     dispatch(delOneTransFromApi(trans.id))
   //   );
   // };
+  /* ============ Use with caution, can destroy all transactions in the DB ============= */
 
   useEffect(() => {
-    dispatch(getCustomerFromApi());
     dispatch(getDashboard());
-    dispatch(getUsersFromApi());
   }, []);
 
   const comma = (num) => {
@@ -169,15 +116,6 @@ const Main = () => {
                   </div>
                   {user.username === 'admin' && (
                     <>
-                      <div
-                        className="cards"
-                        onClick={handleNill}
-                        style={{ cursor: 'pointer' }}
-                      >
-                        <div className="card__inner">
-                          <p className="text-primary-p">No Card No</p>
-                        </div>
-                      </div>
                       <DeleteNoCardNo />
                       <GetNullDates />
                       <DeleteNullDates />
