@@ -69,14 +69,14 @@ const CustomerTransacts = () => {
                   <h3 className="columns" id="col">
                     <p className="custransactname">{user_name}</p>
                   </h3>
-                  <h6
+                  <h3
                     className="columns i"
                     style={{ borderBottom: '2px solid crimson' }}
-                  ></h6>
-                  <h6
+                  ></h3>
+                  <h3
                     className="columns i"
                     style={{ borderBottom: '2px solid crimson' }}
-                  ></h6>
+                  ></h3>
                   <h3
                     className="columns i"
                     id="col"
@@ -149,14 +149,14 @@ const CustomerTransacts = () => {
                   <h3 className="columns" id="col">
                     <p className="custransactname"></p>
                   </h3>
-                  <h6
+                  <h3
                     className="columns i"
                     style={{ borderBottom: '2px solid crimson' }}
-                  ></h6>
-                  <h6
+                  ></h3>
+                  <h3
                     className="columns i"
                     style={{ borderBottom: '2px solid crimson' }}
-                  ></h6>
+                  ></h3>
                   <h3
                     className="columns i"
                     id="col"
