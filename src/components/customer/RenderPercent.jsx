@@ -7,7 +7,7 @@ import './Paid60.css';
 const RenderPercent = ({ percents }) => {
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
-  const admins = user.role === 'admin' || user.role === 'superadmin';
+  const superadmin = user.role === 'superadmin';
   const [select, setSelect] = useState('hundred');
 
   const comma = (num) => {
@@ -105,7 +105,7 @@ const RenderPercent = ({ percents }) => {
       </div>
 
       <div className="transact-customer-container">
-        {admins && (
+        {superadmin && (
           <div>
             <div id="col">
               <h2 className="total-orders">Total: {toggleTotal() ?? 0}</h2>
@@ -149,7 +149,7 @@ const RenderPercent = ({ percents }) => {
             {toggle()}
           </div>
         )}
-        {!admins && <p>Unauthorized to see this page!</p>}
+        {!superadmin && <p>Unauthorized to see this page!</p>}
       </div>
     </div>
   );

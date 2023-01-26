@@ -33,8 +33,6 @@ const Contribution = () => {
   useEffect(() => {
     dispatch(getOneCustomerFromApi(+cardNumber));
     dispatch(getOneCustomerTransFromApi(+cardNumber));
-  }, []);
-  useEffect(() => {
     dispatch(getSeasonFromApi());
   }, []);
 
@@ -138,20 +136,20 @@ const Contribution = () => {
                   </>
                 )}
               </div>
-              {/* {go && ( */}
-              <NavLink
-                to={validDate ? '/transactions' : '/contribution'}
-                style={{ textDecoration: 'none' }}
-              >
-                <button
-                  type="button"
-                  className="add-customer-btn cont-btn"
-                  onClick={handleSubmit}
+              {go && (
+                <NavLink
+                  to={validDate ? '/transactions' : '/contribution'}
+                  style={{ textDecoration: 'none' }}
                 >
-                  Add
-                </button>
-              </NavLink>
-              {/* )} */}
+                  <button
+                    type="button"
+                    className="add-customer-btn cont-btn"
+                    onClick={handleSubmit}
+                  >
+                    Add
+                  </button>
+                </NavLink>
+              )}
             </form>
           </>
         </div>

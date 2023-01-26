@@ -36,6 +36,7 @@ const User = () => {
   const seeMarketersDaily =
     (permitted || loggedUser.role === 'supervisor') &&
     user.data.role === 'marketer';
+  const superadmin = loggedUser.role === 'superadmin';
 
   useEffect(() => {
     dispatch(getOneUserFromApi(id));
@@ -197,7 +198,7 @@ const User = () => {
                   </button>
                 </div>
               )}
-              {downBtnRight && (
+              {superadmin && (
                 <div className="allTrans">
                   <NavLink to="marketeritems">
                     <button type="button" className="view-trans">
@@ -206,7 +207,7 @@ const User = () => {
                   </NavLink>
                 </div>
               )}
-              {downBtnRight && (
+              {superadmin && (
                 <div className="allTrans">
                   <NavLink to="percent">
                     <button type="button" className="view-trans">
