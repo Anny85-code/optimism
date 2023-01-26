@@ -10,6 +10,7 @@ import {
 } from '../../redux/forms/OneCustomerReducer';
 import { getOneUserFromApi } from '../../redux/forms/oneUserManReducer';
 import Loader from '../loader/Loader';
+import comma from './../../utils/Comma';
 
 const editUrl = (person) => {
   const { id } = person;
@@ -69,12 +70,6 @@ const Customer = () => {
   const myfood = myFoodUrl(aCustomers?.data);
   localStorage.setItem('customer', JSON.stringify(aCustomers?.data));
   // const allTransMark = transUrlMark(aCustomers.data);
-
-  const comma = (num) => {
-    const number = parseInt(num);
-    const newText = number.toLocaleString();
-    return newText;
-  };
 
   const handleConfirm = (e) => {
     if (e.target.id === 'yes') {

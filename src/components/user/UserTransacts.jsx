@@ -7,6 +7,7 @@ import Loader from '../loader/Loader';
 import 'react-datepicker/dist/react-datepicker.css';
 import { getOneUserTransFromApi } from '../../redux/forms/oneUserTransactReducer';
 import './UserTransaction.css';
+import comma from '../../utils/Comma';
 /* eslint-disable */
 const UserTransacts = () => {
   const dispatch = useDispatch();
@@ -71,13 +72,6 @@ const UserTransacts = () => {
       setFiltaTrans(sameDay);
       setTransNo(sameDay.length);
     }
-  };
-
-  const comma = (num) => {
-    if (typeof num === 'number' || typeof +num === 'number') {
-      return num?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    }
-    return num;
   };
 
   return (

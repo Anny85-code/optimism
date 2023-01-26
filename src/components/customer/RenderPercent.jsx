@@ -3,18 +3,13 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './Paid60.css';
+import comma from '../../utils/Comma';
 
 const RenderPercent = ({ percents }) => {
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
   const superadmin = user.role === 'superadmin';
   const [select, setSelect] = useState('hundred');
-
-  const comma = (num) => {
-    const number = parseInt(num);
-    const newText = number.toLocaleString();
-    return newText;
-  };
 
   const renderData = (per) => (
     <NavLink

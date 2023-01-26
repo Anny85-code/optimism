@@ -6,6 +6,7 @@ import Moment from 'moment';
 import '../customer/Customer.css';
 import { getOneTransactionFromApi } from '../../redux/forms/OneTransactionReducer';
 import Loader from '../loader/Loader';
+import comma from './../../utils/Comma';
 
 const Transaction = () => {
   const dispatch = useDispatch();
@@ -18,12 +19,6 @@ const Transaction = () => {
   useEffect(() => {
     dispatch(getOneTransactionFromApi(paramID));
   }, []);
-
-  const comma = (num) => {
-    const number = parseInt(num);
-    const newText = number.toLocaleString();
-    return newText;
-  };
 
   const {
     id,
