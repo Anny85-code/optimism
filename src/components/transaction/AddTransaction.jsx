@@ -1,21 +1,21 @@
+/* eslint-disable */
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { getCustomerFromApi } from '../../redux/forms/customerReducer';
 import { sendErrors } from '../../redux/forms/errors';
+import { getMarketerCustomersFromApi } from '../../redux/forms/marketerCustomersReducer';
 import Loader from '../loader/Loader';
 import './AddTransaction.css';
 
-/* eslint-disable */
-
 const customerEx = (cardNumber, data) => {
   // const ids = [];
-  const len = data.filter((cus) => {
+  const len = data?.filter((cus) => {
     // ids.push(cus.id);
     return cardNumber === cus.id;
   });
   // const highest = ids.sort().pop();
-  return len.length > 0;
+  return len?.length > 0;
   //  && cardNumber <= highest;
 };
 
@@ -24,7 +24,9 @@ const AddTransaction = () => {
   const error = document.getElementById('error');
   const [status, setStatus] = useState(false);
   const dispatch = useDispatch();
-  const customers = useSelector((state) => state.customer?.data);
+  const { user } = JSON.parse(localStorage.getItem('user'));
+  const mCustomers = useSelector((state) => state.mCustomers);
+  const customers = mCustomers?.data;
   const customerExists =
     cardNumber > 0 && customerEx(cardNumber, customers?.customers);
 
@@ -63,12 +65,12 @@ const AddTransaction = () => {
   };
 
   useEffect(() => {
-    dispatch(getCustomerFromApi());
+    dispatch(getMarketerCustomersFromApi(user.id));
   }, []);
 
   return (
     <>
-      {customers?.customers_no ? (
+      {!mCustomers.loading ? (
         <div className="form-container trans-form">
           <div className="inner-container">
             <h2 className="title">Collect contribution</h2>

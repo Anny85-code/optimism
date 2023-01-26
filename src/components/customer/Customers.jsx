@@ -58,61 +58,78 @@ const Customers = () => {
   return (
     <div>
       {!markCustomers?.loading ? (
-        <div className="transact-customer-container1">
-          <div className="custrans-name1">
-            <h4 className="columns">
-              <span className="cus-name1">Customer's Name</span>
-            </h4>
-            <h4 className="columns i" id="a">
-              Phone
-            </h4>
-            <h4 className="columns">
-              <span className="cus-name2 ">Total number of customers</span>
-            </h4>
-          </div>
-          <div className="custrans-name1">
-            <h3 className="columns" id="col">
-              <p className="custransactname"></p>
-            </h3>
-            <h3
-              className="columns i"
-              id="col"
-              style={{
-                borderRight: '2px solid crimson',
-                borderBottom: '2px solid crimson',
-              }}
-            ></h3>
-            <h3 className="columns" id="col" style={{ color: 'crimson' }}>
-              {len}
-            </h3>
-          </div>
+        <>
+          {len > 0 ? (
+            <div className="transact-customer-container1">
+              <div className="custrans-name1">
+                <h4 className="columns">
+                  <span className="cus-name1">Customer's Name</span>
+                </h4>
+                <h4 className="columns i" id="a">
+                  Phone
+                </h4>
+                <h4 className="columns">
+                  <span className="cus-name2 ">Total number of customers</span>
+                </h4>
+              </div>
+              <div className="custrans-name1">
+                <h3 className="columns" id="col">
+                  <p className="custransactname"></p>
+                </h3>
+                <h3
+                  className="columns i"
+                  id="col"
+                  style={{
+                    borderRight: '2px solid crimson',
+                    borderBottom: '2px solid crimson',
+                  }}
+                ></h3>
+                <h3 className="columns" id="col" style={{ color: 'crimson' }}>
+                  {len}
+                </h3>
+              </div>
 
-          {newData &&
-            newData.slice(pr, nx).map((customer) => (
-              <NavLink key={customer.id} to={`/customers/${customer.id}`}>
-                <ul id="p-child">
-                  <li>
-                    <div className="custrans-name1">
-                      <h4 className="columns" style={{ color: 'crimson' }}>
-                        {customer.name}
-                      </h4>
-                      <h4
-                        className="columns i"
-                        style={{ borderRight: '2px solid crimson' }}
-                      >
-                        {customer.phone}
-                      </h4>
-                      <h4 className="columns"></h4>
-                    </div>
-                  </li>
-                </ul>
-              </NavLink>
-            ))}
-        </div>
+              {newData &&
+                newData.slice(pr, nx).map((customer) => (
+                  <NavLink key={customer.id} to={`/customers/${customer.id}`}>
+                    <ul id="p-child">
+                      <li>
+                        <div className="custrans-name1">
+                          <h4 className="columns" style={{ color: 'crimson' }}>
+                            {customer.name}
+                          </h4>
+                          <h4
+                            className="columns i"
+                            style={{ borderRight: '2px solid crimson' }}
+                          >
+                            {customer.phone}
+                          </h4>
+                          <h4 className="columns"></h4>
+                        </div>
+                      </li>
+                    </ul>
+                  </NavLink>
+                ))}
+            </div>
+          ) : (
+            <div className="transact-customer-container">
+              {' '}
+              <p className="no-trans">No Custonmer yet!</p>
+              <button type="button" className="no-trans-btn">
+                <NavLink
+                  to="/addtransaction"
+                  style={{ textDecoration: 'none' }}
+                >
+                  Add A Customer
+                </NavLink>
+              </button>
+            </div>
+          )}
+        </>
       ) : (
         <Loader />
       )}
-      {len && (
+      {len > 0 && (
         <div className="pre-next-cont">
           <i
             className="fa fa-caret-left fa-2x text-red"
