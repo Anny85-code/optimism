@@ -74,7 +74,10 @@ const UserTransacts = () => {
   };
 
   const comma = (num) => {
-    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    if (typeof num === 'number' || typeof +num === 'number') {
+      return num?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    }
+    return num;
   };
 
   return (
