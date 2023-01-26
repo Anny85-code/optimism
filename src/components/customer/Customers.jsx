@@ -114,7 +114,7 @@ const Customers = () => {
           ) : (
             <div className="transact-customer-container">
               {' '}
-              <p className="no-trans">No Custonmer yet!</p>
+              <p className="no-trans">No Customer yet!</p>
               <button type="button" className="no-trans-btn">
                 <NavLink
                   to="/addtransaction"

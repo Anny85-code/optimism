@@ -39,9 +39,9 @@ const Customer = () => {
   const param = useParams();
   const { id } = param;
   const aCustomers = useSelector((state) => state.oneCustomer);
-  const regAdmin = useSelector((state) => state.oneUser);
+  const regMark = useSelector((state) => state.oneUser);
   const adminNo = aCustomers?.data?.user_id;
-  const { loading } = regAdmin;
+  const loading = regMark.loading && aCustomers.loading;
   const navigate = useNavigate();
   const admins =
     user.role === 'admin' ||
@@ -123,9 +123,9 @@ const Customer = () => {
               <p className="cus-details">
                 <span>Card No.</span>
                 {card_number}
-                {/* {regAdmin.data.location_area &&
-                `${regAdmin.data.location_area.slice(0, 3).toUpperCase()}${
-                  regAdmin.data.id
+                {/* {regMark.data.location_area &&
+                `${regMark.data.location_area.slice(0, 3).toUpperCase()}${
+                  regMark.data.id
                 }/${aCustomers.data.id}`} */}
               </p>
               <p className="cus-details">
