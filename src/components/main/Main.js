@@ -11,6 +11,7 @@ import DeleteNullDates from '../../utils/DeleteNullDates';
 import GetNullDates from '../../utils/GetNullDates';
 import DeleteNoCardNo from '../../utils/DeleteNoCardNo';
 import GetNoCardNo from '../../utils/GetNoCardNo';
+import comma from '../../../utils/Comma';
 
 const Main = () => {
   const dispatch = useDispatch();
@@ -33,12 +34,6 @@ const Main = () => {
   useEffect(() => {
     dispatch(getDashboard());
   }, []);
-
-  const comma = (num) => {
-    const number = parseInt(num);
-    const newText = number.toLocaleString();
-    return newText;
-  };
 
   return (
     <>
