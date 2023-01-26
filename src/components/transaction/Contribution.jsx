@@ -80,8 +80,7 @@ const Contribution = () => {
     valid =
       transactionData.current_contribution_date !== null &&
       transactionData.currentDate !== null &&
-      transactionData.transaction_date !== null &&
-      daysNo > 5;
+      transactionData.transaction_date !== null;
 
     if (valid) {
       dispatch(postTransactionToApi(transactionData));
