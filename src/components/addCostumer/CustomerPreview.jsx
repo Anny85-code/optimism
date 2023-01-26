@@ -11,6 +11,7 @@ import { postUpdateCustomerToApi } from '../../redux/forms/customerReducer';
 import './CustomerPreview.css';
 import { delOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
 import { getOneCustomerFoodFromApi } from '../../redux/forms/oneCustomerFoodReducer';
+import comma from './../../utils/Comma';
 
 const CustomerPreview = () => {
   const dispatch = useDispatch();
@@ -82,10 +83,6 @@ const CustomerPreview = () => {
       localStorage.removeItem('customer');
       localStorage.removeItem('myfood');
     }, 3000);
-  };
-
-  const comma = (num) => {
-    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   };
 
   return (

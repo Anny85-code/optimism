@@ -7,6 +7,7 @@ import Moment from 'moment';
 import { getTransactionFromApi } from '../../redux/forms/transactionReducer';
 // import { getCustomerFromApi } from '../../redux/forms/customerReducer';
 import './Transactions.css';
+import comma from '../../utils/Comma';
 // import Loader from '../loader/Loader';
 /* eslint-disable */
 
@@ -75,9 +76,6 @@ const Transactions = () => {
     }
   };
 
-  const comma = (num) => {
-    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  };
   return (
     <div className="cust-tansact-container1">
       <div className="start-date-container">

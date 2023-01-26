@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useReactToPrint } from 'react-to-print';
 import { getMyFoodFromApi } from '../../../redux/forms/myFoodReducer';
 import './Itemstat.css';
+import comma from '../../../utils/Comma';
 
 /* eslint-disable */
 const ItemsStats = () => {
@@ -43,12 +44,6 @@ const ItemsStats = () => {
     dispatch(getMyFoodFromApi());
     localStorage.setItem('order', allOrderTotal);
   }, []);
-
-  const comma = (num) => {
-    const number = parseInt(num);
-    const newText = number.toLocaleString();
-    return newText;
-  };
 
   return (
     <div className="transact-customer-container">

@@ -7,6 +7,7 @@ import '../customer/Customer.css';
 import { delOneTransFromApi } from '../../redux/forms/OneTransactionReducer';
 import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
 import Loader from '../loader/Loader';
+import comma from './../../utils/Comma';
 
 const TransactionDetails = () => {
   const dispatch = useDispatch();
@@ -33,12 +34,6 @@ const TransactionDetails = () => {
   useEffect(() => {
     dispatch(getOneCustomerFromApi(v2_customer_id));
   }, []);
-
-  const comma = (num) => {
-    const number = parseInt(num);
-    const newText = number.toLocaleString();
-    return newText;
-  };
 
   const handleConfirm = (e) => {
     if (e.target.id === 'yes') {
