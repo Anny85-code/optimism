@@ -7,7 +7,7 @@ import '../customer/Customer.css';
 import { delOneTransFromApi } from '../../redux/forms/OneTransactionReducer';
 import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
 import Loader from '../loader/Loader';
-import comma from '../../../utils/Comma';
+import comma from './../../utils/Comma';
 
 const TransactionDetails = () => {
   const dispatch = useDispatch();

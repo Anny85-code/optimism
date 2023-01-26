@@ -6,7 +6,7 @@ import Moment from 'moment';
 import '../customer/Customer.css';
 import { getOneTransactionFromApi } from '../../redux/forms/OneTransactionReducer';
 import Loader from '../loader/Loader';
-import comma from '../../../utils/Comma';
+import comma from './../../utils/Comma';
 
 const Transaction = () => {
   const dispatch = useDispatch();
