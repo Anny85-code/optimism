@@ -10,6 +10,7 @@ import {
 } from '../../redux/forms/oneUserManReducer';
 import './User.css';
 import { getCustomerFromApi } from '../../redux/forms/customerReducer';
+import Loader from '../loader/Loader';
 
 const editUrl = (person) => {
   const { id } = person;
@@ -119,102 +120,116 @@ const User = () => {
 
   return (
     <>
-      <div id="delete" className="del-style">
-        <p>Are you sure you want to delete?</p>
-        <button type="button" id="yes" onClick={handleConfirm}>
-          Yes
-        </button>
-        <button type="button" id="no" onClick={handleConfirm}>
-          No
-        </button>
-      </div>
-      <div className="containa user-container">
-        <div className="image-container">
-          <img src={avatar} alt={`${name}`} className="cus-image" />
-        </div>
-        <div className="details-container">
-          <h3 className="cus-details">
-            <span>Name:</span> {name}
-          </h3>
-          <p className="cus-details">
-            <span>Username:</span> {username}
-          </p>
-          <p className="cus-details">
-            <span>Role:</span> {role}
-          </p>
-          <p className="cus-details">
-            <span>Phone:</span> {phone}
-          </p>
-          <p className="cus-details">
-            <span>Email:</span> {email}
-          </p>
-          <p className="cus-details">
-            <span>Location:</span> {location_area}
-          </p>
-          <p className="cus-details">
-            <span>Address: </span>
-            {address}
-          </p>
-          <p className="cus-details">
-            <span>Joined:</span> {Moment(created_at).format('MMMM DD, LT')}
-          </p>
-          <p className="cus-details">
-            <span>Last Updated:</span>{' '}
-            {Moment(updated_at).format('MMMM DD, LT')}
-          </p>
-        </div>
-        <div className="btns-container">
-          {permitted && (
-            <div className="edit">
-              <NavLink to={redirect}>
-                <i className="fa fa-edit text-red" />
-              </NavLink>
+      {user.loading ? (
+        <Loader />
+      ) : (
+        <>
+          <div id="delete" className="del-style">
+            <p>Are you sure you want to delete?</p>
+            <button type="button" id="yes" onClick={handleConfirm}>
+              Yes
+            </button>
+            <button type="button" id="no" onClick={handleConfirm}>
+              No
+            </button>
+          </div>
+          <div className="containa user-container">
+            <div className="image-container">
+              <img src={avatar} alt={`${name}`} className="cus-image" />
             </div>
-          )}
-          <div className="allTrans">{navigation()}</div>
-          {seeMarketersDaily && (
-            <div className="allTrans">
-              <NavLink to={allTrans}>
-                <button type="button" className="view-trans">
-                  View Transactions
-                </button>
-              </NavLink>
+            <div className="details-container">
+              <h3 className="cus-details">
+                <span>Name:</span> {name}
+              </h3>
+              <p className="cus-details">
+                <span>Username:</span> {username}
+              </p>
+              <p className="cus-details">
+                <span>Role:</span> {role}
+              </p>
+              <p className="cus-details">
+                <span>Phone:</span> {phone}
+              </p>
+              <p className="cus-details">
+                <span>Email:</span> {email}
+              </p>
+              <p className="cus-details">
+                <span>Location:</span> {location_area}
+              </p>
+              <p className="cus-details">
+                <span>Address: </span>
+                {address}
+              </p>
+              <p className="cus-details">
+                <span>Joined:</span> {Moment(created_at).format('MMMM DD, LT')}
+              </p>
+              <p className="cus-details">
+                <span>Last Updated:</span>{' '}
+                {Moment(updated_at).format('MMMM DD, LT')}
+              </p>
             </div>
-          )}
-          {downBtnRight && (
-            <div className="allTrans">
-              <button type="button" className="view-trans" onClick={handleExp}>
-                Export
-              </button>
+            <div className="btns-container">
+              {permitted && (
+                <div className="edit">
+                  <NavLink to={redirect}>
+                    <i className="fa fa-edit text-red" />
+                  </NavLink>
+                </div>
+              )}
+              <div className="allTrans">{navigation()}</div>
+              {seeMarketersDaily && (
+                <div className="allTrans">
+                  <NavLink to={allTrans}>
+                    <button type="button" className="view-trans">
+                      View Transactions
+                    </button>
+                  </NavLink>
+                </div>
+              )}
+              {downBtnRight && (
+                <div className="allTrans">
+                  <button
+                    type="button"
+                    className="view-trans"
+                    onClick={handleExp}
+                  >
+                    Export
+                  </button>
+                </div>
+              )}
+              {downBtnRight && (
+                <div className="allTrans">
+                  <NavLink to="marketeritems">
+                    <button type="button" className="view-trans">
+                      All Items
+                    </button>
+                  </NavLink>
+                </div>
+              )}
+              {downBtnRight && (
+                <div className="allTrans">
+                  <NavLink to="percent">
+                    <button type="button" className="view-trans">
+                      Pay Percent
+                    </button>
+                  </NavLink>
+                </div>
+              )}
+              {permitted && (
+                <div className="allTrans">
+                  <button
+                    type="button"
+                    className="view-trans"
+                    onClick={handleDel}
+                  >
+                    Delete
+                  </button>
+                </div>
+              )}
             </div>
-          )}
-          {downBtnRight && (
-            <div className="allTrans">
-              <NavLink to="marketeritems">
-                <button type="button" className="view-trans">
-                  All Items
-                </button>
-              </NavLink>
-            </div>
-          )}
-          {downBtnRight && (
-            <div className="allTrans">
-              <NavLink to="percent">
-                <button type="button" className="view-trans">
-                  Pay Percent
-                </button>
-              </NavLink>
-            </div>
-          )}
-          {permitted && (
-            <div className="allTrans">
-              <button type="button" className="view-trans" onClick={handleDel}>
-                Delete
-              </button>
-            </div>
-          )}
-        </div>
-      </div>
+          </div>
+        </>
+      )}
     </>
   );
 };

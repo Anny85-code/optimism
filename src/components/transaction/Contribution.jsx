@@ -27,7 +27,8 @@ const Contribution = () => {
   const [trDate, setTrDate] = useState(new Date().toLocaleDateString());
   const dispatch = useDispatch();
   const [error, setError] = useState(null);
-  let valid;
+  let validDate;
+  let validAmount;
 
   useEffect(() => {
     dispatch(getOneCustomerFromApi(+cardNumber));
@@ -77,13 +78,19 @@ const Contribution = () => {
       transaction_date: trDate,
     };
 
-    valid =
+    const tAmount = transactionData.amount;
+    /* ===============  This assumes that there's an item in the season whose unit amount is 40  ===========*/
+    validAmount = tAmount !== null && tAmount > 40;
+
+    validDate =
       transactionData.current_contribution_date !== null &&
       transactionData.currentDate !== null &&
       transactionData.transaction_date !== null;
 
-    if (valid) {
+    if (validDate && validAmount) {
       dispatch(postTransactionToApi(transactionData));
+    } else if (!validAmount) {
+      setError(`Amount isn't valid`);
     } else {
       setError('Dates are not valid');
     }
@@ -131,20 +138,20 @@ const Contribution = () => {
                   </>
                 )}
               </div>
-              {go && (
-                <NavLink
-                  to={valid ? '/transactions' : '/contribution'}
-                  style={{ textDecoration: 'none' }}
+              {/* {go && ( */}
+              <NavLink
+                to={validDate ? '/transactions' : '/contribution'}
+                style={{ textDecoration: 'none' }}
+              >
+                <button
+                  type="button"
+                  className="add-customer-btn cont-btn"
+                  onClick={handleSubmit}
                 >
-                  <button
-                    type="button"
-                    className="add-customer-btn cont-btn"
-                    onClick={handleSubmit}
-                  >
-                    Add
-                  </button>
-                </NavLink>
-              )}
+                  Add
+                </button>
+              </NavLink>
+              {/* )} */}
             </form>
           </>
         </div>
