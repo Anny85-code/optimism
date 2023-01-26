@@ -6,6 +6,7 @@ import { getMarketerItemsFromApi } from '../../redux/forms/marketerItemsReducer'
 // import Printer from '../../utils/Printer';
 import '../items/products/Itemstat.css';
 import Loader from '../loader/Loader';
+import comma from '../../../utils/Comma';
 
 const MarketerItems = () => {
   const dispatch = useDispatch();
@@ -50,12 +51,6 @@ const MarketerItems = () => {
     dispatch(getMarketerItemsFromApi(localStorage.getItem('_id')));
     localStorage.setItem('order', allOrderTotal);
   }, []);
-
-  const comma = (num) => {
-    const number = parseInt(num);
-    const newText = number.toLocaleString();
-    return newText;
-  };
 
   return (
     <>

@@ -6,6 +6,7 @@ import { getOneCustomerFoodFromApi } from '../../redux/forms/oneCustomerFoodRedu
 import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
 import Loader from '../loader/Loader';
 import './Myfood.css';
+import comma from '../../../utils/Comma';
 
 const MyFoods = () => {
   const dispatch = useDispatch();
@@ -21,10 +22,7 @@ const MyFoods = () => {
     dispatch(getOneCustomerFromApi(param.id));
   }, []);
 
-  const comma = (num) => {
-    return num?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  };
-
+  
   return (
     <>
       {!customer.loading ? (
