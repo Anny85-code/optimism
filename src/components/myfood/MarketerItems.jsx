@@ -6,7 +6,7 @@ import { getMarketerItemsFromApi } from '../../redux/forms/marketerItemsReducer'
 // import Printer from '../../utils/Printer';
 import '../items/products/Itemstat.css';
 import Loader from '../loader/Loader';
-import comma from '../../../utils/Comma';
+import comma from './../../utils/Comma';
 
 const MarketerItems = () => {
   const dispatch = useDispatch();

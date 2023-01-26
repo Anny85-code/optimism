@@ -6,7 +6,7 @@ import { getOneCustomerFoodFromApi } from '../../redux/forms/oneCustomerFoodRedu
 import { getOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
 import Loader from '../loader/Loader';
 import './Myfood.css';
-import comma from '../../../utils/Comma';
+import comma from './../../utils/Comma';
 
 const MyFoods = () => {
   const dispatch = useDispatch();
