@@ -1,5 +1,6 @@
 /* eslint-disable */
 import React from 'react';
+import { LandingFoot } from '../foot/LandingFoot';
 import LandingNav from '../nav/LandingNav';
 
 const Home = () => {
@@ -21,6 +22,7 @@ const Home = () => {
       laborum nam vel repellendus dignissimos illo fugit, nemo quia voluptatum
       eius, voluptatibus accusamus quaerat atque beatae in aliquam, nostrum
       mollitia nesciunt ab molestiae ad optio sed
+      <LandingFoot />
     </div>
   );
 };

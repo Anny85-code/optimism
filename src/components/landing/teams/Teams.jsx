@@ -1,5 +1,6 @@
 /* eslint-disable */
 import React from 'react';
+import { LandingFoot } from '../foot/LandingFoot';
 import LandingNav from '../nav/LandingNav';
 
 const Teams = () => {
@@ -11,6 +12,7 @@ const Teams = () => {
       dignissimos voluptas aperiam obcaecati ratione vero, officiis, cumque rem
       doloribus tempora debitis eius adipisci repellat qui exercitationem animi
       blanditiis in quasi!
+      <LandingFoot />
     </div>
   );
 };
