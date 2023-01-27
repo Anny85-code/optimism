@@ -1,0 +1,11 @@
+ul {
+  display: flex;
+  justify-content: space-between;
+  padding: 3rem 30rem;
+}
+
+a li {
+  list-style: none;
+  text-transform: none;
+  color: black;
+}
