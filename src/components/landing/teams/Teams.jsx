@@ -6,7 +6,11 @@ const Teams = () => {
   return (
     <div>
       <LandingNav />
-      Teams
+      <h2>Teams</h2>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores
+      dignissimos voluptas aperiam obcaecati ratione vero, officiis, cumque rem
+      doloribus tempora debitis eius adipisci repellat qui exercitationem animi
+      blanditiis in quasi!
     </div>
   );
 };

@@ -6,6 +6,7 @@ const Home = () => {
   return (
     <div className="landing_app">
       <LandingNav />
+      <h2>Home</h2>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate
       necessitatibus, cupiditate debitis placeat aliquam expedita delectus omnis
       ratione accusamus eos architecto optio ad esse reprehenderit nobis illum
@@ -19,15 +20,7 @@ const Home = () => {
       ducimus accusamus nostrum cum natus laudantium dignissimos! Dolorem
       laborum nam vel repellendus dignissimos illo fugit, nemo quia voluptatum
       eius, voluptatibus accusamus quaerat atque beatae in aliquam, nostrum
-      mollitia nesciunt ab molestiae ad optio sed? Labore sequi repudiandae
-      iusto obcaecati nostrum fugit odio, vitae vel adipisci provident? Deleniti
-      impedit error quo consectetur? Cum, vero incidunt? Obcaecati, delectus
-      consectetur eos officiis dolorum iusto reiciendis quos quod, neque totam
-      praesentium laboriosam impedit voluptatibus doloribus ad veritatis
-      voluptatum placeat! Blanditiis animi accusamus quos facilis quibusdam
-      saepe ullam perspiciatis minus natus voluptate qui dolores voluptatem
-      culpa aut soluta illum amet repudiandae iste enim corporis iusto,
-      aspernatur veniam. Cum maiores magni adipisci soluta molestias, voluptates
+      mollitia nesciunt ab molestiae ad optio sed
     </div>
   );
 };

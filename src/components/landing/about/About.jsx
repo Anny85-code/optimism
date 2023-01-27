@@ -6,7 +6,11 @@ const About = () => {
   return (
     <div>
       <LandingNav />
-      About
+      <h2>About</h2>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni sequi
+      tempore placeat tenetur nobis? Doloremque nemo veniam numquam quae
+      possimus? Voluptates, veniam fugiat sed repudiandae doloremque laborum
+      dicta maiores consectetur.
     </div>
   );
 };

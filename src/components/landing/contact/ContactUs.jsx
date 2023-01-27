@@ -6,7 +6,10 @@ const ContactUs = () => {
   return (
     <div>
       <LandingNav />
-      ContactUs
+      <h2>Contact Us</h2>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique
+      dolores, quia laudantium ad nemo debitis totam rem porro possimus maiores
+      doloremque quasi natus ut dolore vero quis hic corrupti neque?
     </div>
   );
 };
