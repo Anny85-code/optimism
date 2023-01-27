@@ -2,43 +2,25 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-// import { getCustomerFromApi } from '../../redux/forms/customerReducer';
 import './Customers.css';
 import Loader from '../loader/Loader';
 import { getMarketerCustomersFromApi } from '../../redux/forms/marketerCustomersReducer';
 
 const Customers = () => {
   const dispatch = useDispatch();
-  // const allCustomers = useSelector((state) => state.customer?.data?.customers);
   const markCustomers = useSelector((state) => state.mCustomers);
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
   const reId = localStorage.getItem('_id');
-  // const admins = user.role === 'admin' || user.role === 'superadmin';
-  // const supervisor = user.role === 'supervisor';
-  // const isMarketer = user.role === 'marketer';
   const sliceChunk = 10;
   const [nx, setNx] = useState(sliceChunk);
   const [pr, setPr] = useState(0);
 
   useEffect(() => {
-    // dispatch(getCustomerFromApi());
     dispatch(getMarketerCustomersFromApi(reId ?? user.id));
-    // if (isMarketer) dispatch(getMarketerCustomersFromApi(user.id));
   }, []);
 
   const newData = markCustomers?.data?.customers;
-
-  // const newData = allCustomers?.filter((customer) => {
-  //   if (
-  //     (admins && +reId === customer.user_id) ||
-  //     (supervisor && +reId === customer.user_id) ||
-  //     (isMarketer && user.id === customer.user_id)
-  //   ) {
-  //     return customer;
-  //   }
-  // });
-
   const len = markCustomers?.data?.no;
 
   const handleNext = () => {

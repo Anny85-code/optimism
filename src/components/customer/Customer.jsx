@@ -22,11 +22,6 @@ const transUrl = (person) => {
   return `/customers/${id}/transactions`;
 };
 
-// const transUrlMark = (person) => {
-//   const { id } = person;
-//   return `/customers/${id}/transactionsmark`;
-// };
-
 const myFoodUrl = (person) => {
   const { id } = person;
   return `/customers/${id}/myfood`;
