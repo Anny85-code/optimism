@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Black+Han+Sans&family=Lato:wght@100;300;700;900&family=Montserrat:wght@500;700;900&family=Poppins:ital,wght@0,200;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Roboto+Slab:wght@100;200;300;500;700;800&display=swap');
+
+.teams_container {
+  background-color: #000;
+}
+
+.team_head {
+  height: 80vh;
+  text-align: center;
+  background-image: url(../../../assets/image/teams_demo2.jpg);
+  color: #fff;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: 1500px 1200px;
+  padding-top: 280px;
+  font-family: 'Satisfy', cursive;
+  font-size: 30px;
+  font-style: italic;
+  text-transform: capitalize;
+}
+
+img {
+  border-radius: 23px;
+}

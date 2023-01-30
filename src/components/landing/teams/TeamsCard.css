@@ -1,0 +1,24 @@
+.teams_card {
+  background-color: #fff;
+  padding: 8%;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  text-align: center;
+  padding-bottom: 40px;
+}
+
+/* stylelint-disable-next-line selector-pseudo-element-colon-notation */
+.row:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+@media only screen and (max-width: 470px) {
+  .column {
+    width: 100%;
+  }
+}
