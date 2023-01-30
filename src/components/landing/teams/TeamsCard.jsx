@@ -9,7 +9,7 @@ const TeamsCard = ({ props }) => {
       {props.map((el) => (
         <div key={el.id} className="column">
           <img src={el.name} alt={el.name} style={{ width: '120px' }} />
-          <h4>{el.title}</h4>
+          <h4 className="team__head">{el.title}</h4>
           <p>{el.desc}</p>
         </div>
       ))}

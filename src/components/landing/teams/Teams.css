@@ -2,6 +2,16 @@
 
 .teams_container {
   background-color: #000;
+  font-family: 'Roboto', sans-serif;
+  font-weight: normal;
+  letter-spacing: 0.2rem;
+}
+
+h3,
+h4,
+h6 {
+  font-family: 'Satisfy', cursive;
+  font-style: italic;
 }
 
 .team_head {
@@ -13,9 +23,7 @@
   background-repeat: no-repeat;
   background-size: 1500px 1200px;
   padding-top: 280px;
-  font-family: 'Satisfy', cursive;
   font-size: 30px;
-  font-style: italic;
   text-transform: capitalize;
 }
 

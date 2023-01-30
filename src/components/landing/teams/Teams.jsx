@@ -23,7 +23,7 @@ const teams = [
     id: 3,
     name: Img1,
     title: 'Lorem ipsum dolor sit',
-    desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Est accusamus, repudiandae illum exercitationem incidunt maiores.',
+    desc: 'Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Est accusamusLorem ipsum dolor sit amet consectetur adipisicing elit. Est accusamusipsum dolor sit amet consectetur adipisicing elit. Est accusamus, repudiandae illum exercitationem incidunt maiores.',
   },
   {
     id: 4,
@@ -41,7 +41,7 @@ const teams = [
     id: 6,
     name: Img1,
     title: 'Lorem ipsum dolor sit',
-    desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Est accusamus, repudiandae illum exercitationem incidunt maiores.',
+    desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Est accusamus, Lorem ipsum dolor sit amet consectetur adipisicing elit. Est accusamusrepudiandae illum exercitationem incidunt maiores.',
   },
 ];
 
