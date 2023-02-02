@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import './Main.css';
@@ -12,7 +12,6 @@ import GetNullDates from '../../utils/GetNullDates';
 import DeleteNoCardNo from '../../utils/DeleteNoCardNo';
 import GetNoCardNo from '../../utils/GetNoCardNo';
 import comma from './../../utils/Comma';
-import DeleteMarketerTrans from '../../utils/DeleteMarketerTrans';
 
 const Main = () => {
   const dispatch = useDispatch();
@@ -23,22 +22,10 @@ const Main = () => {
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
   const admins = user.role === 'admin' || user.role === 'superadmin';
-  const [markId, setMarkId] = useState(0);
-  // ================ Used to destroy all transactions in the app ====================
-  // const delNoCard = () => {
-  //   transactions.data.transactions.map((trans) =>
-  //     dispatch(delOneTransFromApi(trans.id))
-  //   );
-  // };
-  /* ============ Use with caution, can destroy all transactions in the DB ============= */
 
   useEffect(() => {
     dispatch(getDashboard());
   }, []);
-
-  const handleInput = () => {
-    console.log(markId);
-  };
 
   return (
     <>
@@ -121,17 +108,6 @@ const Main = () => {
                       <DeleteNoCardNo />
                       <GetNullDates />
                       <DeleteNullDates />
-                      <div style={{ display: 'flex', flexDirection: 'column' }}>
-                        <input
-                          type="number"
-                          style={{ width: '80px' }}
-                          onChange={(e) => setMarkId(+e.target.value)}
-                        />
-                        <button onClick={handleInput}>
-                          Delete Marketer Trans
-                        </button>
-                        <DeleteMarketerTrans id={markId} />
-                      </div>
                     </>
                   )}
                 </div>
