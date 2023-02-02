@@ -24,8 +24,6 @@ const MarketerItems = () => {
     documentTitle: 'emp-data',
   });
 
-  console.log(marketer);
-
   foods &&
     foods.map(({ items }) => {
       const foodItems = JSON.parse(items);

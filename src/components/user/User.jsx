@@ -87,7 +87,6 @@ const User = () => {
   const handleConfirm = (e) => {
     if (e.target.id === 'yes') {
       dispatch(delOneUserFromApi(id));
-      console.log('This is user del');
     } else if (e.target.id === 'no') {
       const deleteS = document.getElementById('delete');
       deleteS.style.display = 'none';
@@ -100,7 +99,6 @@ const User = () => {
       allTrans?.forEach((trans) => {
         dispatch(delOneTransFromApi(trans.id));
       });
-      console.log('This is trans del');
     } else if (e.target.id === 'no-trans') {
       const deleteS = document.getElementById('delete4trans');
       deleteS.style.display = 'none';
