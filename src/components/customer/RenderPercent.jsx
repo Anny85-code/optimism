@@ -10,6 +10,9 @@ const RenderPercent = ({ percents }) => {
   const { user } = data || {};
   const superadmin = user.role === 'superadmin';
   const [select, setSelect] = useState('hundred');
+  const sliceChunk = 20;
+  const [nx, setNx] = useState(sliceChunk);
+  const [pr, setPr] = useState(0);
 
   const renderData = (per) => (
     <NavLink
@@ -42,15 +45,15 @@ const RenderPercent = ({ percents }) => {
   const toggle = () => {
     switch (select) {
       case 'twenty':
-        return percents?.twenty?.map((per) => renderData(per));
+        return percents?.twenty?.slice(pr, nx).map((per) => renderData(per));
       case 'fourty':
-        return percents?.fourty?.map((per) => renderData(per));
+        return percents?.fourty?.slice(pr, nx).map((per) => renderData(per));
       case 'sixty':
-        return percents?.sixty?.map((per) => renderData(per));
+        return percents?.sixty?.slice(pr, nx).map((per) => renderData(per));
       case 'eighty':
-        return percents?.eighty?.map((per) => renderData(per));
+        return percents?.eighty?.slice(pr, nx).map((per) => renderData(per));
       case 'hundred':
-        return percents?.hundred?.map((per) => renderData(per));
+        return percents?.hundred?.slice(pr, nx).map((per) => renderData(per));
       default:
         break;
     }
@@ -75,6 +78,22 @@ const RenderPercent = ({ percents }) => {
         return percents?._100;
       default:
         break;
+    }
+  };
+
+  const len = toggleTotal();
+
+  const handleNext = () => {
+    if (nx <= len) {
+      setNx(nx + sliceChunk);
+      setPr(pr + sliceChunk);
+    }
+  };
+
+  const handPrevious = () => {
+    if (pr > 1) {
+      setPr(pr - sliceChunk);
+      setNx(nx - sliceChunk);
     }
   };
 
@@ -145,6 +164,23 @@ const RenderPercent = ({ percents }) => {
           </div>
         )}
         {!superadmin && <p>Unauthorized to see this page!</p>}
+        {len > 0 && (
+          <div className="pre-next-cont">
+            <i
+              className="fa fa-caret-left fa-2x text-red"
+              onClick={handPrevious}
+              style={{ cursor: 'pointer' }}
+            />
+            <p className="pre-text">
+              {pr + 1} - {nx < len ? nx : len} <span>of</span> {len}
+            </p>
+            <i
+              className="fa fa-caret-right fa-2x text-red"
+              onClick={handleNext}
+              style={{ cursor: 'pointer' }}
+            />
+          </div>
+        )}
       </div>
     </div>
   );

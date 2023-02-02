@@ -3,7 +3,6 @@ import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useReactToPrint } from 'react-to-print';
 import { getMarketerItemsFromApi } from '../../redux/forms/marketerItemsReducer';
-// import Printer from '../../utils/Printer';
 import '../items/products/Itemstat.css';
 import Loader from '../loader/Loader';
 import comma from './../../utils/Comma';
@@ -59,10 +58,7 @@ const MarketerItems = () => {
           {superadmin && (
             <div>
               <div id="col">
-                <h2 className="total-orders">
-                  Marketer: {marketer?.[1]}
-                  {/* Total Orders: {comma(allOrderTotal)} */}
-                </h2>
+                <h2 className="total-orders">Marketer: {marketer?.[1]}</h2>
                 <center>Location: {marketer?.[2]}</center>
               </div>
               <div className="custrans-name">
@@ -124,7 +120,6 @@ const MarketerItems = () => {
                   </ul>
                 </div>
               ))}
-              {/* <Printer /> */}
               <center style={{ margin: '12px 0' }}>
                 <button
                   className="view-trans"
