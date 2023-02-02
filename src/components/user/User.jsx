@@ -11,6 +11,8 @@ import {
 import './User.css';
 import { getCustomerFromApi } from '../../redux/forms/customerReducer';
 import Loader from '../loader/Loader';
+import { getOneUserTransFromApi } from '../../redux/forms/oneUserTransactReducer';
+import { delOneTransFromApi } from '../../redux/forms/OneTransactionReducer';
 
 const editUrl = (person) => {
   const { id } = person;
@@ -28,6 +30,7 @@ const User = () => {
   const { id } = param;
   const user = useSelector((state) => state.oneUser);
   const customers = useSelector((state) => state.customer?.data?.customers);
+  const transactions = useSelector((state) => state.userTransacts);
   const data = JSON.parse(localStorage.getItem('user'));
   const loggedUser = data.user || {};
   const permitted =
@@ -37,10 +40,12 @@ const User = () => {
     (permitted || loggedUser.role === 'supervisor') &&
     user.data.role === 'marketer';
   const superadmin = loggedUser.role === 'superadmin';
+  const dev = user.data.role === 'marketer' && loggedUser.username === 'admin';
 
   useEffect(() => {
     dispatch(getOneUserFromApi(id));
     dispatch(getCustomerFromApi());
+    dispatch(getOneUserTransFromApi(id));
   }, []);
 
   const {
@@ -82,14 +87,38 @@ const User = () => {
   const handleConfirm = (e) => {
     if (e.target.id === 'yes') {
       dispatch(delOneUserFromApi(id));
+      console.log('This is user del');
     } else if (e.target.id === 'no') {
       const deleteS = document.getElementById('delete');
       deleteS.style.display = 'none';
     }
   };
 
+  const handleConfirm4Trans = (e) => {
+    if (e.target.id === 'yes-trans') {
+      const allTrans = transactions?.data?.trans;
+      allTrans?.forEach((trans) => {
+        dispatch(delOneTransFromApi(trans.id));
+      });
+      console.log('This is trans del');
+    } else if (e.target.id === 'no-trans') {
+      const deleteS = document.getElementById('delete4trans');
+      deleteS.style.display = 'none';
+    }
+
+    if (allTrans?.length < 0) {
+      const deleteS = document.getElementById('delete4trans');
+      deleteS.style.display = 'none';
+    }
+  };
+
   const handleDel = () => {
     const deleteS = document.getElementById('delete');
+    deleteS.style.display = 'block';
+  };
+
+  const handleDelTrans = () => {
+    const deleteS = document.getElementById('delete4trans');
     deleteS.style.display = 'block';
   };
 
@@ -131,6 +160,15 @@ const User = () => {
               Yes
             </button>
             <button type="button" id="no" onClick={handleConfirm}>
+              No
+            </button>
+          </div>
+          <div id="delete4trans" className="del-style">
+            <p>Are you sure you want to delete all transactions?</p>
+            <button type="button" id="yes-trans" onClick={handleConfirm4Trans}>
+              Yes
+            </button>
+            <button type="button" id="no-trans" onClick={handleConfirm4Trans}>
               No
             </button>
           </div>
@@ -224,6 +262,17 @@ const User = () => {
                     onClick={handleDel}
                   >
                     Delete
+                  </button>
+                </div>
+              )}
+              {dev && (
+                <div className="allTrans">
+                  <button
+                    type="button"
+                    className="view-trans"
+                    onClick={handleDelTrans}
+                  >
+                    Delete All Trans
                   </button>
                 </div>
               )}

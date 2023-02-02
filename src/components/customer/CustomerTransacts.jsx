@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useParams } from 'react-router-dom';
 import Moment from 'moment';
@@ -16,10 +16,29 @@ const CustomerTransacts = () => {
   const { trans, user_name, total, total_days } = data || {};
   const currentUser = JSON.parse(localStorage.getItem('user'));
   const { user } = currentUser || {};
+  const sliceChunk = 20;
+  const [nx, setNx] = useState(sliceChunk);
+  const [pr, setPr] = useState(0);
 
   useEffect(() => {
     dispatch(getOneCustomerTransFromApi(id));
   }, []);
+
+  const len = trans?.length;
+
+  const handleNext = () => {
+    if (nx <= len) {
+      setNx(nx + sliceChunk);
+      setPr(pr + sliceChunk);
+    }
+  };
+
+  const handPrevious = () => {
+    if (pr > 1) {
+      setPr(pr - sliceChunk);
+      setNx(nx - sliceChunk);
+    }
+  };
 
   return (
     <>
@@ -95,7 +114,7 @@ const CustomerTransacts = () => {
                     </h3>
                   )}
                 </div>
-                {trans?.map((transaction) => (
+                {trans?.slice(pr, nx).map((transaction) => (
                   <NavLink
                     key={transaction.id}
                     to={`/transactions/${transaction.id}`}
@@ -179,6 +198,23 @@ const CustomerTransacts = () => {
         </div>
       ) : (
         <Loader />
+      )}
+      {len > 0 && (
+        <div className="pre-next-cont">
+          <i
+            className="fa fa-caret-left fa-2x text-red"
+            onClick={handPrevious}
+            style={{ cursor: 'pointer' }}
+          />
+          <p className="pre-text">
+            {pr + 1} - {nx < len ? nx : len} <span>of</span> {len}
+          </p>
+          <i
+            className="fa fa-caret-right fa-2x text-red"
+            onClick={handleNext}
+            style={{ cursor: 'pointer' }}
+          />
+        </div>
       )}
     </>
   );
