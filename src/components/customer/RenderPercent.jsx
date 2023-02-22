@@ -1,11 +1,12 @@
 /* eslint-disable */
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useReactToPrint } from 'react-to-print';
 import PropTypes from 'prop-types';
 import './Paid60.css';
 import comma from '../../utils/Comma';
 
-const RenderPercent = ({ percents }) => {
+const RenderPercent = ({ percents, owner }) => {
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
   const superadmin = user.role === 'superadmin';
@@ -13,6 +14,7 @@ const RenderPercent = ({ percents }) => {
   const sliceChunk = 20;
   const [nx, setNx] = useState(sliceChunk);
   const [pr, setPr] = useState(0);
+  const componentRef = useRef();
 
   const renderData = (per) => (
     <NavLink
@@ -59,6 +61,11 @@ const RenderPercent = ({ percents }) => {
     }
   };
 
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+    documentTitle: 'emp-data',
+  });
+
   const handlePercent = (e) => {
     setSelect(e.target.value);
     toggle();
@@ -98,10 +105,15 @@ const RenderPercent = ({ percents }) => {
   };
 
   return (
-    <div className="main-percent-conrainer">
+    <div className="main-percent-conrainer" ref={componentRef}>
       <div className="percent-input">
         <label htmlFor="role" className="form-label">
           <center>Please Select Percentage</center>
+          <center style={{ margin: '12px 0' }}>
+            <button className="view-trans" type="button" onClick={handlePrint}>
+              Print
+            </button>
+          </center>
           <select
             value={select}
             onChange={handlePercent}
@@ -122,7 +134,9 @@ const RenderPercent = ({ percents }) => {
         {superadmin && (
           <div>
             <div id="col">
-              <h2 className="total-orders">Total: {toggleTotal() ?? 0}</h2>
+              <h2 className="total-orders">
+                {owner ?? 'General'} ---- Total: {toggleTotal() ?? 0}
+              </h2>
             </div>
             <div className="custrans-name">
               <h4 className="columns">
@@ -188,6 +202,7 @@ const RenderPercent = ({ percents }) => {
 
 RenderPercent.propTypes = {
   percents: PropTypes.object.isRequired,
+  owner: PropTypes.string.isRequired,
 };
 
 export default RenderPercent;
