@@ -1,11 +1,15 @@
-/* ul {
+.landing_ul {
   display: flex;
   justify-content: space-between;
   padding: 3rem 30rem;
 }
 
-a li {
+.landing_ul li {
   list-style: none;
   text-transform: none;
-  color: black;
-} */
+  background-color: black;
+}
+
+.landing_ul li:hover {
+  transform: scale(1.2);
+}

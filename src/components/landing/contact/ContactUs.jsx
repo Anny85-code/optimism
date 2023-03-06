@@ -2,15 +2,16 @@
 import React from 'react';
 import { LandingFoot } from '../foot/LandingFoot';
 import LandingNav from '../nav/LandingNav';
+import './ContactUs.css';
 
 const ContactUs = () => {
   return (
-    <div>
+    <div className="teams_container">
       <LandingNav />
-      <h2>Contact Us</h2>
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique
-      dolores, quia laudantium ad nemo debitis totam rem porro possimus maiores
-      doloremque quasi natus ut dolore vero quis hic corrupti neque?
+      <section className="contact_us_head">
+        <h3>Contact Us</h3>
+        {/* <h3>Chicken Recipes</h3> */}
+      </section>
       <LandingFoot />
     </div>
   );
