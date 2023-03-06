@@ -9,7 +9,7 @@ const ContactUs = () => {
     <div className="teams_container">
       <LandingNav />
       <section className="contact_us_head">
-        <h3>Contact Us</h3>
+        <h3 className="head__y">Contact Us</h3>
         {/* <h3>Chicken Recipes</h3> */}
       </section>
       <LandingFoot />

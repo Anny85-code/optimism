@@ -8,6 +8,8 @@
   list-style: none;
   text-transform: none;
   background-color: black;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
 }
 
 .landing_ul li:hover {

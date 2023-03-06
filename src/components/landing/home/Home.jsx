@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <div className="landing_app">
       <LandingNav />
-      <h2>Home</h2>
+      <h2 className="head__y">Home</h2>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate
       necessitatibus, cupiditate debitis placeat aliquam expedita delectus omnis
       ratione accusamus eos architecto optio ad esse reprehenderit nobis illum

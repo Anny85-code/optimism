@@ -7,7 +7,7 @@ const About = () => {
   return (
     <div>
       <LandingNav />
-      <h2>About</h2>
+      <h2 className="head__y">About</h2>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni sequi
       tempore placeat tenetur nobis? Doloremque nemo veniam numquam quae
       possimus? Voluptates, veniam fugiat sed repudiandae doloremque laborum

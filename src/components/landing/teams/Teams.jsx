@@ -50,7 +50,7 @@ const Teams = () => {
     <div className="teams_container">
       <LandingNav />
       <section className="team_head">
-        <h3>teams</h3>
+        <h3 className="head__y">teams</h3>
         {/* <h3>Chicken Recipes</h3> */}
       </section>
       <TeamsCard props={teams} />

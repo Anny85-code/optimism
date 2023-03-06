@@ -7,9 +7,7 @@
   letter-spacing: 0.2rem;
 }
 
-h3,
-h4,
-h6 {
+.head__y {
   font-family: 'Satisfy', cursive;
   font-style: italic;
 }
