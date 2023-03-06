@@ -10,9 +10,10 @@
 .cardy {
   float: left;
   text-align: center;
-  background-color: rgb(195, 165, 124);
+  background-color: #909b5f;
   border-radius: 17px;
   overflow: hidden;
+  color: #fff;
 }
 
 .card__img {
@@ -20,7 +21,7 @@
 }
 
 .cardy:nth-child(even) {
-  background-color: rgb(163, 131, 131);
+  background-color: #5b5859;
 }
 
 .team__head {
