@@ -1,20 +1,26 @@
 .teams_card {
-  background-color: #fff;
-  padding: 8%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  grid-auto-rows: minmax(100px, auto);
+  background-color: #edeff5;
+  padding: 5%;
 }
 
-.column {
+.cardy {
   float: left;
-  width: 33.33%;
   text-align: center;
-  padding-bottom: 6rem;
+  background-color: rgb(195, 165, 124);
+  border-radius: 17px;
+  overflow: hidden;
 }
 
-/* stylelint-disable-next-line selector-pseudo-element-colon-notation */
-.row:after {
-  content: '';
-  display: table;
-  clear: both;
+.card__img {
+  width: 100%;
+}
+
+.cardy:nth-child(even) {
+  background-color: rgb(163, 131, 131);
 }
 
 .team__head {
@@ -22,7 +28,8 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .column {
-    width: 100%;
+  .teams_card {
+    grid-template-columns: repeat(1, 1fr);
+    padding: 0.8rem;
   }
 }
