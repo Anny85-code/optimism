@@ -23,6 +23,7 @@ const RenderPercent = ({ percents }) => {
             <div className="custrans-name">
               <h4 className="columns">{per.card}</h4>
               <h4 className="columns">{per.name}</h4>
+              <h4 className="columns">{per.phone}</h4>
               <h4 className="columns i" id="top">
                 {per.total_days}
               </h4>
@@ -116,7 +117,10 @@ const RenderPercent = ({ percents }) => {
                 <span className="cus-name1">C/No</span>
               </h4>
               <h4 className="columns">
-                <span className="cus-name1">Customer Name</span>
+                <span className="cus-name1">Name</span>
+              </h4>
+              <h4 className="columns">
+                <span className="cus-name1">Phone</span>
               </h4>
               <h4 className="columns i">Days Paid For</h4>
               <h4 className="columns i" id="a">
