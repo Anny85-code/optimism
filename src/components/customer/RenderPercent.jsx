@@ -42,6 +42,8 @@ const RenderPercent = ({ percents }) => {
 
   const toggle = () => {
     switch (select) {
+      case 'zero':
+        return percents?.zero?.map((per) => renderData(per));
       case 'twenty':
         return percents?.twenty?.map((per) => renderData(per));
       case 'fourty':
@@ -64,6 +66,8 @@ const RenderPercent = ({ percents }) => {
 
   const toggleTotal = () => {
     switch (select) {
+      case 'zero':
+        return percents?._0;
       case 'twenty':
         return percents?._20;
       case 'fourty':
@@ -91,6 +95,7 @@ const RenderPercent = ({ percents }) => {
             id="opt-id"
           >
             <option defaultValue="PLEASE SELECT ...">Select Percent</option>
+            <option value="zero">0%</option>
             <option value="twenty">20%</option>
             <option value="fourty">40%</option>
             <option value="sixty">60%</option>
