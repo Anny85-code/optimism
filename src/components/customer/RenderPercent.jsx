@@ -12,10 +12,9 @@ const RenderPercent = ({ percents }) => {
   const [select, setSelect] = useState('hundred');
 
   const unpack = (data) => {
-    let items = [];
     const dataItems = data?.myitems?.[0]?.items;
     const jsonItems = JSON.parse(dataItems);
-    items = Object.values(jsonItems);
+    const items = Object.values(jsonItems);
     return items.map((item) => [item?.id, item?.qauntity]).join(',');
   };
 
@@ -29,20 +28,20 @@ const RenderPercent = ({ percents }) => {
         <ul id="p-child">
           <li>
             <div className="custrans-name">
-              <h4 className="columns">{per.card}</h4>
-              <h4 className="columns">{per.name}</h4>
-              <h4 className="columns">{per.phone}</h4>
-              <h4 className="columns i" id="top">
+              <p className="columns">{per.card}</p>
+              <p className="columns">{per.name}</p>
+              <p className="columns">{per.phone}</p>
+              <p className="columns i" id="top">
                 {per.total_days}
-              </h4>
-              <h4
+              </p>
+              <p
                 className="columns i"
                 style={{ borderRight: '2px solid crimson' }}
               >
                 {comma(per.daily)}
-              </h4>
-              <h4 className="columns">{comma(per.total)}</h4>
-              <h4 className="columns">{unpack(per)}</h4>
+              </p>
+              <p className="columns">{comma(per.total)}</p>
+              <p className="columns">{unpack(per)}</p>
             </div>
           </li>
         </ul>
@@ -122,25 +121,25 @@ const RenderPercent = ({ percents }) => {
               <h2 className="total-orders">Total: {toggleTotal() ?? 0}</h2>
             </div>
             <div className="custrans-name">
-              <h4 className="columns">
+              <h6 className="columns">
                 <span className="cus-name1">C/No</span>
-              </h4>
-              <h4 className="columns">
+              </h6>
+              <h6 className="columns">
                 <span className="cus-name1">Name</span>
-              </h4>
-              <h4 className="columns">
+              </h6>
+              <h6 className="columns">
                 <span className="cus-name1">Phone</span>
-              </h4>
-              <h4 className="columns i">Days Paid</h4>
-              <h4 className="columns i" id="a">
+              </h6>
+              <h6 className="columns i">Days Paid</h6>
+              <h6 className="columns i" id="a">
                 Daily
-              </h4>
-              <h4 className="columns">
+              </h6>
+              <h6 className="columns">
                 <span className="cus-name1 ">Total (NGN)</span>
-              </h4>
-              <h4 className="columns">
+              </h6>
+              <h6 className="columns">
                 <span className="cus-name1 ">Items</span>
-              </h4>
+              </h6>
             </div>
 
             <div className="custrans-name">
