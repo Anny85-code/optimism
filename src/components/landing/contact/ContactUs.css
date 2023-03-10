@@ -1,12 +1,12 @@
 .contact_us_head {
-  height: 80vh;
+  height: 100vh;
   text-align: center;
   background-image: url(../../../assets/image/call2.jpg);
   color: #fff;
   background-position: top;
   background-repeat: no-repeat;
-  background-size: 1500px 1200px;
-  padding-top: 280px;
+  background-size: 1500px 1000px;
+  padding-top: 250px;
   font-size: 30px;
   text-transform: capitalize;
 }

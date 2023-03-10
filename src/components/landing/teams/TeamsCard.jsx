@@ -5,7 +5,7 @@ import './TeamsCard.css';
 
 const TeamsCard = ({ props }) => {
   return (
-    <div className="teams_card row">
+    <div className="teams_card">
       {props.map((el) => (
         <div key={el.id} className="cardy">
           <img className="card__img" src={el.name} alt={el.name} />
