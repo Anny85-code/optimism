@@ -21,6 +21,7 @@ const RenderPercent = ({ percents }) => {
         <ul id="p-child">
           <li>
             <div className="custrans-name">
+              <h4 className="columns">{per.card}</h4>
               <h4 className="columns">{per.name}</h4>
               <h4 className="columns i" id="top">
                 {per.total_days}
@@ -107,6 +108,9 @@ const RenderPercent = ({ percents }) => {
             </div>
             <div className="custrans-name">
               <h4 className="columns">
+                <span className="cus-name1">C/No</span>
+              </h4>
+              <h4 className="columns">
                 <span className="cus-name1">Customer Name</span>
               </h4>
               <h4 className="columns i">Days Paid For</h4>
@@ -119,6 +123,9 @@ const RenderPercent = ({ percents }) => {
             </div>
 
             <div className="custrans-name">
+              <h3 className="columns" id="col">
+                <p className="custransactname"></p>
+              </h3>
               <h3 className="columns" id="col">
                 <p className="custransactname"></p>
               </h3>
