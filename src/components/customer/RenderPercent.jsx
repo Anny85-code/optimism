@@ -11,6 +11,14 @@ const RenderPercent = ({ percents }) => {
   const superadmin = user.role === 'superadmin';
   const [select, setSelect] = useState('hundred');
 
+  const unpack = (data) => {
+    let items = [];
+    const dataItems = data?.myitems?.[0]?.items;
+    const jsonItems = JSON.parse(dataItems);
+    items = Object.values(jsonItems);
+    return items.map((item) => [item?.id, item?.qauntity]).join(',');
+  };
+
   const renderData = (per) => (
     <NavLink
       style={{ color: 'black' }}
@@ -33,7 +41,8 @@ const RenderPercent = ({ percents }) => {
               >
                 {comma(per.daily)}
               </h4>
-              <h4 className="columns">NGN {comma(per.total)}</h4>
+              <h4 className="columns">{comma(per.total)}</h4>
+              <h4 className="columns">{unpack(per)}</h4>
             </div>
           </li>
         </ul>
@@ -122,12 +131,15 @@ const RenderPercent = ({ percents }) => {
               <h4 className="columns">
                 <span className="cus-name1">Phone</span>
               </h4>
-              <h4 className="columns i">Days Paid For</h4>
+              <h4 className="columns i">Days Paid</h4>
               <h4 className="columns i" id="a">
-                Daily Contribution
+                Daily
               </h4>
               <h4 className="columns">
-                <span className="cus-name1 ">Total Amount</span>
+                <span className="cus-name1 ">Total (NGN)</span>
+              </h4>
+              <h4 className="columns">
+                <span className="cus-name1 ">Items</span>
               </h4>
             </div>
 
