@@ -57,15 +57,30 @@ const RenderPercent = ({ percents }) => {
           return renderData(per);
         });
       case 'twenty':
-        return percents?.twenty?.map((per) => renderData(per));
+        return percents?.twenty?.map((per) => {
+          localStorage.setItem('setPercent', JSON.stringify(per));
+          return renderData(per);
+        });
       case 'fourty':
-        return percents?.fourty?.map((per) => renderData(per));
+        return percents?.fourty?.map((per) => {
+          localStorage.setItem('setPercent', JSON.stringify(per));
+          return renderData(per);
+        });
       case 'sixty':
-        return percents?.sixty?.map((per) => renderData(per));
+        return percents?.sixty?.map((per) => {
+          localStorage.setItem('setPercent', JSON.stringify(per));
+          return renderData(per);
+        });
       case 'eighty':
-        return percents?.eighty?.map((per) => renderData(per));
+        return percents?.eighty?.map((per) => {
+          localStorage.setItem('setPercent', JSON.stringify(per));
+          return renderData(per);
+        });
       case 'hundred':
-        return percents?.hundred?.map((per) => renderData(per));
+        return percents?.hundred?.map((per) => {
+          localStorage.setItem('setPercent', JSON.stringify(per));
+          return renderData(per);
+        });
       default:
         break;
     }

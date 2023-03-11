@@ -6,7 +6,7 @@ import Loader from '../loader/Loader';
 import comma from './../../utils/Comma';
 
 const RenderItems = ({ mFoods }) => {
-  const foods = mFoods?.data?.items;
+  const foods = mFoods?.data?.items ?? mFoods?.items;
   const marketer = mFoods?.marketer ?? mFoods?.data?.marketer;
   const foodArray = [];
   const data = JSON.parse(localStorage.getItem('user'));
@@ -54,7 +54,7 @@ const RenderItems = ({ mFoods }) => {
             <div>
               <div id="col">
                 <h2 className="total-orders">
-                  Marketer: {marketer?.[1]}
+                  Marketer: {marketer?.[1] || marketer}
                   {/* Total Orders: {comma(allOrderTotal)} */}
                 </h2>
                 <center>Location: {marketer?.[2]}</center>
