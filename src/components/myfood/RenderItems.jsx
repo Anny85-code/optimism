@@ -5,9 +5,9 @@ import '../items/products/Itemstat.css';
 import Loader from '../loader/Loader';
 import comma from './../../utils/Comma';
 
-const RenderItems = (mFoods) => {
+const RenderItems = ({ mFoods }) => {
   const foods = mFoods?.data?.items;
-  const marketer = mFoods?.marketer;
+  const marketer = mFoods?.marketer ?? mFoods?.data?.marketer;
   const foodArray = [];
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
@@ -18,8 +18,6 @@ const RenderItems = (mFoods) => {
     content: () => componentRef.current,
     documentTitle: 'emp-data',
   });
-
-  console.log(marketer);
 
   foods &&
     foods.map(({ items }) => {
