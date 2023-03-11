@@ -52,7 +52,10 @@ const RenderPercent = ({ percents }) => {
   const toggle = () => {
     switch (select) {
       case 'zero':
-        return percents?.zero?.map((per) => renderData(per));
+        return percents?.zero?.map((per) => {
+          localStorage.setItem('setPercent', JSON.stringify(per));
+          return renderData(per);
+        });
       case 'twenty':
         return percents?.twenty?.map((per) => renderData(per));
       case 'fourty':
@@ -113,6 +116,12 @@ const RenderPercent = ({ percents }) => {
           </select>
         </label>
       </div>
+
+      <NavLink to="groupitems">
+        <button className="btn1 btn-secondary1 edit-cus-btn1 update-cus-button">
+          View Items
+        </button>
+      </NavLink>
 
       <div className="transact-customer-container">
         {superadmin && (
