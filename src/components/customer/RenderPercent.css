@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Quintessential&display=swap');
+
+/* stylelint-disable */
+.custrans-name {
+  display: flex;
+  justify-content: space-between;
+}
+
+.transact-customer-container {
+  border: 2px solid crimson;
+  border-radius: 0.5rem;
+  width: 59.375rem;
+  height: fit-content;
+  margin: 1.25rem 1.25rem 1.25rem 3.125rem;
+  background: #fff;
+}
+
+.custransactname {
+  color: rgb(70, 54, 3);
+  font-family: 'Quintessential', cursive;
+  font-size: 1rem;
+  font-weight: bolder;
+}
+
+.columns {
+  width: 15rem;
+  text-align: center;
+  font-size: 1.125rem;
+  padding-top: 1.25rem;
+}
+
+#col {
+  /* margin-top: 20px; */
+  border-bottom: 2px solid crimson;
+}
+
+.i {
+  border-left: 2px solid crimson;
+  color: #000;
+}
+
+#a {
+  border-right: 2px solid crimson;
+}
+
+.no-trans {
+  text-align: center;
+  font-size: 3.125rem;
+  font-family: 'Quintessential', sans-serif;
+  color: crimson;
+}
+
+.no-trans-btn {
+  margin: 1.25rem 0 1.25rem 21.875rem;
+  background-color: crimson;
+  width: 15.625rem;
+  height: 3.125rem;
+  padding: 0.625rem;
+  outline: none;
+  border: none;
+  border-radius: 0.3125rem;
+  color: white;
+  font-size: 1.125rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #d86565;
+}
+
+#p-child:nth-child(even) {
+  background-color: rgb(243, 152, 152);
+}
+
+#p-child > li {
+  border-bottom: 2px solid rgb(243, 152, 152);
+}
+
+@media only screen and (max-width: 450px) {
+  .transact-customer-container {
+    width: 20rem;
+    margin: 1.25rem;
+  }
+
+  .columns {
+    font-size: 0.75rem;
+    padding-top: 0.3125rem;
+  }
+
+  .no-trans {
+    font-size: 1.875rem;
+  }
+
+  .no-trans-btn {
+    margin: 1.25rem 0 1.25rem 2rem;
+  }
+}
+
+/* stylelint-enable */

@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './Paid60.css';
+import './RenderPercent.css';
 import comma from '../../utils/Comma';
 
 const RenderPercent = ({ percents }) => {
@@ -15,7 +16,14 @@ const RenderPercent = ({ percents }) => {
     const dataItems = data?.myitems?.[0]?.items;
     const jsonItems = JSON.parse(dataItems);
     const items = Object.values(jsonItems);
-    return items.map((item) => [item?.id, item?.qauntity]).join(',');
+    const res = {};
+    // return items.map((item) => [item?.id, item?.qauntity]).join(",");
+    // return
+    items.map((item, i) => {
+      res[`id_${i}`] = item?.id;
+      res[`qty_${i}`] = item?.qauntity;
+    });
+    return res;
   };
 
   const renderData = (per) => (
@@ -28,20 +36,40 @@ const RenderPercent = ({ percents }) => {
         <ul id="p-child">
           <li>
             <div className="custrans-name">
-              <p className="columns">{per.card}</p>
-              <p className="columns">{per.name}</p>
+              <p className="columns" id="a">
+                {per.card}
+              </p>
+              <p className="columns" id="a">
+                {per.name}
+              </p>
               <p className="columns">{per.phone}</p>
-              <p className="columns i" id="top">
+              <p
+                className="columns i"
+                id="top"
+                style={{ borderRight: '2px solid crimson' }}
+              >
                 {per.total_days}
               </p>
               <p
-                className="columns i"
+                className="columns "
                 style={{ borderRight: '2px solid crimson' }}
               >
                 {comma(per.daily)}
               </p>
-              <p className="columns">{comma(per.total)}</p>
-              <p className="columns">{unpack(per)}</p>
+              <p className="columns" id="a">
+                {comma(per.total)}
+              </p>
+              {console.log(unpack(per).id_0)}
+              {/* <p className="columns">{unpack(per)}</p> */}
+              <p className="columns">
+                {/* {unpack(per) &&
+                  unpack(per).map((item) => (
+                    <div>
+                      <span>{item}</span> */}
+                      <span>{unpack(per)[1]?._id}</span>
+                    {/* </div> */}
+                  {/* ))} */}
+              </p>
             </div>
           </li>
         </ul>
@@ -120,21 +148,21 @@ const RenderPercent = ({ percents }) => {
             <div id="col">
               <h2 className="total-orders">Total: {toggleTotal() ?? 0}</h2>
             </div>
-            <div className="custrans-name">
-              <h6 className="columns">
+            <div className="custrans-name" id="col">
+              <h6 className="columns " id="a">
                 <span className="cus-name1">C/No</span>
               </h6>
-              <h6 className="columns">
+              <h6 className="columns " id="a">
                 <span className="cus-name1">Name</span>
               </h6>
-              <h6 className="columns">
+              <h6 className="columns " id="a">
                 <span className="cus-name1">Phone</span>
               </h6>
-              <h6 className="columns i">Days Paid</h6>
+              <h6 className="columns ">Days Paid</h6>
               <h6 className="columns i" id="a">
                 Daily
               </h6>
-              <h6 className="columns">
+              <h6 className="columns" id="a">
                 <span className="cus-name1 ">Total (NGN)</span>
               </h6>
               <h6 className="columns">
@@ -143,28 +171,28 @@ const RenderPercent = ({ percents }) => {
             </div>
 
             <div className="custrans-name">
-              <h3 className="columns" id="col">
+              <h3 className="columnsR">
                 <p className="custransactname"></p>
               </h3>
-              <h3 className="columns" id="col">
+              <h3 className="columnsR">
                 <p className="custransactname"></p>
               </h3>
               <h6
-                className="columns i"
-                style={{ borderBottom: '2px solid crimson' }}
+                className="columnsR"
+                // style={{ borderBottom: '2px solid crimson' }}
               ></h6>
               <h3
-                className="columns i"
-                id="col"
-                style={{
-                  borderRight: '2px solid crimson',
-                  borderBottom: '2px solid crimson',
-                  color: 'crimson',
-                }}
+                className="columnsR"
+                // id="col"
+                // style={{
+                //   borderRight: '2px solid crimson',
+                //   borderBottom: '2px solid crimson',
+                //   color: 'crimson',
+                // }}
               ></h3>
               <h3
-                className="columns"
-                id="col"
+                className="columnsR"
+                // id="col"
                 style={{ color: 'crimson' }}
               ></h3>
             </div>
