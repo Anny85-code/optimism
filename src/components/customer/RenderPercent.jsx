@@ -12,7 +12,7 @@ const RenderPercent = ({ percents }) => {
   const [select, setSelect] = useState('hundred');
 
   const unpack = (data) => {
-    const dataItems = data?.myitems?.[0]?.items;
+    const dataItems = data?.items?.[0]?.items;
     const jsonItems = JSON.parse(dataItems);
     const items = Object.values(jsonItems);
     return items.map((item) => [item?.id, item?.qauntity]).join(',');
