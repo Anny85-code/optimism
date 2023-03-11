@@ -117,6 +117,10 @@ const App = () => {
                   path="/users/:id/percent"
                   element={<MarketerPercent />}
                 />
+                <Route
+                  path="/users/:id/percent/groupitems"
+                  element={<GroupItems />}
+                />
               </>
             )}
           </Routes>
