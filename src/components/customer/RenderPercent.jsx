@@ -17,13 +17,8 @@ const RenderPercent = ({ percents }) => {
     const jsonItems = JSON.parse(dataItems);
     const items = Object.values(jsonItems);
     return items.map((item) => [item?.id, item?.qauntity]).join('-');
-    // const dataItems = data?.myitems?.[0]?.items;
-    // const jsonItems = JSON.parse(dataItems);
-    // const items = Object.values(jsonItems);
     // // const res = {};
-    // return items.map((item) => [item?.id, item?.qauntity]).join(',');
-    // return
-    // items.map((item, i) => {
+    // return items.map((item, i) => {
     //   res[`id_${i}`] = item?.id;
     //   res[`qty_${i}`] = item?.qauntity;
     // });
