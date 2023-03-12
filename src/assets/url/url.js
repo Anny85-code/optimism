@@ -1,4 +1,5 @@
 // const endpoint = 'https://optimistic-food.herokuapp.com/api/v2';
+// const endpoint = 'https://rails-eqth.onrender.com/api/v2';
 const endpoint = 'https://rails-eqth.onrender.com/api/v2';
 // const endpoint = 'http://localhost:4000/api/v1';
 // const endpoint = 'http://localhost:4000/api/v2';
