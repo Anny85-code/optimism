@@ -13,17 +13,21 @@ const RenderPercent = ({ percents }) => {
   const [select, setSelect] = useState('hundred');
 
   const unpack = (data) => {
-    const dataItems = data?.myitems?.[0]?.items;
+    const dataItems = data?.items?.[0]?.items;
     const jsonItems = JSON.parse(dataItems);
     const items = Object.values(jsonItems);
-    const res = {};
-    // return items.map((item) => [item?.id, item?.qauntity]).join(",");
+    return items.map((item) => [item?.id, item?.qauntity]).join(' --');
+    // const dataItems = data?.myitems?.[0]?.items;
+    // const jsonItems = JSON.parse(dataItems);
+    // const items = Object.values(jsonItems);
+    // // const res = {};
+    // return items.map((item) => [item?.id, item?.qauntity]).join(',');
     // return
-    items.map((item, i) => {
-      res[`id_${i}`] = item?.id;
-      res[`qty_${i}`] = item?.qauntity;
-    });
-    return res;
+    // items.map((item, i) => {
+    //   res[`id_${i}`] = item?.id;
+    //   res[`qty_${i}`] = item?.qauntity;
+    // });
+    // return res;
   };
 
   const renderData = (per) => (
@@ -59,16 +63,16 @@ const RenderPercent = ({ percents }) => {
               <p className="columns" id="a">
                 {comma(per.total)}
               </p>
-              {console.log(unpack(per).id_0)}
+              {console.log(unpack(per))}
               {/* <p className="columns">{unpack(per)}</p> */}
               <p className="columns">
                 {/* {unpack(per) &&
                   unpack(per).map((item) => (
                     <div>
                       <span>{item}</span> */}
-                      <span>{unpack(per)[1]?._id}</span>
-                    {/* </div> */}
-                  {/* ))} */}
+                <span>{unpack(per)}</span>
+                {/* </div> */}
+                {/* ))} */}
               </p>
             </div>
           </li>
