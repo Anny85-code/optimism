@@ -58,7 +58,7 @@ const RenderPercent = ({ percents }) => {
               <p className="columns" id="a">
                 {comma(per.total)}
               </p>
-              {console.log(unpack(per))}
+
               {/* <p className="columns">{unpack(per)}</p> */}
               <p className="columns">
                 {/* {unpack(per) &&
@@ -160,7 +160,7 @@ const RenderPercent = ({ percents }) => {
       </div>
 
       <NavLink to="groupitems">
-        <button className="btn1 btn-secondary1 edit-cus-btn1 update-cus-button">
+        <button className=" render-page-btn" id="render-btn">
           View Items
         </button>
       </NavLink>
@@ -171,7 +171,7 @@ const RenderPercent = ({ percents }) => {
             <div id="col">
               <h2 className="total-orders">Total: {toggleTotal() ?? 0}</h2>
             </div>
-            <div className="custrans-name" id="col">
+            <div className="custrans-name">
               <h6 className="columns " id="a">
                 <span className="cus-name1">C/No</span>
               </h6>
@@ -193,31 +193,30 @@ const RenderPercent = ({ percents }) => {
               </h6>
             </div>
 
-            <div className="custrans-name">
-              <h3 className="columnsR">
-                <p className="custransactname"></p>
-              </h3>
-              <h3 className="columnsR">
-                <p className="custransactname"></p>
-              </h3>
-              <h6
-                className="columnsR"
-                // style={{ borderBottom: '2px solid crimson' }}
-              ></h6>
-              <h3
-                className="columnsR"
-                // id="col"
-                // style={{
-                //   borderRight: '2px solid crimson',
-                //   borderBottom: '2px solid crimson',
-                //   color: 'crimson',
-                // }}
-              ></h3>
-              <h3
-                className="columnsR"
-                // id="col"
-                style={{ color: 'crimson' }}
-              ></h3>
+            <div className="custrans-name" id="col">
+              <h6 className="columns" id="a">
+                <span className="cus-name1"></span>
+              </h6>
+              <h6 className="columns" id="a">
+                <span className="cus-name1"></span>
+              </h6>
+              <h6 className="columns" id="a">
+                <span className="cus-name1"></span>
+              </h6>
+              <h6 className="columns " id="a">
+                <span className="cus-name1"></span>
+              </h6>
+              <h6 className="columns" id="a">
+                <span className="cus-name1"></span>
+              </h6>
+              <h6 className="columns" id="a">
+                {' '}
+                <span className="cus-name1"></span>
+              </h6>
+              <h6 className="columns" style={{ color: 'crimson' }}>
+                {' '}
+                <span className="cus-name1"></span>
+              </h6>
             </div>
             {toggle()}
           </div>

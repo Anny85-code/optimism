@@ -29,6 +29,13 @@
   padding-top: 1.25rem;
 }
 
+.columnsR {
+  width: 9rem;
+  text-align: center;
+  font-size: 1.125rem;
+  /* padding-top: 1.25rem; */
+}
+
 #col {
   /* margin-top: 20px; */
   border-bottom: 2px solid crimson;
@@ -74,6 +81,23 @@
   border-bottom: 2px solid rgb(243, 152, 152);
 }
 
+.render-page-btn {
+  margin: 1.25rem 0 1.25rem 2.875rem;
+  width: 12.5rem;
+  height: 3.125rem;
+  padding: 10px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background-color: #f72727;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #d86565;
+}
+
+
 @media only screen and (max-width: 450px) {
   .transact-customer-container {
     width: 20rem;
@@ -81,8 +105,14 @@
   }
 
   .columns {
-    font-size: 0.75rem;
+    /* font-size: 0.75rem; */
+    font-size: 5px;
     padding-top: 0.3125rem;
+  }
+
+  .columnsR {
+    font-size: 0.75rem;
+    width: 155px;
   }
 
   .no-trans {
@@ -91,6 +121,17 @@
 
   .no-trans-btn {
     margin: 1.25rem 0 1.25rem 2rem;
+  }
+
+  .custransactname {
+    font-size: 8px;
+  }
+
+  .render-page-btn {
+    width: 6.25rem;
+    font-size: 0.625rem;
+    height: 2.5rem;
+    margin-left: 30px ;
   }
 }
 
