@@ -14,9 +14,9 @@ const RenderPercent = ({ percents }) => {
 
   const unpack = (data) => {
     const dataItems = data?.items?.[0]?.items;
-    const jsonItems = JSON.parse(dataItems);
-    const items = Object.values(jsonItems);
-    return items.map((item) => [item?.id, item?.qauntity]).join('-');
+    const jsonItems = dataItems && JSON.parse(dataItems);
+    const items = jsonItems && Object.values(jsonItems);
+    return items && items.map((item) => [item?.id, item?.qauntity]).join('-');
     // // const res = {};
     // return items.map((item, i) => {
     //   res[`id_${i}`] = item?.id;
@@ -36,27 +36,27 @@ const RenderPercent = ({ percents }) => {
           <li>
             <div className="custrans-name">
               <p className="columns" id="a">
-                {per.card}
+                {per && per.card}
               </p>
               <p className="columns" id="a">
-                {per.name}
+                {per && per.name}
               </p>
-              <p className="columns">{per.phone}</p>
+              <p className="columns">{per && per.phone}</p>
               <p
                 className="columns i"
                 id="top"
                 style={{ borderRight: '2px solid crimson' }}
               >
-                {per.total_days}
+                {per && per.total_days}
               </p>
               <p
                 className="columns "
                 style={{ borderRight: '2px solid crimson' }}
               >
-                {comma(per.daily)}
+                {comma(per && per.daily)}
               </p>
               <p className="columns" id="a">
-                {comma(per.total)}
+                {comma(per && per.total)}
               </p>
 
               {/* <p className="columns">{unpack(per)}</p> */}
@@ -65,7 +65,7 @@ const RenderPercent = ({ percents }) => {
                   unpack(per).map((item) => (
                     <div>
                       <span>{item}</span> */}
-                <span>{unpack(per)}</span>
+                <span>{unpack(per && per)}</span>
                 {/* </div> */}
                 {/* ))} */}
               </p>
