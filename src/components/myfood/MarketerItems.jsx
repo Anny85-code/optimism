@@ -14,6 +14,8 @@ const MarketerItems = () => {
     dispatch(getMarketerItemsFromApi(localStorage.getItem('_id')));
   }, []);
 
+  console.log(mFoods);
+
   return (
     <div>{mFoods?.loading ? <Loader /> : <RenderItems mFoods={mFoods} />}</div>
   );

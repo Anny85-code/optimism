@@ -6,8 +6,8 @@ import Loader from '../loader/Loader';
 import comma from './../../utils/Comma';
 
 const RenderItems = ({ mFoods }) => {
-  const foods = mFoods?.data?.items ?? mFoods?.items;
-  const marketer = mFoods?.marketer ?? mFoods?.data?.marketer;
+  const foods = mFoods?.data?.items;
+  const marketer = mFoods?.data?.marketer;
   const foodArray = [];
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
