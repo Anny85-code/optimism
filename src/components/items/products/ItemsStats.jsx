@@ -29,6 +29,19 @@ const ItemsStats = () => {
     });
   });
 
+  /* ========================   ====   Bad ID snoop   ====   =============================*/
+
+  foods.map(({ id, v2_customer_id, user_id, items }) => {
+    const foodItems = JSON.parse(items);
+    const food = Object.values(foodItems);
+    const condenseData = { ...food, v2_customer_id, user_id, id };
+    if (condenseData['0'].name === 'MAGGIE ' && condenseData['0'].id !== 18) {
+      console.log(condenseData.v2_customer_id, id, user_id);
+    }
+  });
+
+  /* ========================   ====   Bad ID snoop   ====   =============================*/
+
   const foodArr = Object.values(
     foodArray.reduce((obj, item) => {
       obj[item.id]
