@@ -37,13 +37,13 @@ import ItemsStats from './components/items/products/ItemsStats';
 import UsersMarketers from './components/user/UsersMarketers';
 import PaidSixty from './components/customer/Paid60';
 import TransactionDetails from './components/transaction/transactionDetails';
-import MarketerItems from './components/myfood/MarketerItems';
 import MarketerPercent from './components/customer/MarketerPercent';
 import Home from './components/landing/home/Home';
 import About from './components/landing/about/About';
 import Teams from './components/landing/teams/Teams';
 import ContactUs from './components/landing/contact/ContactUs';
 import GroupItems from './components/myfood/GroupItems';
+import MarketerItems from './components/myfood/MarketerItems';
 
 const App = () => {
   const [sideBarOpen, setSideBarOpen] = useState(false);
