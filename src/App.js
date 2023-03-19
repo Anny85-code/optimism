@@ -43,6 +43,7 @@ import Home from './components/landing/home/Home';
 import About from './components/landing/about/About';
 import Teams from './components/landing/teams/Teams';
 import ContactUs from './components/landing/contact/ContactUs';
+import GroupItems from './components/myfood/GroupItems';
 
 const App = () => {
   const [sideBarOpen, setSideBarOpen] = useState(false);
@@ -120,6 +121,10 @@ const App = () => {
                 <Route
                   path="/users/:id/percent"
                   element={<MarketerPercent />}
+                />
+                <Route
+                  path="/users/:id/percent/groupitems"
+                  element={<GroupItems />}
                 />
               </>
             )}

@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { useReactToPrint } from 'react-to-print';
 import PropTypes from 'prop-types';
 import './Paid60.css';
+import './RenderPercent.css';
 import comma from '../../utils/Comma';
 
 const RenderPercent = ({ percents, owner }) => {
@@ -16,6 +17,19 @@ const RenderPercent = ({ percents, owner }) => {
   const [pr, setPr] = useState(0);
   const componentRef = useRef();
 
+  const unpack = (data) => {
+    const dataItems = data?.items?.[0]?.items;
+    const jsonItems = dataItems && JSON.parse(dataItems);
+    const items = jsonItems && Object.values(jsonItems);
+    return items && items.map((item) => [item?.id, item?.qauntity]).join('-');
+    // // const res = {};
+    // return items.map((item, i) => {
+    //   res[`id_${i}`] = item?.id;
+    //   res[`qty_${i}`] = item?.qauntity;
+    // });
+    // return res;
+  };
+
   const renderData = (per) => (
     <NavLink
       style={{ color: 'black' }}
@@ -26,17 +40,40 @@ const RenderPercent = ({ percents, owner }) => {
         <ul id="p-child">
           <li>
             <div className="custrans-name">
-              <h4 className="columns">{per.name}</h4>
-              <h4 className="columns i" id="top">
-                {per.total_days}
-              </h4>
-              <h4
+              <p className="columns" id="a">
+                {per && per.card}
+              </p>
+              <p className="columns" id="a">
+                {per && per.name}
+              </p>
+              <p className="columns">{per && per.phone}</p>
+              <p
                 className="columns i"
+                id="top"
                 style={{ borderRight: '2px solid crimson' }}
               >
-                {comma(per.daily)}
-              </h4>
-              <h4 className="columns">NGN {comma(per.total)}</h4>
+                {per && per.total_days}
+              </p>
+              <p
+                className="columns "
+                style={{ borderRight: '2px solid crimson' }}
+              >
+                {comma(per && per.daily)}
+              </p>
+              <p className="columns" id="a">
+                {comma(per && per.total)}
+              </p>
+
+              {/* <p className="columns">{unpack(per)}</p> */}
+              <p className="columns">
+                {/* {unpack(per) &&
+                  unpack(per).map((item) => (
+                    <div>
+                      <span>{item}</span> */}
+                <span>{unpack(per && per)}</span>
+                {/* </div> */}
+                {/* ))} */}
+              </p>
             </div>
           </li>
         </ul>
@@ -46,16 +83,36 @@ const RenderPercent = ({ percents, owner }) => {
 
   const toggle = () => {
     switch (select) {
+      case 'zero':
+        return percents?.zero?.map((per) => {
+          localStorage.setItem('setPercent', JSON.stringify(percents?.zero));
+          return renderData(per);
+        });
       case 'twenty':
-        return percents?.twenty?.slice(pr, nx).map((per) => renderData(per));
+        return percents?.twenty?.map((per) => {
+          localStorage.setItem('setPercent', JSON.stringify(percents?.twenty));
+          return renderData(per);
+        });
       case 'fourty':
-        return percents?.fourty?.slice(pr, nx).map((per) => renderData(per));
+        return percents?.fourty?.map((per) => {
+          localStorage.setItem('setPercent', JSON.stringify(percents?.fourty));
+          return renderData(per);
+        });
       case 'sixty':
-        return percents?.sixty?.slice(pr, nx).map((per) => renderData(per));
+        return percents?.sixty?.map((per) => {
+          localStorage.setItem('setPercent', JSON.stringify(percents?.sixty));
+          return renderData(per);
+        });
       case 'eighty':
-        return percents?.eighty?.slice(pr, nx).map((per) => renderData(per));
+        return percents?.eighty?.map((per) => {
+          localStorage.setItem('setPercent', JSON.stringify(percents?.eighty));
+          return renderData(per);
+        });
       case 'hundred':
-        return percents?.hundred?.slice(pr, nx).map((per) => renderData(per));
+        return percents?.hundred?.map((per) => {
+          localStorage.setItem('setPercent', JSON.stringify(percents?.hundred));
+          return renderData(per);
+        });
       default:
         break;
     }
@@ -73,6 +130,8 @@ const RenderPercent = ({ percents, owner }) => {
 
   const toggleTotal = () => {
     switch (select) {
+      case 'zero':
+        return percents?._0;
       case 'twenty':
         return percents?._20;
       case 'fourty':
@@ -121,6 +180,7 @@ const RenderPercent = ({ percents, owner }) => {
             id="opt-id"
           >
             <option defaultValue="PLEASE SELECT ...">Select Percent</option>
+            <option value="zero">0%</option>
             <option value="twenty">20%</option>
             <option value="fourty">40%</option>
             <option value="sixty">60%</option>
@@ -129,6 +189,12 @@ const RenderPercent = ({ percents, owner }) => {
           </select>
         </label>
       </div>
+
+      <NavLink to="groupitems">
+        <button className=" render-page-btn" id="render-btn">
+          View Items
+        </button>
+      </NavLink>
 
       <div className="transact-customer-container">
         {superadmin && (
@@ -139,40 +205,51 @@ const RenderPercent = ({ percents, owner }) => {
               </h2>
             </div>
             <div className="custrans-name">
-              <h4 className="columns">
-                <span className="cus-name1">Customer Name</span>
-              </h4>
-              <h4 className="columns i">Days Paid For</h4>
-              <h4 className="columns i" id="a">
-                Daily Contribution
-              </h4>
-              <h4 className="columns">
-                <span className="cus-name1 ">Total Amount</span>
-              </h4>
+              <h6 className="columns " id="a">
+                <span className="cus-name1">C/No</span>
+              </h6>
+              <h6 className="columns " id="a">
+                <span className="cus-name1">Name</span>
+              </h6>
+              <h6 className="columns " id="a">
+                <span className="cus-name1">Phone</span>
+              </h6>
+              <h6 className="columns ">Days Paid</h6>
+              <h6 className="columns i" id="a">
+                Daily
+              </h6>
+              <h6 className="columns" id="a">
+                <span className="cus-name1 ">Total (NGN)</span>
+              </h6>
+              <h6 className="columns">
+                <span className="cus-name1 ">Items</span>
+              </h6>
             </div>
 
-            <div className="custrans-name">
-              <h3 className="columns" id="col">
-                <p className="custransactname"></p>
-              </h3>
-              <h6
-                className="columns i"
-                style={{ borderBottom: '2px solid crimson' }}
-              ></h6>
-              <h3
-                className="columns i"
-                id="col"
-                style={{
-                  borderRight: '2px solid crimson',
-                  borderBottom: '2px solid crimson',
-                  color: 'crimson',
-                }}
-              ></h3>
-              <h3
-                className="columns"
-                id="col"
-                style={{ color: 'crimson' }}
-              ></h3>
+            <div className="custrans-name" id="col">
+              <h6 className="columns" id="a">
+                <span className="cus-name1"></span>
+              </h6>
+              <h6 className="columns" id="a">
+                <span className="cus-name1"></span>
+              </h6>
+              <h6 className="columns" id="a">
+                <span className="cus-name1"></span>
+              </h6>
+              <h6 className="columns " id="a">
+                <span className="cus-name1"></span>
+              </h6>
+              <h6 className="columns" id="a">
+                <span className="cus-name1"></span>
+              </h6>
+              <h6 className="columns" id="a">
+                {' '}
+                <span className="cus-name1"></span>
+              </h6>
+              <h6 className="columns" style={{ color: 'crimson' }}>
+                {' '}
+                <span className="cus-name1"></span>
+              </h6>
             </div>
             {toggle()}
           </div>
