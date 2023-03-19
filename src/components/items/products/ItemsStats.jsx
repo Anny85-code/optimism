@@ -20,11 +20,15 @@ const ItemsStats = () => {
     documentTitle: 'emp-data',
   });
 
-  foods.map(({ items }) => {
+  foods.map(({ items, id }) => {
     const foodItems = JSON.parse(items);
     const food = Object.values(foodItems);
+    // const id2 = id;  // Track bad ID
     food.map((order) => {
       const { id, name, qauntity } = order;
+      // if (id === 18.02) {
+      //   console.log(order, id2);   // Track bad ID
+      // }
       foodArray.push({ id, name, qauntity });
     });
   });
@@ -35,8 +39,10 @@ const ItemsStats = () => {
     const foodItems = JSON.parse(items);
     const food = Object.values(foodItems);
     const condenseData = { ...food, v2_customer_id, user_id, id };
-    if (condenseData['0'].name === 'MAGGIE ' && condenseData['0'].id !== 18) {
-      console.log(condenseData.v2_customer_id, id, user_id);
+    if (condenseData.v2_customer_id === 16204) {
+      // if (condenseData['0'].id === 18.02) {
+      // console.log(condenseData.v2_customer_id, id, user_id);
+      // console.log(items);
     }
   });
 
