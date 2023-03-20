@@ -9,7 +9,7 @@ import Error from './components/Error';
 import Main from './components/main/Main';
 import Navbar from './components/navbar/Navbar';
 import Sidebar from './components/sidebar/Sidebar';
-import Splash from './components/splash/Splash';
+// import Splash from './components/splash/Splash';
 import EditCustomer from './components/customer/EditCustomer';
 import Users from './components/user/Users';
 import UsersSupervisors from './components/user/UsersSupervisors';
@@ -37,9 +37,13 @@ import ItemsStats from './components/items/products/ItemsStats';
 import UsersMarketers from './components/user/UsersMarketers';
 import PaidSixty from './components/customer/Paid60';
 import TransactionDetails from './components/transaction/transactionDetails';
-import MarketerItems from './components/myfood/MarketerItems';
 import MarketerPercent from './components/customer/MarketerPercent';
+import Home from './components/landing/home/Home';
+import About from './components/landing/about/About';
+import Teams from './components/landing/teams/Teams';
+import ContactUs from './components/landing/contact/ContactUs';
 import GroupItems from './components/myfood/GroupItems';
+import MarketerItems from './components/myfood/MarketerItems';
 
 const App = () => {
   const [sideBarOpen, setSideBarOpen] = useState(false);
@@ -130,7 +134,11 @@ const App = () => {
         </div>
       ) : (
         <Routes>
-          <Route path="/" element={<Splash />} />
+          {/* <Route path="/" element={<Splash />} /> */}
+          <Route path="/" element={<Home />} />
+          <Route path="/about_us" element={<About />} />
+          <Route path="/teams" element={<Teams />} />
+          <Route path="/contact_us" element={<ContactUs />} />
           <Route path="/login" element={<Login />} />
           <Route path="*" element={<Error />} />
         </Routes>

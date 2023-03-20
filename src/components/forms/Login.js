@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { logUserToApi } from '../../redux/forms/userReducer';
 import './Login.css';
 /* eslint-disable */
@@ -26,7 +27,6 @@ const Login = () => {
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
   };
-
 
   return (
     <div className="splash-container login-container">
@@ -95,6 +95,9 @@ const Login = () => {
                   Log in
                 </button>
               </div>
+              <center>
+                <NavLink to="/">Back to Home</NavLink>
+              </center>
             </form>
           </div>
         </div>

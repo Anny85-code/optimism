@@ -1,0 +1,17 @@
+.landing_ul {
+  display: flex;
+  justify-content: space-between;
+  padding: 3rem 30rem;
+}
+
+.landing_ul li {
+  list-style: none;
+  text-transform: none;
+  background-color: black;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+}
+
+.landing_ul li:hover {
+  transform: scale(1.2);
+}

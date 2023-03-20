@@ -1,0 +1,36 @@
+.teams_card {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  grid-auto-rows: minmax(100px, auto);
+  background-color: #edeff5;
+  padding: 5%;
+}
+
+.cardy {
+  float: left;
+  text-align: center;
+  background-color: #909b5f;
+  border-radius: 17px;
+  overflow: hidden;
+  color: #fff;
+}
+
+.card__img {
+  width: 100%;
+}
+
+.cardy:nth-child(even) {
+  background-color: #5b5859;
+}
+
+.team__head {
+  margin: 32px 0 24px;
+}
+
+@media only screen and (max-width: 768px) {
+  .teams_card {
+    grid-template-columns: repeat(1, 1fr);
+    padding: 0.8rem;
+  }
+}

@@ -23,14 +23,6 @@ const Main = () => {
   const { user } = data || {};
   const admins = user.role === 'admin' || user.role === 'superadmin';
 
-  // ================ Used to destroy all transactions in the app ====================
-  // const delNoCard = () => {
-  //   transactions.data.transactions.map((trans) =>
-  //     dispatch(delOneTransFromApi(trans.id))
-  //   );
-  // };
-  /* ============ Use with caution, can destroy all transactions in the DB ============= */
-
   useEffect(() => {
     dispatch(getDashboard());
   }, []);

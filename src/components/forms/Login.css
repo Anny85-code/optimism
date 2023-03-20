@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Neonderthaw&display=swap');
+
 .text-center {
   text-align: center;
   font-family: 'Gumela', sans-serif;
@@ -75,5 +78,82 @@
 
   .login-input {
     margin-left: -15px;
+  }
+}
+
+.splash-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 50px;
+  gap: 30px;
+  box-shadow: 5px 5px 13px #773c3c, -5px -5px 13px #967777;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px;
+  background: #fdf890;
+  border-radius: 25px;
+  height: 37.5rem;
+}
+
+.splash__image {
+  margin-bottom: 100px;
+}
+
+.splash__image > img {
+  height: 150px;
+  width: 400px;
+  position: absolute;
+  top: 3.75rem;
+  left: 35%;
+  margin-top: 7.875rem;
+  border-radius: 5px;
+}
+
+.splash-btn {
+  width: 350px;
+  font-size: 24px;
+  box-shadow: 5px 5px 13px #363434, -5px -5px 13px #413e3e;
+  height: 50px;
+  padding: 10px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(243, 19, 19);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.splash-text {
+  font-family: 'Neonderthaw', sans-serif;
+  font-size: 30px;
+  color: rgb(82, 16, 16);
+  margin-top: 90px;
+}
+
+@media only screen and (max-width: 450px) {
+  .splash__image > img {
+    height: 100px;
+    width: 150px;
+    top: 150px;
+    left: 105px;
+  }
+
+  .splash-btn {
+    width: 150px;
+    font-size: 17px;
+    box-shadow: 5px 5px 13px #363434, -5px -5px 13px #413e3e;
+    margin-left: 40px;
+  }
+
+  .splash-text {
+    font-size: 20px;
+  }
+
+  .splash-container {
+    width: 80%;
   }
 }

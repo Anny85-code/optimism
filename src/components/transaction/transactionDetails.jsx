@@ -1,6 +1,5 @@
 /* eslint-disable */
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Moment from 'moment';
 import '../customer/Customer.css';
@@ -28,8 +27,6 @@ const TransactionDetails = () => {
     transaction_date,
     created_at,
   } = transDet;
-
-  console.log({ transDet }, v2_customer_id);
 
   useEffect(() => {
     dispatch(getOneCustomerFromApi(v2_customer_id));
