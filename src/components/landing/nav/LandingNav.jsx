@@ -6,7 +6,7 @@ import './LandingNav.css';
 const LandingNav = () => {
   return (
     <nav>
-      <ul>
+      <ul className="landing_ul">
         <NavLink to="/">
           <li>Home</li>
         </NavLink>

@@ -15,12 +15,17 @@ const MarketerPercent = () => {
     dispatch(getMarketerPercentFromApi(id));
   }, []);
 
+  console.log(percents);
+
   return (
     <div>
       {percents?.loading ? (
         <Loader />
       ) : (
-        <RenderPercent percents={percents?.data} />
+        <RenderPercent
+          percents={percents?.data}
+          owner={percents?.data?.marketer}
+        />
       )}
     </div>
   );
