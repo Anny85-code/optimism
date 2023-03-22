@@ -1,9 +1,9 @@
 import axios from 'axios';
 import endpoint from '../../assets/url/url';
 
-const GET_MARKETER_ITEMS = 'src/redux/percentagereducer/get_marketer_items'.toUpperCase();
-const FAILED_GET_MARKETER_ITEMS = 'src/redux/percentagereducer/failed_get_marketer_items'.toUpperCase();
-const GET_MARKETER_ITEMS_REQUEST = 'src/redux/percentagereducer/get_marketer_items_request'.toUpperCase();
+const GET_MARKETER_ITEMS = 'SRC/REDUX/PERCENTAGE/GET_MARKETER_ITEMS';
+const FAILED_GET_MARKETER_ITEMS = 'SRC/REDUX/PERCENTAGEREDUCER/FAILED_GET_MARKETER_ITEMS';
+const GET_MARKETER_ITEMS_REQUEST = 'SRC/REDUX/PERCENTAGEREDUCER/GET_MARKETER_ITEMS_REQUEST';
 const url = `${endpoint}/users`;
 const { token } = localStorage;
 
