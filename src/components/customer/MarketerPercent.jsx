@@ -15,8 +15,6 @@ const MarketerPercent = () => {
     dispatch(getMarketerPercentFromApi(id));
   }, []);
 
-  console.log(percents);
-
   return (
     <div>
       {percents?.loading ? (

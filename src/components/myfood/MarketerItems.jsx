@@ -13,8 +13,6 @@ const MarketerItems = () => {
   const param = useParams();
   const { id } = param;
 
-  console.log(mFoods);
-
   useEffect(() => {
     dispatch(getMarketerItemsFromApi(id));
   }, []);
