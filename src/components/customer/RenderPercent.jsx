@@ -190,7 +190,7 @@ const RenderPercent = ({ percents, owner }) => {
         </label>
       </div>
 
-      <NavLink to="groupitems">
+      <NavLink to="groupitems" target="_blank">
         <button className=" render-page-btn" id="render-btn">
           View Items
         </button>
