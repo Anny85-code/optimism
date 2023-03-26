@@ -20,7 +20,10 @@ const PaidSixty = () => {
       {percents?.loading ? (
         <Loader />
       ) : (
-        <RenderPercent percents={percents?.data} />
+        <RenderPercent
+          percents={percents?.data}
+          owner={percents?.data?.marketer}
+        />
       )}
     </div>
   );

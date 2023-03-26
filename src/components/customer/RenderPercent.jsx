@@ -35,6 +35,7 @@ const RenderPercent = ({ percents, owner }) => {
       style={{ color: 'black' }}
       key={per.id}
       to={`/customers/${per.id}`}
+      target="_blank"
     >
       <div>
         <ul id="p-child">
