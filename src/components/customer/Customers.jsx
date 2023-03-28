@@ -73,7 +73,11 @@ const Customers = () => {
 
               {newData &&
                 newData.slice(pr, nx).map((customer) => (
-                  <NavLink key={customer.id} to={`/customers/${customer.id}`}>
+                  <NavLink
+                    key={customer.id}
+                    to={`/customers/${customer.id}`}
+                    target="_blank"
+                  >
                     <ul id="p-child">
                       <li>
                         <div className="custrans-name1">
@@ -98,10 +102,7 @@ const Customers = () => {
               {' '}
               <p className="no-trans">No Customer yet!</p>
               <button type="button" className="no-trans-btn">
-                <NavLink
-                  to="/addtransaction"
-                  style={{ textDecoration: 'none' }}
-                >
+                <NavLink to="/addcustomer" style={{ textDecoration: 'none' }}>
                   Add A Customer
                 </NavLink>
               </button>
