@@ -135,7 +135,7 @@ const User = () => {
       : '/customers';
     localStorage.setItem('_id', id);
     return (
-      <NavLink to={link}>
+      <NavLink to={link} target="_blank">
         <button type="button" className="view-trans">
           {marketer && 'My Customers'}
           {admin && 'Supervisors'}
@@ -216,7 +216,7 @@ const User = () => {
               <div className="allTrans">{navigation()}</div>
               {seeMarketersDaily && (
                 <div className="allTrans">
-                  <NavLink to={allTrans}>
+                  <NavLink to={allTrans} target="_blank">
                     <button type="button" className="view-trans">
                       View Transactions
                     </button>
@@ -236,7 +236,7 @@ const User = () => {
               )}
               {superadmin && (
                 <div className="allTrans">
-                  <NavLink to="marketeritems">
+                  <NavLink to="marketeritems" target="_blank">
                     <button type="button" className="view-trans">
                       All Items
                     </button>
@@ -245,7 +245,7 @@ const User = () => {
               )}
               {superadmin && (
                 <div className="allTrans">
-                  <NavLink to="percent">
+                  <NavLink to="percent" target="_blank">
                     <button type="button" className="view-trans">
                       Pay Percent
                     </button>
