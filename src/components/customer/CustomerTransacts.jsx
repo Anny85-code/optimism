@@ -118,6 +118,7 @@ const CustomerTransacts = () => {
                   <NavLink
                     key={transaction.id}
                     to={`/transactions/${transaction.id}`}
+                    target="_blank"
                   >
                     <ul id="p-child">
                       <li>
