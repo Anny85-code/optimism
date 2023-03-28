@@ -144,7 +144,11 @@ const Customer = () => {
                 )}
               </div>
               <div className="allTrans">
-                <NavLink to={allTrans} style={{ textDecoration: 'none' }}>
+                <NavLink
+                  to={allTrans}
+                  style={{ textDecoration: 'none' }}
+                  target="_blank"
+                >
                   <div>
                     <button type="button" className="view-trans">
                       View transactions
@@ -153,7 +157,11 @@ const Customer = () => {
                 </NavLink>
               </div>
               <div className="myfood">
-                <NavLink to={myfood} style={{ textDecoration: 'none' }}>
+                <NavLink
+                  to={myfood}
+                  style={{ textDecoration: 'none' }}
+                  target="_blank"
+                >
                   <div>
                     <button type="button" className="view-trans">
                       My food
