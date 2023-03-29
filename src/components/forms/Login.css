@@ -42,10 +42,10 @@
 }
 
 @media only screen and (max-width: 450px) {
-  * {
+  /* * {
     padding: 1px;
     margin: 1px;
-  }
+  } */
 
   .form-control-login {
     width: 9.375rem;
