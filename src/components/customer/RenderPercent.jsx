@@ -2,6 +2,7 @@
 import React, { useRef, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useReactToPrint } from 'react-to-print';
+import { utils, writeFileXLSX } from 'xlsx';
 import PropTypes from 'prop-types';
 import './Paid60.css';
 import './RenderPercent.css';
@@ -164,6 +165,16 @@ const RenderPercent = ({ percents, owner }) => {
     }
   };
 
+  const handleExp = () => {
+    const percent = localStorage.getItem('setPercent');
+    const exportData = JSON.parse(percent);
+
+    const ws = utils.json_to_sheet(exportData);
+    const wb = utils.book_new();
+    utils.book_append_sheet(wb, ws, 'Data');
+    writeFileXLSX(wb, `${owner.replace(' ', '_')}.xlsx`);
+  };
+
   return (
     <div className="main-percent-conrainer" ref={componentRef}>
       <div className="percent-input">
@@ -191,11 +202,20 @@ const RenderPercent = ({ percents, owner }) => {
         </label>
       </div>
 
-      <NavLink to="groupitems" target="_blank">
+      <center>
         <button className=" render-page-btn" id="render-btn">
-          View Items
+          <NavLink to="groupitems" target="_blank">
+            View Items
+          </NavLink>
         </button>
-      </NavLink>
+        <button
+          onClick={handleExp}
+          className=" render-page-btn"
+          id="render-btn"
+        >
+          Export Items
+        </button>
+      </center>
 
       <div className="transact-customer-container">
         {superadmin && (
