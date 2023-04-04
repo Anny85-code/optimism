@@ -167,7 +167,12 @@ const RenderPercent = ({ percents, owner }) => {
 
   const handleExp = () => {
     const percent = localStorage.getItem('setPercent');
-    const exportData = JSON.parse(percent);
+    let exportData = JSON.parse(percent);
+
+    exportData = exportData.map((cus) => {
+      const newCus = { ...cus, items: unpack(cus) };
+      return newCus;
+    });
 
     const ws = utils.json_to_sheet(exportData);
     const wb = utils.book_new();
