@@ -22,7 +22,7 @@ const Blocker = ({ trigger, display }) => {
           <div className="modal-content">
             {display}
             <button className="close-modal" onClick={toggleModal}>
-              CLOSE
+              x
             </button>
           </div>
         </div>

@@ -26,11 +26,11 @@ body.active-modal {
 .modal-content {
   position: absolute;
   top: 40%;
-  left: 50%;
+  left: 60%;
   transform: translate(-50%, -50%);
   line-height: 1.4;
   background: #f1f1f1;
-  padding: 14px 28px;
+  padding: 50px 28px;
   border-radius: 3px;
   max-width: 600px;
   min-width: 300px;
@@ -40,5 +40,5 @@ body.active-modal {
   position: absolute;
   top: 10px;
   right: 10px;
-  padding: 5px 7px;
+  padding: 4px;
 }
