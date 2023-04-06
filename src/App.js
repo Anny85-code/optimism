@@ -44,6 +44,7 @@ import Teams from './components/landing/teams/Teams';
 import ContactUs from './components/landing/contact/ContactUs';
 import GroupItems from './components/myfood/GroupItems';
 import MarketerItems from './components/myfood/MarketerItems';
+import Blocker from './utils/Blocker';
 
 const App = () => {
   const [sideBarOpen, setSideBarOpen] = useState(false);
@@ -79,6 +80,7 @@ const App = () => {
             <Route path="/addproducts" element={<AddItemToCustomer />} />
             <Route path="/custumers" element={<Customers />} />
             <Route path="/customers/:id/myfood" element={<MyFoods />} />
+            <Route path="/blocker" element={<Blocker />} />
             <Route
               path="/transactiondetails"
               element={<TransactionDetails />}

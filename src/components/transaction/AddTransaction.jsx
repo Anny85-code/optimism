@@ -106,15 +106,28 @@ const AddTransaction = () => {
               {customerExists && (
                 <>
                   {status && (
-                    <NavLink
-                      to="/contribution"
-                      style={{ textDecoration: 'none' }}
-                    >
+                    // ============== ORIGINAL CODE ==================== //
+                    // <NavLink
+                    //   to="/contribution"
+                    //   style={{ textDecoration: 'none' }}
+                    // >
+                    //   <button
+                    //     type="submit"
+                    //     className="add-trans-btn"
+                    //     id="nextbtn"
+                    //     onClick={handdleNext}
+                    //   >
+                    //     Next
+                    //     <i className="fa fa-arrow-right" id="toggle-btn" />
+                    //   </button>
+                    // </NavLink>
+                    // ============== ORIGINAL CODE ==================== //
+
+                    <NavLink to="/blocker" style={{ textDecoration: 'none' }}>
                       <button
                         type="submit"
                         className="add-trans-btn"
                         id="nextbtn"
-                        onClick={handdleNext}
                       >
                         Next
                         <i className="fa fa-arrow-right" id="toggle-btn" />
