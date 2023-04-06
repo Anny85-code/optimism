@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
-import { getCustomerFromApi } from '../../redux/forms/customerReducer';
-import { getUsersFromApi } from '../../redux/forms/userManReducer';
-import './Search.css';
-
 /* eslint-disable*/
+// import React, { useEffect, useState } from 'react';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { NavLink } from 'react-router-dom';
+// import { getCustomerFromApi } from '../../redux/forms/customerReducer';
+// import { getUsersFromApi } from '../../redux/forms/userManReducer';
+// import './Search.css';
+
 const Blocker = () => {
   return (
     <div id="search-container1">
