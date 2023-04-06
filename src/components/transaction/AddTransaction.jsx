@@ -7,6 +7,7 @@ import { sendErrors } from '../../redux/forms/errors';
 import { getMarketerCustomersFromApi } from '../../redux/forms/marketerCustomersReducer';
 import Loader from '../loader/Loader';
 import './AddTransaction.css';
+import Blocker from '../../utils/Blocker';
 
 const customerEx = (cardNumber, data) => {
   // const ids = [];
@@ -68,6 +69,9 @@ const AddTransaction = () => {
     dispatch(getMarketerCustomersFromApi(user.id));
   }, []);
 
+  const message = `Collections are currently on hold 
+  \nContact you supervisor`;
+
   return (
     <>
       {!mCustomers.loading ? (
@@ -123,16 +127,7 @@ const AddTransaction = () => {
                     // </NavLink>
                     // ============== ORIGINAL CODE ==================== //
 
-                    <NavLink to="/blocker" style={{ textDecoration: 'none' }}>
-                      <button
-                        type="submit"
-                        className="add-trans-btn"
-                        id="nextbtn"
-                      >
-                        Next
-                        <i className="fa fa-arrow-right" id="toggle-btn" />
-                      </button>
-                    </NavLink>
+                    <Blocker trigger="Next" display={message} />
                   )}
                 </>
               )}
