@@ -20,10 +20,22 @@
   background: rgb(243, 243, 99);
   margin: 200px 0 0 500px;
   display: none;
-  z-index: 9;
+  z-index: 1;
   position: absolute;
   padding: 30px;
   text-align: center;
+}
+
+.overlay1 {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  z-index: -1;
+  background: rgba(49, 49, 49, 0.5);
 }
 
 .del-style > p {

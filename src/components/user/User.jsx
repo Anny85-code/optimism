@@ -83,14 +83,16 @@ const User = () => {
       `Customer_${user.data.location_area.replace(' ', '_')}.xlsx`
     );
   };
-
+  
   const handleConfirm = (e) => {
+ 
     if (e.target.id === 'yes') {
       dispatch(delOneUserFromApi(id));
     } else if (e.target.id === 'no') {
       const deleteS = document.getElementById('delete');
       deleteS.style.display = 'none';
     }
+  
   };
 
   const handleConfirm4Trans = (e) => {
@@ -112,7 +114,9 @@ const User = () => {
 
   const handleDel = () => {
     const deleteS = document.getElementById('delete');
+    // const deleteC = document.querySelector('.del-style');
     deleteS.style.display = 'block';
+    // deleteC.style.zIndex = '1000';
   };
 
   const handleDelTrans = () => {
@@ -153,7 +157,9 @@ const User = () => {
       ) : (
         <>
           <div id="delete" className="del-style">
+            <div className="overlay1"></div>
             <p>Are you sure you want to delete?</p>
+
             <button type="button" id="yes" onClick={handleConfirm}>
               Yes
             </button>
@@ -161,6 +167,7 @@ const User = () => {
               No
             </button>
           </div>
+
           <div id="delete4trans" className="del-style">
             <p>Are you sure you want to delete all transactions?</p>
             <button type="button" id="yes-trans" onClick={handleConfirm4Trans}>
@@ -170,6 +177,7 @@ const User = () => {
               No
             </button>
           </div>
+
           <div className="containa user-container">
             <div className="image-container">
               <img src={avatar} alt={`${name}`} className="cus-image" />
