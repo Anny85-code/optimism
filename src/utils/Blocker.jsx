@@ -12,7 +12,7 @@ const Blocker = ({ trigger, display }) => {
 
   return (
     <div className="App">
-      <button className="btn-modal" onClick={toggleModal}>
+      <button className="btn-modal add-trans-btn" onClick={toggleModal}>
         {trigger}
       </button>
 

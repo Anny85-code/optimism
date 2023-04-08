@@ -4,6 +4,7 @@ import { NavLink, useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Moment from 'moment';
 import './Customer.css';
+import './../../utils/Blocker.css';
 import {
   delOneCustomerFromApi,
   getOneCustomerFromApi,
@@ -66,7 +67,9 @@ const Customer = () => {
   localStorage.setItem('customer', JSON.stringify(aCustomers?.data));
   // const allTransMark = transUrlMark(aCustomers.data);
 
+
   const handleConfirm = (e) => {
+      
     if (e.target.id === 'yes') {
       dispatch(delOneCustomerFromApi(id));
       navigate(-1);
@@ -74,6 +77,8 @@ const Customer = () => {
       const deleteS = document.getElementById('delete');
       deleteS.style.display = 'none';
     }
+   
+     
   };
 
   const handleDel = () => {
@@ -88,6 +93,7 @@ const Customer = () => {
       ) : (
         <>
           <div id="delete" className="del-style">
+            {/* <div className="overlay"></div> */}
             <p>Are you sure you want to delete?</p>
             <button type="button" id="yes" onClick={handleConfirm}>
               Yes
@@ -96,6 +102,7 @@ const Customer = () => {
               No
             </button>
           </div>
+
           <div className="containa cus-food-cont">
             <div className="image-container">
               <img className="cus-image" src={picture} alt={`${name}`} />
@@ -170,8 +177,9 @@ const Customer = () => {
                 </NavLink>
               </div>
               <div className="myfood">
-                {admins && (
-                  <div className="del">
+                {admins && modal && (
+                  <div className="del modal">
+                  
                     <button
                       type="button"
                       className="view-trans"
