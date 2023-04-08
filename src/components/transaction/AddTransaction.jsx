@@ -69,7 +69,7 @@ const AddTransaction = () => {
     dispatch(getMarketerCustomersFromApi(user.id));
   }, []);
 
-  const message = `Collections are currently on hold \nContact you supervisor`;
+  const message = `Collections are currently on hold. \nContact your supervisor`;
 
   return (
     <>
