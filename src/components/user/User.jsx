@@ -114,9 +114,8 @@ const User = () => {
 
   const handleDel = () => {
     const deleteS = document.getElementById('delete');
-    // const deleteC = document.querySelector('.del-style');
     deleteS.style.display = 'block';
-    // deleteC.style.zIndex = '1000';
+    
   };
 
   const handleDelTrans = () => {
@@ -157,7 +156,7 @@ const User = () => {
       ) : (
         <>
           <div id="delete" className="del-style">
-            <div className="overlay1"></div>
+            {/* <div className="overlay1"></div> */}
             <p>Are you sure you want to delete?</p>
 
             <button type="button" id="yes" onClick={handleConfirm}>
