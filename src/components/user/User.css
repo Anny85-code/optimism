@@ -71,6 +71,7 @@
   .del-style {
     width: 300px;
     margin: 200px 0 0 30px;
+    padding: 20px;
   }
 
   .del-style > button {
