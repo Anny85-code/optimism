@@ -1,4 +1,4 @@
-import endpoint from '../../assets/url/url';
+import endpoint, { setEndPoint } from '../../assets/url/url';
 import { sendErrors, sendNotifications } from './errors';
 
 export const registerUserToApi = (userData) => async (dispatch) => {
@@ -21,7 +21,32 @@ export const registerUserToApi = (userData) => async (dispatch) => {
   }
 };
 
-export const logUserToApi = (userData) => async (dispatch) => {
+export const logUserToApi = (e, userData) => async (dispatch) => {
+  const endpoint = setEndPoint(e);
+  const { username, password } = userData;
+  const sendData = await fetch(`${endpoint}/login`, {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify({ username, password }),
+  });
+  const rawData = await sendData.json();
+  if (rawData.status === 200) {
+    localStorage.setItem('user', JSON.stringify(rawData));
+    localStorage.setItem('token', rawData.token);
+    localStorage.setItem('isLoggedIn', true);
+    window.location.reload();
+    const notifyMsg = 'Login successfully!';
+    dispatch(sendNotifications({ notify: notifyMsg }));
+  } else {
+    const errMsg = 'Check login credentials or internet connection!';
+    dispatch(sendErrors({ error: errMsg }));
+  }
+};
+
+export const logUserToApiTwo = (e, userData) => async (dispatch) => {
+  const endpoint = setEndPoint(e);
   const { username, password } = userData;
   const sendData = await fetch(`${endpoint}/login`, {
     method: 'POST',

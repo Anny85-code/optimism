@@ -22,6 +22,9 @@ const LandingNav = () => {
         <NavLink to="/login">
           <button type="button">Sign In</button>
         </NavLink>
+        <NavLink to="/login_new">
+          <button type="button">Sign In New</button>
+        </NavLink>
       </ul>
     </nav>
   );
