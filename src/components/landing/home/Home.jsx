@@ -1,9 +1,11 @@
 /* eslint-disable */
-import React from 'react';
+import React, { useState } from 'react';
 import { LandingFoot } from '../foot/LandingFoot';
 import LandingNav from '../nav/LandingNav';
 
 const Home = () => {
+  // const [sideBarOpen, setSideBarOpen] = useState(false);
+
   return (
     <div className="landing_app">
       <LandingNav />
