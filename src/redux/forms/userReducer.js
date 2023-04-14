@@ -1,4 +1,4 @@
-import endpoint from '../../assets/url/url';
+import endpoint, { setEndPoint } from '../../assets/url/url';
 import { sendErrors, sendNotifications } from './errors';
 
 export const registerUserToApi = (userData) => async (dispatch) => {
@@ -21,7 +21,8 @@ export const registerUserToApi = (userData) => async (dispatch) => {
   }
 };
 
-export const logUserToApi = (userData) => async (dispatch) => {
+export const logUserToApi = (e, userData) => async (dispatch) => {
+  const endpoint = setEndPoint(e);
   const { username, password } = userData;
   const sendData = await fetch(`${endpoint}/login`, {
     method: 'POST',

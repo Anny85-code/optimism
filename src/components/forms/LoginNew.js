@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { logUserToApi } from '../../redux/forms/userReducer';
 import './Login.css';
 /* eslint-disable */
-const Login = () => {
+const LoginNew = () => {
   const [state, setState] = useState({});
   const [passwordShown, setPasswordShown] = useState(false);
   const { error } = useSelector((state) => state.errors);
@@ -92,7 +92,7 @@ const Login = () => {
                   className="btn-login btn-secondary1"
                   onClick={handleSubmit}
                 >
-                  Log in
+                  Log in new
                 </button>
               </div>
               <center>
@@ -106,4 +106,4 @@ const Login = () => {
   );
 };
 /* eslint-enable */
-export default Login;
+export default LoginNew;

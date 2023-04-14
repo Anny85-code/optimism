@@ -44,6 +44,7 @@ import Teams from './components/landing/teams/Teams';
 import ContactUs from './components/landing/contact/ContactUs';
 import GroupItems from './components/myfood/GroupItems';
 import MarketerItems from './components/myfood/MarketerItems';
+import LoginNew from './components/forms/LoginNew';
 
 const App = () => {
   const [sideBarOpen, setSideBarOpen] = useState(false);
@@ -140,6 +141,7 @@ const App = () => {
           <Route path="/teams" element={<Teams />} />
           <Route path="/contact_us" element={<ContactUs />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/login_new" element={<LoginNew />} />
           <Route path="*" element={<Error />} />
         </Routes>
       )}
