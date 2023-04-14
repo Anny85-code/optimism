@@ -1,11 +1,19 @@
 /* eslint-disable */
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import landingLogo from '../../../assets/image/foodforalllogo.png';
 import './LandingNav.css';
 
 const LandingNav = () => {
   return (
-    <nav>
+    <nav className="landing_nav">
+      <div>
+        <img
+          src={landingLogo}
+          className="landing_image"
+          alt="landing page logo"
+        />
+      </div>
       <ul className="landing_ul">
         <NavLink to="/">
           <li>Home</li>
@@ -20,12 +28,32 @@ const LandingNav = () => {
           <li>Contact Us</li>
         </NavLink>
         <NavLink to="/login">
-          <button type="button">Sign In</button>
+          <li>
+            <button type="button">Sign In</button>
+          </li>
         </NavLink>
         <NavLink to="/login_new">
-          <button type="button">Sign In New</button>
+          <li>
+            <button type="button">Sign In New</button>
+          </li>
         </NavLink>
       </ul>
+      <div className="search_cont">
+        <a href="#">
+          <i
+            className="fa fa-search"
+            style={{
+              color: '#a5a5a5',
+              fontSize: '26px',
+              borderRadius: '50px',
+              boxShadow: '2px 2px 5px #d9d9d9, -2px -2px -5px #000',
+              padding: '7px',
+              margin: '10px',
+            }}
+            onClick={() => openSearch()}
+          />
+        </a>
+      </div>
     </nav>
   );
 };

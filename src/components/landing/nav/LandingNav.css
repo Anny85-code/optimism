@@ -1,7 +1,26 @@
+.landing_nav {
+  background: #000;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 60px;
+  display: flex;
+}
+
+.landing_image {
+  width: 200px;
+  height: 100px;
+}
+
+.search_cont {
+  border: 1px solid #fff;
+  height: 60px;
+  width: 60px;
+}
+
 .landing_ul {
   display: flex;
   justify-content: space-between;
-  padding: 3rem 30rem;
+  padding: 3rem;
 }
 
 .landing_ul li {
@@ -10,6 +29,7 @@
   background-color: black;
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
+  margin-right: 40px;
 }
 
 .landing_ul li:hover {
