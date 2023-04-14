@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { logUserToApiTwo } from '../../redux/forms/userReducer';
+import { logUserToApi } from '../../redux/forms/userReducer';
 import './Login.css';
 /* eslint-disable */
 const LoginNew = () => {
@@ -20,7 +20,7 @@ const LoginNew = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(logUserToApiTwo(e, state));
+    dispatch(logUserToApi(e, state));
     window.history.pushState({}, '', '/');
   };
 
