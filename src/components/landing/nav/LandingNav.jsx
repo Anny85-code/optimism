@@ -81,12 +81,16 @@ const LandingNav = () => {
         </NavLink>
         <NavLink to="/login" spy={true} smooth={true}>
           <li>
-            <button type="button">Sign In</button>
+            <button type="button" className="landing_btn">
+              Sign In
+            </button>
           </li>
         </NavLink>
         <NavLink to="/login_new" spy={true} smooth={true}>
           <li>
-            <button type="button">Sign In New</button>
+            <button type="button" className="landing_btn">
+              Sign In New
+            </button>
           </li>
         </NavLink>
       </ul>
