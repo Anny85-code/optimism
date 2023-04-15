@@ -6,6 +6,9 @@ import LandingCard from '../../landingCard/LandingCard';
 import landingImage from '../../../assets/image/recpie_1.png.webp';
 import landingImage2 from '../../../assets/image/recpie_2.png.webp';
 import landingImage3 from '../../../assets/image/recpie_3.png.webp';
+import landingImage4 from '../../../assets/image/recpie_4.png';
+import landingImage5 from '../../../assets/image/recpie_5.png';
+import landingImage6 from '../../../assets/image/recpie_6.png';
 import './Home.css';
 import VideoCard from '../../videoCard/VideoCard';
 
@@ -43,7 +46,26 @@ const Home = () => {
       <div className="landing_card_video">
         <VideoCard />
       </div>
-
+      <div className="landing_card_home">
+        <LandingCard
+          image={landingImage4}
+          header="Quality"
+          description="We are committed to providing the best quality food to our customers."
+          button="Learn More"
+        />
+        <LandingCard
+          image={landingImage5}
+          header="Quality"
+          description="We are committed to providing the best quality food to our customers."
+          button="Learn More"
+        />
+        <LandingCard
+          image={landingImage6}
+          header="Quality"
+          description="We are committed to providing the best quality food to our customers."
+          button="Learn More"
+        />
+      </div>
       <LandingFoot />
     </>
   );

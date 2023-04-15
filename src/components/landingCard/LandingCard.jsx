@@ -3,8 +3,8 @@ import './LandingCard.css';
 
 /* eslint-disable */
 
-const LandingCard = ({ image, header, description, button }) => {
- 
+const LandingCard = (props) => {
+ const { image, header, description, button } = props;
   return (
     <div className="landing_card_container">
       <img src={image} alt="cardimage" className="landing_card_image"/>
