@@ -3,7 +3,8 @@
   background: transparent;
   align-items: center;
   justify-content: space-around;
-  padding:  20px;
+  padding: 20px;
+
   /* margin-top: 40px; */
   display: flex;
   position: fixed; /* Make it stick/fixed */
@@ -35,7 +36,9 @@
 .landing_ul li {
   list-style: none;
   text-transform: none;
+
   /* background-color: black; */
+
   /* color: #000; */
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
@@ -78,7 +81,6 @@
   text-decoration: none;
   color: rgb(15, 15, 37);
   font-size: 19px;
-  font-weight: bold;
   text-transform: uppercase;
   font-weight: bold;
   margin-top: 40px;

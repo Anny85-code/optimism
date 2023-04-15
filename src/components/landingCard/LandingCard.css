@@ -1,9 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Quintessential&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Neonderthaw&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
-
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
-
 @import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@500&display=swap');
 
 .landing_card_container {
@@ -54,16 +52,20 @@
   .landing_card_container {
     width: 300px;
   }
+
   .landing_card_image {
     width: 200px;
     height: 200px;
   }
+
   .landing_card_header_text {
     font-size: 20px;
   }
+
   .landing_card_des {
     font-size: 15px;
   }
+
   .landing_card-btn {
     font-size: 15px;
   }

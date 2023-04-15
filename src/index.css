@@ -1,10 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=lato:whg@300;400;700&display=swap');
 
 /* styling scrolling bars */
-:root {
-  --primary-color: rgb(0, 35, 91);
-  --secondary-color: rgb(255, 255, 255);
-}
 
 ::-webkit-scrollbar {
   width: 10px;
@@ -19,6 +15,11 @@
 ::-webkit-scrollbar-thumb {
   background-color: #f5a5a5;
   border-radius: 10px;
+}
+
+:root {
+  --primary-color: rgb(0, 35, 91);
+  --secondary-color: rgb(255, 255, 255);
 }
 
 ::-webkit-scrollbar-thumb:hover {

@@ -11,12 +11,12 @@
   width: 100%;
   background: #000;
   padding: 50px;
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 
 .logo {
   font-size: 40px;
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   color: crimson;
   text-align: left;
@@ -26,7 +26,7 @@
   color: #fefefe;
   text-align: left;
   font-size: 16px;
-  margin-bottom: 0px;
+  margin-bottom: 0;
   width: 300px;
 }
 
@@ -34,14 +34,17 @@
   text-align: left;
   margin-top: 25px;
 }
+
 .img {
   margin-right: 14px;
   margin-bottom: 40px;
   cursor: pointer;
 }
+
 .img:hover {
   transform: scale(1.1);
 }
+
 .head {
   color: #fefefe;
   font-size: 22px;
@@ -50,62 +53,64 @@
   margin-bottom: 28px;
   font-weight: 500;
 }
+
 .bottom {
   color: #fefefe;
   font-size: 16px;
-  margin:10px 0 0 80px;
+  margin: 10px 0 0 80px;
   height: 49px;
   padding-top: 12px;
-  
 }
 
 @media screen and (max-width: 992px) {
   .text {
     width: 230px;
   }
+
   .logo {
     font-size: 35px;
   }
 }
+
 @media screen and (max-width: 600px) {
   .logo {
     font-size: 28px;
   }
+
   .head {
     font-size: 17px;
   }
+
   .text {
     font-size: 14px;
   }
+
   .bottom {
     font-size: 14px;
     height: 45px;
   }
 }
-/* @media screen and (max-width: 1200px) {
-  .contain {
-    margin-left: 30px;
-  }
-} */
 
 @media screen and (max-width: 575px) {
   .contain {
     padding-left: 30% !important;
     margin-bottom: 25px;
   }
+
   .head {
     margin-bottom: 10px;
   }
+
   .img {
     margin-bottom: 25px;
   }
 }
+
 @media screen and (max-width: 455px) {
   .contain {
     /* padding-left: 5% !important; */
     display: flex;
     padding: 0;
-    
   }
 
   .row_landing {
@@ -116,17 +121,9 @@
     margin: 10px 40px;
   }
 }
+
 @media screen and (max-width: 320px) {
   .contain {
     padding-left: 1% !important;
   }
 }
-
-/* @media screen and (max-width: 350px) {
-  .contain {
-    padding-left: 10% !important;
-  }
-  .text {
-    width: 100%;
-  }
-} */

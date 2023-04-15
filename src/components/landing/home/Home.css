@@ -30,7 +30,6 @@
   padding: 100px;
 }
 
-
 @media screen and (max-width: 768px) {
   .landing_card_home {
     flex-direction: column;
