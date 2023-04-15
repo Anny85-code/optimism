@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Neonderthaw&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
 
 .landing_app {
   background-image: url('../../../assets/image/bgfood.jpg');
@@ -10,16 +10,15 @@
 
 .landing_text {
   color: #fff;
-  font-size: 40px;
+  font-size: 50px;
   font-weight: 700;
   text-transform: uppercase;
   margin: 300px;
   animation: landing-text-animation 0.5s ease-in-out;
   position: fixed;
-  font-family: 'Neonderthaw', sans-serif;
-  
+  font-family: 'Nanum Pen Script', sans-serif;
 }
 
 #landing_text {
-  margin-left: 400px;
+  margin-left: 500px;
 }

@@ -11,7 +11,7 @@ const Home = () => {
       <center className="landing_text" id='landing_text'>
         <h1>Food for all</h1>
         <br />
-        <h1>Let's think food!</h1>
+        <h1>Let's talk food!</h1>
       </center>
 
       {/* lorem4000 */}
