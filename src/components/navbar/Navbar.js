@@ -7,7 +7,7 @@ const data = JSON.parse(localStorage.getItem('user'));
 const { user } = data || {};
 
 /* eslint-disable */
-const Navbar = ({ sideBarOpen, openSideBar }) => {
+const NavbarMain = ({ sideBarOpen, openSideBar }) => {
   const isLoggedIn = localStorage.getItem('isLoggedIn');
   const dispatch = useDispatch();
 
@@ -70,7 +70,7 @@ const Navbar = ({ sideBarOpen, openSideBar }) => {
   const admins = user.role === 'admin' || user.role === 'superadmin';
 
   return (
-    <nav className="navbar">
+    <nav className="navbar_main">
       <div className="nav-icon" onClick={() => openSideBar()}>
         <i className="fa fa-bars" />
       </div>
@@ -159,4 +159,4 @@ const Navbar = ({ sideBarOpen, openSideBar }) => {
   );
 };
 /* eslint-enable */
-export default Navbar;
+export default NavbarMain;

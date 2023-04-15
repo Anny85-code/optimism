@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Quintessential&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Neonderthaw&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@500&display=swap');
+
+.landing_card_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 400px;
+  align-items: center;
+}
+
+.landing_card_image {
+  width: 300px;
+  height: 300px;
+  border-radius: 10px;
+}
+
+.landing_card_header_text {
+  font-size: 50px;
+  font-weight: 300;
+  text-transform: capitalize;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-family: 'DynaPuff', cursive;
+}
+
+.landing_card_des {
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: none;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.landing_card-btn {
+  background-color: #f25f7d;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: none;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .landing_card_container {
+    width: 300px;
+  }
+
+  .landing_card_image {
+    width: 200px;
+    height: 200px;
+  }
+
+  .landing_card_header_text {
+    font-size: 20px;
+  }
+
+  .landing_card_des {
+    font-size: 15px;
+  }
+
+  .landing_card-btn {
+    font-size: 15px;
+  }
+}

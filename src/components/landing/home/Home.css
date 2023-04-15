@@ -1,3 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+
 .landing_app {
-  /* color: black; */
+  background-image: url('../../../assets/image/bgfood.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+}
+
+.landing_text {
+  color: #fff;
+  font-size: 50px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 300px;
+  animation: landing-text-animation 0.5s ease-in-out;
+  position: absolute;
+  font-family: 'Nanum Pen Script', sans-serif;
+}
+
+#landing_text {
+  margin-left: 500px;
+}
+
+.landing_card_home {
+  display: flex;
+  background: #fff;
+  justify-content: space-between;
+  padding: 100px;
+}
+
+@media screen and (max-width: 768px) {
+  .landing_card_home {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .landing_text {
+    margin-top: 140px;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  #landing_text {
+    margin-left: 130px;
+  }
+
+  .landing_app {
+    display: flex;
+    flex-direction: column;
+  }
 }
