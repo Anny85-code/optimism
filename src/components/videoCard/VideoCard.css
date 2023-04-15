@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
-  /* width:800px; */
+  background: #fff;
   align-items: center;
   box-sizing: border-box;
   padding: 30px;
@@ -59,7 +59,7 @@
 
   margin: 0 auto;
 
-  max-width: 900px;
+  /* max-width: 900px; */
 }
 
 image-stack::after {
@@ -69,20 +69,6 @@ image-stack::after {
 
   clear: both;
 }
-
-/* .image-stack__item–top {
-  float: left;
-
-  width: 66%;
-
-  margin-right: -100%;
-
-  padding-top: 15%;
-
-  position: relative;
-
-  z-index: 1;
-} */
 
 .image-stack__item–bottom {
   float: right;
@@ -126,4 +112,52 @@ iframe {
   font-family: 'Dancing Script', cursive;
   font-size: 60px;
   font-weight: 700;
+}
+
+@media screen and (max-width: 768px) {
+  .video_card_main_container {
+    flex-direction: column;
+  }
+  .video_right_container {
+    margin-top: 20px;
+  }
+  .video_image {
+    width: 150px;
+    height: 150px;
+  }
+  .video_image2 {
+    width: 200px;
+    height: 200px;
+  }
+  .video_cont {
+    width: 100px;
+  }
+  iframe {
+    height: 100px;
+    width: 200px;
+  }
+  #right_video_text {
+    font-size: 30px;
+  }
+
+  .image-stack__item—top {
+    float: left;
+    margin-right: -100%;
+
+    padding-top: 15%;
+
+    position: relative;
+
+    z-index: 1;
+    margin-top: 150px;
+    margin-left: 50px;
+  }
+
+  .container_video_card {
+    padding: 50px 20px;
+
+    width: 200px;
+
+    margin: 0 auto;
+  }
 }
