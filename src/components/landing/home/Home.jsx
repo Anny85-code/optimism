@@ -7,6 +7,7 @@ import landingImage from '../../../assets/image/recpie_1.png.webp';
 import landingImage2 from '../../../assets/image/recpie_2.png.webp';
 import landingImage3 from '../../../assets/image/recpie_3.png.webp';
 import './Home.css';
+import VideoCard from '../../videoCard/VideoCard';
 
 const Home = () => {
   return (
@@ -19,7 +20,7 @@ const Home = () => {
           <h1>Let's talk food!</h1>
         </center>
       </div>
-      <div className='landing_card_home'>
+      <div className="landing_card_home">
         <LandingCard
           image={landingImage}
           header="Quality"
@@ -38,6 +39,9 @@ const Home = () => {
           description="We are committed to providing the best quality food to our customers."
           button="Learn More"
         />
+      </div>
+      <div className="landing_card_video">
+        <VideoCard />
       </div>
 
       <LandingFoot />

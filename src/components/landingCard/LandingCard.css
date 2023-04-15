@@ -2,6 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Neonderthaw&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@500&display=swap');
+
 .landing_card_container {
   display: flex;
   flex-direction: column;
@@ -18,11 +22,11 @@
 
 .landing_card_header_text {
   font-size: 50px;
-  font-weight: 700;
-  text-transform: uppercase;
+  font-weight: 300;
+  text-transform: capitalize;
   margin-top: 20px;
   margin-bottom: 20px;
-  font-family: 'Nanum Pen Script', sans-serif;
+  font-family: 'DynaPuff', cursive;
 }
 
 .landing_card_des {

@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+.video_card_main_container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  /* width:800px; */
+  align-items: center;
+  box-sizing: border-box;
+  padding: 30px;
+}
+
+.image-stack {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  position: relative;
+}
+
+.image-stack__item—top {
+  grid-column: 1 / span 8;
+  grid-row: 1;
+  padding-top: 20%;
+  z-index: 1;
+}
+
+.image-stack__item—bottom {
+  grid-column: 4;
+  grid-row: 1;
+}
+
+.image-stack::after {
+  content: '';
+
+  display: table;
+
+  clear: both;
+}
+
+.image-stack__item—top {
+  float: left;
+
+  /* width: 66%; */
+
+  margin-right: -100%;
+
+  padding-top: 15%;
+
+  position: relative;
+
+  z-index: 1;
+  margin-top: 250px;
+  margin-left: 400px;
+}
+
+.container_video_card {
+  padding: 100px 30px;
+
+  width: 100%;
+
+  margin: 0 auto;
+
+  max-width: 900px;
+}
+
+image-stack::after {
+  content: '';
+
+  display: table;
+
+  clear: both;
+}
+
+/* .image-stack__item–top {
+  float: left;
+
+  width: 66%;
+
+  margin-right: -100%;
+
+  padding-top: 15%;
+
+  position: relative;
+
+  z-index: 1;
+} */
+
+.image-stack__item–bottom {
+  float: right;
+
+  width: 75%;
+}
+
+.video_image {
+  width: 300px;
+  height: 300px;
+}
+
+.video_image2 {
+  width: 600px;
+  height: 600px;
+}
+
+.video_cont {
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  width: 300px;
+}
+
+iframe {
+  height: 200px;
+  width: 400px;
+}
+
+.video_right_container {
+  display: flex;
+  flex-direction: column;
+}
+
+.video_right_container > ul > li {
+  margin: 20px;
+  font-family: 'DynaPuff', cursive;
+  font-family: 'Pacifico', cursive;
+  font-size: 20px;
+}
+
+#right_video_text {
+  font-family: 'Dancing Script', cursive;
+  font-size: 60px;
+  font-weight: 700;
+}
