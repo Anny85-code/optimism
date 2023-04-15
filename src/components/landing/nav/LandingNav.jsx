@@ -41,7 +41,7 @@ const LandingNav = () => {
         document.getElementById('land_li4').style.color = '#fff';
         document.getElementById('land_li5').style.color = '#fff';
     } else {
-      document.getElementById('landing_navbar').style.top = '20px';
+      document.getElementById('landing_navbar').style.top = '0';
       document.querySelector('.landing_nav').style.background = 'transparent';
       document.getElementById('land_li').style.color = '#000';
       document.getElementById('land_li1').style.color = '#000';

@@ -15,10 +15,15 @@
   text-transform: uppercase;
   margin: 300px;
   animation: landing-text-animation 0.5s ease-in-out;
-  position: fixed;
+  position: absolute;
   font-family: 'Nanum Pen Script', sans-serif;
 }
 
 #landing_text {
   margin-left: 500px;
+}
+
+.landing_card_home {
+  position: fixed;
+  margin-top: 400px;
 }

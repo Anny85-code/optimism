@@ -10,6 +10,7 @@
   top: -50px; /* Hide the navbar 50 px outside of the top view */
   width: 100%; /* Full width */
   transition: top 0.3s; /* Transition effect when sliding down (and up) */
+  z-index: 10;
 }
 
 .landing_image {
