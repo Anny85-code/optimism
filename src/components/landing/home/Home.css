@@ -1,3 +1,7 @@
 .landing_app {
-  /* color: black; */
+  background-image: url('../../../assets/image/bgfood.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
 }

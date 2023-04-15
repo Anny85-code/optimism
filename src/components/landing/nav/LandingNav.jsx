@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { IoMdClose } from 'react-icons/io';
 import { FiMenu } from 'react-icons/fi';
-import landingLogo from '../../../assets/image/foodforalllogo.png';
+import landingLogo from '../../../assets/image/quality.png';
 import './LandingNav.css';
 
 const LandingNav = () => {
@@ -20,6 +20,37 @@ const LandingNav = () => {
     setNavbarOpen(false);
     body.style.overflow = 'auto';
   };
+
+  window.onscroll = function () {
+    scrollFunction();
+  };
+
+  function scrollFunction() {
+    if (
+      document.body.scrollTop > 20 ||
+      document.documentElement.scrollTop > 20
+    ) {
+      document.getElementById('landing_navbar').style.top = '0';
+      document.querySelector('.landing_nav').style.background = '#000';
+      document.querySelector('.landing_nav').style.paddingTop = '10px';
+        document.getElementById('land_li').style.color = '#fff';
+        document.getElementById('land_li').style.color = '#fff';
+        document.getElementById('land_li1').style.color = '#fff';
+        document.getElementById('land_li2').style.color = '#fff';
+        document.getElementById('land_li3').style.color = '#fff';
+        document.getElementById('land_li4').style.color = '#fff';
+        document.getElementById('land_li5').style.color = '#fff';
+    } else {
+      document.getElementById('landing_navbar').style.top = '20px';
+      document.querySelector('.landing_nav').style.background = 'transparent';
+      document.getElementById('land_li').style.color = '#000';
+      document.getElementById('land_li1').style.color = '#000';
+      document.getElementById('land_li2').style.color = '#000';
+      document.getElementById('land_li3').style.color = '#000';
+      document.getElementById('land_li4').style.color = '#000';
+      document.getElementById('land_li5').style.color = '#000';
+    }
+  }
 
   const links = [
     {
@@ -58,7 +89,7 @@ const LandingNav = () => {
     },
   ];
   return (
-    <nav className="landing_nav">
+    <nav className="landing_nav" id="landing_navbar">
       <div>
         <img
           src={landingLogo}
@@ -68,29 +99,25 @@ const LandingNav = () => {
       </div>
       <ul className="landing_ul">
         <NavLink activeClass="active" to="/" spy={true} smooth={true}>
-          <li>Home</li>
+          <li id="land_li">Home</li>
         </NavLink>
         <NavLink activeClass="active" to="/about_us" spy={true} smooth={true}>
-          <li>About Us</li>
+          <li id="land_li1">About Us</li>
         </NavLink>
         <NavLink activeClass="active" to="/teams" spy={true} smooth={true}>
-          <li>Teams</li>
+          <li id="land_li2">Teams</li>
         </NavLink>
         <NavLink activeClass="active" to="/contact_us" spy={true} smooth={true}>
-          <li>Contact Us</li>
+          <li id="land_li3">Contact Us</li>
         </NavLink>
         <NavLink to="/login" spy={true} smooth={true}>
-          <li>
-            <button type="button" className="landing_btn">
-              Sign In
-            </button>
+          <li className="sign_btn" id="land_li4">
+            Sign In
           </li>
         </NavLink>
         <NavLink to="/login_new" spy={true} smooth={true}>
-          <li>
-            <button type="button" className="landing_btn">
-              Sign In New
-            </button>
+          <li className="sign_btn" id="land_li5">
+            Sign In New
           </li>
         </NavLink>
       </ul>
