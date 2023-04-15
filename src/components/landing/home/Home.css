@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@500&family=Pacifico&family=Permanent+Marker&display=swap');
 
 .landing_app {
   background-image: url('../../../assets/image/bgfood.jpg');
@@ -8,15 +9,21 @@
   height: 100vh;
 }
 
+.land_sub_text {
+  color: #f40606;
+}
+
 .landing_text {
   color: #fff;
-  font-size: 50px;
+  font-size: 30px;
   font-weight: 700;
   text-transform: uppercase;
   margin: 300px;
   animation: landing-text-animation 0.5s ease-in-out;
   position: absolute;
-  font-family: 'Nanum Pen Script', sans-serif;
+
+  /* font-family: 'Nanum Pen Script', sans-serif; */
+  font-family: 'Permanent Marker', cursive;
 }
 
 #landing_text {

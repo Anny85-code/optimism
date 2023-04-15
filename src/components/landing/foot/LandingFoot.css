@@ -93,7 +93,7 @@
 
 @media screen and (max-width: 575px) {
   .contain {
-    padding-left: 30% !important;
+    /* padding-left: 30% !important; */
     margin-bottom: 25px;
   }
 
@@ -125,5 +125,9 @@
 @media screen and (max-width: 320px) {
   .contain {
     padding-left: 1% !important;
+  }
+
+  .bottom {
+    margin: 10px 40px;
   }
 }
