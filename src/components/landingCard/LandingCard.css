@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Quintessential&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Neonderthaw&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+
 .landing_card_container {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  /* margin-top: 400px; */
   width: 400px;
   align-items: center;
 }
@@ -14,11 +17,12 @@
 }
 
 .landing_card_header_text {
-  font-size: 30px;
+  font-size: 50px;
   font-weight: 700;
   text-transform: uppercase;
   margin-top: 20px;
   margin-bottom: 20px;
+  font-family: 'Nanum Pen Script', sans-serif;
 }
 
 .landing_card_des {
