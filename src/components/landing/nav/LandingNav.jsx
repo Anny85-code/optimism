@@ -25,8 +25,11 @@ const LandingNav = () => {
     scrollFunction();
   };
 
+  const windowSize = window.innerWidth;
+
   function scrollFunction() {
-    if (
+    if (windowSize > 450 ){
+      if (
       document.body.scrollTop > 20 ||
       document.documentElement.scrollTop > 20
     ) {
@@ -50,7 +53,8 @@ const LandingNav = () => {
       document.getElementById('land_li4').style.color = '#000';
       document.getElementById('land_li5').style.color = '#000';
     }
-  }
+  } 
+}
 
   const links = [
     {
@@ -153,7 +157,7 @@ const LandingNav = () => {
             style={{
               color: '#fff',
               width: '40px',
-              marginTop: '10px',
+              marginTop: '30px',
               height: '40px',
             }}
             onClick={handleToggle}

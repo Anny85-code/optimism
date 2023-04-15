@@ -24,6 +24,26 @@
 }
 
 .landing_card_home {
-  position: fixed;
-  margin-top: 400px;
+  display: flex;
+  background: #fff;
+  justify-content: space-between;
+  padding: 100px;
+}
+
+@media screen and (max-width: 768px) {
+  .landing_card_home {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .landing_text {
+    margin: 20px;
+    font-size: 20px;
+    display: none;
+  }
+
+  .landing_app {
+    display: flex;
+    flex-direction: column;
+  }
 }

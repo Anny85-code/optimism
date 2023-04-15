@@ -1,5 +1,4 @@
 import React from 'react';
-// import { propTypes } from 'prop-types';
 import './LandingCard.css';
 
 /* eslint-disable */
@@ -16,10 +15,4 @@ const LandingCard = ({ image, header, description, button }) => {
   )
 }
 
-// LandingCard.propTypes = {
-//   image: propTypes.string.isRequired,
-//   header: propTypes.string.isRequired,
-//   description: propTypes.string.isRequired,
-//   button: propTypes.string.isRequired,
-// }
 export default LandingCard;
