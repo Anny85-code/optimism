@@ -33,7 +33,7 @@ export const LandingFoot = () => {
         <div className="container_landing">
           <div className="row_landing">
             <div className="col-lg-3 col-sm-6 contain">
-              <p className="logo"> Food 4 All </p>{' '}
+              <p className="logo"> Optimist Food4All </p>{' '}
               <p className="text">
                 Building the future requires a strong foundation, a clear
                 vision, and a trusted partner. We are committed to providing the
@@ -43,11 +43,7 @@ export const LandingFoot = () => {
               <p className="text"> Quick service delivery! </p>{' '}
               <p className="text"> Affordable prices! </p>{' '}
               <div className="social_logo">
-                <a
-                  href="https://www.facebook.com/profile.php?id=100063462045932&mibextid=ZbWKwL"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
+                <a href="#facebook" rel="noopener noreferrer" target="_blank">
                   <img src={fb} alt="fb" className="img" />
                 </a>
                 <a href="#instagram" rel="noopener noreferrer" target="_blank">
@@ -61,13 +57,13 @@ export const LandingFoot = () => {
             <div className="col-lg-3 col-sm-6  contain">
               <p className="head"> Services </p>{' '}
               <p className="text">Available 24 hours and 7 days a week </p>{' '}
-              <p className="text"> hendrexresource@yahoo.com</p>{' '}
+              <p className="text"> optimistfood4all.com</p>{' '}
               <p className="text"> (234) 80 - 3266 - 8874 </p>{' '}
             </div>
             <div className="col-lg-3 col-sm-6 contain">
               <p className="head"> Head Office </p>{' '}
-              <p className="text">Km 7 Abak road Uyo, Akwa Ibom State </p>{' '}
-              <p className="text"> hendrexresource@yahoo.com </p>{' '}
+              <p className="text">Km 7 Airport road Kaduna, Kaduna State </p>{' '}
+              <p className="text"> foodforall@yahoo.com </p>{' '}
               <p className="text"> (080) 3945 - 3274 </p>{' '}
             </div>
             <div className="col-lg-3 col-sm-6 contain">
@@ -78,9 +74,7 @@ export const LandingFoot = () => {
           </div>
         </div>{' '}
       </div>
-      <div
-        style={{ backgroundColor: '#000', borderTop: 'solid 1px #707070' }}
-      >
+      <div style={{ backgroundColor: '#000', borderTop: 'solid 1px #707070' }}>
         <p className="bottom">
           Copyright© {Foter()} &nbsp; All rights reserved{' '}
         </p>{' '}
