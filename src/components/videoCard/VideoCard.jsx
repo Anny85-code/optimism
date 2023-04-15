@@ -3,6 +3,7 @@ import './VideoCard.css';
 import image1 from '../../assets/image/2.png';
 import image2 from '../../assets/image/big.png';
 
+/* eslint-disable */
 const VideoCard = () => {
   return (
     <div className='video_card_main_container'>
@@ -33,7 +34,6 @@ const VideoCard = () => {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowfullscreen
             ></iframe></div>
-           
           </li>
         </ul>
       </div>
