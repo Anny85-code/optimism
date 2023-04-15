@@ -94,7 +94,7 @@ iframe {
   }
 
   .video_right_container {
-    margin-top: 20px;
+    margin: 20px 0 0 -20px;
   }
 
   .video_image {
@@ -112,7 +112,7 @@ iframe {
   }
 
   iframe {
-    height: 100px;
+    height: 200px;
     width: 300px;
   }
 
