@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
-
 @import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@500&family=Pacifico&family=Permanent+Marker&display=swap');
 
 .landing_app {
@@ -11,7 +10,7 @@
 }
 
 .land_sub_text {
-  color:#f40606
+  color: #f40606;
 }
 
 .landing_text {
@@ -22,6 +21,7 @@
   margin: 300px;
   animation: landing-text-animation 0.5s ease-in-out;
   position: absolute;
+
   /* font-family: 'Nanum Pen Script', sans-serif; */
   font-family: 'Permanent Marker', cursive;
 }
