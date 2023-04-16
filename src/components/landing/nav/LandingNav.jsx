@@ -12,7 +12,6 @@ const LandingNav = () => {
   const handleToggle = () => {
     setNavbarOpen((prev) => !prev);
     document.querySelector('.menuNav').style.display = 'block';
-    document.querySelector('.footer').style.display = 'none';
     body.style.overflow = 'hidden';
   };
 
@@ -59,36 +58,36 @@ const LandingNav = () => {
   const links = [
     {
       id: 1,
-      path: 'home',
+      path: '/',
       text: 'Home',
     },
 
     {
       id: 2,
-      path: 'about_us',
+      path: '/about_us',
       text: 'About Us',
     },
 
     {
       id: 3,
-      path: 'teams',
+      path: '/teams',
       text: 'Teams',
     },
 
     {
       id: 4,
-      path: 'contact_us',
+      path: '/contact_us',
       text: 'Contact Us',
     },
 
     {
       id: 5,
-      path: 'login',
+      path: '/login',
       text: 'Sign In',
     },
     {
       id: 6,
-      path: 'login_new',
+      path: '/login_new',
       text: 'Sign In New',
     },
   ];
