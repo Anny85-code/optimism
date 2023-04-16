@@ -11,14 +11,14 @@ const VideoCard = () => {
         <div className="image-stack__item image-stack__item—top">
           <img src={image1} alt="" className='video_image'/>
         </div>
-        <div class="image-stack__item image-stack__item—bottom">
+        <div className="image-stack__item image-stack__item—bottom">
           <img src={image2} alt="" className='video_image2'/>
         </div>
       </div>
 
       <div className='video_right_container'>
         <ul>
-          <li id='right_video_text'>Recipe videos that never misses any portion</li>
+          <li data-aos="slide-right" id='right_video_text'>Recipe videos that never misses any portion</li>
           <li>
             inappropriate behavior is often laughed off as “boys will be boys,”
             women face higher conduct standards especially in the workplace.
