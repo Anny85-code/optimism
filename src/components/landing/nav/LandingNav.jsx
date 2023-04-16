@@ -27,15 +27,15 @@ const LandingNav = () => {
 
   const windowSize = window.innerWidth;
 
-  function scrollFunction() {
-    if (windowSize > 450 ){
+  const scrollFunction = () => {
+    if (windowSize > 450) {
       if (
-      document.body.scrollTop > 20 ||
-      document.documentElement.scrollTop > 20
-    ) {
-      document.getElementById('landing_navbar').style.top = '0';
-      document.querySelector('.landing_nav').style.background = '#000';
-      document.querySelector('.landing_nav').style.paddingTop = '10px';
+        document.body.scrollTop > 20 ||
+        document.documentElement.scrollTop > 20
+      ) {
+        document.getElementById('landing_navbar').style.top = '0';
+        document.querySelector('.landing_nav').style.background = '#000';
+        document.querySelector('.landing_nav').style.paddingTop = '10px';
         document.getElementById('land_li').style.color = '#fff';
         document.getElementById('land_li').style.color = '#fff';
         document.getElementById('land_li1').style.color = '#fff';
@@ -43,18 +43,18 @@ const LandingNav = () => {
         document.getElementById('land_li3').style.color = '#fff';
         document.getElementById('land_li4').style.color = '#fff';
         document.getElementById('land_li5').style.color = '#fff';
-    } else {
-      document.getElementById('landing_navbar').style.top = '0';
-      document.querySelector('.landing_nav').style.background = 'transparent';
-      document.getElementById('land_li').style.color = '#000';
-      document.getElementById('land_li1').style.color = '#000';
-      document.getElementById('land_li2').style.color = '#000';
-      document.getElementById('land_li3').style.color = '#000';
-      document.getElementById('land_li4').style.color = '#000';
-      document.getElementById('land_li5').style.color = '#000';
+      } else {
+        document.getElementById('landing_navbar').style.top = '0';
+        document.querySelector('.landing_nav').style.background = 'transparent';
+        document.getElementById('land_li').style.color = '#000';
+        document.getElementById('land_li1').style.color = '#000';
+        document.getElementById('land_li2').style.color = '#000';
+        document.getElementById('land_li3').style.color = '#000';
+        document.getElementById('land_li4').style.color = '#000';
+        document.getElementById('land_li5').style.color = '#000';
+      }
     }
-  } 
-}
+  };
 
   const links = [
     {

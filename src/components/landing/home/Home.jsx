@@ -18,9 +18,9 @@ const Home = () => {
       <div className="landing_app">
         <LandingNav />
         <center className="landing_text" id="landing_text">
-          <h1>Food for all</h1>
+          <h1 >Food for all</h1>
           <br />
-          <h1 className="land_sub_text">Let's talk food!</h1>
+          <h1 data-aos="slide-left" className="land_sub_text">Let's talk food!</h1>
         </center>
       </div>
       <div className="landing_card_home">
