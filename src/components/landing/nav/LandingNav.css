@@ -80,7 +80,7 @@
   text-transform: uppercase;
   font-weight: bold;
   margin-top: 30px;
-  animation: menu-link-animation 0.5s ease-in-out;
+  /* animation: menu-link-animation 0.5s ease-in-out; */
 }
 
 @media screen and (max-width: 768px) {
