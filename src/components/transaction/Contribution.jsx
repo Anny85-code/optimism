@@ -37,6 +37,7 @@ const Contribution = () => {
   }, []);
 
   const startDate = lSea?.start_date;
+  const endDate = lSea?.end_date;
   const lastTransaction = transactions?.data?.trans
     ?.sort((a, b) => a.id - b.id)
     ?.slice(-1);
@@ -125,7 +126,8 @@ const Contribution = () => {
                   type="date"
                   className="form-control days-input"
                   name=""
-                  id=""
+                  max={endDate}
+                  min={startDate}
                   onChange={(e) => setTrDate(e.target.value)}
                 />
                 <p>Amount: NGN {amount}</p>
