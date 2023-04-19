@@ -67,9 +67,7 @@ const Customer = () => {
   localStorage.setItem('customer', JSON.stringify(aCustomers?.data));
   // const allTransMark = transUrlMark(aCustomers.data);
 
-
   const handleConfirm = (e) => {
-      
     if (e.target.id === 'yes') {
       dispatch(delOneCustomerFromApi(id));
       navigate(-1);
@@ -77,8 +75,6 @@ const Customer = () => {
       const deleteS = document.getElementById('delete');
       deleteS.style.display = 'none';
     }
-   
-     
   };
 
   const handleDel = () => {
@@ -93,7 +89,6 @@ const Customer = () => {
       ) : (
         <>
           <div id="delete" className="del-style">
-            {/* <div className="overlay"></div> */}
             <p>Are you sure you want to delete?</p>
             <button type="button" id="yes" onClick={handleConfirm}>
               Yes
@@ -177,9 +172,8 @@ const Customer = () => {
                 </NavLink>
               </div>
               <div className="myfood">
-                {admins && modal && (
-                  <div className="del modal">
-                  
+                {admins && (
+                  <div className="del">
                     <button
                       type="button"
                       className="view-trans"
