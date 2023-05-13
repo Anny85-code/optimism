@@ -111,6 +111,24 @@ const User = () => {
       deleteS.style.display = 'none';
     }
   };
+  
+  const handleConfirm4Cus = (e) => {
+    if (e.target.id === 'yes-cus') {
+      const myCust = customers.filter((cus) => cus.user_id === _id)
+      // const allTrans = transactions?.data?.trans;
+      // allTrans?.forEach((trans) => {
+      //   dispatch(delOneTransFromApi(trans.id));
+      // });
+    } else if (e.target.id === 'no-cus') {
+      const deleteS = document.getElementById('delete4cus');
+      deleteS.style.display = 'none';
+    }
+
+    if (allTrans?.length < 0) {
+      const deleteS = document.getElementById('delete4trans');
+      deleteS.style.display = 'none';
+    }
+  };
 
   const handleDel = () => {
     const deleteS = document.getElementById('delete');
@@ -120,6 +138,11 @@ const User = () => {
 
   const handleDelTrans = () => {
     const deleteS = document.getElementById('delete4trans');
+    deleteS.style.display = 'block';
+  };
+
+  const handleDelCus = () => {
+    const deleteS = document.getElementById('delete4cus');
     deleteS.style.display = 'block';
   };
 
@@ -173,6 +196,16 @@ const User = () => {
               Yes
             </button>
             <button type="button" id="no-trans" onClick={handleConfirm4Trans}>
+              No
+            </button>
+          </div>
+
+          <div id="delete4cus" className="del-style">
+            <p>Are you sure you want to delete all transactions?</p>
+            <button type="button" id="yes-cus" onClick={handleConfirm4Cus}>
+              Yes
+            </button>
+            <button type="button" id="no-cus" onClick={handleConfirm4Cus}>
               No
             </button>
           </div>
@@ -241,7 +274,7 @@ const User = () => {
                   </button>
                 </div>
               )}
-              {superadmin && (
+              {downBtnRight && (
                 <div className="allTrans">
                   <NavLink to="marketeritems" target="_blank">
                     <button type="button" className="view-trans">
@@ -250,7 +283,7 @@ const User = () => {
                   </NavLink>
                 </div>
               )}
-              {superadmin && (
+              {downBtnRight && (
                 <div className="allTrans">
                   <NavLink to="percent" target="_blank">
                     <button type="button" className="view-trans">
@@ -278,6 +311,17 @@ const User = () => {
                     onClick={handleDelTrans}
                   >
                     Delete All Trans
+                  </button>
+                </div>
+              )}
+              {dev && (
+                <div className="allTrans">
+                  <button
+                    type="button"
+                    className="view-trans"
+                    onClick={handleDelCus}
+                  >
+                    Delete All Cus
                   </button>
                 </div>
               )}
