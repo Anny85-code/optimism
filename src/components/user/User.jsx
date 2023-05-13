@@ -13,6 +13,7 @@ import { getCustomerFromApi } from '../../redux/forms/customerReducer';
 import Loader from '../loader/Loader';
 import { getOneUserTransFromApi } from '../../redux/forms/oneUserTransactReducer';
 import { delOneTransFromApi } from '../../redux/forms/OneTransactionReducer';
+import { delOneCustomerFromApi } from '../../redux/forms/OneCustomerReducer';
 
 const editUrl = (person) => {
   const { id } = person;
@@ -113,15 +114,20 @@ const User = () => {
   };
   
   const handleConfirm4Cus = (e) => {
-    if (e.target.id === 'yes-cus') {
-      const myCust = customers.filter((cus) => cus.user_id === _id)
-      // const allTrans = transactions?.data?.trans;
-      // allTrans?.forEach((trans) => {
-      //   dispatch(delOneTransFromApi(trans.id));
-      // });
-    } else if (e.target.id === 'no-cus') {
+    const removePopUp = () => {
       const deleteS = document.getElementById('delete4cus');
       deleteS.style.display = 'none';
+    }
+    if (e.target.id === 'yes-cus') {
+      const myCust = customers.filter((cus) => cus.user_id === +id)
+      myCust.forEach((cus) => {
+        dispatch(delOneCustomerFromApi(cus.id))
+      })
+      if (!myCust.length) {
+        removePopUp();
+      }
+    } else if (e.target.id === 'no-cus') {
+      removePopUp();
     }
 
     if (allTrans?.length < 0) {
