@@ -37,7 +37,7 @@ const EditUser = () => {
     avatar = localStorage.getItem('image_str');
     const oneUser = {
       id: userId,
-      user_id: id,
+      // user_id: id,
       name,
       email,
       phone,
