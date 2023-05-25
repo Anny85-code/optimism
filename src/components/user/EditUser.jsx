@@ -32,8 +32,8 @@ const EditUser = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const userLogged = JSON.parse(localStorage.getItem('user'));
-    const { id } = userLogged.user;
+    // const userLogged = JSON.parse(localStorage.getItem('user'));
+    // const { id } = userLogged.user;
     avatar = localStorage.getItem('image_str');
     const oneUser = {
       id: userId,
