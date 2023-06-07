@@ -207,7 +207,7 @@ const User = () => {
           </div>
 
           <div id="delete4cus" className="del-style">
-            <p>Are you sure you want to delete all transactions?</p>
+            <p>Are you sure you want to delete all Customers?</p>
             <button type="button" id="yes-cus" onClick={handleConfirm4Cus}>
               Yes
             </button>
