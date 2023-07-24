@@ -10,8 +10,8 @@ const ImageUpload = () => {
   const [selectedImages, setSelectedImages] = useState([]);
   const [imageData, setImageData] = useState('');
   const dispatch = useDispatch();
-  const li = 'https://asset.cloudinary.com/dpuwic8rw/';
-  const nk = 'db7ff6ac7cce2020caa0d063bdf0e662';
+  const li = 'https://res.cloudinary.com/dpuwic8rw/image/upload/';
+  const nk = 'v1663004650/optimistic/avatar_cohnpr.svg';
   const link = li + nk;
 
   localStorage.setItem('image_str', imageData.secure_url ?? link);
