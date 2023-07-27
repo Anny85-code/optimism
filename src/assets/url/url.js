@@ -3,8 +3,15 @@
 
 export const setEndPoint = (e) => {
   let url = localStorage.getItem('baseUrl');
+  /*  ===== January 2023 =================
   if (e.target.textContent === 'Log in') {
     url = 'https://rails-eqth.onrender.com/api/v2';
+    localStorage.setItem('baseUrl', url);
+  }
+      ====================================  */
+
+  if (e.target.textContent === 'Log in') {
+    url = 'https://rails-7myb.onrender.com/api/v2';
     localStorage.setItem('baseUrl', url);
   }
   if (e.target.textContent === 'Log in new') {
