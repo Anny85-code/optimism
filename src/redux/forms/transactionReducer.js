@@ -46,8 +46,10 @@ export const postTransactionToApi = (userData) => async (dispatch) => {
     const errorMsg = sendData.error || sendData.errors;
     dispatch(sendTransactionDataFailed(errorMsg));
   } else {
-    window.history.pushState({}, '', '/transactions');
-    window.location.reload();
+    setTimeout(() => {
+      window.history.pushState({}, '', '/transactions');
+      window.location.reload();
+    }, 5e3);
   }
 };
 

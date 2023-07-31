@@ -82,7 +82,7 @@ const CustomerPreview = () => {
       localStorage.removeItem('updated_customer');
       localStorage.removeItem('customer');
       localStorage.removeItem('myfood');
-    }, 3000);
+    }, 5e3);
   };
 
   return (

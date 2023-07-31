@@ -55,7 +55,7 @@ export const postMyFoodToApi = (userData) => async (dispatch) => {
         localStorage.removeItem('customer');
         localStorage.removeItem('image_str');
         window.location.reload();
-    }, 3000);
+    }, 5e3);
   }
 };
 

@@ -52,7 +52,7 @@ export const postItemsToApi = (userData) => async (dispatch) => {
       <Navigate to="/products" />;
       setTimeout(() => {
         window.location.reload();
-      }, 3000);
+      }, 5e3);
   }
 };
 
@@ -87,7 +87,7 @@ export const postUpdateItemToApi = (userData) => async (dispatch) => {
     window.history.pushState({}, '', `/products/${id}`);
     setTimeout(() => {
       window.location.reload();
-    }, 3000);
+    }, 5e3);
   }
 };
 

@@ -48,11 +48,11 @@ export const postCustomerToApi = (userData) => async (dispatch) => {
     const errorMsg = sendData.error || sendData.errors;
     dispatch(sendCustomerDataFailed(errorMsg));
   } else {
-    window.history.pushState({}, '', '/customers');
-      <Navigate to="/customers" />;
-      setTimeout(() => {
+    setTimeout(() => {
+      window.history.pushState({}, '', '/customers');
+        <Navigate to="/customers" />;
         window.location.reload();
-      }, 3000);
+    }, 5e3);
   }
 };
 
@@ -71,7 +71,7 @@ export const postUpdateCustomerToApi = (userData) => async (dispatch) => {
     window.history.pushState({}, '', `/customers/${id}`);
     setTimeout(() => {
       window.location.reload();
-    }, 3000);
+    }, 5e3);
   }
 };
 

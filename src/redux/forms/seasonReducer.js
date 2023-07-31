@@ -51,7 +51,7 @@ export const postSeasonToApi = (userData) => async (dispatch) => {
       <Navigate to="/seasons" />;
     // setTimeout(() => {
     // window.location.reload();
-    // }, 5000);
+    // }, 5e3);
   }
 };
 
