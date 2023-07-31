@@ -114,7 +114,7 @@ const LandingNav = () => {
           <li id="land_li3">Contact Us</li>
         </NavLink>
         <NavLink to="/login" spy={true} smooth={true}>
-          <li className="sign_btn" id="land_li4">
+          <li className="sign_btn_green" id="land_li4">
             Sign In
           </li>
         </NavLink>
