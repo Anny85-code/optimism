@@ -16,9 +16,8 @@ const UsersSupervisors = () => {
   return (
     <div>
       {allUsers.data.map((user) => {
-        const permitted =
-          loggedInUser?.id === user.user_id ||
-          loggedInUser?.role === 'superadmin';
+        const permitted = loggedInUser?.id === user.user_id
+          || loggedInUser?.role === 'superadmin';
         return (
           permitted && (
             <NavLink key={user.id} to={`/users/${user.id}`}>
