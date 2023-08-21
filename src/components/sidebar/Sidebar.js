@@ -102,7 +102,7 @@ const Sidebar = ({ sidebarOpen, closeSideBar }) => {
           >
             <li>
               <NavLink
-                to="/addcustomer"
+                to="/checkphone"
                 style={{ textDecoration: 'none' }}
                 onClick={closeSideBar}
               >

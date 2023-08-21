@@ -21,7 +21,6 @@ const CheckPhone = () => {
 
   const phoneNumbers = [];
   customers?.forEach((customer) => phoneNumbers.push(customer.phone));
-  console.log(phoneNumbers);
 
   const checkPhone = (e) => {
     e.preventDefault();
@@ -36,7 +35,6 @@ const CheckPhone = () => {
     } else {
       setProceed(false);
       setError('Check phone number');
-      return 'Check phone number';
     }
   };
 

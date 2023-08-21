@@ -102,7 +102,7 @@ const Customers = () => {
               {' '}
               <p className="no-trans">No Customer yet!</p>
               <button type="button" className="no-trans-btn">
-                <NavLink to="/addcustomer" style={{ textDecoration: 'none' }}>
+                <NavLink to="/checkphone" style={{ textDecoration: 'none' }}>
                   Add A Customer
                 </NavLink>
               </button>

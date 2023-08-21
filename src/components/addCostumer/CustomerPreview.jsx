@@ -77,7 +77,7 @@ const CustomerPreview = () => {
   const handleCancel = () => {
     dispatch(delOneCustomerFromApi(id));
     setTimeout(() => {
-      window.history.pushState({}, '', '/addcustomer');
+      window.history.pushState({}, '', '/checkphone');
       window.location.reload();
       localStorage.removeItem('updated_customer');
       localStorage.removeItem('customer');
