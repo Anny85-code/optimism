@@ -11,14 +11,15 @@ const AddCustomer = () => {
   const seasons = useSelector((state) => state.seasons);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
+  // const [phone, setPhone] = useState('');
   const [address, setAddress] = useState('');
   const picture = localStorage.getItem('image_str');
   const condition = name === '';
-  const condition3 = phone.length !== 11;
+  // const condition3 = phone.length !== 11;
   const condition4 = address === '';
-  const genTruth = condition || condition3 || condition4;
+  const genTruth = condition || condition4;
   const lastSeason = seasons?.data[seasons.data.length - 1];
+  const phone = localStorage.getItem('checked__phone');
 
   useEffect(() => {
     dispatch(getSeasonFromApi());
@@ -87,11 +88,10 @@ const AddCustomer = () => {
                 type="number"
                 className="form-control"
                 id="phone"
-                name="phone"
-                placeholder="Phone"
+                disabled
                 required
                 value={phone}
-                onChange={(e) => setPhone(e.target.value)}
+                // onChange={(e) => setPhone(e.target.value)}
               />
             </label>
           </div>

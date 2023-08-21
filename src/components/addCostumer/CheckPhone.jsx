@@ -23,16 +23,18 @@ const CheckPhone = () => {
   customers?.forEach((customer) => phoneNumbers.push(customer.phone));
   console.log(phoneNumbers);
 
-  const checkPhone = () => {
+  const checkPhone = (e) => {
+    e.preventDefault();
     if (phone.length === 11) {
       if (phoneNumbers.includes(phone)) {
+        setProceed(false);
         setError('Number already in use');
       } else {
-        setProceed(!proceed);
+        setProceed(true);
         setError('Available');
       }
     } else {
-      console.log('Check phone number');
+      setProceed(false);
       setError('Check phone number');
       return 'Check phone number';
     }
@@ -52,7 +54,7 @@ const CheckPhone = () => {
             <div className="inner-container" id="cus-inner">
               <h3 className="title">Check Phone</h3>
             </div>
-            <form className="add-customer-form">
+            <form className="add-customer-form" onSubmit={checkPhone}>
               <center className="errors">
                 {error && (
                   <p
@@ -75,7 +77,6 @@ const CheckPhone = () => {
                     type="number"
                     className="form-control"
                     id="phone"
-                    name="phone"
                     placeholder="Phone"
                     required
                     value={phone}
@@ -85,9 +86,9 @@ const CheckPhone = () => {
               </div>
               <div className="form-group-btn">
                 <button
-                  type="button"
+                  type="submit"
                   className="add-item-btn"
-                  onClick={checkPhone}
+                  // onClick={checkPhone}
                 >
                   Check
                   <i className="fa fa-search" id="toggle-btn" />
