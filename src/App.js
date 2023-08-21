@@ -45,6 +45,7 @@ import ContactUs from './components/landing/contact/ContactUs';
 import GroupItems from './components/myfood/GroupItems';
 import MarketerItems from './components/myfood/MarketerItems';
 import LoginNew from './components/forms/LoginNew';
+import CheckPhone from './components/addCostumer/CheckPhone';
 
 const App = () => {
   const [sideBarOpen, setSideBarOpen] = useState(false);
@@ -72,6 +73,7 @@ const App = () => {
             <Route exact path="/" element={<Main />} />
             <Route path="/customers" element={<Customers />} />
             <Route path="/customers/:id" element={<Customer />} />
+            <Route path="/checkphone" element={<CheckPhone />} />
             <Route path="/addcustomer" element={<AddCustomer />} />
             <Route path="/addtransaction" element={<AddTransaction />} />
             <Route path="/contribution" element={<Contribution />} />

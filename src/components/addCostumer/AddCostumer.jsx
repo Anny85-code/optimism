@@ -15,7 +15,7 @@ const AddCustomer = () => {
   const [address, setAddress] = useState('');
   const picture = localStorage.getItem('image_str');
   const condition = name === '';
-  const condition3 = phone.length != 11;
+  const condition3 = phone.length !== 11;
   const condition4 = address === '';
   const genTruth = condition || condition3 || condition4;
   const lastSeason = seasons?.data[seasons.data.length - 1];
@@ -25,8 +25,8 @@ const AddCustomer = () => {
   }, []);
 
   const handleAddItem = () => {
-    const user = JSON.parse(localStorage.getItem('user'));
-    const { id } = user.user;
+    const { user } = JSON.parse(localStorage.getItem('user'));
+    const { id } = user;
     const customer = {
       user_id: id,
       season_id: lastSeason?.id,
