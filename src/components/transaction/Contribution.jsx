@@ -9,6 +9,7 @@ import { postTransactionToApi } from '../../redux/forms/transactionReducer';
 import Notice from '../../utils/Notice';
 import Loader from '../loader/Loader';
 import './Contribution.css';
+import { getItemFromApi } from '../../redux/forms/getItemsReducer';
 
 const Contribution = () => {
   const { user } = JSON.parse(localStorage.getItem('user'));
@@ -17,6 +18,7 @@ const Contribution = () => {
   const customer = useSelector((state) => state.oneCustomer?.data);
   const transactions = useSelector((state) => state.customerTransactions);
   const seasons = useSelector((state) => state.seasons?.data);
+  const products = useSelector((state) => state.item?.data);
 
   const lastSeason = seasons?.sort((a, x) => a.id - x.id)?.slice(-1);
   const isReady =
@@ -30,10 +32,19 @@ const Contribution = () => {
   let validDate;
   let validAmount;
 
+  const leastPrice = products.reduce((minPrice, currProduct) => {
+    if (minPrice > +currProduct.price) {
+      const { price } = currProduct;
+      return +price;
+    }
+    return minPrice;
+  }, +products[0].price);
+
   useEffect(() => {
     dispatch(getOneCustomerFromApi(+cardNumber));
     dispatch(getOneCustomerTransFromApi(+cardNumber));
     dispatch(getSeasonFromApi());
+    dispatch(getItemFromApi());
   }, []);
 
   const startDate = lSea?.start_date;
@@ -79,7 +90,7 @@ const Contribution = () => {
 
     const tAmount = transactionData.amount;
     /* ===============  This assumes that there's an item in the season whose unit amount is 40  ===========*/
-    validAmount = tAmount !== null && tAmount > 40;
+    validAmount = tAmount !== null && tAmount >= leastPrice;
 
     validDate =
       transactionData.current_contribution_date !== null &&
