@@ -16,6 +16,7 @@ export const setEndPoint = (e) => {
   }
   if (e.target.textContent === 'Log in new') {
     url = 'https://rails-c6w0.onrender.com/api/v2';
+    // url = 'http://localhost:4000/api/v2';
     localStorage.setItem('baseUrl', url);
   }
   if (!url) {

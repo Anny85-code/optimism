@@ -33,12 +33,12 @@ const Contribution = () => {
   let validAmount;
 
   const leastPrice = products.reduce((minPrice, currProduct) => {
-    if (minPrice > +currProduct.price) {
+    if (minPrice > +currProduct?.price) {
       const { price } = currProduct;
       return +price;
     }
     return minPrice;
-  }, +products[0].price);
+  }, +products[0]?.price);
 
   useEffect(() => {
     dispatch(getOneCustomerFromApi(+cardNumber));
@@ -60,8 +60,17 @@ const Contribution = () => {
   const { name, daily_contribution } = customer;
 
   const handleDays = (e) => {
+    // Total days customer has paid
     const input = +e.target.value;
-    if (input >= 0) {
+    const daysPaid = transactions?.data?.total_days;
+    const totalDays = input + daysPaid;
+
+    // The number of days in the season
+    const totalDaysInSeason =
+      (new Date(endDate) - new Date(startDate)) / 86_400_000;
+    if (input < 0 || totalDays > totalDaysInSeason) {
+      setError('Invalid customer collection!');
+    } else {
       setDaysNo(input);
       setGo(input >= 1);
     }
