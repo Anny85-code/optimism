@@ -37,8 +37,7 @@ const Main = () => {
               <div className="main__greetings">
                 <h1>Hello {user.name}</h1>
                 <h4>
-                  Welcome to another brand new day {user.name}! Today is {today}
-                  .
+                  Welcome {user.name}! Today is {today}.
                 </h4>
               </div>
             </div>
