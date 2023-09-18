@@ -8,6 +8,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { getOneUserTransFromApi } from '../../redux/forms/oneUserTransactReducer';
 import './UserTransaction.css';
 import comma from '../../utils/Comma';
+import { getSeasonFromApi } from '../../redux/forms/seasonReducer';
 /* eslint-disable */
 const UserTransacts = () => {
   const dispatch = useDispatch();
@@ -15,6 +16,7 @@ const UserTransacts = () => {
   const { id } = param;
   const transactions = useSelector((state) => state.userTransacts);
   const getCustomers = useSelector((state) => state.customer);
+  const seasons = useSelector((state) => state.seasons?.data);
   const customers = getCustomers?.data?.customers;
   const { data } = transactions;
   const { trans, name, loc, total } = data || {};
@@ -46,8 +48,13 @@ const UserTransacts = () => {
 
   useEffect(() => {
     dispatch(getOneUserTransFromApi(id));
+    dispatch(getSeasonFromApi());
   }, []);
 
+  const [season] = seasons;
+  const startDate = new Date(season?.start_date);
+  const endDate = new Date(season?.end_date);
+  console.log(startDate.setDate(startDate.getDate() - 1));
   const handleFilter = () => {
     if (trans) {
       const selDate = sDate.toDateString();
@@ -97,12 +104,20 @@ const UserTransacts = () => {
                     // portalId="root-portal"
                     dateFormat="yyyy/MM/dd"
                     selected={sDate}
-                    // showMonthDropdown
+                    showMonthDropdown
                     // showYearDropdown
                     dropdownMode="select"
                     onChange={(date) => setSDate(date)}
                     style={{ margin: 0 }}
                     className="start-date-picker-tran"
+                    endDate={endDate}
+                    startDate={startDate}
+                    includeDateIntervals={[
+                      {
+                        start: startDate.setDate(startDate.getDate() - 0),
+                        end: endDate,
+                      },
+                    ]}
                   />
                 </label>
               </div>
