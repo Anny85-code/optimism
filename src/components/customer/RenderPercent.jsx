@@ -23,12 +23,6 @@ const RenderPercent = ({ percents, owner }) => {
     const jsonItems = dataItems && JSON.parse(dataItems);
     const items = jsonItems && Object.values(jsonItems);
     return items && items.map((item) => [item?.id, item?.qauntity]).join('-');
-    // // const res = {};
-    // return items.map((item, i) => {
-    //   res[`id_${i}`] = item?.id;
-    //   res[`qty_${i}`] = item?.qauntity;
-    // });
-    // return res;
   };
 
   const renderData = (per) => (
@@ -84,28 +78,34 @@ const RenderPercent = ({ percents, owner }) => {
   );
 
   const percentValues = [
-    'zero',
-    'ten',
-    'twenty',
-    'twenty_five',
-    'thirty',
-    'fourty',
-    'fifty',
-    'sixty',
-    'seventy',
-    'seventy_five',
-    'eighty',
-    'ninety',
-    'hundred',
+    ['zero', 0],
+    ['ten', 10],
+    ['twenty', 20],
+    ['twenty_five', 25],
+    ['thirty', 30],
+    ['fourty', 40],
+    ['fifty', 50],
+    ['sixty', 60],
+    ['seventy', 70],
+    ['seventy_five', 75],
+    ['eighty', 80],
+    ['ninety', 90],
+    ['hundred', 100],
   ];
   const selectedPercent = select;
 
   const toggle = () => {
-    if (percentValues.includes(selectedPercent)) {
-      const selectedPercents = percents?.[selectedPercent];
+    const selectedValue = percentValues.find(
+      ([label]) => label === selectedPercent
+    );
+
+    if (selectedValue) {
+      const [label] = selectedValue;
+
+      const selectedPercents = percents?.[label];
       if (selectedPercents) {
         localStorage.setItem('setPercent', JSON.stringify(selectedPercents));
-        return selectedPercents?.map((per) => renderData(per));
+        return selectedPercents.map((per) => renderData(per));
       }
     }
   };
