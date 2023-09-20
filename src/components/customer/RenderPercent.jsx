@@ -83,40 +83,30 @@ const RenderPercent = ({ percents, owner }) => {
     </NavLink>
   );
 
+  const percentValues = [
+    'zero',
+    'ten',
+    'twenty',
+    'twenty_five',
+    'thirty',
+    'fourty',
+    'fifty',
+    'sixty',
+    'seventy',
+    'seventy_five',
+    'eighty',
+    'ninety',
+    'hundred',
+  ];
+  const selectedPercent = select;
+
   const toggle = () => {
-    switch (select) {
-      case 'zero':
-        return percents?.zero?.map((per) => {
-          localStorage.setItem('setPercent', JSON.stringify(percents?.zero));
-          return renderData(per);
-        });
-      case 'twenty':
-        return percents?.twenty?.map((per) => {
-          localStorage.setItem('setPercent', JSON.stringify(percents?.twenty));
-          return renderData(per);
-        });
-      case 'fourty':
-        return percents?.fourty?.map((per) => {
-          localStorage.setItem('setPercent', JSON.stringify(percents?.fourty));
-          return renderData(per);
-        });
-      case 'sixty':
-        return percents?.sixty?.map((per) => {
-          localStorage.setItem('setPercent', JSON.stringify(percents?.sixty));
-          return renderData(per);
-        });
-      case 'eighty':
-        return percents?.eighty?.map((per) => {
-          localStorage.setItem('setPercent', JSON.stringify(percents?.eighty));
-          return renderData(per);
-        });
-      case 'hundred':
-        return percents?.hundred?.map((per) => {
-          localStorage.setItem('setPercent', JSON.stringify(percents?.hundred));
-          return renderData(per);
-        });
-      default:
-        break;
+    if (percentValues.includes(selectedPercent)) {
+      const selectedPercents = percents?.[selectedPercent];
+      if (selectedPercents) {
+        localStorage.setItem('setPercent', JSON.stringify(selectedPercents));
+        return selectedPercents?.map((per) => renderData(per));
+      }
     }
   };
 
@@ -134,14 +124,28 @@ const RenderPercent = ({ percents, owner }) => {
     switch (select) {
       case 'zero':
         return percents?._0;
+      case 'ten':
+        return percents?._10;
       case 'twenty':
         return percents?._20;
+      case 'twenty_five':
+        return percents?._25;
+      case 'thirty':
+        return percents?._30;
       case 'fourty':
         return percents?._40;
+      case 'fifty':
+        return percents?._50;
       case 'sixty':
         return percents?._60;
+      case 'seventy':
+        return percents?._70;
+      case 'seventy_five':
+        return percents?._75;
       case 'eighty':
         return percents?._80;
+      case 'ninety':
+        return percents?._90;
       case 'hundred':
         return percents?._100;
       default:
@@ -198,10 +202,17 @@ const RenderPercent = ({ percents, owner }) => {
           >
             <option defaultValue="PLEASE SELECT ...">Select Percent</option>
             <option value="zero">0%</option>
+            <option value="ten">10%</option>
             <option value="twenty">20%</option>
+            <option value="twenty_five">25%</option>
+            <option value="thirty">30%</option>
             <option value="fourty">40%</option>
+            <option value="fifty">50%</option>
             <option value="sixty">60%</option>
+            <option value="seventy">70%</option>
+            <option value="seventy_five">75%</option>
             <option value="eighty">80%</option>
+            <option value="ninety">90%</option>
             <option value="hundred">100%</option>
           </select>
         </label>
