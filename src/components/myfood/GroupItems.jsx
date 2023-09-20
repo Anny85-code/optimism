@@ -9,7 +9,6 @@ const GroupItems = () => {
   const mFoods = JSON.parse(localStorage.getItem('setPercent'));
   const foods = [];
   mFoods?.forEach((cust) => foods.push(cust?.items?.[0]));
-  const marketer = mFoods?.marketer ?? mFoods?.data?.marketer;
   const foodArray = [];
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
@@ -22,7 +21,7 @@ const GroupItems = () => {
   });
 
   foods &&
-    foods.map(({ items }) => {
+    foods?.map(({ items }) => {
       const foodItems = JSON.parse(items);
       const food = Object.values(foodItems);
       food.map((order) => {
@@ -55,10 +54,8 @@ const GroupItems = () => {
           {superadmin && (
             <div>
               <div id="col">
-                <h2 className="total-orders">
-                  Marketer: {marketer?.[1] || marketer}
-                </h2>
-                <center>Location: {marketer?.[2]}</center>
+                <h2 className="total-orders">Marketer: {''}</h2>
+                <center>Location: {''}</center>
               </div>
               <div className="custrans-name">
                 <h4 className="columns">

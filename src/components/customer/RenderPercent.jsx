@@ -209,7 +209,7 @@ const RenderPercent = ({ percents, owner }) => {
 
       <div className="transact-customer-container">
         {superadmin && (
-          <div>
+          <div key={owner}>
             <div id="col">
               <h2 className="total-orders">
                 {owner ?? 'General'} ---- Total: {toggleTotal() ?? 0}
