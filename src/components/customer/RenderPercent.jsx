@@ -110,6 +110,18 @@ const RenderPercent = ({ percents, owner }) => {
     }
   };
 
+  const renderOptions = () => {
+    return (
+      <>
+        {percentValues.map((centa) => (
+          <option key={centa[1]} value={centa[0]}>
+            {centa[1]}%
+          </option>
+        ))}
+      </>
+    );
+  };
+
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
     documentTitle: 'emp-data',
@@ -155,19 +167,19 @@ const RenderPercent = ({ percents, owner }) => {
 
   const len = toggleTotal();
 
-  const handleNext = () => {
-    if (nx <= len) {
-      setNx(nx + sliceChunk);
-      setPr(pr + sliceChunk);
-    }
-  };
+  // const handleNext = () => {
+  //   if (nx <= len) {
+  //     setNx(nx + sliceChunk);
+  //     setPr(pr + sliceChunk);
+  //   }
+  // };
 
-  const handPrevious = () => {
-    if (pr > 1) {
-      setPr(pr - sliceChunk);
-      setNx(nx - sliceChunk);
-    }
-  };
+  // const handPrevious = () => {
+  //   if (pr > 1) {
+  //     setPr(pr - sliceChunk);
+  //     setNx(nx - sliceChunk);
+  //   }
+  // };
 
   const handleExp = () => {
     const percent = localStorage.getItem('setPercent');
@@ -201,19 +213,7 @@ const RenderPercent = ({ percents, owner }) => {
             id="opt-id"
           >
             <option defaultValue="PLEASE SELECT ...">Select Percent</option>
-            <option value="zero">0%</option>
-            <option value="ten">10%</option>
-            <option value="twenty">20%</option>
-            <option value="twenty_five">25%</option>
-            <option value="thirty">30%</option>
-            <option value="fourty">40%</option>
-            <option value="fifty">50%</option>
-            <option value="sixty">60%</option>
-            <option value="seventy">70%</option>
-            <option value="seventy_five">75%</option>
-            <option value="eighty">80%</option>
-            <option value="ninety">90%</option>
-            <option value="hundred">100%</option>
+            {renderOptions()}
           </select>
         </label>
       </div>
@@ -292,7 +292,7 @@ const RenderPercent = ({ percents, owner }) => {
           </div>
         )}
         {!superadmin && <p>Unauthorized to see this page!</p>}
-        {len > 0 && (
+        {/* {len > 0 && (
           <div className="pre-next-cont">
             <i
               className="fa fa-caret-left fa-2x text-red"
@@ -308,7 +308,7 @@ const RenderPercent = ({ percents, owner }) => {
               style={{ cursor: 'pointer' }}
             />
           </div>
-        )}
+        )} */}
       </div>
     </div>
   );
