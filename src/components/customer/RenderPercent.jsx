@@ -12,10 +12,10 @@ const RenderPercent = ({ percents, owner }) => {
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
   const superadmin = user.role === 'superadmin';
-  const [select, setSelect] = useState('hundred');
-  const sliceChunk = 20;
-  const [nx, setNx] = useState(sliceChunk);
-  const [pr, setPr] = useState(0);
+  const [select, setSelect] = useState('Select Percent');
+  // const sliceChunk = 20;
+  // const [nx, setNx] = useState(sliceChunk);
+  // const [pr, setPr] = useState(0);
   const componentRef = useRef();
 
   const unpack = (data) => {
@@ -78,19 +78,19 @@ const RenderPercent = ({ percents, owner }) => {
   );
 
   const percentValues = [
-    ['zero', 0],
-    ['ten', 10],
-    ['twenty', 20],
-    ['twenty_five', 25],
-    ['thirty', 30],
-    ['fourty', 40],
-    ['fifty', 50],
-    ['sixty', 60],
-    ['seventy', 70],
-    ['seventy_five', 75],
-    ['eighty', 80],
-    ['ninety', 90],
-    ['hundred', 100],
+    ['zero', '_0'],
+    ['ten', '_10'],
+    ['twenty', '_20'],
+    ['twenty_five', '_25'],
+    ['thirty', '_30'],
+    ['fourty', '_40'],
+    ['fifty', '_50'],
+    ['sixty', '_60'],
+    ['seventy', '_70'],
+    ['seventy_five', '_75'],
+    ['eighty', '_80'],
+    ['ninety', '_90'],
+    ['hundred', '_100'],
   ];
   const selectedPercent = select;
 
@@ -115,7 +115,7 @@ const RenderPercent = ({ percents, owner }) => {
       <>
         {percentValues.map((centa) => (
           <option key={centa[1]} value={centa[0]}>
-            {centa[1]}%
+            {centa[1].slice(1)}%
           </option>
         ))}
       </>
@@ -132,40 +132,14 @@ const RenderPercent = ({ percents, owner }) => {
     toggle();
   };
 
+  const selectToPropertyMap = Object.fromEntries(percentValues);
+
   const toggleTotal = () => {
-    switch (select) {
-      case 'zero':
-        return percents?._0;
-      case 'ten':
-        return percents?._10;
-      case 'twenty':
-        return percents?._20;
-      case 'twenty_five':
-        return percents?._25;
-      case 'thirty':
-        return percents?._30;
-      case 'fourty':
-        return percents?._40;
-      case 'fifty':
-        return percents?._50;
-      case 'sixty':
-        return percents?._60;
-      case 'seventy':
-        return percents?._70;
-      case 'seventy_five':
-        return percents?._75;
-      case 'eighty':
-        return percents?._80;
-      case 'ninety':
-        return percents?._90;
-      case 'hundred':
-        return percents?._100;
-      default:
-        break;
-    }
+    const selectedProperty = selectToPropertyMap?.[select];
+    return selectedProperty ? percents?.[selectedProperty] : null;
   };
 
-  const len = toggleTotal();
+  // const len = toggleTotal();
 
   // const handleNext = () => {
   //   if (nx <= len) {
