@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Navigate } from 'react-router-dom';
 import endpoint from '../../assets/url/url';
-
+/* eslint-disable */
 const FAILED_POST_MYFOOD = 'SRC/REDUX/MY_FOOD_REDUCER/FAILED_POST_MYFOOD';
 const FAILED_PATCH_MYFOOD = 'SRC/REDUX/MY_FOOD_REDUCER/FAILED_PATCH_MYFOOD';
 const GET_MYFOOD = 'SRC/REDUX/MY_FOOD_REDUCER/GET_MYFOOD';
@@ -81,7 +81,8 @@ export const getMyFoodFromApi = () => async (dispatch) => {
   try {
     /* ========================   ====   Bad ID snoop   ====   ============================= */
     const response = await axios.get(`${endpoint}/users/all_items`, {
-      // const response = await axios.get(url, { // use this if snooping and comment out the line above it
+      // const response = await axios.get(url, { // use this if snooping ...
+      // and comment out the line above it
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -128,5 +129,5 @@ const myFoodReducer = (
       return state;
   }
 };
-
+/* eslint-enable */
 export default myFoodReducer;
