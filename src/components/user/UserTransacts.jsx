@@ -54,7 +54,7 @@ const UserTransacts = () => {
   const [season] = seasons;
   const startDate = new Date(season?.start_date);
   const endDate = new Date(season?.end_date);
-  console.log(startDate.setDate(startDate.getDate() - 1));
+
   const handleFilter = () => {
     if (trans) {
       const selDate = sDate.toDateString();

@@ -70,7 +70,11 @@ const Transaction = () => {
               </p>
               <p className="cus-details">
                 <span>Payment Date: </span>
-                {Moment(transaction_date).format('MMMM DD, LT')}
+                {transaction_date?.includes('/')
+                  ? Moment(transaction_date, 'DD/MM/YYYY').format(
+                      'Do MMMM YYYY'
+                    )
+                  : Moment(transaction_date).format('MMMM DD, LT')}
               </p>
               <p className="cus-details">
                 <span>Amount:</span> {`NGN ${comma(amount)}`}

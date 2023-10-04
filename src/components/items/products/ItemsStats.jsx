@@ -47,6 +47,11 @@ const ItemsStats = () => {
   */
   /* ========================   ====   Bad ID snoop   ====   =============================*/
 
+  // const allOrderTotal;
+
+  // const sortedFoods = foodArr?.sort((a, b) => b.quantity - a.quantity);
+  // console.log(sortedFoods);
+
   useEffect(() => {
     dispatch(getMyFoodFromApi());
   }, [foodArr.length > 0]);
