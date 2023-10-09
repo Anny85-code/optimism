@@ -40,10 +40,7 @@ const Customer = () => {
   const adminNo = aCustomers?.data?.user_id;
   const loading = regMark.loading && aCustomers.loading;
   const navigate = useNavigate();
-  const admins =
-    user.role === 'admin' ||
-    user.role === 'superadmin' ||
-    user.role === 'supervisor';
+  const admins = user.role === 'admin' || user.role === 'superadmin';
 
   useEffect(() => {
     dispatch(getOneCustomerFromApi(id));
@@ -65,7 +62,6 @@ const Customer = () => {
   const allTrans = transUrl(aCustomers?.data);
   const myfood = myFoodUrl(aCustomers?.data);
   localStorage.setItem('customer', JSON.stringify(aCustomers?.data));
-  // const allTransMark = transUrlMark(aCustomers.data);
 
   const handleConfirm = (e) => {
     if (e.target.id === 'yes') {
@@ -115,10 +111,6 @@ const Customer = () => {
               <p className="cus-details">
                 <span>Card No.</span>
                 {card_number}
-                {/* {regMark.data.location_area &&
-                `${regMark.data.location_area.slice(0, 3).toUpperCase()}${
-                  regMark.data.id
-                }/${aCustomers.data.id}`} */}
               </p>
               <p className="cus-details">
                 <span>Daily Contribution:</span>
