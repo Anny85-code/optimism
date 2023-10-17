@@ -44,7 +44,7 @@ const supervisorPercentReducer = (
     loading: false,
     error: null,
   },
-  action
+  action,
 ) => {
   switch (action.type) {
     case GET_SUPERVISOR_PERCENT:

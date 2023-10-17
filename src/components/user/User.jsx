@@ -176,8 +176,6 @@ const User = () => {
     );
   };
 
-  const handlePayPercentSup = () => {};
-
   return (
     <>
       {user.loading ? (
@@ -300,13 +298,11 @@ const User = () => {
               )}
               {supadmin_sup && (
                 <div className="allTrans">
-                  <button
-                    type="button"
-                    className="view-trans"
-                    onClick={handlePayPercentSup}
-                  >
-                    Pay Percent(Supv)
-                  </button>
+                  <NavLink to="percent" target="_blank">
+                    <button type="button" className="view-trans">
+                      Pay Percent(Supv)
+                    </button>
+                  </NavLink>
                 </div>
               )}
               {permitted && (
