@@ -42,6 +42,7 @@ const User = () => {
     user.data.role === 'marketer';
   const superadmin = loggedUser.role === 'superadmin';
   const dev = user.data.role === 'marketer' && loggedUser.username === 'admin';
+  const supadmin_sup = user.data.role === 'supervisor' && superadmin;
 
   useEffect(() => {
     dispatch(getOneUserFromApi(id));
@@ -297,6 +298,17 @@ const User = () => {
                   </NavLink>
                 </div>
               )}
+              {supadmin_sup && (
+                <div className="allTrans">
+                  <button
+                    type="button"
+                    className="view-trans"
+                    onClick={handlePayPercentSup}
+                  >
+                    Pay Percent(Supv)
+                  </button>
+                </div>
+              )}
               {permitted && (
                 <div className="allTrans">
                   <button
@@ -327,17 +339,6 @@ const User = () => {
                     onClick={handleDelCus}
                   >
                     Delete All Cus
-                  </button>
-                </div>
-              )}
-              {superadmin && (
-                <div className="allTrans">
-                  <button
-                    type="button"
-                    className="view-trans"
-                    onClick={handlePayPercentSup}
-                  >
-                    Pay Percent(Supv)
                   </button>
                 </div>
               )}
