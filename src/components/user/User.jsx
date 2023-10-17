@@ -84,16 +84,14 @@ const User = () => {
       `Customer_${user.data.location_area.replace(' ', '_')}.xlsx`
     );
   };
-  
+
   const handleConfirm = (e) => {
- 
     if (e.target.id === 'yes') {
       dispatch(delOneUserFromApi(id));
     } else if (e.target.id === 'no') {
       const deleteS = document.getElementById('delete');
       deleteS.style.display = 'none';
     }
-  
   };
 
   const handleConfirm4Trans = (e) => {
@@ -112,17 +110,17 @@ const User = () => {
       deleteS.style.display = 'none';
     }
   };
-  
+
   const handleConfirm4Cus = (e) => {
     const removePopUp = () => {
       const deleteS = document.getElementById('delete4cus');
       deleteS.style.display = 'none';
-    }
+    };
     if (e.target.id === 'yes-cus') {
-      const myCust = customers.filter((cus) => cus.user_id === +id)
+      const myCust = customers.filter((cus) => cus.user_id === +id);
       myCust.forEach((cus) => {
-        dispatch(delOneCustomerFromApi(cus.id))
-      })
+        dispatch(delOneCustomerFromApi(cus.id));
+      });
       if (!myCust.length) {
         removePopUp();
       }
@@ -139,7 +137,6 @@ const User = () => {
   const handleDel = () => {
     const deleteS = document.getElementById('delete');
     deleteS.style.display = 'block';
-    
   };
 
   const handleDelTrans = () => {
@@ -177,6 +174,8 @@ const User = () => {
       </NavLink>
     );
   };
+
+  const handlePayPercentSup = () => {};
 
   return (
     <>
@@ -328,6 +327,17 @@ const User = () => {
                     onClick={handleDelCus}
                   >
                     Delete All Cus
+                  </button>
+                </div>
+              )}
+              {superadmin && (
+                <div className="allTrans">
+                  <button
+                    type="button"
+                    className="view-trans"
+                    onClick={handlePayPercentSup}
+                  >
+                    Pay Percent(Supv)
                   </button>
                 </div>
               )}

@@ -58,7 +58,7 @@ const GetNullDates = () => {
     const ws = utils.json_to_sheet(exportData?.sort((a, b) => a.id - b.id));
     const wb = utils.book_new();
     utils.book_append_sheet(wb, ws, 'Data');
-    writeFileXLSX(wb, `Customer_with_no_card_number.xlsx`);
+    writeFileXLSX(wb, `Bad_dates.xlsx`);
   }
 
   return (
