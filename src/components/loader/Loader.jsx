@@ -22,13 +22,20 @@ const Loader = () => {
       </div>
       {isVisible && (
         <center>
-          <b>
-            <i
-              style={
-                isPhoneScreen ? { marginLeft: '0' } : { marginLeft: '10rem' }
-              }
-            >
-              NB: This may take up to 5 mins or more. Be patient!
+          <b
+            style={
+              isPhoneScreen ? { marginLeft: '0' } : { marginLeft: '10rem' }
+            }
+          >
+            <i>NB: This may take up to 5 mins or more. Be patient!</i>
+            <br />
+            <i>
+              To print, Click &quot;Export Items&quot; button to generate Excel.
+            </i>
+            <br />
+            <i>
+              If &quot;Export Items&quot; or &quot;View Items&quot; buttons
+              don&apos;t work, a customer item is missing. Call Developer.
             </i>
           </b>
         </center>
@@ -36,18 +43,25 @@ const Loader = () => {
       {longer && (
         <center>
           <br />
-          <i>
+          <p style={{ color: 'forestgreen', fontWeight: 'bolder' }}>
             This may not work on phones due to limited resources. Try it on your
             PC!
-          </i>
+          </p>
+          <br />
           <br />
           <i>
-            If you choose to continue on your phone, Loading may take more than
-            8mins.
+            <b>
+              If you choose to continue on your phone, Loading may take more
+              than 8 mins.
+            </b>
             <br />
-            After you select your percent, wait another 2 to 5 mins for it to
-            propagate on your phone!
+            <br />
+            After loading & you select a percent, wait another 2 to 5 mins for
+            it to propagate on your phone!
           </i>
+          <br />
+          <br />
+          <b>Total wait time: 10 mins possibly! ☕☕</b>
         </center>
       )}
     </>

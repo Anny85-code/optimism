@@ -13,9 +13,9 @@ const RenderPercent = ({ percents, owner }) => {
   const { user } = data || {};
   const superadmin = user.role === 'superadmin';
   const [select, setSelect] = useState('Select Percent');
-  // const sliceChunk = 20;
-  // const [nx, setNx] = useState(sliceChunk);
-  // const [pr, setPr] = useState(0);
+  const sliceChunk = 50;
+  const [nx, setNx] = useState(sliceChunk);
+  const [pr, setPr] = useState(0);
   const componentRef = useRef();
 
   const unpack = (data) => {
@@ -105,7 +105,7 @@ const RenderPercent = ({ percents, owner }) => {
       const selectedPercents = percents?.[label];
       if (selectedPercents) {
         localStorage.setItem('setPercent', JSON.stringify(selectedPercents));
-        return selectedPercents.map((per) => renderData(per));
+        return selectedPercents.slice(pr, nx).map((per) => renderData(per));
       }
     }
   };
@@ -129,6 +129,8 @@ const RenderPercent = ({ percents, owner }) => {
 
   const handlePercent = (e) => {
     setSelect(e.target.value);
+    setPr(0);
+    setNx(sliceChunk);
     toggle();
   };
 
@@ -139,21 +141,21 @@ const RenderPercent = ({ percents, owner }) => {
     return selectedProperty ? percents?.[selectedProperty] : null;
   };
 
-  // const len = toggleTotal();
+  const len = toggleTotal();
 
-  // const handleNext = () => {
-  //   if (nx <= len) {
-  //     setNx(nx + sliceChunk);
-  //     setPr(pr + sliceChunk);
-  //   }
-  // };
+  const handleNext = () => {
+    if (nx <= len) {
+      setNx(nx + sliceChunk);
+      setPr(pr + sliceChunk);
+    }
+  };
 
-  // const handPrevious = () => {
-  //   if (pr > 1) {
-  //     setPr(pr - sliceChunk);
-  //     setNx(nx - sliceChunk);
-  //   }
-  // };
+  const handPrevious = () => {
+    if (pr > 1) {
+      setPr(pr - sliceChunk);
+      setNx(nx - sliceChunk);
+    }
+  };
 
   const handleExp = () => {
     const percent = localStorage.getItem('setPercent');
@@ -266,7 +268,7 @@ const RenderPercent = ({ percents, owner }) => {
           </div>
         )}
         {!superadmin && <p>Unauthorized to see this page!</p>}
-        {/* {len > 0 && (
+        {len > 0 && (
           <div className="pre-next-cont">
             <i
               className="fa fa-caret-left fa-2x text-red"
@@ -282,7 +284,7 @@ const RenderPercent = ({ percents, owner }) => {
               style={{ cursor: 'pointer' }}
             />
           </div>
-        )} */}
+        )}
       </div>
     </div>
   );
