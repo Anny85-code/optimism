@@ -134,6 +134,7 @@ const Main = () => {
                         <div className="card1 cd">
                           <p>View Customer's</p>
                           <h1 className="h-card">Percentage</h1>
+                          <p>NB: Takes 5+ min</p>
                         </div>
                       </NavLink>
 
