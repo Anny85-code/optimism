@@ -17,6 +17,7 @@ const RenderPercent = ({ percents, owner }) => {
   const [nx, setNx] = useState(sliceChunk);
   const [pr, setPr] = useState(0);
   const componentRef = useRef();
+  const [quotaExceeded, setQuotaExceeded] = useState(false);
 
   const unpack = (data) => {
     const dataItems = data?.items?.[0]?.items;
@@ -93,6 +94,10 @@ const RenderPercent = ({ percents, owner }) => {
     ['hundred', '_100'],
   ];
   const selectedPercent = select;
+
+  if (owner === 'General') {
+    percentValues.splice(0, 5);
+  }
 
   const toggle = () => {
     const selectedValue = percentValues.find(
@@ -295,5 +300,5 @@ RenderPercent.propTypes = {
   owner: PropTypes.string.isRequired,
 };
 
-export default RenderPercent;
 /* eslint-enable */
+export default RenderPercent;
