@@ -23,7 +23,13 @@ const Loader = () => {
       {isVisible && (
         <center>
           <b>
-            <i>NB: This may take up to 5 mins or more. Be patient!</i>
+            <i
+              style={
+                isPhoneScreen ? { marginLeft: '0' } : { marginLeft: '10rem' }
+              }
+            >
+              NB: This may take up to 5 mins or more. Be patient!
+            </i>
           </b>
         </center>
       )}
@@ -33,6 +39,14 @@ const Loader = () => {
           <i>
             This may not work on phones due to limited resources. Try it on your
             PC!
+          </i>
+          <br />
+          <i>
+            If you choose to continue on your phone, Loading may take more than
+            8mins.
+            <br />
+            After you select your percent, wait another 2 to 5 mins for it to
+            propagate on your phone!
           </i>
         </center>
       )}
