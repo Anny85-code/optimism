@@ -28,7 +28,9 @@ const UsersMarketers = () => {
               {user.role === 'marketer' && (
                 <div className="customer-container">
                   <h3>{user.name}</h3>
-                  <p>{user.phone}</p>
+                  <p>
+                    {user.phone} - {user.location_area}
+                  </p>
                 </div>
               )}
             </NavLink>
