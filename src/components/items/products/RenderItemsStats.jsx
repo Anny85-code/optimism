@@ -65,9 +65,15 @@ const RenderItemsStats = ({ foods }) => {
           {superadmin && (
             <div ref={componentRef}>
               <div id="col">
-                <h2 className="total-orders">
+                <div className="total-orders">
                   {/* Total Orders: {comma(allOrderTotal)} */}
-                </h2>
+                  <h2>
+                    <i>Name:</i> {foods?.user?.name}
+                  </h2>
+                  <span>
+                    <i>Location:</i> {foods?.user?.location_area}
+                  </span>
+                </div>
               </div>
               <div className="custrans-name">
                 <h4 className="columns">
