@@ -44,7 +44,7 @@ const supervItemsReducer = (
     loading: false,
     error: null,
   },
-  action
+  action,
 ) => {
   switch (action.type) {
     case GET_SUPV_ITEMS:
