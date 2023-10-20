@@ -307,7 +307,7 @@ const User = () => {
               )}
               {supadmin_sup && (
                 <div className="allTrans">
-                  <NavLink to="items" target="_blank">
+                  <NavLink to="supervisoritems" target="_blank">
                     <button type="button" className="view-trans">
                       All Items(Supv)
                     </button>

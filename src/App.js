@@ -46,6 +46,7 @@ import GroupItems from './components/myfood/GroupItems';
 import MarketerItems from './components/myfood/MarketerItems';
 import LoginNew from './components/forms/LoginNew';
 import CheckPhone from './components/addCostumer/CheckPhone';
+import SupervisorItems from './components/myfood/SupervisorItems';
 
 const App = () => {
   const [sideBarOpen, setSideBarOpen] = useState(false);
@@ -120,6 +121,10 @@ const App = () => {
                 <Route
                   path="/users/:id/marketeritems"
                   element={<MarketerItems />}
+                />
+                <Route
+                  path="/users/:id/supervisoritems"
+                  element={<SupervisorItems />}
                 />
                 <Route
                   path="/users/:id/percent"
