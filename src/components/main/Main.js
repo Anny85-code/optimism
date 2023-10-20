@@ -129,17 +129,16 @@ const Main = () => {
                       </div>
                       <i className="fa fa-use" />
                     </div>
-                    <div className="charts__right__cards">
-                      <NavLink to="/paidsixty">
-                        <div className="card1 cd">
-                          <p>View Customer's</p>
-                          <h1 className="h-card">Percentage</h1>
-                          <p>NB: Takes 5+ min</p>
-                        </div>
-                      </NavLink>
-
-                      {user.role === 'superadmin' && (
+                    {user.role === 'superadmin' && (
+                      <div className="charts__right__cards">
                         <>
+                          <NavLink to="/paidsixty">
+                            <div className="card1 cd">
+                              <p>View Customer's</p>
+                              <h1 className="h-card">Percentage</h1>
+                              <p>NB: Takes 5+ min</p>
+                            </div>
+                          </NavLink>
                           <div className="card2 cd">
                             <h1 className="h-card">Sales</h1>
                             <p style={{ color: '#1c551c' }}>
@@ -164,8 +163,8 @@ const Main = () => {
                             </div>
                           </NavLink>
                         </>
-                      )}
-                    </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               </>
