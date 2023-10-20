@@ -305,6 +305,15 @@ const User = () => {
                   </NavLink>
                 </div>
               )}
+              {supadmin_sup && (
+                <div className="allTrans">
+                  <NavLink to="items" target="_blank">
+                    <button type="button" className="view-trans">
+                      All Items(Supv)
+                    </button>
+                  </NavLink>
+                </div>
+              )}
               {permitted && (
                 <div className="allTrans">
                   <button
