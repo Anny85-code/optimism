@@ -1,26 +1,27 @@
-import React, { useEffect, useState } from 'react';
+// import React, { useEffect, useState } from 'react';
 import { Grid } from 'react-loader-spinner';
 import './Loader.css';
 
 const Loader = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const [longer, setLonger] = useState(false);
-  const isPhoneScreen = window.innerWidth < 600;
+  // const [isVisible, setIsVisible] = useState(false);
+  // const [longer, setLonger] = useState(false);
+  // const isPhoneScreen = window.innerWidth < 600;
 
-  useEffect(() => {
-    setTimeout(() => {
-      setIsVisible(true);
-    }, 5000);
-    setTimeout(() => {
-      if (isPhoneScreen) setLonger(true);
-    }, 8000);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setIsVisible(true);
+  //   }, 5000);
+  //   setTimeout(() => {
+  //     if (isPhoneScreen) setLonger(true);
+  //   }, 8000);
+  // }, []);
+  console.log('...Loading');
   return (
     <>
       <div className="loader">
         <Grid color="crimson" height={100} width={100} />
       </div>
-      {isVisible && (
+      {/* {isVisible && (
         <center>
           <b
             style={
@@ -63,7 +64,7 @@ const Loader = () => {
           <br />
           <b>Total wait time: 10 mins possibly! ☕☕</b>
         </center>
-      )}
+      )} */}
     </>
   );
 };
