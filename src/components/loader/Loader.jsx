@@ -15,7 +15,7 @@ const Loader = () => {
   //     if (isPhoneScreen) setLonger(true);
   //   }, 8000);
   // }, []);
-  console.log('...Loading');
+
   return (
     <>
       <div className="loader">

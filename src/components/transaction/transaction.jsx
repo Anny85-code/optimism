@@ -23,6 +23,7 @@ const Transaction = () => {
   const {
     id,
     amount,
+    user_id,
     v2_customer_id,
     previous_contribution_date,
     current_contribution_date,
@@ -36,6 +37,7 @@ const Transaction = () => {
     JSON.stringify({
       id,
       amount,
+      user_id,
       v2_customer_id,
       previous_contribution_date,
       current_contribution_date,
@@ -65,8 +67,7 @@ const Transaction = () => {
               </p>
               <p className="cus-details">
                 <span>Transaction No. </span>
-                {/* {user.location_area.slice(0, 3).toUpperCase()} */}
-                TRN{user.id}/{transaction.data.id}
+                TRN{user_id}/{id}
               </p>
               <p className="cus-details">
                 <span>Payment Date: </span>
