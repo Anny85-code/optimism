@@ -70,6 +70,7 @@ const Contribution = () => {
       (new Date(endDate) - new Date(startDate)) / 86_400_000;
     if (input < 0 || totalDays > totalDaysInSeason) {
       setError('Invalid customer collection!');
+      setGo(false);
     } else {
       setDaysNo(input);
       setGo(input >= 1);
