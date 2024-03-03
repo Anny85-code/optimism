@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Quintessential&display=swap');
+/* stylelint-disable */
+.transact-customer-container {
+  border: 2px solid crimson;
+  border-radius: 0.5rem;
+  width: 59.375rem;
+  height: fit-content;
+  margin: 1.25rem 1.25rem 1.25rem 3.125rem;
+  background: #fff;
+}
+/* stylelint-enable */

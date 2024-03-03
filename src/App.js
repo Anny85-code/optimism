@@ -49,6 +49,7 @@ import CheckPhone from './components/addCostumer/CheckPhone';
 import SupervisorItems from './components/myfood/SupervisorItems';
 import MarketerZeroCollect from './components/zero-collect/MarketerZeroCollect';
 import AllZeroCollect from './components/zero-collect/AllZeroCollect';
+import LatestCollect from './components/latest-collect/LatestCollect';
 
 const App = () => {
   const [sideBarOpen, setSideBarOpen] = useState(false);
@@ -120,6 +121,10 @@ const App = () => {
                 <Route path="/season/:id" element={<Season />} />
                 <Route path="/products/:id" element={<Product />} />
                 <Route path="/itemsstats" element={<ItemsStats />} />
+                <Route
+                  path="/users/:id/latest-collection"
+                  element={<LatestCollect />}
+                />
                 <Route
                   path="/users/:id/marketer-zero"
                   element={<MarketerZeroCollect />}

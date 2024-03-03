@@ -1,5 +1,6 @@
 /* eslint-disable */
 import React from 'react';
+import './ZeroCollect.css';
 
 const ZeroCollect = () => {
   const data = {
@@ -60,9 +61,14 @@ const ZeroCollect = () => {
   };
 
   return (
-    <div>
+    <div className="transact-customer-container">
       <div>
         <table>
+          <thead className="">
+            <td className=""> Marketer: {data.marketer}</td>
+
+            <td> Total: {data.total}</td>
+          </thead>
           <thead>
             <td>Name</td>
             <td>Card No</td>
