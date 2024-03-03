@@ -129,7 +129,7 @@ const App = () => {
                   path="/users/:id/marketer-zero"
                   element={<MarketerZeroCollect />}
                 />
-                <Route path="/all-zeros" element={<AllZeroCollect />} />
+                <Route path="/no-collection-yet" element={<AllZeroCollect />} />
                 <Route
                   path="/users/:id/marketeritems"
                   element={<MarketerItems />}

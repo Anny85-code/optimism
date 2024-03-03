@@ -101,6 +101,13 @@ const Main = () => {
                       </span>
                     </div>
                   </div>
+                  <NavLink to="/no-collection-yet" target="_blank">
+                    <div className="cards">
+                      <div className="card__inner">
+                        <p className="text-primary-p">No Collection yet</p>
+                      </div>
+                    </div>
+                  </NavLink>
                   {user.username === 'admin' && (
                     <>
                       <GetNoCardNo />
