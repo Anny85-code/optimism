@@ -325,6 +325,32 @@ const User = () => {
                   </button>
                 </div>
               )}
+              {downBtnRight && (
+                <div className="allTrans">
+                  <NavLink to="marketer-zero" target="_blank">
+                    <button
+                      type="button"
+                      className="view-trans"
+                      onClick={'handleDel'}
+                    >
+                      No collectn yet
+                    </button>
+                  </NavLink>
+                </div>
+              )}
+              {downBtnRight && (
+                <div className="allTrans">
+                  <NavLink to="latest-collection" target="_blank">
+                    <button
+                      type="button"
+                      className="view-trans"
+                      onClick={'handleDel'}
+                    >
+                      Latest collectn
+                    </button>
+                  </NavLink>
+                </div>
+              )}
               {dev && (
                 <div className="allTrans">
                   <button
