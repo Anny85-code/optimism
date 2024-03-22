@@ -17,7 +17,6 @@ const RenderPercent = ({ percents, owner }) => {
   const [nx, setNx] = useState(sliceChunk);
   const [pr, setPr] = useState(0);
   const componentRef = useRef();
-  const [quotaExceeded, setQuotaExceeded] = useState(false);
 
   const unpack = (data) => {
     const dataItems = data?.items?.[0]?.items;

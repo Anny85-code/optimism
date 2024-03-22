@@ -1,14 +1,11 @@
-import { useMemo, useEffect, useRef } from 'react';
-import { useDispatch } from 'react-redux';
+import { useMemo, useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
-import { getMyFoodFromApi } from '../../../redux/forms/myFoodReducer';
 import './Itemstat.css';
 import comma from '../../../utils/Comma';
 import Loader from '../../loader/Loader';
 
 /* eslint-disable */
 const RenderItemsStats = ({ foods }) => {
-  const dispatch = useDispatch();
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
   const superadmin = user.role === 'superadmin';
@@ -19,8 +16,8 @@ const RenderItemsStats = ({ foods }) => {
     documentTitle: 'emp-data',
   });
 
-  /* ========================   ====   Bad ID snoop   ====   ============================= */
-  /* ========================   ====   Comment this out   ====   ============================= */
+  console.log(foods);
+
   const foodArr = useMemo(() => {
     if (foods?.items) {
       return Object.values(foods.items);
@@ -28,33 +25,6 @@ const RenderItemsStats = ({ foods }) => {
       return [];
     }
   }, [foods]);
-
-  /* ========================   ====   Uncomment this   ====   =============================
-
-  console.log(foods);
-/*
-  foods.map(({ items, id, user_id }) => {
-    const foodItems = JSON.parse(items);
-    const food = Object.values(foodItems);
-    const id2 = id; // Track bad ID
-    food.map((order) => {
-      const { id, name, qauntity } = order;
-      if (id === 33) {
-        console.log(order, id2, user_id); // Track bad ID
-      }
-    });
-  });
-  */
-  /* ========================   ====   Bad ID snoop   ====   =============================*/
-
-  // const allOrderTotal;
-
-  // const sortedFoods = foodArr?.sort((a, b) => b.quantity - a.quantity);
-  // console.log(sortedFoods);
-
-  useEffect(() => {
-    dispatch(getMyFoodFromApi());
-  }, [foodArr.length > 0]);
 
   return (
     <>

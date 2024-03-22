@@ -22,19 +22,19 @@ const ItemsStats = () => {
   /* ========================   ====   Uncomment this   ====   =============================
 
   console.log(foods);
-/*
-  foods.map(({ items, id, user_id }) => {
-    const foodItems = JSON.parse(items);
-    const food = Object.values(foodItems);
-    const id2 = id; // Track bad ID
-    food.map((order) => {
-      const { id, name, qauntity } = order;
-      if (id === 33) {
-        console.log(order, id2, user_id); // Track bad ID
-      }
-    });
-  });
-  */
+/** */
+  // foods.map(({ items, id, user_id }) => {
+  //   const foodItems = JSON.parse(items);
+  //   const food = Object.values(foodItems);
+  //   const id2 = id; // Track bad ID
+  //   food.map((order) => {
+  //     const { id, name, qauntity } = order;
+  //     if (id === 0) {
+  //       console.log(order, id2, user_id); // Track bad ID
+  //     }
+  //   });
+  // });
+  /*/
   /* ========================   ====   Bad ID snoop   ====   =============================*/
 
   // const allOrderTotal;

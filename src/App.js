@@ -106,6 +106,7 @@ const App = () => {
                 <Route path="/customers/:id/edit" element={<EditCustomer />} />
                 <Route path="/users" element={<Users />} />
                 <Route path="/paidsixty" element={<PaidSixty />} />
+                <Route path="/paidsixty/groupitems" element={<GroupItems />} />
                 <Route
                   path="/userssupervisors"
                   element={<UsersSupervisors />}
