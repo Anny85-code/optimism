@@ -7,5 +7,70 @@
   height: fit-content;
   margin: 1.25rem 1.25rem 1.25rem 3.125rem;
   background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.table_head_zero_collect {
+  text-align: center;
+}
+
+table,
+tr {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 15px;
+  text-align: center;
+  width: 600px;
+  border: 2px solid crimson;
+  border-collapse: collapse;
+}
+
+.text_header_collect {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px;
+}
+
+.text_header_collect h1 {
+  font-family: 'Quintessential', cursive;
+  font-size: 20px;
+  color: #000;
+  margin: 0;
+}
+
+.text_header_collect h2 {
+  font-size: 16px;
+  color: #000;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .transact-customer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+  }
+
+  th,
+  td {
+    padding: 5px;
+    width: 200px;
+  }
+
+  .text_header_collect {
+    gap: 10px;
+    margin: 10px;
+  }
 }
 /* stylelint-enable */
