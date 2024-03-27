@@ -23,7 +23,21 @@
 }
 
 .columns {
-  width: 15rem;
+  width: 9.1rem;
+  text-align: center;
+  font-size: 1.125rem;
+  padding-top: 1.25rem;
+}
+
+.columns1 {
+  width: 7.8rem;
+  text-align: center;
+  font-size: 1.125rem;
+  padding-top: 1.25rem;
+}
+
+.columns2 {
+  width: 9.1rem;
   text-align: center;
   font-size: 1.125rem;
   padding-top: 1.25rem;
@@ -58,7 +72,7 @@
 }
 
 .no-trans-btn {
-  margin: 1.25rem 0 1.25rem 21.875rem;
+  margin: 1.25rem 0 1.25rem 1.875rem;
   background-color: crimson;
   width: 15.625rem;
   height: 3.125rem;
@@ -106,6 +120,14 @@
 
   .columns {
     /* font-size: 0.75rem; */
+    width: 2.8rem;
+    font-size: 5px;
+    padding-top: 0.3125rem;
+  }
+
+  .columns1 {
+    /* font-size: 0.75rem; */
+    width: 2.8rem;
     font-size: 5px;
     padding-top: 0.3125rem;
   }

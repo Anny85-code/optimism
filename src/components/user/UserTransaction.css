@@ -102,6 +102,13 @@
   box-shadow: 5px 5px 13px #332a2a, -5px -5px 13px #353131;
 }
 
+.columns8 {
+  width: 9.1rem;
+  text-align: center;
+  font-size: 1.125rem;
+  padding-top: 1.25rem;
+}
+
 @media only screen and (max-width: 450px) {
   .cust-tansact-container1 {
     width: 320px;
@@ -159,5 +166,10 @@
     width: 80px;
     margin-left: 10px;
     font-size: 12px;
+  }
+
+  .columns8 {
+    width: 3.3rem;
+    font-size: 8px;
   }
 }

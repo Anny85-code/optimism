@@ -60,28 +60,28 @@ const RenderItems = ({ mFoods }) => {
                 <center>Location: {marketer?.[2]}</center>
               </div>
               <div className="custrans-name">
-                <h4 className="columns">
+                <h4 className="columns4">
                   <span className="cus-name1">Serial Number</span>
                 </h4>
-                <h4 className="columns i">Items</h4>
-                <h4 className="columns i" id="a">
+                <h4 className="columns4 i">Items</h4>
+                <h4 className="columns4 i" id="a">
                   Item's ID
                 </h4>
-                <h4 className="columns">
+                <h4 className="columns4">
                   <span className="cus-name1 ">Quantity</span>
                 </h4>
               </div>
 
               <div className="custrans-name">
-                <h3 className="columns" id="col">
+                <h3 className="columns4" id="col">
                   <p className="custransactname"></p>
                 </h3>
                 <h6
-                  className="columns i"
+                  className="columns4 i"
                   style={{ borderBottom: '2px solid crimson' }}
                 ></h6>
                 <h3
-                  className="columns i"
+                  className="columns4 i"
                   id="col"
                   style={{
                     borderRight: '2px solid crimson',
@@ -90,7 +90,7 @@ const RenderItems = ({ mFoods }) => {
                   }}
                 ></h3>
                 <h3
-                  className="columns"
+                  className="columns4"
                   id="col"
                   style={{ color: 'crimson' }}
                 ></h3>
@@ -101,17 +101,17 @@ const RenderItems = ({ mFoods }) => {
                     {/* {food.id !== 0 && ( */}
                     <li>
                       <div className="custrans-name">
-                        <h4 className="columns"> {i + 1}</h4>
-                        <h4 className="columns i" id="top">
+                        <h4 className="columns4"> {i + 1}</h4>
+                        <h4 className="columns4 i" id="top">
                           {`${food.name}`}
                         </h4>
                         <h4
-                          className="columns i"
+                          className="columns4 i"
                           style={{ borderRight: '2px solid crimson' }}
                         >
                           {`${food.id}`}
                         </h4>
-                        <h4 className="columns">{comma(food.qauntity)}</h4>
+                        <h4 className="columns4">{comma(food.qauntity)}</h4>
                       </div>
                     </li>
                     {/* )} */}

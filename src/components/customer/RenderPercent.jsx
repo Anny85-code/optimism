@@ -36,32 +36,32 @@ const RenderPercent = ({ percents, owner }) => {
         <ul id="p-child">
           <li>
             <div className="custrans-name">
-              <p className="columns" id="a">
+              <p className="columns1" id="a">
                 {per && per.card}
               </p>
-              <p className="columns" id="a">
+              <p className="columns1" id="a">
                 {per && per.name}
               </p>
-              <p className="columns">{per && per.phone}</p>
+              <p className="columns1">{per && per.phone}</p>
               <p
-                className="columns i"
+                className="columns1 i"
                 id="top"
                 style={{ borderRight: '2px solid crimson' }}
               >
                 {per && per.total_days}
               </p>
               <p
-                className="columns "
+                className="columns1 "
                 style={{ borderRight: '2px solid crimson' }}
               >
                 {comma(per && per.daily)}
               </p>
-              <p className="columns" id="a">
+              <p className="columns1" id="a">
                 {comma(per && per.total)}
               </p>
 
-              {/* <p className="columns">{unpack(per)}</p> */}
-              <p className="columns">
+              {/* <p className="columns1">{unpack(per)}</p> */}
+              <p className="columns1">
                 {/* {unpack(per) &&
                   unpack(per).map((item) => (
                     <div>
@@ -222,48 +222,48 @@ const RenderPercent = ({ percents, owner }) => {
               </h2>
             </div>
             <div className="custrans-name">
-              <h6 className="columns " id="a">
+              <h6 className="columns1 " id="a">
                 <span className="cus-name1">C/No</span>
               </h6>
-              <h6 className="columns " id="a">
+              <h6 className="columns1 " id="a">
                 <span className="cus-name1">Name</span>
               </h6>
-              <h6 className="columns " id="a">
+              <h6 className="columns1 " id="a">
                 <span className="cus-name1">Phone</span>
               </h6>
-              <h6 className="columns ">Days Paid</h6>
-              <h6 className="columns i" id="a">
+              <h6 className="columns1 ">Days Paid</h6>
+              <h6 className="columns1 i" id="a">
                 Daily
               </h6>
-              <h6 className="columns" id="a">
+              <h6 className="columns1" id="a">
                 <span className="cus-name1 ">Total (NGN)</span>
               </h6>
-              <h6 className="columns">
+              <h6 className="columns1">
                 <span className="cus-name1 ">Items</span>
               </h6>
             </div>
 
             <div className="custrans-name" id="col">
-              <h6 className="columns" id="a">
+              <h6 className="columns1" id="a">
                 <span className="cus-name1"></span>
               </h6>
-              <h6 className="columns" id="a">
+              <h6 className="columns1" id="a">
                 <span className="cus-name1"></span>
               </h6>
-              <h6 className="columns" id="a">
+              <h6 className="columns1" id="a">
                 <span className="cus-name1"></span>
               </h6>
-              <h6 className="columns " id="a">
+              <h6 className="columns1 " id="a">
                 <span className="cus-name1"></span>
               </h6>
-              <h6 className="columns" id="a">
+              <h6 className="columns1" id="a">
                 <span className="cus-name1"></span>
               </h6>
-              <h6 className="columns" id="a">
+              <h6 className="columns1" id="a">
                 {' '}
                 <span className="cus-name1"></span>
               </h6>
-              <h6 className="columns" style={{ color: 'crimson' }}>
+              <h6 className="columns1" style={{ color: 'crimson' }}>
                 {' '}
                 <span className="cus-name1"></span>
               </h6>

@@ -128,6 +128,13 @@
   margin-bottom: 1.25rem;
 }
 
+.columns5 {
+  width: 15rem;
+  text-align: center;
+  font-size: 1.125rem;
+  padding-top: 1.25rem;
+}
+
 @media only screen and (max-width: 450px) {
   .containa {
     width: 20rem;

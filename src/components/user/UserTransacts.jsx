@@ -163,26 +163,26 @@ const UserTransacts = () => {
                 ) : (
                   <>
                     <div className="custrans-name">
-                      <h4 className="columns">
+                      <h4 className="columns8">
                         <span className="cus-name1">Collected by</span>
                       </h4>
-                      <h4 className="columns i">
+                      <h4 className="columns8 i">
                         <span className="cus-name1">Date & Time</span>
                       </h4>
-                      <h3 className="columns i">
+                      <h3 className="columns8 i">
                         <span className="cus-name1">Amount</span>
                       </h3>
-                      <h3 className="columns i" d="a">
+                      <h3 className="columns8 i" d="a">
                         <span className="cus-name1">
                           Total by filtered date
                         </span>
                       </h3>
 
-                      <h3 className="columns i " id="a">
+                      <h3 className="columns8 i " id="a">
                         <span className="cus-name1">No. of Transactions</span>
                       </h3>
                       {superadmins && (
-                        <h3 className="columns">
+                        <h3 className="columns8">
                           <span className="cus-name1">
                             Total amount collected
                           </span>
@@ -191,20 +191,20 @@ const UserTransacts = () => {
                     </div>
 
                     <div className="custrans-name">
-                      <div className="columns" id="col">
+                      <div className="columns8" id="col">
                         <h6 className="custransactname">{name} - </h6>
                         <p className="custransactname">{loc}</p>
                       </div>
                       <h4
-                        className="columns i"
+                        className="columns8 i"
                         style={{ borderBottom: '2px solid crimson' }}
                       ></h4>
                       <h3
-                        className="columns i"
+                        className="columns8 i"
                         style={{ borderBottom: '2px solid crimson' }}
                       ></h3>
                       <h3
-                        className="columns i"
+                        className="columns8 i"
                         id="col"
                         style={{ color: 'crimson' }}
                       >
@@ -212,7 +212,7 @@ const UserTransacts = () => {
                       </h3>
 
                       <h3
-                        className="columns i"
+                        className="columns8 i"
                         id="col"
                         style={{
                           borderRight: '2px solid crimson',
@@ -224,7 +224,7 @@ const UserTransacts = () => {
                       </h3>
                       {superadmins && (
                         <h3
-                          className="columns"
+                          className="columns8"
                           id="col"
                           style={{ color: 'crimson' }}
                         >
@@ -247,20 +247,20 @@ const UserTransacts = () => {
                             <ul id="p-child">
                               <li>
                                 <div className="custrans-name">
-                                  <h4 className="columns">{customer?.name}</h4>
-                                  <h4 className="columns i" id="top">
+                                  <h4 className="columns8">{customer?.name}</h4>
+                                  <h4 className="columns8 i" id="top">
                                     {Moment(transaction.created_at).format(
                                       'MMMM DD, LT'
                                     )}
                                   </h4>
-                                  <h4 className="columns i">{`NGN ${comma(
+                                  <h4 className="columns8 i">{`NGN ${comma(
                                     transaction.amount
                                   )}`}</h4>
-                                  <h4 className="columns i">
+                                  <h4 className="columns8 i">
                                     NGN {customer?.daily_contribution} daily
                                   </h4>
                                   <h4
-                                    className="columns i"
+                                    className="columns8 i"
                                     style={{ borderRight: '2px solid crimson' }}
                                   >
                                     {transaction.days_paid_for > 1
@@ -268,7 +268,7 @@ const UserTransacts = () => {
                                       : `${transaction.days_paid_for} day`}
                                   </h4>
                                   {superadmins && (
-                                    <h4 className="columns "></h4>
+                                    <h4 className="columns8 "></h4>
                                   )}
                                 </div>
                               </li>

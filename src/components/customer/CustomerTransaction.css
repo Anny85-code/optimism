@@ -23,7 +23,21 @@
 }
 
 .columns {
-  width: 15rem;
+  width: 7.8rem;
+  text-align: center;
+  font-size: 1.125rem;
+  padding-top: 1.25rem;
+}
+
+.columns3 {
+  width: 13.8rem;
+  text-align: center;
+  font-size: 1.125rem;
+  padding-top: 1.25rem;
+}
+
+.columns6 {
+  width: 13.8rem;
   text-align: center;
   font-size: 1.125rem;
   padding-top: 1.25rem;
@@ -81,9 +95,23 @@
   }
 
   .columns {
+    width: 1rem;
     font-size: 0.75rem;
     padding-top: 0.3125rem;
   }
+
+  .columns3 {
+  width: 13.8rem;
+  text-align: center;
+  font-size: 1.125rem;
+  padding-top: 1.25rem;
+}
+
+.columns6 {
+  width: 5.1rem;
+  font-size: 0.75rem;
+  padding-top: 0.3125rem;
+}
 
   .no-trans {
     font-size: 1.875rem;
