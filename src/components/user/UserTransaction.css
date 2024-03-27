@@ -103,9 +103,21 @@
 }
 
 .columns8 {
+  width: 11rem;
+  text-align: center;
+  font-size: 12px;
+  padding-top: 1.25rem;
+}
+
+/* #s {
+  width: 11rem;
+  background: red;
+} */
+
+.columns9 {
   width: 9.1rem;
   text-align: center;
-  font-size: 1.125rem;
+  font-size: 12px;
   padding-top: 1.25rem;
 }
 
@@ -131,7 +143,7 @@
   }
 
   .transact-customer-container {
-    font-size: 12px;
+    font-size: 10px;
     display: flex;
     flex-direction: column;
   }
@@ -169,7 +181,7 @@
   }
 
   .columns8 {
-    width: 3.3rem;
+    width: 4rem;
     font-size: 8px;
   }
 }
