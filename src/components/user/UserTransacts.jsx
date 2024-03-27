@@ -162,76 +162,26 @@ const UserTransacts = () => {
                   </>
                 ) : (
                   <>
-                    <div className="custrans-name">
-                      <h4 className="columns">
-                        <span className="cus-name1">Collected by</span>
-                      </h4>
-                      <h4 className="columns i">
-                        <span className="cus-name1">Date & Time</span>
-                      </h4>
-                      <h3 className="columns i">
-                        <span className="cus-name1">Amount</span>
-                      </h3>
-                      <h3 className="columns i" d="a">
-                        <span className="cus-name1">
-                          Total by filtered date
-                        </span>
-                      </h3>
-
-                      <h3 className="columns i " id="a">
-                        <span className="cus-name1">No. of Transactions</span>
-                      </h3>
-                      {superadmins && (
-                        <h3 className="columns">
-                          <span className="cus-name1">
-                            Total amount collected
-                          </span>
-                        </h3>
-                      )}
-                    </div>
-
-                    <div className="custrans-name">
-                      <div className="columns" id="col">
-                        <h6 className="custransactname">{name} - </h6>
-                        <p className="custransactname">{loc}</p>
-                      </div>
-                      <h4
-                        className="columns i"
-                        style={{ borderBottom: '2px solid crimson' }}
-                      ></h4>
-                      <h3
-                        className="columns i"
-                        style={{ borderBottom: '2px solid crimson' }}
-                      ></h3>
-                      <h3
-                        className="columns i"
-                        id="col"
-                        style={{ color: 'crimson' }}
-                      >
-                        {` NGN ${comma(filtaTotal)}`}
-                      </h3>
-
-                      <h3
-                        className="columns i"
-                        id="col"
-                        style={{
-                          borderRight: '2px solid crimson',
-                          borderBottom: '2px solid crimson',
-                          color: 'crimson',
-                        }}
-                      >
-                        {transNo}
-                      </h3>
-                      {superadmins && (
-                        <h3
-                          className="columns"
-                          id="col"
-                          style={{ color: 'crimson' }}
-                        >
-                          {`NGN ${comma(total)}`}
-                        </h3>
-                      )}
-                    </div>
+                    <table>
+                      <tr>
+                        <th>Collected by</th>
+                        <th>Date & Time</th>
+                        <th>Amount</th>
+                        <th>Total by filtered date</th>
+                        <th>No. of Transactions</th>
+                        {superadmins && <th>Total amount collected</th>}
+                      </tr>
+                      <tr>
+                        <td>
+                          {name} -{loc}
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td>{` NGN ${comma(filtaTotal)}`}</td>
+                        <td>{transNo}</td>
+                        {superadmins && <td>{`NGN ${comma(total)}`}</td>}
+                      </tr>
+                    </table>
                     {len >= 1 ? (
                       filtaTrans?.slice(pr, nx).map((transaction) => {
                         const [customer] = customers?.filter(
@@ -247,20 +197,20 @@ const UserTransacts = () => {
                             <ul id="p-child">
                               <li>
                                 <div className="custrans-name">
-                                  <h4 className="columns">{customer?.name}</h4>
-                                  <h4 className="columns i" id="top">
+                                  <h4 className="columns9">{customer?.name}</h4>
+                                  <h4 className="columns9 i" id="top">
                                     {Moment(transaction.created_at).format(
                                       'MMMM DD, LT'
                                     )}
                                   </h4>
-                                  <h4 className="columns i">{`NGN ${comma(
+                                  <h4 className="columns9 i">{`NGN ${comma(
                                     transaction.amount
                                   )}`}</h4>
-                                  <h4 className="columns i">
+                                  <h4 className="columns9 i">
                                     NGN {customer?.daily_contribution} daily
                                   </h4>
                                   <h4
-                                    className="columns i"
+                                    className="columns9 i"
                                     style={{ borderRight: '2px solid crimson' }}
                                   >
                                     {transaction.days_paid_for > 1
@@ -268,7 +218,7 @@ const UserTransacts = () => {
                                       : `${transaction.days_paid_for} day`}
                                   </h4>
                                   {superadmins && (
-                                    <h4 className="columns "></h4>
+                                    <h4 className="columns9 "></h4>
                                   )}
                                 </div>
                               </li>

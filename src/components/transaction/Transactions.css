@@ -60,6 +60,13 @@
   margin-left: 12%;
 }
 
+.columns2 {
+  width: 15rem;
+  text-align: center;
+  font-size: 1.125rem;
+  padding-top: 1.25rem;
+}
+
 @media only screen and (max-width: 450px) {
   .transact-customer-container1 {
     width: 320px;

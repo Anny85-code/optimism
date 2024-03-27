@@ -6,6 +6,36 @@
 
 @media only screen and (max-width: 480px) {
   .total-orders {
-    margin: 15px 0 -10px 0;
+    margin: 15px 0 10px 0;
+  }
+}
+
+.columns3 {
+  width: 13.8rem;
+  text-align: center;
+  font-size: 1.125rem;
+  padding-top: 1.25rem;
+}
+
+.columns4 {
+  width: 13.8rem;
+  text-align: center;
+  font-size: 1.125rem;
+  padding-top: 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .columns3 {
+    width: 5.1rem;
+    text-align: center;
+    font-size: 12px;
+    padding-top: 1.25rem;
+  }
+
+  .columns4 {
+    width: 5.1rem;
+    text-align: center;
+    font-size: 12px;
+    padding-top: 1.25rem;
   }
 }

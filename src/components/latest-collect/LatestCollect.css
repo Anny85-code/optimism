@@ -3,12 +3,18 @@
 .transact-customer-container {
   border: 2px solid crimson;
   border-radius: 0.5rem;
-  width: 59.375rem;
+  width: 55.375rem;
   height: fit-content;
   margin: 1.25rem 1.25rem 1.25rem 3.125rem;
   background: #fff;
 }
 
+ @media (max-width: 768px) {
+   .transact-customer-container { 
+    width: 330px;
+    margin: 20px;
+   }
+  }
 /* .table-head {
   display: flex;
   flex-direction: column;

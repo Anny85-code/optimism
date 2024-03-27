@@ -44,29 +44,29 @@ const Customers = () => {
           {len > 0 ? (
             <div className="transact-customer-container1">
               <div className="custrans-name1">
-                <h4 className="columns">
+                <h4 className="columns5">
                   <span className="cus-name1">Customer's Name</span>
                 </h4>
-                <h4 className="columns i" id="a">
+                <h4 className="columns5 i" id="a">
                   Phone
                 </h4>
-                <h4 className="columns">
+                <h4 className="columns5">
                   <span className="cus-name2 ">Total number of customers</span>
                 </h4>
               </div>
               <div className="custrans-name1">
-                <h3 className="columns" id="col">
+                <h3 className="columns5" id="col">
                   <p className="custransactname"></p>
                 </h3>
                 <h3
-                  className="columns i"
+                  className="columns5 i"
                   id="col"
                   style={{
                     borderRight: '2px solid crimson',
                     borderBottom: '2px solid crimson',
                   }}
                 ></h3>
-                <h3 className="columns" id="col" style={{ color: 'crimson' }}>
+                <h3 className="columns5" id="col" style={{ color: 'crimson' }}>
                   {len}
                 </h3>
               </div>
@@ -81,16 +81,16 @@ const Customers = () => {
                     <ul id="p-child">
                       <li>
                         <div className="custrans-name1">
-                          <h4 className="columns" style={{ color: 'crimson' }}>
+                          <h4 className="columns5" style={{ color: 'crimson' }}>
                             {customer.name}
                           </h4>
                           <h4
-                            className="columns i"
+                            className="columns5 i"
                             style={{ borderRight: '2px solid crimson' }}
                           >
                             {customer.phone}
                           </h4>
-                          <h4 className="columns"></h4>
+                          <h4 className="columns5"></h4>
                         </div>
                       </li>
                     </ul>

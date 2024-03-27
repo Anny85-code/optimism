@@ -64,16 +64,16 @@ const CustomerTransacts = () => {
             ) : (
               <>
                 <div className="custrans-name">
-                  <h4 className="columns">
+                  <h4 className="columns6">
                     <span className="cus-name1">Customer's Name</span>
                   </h4>
-                  <h4 className="columns i">Date & Time</h4>
-                  <h4 className="columns i">Amount</h4>
-                  <h4 className="columns i" id="a">
+                  <h4 className="columns6 i">Date & Time</h4>
+                  <h4 className="columns6 i">Amount</h4>
+                  <h4 className="columns6 i" id="a">
                     Total days paid
                   </h4>
                   {user.role === 'admin' && (
-                    <h4 className="columns">
+                    <h4 className="columns6">
                       <span className="cus-name1 ">
                         Total amount contributed
                       </span>
@@ -82,19 +82,19 @@ const CustomerTransacts = () => {
                 </div>
 
                 <div className="custrans-name">
-                  <h3 className="columns" id="col">
+                  <h3 className="columns6" id="col">
                     <p className="custransactname">{user_name}</p>
                   </h3>
                   <h3
-                    className="columns i"
+                    className="columns6 i"
                     style={{ borderBottom: '2px solid crimson' }}
                   ></h3>
                   <h3
-                    className="columns i"
+                    className="columns6 i"
                     style={{ borderBottom: '2px solid crimson' }}
                   ></h3>
                   <h3
-                    className="columns i"
+                    className="columns6 i"
                     id="col"
                     style={{
                       borderRight: '2px solid crimson',
@@ -106,7 +106,7 @@ const CustomerTransacts = () => {
                   </h3>
                   {user.role === 'admin' && (
                     <h3
-                      className="columns"
+                      className="columns6"
                       id="col"
                       style={{ color: 'crimson' }}
                     >
@@ -123,23 +123,23 @@ const CustomerTransacts = () => {
                     <ul id="p-child">
                       <li>
                         <div className="custrans-name">
-                          <h4 className="columns"></h4>
-                          <h4 className="columns i" id="top">
+                          <h4 className="columns6"></h4>
+                          <h4 className="columns6 i" id="top">
                             {Moment(transaction.created_at).format(
                               'MMMM DD, LT'
                             )}
                           </h4>
-                          <h4 className="columns i">{` NGN ${comma(
+                          <h4 className="columns6 i">{` NGN ${comma(
                             transaction.amount
                           )}`}</h4>
                           <h4
-                            className="columns i"
+                            className="columns6 i"
                             style={{ borderRight: '2px solid crimson' }}
                           >
                             {transaction.days_paid_for} days
                           </h4>
                           {user.role === 'admin' && (
-                            <h4 className="columns"></h4>
+                            <h4 className="columns6"></h4>
                           )}
                         </div>
                       </li>
@@ -147,14 +147,14 @@ const CustomerTransacts = () => {
                   </NavLink>
                 ))}
                 <div className="custrans-name">
-                  <h4 className="columns">
+                  <h4 className="columns6">
                     <span className="cus-name1"></span>
                   </h4>
-                  <h4 className="columns i"></h4>
-                  <h4 className="columns i"></h4>
-                  <h4 className="columns i" id="a"></h4>
+                  <h4 className="columns6 i"></h4>
+                  <h4 className="columns6 i"></h4>
+                  <h4 className="columns6 i" id="a"></h4>
                   {user.role === 'admin' && (
-                    <h4 className="columns">
+                    <h4 className="columns6">
                       <span className="cus-name1 ">
                         Total amount contributed
                       </span>
@@ -163,19 +163,19 @@ const CustomerTransacts = () => {
                 </div>
 
                 <div className="custrans-name">
-                  <h3 className="columns" id="col">
+                  <h3 className="columns6" id="col">
                     <p className="custransactname"></p>
                   </h3>
                   <h3
-                    className="columns i"
+                    className="columns6 i"
                     style={{ borderBottom: '2px solid crimson' }}
                   ></h3>
                   <h3
-                    className="columns i"
+                    className="columns6 i"
                     style={{ borderBottom: '2px solid crimson' }}
                   ></h3>
                   <h3
-                    className="columns i"
+                    className="columns6 i"
                     id="col"
                     style={{
                       borderRight: '2px solid crimson',
@@ -185,7 +185,7 @@ const CustomerTransacts = () => {
                   ></h3>
                   {user.role === 'admin' && (
                     <h3
-                      className="columns"
+                      className="columns6"
                       id="col"
                       style={{ color: 'crimson' }}
                     >

@@ -28,47 +28,47 @@ const MyFoods = () => {
       {!customer.loading ? (
         <div className="transact-customer-container">
           <div className="custrans-name">
-            <h4 className="columns">
+            <h4 className="columns7">
               <span className="cus-name-name">Name</span>
             </h4>
-            <h4 className="columns i">
+            <h4 className="columns7 i">
               <span className="cus-name2">Contribution</span>
             </h4>
-            <h3 className="columns i">
+            <h3 className="columns7 i">
               <span className="cus-name1">Items</span>
             </h3>
-            <h3 className="columns i" d="a">
+            <h3 className="columns7 i" d="a">
               <span className="cus-name1">Price</span>
             </h3>
-            <h3 className="columns i " id="a">
+            <h3 className="columns7 i " id="a">
               <span className="cus-name1">Quantity</span>
             </h3>
-            <h3 className="columns">
+            <h3 className="columns7">
               <span className="cus-name1">Sub total</span>
             </h3>
           </div>
           <div className="custrans-name">
-            <h4 className="columns" id="col">
+            <h4 className="columns7" id="col">
               <p className="custransactname">{name}</p>
             </h4>
             <h4
-              className="columns i"
+              className="columns7 i"
               style={{ borderBottom: '2px solid crimson' }}
             >{` NGN ${comma(daily_contribution)}`}</h4>
             <h3
-              className="columns i"
+              className="columns7 i"
               style={{ borderBottom: '2px solid crimson' }}
             ></h3>
-            <h3 className="columns i" id="col"></h3>
+            <h3 className="columns7 i" id="col"></h3>
             <h3
-              className="columns i"
+              className="columns7 i"
               id="col"
               style={{
                 borderRight: '2px solid crimson',
                 borderBottom: '2px solid crimson',
               }}
             ></h3>
-            <h3 className="columns" id="col"></h3>
+            <h3 className="columns7" id="col"></h3>
           </div>
           {!foods.loading ? (
             food?.map((food) => {
@@ -80,19 +80,19 @@ const MyFoods = () => {
                       <ul className="n-child">
                         <li>
                           <div key={myFood.id} className="custrans-name">
-                            <h4 className="columns"></h4>
-                            <h4 className="columns i" id="top"></h4>
-                            <h4 className="columns i">{myFood.name}</h4>
-                            <h4 className="columns i">{` NGN ${comma(
+                            <h4 className="columns7"></h4>
+                            <h4 className="columns7 i" id="top"></h4>
+                            <h4 className="columns7 i">{myFood.name}</h4>
+                            <h4 className="columns7 i">{` NGN ${comma(
                               myFood.price
                             )}`}</h4>
                             <h4
-                              className="columns i"
+                              className="columns7 i"
                               style={{ borderRight: '2px solid crimson' }}
                             >
                               {myFood.qauntity}
                             </h4>
-                            <h4 className="columns ">{` NGN ${comma(
+                            <h4 className="columns7 ">{` NGN ${comma(
                               myFood.subTotal
                             )}`}</h4>
                           </div>

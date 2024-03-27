@@ -130,29 +130,29 @@ const Transactions = () => {
 
       <div className="transact-customer-container1">
         <div className="custrans-name1">
-          <h4 className="columns">
+          <h4 className="columns2">
             <span className="cus-name1">Customer's Name</span>
           </h4>
-          <h4 className="columns i" id="a">
+          <h4 className="columns2 i" id="a">
             Amount
           </h4>
-          <h4 className="columns">
+          <h4 className="columns2">
             <span className="cus-name2 ">Date</span>
           </h4>
         </div>
         <div className="custrans-name1">
-          <h3 className="columns" id="col">
+          <h3 className="columns2" id="col">
             <p className="custransactname"></p>
           </h3>
           <h3
-            className="columns i"
+            className="columns2 i"
             id="col"
             style={{
               borderRight: '2px solid crimson',
               borderBottom: '2px solid crimson',
             }}
           ></h3>
-          <h3 className="columns" id="col" style={{ color: 'crimson' }}></h3>
+          <h3 className="columns2" id="col" style={{ color: 'crimson' }}></h3>
         </div>
         {transactions &&
           filtaTrans
@@ -176,16 +176,16 @@ const Transactions = () => {
                     <ul id="p-child">
                       <li>
                         <div className="custrans-name1">
-                          <h4 className="columns" style={{ color: 'crimson' }}>
+                          <h4 className="columns2" style={{ color: 'crimson' }}>
                             {aCustomer.name}
                           </h4>
                           <h4
-                            className="columns i"
+                            className="columns2 i"
                             style={{ borderRight: '2px solid crimson' }}
                           >
                             {` NGN ${comma(transaction.amount)}`}
                           </h4>
-                          <h4 className="columns" style={{ color: '#000' }}>
+                          <h4 className="columns2" style={{ color: '#000' }}>
                             {Moment(transaction.created_at).format(
                               'MMMM DD, LT'
                             )}

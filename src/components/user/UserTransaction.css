@@ -102,6 +102,20 @@
   box-shadow: 5px 5px 13px #332a2a, -5px -5px 13px #353131;
 }
 
+.columns8 {
+  width: 11rem;
+  text-align: center;
+  font-size: 12px;
+  padding-top: 1.25rem;
+}
+
+.columns9 {
+  width: 9.1rem;
+  text-align: center;
+  font-size: 12px;
+  padding-top: 1.25rem;
+}
+
 @media only screen and (max-width: 450px) {
   .cust-tansact-container1 {
     width: 320px;
@@ -124,7 +138,7 @@
   }
 
   .transact-customer-container {
-    font-size: 12px;
+    font-size: 10px;
     display: flex;
     flex-direction: column;
   }
@@ -159,5 +173,10 @@
     width: 80px;
     margin-left: 10px;
     font-size: 12px;
+  }
+
+  .columns8 {
+    width: 4rem;
+    font-size: 8px;
   }
 }

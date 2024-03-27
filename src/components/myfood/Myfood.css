@@ -2,8 +2,22 @@
   background-color: rgb(243, 152, 152);
 }
 
+.columns7 {
+  width: 9.1rem;
+  text-align: center;
+  font-size: 1.125rem;
+  padding-top: 1.25rem;
+}
+
 @media screen and (max-width: 450px) {
   .cus-name-name {
     font-size: 10px;
+  }
+
+  .columns7 {
+    width: 3.4rem;
+    text-align: center;
+    font-size: 9px;
+    padding-top: 0.3125rem;
   }
 }

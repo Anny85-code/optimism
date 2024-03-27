@@ -68,7 +68,7 @@
   background-color: azure;
   border-radius: 0.5rem;
   text-align: left;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-weight: 600;
   font-family: 'Gumeland', cursive;
   box-sizing: border-box;
@@ -126,6 +126,13 @@
 
 .allTrans {
   margin-bottom: 1.25rem;
+}
+
+.columns5 {
+  width: 15rem;
+  text-align: center;
+  font-size: 1.125rem;
+  padding-top: 1.25rem;
 }
 
 @media only screen and (max-width: 450px) {
