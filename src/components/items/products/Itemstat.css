@@ -26,16 +26,16 @@
 
 @media (max-width: 768px) {
   .columns3 {
-  width: 5.1rem;
-  text-align: center;
-  font-size: 12px;
-  padding-top: 1.25rem;
-}
+    width: 5.1rem;
+    text-align: center;
+    font-size: 12px;
+    padding-top: 1.25rem;
+  }
 
-.columns4 {
-  width: 5.1rem;
-  text-align: center;
-  font-size: 12px;
-  padding-top: 1.25rem;
-}
+  .columns4 {
+    width: 5.1rem;
+    text-align: center;
+    font-size: 12px;
+    padding-top: 1.25rem;
+  }
 }
