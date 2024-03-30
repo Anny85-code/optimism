@@ -8,7 +8,7 @@
   margin: 1.25rem 1.25rem 1.25rem 3.125rem;
   background: #fff;
 } */
-/* stylelint-enable */
+
 
 .marketer-zero-customer-container {
   border: 2px solid crimson;
@@ -67,7 +67,7 @@ td {
   .header {
     margin: 10px;
   }
-  
+
   .header h1 {
     font-size: 16px;
   }
