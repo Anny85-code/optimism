@@ -24,9 +24,10 @@ tr {
 
 th,
 td {
-  padding: 15px;
+  padding: 15px 0;
   text-align: center;
-  width: 600px;
+  /* width: 600px; */
+  width: 9.1rem;
   border: 2px solid crimson;
   border-collapse: collapse;
 }
@@ -64,8 +65,9 @@ td {
 
   th,
   td {
-    padding: 5px;
-    width: 200px;
+    padding: 4px 0;
+    font-size: 7px;
+    /* width: 200px; */
   }
 
   .text_header_collect {
