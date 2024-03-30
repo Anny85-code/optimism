@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Quintessential&display=swap');
+
 main {
   background: #fff;
   grid-area: main;
@@ -23,6 +25,10 @@ main {
   font-size: 1.5rem;
   color: #990f0f;
   margin-bottom: 0.3125rem;
+}
+
+.main__greetings h1 {
+  font-family: 'Quintessential', sans-serif;
 }
 
 .main__greetings > p {

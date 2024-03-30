@@ -13,15 +13,54 @@ import DeleteNoCardNo from '../../utils/DeleteNoCardNo';
 import GetNoCardNo from '../../utils/GetNoCardNo';
 import comma from './../../utils/Comma';
 
+function getOrdinalSuffix(day) {
+  if (day >= 11 && day <= 13) {
+    return 'th';
+  }
+  switch (day % 10) {
+    case 1:
+      return 'st';
+    case 2:
+      return 'nd';
+    case 3:
+      return 'rd';
+    default:
+      return 'th';
+  }
+}
+
+function formatDate(date) {
+  const day = date.getDate();
+  const monthNames = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+  const month = monthNames[date.getMonth()];
+  const year = date.getFullYear();
+  const ordinalSuffix = getOrdinalSuffix(day);
+
+  return `${day}<sup>${ordinalSuffix}</sup> ${month}, ${year}`;
+}
+
 const Main = () => {
   const dispatch = useDispatch();
   const dash = useSelector((state) => state.dash);
   const dashData = dash?.data;
-  const date = new Date();
-  const today = date.toDateString();
+  const today = new Date();
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
   const admins = user.role === 'admin' || user.role === 'superadmin';
+  const formattedDate = formatDate(today);
 
   useEffect(() => {
     dispatch(getDashboard());
@@ -36,9 +75,9 @@ const Main = () => {
               <img src={hello} alt="hello logo" />
               <div className="main__greetings">
                 <h1>Hello {user.name}</h1>
-                <h4>
-                  Welcome {user.name}! Today is {today}.
-                </h4>
+                {`Welcome ${user.name}! Today is `}
+                <span dangerouslySetInnerHTML={{ __html: formattedDate }} />
+                {'.'}
               </div>
             </div>
             {dash.loading ? (
