@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import './Main.css';
-import hello from '../../assets/image/hello.jfif';
+import hello from '../../assets/image/chef.png';
 import ChartWithCrosshair from '../chart/Chart_with_Crosshair';
 import { getDashboard } from '../../redux/forms/getDashboard';
 import Loader from '../loader/Loader';
