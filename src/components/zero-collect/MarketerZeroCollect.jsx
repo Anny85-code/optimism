@@ -26,26 +26,30 @@ const MarketerZeroCollect = () => {
     <>
       {!zeroCollect.data && <Loader />}
       {zeroCollect.data && (
-        <div className="transact-customer-container">
+        <div className="marketer-zero-customer-container">
           <div>
+            <div className="header">
+              <h1>Marketer: {zeroCollect.marketer}</h1>
+              <p>Total: {zeroCollect.total}</p>
+            </div>
             <table>
-              <thead className="">
-                <td className=""> Marketer: {zeroCollect.marketer}</td>
+              {/* <thead className="">
+                <td className=""> </td>
 
-                <td> Total: {zeroCollect.total}</td>
-              </thead>
-              <thead>
-                <td>Name</td>
-                <td>Card No</td>
-                <td>Days Paid</td>
-              </thead>
+                <td> </td>
+              </thead> */}
+              <tr>
+                <th>Name</th>
+                <th>Card No</th>
+                <th>Days Paid</th>
+              </tr>
               {zeroCollect &&
                 zeroCollect.data.map(({ name, card, total_days }) => (
-                  <tbody key={card}>
+                  <tr key={card}>
                     <td>{name}</td>
                     <td>{card}</td>
                     <td>{total_days}</td>
-                  </tbody>
+                  </tr>
                 ))}
             </table>
           </div>
