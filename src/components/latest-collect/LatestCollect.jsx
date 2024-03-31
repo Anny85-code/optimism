@@ -70,7 +70,7 @@ const LatestCollect = () => {
                 <th className="th">Coll. Date</th>
               </tr>
               {data.data
-                .sort((a, b) => b.transaction_date - a.transaction_date)
+                .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
                 .slice(pr, nx)
                 .map((trans, i) => (
                   <tr key={i}>
