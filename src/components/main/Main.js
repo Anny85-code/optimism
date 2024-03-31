@@ -75,7 +75,7 @@ const Main = () => {
               <img src={hello} alt="hello logo" />
               <div className="main__greetings">
                 <h1>Hello {user.name}</h1>
-                {`Welcome ${user.name}! Today is `}
+                {`Welcome ${user.name}!`} Today is &nbsp;
                 <span dangerouslySetInnerHTML={{ __html: formattedDate }} />
                 {'.'}
               </div>
