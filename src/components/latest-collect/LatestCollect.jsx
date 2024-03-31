@@ -63,7 +63,6 @@ const LatestCollect = () => {
               <p> Total: {data?.total}</p>
             </div>
             <table className="table">
-              {/* <thead className="table-head"></thead> */}
               <tr>
                 <th className="th">Customer</th>
                 <th className="th">Amount</th>
