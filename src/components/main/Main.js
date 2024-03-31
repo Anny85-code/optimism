@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import './Main.css';
-import hello from '../../assets/image/hello.jfif';
+import hello from '../../assets/image/chef.png';
 import ChartWithCrosshair from '../chart/Chart_with_Crosshair';
 import { getDashboard } from '../../redux/forms/getDashboard';
 import Loader from '../loader/Loader';
@@ -13,15 +13,54 @@ import DeleteNoCardNo from '../../utils/DeleteNoCardNo';
 import GetNoCardNo from '../../utils/GetNoCardNo';
 import comma from './../../utils/Comma';
 
+function getOrdinalSuffix(day) {
+  if (day >= 11 && day <= 13) {
+    return 'th';
+  }
+  switch (day % 10) {
+    case 1:
+      return 'st';
+    case 2:
+      return 'nd';
+    case 3:
+      return 'rd';
+    default:
+      return 'th';
+  }
+}
+
+function formatDate(date) {
+  const day = date.getDate();
+  const monthNames = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+  const month = monthNames[date.getMonth()];
+  const year = date.getFullYear();
+  const ordinalSuffix = getOrdinalSuffix(day);
+
+  return `${day}<sup>${ordinalSuffix}</sup> ${month}, ${year}`;
+}
+
 const Main = () => {
   const dispatch = useDispatch();
   const dash = useSelector((state) => state.dash);
   const dashData = dash?.data;
-  const date = new Date();
-  const today = date.toDateString();
+  const today = new Date();
   const data = JSON.parse(localStorage.getItem('user'));
   const { user } = data || {};
   const admins = user.role === 'admin' || user.role === 'superadmin';
+  const formattedDate = formatDate(today);
 
   useEffect(() => {
     dispatch(getDashboard());
@@ -36,9 +75,9 @@ const Main = () => {
               <img src={hello} alt="hello logo" />
               <div className="main__greetings">
                 <h1>Hello {user.name}</h1>
-                <h4>
-                  Welcome {user.name}! Today is {today}.
-                </h4>
+                {`Welcome ${user.name}!`} Today is &nbsp;
+                <span dangerouslySetInnerHTML={{ __html: formattedDate }} />
+                {'.'}
               </div>
             </div>
             {dash.loading ? (
@@ -57,7 +96,7 @@ const Main = () => {
                     </div>
                   </div>
                   <div className="cards">
-                    <i class="fa fa-line-chart fa-2x text-red" />
+                    <i class="fa fa-line-chart fa-2x text-yellow" />
                     <div className="card__inner">
                       <p className="text-primary-p">Number of Transactions</p>
                       <span className="font-bold text-title">
@@ -75,7 +114,7 @@ const Main = () => {
                     </div>
                   </div>
                   <div className="cards">
-                    <i className="fa fa-group fa-2x text-red" />
+                    <i className="fa fa-group fa-2x text-green" />
                     <div className="card__inner">
                       <p className="text-primary-p">Number of Admins</p>
                       <span className="font-bold text-title">
@@ -84,7 +123,7 @@ const Main = () => {
                     </div>
                   </div>
                   <div className="cards">
-                    <i className="fa fa-cart-plus fa-2x text-red" />
+                    <i className="fa fa-cart-plus fa-2x text-lightblue" />
                     <div className="card__inner">
                       <p className="text-primary-p">Number of Products</p>
                       <span className="font-bold text-title">
@@ -103,6 +142,7 @@ const Main = () => {
                   </div>
                   <NavLink to="/no-collection-yet" target="_blank">
                     <div className="cards">
+                      <i className="fa fa-gift fa-2x" />
                       <div className="card__inner">
                         <p className="text-primary-p">No Collection yet</p>
                       </div>
@@ -187,7 +227,8 @@ const Main = () => {
                 <h1>Hello {user.name}</h1>
                 <p>
                   Welcome to another lovely day {user.name}!
-                  <span className="welcome-date">Today is {today}.</span>
+                  &nbsp;<span className="welcome-date">Today is </span>{' '}
+                  <span dangerouslySetInnerHTML={{ __html: formattedDate }} />
                 </p>
                 <h4>As you know, everybody must eat, so Let's talk food!</h4>
               </div>

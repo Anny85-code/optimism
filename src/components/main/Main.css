@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Quintessential&display=swap');
+
 main {
   background: #fff;
   grid-area: main;
@@ -5,7 +7,7 @@ main {
 }
 
 .main__container {
-  padding: 1.25rem 2.1875rem;
+  padding: 1.25rem 1rem;
 }
 
 .main__title {
@@ -21,12 +23,17 @@ main {
 
 .main__greetings {
   font-size: 1.5rem;
-  color: #990f0f;
+  color: #006;
   margin-bottom: 0.3125rem;
 }
 
+.main__greetings h1 {
+  color: #990f0f;
+  font-family: 'Quintessential', sans-serif;
+}
+
 .main__greetings > p {
-  font-size: 0.875rem;
+  font-size: 17px;
   font-weight: 700;
   color: #a5aaad;
 }
@@ -182,7 +189,7 @@ main {
 }
 
 .welcome-date {
-  font-size: 24px;
+  font-size: 17px;
 }
 
 @media only screen and (max-width: 320px) {

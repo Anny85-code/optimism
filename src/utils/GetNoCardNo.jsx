@@ -60,6 +60,7 @@ const GetNoCardNo = () => {
 
   return (
     <div className="cards" onClick={handleNill} style={{ cursor: 'pointer' }}>
+      <i className="fa fa-credit-card fa-2x" />
       <div className="card__inner">
         <p className="text-primary-p">No Card No</p>
       </div>

@@ -22,11 +22,10 @@ const DeleteNullDates = () => {
   };
 
   return (
-    <button
+    <div
       className="cards"
       style={{
-        color: 'white',
-        backgroundColor: '#FF5D5D',
+        color: '#FF5D5D',
         border: 'none',
         borderRadius: '8px',
         cursor: 'pointer',
@@ -34,8 +33,13 @@ const DeleteNullDates = () => {
       type="button"
       onClick={delNullDates}
     >
-      Del Bad Dates
-    </button>
+      <i className="fa fa-trash fa-2x" />
+      <div className="card__inner">
+        <p className="text-primary-p" style={{ color: '#FF5D5D' }}>
+          Delete Bad Dates
+        </p>
+      </div>
+    </div>
   );
 };
 

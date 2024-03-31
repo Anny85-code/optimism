@@ -1,16 +1,39 @@
-@import url('https://fonts.googleapis.com/css2?family=Quintessential&display=swap');
-/* stylelint-disable */
-.transact-customer-container {
-  border: 2px solid crimson;
-  border-radius: 0.5rem;
-  width: 59.375rem;
-  height: fit-content;
-  margin: 1.25rem 1.25rem 1.25rem 3.125rem;
-  background: #fff;
+.url {
+  background-color: aqua;
 }
 
-/* .table-head {
+.table-head {
   display: flex;
   flex-direction: column;
-} */
-/* stylelint-enable */
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.table-head h1 {
+  font-size: 20px;
+}
+
+.table,
+.th,
+.td {
+  border: 1px solid crimson;
+  border-collapse: collapse;
+  width: 56.375rem;
+  padding: 5px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .table,
+  .th,
+  .td {
+    width: 320px;
+    text-align: center;
+  }
+
+  .table-head h1 {
+    font-size: 16px;
+  }
+}

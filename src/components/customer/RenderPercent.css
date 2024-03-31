@@ -9,9 +9,9 @@
 .transact-customer-container {
   border: 2px solid crimson;
   border-radius: 0.5rem;
-  width: 59.375rem;
+  /* width: 59.375rem; */
   height: fit-content;
-  margin: 1.25rem 1.25rem 1.25rem 3.125rem;
+  /* margin: 1.25rem 1.25rem 1.25rem 3.125rem; */
   background: #fff;
 }
 
@@ -25,7 +25,7 @@
 .columns {
   width: 15rem;
   text-align: center;
-  font-size: 1.125rem;
+  font-size: 1rem;
   padding-top: 1.25rem;
 }
 
