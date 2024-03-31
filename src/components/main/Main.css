@@ -23,13 +23,12 @@ main {
 
 .main__greetings {
   font-size: 1.5rem;
-  /* color: #990f0f; */
-  color: #000066;
+  color: #006;
   margin-bottom: 0.3125rem;
 }
 
 .main__greetings h1 {
-  color: #990f0f !important;
+  color: #990f0f;
   font-family: 'Quintessential', sans-serif;
 }
 
