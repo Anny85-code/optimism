@@ -58,29 +58,32 @@ const LatestCollect = () => {
       {data.data && (
         <div className="transact-customer-container">
           <div>
-            <table>
-              <thead className="table-head">
-                <td> Marketer: {data.marketer}</td>
-                <td> Total: {data?.total}</td>
-              </thead>
-              <thead>
-                <td>Customer</td>
-                <td>Amount</td>
-                <td>Entry Date</td>
-                <td>Coll. Date</td>
-              </thead>
+            <div className="table-head">
+              <h1>Marketer: {data.marketer}</h1>
+              <p> Total: {data?.total}</p>
+            </div>
+            <table className="table">
+              {/* <thead className="table-head"></thead> */}
+              <tr>
+                <th className="th">Customer</th>
+                <th className="th">Amount</th>
+                <th className="th">Entry Date</th>
+                <th className="th">Coll. Date</th>
+              </tr>
               {data.data
                 .sort((a, b) => b.transaction_date - a.transaction_date)
                 .slice(pr, nx)
                 .map((trans, i) => (
-                  <tbody key={i}>
-                    <td>{cusName(trans.v2_customer_id)}</td>
-                    <td>{trans.amount}</td>
-                    <td>{Moment(trans.created_at).format('MMMM DD, LT')}</td>
-                    <td>
+                  <tr key={i}>
+                    <td className="td">{cusName(trans.v2_customer_id)}</td>
+                    <td className="td">{trans.amount}</td>
+                    <td className="td">
+                      {Moment(trans.created_at).format('MMMM DD, LT')}
+                    </td>
+                    <td className="td">
                       {Moment(trans.transaction_date).format('Do MMMM YYYY')}
                     </td>
-                  </tbody>
+                  </tr>
                 ))}
             </table>
           </div>

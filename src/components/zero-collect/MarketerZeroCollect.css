@@ -1,20 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Quintessential&display=swap');
 /* stylelint-disable */
-/* .transact-customer-container {
-  border: 2px solid crimson;
-  border-radius: 0.5rem;
-  width: 59.375rem;
-  height: fit-content;
-  margin: 1.25rem 1.25rem 1.25rem 3.125rem;
-  background: #fff;
-} */
 
 .marketer-zero-customer-container {
   border: 2px solid crimson;
   border-radius: 0.5rem;
-  width: 59.375rem;
+  width: 56.375rem;
   height: fit-content;
-  margin: 1.25rem 1.25rem 1.25rem 2.125rem;
+  margin: 1.25rem 1.25rem 1.25rem 3.125rem;
   background: #fff;
   display: flex;
   flex-direction: column;
@@ -35,16 +27,16 @@
   font-size: 20px;
 }
 
-table {
+#table {
   width: 100%;
 }
 
-table,
-th,
-td {
+#table,
+#th,
+#td {
   border: 1px solid crimson;
   border-collapse: collapse;
-  width: 59.375rem;
+  width: 56.375rem;
   padding: 5px;
 }
 
@@ -57,9 +49,9 @@ td {
     margin: 20px;
   }
 
-  table,
-  th,
-  td {
+  #table,
+  #th,
+  #td {
     width: 330px;
   }
 

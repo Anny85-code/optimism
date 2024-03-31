@@ -32,23 +32,18 @@ const MarketerZeroCollect = () => {
               <h1>Marketer: {zeroCollect.marketer}</h1>
               <p>Total: {zeroCollect.total}</p>
             </div>
-            <table>
-              {/* <thead className="">
-                <td className=""> </td>
-
-                <td> </td>
-              </thead> */}
+            <table id="table">
               <tr>
-                <th>Name</th>
-                <th>Card No</th>
-                <th>Days Paid</th>
+                <th id="th">Name</th>
+                <th id="th">Card No</th>
+                <th id="th">Days Paid</th>
               </tr>
               {zeroCollect &&
                 zeroCollect.data.map(({ name, card, total_days }) => (
                   <tr key={card}>
-                    <td>{name}</td>
-                    <td>{card}</td>
-                    <td>{total_days}</td>
+                    <td id="th">{name}</td>
+                    <td id="th">{card}</td>
+                    <td id="th">{total_days}</td>
                   </tr>
                 ))}
             </table>
