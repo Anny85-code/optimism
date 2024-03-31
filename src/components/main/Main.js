@@ -227,7 +227,8 @@ const Main = () => {
                 <h1>Hello {user.name}</h1>
                 <p>
                   Welcome to another lovely day {user.name}!
-                  <span className="welcome-date">Today is {today}.</span>
+                  &nbsp;<span className="welcome-date">Today is </span>{' '}
+                  <span dangerouslySetInnerHTML={{ __html: formattedDate }} />
                 </p>
                 <h4>As you know, everybody must eat, so Let's talk food!</h4>
               </div>
