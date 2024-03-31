@@ -19,10 +19,10 @@ const DeleteNoCardNo = () => {
   }, []);
 
   return (
-    <button
+    <div
       className="cards"
       style={{
-        color: 'white',
+        color: '#fff',
         backgroundColor: '#FF5D5D',
         border: 'none',
         borderRadius: '8px',
@@ -31,8 +31,11 @@ const DeleteNoCardNo = () => {
       type="button"
       onClick={delNoCard}
     >
-      Del No Card
-    </button>
+      <i className="fa fa-trash fa-2x" />
+      <div className="card__inner">
+        <p className="text-primary-p" style={{color: '#fff'}}>Del No Card</p>
+      </div>
+    </div>
   );
 };
 

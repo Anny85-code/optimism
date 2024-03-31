@@ -142,6 +142,7 @@ const Main = () => {
                   </div>
                   <NavLink to="/no-collection-yet" target="_blank">
                     <div className="cards">
+                      <i className="fa fa-gift fa-2x" />
                       <div className="card__inner">
                         <p className="text-primary-p">No Collection yet</p>
                       </div>

@@ -67,6 +67,7 @@ const GetNullDates = () => {
       style={{ cursor: 'pointer' }}
       onClick={handleNullDates}
     >
+      <i className="fa fa-calendar-times-o fa-2x" />
       <div className="card__inner">
         <p className="text-primary-p">Bad Dates</p>
       </div>
