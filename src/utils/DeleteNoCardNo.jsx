@@ -33,7 +33,7 @@ const DeleteNoCardNo = () => {
       <i className="fa fa-trash fa-2x" />
       <div className="card__inner">
         <p className="text-primary-p" style={{ color: '#FF5D5D' }}>
-          Del No Card
+          Delete No Card
         </p>
       </div>
     </div>
