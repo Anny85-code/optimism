@@ -22,8 +22,7 @@ const DeleteNoCardNo = () => {
     <div
       className="cards"
       style={{
-        color: '#fff',
-        backgroundColor: '#FF5D5D',
+        color: '#FF5D5D',
         border: 'none',
         borderRadius: '8px',
         cursor: 'pointer',
@@ -33,7 +32,9 @@ const DeleteNoCardNo = () => {
     >
       <i className="fa fa-trash fa-2x" />
       <div className="card__inner">
-        <p className="text-primary-p" style={{color: '#fff'}}>Del No Card</p>
+        <p className="text-primary-p" style={{ color: '#FF5D5D' }}>
+          Del No Card
+        </p>
       </div>
     </div>
   );

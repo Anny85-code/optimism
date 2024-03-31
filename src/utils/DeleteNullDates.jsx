@@ -25,8 +25,7 @@ const DeleteNullDates = () => {
     <div
       className="cards"
       style={{
-        color: 'white',
-        backgroundColor: '#FF5D5D',
+        color: '#FF5D5D',
         border: 'none',
         borderRadius: '8px',
         cursor: 'pointer',
@@ -36,7 +35,9 @@ const DeleteNullDates = () => {
     >
       <i className="fa fa-trash fa-2x" />
       <div className="card__inner">
-        <p className="text-primary-p" style={{color: '#fff'}}>Del Bad Dates</p>
+        <p className="text-primary-p" style={{ color: '#FF5D5D' }}>
+          Del Bad Dates
+        </p>
       </div>
     </div>
   );
