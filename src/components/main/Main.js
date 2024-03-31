@@ -96,7 +96,7 @@ const Main = () => {
                     </div>
                   </div>
                   <div className="cards">
-                    <i class="fa fa-line-chart fa-2x text-red" />
+                    <i class="fa fa-line-chart fa-2x text-yellow" />
                     <div className="card__inner">
                       <p className="text-primary-p">Number of Transactions</p>
                       <span className="font-bold text-title">
@@ -114,7 +114,7 @@ const Main = () => {
                     </div>
                   </div>
                   <div className="cards">
-                    <i className="fa fa-group fa-2x text-red" />
+                    <i className="fa fa-group fa-2x text-green" />
                     <div className="card__inner">
                       <p className="text-primary-p">Number of Admins</p>
                       <span className="font-bold text-title">
@@ -123,7 +123,7 @@ const Main = () => {
                     </div>
                   </div>
                   <div className="cards">
-                    <i className="fa fa-cart-plus fa-2x text-red" />
+                    <i className="fa fa-cart-plus fa-2x text-lightblue" />
                     <div className="card__inner">
                       <p className="text-primary-p">Number of Products</p>
                       <span className="font-bold text-title">
