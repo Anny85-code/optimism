@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import endpoint from '../../assets/url/url';
 import './LatestCollect.css';
+import Moment from 'moment';
 import Loader from '../loader/Loader';
 import { useSelector } from 'react-redux';
 
@@ -75,8 +76,10 @@ const LatestCollect = () => {
                   <tbody key={i}>
                     <td>{cusName(trans.v2_customer_id)}</td>
                     <td>{trans.amount}</td>
-                    <td>{trans.created_at}</td>
-                    <td>{trans.transaction_date}</td>
+                    <td>{Moment(trans.created_at).format('MMMM DD, LT')}</td>
+                    <td>
+                      {Moment(trans.transaction_date).format('Do MMMM YYYY')}
+                    </td>
                   </tbody>
                 ))}
             </table>
