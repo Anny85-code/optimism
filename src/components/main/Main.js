@@ -87,7 +87,7 @@ const Main = () => {
                 {' '}
                 <div className="main__cards">
                   <div className="cards">
-                    <i className="fa fa-user-o fa-2x text-lightblue" />
+                    <i className="fa fa-group fa-2x text-lightblue" />
                     <div className="card__inner">
                       <p className="text-primary-p">Number of Customers</p>
                       <span className="font-bold text-title">
@@ -114,7 +114,7 @@ const Main = () => {
                     </div>
                   </div>
                   <div className="cards">
-                    <i className="fa fa-group fa-2x text-green" />
+                    <i className="fa fa-user-o fa-2x text-green" />
                     <div className="card__inner">
                       <p className="text-primary-p">Number of Admins</p>
                       <span className="font-bold text-title">
@@ -226,8 +226,8 @@ const Main = () => {
               <div className="main__greetings">
                 <h1>Hello {user.name}</h1>
                 <p>
-                  Welcome to another lovely day {user.name}!
-                  &nbsp;<span className="welcome-date">Today is </span>{' '}
+                  Welcome to another lovely day {user.name}! &nbsp;
+                  <span className="welcome-date">Today is </span>{' '}
                   <span dangerouslySetInnerHTML={{ __html: formattedDate }} />
                 </p>
                 <h4>As you know, everybody must eat, so Let's talk food!</h4>
