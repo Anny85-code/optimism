@@ -44,13 +44,13 @@ export const LandingFoot = () => {
               <p className="head"> Services </p>{' '}
               <p className="text">Available 24 hours and 7 days a week </p>{' '}
               <p className="text"> optimistfood4all.com</p>{' '}
-              <p className="text"> (234) 80 - 3266 - 8874 </p>{' '}
+              <p className="text"> (+234) 80 - 3618 - 4934 </p>{' '}
             </div>
             <div className="col-lg-3 col-sm-6 contain">
               <p className="head"> Head Office </p>{' '}
               <p className="text">Km 7 Airport road Kaduna, Kaduna State </p>{' '}
               <p className="text"> foodforall@yahoo.com </p>{' '}
-              <p className="text"> (080) 3945 - 3274 </p>{' '}
+              <p className="text"> (+234) 81 - 6936 - 2128 </p>{' '}
             </div>
             <div className="col-lg-3 col-sm-6 contain">
               <p className="head"> Opening Hours </p>{' '}
