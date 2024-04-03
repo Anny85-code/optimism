@@ -11,7 +11,7 @@ export const setEndPoint = (e) => {
       ====================================  */
 
   if (e.target.textContent === 'Log in') {
-    url = 'https://rails-7myb.onrender.com/api/v2';
+    url = 'https://rails-rycx.onrender.com/api/v2';
     localStorage.setItem('baseUrl', url);
   }
   if (e.target.textContent === 'Log in new') {
