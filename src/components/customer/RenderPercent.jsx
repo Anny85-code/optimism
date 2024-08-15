@@ -145,6 +145,11 @@ const RenderPercent = ({ percents, owner }) => {
     return selectedProperty ? percents?.[selectedProperty] : null;
   };
 
+  const totalCash = () => {
+    const data = percents?.[selectedPercent];
+    return data?.reduce((acc, curr) => acc + +curr?.total, 0);
+  };
+
   const len = toggleTotal();
 
   const handleNext = () => {
@@ -218,7 +223,8 @@ const RenderPercent = ({ percents, owner }) => {
           <div key={owner}>
             <div id="col">
               <h2 className="total-orders">
-                {owner ?? 'General'} ---- Total: {toggleTotal() ?? 0}
+                {owner ?? 'General'} ---- Total: {toggleTotal() ?? 0} ---- Total
+                cash ₦{comma(totalCash())}
               </h2>
             </div>
             <div className="custrans-name">
@@ -236,7 +242,7 @@ const RenderPercent = ({ percents, owner }) => {
                 Daily
               </h6>
               <h6 className="columns" id="a">
-                <span className="cus-name1 ">Total (NGN)</span>
+                <span className="cus-name1 ">Total (₦)</span>
               </h6>
               <h6 className="columns">
                 <span className="cus-name1 ">Items</span>

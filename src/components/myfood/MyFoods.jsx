@@ -22,7 +22,6 @@ const MyFoods = () => {
     dispatch(getOneCustomerFromApi(param.id));
   }, []);
 
-  
   return (
     <>
       {!customer.loading ? (
@@ -54,7 +53,7 @@ const MyFoods = () => {
             <h4
               className="columns i"
               style={{ borderBottom: '2px solid crimson' }}
-            >{` NGN ${comma(daily_contribution)}`}</h4>
+            >{` ₦ ${comma(daily_contribution)}`}</h4>
             <h3
               className="columns i"
               style={{ borderBottom: '2px solid crimson' }}
@@ -83,7 +82,7 @@ const MyFoods = () => {
                             <h4 className="columns"></h4>
                             <h4 className="columns i" id="top"></h4>
                             <h4 className="columns i">{myFood.name}</h4>
-                            <h4 className="columns i">{` NGN ${comma(
+                            <h4 className="columns i">{` ₦ ${comma(
                               myFood.price
                             )}`}</h4>
                             <h4
@@ -92,7 +91,7 @@ const MyFoods = () => {
                             >
                               {myFood.qauntity}
                             </h4>
-                            <h4 className="columns ">{` NGN ${comma(
+                            <h4 className="columns ">{` ₦ ${comma(
                               myFood.subTotal
                             )}`}</h4>
                           </div>

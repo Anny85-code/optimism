@@ -78,7 +78,7 @@ const Transaction = () => {
                   : Moment(transaction_date).format('MMMM DD, LT')}
               </p>
               <p className="cus-details">
-                <span>Amount:</span> {`NGN ${comma(amount)}`}
+                <span>Amount:</span> {`₦ ${comma(amount)}`}
               </p>
               <p className="cus-details">
                 <span>Date of transaction: </span>

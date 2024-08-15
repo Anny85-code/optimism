@@ -183,7 +183,7 @@ const Transactions = () => {
                             className="columns i"
                             style={{ borderRight: '2px solid crimson' }}
                           >
-                            {` NGN ${comma(transaction.amount)}`}
+                            {` ₦ ${comma(transaction.amount)}`}
                           </h4>
                           <h4 className="columns" style={{ color: '#000' }}>
                             {Moment(transaction.created_at).format(
@@ -200,9 +200,7 @@ const Transactions = () => {
       </div>
       <div>
         {filtaTotal > 0 && (
-          <div className="user-transact-btn-total">
-            Total - NGN {filtaTotal}
-          </div>
+          <div className="user-transact-btn-total">Total - ₦ {filtaTotal}</div>
         )}
       </div>
       {len > 5 && (

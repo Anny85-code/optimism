@@ -35,7 +35,7 @@ const ViewItems = () => {
                     />
                   </li>
                   <li className="item-price">
-                    <h3>{`NGN ${item.price}`}</h3>
+                    <h3>{`₦ ${item.price}`}</h3>
                   </li>
                 </ul>
               </div>

@@ -110,7 +110,7 @@ const CustomerTransacts = () => {
                       id="col"
                       style={{ color: 'crimson' }}
                     >
-                      {` NGN ${comma(total)}`}
+                      {` ₦ ${comma(total)}`}
                     </h3>
                   )}
                 </div>
@@ -129,7 +129,7 @@ const CustomerTransacts = () => {
                               'MMMM DD, LT'
                             )}
                           </h4>
-                          <h4 className="columns i">{` NGN ${comma(
+                          <h4 className="columns i">{` ₦ ${comma(
                             transaction.amount
                           )}`}</h4>
                           <h4
@@ -189,7 +189,7 @@ const CustomerTransacts = () => {
                       id="col"
                       style={{ color: 'crimson' }}
                     >
-                      {` NGN ${comma(total)}`}
+                      {` ₦ ${comma(total)}`}
                     </h3>
                   )}
                 </div>

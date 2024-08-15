@@ -189,7 +189,7 @@ const Main = () => {
                           <div className="card2 cd">
                             <h1 className="h-card">Sales</h1>
                             <p style={{ color: '#1c551c' }}>
-                              <span style={{ color: '#0b4b09' }}>NGN </span>
+                              <span style={{ color: '#0b4b09' }}>₦ </span>
                               {comma(dashData?.sales ?? 0)}
                             </p>
                           </div>

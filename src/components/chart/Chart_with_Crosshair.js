@@ -21,7 +21,7 @@ class ChartWithCrosshair extends Component {
         },
       },
       axisY: {
-        title: 'Closing Price (in NGN)',
+        title: 'Closing Price (in ₦)',
         includeZero: false,
         valueFormatString: 'N##0.00',
         crosshair: {

@@ -151,7 +151,7 @@ const Contribution = () => {
                   min={startDate}
                   onChange={(e) => setTrDate(e.target.value)}
                 />
-                <p>Amount: NGN {amount}</p>
+                <p>Amount: ₦ {amount}</p>
                 {seasons && (
                   <>
                     <p>Previous payment date: {lastDate}</p>

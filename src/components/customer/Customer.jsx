@@ -114,7 +114,7 @@ const Customer = () => {
               </p>
               <p className="cus-details">
                 <span>Daily Contribution:</span>
-                {` NGN ${comma(daily_contribution)}`}
+                {` ₦ ${comma(daily_contribution)}`}
               </p>
               <p className="cus-details">
                 <span>Address:</span> {address}

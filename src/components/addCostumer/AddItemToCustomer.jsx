@@ -27,7 +27,7 @@ const AddItemToCustomer = () => {
   const getFormattedPrice = (price) =>
     new Intl.NumberFormat('en-IN', {
       style: 'currency',
-      currency: 'NGN',
+      currency: '₦',
     }).format(price);
 
   const handleGoTo = () => {

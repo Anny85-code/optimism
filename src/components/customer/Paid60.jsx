@@ -15,6 +15,8 @@ const PaidSixty = () => {
     dispatch(getPercentageFromApi());
   }, []);
 
+  console.log(percents?.data);
+
   return (
     <div>
       {percents?.loading ? (

@@ -73,7 +73,7 @@ const TransactionDetails = () => {
               </h3>
               <p className="cus-details">
                 <span>Daily Contribution:</span>{' '}
-                {`NGN ${comma(daily_contribution)}`}
+                {`₦ ${comma(daily_contribution)}`}
               </p>
               <p className="cus-details">
                 <span>Previous contribution date:</span>{' '}
@@ -99,7 +99,7 @@ const TransactionDetails = () => {
                   : Moment(transaction_date).format('MMMM DD, LT')}
               </p>
               <p className="cus-details">
-                <span>Amount:</span> {`NGN ${comma(amount)}`}
+                <span>Amount:</span> {`₦ ${comma(amount)}`}
               </p>
               <p className="cus-details">
                 <span>Date of transaction: </span>
