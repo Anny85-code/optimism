@@ -11,7 +11,7 @@ export const setEndPoint = (e) => {
       ====================================  */
 
   if (e.target.textContent === 'Log in') {
-    url = 'https://rails-olud.onrender.com/api/v2';
+    url = 'https://rails-1g0z.onrender.com/api/v2';
     localStorage.setItem('baseUrl', url);
   }
   if (e.target.textContent === 'Log in new') {
